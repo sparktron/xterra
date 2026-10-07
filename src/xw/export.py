@@ -111,8 +111,15 @@ def _dedupe(items: list[tuple[str, str]]) -> list[tuple[str, list[str]]]:
     return kept
 
 
-def is_safety(value: str, unit: str, flag: bool) -> bool:
-    return flag or bool(_TORQUE.search(f"{value} {unit}"))
+_SAFETY_UNITS = re.compile(r"(\b(qts?|quarts?|liters?|litres?|gal(lons?)?|pints?|fl\.?\s*oz|ml|psi|kpa|bar)\b|\d\s*l\b)", re.I)
+_SAFETY_ITEMS = re.compile(r"(torque|tighten|capacity|preload|backlash|end[\s-]?play|pressure|clearance|refill|fill)", re.I)
+
+
+def is_safety(value: str, unit: str, flag: bool, item: str = "") -> bool:
+    """Safety-critical = the extractor said so OR (deterministically) torque, fluid capacity, pressure or
+    preload-style values. Do not rely on the model's boolean alone: it defaults to false."""
+    text = f"{value} {unit}"
+    return flag or bool(_TORQUE.search(text) or _SAFETY_UNITS.search(text) or _SAFETY_ITEMS.search(item))
 
 
 def load_rows(conn: sqlite3.Connection) -> list[FactRow]:
@@ -149,13 +156,15 @@ def build_pages(rows: list[FactRow], topics: TopicIndex) -> dict[tuple[str, str]
     return pages
 
 
-def confidence_for(page: Page) -> str:
+def confidence_for(page: Page, contributing: list[FactRow] | None = None) -> str:
+    """Confidence counts only rows that contributed at least one PUBLISHED claim."""
+    rows = page.rows if contributing is None else contributing
     if page.disputes:
         return "disputed"
-    if any(r.source_type == "manufacturer" for r in page.rows):
+    if any(r.source_type == "manufacturer" for r in rows):
         return "confirmed"
-    threads = {r.thread_id for r in page.rows}
-    authors = {r.author for r in page.rows if r.author}
+    threads = {r.thread_id for r in rows}
+    authors = {r.author for r in rows if r.author}
     if len(threads) >= 2 and len(authors) >= 2:
         return "community-consensus"
     return "[Unverified]"
@@ -182,6 +191,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
     parts: dict[str, dict[str, Any]] = {}
     specs: dict[str, dict[str, Any]] = {}
     diagrams: list[tuple[str, str]] = []
+    contrib: set[int] = set()   # fact-row ids that contributed a published claim
 
     for r in rows:
         f, g, sid = r.fact, r.grounding, r.sid
@@ -196,6 +206,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             else:
                 page.reviewed_items += bool(tag)
                 summaries.append((f.summary, sid))
+                contrib.add(r.id)
 
         # procedure: all-or-nothing
         proc_ok = bool(f.steps)
@@ -206,6 +217,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 drop(r, f"step {i + 1} (procedure withheld)", step, "verbatim overlap with source" if copied["steps"][i] else why)
             page.reviewed_items += bool(tag and ok)
         steps_by_row.append((r, list(f.steps) if proc_ok else []))
+        if proc_ok:
+            contrib.add(r.id)
 
         for key, lst, flags, dest in (("symptom", f.symptoms, copied["symptoms"], symptoms),
                                       ("tip", f.tips, copied["tips"], tips),
@@ -219,11 +232,13 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 else:
                     page.reviewed_items += bool(tag)
                     dest.append((text, sid))
+                    contrib.add(r.id)
 
         for i, t in enumerate(f.tools):
             ok, tag, why = gate(r, f"tool:{i}", policy)
             if ok:
                 tools.append((t, sid))
+                contrib.add(r.id)
             else:
                 drop(r, "tool", t, why)
 
@@ -236,6 +251,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 drop(r, "part", f"{p.name} {p.part_number}", why)
                 continue
             page.reviewed_items += bool(tag)
+            contrib.add(r.id)
             key = _norm(p.part_number) or _norm(p.name)
             slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": []})
             if p.notes and p.notes not in slot["notes"]:
@@ -254,13 +270,14 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 continue
             slot = specs.setdefault(_norm(s.item), {"item": s.item, "values": {}, "safety": False})
             v = slot["values"].setdefault(_norm_value(s.value, s.unit), {
-                "display": f"{s.value} {s.unit}".strip(), "sids": [], "threads": set(), "reviewed": "", "manufacturer": False, "url": r.url})
+                "display": f"{s.value} {s.unit}".strip(), "sids": [], "threads": set(), "reviewed": "", "manufacturer": False, "url": r.url, "rids": set()})
             if sid not in v["sids"]:
                 v["sids"].append(sid)
             v["threads"].add(r.thread_id)
+            v["rids"].add(r.id)
             v["reviewed"] = v["reviewed"] or tag
             v["manufacturer"] = v["manufacturer"] or r.source_type == "manufacturer"
-            slot["safety"] = slot["safety"] or is_safety(s.value, s.unit, s.safety_critical)
+            slot["safety"] = slot["safety"] or is_safety(s.value, s.unit, s.safety_critical, s.item)
 
         for i, u in enumerate(f.diagram_links):
             if g["diagrams"][i]:
@@ -301,6 +318,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             if slot["safety"]:
                 page.single_source_safety.append(f"{slot['item']}: {v['display']}")
         page.reviewed_items += bool(v["reviewed"])
+        contrib |= v["rids"]
         spec_lines.append(f"- **{slot['item']}**: {v['display']}{_fmt_src(v['sids'])} ({tag})")
 
     proc = [(r, s) for r, s in steps_by_row if s]
@@ -309,7 +327,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
     years = sorted({y for r in rows for y in r.fact.years if scope_years[0] <= y <= scope_years[1]})
     diffs = sorted(r.fact.difficulty for r in rows if r.fact.difficulty)
     est = Counter(r.fact.est_time for r in rows if r.fact.est_time).most_common(1)
-    conf = confidence_for(page)
+    conf = confidence_for(page, [r for r in rows if r.id in contrib])
     fm = {
         "title": page.topic.title,
         "category": page.topic.category,

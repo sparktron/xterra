@@ -60,6 +60,8 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
             attempts = row["attempts"] + 1
             status = "error" if attempts >= 3 else "pending"
             conn.execute("UPDATE chunks SET attempts=?, status=?, error=? WHERE id=?", (attempts, status, str(exc)[:400], row["cid"]))
+            if status == "error":  # surface permanent failures on the thread so run/status/open_questions see them
+                conn.execute("UPDATE threads SET status='error', error=? WHERE id=?", (f"extraction failed: {str(exc)[:200]}", row["tid"]))
             conn.commit()
             log(f"  chunk {row['cid']}: {exc}")
             if failures >= cfg.extract.max_consecutive_failures:

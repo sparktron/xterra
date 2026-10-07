@@ -46,9 +46,31 @@ def claims_for_fact(fact: Fact) -> list[tuple[str, str]]:
     out += [(f"tip:{i}", t) for i, t in enumerate(fact.tips)]
     out += [(f"mistake:{i}", t) for i, t in enumerate(fact.mistakes)]
     out += [(f"spec:{i}", f"{s.item}: {s.value} {s.unit}".strip()) for i, s in enumerate(fact.specs)]
-    out += [(f"part:{i}", f"Part: {p.name} {p.part_number}".strip()) for i, p in enumerate(fact.parts)]
-    out += [(f"dtc:{i}", f"Trouble code {d.code}: {d.description}".strip()) for i, d in enumerate(fact.dtcs)]
+    out += [(f"part:{i}", _part_claim(p)) for i, p in enumerate(fact.parts)]
+    out += [(f"dtc:{i}", _dtc_claim(d)) for i, d in enumerate(fact.dtcs)]
     return out
+
+
+def _one_line(text: str) -> str:
+    return " ".join(str(text).split())
+
+
+def _part_claim(p) -> str:
+    """Everything the exporter publishes about a part (name, number AND notes) must be verified."""
+    claim = f"Part: {p.name} {p.part_number}".strip()
+    return _one_line(claim + (f". Note: {p.notes}" if p.notes else ""))
+
+
+def _dtc_claim(d) -> str:
+    """Everything the DTC table publishes (description, causes, tests, fix) must be verified."""
+    claim = f"Trouble code {d.code}: {d.description}".strip()
+    if d.causes:
+        claim += ". Possible causes: " + "; ".join(d.causes)
+    if d.tests:
+        claim += ". Tests: " + "; ".join(d.tests)
+    if d.fix:
+        claim += f". Fix: {d.fix}"
+    return _one_line(claim)
 
 
 def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]]) -> dict[str, str]:

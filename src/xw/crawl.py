@@ -100,12 +100,19 @@ def build_chunks(title: str, posts: list[Post], max_chars: int, min_chars: int, 
         header = f"### Post {i + 1}" + (f" by {p.author}" if p.author else "") + (f" ({p.posted[:10]})" if p.posted else "")
         body = p.text
         if len(body) + len(header) > max_chars:
+            room = max(200, max_chars - len(header) - 12)
             paras, cur = body.split("\n\n"), ""
             for para in paras:
-                if len(cur) + len(para) + 2 > max_chars - len(header) and cur:
+                while len(para) > room:  # a single oversized paragraph is split, never truncated
+                    if cur:
+                        blocks.append(f"{header} (part)\n{cur}")
+                        cur = ""
+                    blocks.append(f"{header} (part)\n{para[:room]}")
+                    para = para[room:]
+                if len(cur) + len(para) + 2 > room and cur:
                     blocks.append(f"{header} (part)\n{cur}")
                     cur = ""
-                cur += ("\n\n" if cur else "") + para[: max_chars - len(header)]
+                cur += ("\n\n" if cur and para else "") + para
             if cur:
                 blocks.append(f"{header} (part)\n{cur}")
         else:

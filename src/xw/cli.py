@@ -198,7 +198,12 @@ def cmd_run(args: argparse.Namespace) -> int:
             pending = conn.execute(
                 "SELECT COUNT(*) FROM chunks c JOIN threads t ON t.id=c.thread_id WHERE t.source_id=? AND c.status='pending'", (sid,)
             ).fetchone()[0]
-            db.set_source_status(conn, sid, "done" if left == 0 and (pending == 0 or args.crawl_only) else "queued")
+            failed = conn.execute(
+                "SELECT COUNT(*) FROM chunks c JOIN threads t ON t.id=c.thread_id WHERE t.source_id=? AND c.status='error'", (sid,)
+            ).fetchone()[0]
+            finished = left == 0 and (pending == 0 or args.crawl_only) and (failed == 0 or args.crawl_only)
+            db.set_source_status(conn, sid, "done" if finished else "queued",
+                                 f"{failed} chunk(s) failed extraction; see wiki/open_questions.md" if failed and not args.crawl_only else "")
     except KeyboardInterrupt:
         print("\ninterrupted; state is saved, rerun `xw run` to resume")
     if not args.crawl_only:

@@ -16,7 +16,7 @@ from pathlib import Path
 
 from .config import Config
 from .grounding import part_grounded, spec_grounded
-from .export import GENERATED, _TORQUE
+from .export import GENERATED, is_safety
 
 SPEC_LINE = re.compile(r"^- \*\*(?P<item>.+?)\*\*: (?P<value>.+?) \[(?P<sids>t\d+(?:, t\d+)*)\] \((?P<tag>[^)]*)\)\s*$")
 PART_LINE = re.compile(r"^- (?P<name>.+?) \((?P<pn>[^)]+)\)(?::.*?)? \[(?P<sids>t\d+(?:, t\d+)*)\]\s*$")
@@ -45,7 +45,7 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
             if section == "Specifications":
                 m = SPEC_LINE.match(line)
                 if line.startswith("- ") and "DISPUTED" in line:
-                    if _TORQUE.search(line):
+                    if is_safety(line, "", False):
                         violations.append(f"{rel}: disputed torque-like value published: {line[:100]}")
                     continue
                 if line.startswith("- ") and not m:
@@ -60,8 +60,8 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     continue
                 if not any(spec_grounded(m["value"], "", t or "") for t in texts):
                     violations.append(f"{rel}: value not found in cited thread(s): {m['item']}: {m['value']}")
-                if _TORQUE.search(m["value"]) and not any(m["tag"].startswith(t) for t in SAFE_TAGS):
-                    violations.append(f"{rel}: torque-like value without corroboration/review: {m['item']}: {m['value']} ({m['tag']})")
+                if is_safety(m["value"], "", False, m["item"]) and not any(m["tag"].startswith(t) for t in SAFE_TAGS):
+                    violations.append(f"{rel}: safety-critical value without corroboration/review: {m['item']}: {m['value']} ({m['tag']})")
             elif section == "Parts":
                 m = PART_LINE.match(line)
                 if m:

@@ -402,3 +402,63 @@ def test_ingest_html_via_cli(root, fixtures):
     conn = db.connect(Config.load(root).db_path)
     t = conn.execute("SELECT * FROM threads WHERE source_id='manual'").fetchone()
     assert t["title"] == "How to replace lower control arms" and t["status"] == "fetched"
+
+
+# ---- regressions from the Codex review of PR #1 ----------------------------------------------
+def test_verifier_sees_part_notes_and_dtc_advice(cfg, conn, tmp_path):
+    from xw.schemas import Fact
+    from xw.verify import claims_for_fact
+    fact = Fact.model_validate(arm_fact(parts=[{"name": "Arm", "part_number": "54500-EA000", "notes": "fits 2005 only", "evidence": "x"}],
+                                        dtcs=[{"code": "P0340", "description": "Cam sensor", "causes": ["Sensor"], "tests": ["Check connector"], "fix": "Replace sensor"}]))
+    claims = dict(claims_for_fact(fact))
+    assert "fits 2005 only" in claims["part:0"]
+    assert all(w in claims["dtc:0"] for w in ("Sensor", "Check connector", "Replace sensor"))
+
+
+def test_unverified_dtc_advice_is_not_published(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("codes", "P0340 camshaft position sensor circuit on the Xterra. Usually the sensor or its connector; check the connector first. " * 6, "carol")])
+    fact = {"category": "diagnostics", "topic": "Engine trouble codes (VQ40DE)", "title": "P0340", "summary": "Cam sensor fault.",
+            "dtcs": [{"code": "P0340", "description": "Camshaft position sensor circuit", "causes": ["Sensor"], "fix": "Replace the ECU"}]}
+    extract_and_verify(cfg, conn, [("P0340", {"relevant": True, "facts": [fact]})], verifier=FakeVerifier(cfg, bad=("Replace the ECU",)))
+    export(cfg, conn)
+    assert "ECU" not in (cfg.wiki_dir / "dtc_table.csv").read_text()
+
+
+def test_non_torque_safety_values_are_classified_deterministically():
+    from xw.export import is_safety
+    assert is_safety("4.5", "qt", False, "Engine oil capacity") and is_safety("35", "psi", False, "Tire pressure")
+    assert is_safety("12", "", False, "Axle nut torque") and not is_safety("2", "inches", False, "Lift height")
+
+
+def test_oversized_paragraph_is_split_not_truncated():
+    text = "".join(f"word{i} " for i in range(1200))  # one ~8k char paragraph
+    chunks = build_chunks("t", [Post(author="a", posted="", text=text)], 2000, 100, 10)
+    joined = " ".join(chunks)
+    assert len(chunks) > 1 and "word0 " in joined and "word1199" in joined
+
+
+def test_confidence_ignores_rows_whose_claims_were_all_withheld(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [
+        ("a", "Lower control arm job on a 2008. Final-tighten the pivot bolts with the truck's weight on the suspension. " * 6, "alice"),
+        ("b", "Lower control arm job on a 2009. Final-tighten the pivot bolts with the truck's weight on the suspension. " * 6, "bob")])
+    answers = [("2008", {"relevant": True, "facts": [arm_fact(parts=[], specs=[], diagram_links=[])]}),
+               ("2009", {"relevant": True, "facts": [arm_fact(parts=[], specs=[], diagram_links=[])]})]
+    extract_and_verify(cfg, conn, answers, verifier=FakeVerifier(cfg, bad=("Support", "Separate", "Remove", "weight", "socket", "pickle", "swapped")))
+    export(cfg, conn)
+    assert "confidence: community-consensus" not in page_text(cfg)
+
+
+def test_terminal_chunk_failure_marks_thread_error(cfg, conn, tmp_path):
+    from xw.llm import LLMError
+
+    class Boom(FakeLLM):
+        def chat_json(self, *a, **k):
+            raise LLMError("boom")
+
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008 with plenty of detail here. " * 8, "alice")])
+    for _ in range(3):
+        extract_pending(cfg, conn, Boom(cfg, []), TopicIndex(cfg.topics), log=lambda m: None)
+    assert conn.execute("SELECT status FROM chunks").fetchone()[0] == "error"
+    assert conn.execute("SELECT status FROM threads").fetchone()[0] == "error"
+    export(cfg, conn)
+    assert "extraction failed" in (cfg.wiki_dir / "open_questions.md").read_text()

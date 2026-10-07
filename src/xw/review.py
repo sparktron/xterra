@@ -105,7 +105,7 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
             if kind == "spec":
                 s = r.fact.specs[int(idx)]
                 sig = (topic.slug, re.sub(r"\W+", "", s.item.lower()), re.sub(r"\W+", "", f"{s.value}{s.unit}".lower()))
-                if is_safety(s.value, s.unit, s.safety_critical) and len(support[sig]) < max(2, policy.safety_min_threads) and local in ("supported", "partial"):
+                if is_safety(s.value, s.unit, s.safety_critical, s.item) and len(support[sig]) < max(2, policy.safety_min_threads) and local in ("supported", "partial"):
                     why, prio = "safety-critical value awaiting corroboration", 0
             if prio is None and local == "partial":
                 why, prio = "local verifier answered partial", 1
