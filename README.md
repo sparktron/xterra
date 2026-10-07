@@ -10,8 +10,8 @@ scripts/run_all.sh
 ```
 Tested on nothing yet: the Qwen tag `qwen3.8:27b` is `[Unverified]`; `xw doctor` lists real models. Context 16384 is an `[Inference]` for a 24 GB 3090.
 
-## Source access
-thenewx.org answers HTTP 402 (TollBit pay-per-crawl) and its robots.txt redirects there. The pipeline marks it blocked and does not work around it. Options: license access, or save pages yourself and run `xw ingest <files>`. Other sources are in `config/sources.yaml`; URLs and XenForo markup assumptions are `[Unverified]`.
+## Sources
+Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions are `[Unverified]`. Pages you save yourself can be added with `xw ingest <files>`.
 
 ## Verification (the local model is not trusted)
 1. Deterministic grounding: numbers, part numbers, DTCs and links must appear in the source; spec/part evidence must be a real quote; verbatim copying is dropped.

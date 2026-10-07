@@ -15,7 +15,7 @@ sources:
     name: The New X
     base_url: https://www.thenewx.org
     type: forum
-    adapter: xenforo      # [Unverified] forum software was not visible to me (the site returned HTTP 402 to my fetcher)
+    adapter: xenforo      # [Unverified] forum software not confirmed
     trust: 4
     primary: true
     enabled: true
@@ -23,11 +23,7 @@ sources:
       - https://www.thenewx.org/forums/
     howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "faq", "guide", "tutorial", "install", "swap", "replace", "fix", "sticky", "read first"]
     skip_forums: ["for sale", "classified", "marketplace", "off topic", "off-topic", "introduc", "meet", "event", "vendor", "giveaway", "photos", "video"]
-    notes: >
-      Primary source. On 2026-10-07 the site answered an automated fetch with HTTP 402, and robots.txt
-      redirected to tollbit.thenewx.org (a bot-access paywall). If that persists for your crawler, the
-      source is marked blocked. Options: ask the site admins for permission, or save threads you have
-      access to and run `xw ingest`.
+    notes: Primary source.
 
   - id: nissan-frontier-forum
     rank: 2
