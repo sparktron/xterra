@@ -127,3 +127,18 @@ def test_unknown_provider_is_rejected(cfg):
     cfg.llm.as_dict()["provider"] = "bogus"
     with pytest.raises(LLMError, match="unknown llm.provider"):
         LLM(cfg, client=httpx.Client())
+
+
+def test_ollama_forwards_named_effort_and_drops_it_on_400(cfg):
+    cfg.llm.as_dict()["reasoning_effort"] = "high"
+    seen = []
+
+    def handler(req):
+        body = json.loads(req.content)
+        seen.append(body.get("think"))
+        if "think" in body:
+            return httpx.Response(400, json={"error": "does not support levels"})
+        return httpx.Response(200, json={"message": {"content": '{"ok": true}'}})
+
+    assert _llm(cfg, handler).chat_json("s", "u", None) == {"ok": True}
+    assert seen == ["high", None]

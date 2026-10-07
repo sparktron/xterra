@@ -88,7 +88,12 @@ class LLM:
                 body["format"] = schema
             if self.effort == "none":
                 body["think"] = False
+            elif self.effort in ("low", "medium", "high"):
+                body["think"] = self.effort  # [Unverified] only some models accept level strings
             r = self.client.post(f"{self.base}/api/chat", json=body)
+            if r.status_code == 400 and isinstance(body.get("think"), str):  # model without effort levels
+                del body["think"]
+                r = self.client.post(f"{self.base}/api/chat", json=body)
             r.raise_for_status()
             return r.json()["message"]["content"]
 
