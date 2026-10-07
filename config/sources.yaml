@@ -32,8 +32,9 @@ sources:
     type: forum
     adapter: xenforo
     trust: 3
-    enabled: false        # [Unverified] URL and forum software not checked. Verify, then enable.
-    seeds: []
+    enabled: true         # [Unverified] URL, forum software and seed path not checked; failures are recorded and skipped
+    seeds:
+      - https://www.nissanfrontierforum.com/forums/
 
   - id: clubfrontier
     rank: 3
@@ -42,7 +43,7 @@ sources:
     type: forum
     adapter: generic
     trust: 3
-    enabled: false        # [Unverified] URL and forum software not checked. Verify, then enable.
+    enabled: true         # [Unverified] URL not checked. The generic adapter does not discover threads: add thread URLs below.
     thread_urls: []
 
   - id: manual
