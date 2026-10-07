@@ -6,7 +6,7 @@ paths:
 
 llm:
   provider: lmstudio             # lmstudio | openai (any OpenAI-compatible server) | ollama
-  endpoint: http://127.0.0.1:42117   # LM Studio server address; "/v1" is added automatically ([Unverified] for your setup: check `xw doctor`)
+  endpoint: http://localhost:1234   # LM Studio server address; "/v1" is added automatically (confirmed against a local server on :1234)
   model: "qwen3.8-27b"           # must match the id your server lists: curl <endpoint>/v1/models
   api_key_env: XW_LLM_API_KEY    # if the server needs a key: export XW_LLM_API_KEY=... in your shell (the key never goes in a file)
   reasoning_effort: "none"       # none | low | medium | high | "" (sent as `reasoning_effort`; dropped automatically if the server rejects it)
