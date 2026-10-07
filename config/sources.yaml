@@ -1,0 +1,59 @@
+# Ranked source list. The pipeline walks enabled sources in rank order.
+#
+# adapter: xenforo | generic. Forum discovery is implemented for XenForo only.
+#   Use `thread_urls` for any site you want to read thread-by-thread with the generic adapter.
+# type: forum | manufacturer | vendor | community | manual. `manufacturer` pages can raise a page to `confirmed`.
+# trust: 1-5 (your judgment; used to order merging and shown in the wiki).
+#
+# Politeness is enforced in code: robots.txt, per-host delay, fetch budgets, and a hard stop on
+# 401/402/403. If a site blocks bots, the pipeline records that and moves on. Use `xw ingest` for
+# pages you saved yourself from your own browser session.
+
+sources:
+  - id: thenewx
+    rank: 1
+    name: The New X
+    base_url: https://www.thenewx.org
+    type: forum
+    adapter: xenforo      # [Unverified] forum software was not visible to me (the site returned HTTP 402 to my fetcher)
+    trust: 4
+    primary: true
+    enabled: true
+    seeds:
+      - https://www.thenewx.org/forums/
+    howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "faq", "guide", "tutorial", "install", "swap", "replace", "fix", "sticky", "read first"]
+    skip_forums: ["for sale", "classified", "marketplace", "off topic", "off-topic", "introduc", "meet", "event", "vendor", "giveaway", "photos", "video"]
+    notes: >
+      Primary source. On 2026-10-07 the site answered an automated fetch with HTTP 402, and robots.txt
+      redirected to tollbit.thenewx.org (a bot-access paywall). If that persists for your crawler, the
+      source is marked blocked. Options: ask the site admins for permission, or save threads you have
+      access to and run `xw ingest`.
+
+  - id: nissan-frontier-forum
+    rank: 2
+    name: Nissan Frontier Forum
+    base_url: https://www.nissanfrontierforum.com
+    type: forum
+    adapter: xenforo
+    trust: 3
+    enabled: false        # [Unverified] URL and forum software not checked. Verify, then enable.
+    seeds: []
+
+  - id: clubfrontier
+    rank: 3
+    name: ClubFrontier
+    base_url: https://www.clubfrontier.org
+    type: forum
+    adapter: generic
+    trust: 3
+    enabled: false        # [Unverified] URL and forum software not checked. Verify, then enable.
+    thread_urls: []
+
+  - id: manual
+    rank: 99
+    name: Manually saved pages
+    base_url: ""
+    type: manual
+    adapter: generic
+    trust: 3
+    enabled: true         # populated by `xw ingest`
