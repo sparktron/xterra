@@ -1,4 +1,4 @@
-"""Local-LLM client: Ollama native API or any OpenAI-compatible server (llama.cpp, LM Studio, vLLM).
+"""Local-LLM client: LM Studio (or any OpenAI-compatible server: llama.cpp, vLLM) or Ollama's native API.
 
 Both backends use schema-constrained output so the model can only emit JSON that matches the schema.
 [Unverified] Behaviour details (the `think` flag, json_schema support) vary by server version; run
@@ -7,6 +7,7 @@ Both backends use schema-constrained output so the model can only emit JSON that
 from __future__ import annotations
 
 import json
+import os
 import re
 from typing import Any
 
@@ -17,6 +18,18 @@ from .config import Config
 
 class LLMError(Exception):
     pass
+
+
+PROVIDERS = ("lmstudio", "openai", "ollama")
+
+
+def base_url(provider: str, endpoint: str) -> str:
+    """LM Studio and other OpenAI-compatible servers serve their API under /v1; add it when the endpoint
+    is given as a bare host:port (as in `http://127.0.0.1:42117`). Ollama's native API has no prefix."""
+    url = endpoint.rstrip("/")
+    if provider != "ollama" and not url.endswith("/v1"):
+        url += "/v1"
+    return url
 
 
 _THINK = re.compile(r"<think>.*?</think>", re.S)
@@ -46,21 +59,27 @@ class LLM:
         self.c = cfg.llm
         self.model = model or self.c.model
         self.client = client or httpx.Client(timeout=self.c.timeout_s)
-        self.base = self.c.host.rstrip("/")
+        self.provider = str(self.c.provider).lower()
+        if self.provider not in PROVIDERS:
+            raise LLMError(f"unknown llm.provider {self.c.provider!r}; use one of {PROVIDERS}")
+        self.effort = str(self.c.reasoning_effort or "").lower()
+        self.base = base_url(self.provider, str(self.c.endpoint))
+        key = os.environ.get(str(self.c.api_key_env or ""), "") if self.c.api_key_env else ""
+        self.headers = {"Authorization": f"Bearer {key}"} if key else {}
 
     # -- discovery --------------------------------------------------------------------------
     def list_models(self) -> list[str]:
-        if self.c.backend == "ollama":
-            r = self.client.get(f"{self.base}/api/tags")
+        if self.provider == "ollama":
+            r = self.client.get(f"{self.base}/api/tags", headers=self.headers)
             r.raise_for_status()
             return [m["name"] for m in r.json().get("models", [])]
-        r = self.client.get(f"{self.base}/models")
+        r = self.client.get(f"{self.base}/models", headers=self.headers)
         r.raise_for_status()
         return [m["id"] for m in r.json().get("data", [])]
 
     # -- chat -------------------------------------------------------------------------------
     def _raw_chat(self, system: str, user: str, schema: dict[str, Any] | None) -> str:
-        if self.c.backend == "ollama":
+        if self.provider == "ollama":
             body: dict[str, Any] = {
                 "model": self.model,
                 "stream": False,
@@ -70,26 +89,35 @@ class LLM:
             }
             if schema is not None:
                 body["format"] = schema
-            if self.c.disable_thinking:
+            if self.effort == "none":
                 body["think"] = False
-            r = self.client.post(f"{self.base}/api/chat", json=body)
+            elif self.effort in ("low", "medium", "high"):
+                body["think"] = self.effort  # [Unverified] only some models accept level strings
+            r = self.client.post(f"{self.base}/api/chat", json=body, headers=self.headers)
+            if r.status_code == 400 and isinstance(body.get("think"), str):  # model without effort levels
+                del body["think"]
+                r = self.client.post(f"{self.base}/api/chat", json=body, headers=self.headers)
             r.raise_for_status()
             return r.json()["message"]["content"]
 
-        user_msg = user + ("\n\n/no_think" if self.c.disable_thinking else "")
         body = {
             "model": self.model,
             "temperature": self.c.temperature,
-            "messages": [{"role": "system", "content": system}, {"role": "user", "content": user_msg}],
+            "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
         }
-        if self.c.disable_thinking:
-            body["chat_template_kwargs"] = {"enable_thinking": False}
+        if self.effort:
+            body["reasoning_effort"] = self.effort
         if schema is not None:
             body["response_format"] = {"type": "json_schema", "json_schema": {"name": "extraction", "schema": schema}}
-        r = self.client.post(f"{self.base}/chat/completions", json=body)
+        url = f"{self.base}/chat/completions"
+        r = self.client.post(url, json=body, headers=self.headers)
+        # Degrade step by step when a server rejects an optional field (HTTP 400).
+        if r.status_code == 400 and "reasoning_effort" in body:
+            del body["reasoning_effort"]
+            r = self.client.post(url, json=body, headers=self.headers)
         if r.status_code == 400 and schema is not None:  # server without json_schema support
             body["response_format"] = {"type": "json_object"}
-            r = self.client.post(f"{self.base}/chat/completions", json=body)
+            r = self.client.post(url, json=body, headers=self.headers)
         r.raise_for_status()
         return r.json()["choices"][0]["message"]["content"]
 

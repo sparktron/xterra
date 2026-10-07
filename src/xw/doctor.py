@@ -46,14 +46,18 @@ def run(cfg: Config, *, smoke: bool = False, net: bool = False, out: Callable[[s
     llm = LLM(cfg)
     try:
         models = llm.list_models()
-        line(OK, f"LLM server reachable at {cfg.llm.host} ({cfg.llm.backend}); {len(models)} model(s)")
+        line(OK, f"LLM server reachable at {llm.base} ({llm.provider}); {len(models)} model(s)")
         if cfg.llm.model in models:
             line(OK, f"model {cfg.llm.model!r} is available")
         else:
             near = [m for m in models if "qwen" in m.lower()] or models[:8]
             line(FAIL, f"model {cfg.llm.model!r} not found. Set llm.model in config/settings.local.yaml. Candidates: {near}")
     except (httpx.HTTPError, LLMError, KeyError, ValueError) as exc:
-        line(FAIL, f"cannot reach the LLM server at {cfg.llm.host}: {type(exc).__name__}: {exc}. Is `ollama serve` running?")
+        if isinstance(exc, httpx.HTTPStatusError) and exc.response.status_code in (401, 403):
+            env = cfg.llm.api_key_env
+            line(WARN, f"the server requires an API key. Export it as ${env} (variable name set by llm.api_key_env), "
+                       f"then rerun; currently {'set' if llm.headers else 'NOT set'}")
+        line(FAIL, f"cannot reach the LLM server at {llm.base}: {type(exc).__name__}: {exc}. Is the server running (LM Studio: Developer tab, start server) and is llm.endpoint right?")
         models = []
 
     if smoke and models:

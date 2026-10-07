@@ -5,16 +5,15 @@ paths:
   wiki_dir: wiki          # generated wiki output (committed)
 
 llm:
-  backend: ollama         # ollama (native /api/chat) | openai (any OpenAI-compatible server: llama.cpp, LM Studio, vLLM)
-  host: http://localhost:11434   # for backend=openai use e.g. http://localhost:1234/v1
-  # [Unverified] The tag below is a placeholder for "Qwen 3.8 27B". Run `ollama list` and
-  # `xw doctor`, then set the exact tag your server reports.
-  model: "qwen3.8:27b"
-  num_ctx: 16384          # [Inference] a ~4-5-bit 27B model plus 16k context should fit in 24 GB; lower it if you hit OOM
+  provider: lmstudio             # lmstudio | openai (any OpenAI-compatible server) | ollama
+  endpoint: http://localhost:1234   # LM Studio server address; "/v1" is added automatically (confirmed against a local server on :1234)
+  model: "qwen3.8-27b"           # must match the id your server lists: curl <endpoint>/v1/models
+  api_key_env: XW_LLM_API_KEY    # if the server needs a key: export XW_LLM_API_KEY=... in your shell (the key never goes in a file)
+  reasoning_effort: "none"       # none | low | medium | high | "" (sent as `reasoning_effort`; dropped automatically if the server rejects it)
+  num_ctx: 16384                 # ollama only. For LM Studio set the context length when loading the model (16k+ recommended; [Inference] fits 24 GB)
   temperature: 0.1
-  disable_thinking: true  # structured extraction does not need reasoning tokens
   timeout_s: 900
-  max_retries: 2          # extra attempts when the model returns invalid JSON
+  max_retries: 2                 # extra attempts when the model returns invalid JSON
 
 crawl:
   user_agent: "xterra-wiki-research/0.1"
