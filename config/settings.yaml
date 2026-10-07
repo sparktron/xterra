@@ -8,6 +8,7 @@ llm:
   provider: lmstudio             # lmstudio | openai (any OpenAI-compatible server) | ollama
   endpoint: http://127.0.0.1:42117   # LM Studio server address; "/v1" is added automatically ([Unverified] for your setup: check `xw doctor`)
   model: "qwen3.8-27b"           # must match the id your server lists: curl <endpoint>/v1/models
+  api_key_env: XW_LLM_API_KEY    # if the server needs a key: export XW_LLM_API_KEY=... in your shell (the key never goes in a file)
   reasoning_effort: "none"       # none | low | medium | high | "" (sent as `reasoning_effort`; dropped automatically if the server rejects it)
   num_ctx: 16384                 # ollama only. For LM Studio set the context length when loading the model (16k+ recommended; [Inference] fits 24 GB)
   temperature: 0.1

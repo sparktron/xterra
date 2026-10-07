@@ -14,6 +14,7 @@ DEFAULTS: dict[str, Any] = {
         "provider": "lmstudio",                 # lmstudio | openai (any OpenAI-compatible server) | ollama
         "endpoint": "http://127.0.0.1:42117",
         "model": "qwen3.8-27b",
+        "api_key_env": "XW_LLM_API_KEY",        # NAME of the environment variable holding the server's API key (never the key itself)
         "reasoning_effort": "none",             # none | low | medium | high | "" (leave to the server)
         "num_ctx": 16384,                       # ollama only; for LM Studio set the context length when loading the model
         "temperature": 0.1,

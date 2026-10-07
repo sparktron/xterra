@@ -7,6 +7,7 @@ Both backends use schema-constrained output so the model can only emit JSON that
 from __future__ import annotations
 
 import json
+import os
 import re
 from typing import Any
 
@@ -63,14 +64,16 @@ class LLM:
             raise LLMError(f"unknown llm.provider {self.c.provider!r}; use one of {PROVIDERS}")
         self.effort = str(self.c.reasoning_effort or "").lower()
         self.base = base_url(self.provider, str(self.c.endpoint))
+        key = os.environ.get(str(self.c.api_key_env or ""), "") if self.c.api_key_env else ""
+        self.headers = {"Authorization": f"Bearer {key}"} if key else {}
 
     # -- discovery --------------------------------------------------------------------------
     def list_models(self) -> list[str]:
         if self.provider == "ollama":
-            r = self.client.get(f"{self.base}/api/tags")
+            r = self.client.get(f"{self.base}/api/tags", headers=self.headers)
             r.raise_for_status()
             return [m["name"] for m in r.json().get("models", [])]
-        r = self.client.get(f"{self.base}/models")
+        r = self.client.get(f"{self.base}/models", headers=self.headers)
         r.raise_for_status()
         return [m["id"] for m in r.json().get("data", [])]
 
@@ -90,10 +93,10 @@ class LLM:
                 body["think"] = False
             elif self.effort in ("low", "medium", "high"):
                 body["think"] = self.effort  # [Unverified] only some models accept level strings
-            r = self.client.post(f"{self.base}/api/chat", json=body)
+            r = self.client.post(f"{self.base}/api/chat", json=body, headers=self.headers)
             if r.status_code == 400 and isinstance(body.get("think"), str):  # model without effort levels
                 del body["think"]
-                r = self.client.post(f"{self.base}/api/chat", json=body)
+                r = self.client.post(f"{self.base}/api/chat", json=body, headers=self.headers)
             r.raise_for_status()
             return r.json()["message"]["content"]
 
@@ -107,14 +110,14 @@ class LLM:
         if schema is not None:
             body["response_format"] = {"type": "json_schema", "json_schema": {"name": "extraction", "schema": schema}}
         url = f"{self.base}/chat/completions"
-        r = self.client.post(url, json=body)
+        r = self.client.post(url, json=body, headers=self.headers)
         # Degrade step by step when a server rejects an optional field (HTTP 400).
         if r.status_code == 400 and "reasoning_effort" in body:
             del body["reasoning_effort"]
-            r = self.client.post(url, json=body)
+            r = self.client.post(url, json=body, headers=self.headers)
         if r.status_code == 400 and schema is not None:  # server without json_schema support
             body["response_format"] = {"type": "json_object"}
-            r = self.client.post(url, json=body)
+            r = self.client.post(url, json=body, headers=self.headers)
         r.raise_for_status()
         return r.json()["choices"][0]["message"]["content"]
 

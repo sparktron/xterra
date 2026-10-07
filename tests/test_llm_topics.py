@@ -142,3 +142,19 @@ def test_ollama_forwards_named_effort_and_drops_it_on_400(cfg):
 
     assert _llm(cfg, handler).chat_json("s", "u", None) == {"ok": True}
     assert seen == ["high", None]
+
+
+def test_api_key_is_read_from_env_and_sent_as_bearer(cfg, monkeypatch):
+    monkeypatch.setenv("XW_LLM_API_KEY", "test-key-123")
+    seen = []
+
+    def handler(req):
+        seen.append(req.headers.get("authorization"))
+        return httpx.Response(200, json={"data": [{"id": "m"}]})
+
+    assert _llm(cfg, handler, provider=None).list_models() == ["m"]
+    assert seen == ["Bearer test-key-123"]
+    monkeypatch.delenv("XW_LLM_API_KEY")
+    seen.clear()
+    _llm(cfg, handler, provider=None).list_models()
+    assert seen == [None]
