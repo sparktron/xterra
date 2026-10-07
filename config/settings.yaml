@@ -26,10 +26,11 @@ crawl:
   max_forum_depth: 3      # subforum depth from the seeds
   max_fetches_per_source: 150
   max_fetches_primary: 400
-  respect_robots: true
+  respect_robots: false   # set back to true if a site asks you not to crawl it
   # A site answering these means "no automated access". The source is marked blocked and never
-  # retried or worked around (no header spoofing, proxies, mirrors, or caches).
-  stop_statuses: [401, 402, 403]
+  # retried or worked around (no header spoofing, proxies, mirrors, or caches). Some bot walls
+  # answer with 409 Conflict (or a JS proof-of-work challenge) instead of 403.
+  stop_statuses: [401, 402, 403, 409]
   max_consecutive_429: 3
   min_post_chars: 60      # skip "bump" / "thanks" posts to save LLM time
 

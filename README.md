@@ -24,4 +24,4 @@ Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions
 `init doctor status discover harvest extract ingest verify export review-export review-apply qa run reset-source`
 
 ## Legal
-Honors robots.txt and rate limits, never circumvents paywalls or blocks. Forum text is others' content: the wiki publishes paraphrased facts with source links, not copies. Check each site's terms.
+Honors rate limits and never circumvents paywalls or blocks (401/402/403 hard stop). robots.txt checking is off by default (`respect_robots` in settings.yaml) — re-enable it before crawling a site that asks you not to. Forum text is others' content: the wiki publishes paraphrased facts with source links, not copies. Check each site's terms.
