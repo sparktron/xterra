@@ -11,12 +11,12 @@ import yaml
 DEFAULTS: dict[str, Any] = {
     "paths": {"data_dir": "data", "wiki_dir": "wiki"},
     "llm": {
-        "backend": "ollama",
-        "host": "http://localhost:11434",
-        "model": "qwen3.8:27b",
-        "num_ctx": 16384,
+        "provider": "lmstudio",                 # lmstudio | openai (any OpenAI-compatible server) | ollama
+        "endpoint": "http://127.0.0.1:42117",
+        "model": "qwen3.8-27b",
+        "reasoning_effort": "none",             # none | low | medium | high | "" (leave to the server)
+        "num_ctx": 16384,                       # ollama only; for LM Studio set the context length when loading the model
         "temperature": 0.1,
-        "disable_thinking": True,
         "timeout_s": 900,
         "max_retries": 2,
     },

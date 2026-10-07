@@ -5,10 +5,10 @@ Pipeline that crawls (politely) or ingests Xterra forum threads, extracts struct
 ## Quick start
 ```
 scripts/bootstrap.sh     # venv, install, init, tests, doctor
-# set crawl.contact in config/settings.local.yaml, set llm.model to a tag from `ollama list`
+# set crawl.contact and, if different, llm.endpoint / llm.model in config/settings.local.yaml
 scripts/run_all.sh
 ```
-Tested on nothing yet: the Qwen tag `qwen3.8:27b` is `[Unverified]`; `xw doctor` lists real models. Context 16384 is an `[Inference]` for a 24 GB 3090.
+Defaults assume LM Studio at `http://127.0.0.1:42117` with model `qwen3.8-27b` and `reasoning_effort: none` (copied from another project's config); `ollama` is also supported via `llm.provider`. Not yet run against a real server: `xw doctor` checks the endpoint and model id. Context 16384 is an `[Inference]` for a 24 GB 3090; set it in LM Studio when loading the model.
 
 ## Sources
 Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions are `[Unverified]`. Pages you save yourself can be added with `xw ingest <files>`.

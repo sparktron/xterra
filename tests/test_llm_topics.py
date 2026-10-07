@@ -17,7 +17,9 @@ def test_parse_json_loose():
             parse_json_loose(bad)
 
 
-def _llm(cfg, handler):
+def _llm(cfg, handler, provider="ollama"):
+    if provider:  # these tests exercise Ollama's native shape unless a test passes provider=None and sets its own config
+        cfg.llm.as_dict().update({"provider": provider, "endpoint": "http://localhost:11434"})
     return LLM(cfg, client=httpx.Client(transport=httpx.MockTransport(handler)))
 
 
@@ -63,7 +65,7 @@ def test_server_down_is_llm_error(cfg):
 
 
 def test_openai_backend_falls_back_when_json_schema_unsupported(cfg):
-    cfg.llm.as_dict().update({"backend": "openai", "host": "http://x.invalid/v1"})
+    cfg.llm.as_dict().update({"provider": "lmstudio", "endpoint": "http://x.invalid", "reasoning_effort": ""})
     formats = []
 
     def handler(req):
@@ -73,7 +75,7 @@ def test_openai_backend_falls_back_when_json_schema_unsupported(cfg):
             return httpx.Response(400, json={"error": "unsupported"})
         return httpx.Response(200, json={"choices": [{"message": {"content": '{"ok": true}'}}]})
 
-    assert _llm(cfg, handler).chat_json("s", "u", {"type": "object"}) == {"ok": True}
+    assert _llm(cfg, handler, provider=None).chat_json("s", "u", {"type": "object"}) == {"ok": True}
     assert formats == ["json_schema", "json_object"]
 
 
@@ -101,3 +103,27 @@ def test_topic_resolution(cfg):
     assert topics.resolve("Rear locker cable adjustment", "mods") is new                               # stable on repeat
     assert topics.resolve("Engine oil and filter change", "repair").slug != "engine-oil-change"        # categories stay separate
     assert slugify("  Weird / Title!! ") == "weird-title"
+
+
+def test_lmstudio_endpoint_gets_v1_and_effort_is_sent_then_dropped_on_400(cfg):
+    from xw.llm import base_url
+    assert base_url("lmstudio", "http://127.0.0.1:42117") == "http://127.0.0.1:42117/v1"
+    assert base_url("lmstudio", "http://127.0.0.1:42117/v1/") == "http://127.0.0.1:42117/v1"
+    assert base_url("ollama", "http://localhost:11434") == "http://localhost:11434"
+    seen = []
+
+    def handler(req):
+        body = json.loads(req.content)
+        seen.append((req.url.path, body.get("reasoning_effort")))
+        if "reasoning_effort" in body:
+            return httpx.Response(400, json={"error": "unknown field"})
+        return httpx.Response(200, json={"choices": [{"message": {"content": '{"ok": true}'}}]})
+
+    assert _llm(cfg, handler, provider=None).chat_json("s", "u", None) == {"ok": True}      # defaults: lmstudio, effort "none"
+    assert seen == [("/v1/chat/completions", "none"), ("/v1/chat/completions", None)]
+
+
+def test_unknown_provider_is_rejected(cfg):
+    cfg.llm.as_dict()["provider"] = "bogus"
+    with pytest.raises(LLMError, match="unknown llm.provider"):
+        LLM(cfg, client=httpx.Client())
