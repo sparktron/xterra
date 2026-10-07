@@ -1,0 +1,82 @@
+# Seed page tree. The extractor is shown these titles and reuses them when content fits;
+# new topics discovered in sources are added automatically at export time.
+# `aliases` help fuzzy-match model-proposed titles to a seed topic.
+
+categories:
+  diagnostics:
+    title: Diagnostics & Troubleshooting
+    topics:
+      - {slug: dtc-reference-vq40de, title: "Engine trouble codes (VQ40DE)", aliases: ["DTC reference", "check engine codes", "OBD-II codes"]}
+      - {slug: engine-noises, title: "Engine noise diagnosis", aliases: ["engine rattle", "engine tick", "engine knock"]}
+      - {slug: timing-chain-noise, title: "Timing chain and guide wear", aliases: ["timing chain rattle", "cold start rattle"]}
+      - {slug: vvt-cam-solenoid, title: "VVT and cam solenoid issues", aliases: ["VTC solenoid", "cam solenoid"]}
+      - {slug: driveline-noises, title: "Driveline and wheel bearing noises", aliases: ["driveline vibration", "wheel bearing noise", "differential noise"]}
+      - {slug: smod, title: "SMOD radiator transmission cooler failure", aliases: ["strawberry milkshake", "radiator trans cooler"]}
+      - {slug: frame-rust, title: "Frame and leaf spring bracket rust", aliases: ["frame rot", "frame recall"]}
+      - {slug: torque-converter-shudder, title: "Torque converter shudder", aliases: ["transmission shudder"]}
+      - {slug: evap-system, title: "EVAP system faults", aliases: ["evap leak", "gas cap code"]}
+      - {slug: heater-core-ac, title: "Heater core and A/C problems", aliases: ["no heat", "ac not cold", "blend door"]}
+      - {slug: electrical-faults, title: "Electrical faults, grounds and battery drain", aliases: ["parasitic drain", "ground strap"]}
+      - {slug: fuse-relay-map, title: "Fuse and relay maps", aliases: ["fuse box", "IPDM"]}
+      - {slug: door-window-electrical, title: "Door, window and lock electrical faults", aliases: ["power window", "door lock"]}
+      - {slug: transmission-transfer-case-issues, title: "Transmission and transfer case problems", aliases: ["RE5R05A", "6-speed manual", "shifting problems", "transfer case"]}
+  maintenance:
+    title: Maintenance
+    topics:
+      - {slug: engine-oil-change, title: "Engine oil and filter change", aliases: ["oil change"]}
+      - {slug: atf-change, title: "Automatic transmission fluid change", aliases: ["ATF drain and fill", "transmission flush", "pan drop"]}
+      - {slug: transfer-case-fluid, title: "Transfer case fluid change", aliases: ["transfer case oil"]}
+      - {slug: differential-fluid, title: "Front and rear differential fluid change", aliases: ["diff fluid", "gear oil"]}
+      - {slug: manual-trans-fluid, title: "Manual transmission fluid change", aliases: ["manual gearbox oil"]}
+      - {slug: coolant-flush, title: "Coolant drain and refill", aliases: ["radiator flush", "antifreeze"]}
+      - {slug: brake-fluid-bleed, title: "Brake fluid flush and bleeding", aliases: ["bleed brakes"]}
+      - {slug: power-steering-fluid, title: "Power steering fluid service", aliases: ["power steering flush"]}
+      - {slug: spark-plugs, title: "Spark plug replacement", aliases: ["plugs"]}
+      - {slug: serpentine-belt, title: "Serpentine belt and tensioner", aliases: ["belt routing", "drive belt"]}
+      - {slug: air-fuel-filters, title: "Air, cabin and fuel filters", aliases: ["air filter", "cabin filter", "fuel filter"]}
+      - {slug: brake-service, title: "Brake pads and rotors", aliases: ["brake job", "calipers"]}
+      - {slug: wheel-bearing-service, title: "Wheel bearing service", aliases: ["hub bearing"]}
+      - {slug: maintenance-schedule, title: "Maintenance schedule (normal and severe use)", aliases: ["service intervals", "off-road maintenance"]}
+  repair:
+    title: Repair Procedures
+    topics:
+      - {slug: control-arms-bushings, title: "Control arms and bushings", aliases: ["upper control arm", "lower control arm"]}
+      - {slug: ball-joints-tie-rods, title: "Ball joints and tie rods", aliases: ["steering linkage"]}
+      - {slug: sway-bar-links, title: "Sway bar links and bushings", aliases: ["stabilizer bar"]}
+      - {slug: shocks-springs, title: "Shocks, springs and bump stops", aliases: ["struts", "coil springs"]}
+      - {slug: leaf-springs, title: "Leaf spring and shackle repair", aliases: ["rear leafs"]}
+      - {slug: timing-chain-replacement, title: "Timing chain and guide replacement", aliases: ["timing chain job"]}
+      - {slug: water-pump-thermostat, title: "Water pump and thermostat", aliases: ["coolant pump"]}
+      - {slug: radiator-smod-fix, title: "Radiator replacement and SMOD fix", aliases: ["bypass trans cooler"]}
+      - {slug: starter-alternator, title: "Starter and alternator", aliases: []}
+      - {slug: sensors, title: "Sensor replacement (cam, crank, O2, MAF)", aliases: ["O2 sensor", "MAF sensor", "crankshaft position sensor"]}
+      - {slug: fuel-pump, title: "Fuel pump and sending unit", aliases: ["fuel level sensor"]}
+      - {slug: clutch-transmission-swap, title: "Clutch and transmission replacement", aliases: ["trans swap"]}
+      - {slug: cv-axles, title: "CV axles and U-joints", aliases: ["driveshaft", "axle shaft"]}
+      - {slug: differential-rebuild, title: "Differential rebuild and re-gearing", aliases: ["regear", "ring and pinion"]}
+  mods:
+    title: Modifications & Off-Road Builds
+    topics:
+      - {slug: lift-kits, title: "Lift kits and suspension lifts", aliases: ["spacer lift", "coilover lift", "lift"]}
+      - {slug: titan-vk56-swap, title: "Titan VK56 engine swap", aliases: ["5.6 swap", "VK56DE swap", "Titan engine swap"]}
+      - {slug: titan-axle-swap, title: "Titan axle, differential and brake swaps", aliases: ["Titan diff swap"]}
+      - {slug: bumpers-armor, title: "Bumpers, sliders and skid plates", aliases: ["armor", "rock sliders"]}
+      - {slug: winch-recovery, title: "Winches and recovery gear", aliases: ["recovery points"]}
+      - {slug: roof-racks, title: "Roof racks, snorkels and storage", aliases: ["overland rack", "snorkel"]}
+      - {slug: lighting-aux-power, title: "Lighting, aux fuse blocks and dual batteries", aliases: ["light bar", "dual battery"]}
+      - {slug: tires-wheels, title: "Tires, wheels and fitment", aliases: ["backspacing", "offset", "trimming"]}
+      - {slug: regearing, title: "Re-gearing ratios by tire size", aliases: ["gear ratio"]}
+      - {slug: lockers-traction, title: "Lockers and traction control", aliases: ["rear locker", "ETS"]}
+      - {slug: cooling-upgrades, title: "Cooling upgrades", aliases: ["transmission cooler", "radiator upgrade"]}
+      - {slug: performance-mods, title: "Intake, exhaust, tune and forced induction", aliases: ["supercharger", "cold air intake"]}
+      - {slug: trim-guide, title: "Trim guide (X, S, SE, Off-Road, PRO-4X)", aliases: ["trim differences"]}
+  reference:
+    title: Reference Data
+    topics:
+      - {slug: specs-by-year, title: "Specifications by model year", aliases: ["capacities", "bolt pattern", "dimensions"]}
+      - {slug: torque-specs, title: "Torque specifications", aliases: ["torque values"]}
+      - {slug: fluid-capacities, title: "Fluids and capacities", aliases: ["fluid specs"]}
+      - {slug: gear-ratios-tire-sizes, title: "Gear ratios and tire sizes", aliases: ["stock tire size"]}
+      - {slug: parts-diagrams, title: "Parts diagrams", aliases: ["exploded view"]}
+      - {slug: interchange, title: "Xterra, Frontier and Titan parts interchange", aliases: ["parts compatibility"]}
+      - {slug: part-sources, title: "Part sources and vendors", aliases: ["where to buy"]}
