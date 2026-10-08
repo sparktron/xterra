@@ -8,7 +8,7 @@ scripts/bootstrap.sh     # venv, install, init, tests, doctor
 # set crawl.contact and, if different, llm.endpoint / llm.model in config/settings.local.yaml
 scripts/run_all.sh
 ```
-Defaults assume LM Studio at `http://localhost:1234` with model `qwen3.8-27b` and `reasoning_effort: none` (model id confirmed by the local server); `ollama` is also supported via `llm.provider`. Not yet run against a real server: `xw doctor` checks the endpoint and model id. Context 16384 is an `[Inference]` for a 24 GB 3090; set it in LM Studio when loading the model.
+Defaults assume LM Studio at `http://localhost:1234` with model `qwen3.8-27b` and `reasoning_effort: none` (model id confirmed by the local server); `ollama` is also supported via `llm.provider`. `xw doctor` checks the endpoint and model id. Context 16384 is an `[Inference]` for a 24 GB 3090; set it in LM Studio when loading the model.
 
 ## Sources
 Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions are `[Unverified]`. Pages you save yourself can be added with `xw ingest <files>`.
