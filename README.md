@@ -20,6 +20,9 @@ Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions
 4. Optional Claude review (`/review-wiki` or `xw review-export` / `xw review-apply`): only the claim and a short excerpt are in the batch; you run it. Reports the verifier's false-accept rate.
 5. `xw qa` re-checks the published pages against raw source text; exit 1 on violation.
 
+## Encyclopedia (hand-curated)
+`wiki/encyclopedia/` holds reference pages written by hand rather than extracted: one page per model year (2005-2015) plus trims, paint codes, dimensions, engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, part numbers, recalls and VIN decoding. Sources are Nissan press kits, owner's manuals and maintenance schedules, EPA, NHTSA, and paint and parts catalogs. `xw export` leaves these pages alone and links their hub from `wiki/index.md`; `xw qa` fails if a line on them states a number without citing a source listed on that page or marking it `[Unverified]`.
+
 ## Commands
 `init doctor status discover harvest extract ingest verify export review-export review-apply qa run reset-source`
 

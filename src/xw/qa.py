@@ -8,6 +8,8 @@ stored in the database, that:
   * every published part number appears in a thread the line cites
   * every torque-like value carries an allowed verification tag (consensus, manufacturer, or reviewed)
   * no cited thread id is unknown
+The hand-curated pages under wiki/encyclopedia/ have no thread text to check against; `check_curated` holds them to
+a citation rule instead: every line that states a number cites a source listed on that page, or says [Unverified].
 Exit status 1 on any violation, so it can gate commits and CI.
 """
 from __future__ import annotations
@@ -18,12 +20,17 @@ from pathlib import Path
 
 from .config import Config
 from .grounding import part_grounded, safety_values, spec_grounded, unit_grounded
-from .export import GENERATED, is_safety
+from .export import CURATED_DIR, GENERATED, is_safety
 
 SPEC_LINE = re.compile(r"^- \*\*(?P<item>.+?)\*\*: (?P<value>.+?) \[(?P<sids>t\d+(?:, t\d+)*)\] \((?P<tag>[^)]*)\)\s*$")
 PART_LINE = re.compile(r"^- (?P<name>.+?) \((?P<pn>[^)]+)\)(?::.*?)? \[(?P<sids>t\d+(?:, t\d+)*)\]\s*$")
 SAFE_TAGS = ("community-consensus", "manufacturer source", "Claude-reviewed", "Human-reviewed")
 _URL = re.compile(r"https?://\S+")
+SRC_KEY = re.compile(r"\[S(\d+)\]")
+SRC_DEF = re.compile(r"^- \[S(\d+)\] .*https?://\S+")
+_LOCAL_LINK = re.compile(r"\[(?P<text>[^\]]*)\]\((?!https?:)[^)]*\)")
+_YEAR_NAV = re.compile(r"(?:← )?(?:19|20)\d\d(?: →)?")   # "[2005](years/2005.md)", "[← 2008](2008.md)"
+_TABLE_RULE = re.compile(r"^\|?\s*:?-{3,}")
 
 
 def _thread_text(conn: sqlite3.Connection, sid: str) -> str | None:
@@ -87,4 +94,42 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     texts = [_thread_text(conn, s) or "" for s in m["sids"].split(", ")]
                     if not any(part_grounded(m["pn"], t) for t in texts):
                         violations.append(f"{rel}: part number not found in cited thread(s): {m['name']} ({m['pn']})")
+    return violations + check_curated(Path(cfg.wiki_dir))
+
+
+def check_curated(wiki_dir: Path) -> list[str]:
+    """Hand-curated pages: each needs a `## Sources` list of `- [S<n>] ... <url>` entries, every [S<n>] it uses must be
+    listed, and any line stating a number (outside headings, table header rows and the list itself) must cite one or
+    say [Unverified]. Only traceability is checked; that the source says it is still the author's job."""
+    violations: list[str] = []
+    for page in sorted((wiki_dir / CURATED_DIR).rglob("*.md")):
+        rel = page.relative_to(wiki_dir)
+        lines = page.read_text(encoding="utf-8").splitlines()
+        if lines and lines[0] == GENERATED:
+            violations.append(f"{rel}: curated page carries the generated header")
+            continue
+        if "## Sources" not in lines:
+            violations.append(f"{rel}: curated page has no '## Sources' section")
+            continue
+        listed = {m[1] for line in lines[lines.index("## Sources"):] if (m := SRC_DEF.match(line))}
+        section = ""
+        for i, line in enumerate(lines):
+            if line.startswith("#"):
+                section = line.lstrip("#").strip()
+                continue
+            if section == "Sources":
+                if line.startswith("- ") and not SRC_DEF.match(line):
+                    violations.append(f"{rel}: source entry without a key and URL: {line[:100]}")
+                continue
+            if _TABLE_RULE.match(line) or (i + 1 < len(lines) and _TABLE_RULE.match(lines[i + 1])):
+                continue
+            used = set(SRC_KEY.findall(line))
+            if used - listed:
+                violations.append(f"{rel}: cites unlisted source(s) {', '.join(f'S{n}' for n in sorted(used - listed))}: {line[:100]}")
+            # a link's target states nothing, but its text can ("[Oil capacity is 5 qt](oil-change.md)");
+            # only a bare model-year label is navigation
+            unlinked = _LOCAL_LINK.sub(lambda m: "" if _YEAR_NAV.fullmatch(m["text"].strip()) else m["text"], line)
+            bare = SRC_KEY.sub("", _URL.sub("", unlinked))
+            if re.search(r"\d", bare) and not used and "[Unverified]" not in line:
+                violations.append(f"{rel}: number without a source: {line[:100]}")
     return violations

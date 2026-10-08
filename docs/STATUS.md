@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-07 · **Branch:** `docs/hub-standard` · **Commit:** the approach-review fixes on top of `1873f9a`, plus uncommitted work from elsewhere (see Active work)
+**Updated:** 2026-10-08 · **Branch:** `docs/hub-standard` · **Commit:** the hand-curated encyclopedia on top of `35d74fb` (PR #4 merged), plus uncommitted work from elsewhere (see Active work)
 
 ## Objective
 
@@ -15,7 +15,20 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Committed on this branch: fixes from the 2026-10-07 approach review (`verify.py`, `grounding.py`, `export.py`, `review.py`, `qa.py`, `db.py`,
+Encyclopedia (2026-10-08): `wiki/encyclopedia/`, 23 hand-curated pages, committed. One page per model year 2005-2015
+(trims and equipment, changes, output, plant, launch MSRP for 2011-2015, colors with paint codes, EPA mpg, owner's-manual
+fluids and torques, Nissan maintenance intervals, NHTSA recalls) plus hub, trims, paint codes, dimensions/towing,
+engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, parts, recalls and VIN pages. Code:
+`export.CURATED_DIR` (index links the hub; export never touches the folder) and `qa.check_curated` (every number cites a
+listed source or says `[Unverified]`), with one test. The pages were drafted by a one-off script from data fetched
+2026-10-07; the script is not in the repo, so edit the pages by hand. Known gaps, all marked `[Unverified]` on the
+pages: Nissan hosts no owner's manuals before 2008 (2005-2007 fluids borrow the 2008 manual); no spec tables for
+2005-2011 (clearance, angles, ratios); bolt pattern and center bore come from a third-party aggregator; 11128-01M00
+as the oil-pan plug; Solar Yellow in 2009 and SolarFlare Yellow in 2015. Nissan's online schedule lists brake fluid as
+"maintenance not required" for 2005-2009; reported as found. parts.nissanusa.com showed a "verify you are human" check
+partway through and was not worked around; NissanPartsDeal supplied the part numbers.
+
+Previously committed on this branch: fixes from the 2026-10-07 approach review (`verify.py`, `grounding.py`, `export.py`, `review.py`, `qa.py`, `db.py`,
 `cli.py`, `prompts/verify.md`, tests, `README.md`, `AGENTS.md`, `config/settings.yaml` comment):
 
 1. Decoys: every verifier call carries planted false claims; a call that accepts one is retried, then discarded (`decoy_failed`). `decoy_checks` table, shown by `xw status` and `xw verify`.
@@ -59,12 +72,14 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 | Check | Result | Detail |
 |---|---|---|
-| `pytest` on the working tree, current deps | passed | 74 passed, after the review fixes; Python 3.10.12, pytest 9.1.1, pydantic 2.13.5, httpx 0.28.1, lxml 6.1.3, beautifulsoup4 4.15.0 |
+| `pytest` on the working tree, current deps | passed | 75 passed on 2026-10-08 with the encyclopedia change (74 after the review fixes); Python 3.10.12, pytest 9.1.1, pydantic 2.13.5, httpx 0.28.1, lxml 6.1.3, beautifulsoup4 4.15.0 |
 | `pytest` at the declared floors | not re-run | 63 passed before the review fixes |
 | `xw doctor` | passed | LM Studio at `http://localhost:1234/v1`, `qwen3.8-27b`, RTX 3090, `crawl.contact` set |
 | `xw verify --redo` (real model) | done | 229 facts, 198 calls, decoys accepted 0/202, 0 calls discarded. Database backed up first (session scratchpad, not in repo) |
 | Claude review loop | done | 175 items in 7 batches: 108 approve, 39 reject, 28 needs_human. Verifier false-accept rate 9% (9/102 reviewed `supported` claims rejected or sent to a human); audit sample alone 2/19 |
-| `xw export && xw qa` | passed | after review-apply |
+| `xw export && xw qa` | passed | after review-apply; again on 2026-10-08 with the 23 encyclopedia pages (`check_curated` clean) |
+
+Encyclopedia content was not reviewed line by line against its sources after generation; `qa` proves each number has a citation, not that the citation supports it. Part numbers were not checked against a VIN-specific catalog.
 
 Not run: `pytest` at the dependency floors after the fixes; a clean checkout; `scripts/bootstrap.sh`; `xw doctor --smoke`; a crawl of any source; `xw extract` with the changed code (only verify changed behaviour against the model).
 
