@@ -28,7 +28,8 @@ SAFE_TAGS = ("community-consensus", "manufacturer source", "Claude-reviewed", "H
 _URL = re.compile(r"https?://\S+")
 SRC_KEY = re.compile(r"\[S(\d+)\]")
 SRC_DEF = re.compile(r"^- \[S(\d+)\] .*https?://\S+")
-_LOCAL_LINK = re.compile(r"\[[^\]]*\]\((?!https?:)[^)]*\)")   # navigation between wiki pages states no fact
+_LOCAL_LINK = re.compile(r"\[(?P<text>[^\]]*)\]\((?!https?:)[^)]*\)")
+_YEAR_NAV = re.compile(r"(?:← )?(?:19|20)\d\d(?: →)?")   # "[2005](years/2005.md)", "[← 2008](2008.md)"
 _TABLE_RULE = re.compile(r"^\|?\s*:?-{3,}")
 
 
@@ -125,7 +126,10 @@ def check_curated(wiki_dir: Path) -> list[str]:
             used = set(SRC_KEY.findall(line))
             if used - listed:
                 violations.append(f"{rel}: cites unlisted source(s) {', '.join(f'S{n}' for n in sorted(used - listed))}: {line[:100]}")
-            bare = SRC_KEY.sub("", _URL.sub("", _LOCAL_LINK.sub("", line)))
+            # a link's target states nothing, but its text can ("[Oil capacity is 5 qt](oil-change.md)");
+            # only a bare model-year label is navigation
+            unlinked = _LOCAL_LINK.sub(lambda m: "" if _YEAR_NAV.fullmatch(m["text"].strip()) else m["text"], line)
+            bare = SRC_KEY.sub("", _URL.sub("", unlinked))
             if re.search(r"\d", bare) and not used and "[Unverified]" not in line:
                 violations.append(f"{rel}: number without a source: {line[:100]}")
     return violations

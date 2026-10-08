@@ -621,7 +621,7 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     from xw.qa import check_curated
 
     good = ("# 2009 Nissan Xterra\n\n| Item | 2009 |\n|---|---|\n| Engine oil with filter | 5-3/8 qt [S13] |\n\n"
-            "- Back to the [2008 page](2008.md) and the [hub](../index.md)\n- Solar Yellow offered in 2009 [Unverified]\n\n"
+            "- Back to [2008](2008.md) and the [hub](../index.md)\n- Solar Yellow offered in 2009 [Unverified]\n\n"
             "## Sources\n\n- [S13] Nissan, 2009 Xterra Owner's Manual. https://owners.nissanusa.com/x.pdf\n")
     page = cfg.wiki_dir / "encyclopedia" / "years" / "2009.md"
     page.parent.mkdir(parents=True)
@@ -634,6 +634,8 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
 
     page.write_text(good.replace(" [S13] |", " |"))
     assert any("number without a source" in v for v in check_curated(cfg.wiki_dir))
+    page.write_text(good.replace("- Back to", "- [Oil capacity is 5 qt](oil-change.md)\n- Back to"))   # link text is a claim
+    assert any("number without a source: - [Oil capacity" in v for v in check_curated(cfg.wiki_dir))
     page.write_text(good.replace("[S13] |", "[S14] |"))
     assert any("unlisted source(s) S14" in v for v in check_curated(cfg.wiki_dir))
     page.write_text(good.replace("https://owners.nissanusa.com/x.pdf", "the glovebox copy"))
