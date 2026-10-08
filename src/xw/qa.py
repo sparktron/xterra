@@ -40,8 +40,15 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
         if not lines or lines[0] != GENERATED:
             continue
         rel = page.relative_to(cfg.wiki_dir)
-        published = {v for line in lines if (m := SPEC_LINE.match(line)) for v in safety_values(m["value"])}
         body = lines.index("---", 2) + 1 if lines[1:2] == ["---"] and "---" in lines[2:] else 1
+        # only real Specifications lines count as published; a spec-shaped line elsewhere must not exempt itself
+        published: set[tuple[str, str]] = set()
+        sec = ""
+        for line in lines[body:]:
+            if line.startswith("## "):
+                sec = line[3:].strip()
+            elif sec == "Specifications" and (m := SPEC_LINE.match(line)):
+                published |= safety_values(m["value"])
         section = ""
         for line in lines[body:]:
             if line.startswith("## "):

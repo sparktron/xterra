@@ -33,7 +33,7 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 - `prompts/extract.md`, `src/xw/schemas.py`: make `title` required on every fact, with a fallback to `topic`.
 - `src/xw/parse/xenforo.py`, `tests/test_parse.py`, `tests/fixtures/xenforo_thread_california.html`: parse customised XenForo themes (`article.js-post`).
-- Untracked: generated `wiki/` output, `.codex/`, `.agents/` (Codex copies of the `/review-wiki` command and reviewer agent).
+- Untracked: generated `wiki/` output. (`.codex/` and `.agents/`, the Codex copies of the `/review-wiki` command and reviewer agent, are now committed.)
 
 ## Next
 

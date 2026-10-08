@@ -56,7 +56,8 @@ _UNIT_PATTERNS = (
     ("qt", r"qts?\b|quarts?\b"),
     ("gal", r"gal(?:lon)?s?\b"),
     ("pt", r"pints?\b"),
-    ("fl oz", r"(?:fl\.?\s*)?oz\b|ounces?\b"),
+    ("fl oz", r"(?:us\s*)?fl\.?\s*oz\b|fluid[\s\-]*ounces?\b"),
+    ("oz", r"oz\b|ounces?\b"),   # plain ounces are usually weight ("16 oz hammer"), so not a fluid volume
     ("ml", r"ml\b|cc\b"),
     ("L", r"l\b|lit(?:er|re)s?\b|ltrs?\b"),
     ("psi", r"psi\b"),

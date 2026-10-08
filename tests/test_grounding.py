@@ -90,6 +90,8 @@ def test_units_attach_only_to_adjacent_numbers():
     from xw.grounding import numbers_grounded, safety_values
     assert safety_values("Remove the 2 sway bar bolts") == set()
     assert safety_values("the 4.0L engine") == set()                               # displacement, not a capacity
+    assert safety_values("Use a 16 oz hammer") == set()                            # weight ounces, not fluid
+    assert safety_values("6.1 US fl oz of oil, 4 fluid ounces") == {("6.1", "fl oz"), ("4", "fl oz")}
     assert safety_values("2.75 qt (2.6 L), 35psi, ft-lbs: 80") == {("2.75", "qt"), ("2.6", "L"), ("35", "psi"), ("80", "ft-lb")}
     assert numbers_grounded("Remove the 2 bolts", "remove the two bolts") and not numbers_grounded("Use a 21mm socket", "a 19mm socket")
 

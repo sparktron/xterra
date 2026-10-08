@@ -586,6 +586,9 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
     path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- Fill it with 6 qt first [t1]\n\n## Tools"))
     assert any("outside the specifications: 6 qt" in v for v in check_wiki(cfg, conn))
+    # a spec-shaped line outside Specifications must not count as a published spec (and exempt itself)
+    path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- **Torque**: 99 ft-lb [t1] (community-consensus, 2 threads)\n\n## Tools"))
+    assert any("outside the specifications: 99 ft-lb" in v for v in check_wiki(cfg, conn))
 
 
 def test_incomplete_procedure_is_withheld(cfg, conn, tmp_path):
