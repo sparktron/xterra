@@ -11,7 +11,7 @@ import httpx
 from xw import db
 from xw.cli import main
 from xw.crawl import build_chunks, discover, harvest
-from xw.export import export_all
+from xw.export import GENERATED, export_all
 from xw.extract import extract_pending
 from xw.fetch import Blocked, Fetcher
 from xw.grounding import number_tokens, spec_grounded
@@ -615,3 +615,30 @@ def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_pat
     assert "| Frontier" not in (cfg.wiki_dir / "interchange.md").read_text()
     oq = (cfg.wiki_dir / "open_questions.md").read_text()
     assert "applicability" in oq and "shared platform" in oq
+
+
+def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn):
+    from xw.qa import check_curated
+
+    good = ("# 2009 Nissan Xterra\n\n| Item | 2009 |\n|---|---|\n| Engine oil with filter | 5-3/8 qt [S13] |\n\n"
+            "- Back to the [2008 page](2008.md) and the [hub](../index.md)\n- Solar Yellow offered in 2009 [Unverified]\n\n"
+            "## Sources\n\n- [S13] Nissan, 2009 Xterra Owner's Manual. https://owners.nissanusa.com/x.pdf\n")
+    page = cfg.wiki_dir / "encyclopedia" / "years" / "2009.md"
+    page.parent.mkdir(parents=True)
+    page.write_text(good)
+    (cfg.wiki_dir / "encyclopedia" / "index.md").write_text("# Hub\n\n- [2009](years/2009.md)\n\n## Sources\n")
+    export(cfg, conn)
+    assert page.read_text() == good                       # not a topic category: export never deletes or rewrites it
+    assert "](encyclopedia/index.md)" in (cfg.wiki_dir / "index.md").read_text()
+    assert check_curated(cfg.wiki_dir) == [] and check_wiki(cfg, conn) == []
+
+    page.write_text(good.replace(" [S13] |", " |"))
+    assert any("number without a source" in v for v in check_curated(cfg.wiki_dir))
+    page.write_text(good.replace("[S13] |", "[S14] |"))
+    assert any("unlisted source(s) S14" in v for v in check_curated(cfg.wiki_dir))
+    page.write_text(good.replace("https://owners.nissanusa.com/x.pdf", "the glovebox copy"))
+    assert any("without a key and URL" in v for v in check_curated(cfg.wiki_dir))
+    page.write_text(good.split("## Sources")[0])
+    assert any("no '## Sources' section" in v for v in check_curated(cfg.wiki_dir))
+    page.write_text(GENERATED + "\n" + good)
+    assert any("generated header" in v for v in check_wiki(cfg, conn))
