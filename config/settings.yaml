@@ -45,7 +45,7 @@ scope:
 
 verify:
   require_local_pass: true      # fail closed: a claim is published only if the verifier pass said "supported" (or a reviewer approved it)
-  safety_min_threads: 2         # torque/capacity-style values need this many agreeing threads, a manufacturer source, or a reviewer's approval
+  safety_min_threads: 2         # torque/capacity-style values need this many agreeing threads (from as many distinct authors), a manufacturer source, or a reviewer's approval
   publish_unverified_safety: false
   verify_model: ""              # optional second local model for the verifier pass; empty = same model
 

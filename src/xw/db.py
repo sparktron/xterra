@@ -63,8 +63,9 @@ CREATE TABLE IF NOT EXISTS facts(
   grounding_json TEXT NOT NULL,
   created_at TEXT
 );
--- One row per checked claim. claim_key: summary | symptom:i | step:i | tool:i | tip:i | mistake:i | spec:i | part:i | dtc:i
--- by='local'  -> verdict supported | partial | unsupported   (local verifier model)
+-- One row per checked claim. claim_key: summary | symptom:i | step:i | complete | tool:i | tip:i | mistake:i | spec:i |
+--   part:i | dtc:i | applies | platform | difficulty | time
+-- by='local'  -> verdict supported | partial | unsupported | decoy_failed   (local verifier model)
 -- by='claude' -> verdict approve | reject | needs_human       (Claude review of source excerpts)
 -- by='human'  -> same as claude; a human verdict overrides Claude's
 CREATE TABLE IF NOT EXISTS verdicts(
@@ -75,6 +76,15 @@ CREATE TABLE IF NOT EXISTS verdicts(
   note TEXT DEFAULT '',
   created_at TEXT,
   PRIMARY KEY(fact_id, claim_key, by)
+);
+-- One row per locally verified fact: planted false claims (decoys) shown to the verifier and how many it accepted.
+CREATE TABLE IF NOT EXISTS decoy_checks(
+  fact_id INTEGER NOT NULL,
+  calls INTEGER,
+  decoys INTEGER,
+  accepted INTEGER,
+  discarded INTEGER,
+  created_at TEXT
 );
 CREATE TABLE IF NOT EXISTS log(
   id INTEGER PRIMARY KEY AUTOINCREMENT,

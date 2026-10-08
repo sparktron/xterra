@@ -14,6 +14,7 @@ from xw.crawl import build_chunks, discover, harvest
 from xw.export import export_all
 from xw.extract import extract_pending
 from xw.fetch import Blocked, Fetcher
+from xw.grounding import number_tokens, spec_grounded
 from xw.ingest import ingest_file
 from xw.llm import LLM
 from xw.parse.base import Post
@@ -38,17 +39,27 @@ class FakeLLM(LLM):
 
 
 class FakeVerifier(LLM):
-    """Verifier model: everything is 'supported' unless the claim contains one of the `bad` words."""
+    """Verifier model: everything is 'supported' unless the claim contains one of the `bad` words, or states a number
+    the source does not (which is how it catches the planted decoys, like a careful real verifier would).
+    `rubber_stamp=True` supports everything, decoys included."""
 
-    def __init__(self, cfg, bad=(), partial=()):
+    def __init__(self, cfg, bad=(), partial=(), rubber_stamp=False):
         super().__init__(cfg, client=httpx.Client())
-        self.bad, self.partial = bad, partial
+        self.bad, self.partial, self.rubber_stamp = bad, partial, rubber_stamp
+        self.calls = 0
 
     def chat_json(self, system, user, schema=None):
-        claims = re.findall(r"^(\d+)\. (.*)$", user.split("CLAIMS:\n", 1)[1], re.M)
+        self.calls += 1
+        source, listing = user.split("SOURCE TEXT:\n", 1)[1].split("\n\nCLAIMS:\n", 1)
+        claims = re.findall(r"^(\d+)\. (.*)$", listing, re.M)
         out = []
         for i, text in claims:
-            verdict = "unsupported" if any(b in text for b in self.bad) else "partial" if any(p in text for p in self.partial) else "supported"
+            if self.rubber_stamp:
+                verdict = "supported"
+            elif any(b in text for b in self.bad) or (number_tokens(text) and not spec_grounded(text, "", source)):
+                verdict = "unsupported"
+            else:
+                verdict = "partial" if any(p in text for p in self.partial) else "supported"
             out.append({"id": int(i), "verdict": verdict})
         return {"verdicts": out}
 
@@ -219,7 +230,8 @@ def test_verifier_disagreement_withholds_claims_and_whole_procedures(cfg, conn, 
     assert "## Procedure" not in page and "Remove the pivot bolts" not in page   # one bad step withholds the whole procedure
     assert "Final-tighten" not in page                                          # 'partial' is not enough
     assert "local verifier: unsupported" in oq and "local verifier: partial" in oq
-    assert "21mm socket" in page                                                # unrelated verified tool still published
+    assert "pickle fork" in page                                                # unrelated verified tool still published
+    assert "21mm socket" not in page and "number not found in source" in oq     # "21" is not in this source
 
 
 def test_agreeing_threads_are_consensus_and_disputes_are_withheld(cfg, conn, tmp_path):
@@ -262,6 +274,7 @@ def test_review_queue_prioritises_and_measures_the_verifier(cfg, conn, tmp_path)
     assert top["id"] == f"f{fid}:spec:0" and top["priority"] == 0 and "corroboration" in top["why_queued"]
     assert "83 ft-lb" in top["excerpt"] and top["source_url"] == "https://a.invalid/1"
     assert items[f"f{fid}:step:1"]["why_queued"] == "local verifier answered partial"
+    assert items[f"f{fid}:complete"]["why_queued"] == "local verifier answered partial"    # the list includes that step
     assert any(i["priority"] == 2 for i in batch["items"])                           # audit sample present
     assert "Do not use outside knowledge" in batch["instructions"]
     assert export_review(cfg, conn, TopicIndex(cfg.topics)) == []                  # already-batched items are not re-queued
@@ -269,12 +282,13 @@ def test_review_queue_prioritises_and_measures_the_verifier(cfg, conn, tmp_path)
     stats = claude_verdicts(cfg, conn, [
         {"id": f"f{fid}:spec:0", "verdict": "approve"},
         {"id": f"f{fid}:step:1", "verdict": "approve", "note": "fine"},
+        {"id": f"f{fid}:complete", "verdict": "approve", "note": "no step left out"},
         {"id": f"f{fid}:tip:0", "verdict": "reject", "note": "excerpt does not mention it"},   # audited 'supported' claim Claude rejects
         {"id": "f999:spec:0", "verdict": "approve"},                                           # unknown fact
         {"id": f"f{fid}:spec:0", "verdict": "maybe"},                                          # invalid verdict
         {"id": "garbage", "verdict": "approve"},
     ])
-    assert stats["applied"] == 3 and stats["invalid"] == 3
+    assert stats["applied"] == 4 and stats["invalid"] == 3
     assert stats["audited_rejected"] >= 1 and stats["verifier_false_accept_rate"] > 0
     export(cfg, conn)
     page = page_text(cfg)
@@ -299,6 +313,8 @@ def test_qa_catches_tampering(cfg, conn, tmp_path):
     assert any("not found in cited thread" in v for v in check_wiki(cfg, conn))
     path.write_text(good.replace("(community-consensus, 2 threads)", "([Unverified] single report)"))
     assert any("without corroboration" in v for v in check_wiki(cfg, conn))
+    path.write_text(good.replace("83 ft-lb [t1, t2]", "83 in-lb [t1, t2]"))
+    assert any("unit not found" in v for v in check_wiki(cfg, conn))
     path.write_text(good.replace("(54500-EA000)", "(77777-AB123)"))
     assert any("part number not found" in v for v in check_wiki(cfg, conn))
     path.write_text(good.replace("[t1, t2]", "[t1, t9]"))
@@ -462,3 +478,140 @@ def test_terminal_chunk_failure_marks_thread_error(cfg, conn, tmp_path):
     assert conn.execute("SELECT status FROM threads").fetchone()[0] == "error"
     export(cfg, conn)
     assert "extraction failed" in (cfg.wiki_dir / "open_questions.md").read_text()
+
+
+# ---- regressions from the approach review (2026-10-07) -----------------------------------------
+NOTE_A = "Lower control arm job on a 2008. Torque the inner pivot bolts to 83 ft-lb on the lower arm. " * 6
+
+
+def test_verifier_that_accepts_decoys_is_discarded(cfg, conn, tmp_path):
+    from xw.verify import DECOY_FAILED, decoy_stats
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    stamp = FakeVerifier(cfg, rubber_stamp=True)
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=stamp)
+    assert stamp.calls == 2                                                   # one retry with fresh decoys, then give up
+    local = {v["verdict"] for v in conn.execute("SELECT verdict FROM verdicts WHERE by='local'")}
+    assert local == {DECOY_FAILED}
+    d = decoy_stats(conn)
+    assert d["accepted"] == d["decoys"] >= 2 and d["discarded_calls"] == 2
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "_No verified summary yet._" in page and "## Procedure" not in page and "pickle fork" not in page
+    assert "local verifier: decoy_failed" in (cfg.wiki_dir / "open_questions.md").read_text()
+    batch = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())
+    assert any("planted false claim" in i["why_queued"] for i in batch["items"])   # a stronger reviewer can rescue them
+
+
+def test_decoys_are_false_by_construction_and_honest_verifier_passes():
+    import random
+    from xw.verify import make_decoy
+    src = "Torque the inner pivot bolts to 83 ft-lb. The 2008 needs part 54500-EA000."
+    rng = random.Random("t")
+    for claim in ("Inner pivot bolt torque: 83 ft-lb", "Part: Lower control arm 54500-EA000", "Support the truck on stands"):
+        for _ in range(20):
+            decoy = make_decoy(claim, src, rng)
+            assert decoy != claim and not spec_grounded(decoy, "", src)       # it states a number the source never does
+
+
+def test_verify_only_runs_missing_claims_and_redo_reruns(cfg, conn, tmp_path):
+    from xw.verify import decoy_stats
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    v = FakeVerifier(cfg)
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=v)
+    assert decoy_stats(conn)["accepted"] == 0 and v.calls == 1
+    conn.execute("DELETE FROM verdicts WHERE claim_key='complete'")        # e.g. a claim type added after the fact was verified
+    conn.commit()
+    assert verify_pending(cfg, conn, v, log=lambda m: None) == 1 and v.calls == 2
+    assert conn.execute("SELECT verdict FROM verdicts WHERE claim_key='complete'").fetchone()[0] == "supported"
+    assert verify_pending(cfg, conn, v, log=lambda m: None) == 0           # nothing missing
+    assert verify_pending(cfg, conn, v, redo=True, log=lambda m: None) == 1
+
+
+def test_same_author_in_two_threads_is_not_consensus(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [
+        ("a", "Write-up a on a 2008 lower arm: torque the inner pivot bolt to 83 ft-lb on the lower arm. " * 6, "alice"),
+        ("b", "Write-up b on a 2009 lower arm: torque the inner pivot bolt to 83 ft-lb on the lower arm. " * 6, "Alice"),
+    ])
+    s = spec("83", "torque the inner pivot bolt to 83 ft-lb")
+    extract_and_verify(cfg, conn, [(w, {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]}) for w in ("Write-up a", "Write-up b")])
+    export(cfg, conn)
+    assert "83 ft-lb" not in page_text(cfg)
+    assert "1 distinct known author" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "confidence: community-consensus" not in page_text(cfg)
+
+
+def test_review_queue_counts_corroboration_like_the_exporter(cfg, conn, tmp_path):
+    """Thread b states the same value but its verifier pass rejected it, so the exporter has one supporting thread
+    and withholds the value. The queue must offer it for review at priority 0, not skip it as already corroborated."""
+    class RejectsB(FakeVerifier):
+        def chat_json(self, system, user, schema=None):
+            out = super().chat_json(system, user, schema)
+            if "Write-up b" in user:
+                out = {"verdicts": [{"id": v["id"], "verdict": "unsupported"} for v in out["verdicts"]]}
+            return out
+
+    add_notes(cfg, conn, tmp_path, [
+        ("a", "Write-up a on a 2008 lower arm: torque the inner pivot bolt to 83 ft-lb on the lower arm. " * 6, "alice"),
+        ("b", "Write-up b on a 2009 lower arm: torque the inner pivot bolt to 83 ft-lb on the lower arm. " * 6, "bob"),
+    ])
+    s = spec("83", "torque the inner pivot bolt to 83 ft-lb")
+    extract_and_verify(cfg, conn, [(w, {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]}) for w in ("Write-up a", "Write-up b")],
+                       verifier=RejectsB(cfg))
+    export(cfg, conn)
+    assert "only 1 thread" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    batch = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())
+    top = batch["items"][0]
+    assert top["id"] == f"f{fact_id(conn)}:spec:0" and top["priority"] == 0 and "only 1 thread" in top["why_queued"]
+
+
+def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Refill the diff with 2.75 qt of gear oil. " * 3, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        steps=["Support the truck on stands", "Torque the pivot bolts to 83 ft-lb with the arm loaded"],
+        tips=["Top off the diff with 2.75 qt afterwards"], parts=[], diagram_links=[],
+        specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")])]})])
+    export(cfg, conn)
+    page, oq = page_text(cfg), (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "## Procedure" not in page and "2.75" not in page and "83 ft-lb" not in page   # spec is single-source -> pending
+    assert "not published as a corroborated spec: 83 ft-lb" in oq and "2.75 qt" in oq
+    assert check_wiki(cfg, conn) == []
+
+    fid = fact_id(conn)
+    claude_verdicts(cfg, conn, [{"id": f"f{fid}:spec:0", "verdict": "approve"}])     # the spec publishes -> the step may cite it
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "Torque the pivot bolts to 83 ft-lb" in page and "2.75" not in page
+    assert check_wiki(cfg, conn) == []
+
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- Fill it with 6 qt first [t1]\n\n## Tools"))
+    assert any("outside the specifications: 6 qt" in v for v in check_wiki(cfg, conn))
+    # a spec-shaped line outside Specifications must not count as a published spec (and exempt itself)
+    path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- **Torque**: 99 ft-lb [t1] (community-consensus, 2 threads)\n\n## Tools"))
+    assert any("outside the specifications: 99 ft-lb" in v for v in check_wiki(cfg, conn))
+
+
+def test_incomplete_procedure_is_withheld(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
+                       verifier=FakeVerifier(cfg, partial=("whole procedure",)))
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # every step supported, list incomplete
+    assert "completeness (procedure withheld)" in (cfg.wiki_dir / "open_questions.md").read_text()
+
+
+def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("codes", "P0340 camshaft position sensor circuit. I bought my 2008 Xterra from a guy with a Frontier. "
+                                              "Usually the sensor or its connector; check the connector first. " * 6, "carol")])
+    fact = {"category": "diagnostics", "topic": "Engine trouble codes (VQ40DE)", "title": "P0340", "summary": "Cam sensor fault.",
+            "years": [2008], "shared_platform": ["Frontier"],
+            "dtcs": [{"code": "P0340", "description": "Camshaft position sensor circuit", "causes": ["Sensor"]}]}
+    extract_and_verify(cfg, conn, [("P0340", {"relevant": True, "facts": [fact]})],
+                       verifier=FakeVerifier(cfg, bad=("applies to model years", "also applies to the Nissan")))
+    export(cfg, conn)
+    page = page_text(cfg, "diagnostics", TopicIndex(cfg.topics).resolve("Engine trouble codes (VQ40DE)", "diagnostics").slug)
+    front = page.split("---")[1]
+    assert "2008" not in front and "Frontier" not in front and "Cam sensor fault." in page
+    assert "| Frontier" not in (cfg.wiki_dir / "interchange.md").read_text()
+    oq = (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "applicability" in oq and "shared platform" in oq
