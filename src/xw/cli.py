@@ -18,7 +18,7 @@ from .llm import LLM
 from .qa import check_wiki
 from .review import apply_reviews, export_review
 from .topics import TopicIndex
-from .verify import verify_pending
+from .verify import decoy_stats, verify_pending
 
 
 def _open(args: argparse.Namespace) -> tuple[Config, sqlite3.Connection]:
@@ -61,6 +61,7 @@ def cmd_status(args: argparse.Namespace) -> int:
         n = {k: conn.execute(sql, (s["id"],)).fetchone()[0] for k, sql in queries.items()}
         status = s["status"] if s["enabled"] else "(disabled)"
         print(f"{s['id']:<22}{status:<13}{s['fetch_count']:>8}{n['threads']:>9}{n['queued']:>8}{n['todo']:>13}{n['facts']:>7}  {s['reason']}")
+    _print_decoys(conn)
     return 0
 
 
@@ -95,14 +96,24 @@ def _extract(cfg: Config, conn: sqlite3.Connection, source: str | None, limit: i
     return extract_pending(cfg, conn, LLM(cfg), topics, source_id=source, limit=limit)
 
 
-def _verify(cfg: Config, conn: sqlite3.Connection, limit: int | None = None) -> int:
+def _verify(cfg: Config, conn: sqlite3.Connection, limit: int | None = None, redo: bool = False) -> int:
     model = cfg.verify.get("verify_model") or None
-    return verify_pending(cfg, conn, LLM(cfg, model=model), limit=limit)
+    return verify_pending(cfg, conn, LLM(cfg, model=model), limit=limit, redo=redo)
+
+
+def _print_decoys(conn: sqlite3.Connection) -> None:
+    d = decoy_stats(conn)
+    if d["decoy_accept_rate"] is None:
+        print("verifier decoys: none run yet")
+        return
+    print(f"verifier decoys: accepted {d['accepted']}/{d['decoys']} ({d['decoy_accept_rate']:.0%}) over {d['calls']} call(s); "
+          f"{d['discarded_calls']} call(s) discarded")
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
-    print(f"verified {_verify(cfg, conn, args.limit)} fact(s)")
+    print(f"verified {_verify(cfg, conn, args.limit, args.redo)} fact(s)")
+    _print_decoys(conn)
     return 0
 
 
@@ -258,6 +269,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     v = sub.add_parser("verify", help="local-model fact-check of every extracted claim against its source text")
     v.add_argument("--limit", type=int)
+    v.add_argument("--redo", action="store_true", help="re-verify every claim, not only claims without a local verdict")
     v.set_defaults(fn=cmd_verify)
 
     sub.add_parser("export", help="build wiki/ from verified facts").set_defaults(fn=cmd_export)

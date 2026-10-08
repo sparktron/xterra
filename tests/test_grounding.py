@@ -72,3 +72,30 @@ def test_ground_fact_alignment_requires_evidence():
     g = ground_fact(fact, TEXT)
     assert g["parts"] == [True, False, False, True]   # number in text but no quote -> not trusted; no part number -> nothing to check
     assert g["specs"] == [True, False, False, False]
+
+
+def test_unit_must_match_the_source():
+    from xw.grounding import spec_evidenced, unit_grounded
+    assert unit_grounded("80", "ft-lb", "torque to 80 ft lbs") and unit_grounded("80-90", "ft-lb", "80 to 90 foot pounds")
+    assert not unit_grounded("80", "ft-lb", "torque to 80 in-lbs")                 # 12x error: inch-pounds
+    assert not unit_grounded("80", "ft-lb", "torque to 80 Nm")
+    assert not unit_grounded("83", "ft-lb", "torque to 83")                        # unit the source never states
+    assert unit_grounded("9", "N·m", "9 Nm (80 in-lb)") and not unit_grounded("9", "in-lb", "9 Nm (80 in-lb)")
+    assert unit_grounded("83", "", "83 Nm")                                        # no unit claimed, nothing to check
+    s = Spec(item="Pivot bolt", value="80", unit="ft-lb", evidence="tighten the pivot bolt to 80 in-lbs")
+    assert not spec_evidenced(s, "Then tighten the pivot bolt to 80 in-lbs and lower it.")
+
+
+def test_units_attach_only_to_adjacent_numbers():
+    from xw.grounding import numbers_grounded, safety_values
+    assert safety_values("Remove the 2 sway bar bolts") == set()
+    assert safety_values("the 4.0L engine") == set()                               # displacement, not a capacity
+    assert safety_values("2.75 qt (2.6 L), 35psi, ft-lbs: 80") == {("2.75", "qt"), ("2.6", "L"), ("35", "psi"), ("80", "ft-lb")}
+    assert numbers_grounded("Remove the 2 bolts", "remove the two bolts") and not numbers_grounded("Use a 21mm socket", "a 19mm socket")
+
+
+def test_dedupe_keeps_disagreeing_numbers_apart():
+    from xw.export import _dedupe
+    merged = _dedupe([("Replace the 15 amp fuse under the dash", "t1"), ("Replace the 20 amp fuse under the dash", "t2"),
+                      ("Replace the 15 amp fuse under the dash.", "t3")])
+    assert merged == [("Replace the 15 amp fuse under the dash", ["t1", "t3"]), ("Replace the 20 amp fuse under the dash", ["t2"])]

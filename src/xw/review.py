@@ -8,8 +8,9 @@ What goes to Claude is only the claim and a short excerpt of public forum text o
 never the whole database. Nothing is sent anywhere by this code: you run the review step yourself.
 
 Review queue, in priority order:
-  0. safety-critical values that passed the evidence checks but are not corroborated
-  1. claims the local verifier judged "partial" (rescue or confirm the withholding)
+  0. safety-critical values the exporter is holding in pending_verification.md (taken from the exporter itself,
+     so the queue counts corroboration exactly as the gate does)
+  1. claims the local verifier judged "partial", or that it could not judge because it accepted a decoy
   2. an audit sample (verify.audit_rate) of claims the local verifier said "supported", used to measure
      how often the local verifier waves bad claims through
 Claims the verifier judged "unsupported", and anything failing the deterministic evidence checks, are never queued.
@@ -20,24 +21,29 @@ import hashlib
 import json
 import re
 import sqlite3
-from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
 from .config import Config
 from .db import now
-from .export import FactRow, Policy, gate, is_safety, load_rows
+from .export import Policy, load_rows, pending_spec_keys
 from .topics import TopicIndex
-from .verify import claims_for_fact
+from .verify import DECOY_FAILED, claims_for_fact
 
 REVIEW_VERDICTS = ("approve", "reject", "needs_human")
-CLAIM_KEY = re.compile(r"^(summary|symptom:\d+|step:\d+|tool:\d+|tip:\d+|mistake:\d+|spec:\d+|part:\d+|dtc:\d+)$")
+CLAIM_KEY = re.compile(r"^(summary|symptom:\d+|step:\d+|complete|tool:\d+|tip:\d+|mistake:\d+|spec:\d+|part:\d+|dtc:\d+"
+                       r"|applies|platform|difficulty|time)$")
+_PROSE = {"step": "steps", "tip": "tips", "mistake": "mistakes", "symptom": "symptoms", "tool": "tools"}
 
 INSTRUCTIONS = (
     "Judge each item ONLY against its `excerpt`. Do not use outside knowledge to approve anything. "
     "approve = the excerpt clearly states the claim (numbers, units, part numbers and conditions all match). "
     "reject = the excerpt does not state it, states something different, or it applies to another vehicle/year. "
     "needs_human = ambiguous, or it conflicts with something you know (say what in `note`; do not approve on your own memory). "
+    "kind `complete` claims a step list is the whole procedure: approve only if the excerpt plainly covers the whole job "
+    "and mentions no step, precaution or part the list leaves out; if the excerpt may be cut short, answer needs_human. "
+    "kind `applies`/`platform`: approve only if the excerpt says the repair or part applies to those years, trims or vehicles, "
+    "not merely that they are mentioned. "
     "Be strict: when unsure, do not approve. Write {\"verdicts\": [{\"id\": ..., \"verdict\": ..., \"note\": ...}]} to the verdict_file."
 )
 
@@ -75,13 +81,7 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
     policy = Policy.from_cfg(cfg)
     rows = load_rows(conn)
     chunk_text = {r["id"]: r["text"] for r in conn.execute("SELECT f.id, c.text FROM facts f JOIN chunks c ON c.id=f.chunk_id")}
-
-    support: dict[tuple[str, str, str], set[int]] = defaultdict(set)  # (topic, item, value) -> threads
-    for r in rows:
-        t = topics.resolve(r.fact.topic, r.fact.category)
-        for i, s in enumerate(r.fact.specs):
-            if r.grounding["specs"][i]:
-                support[(t.slug, re.sub(r"\W+", "", s.item.lower()), re.sub(r"\W+", "", f"{s.value}{s.unit}".lower()))].add(r.thread_id)
+    pending = pending_spec_keys(rows, topics, policy, (cfg.scope.years[0], cfg.scope.years[1]))
 
     queue: list[dict[str, Any]] = []
     for r in rows:
@@ -92,23 +92,20 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
             kind, _, idx = key.partition(":")
             if r.verdicts.get(key, {}).get("human") or r.verdicts.get(key, {}).get("claude"):
                 continue  # already reviewed
-            if kind == "spec" and not r.grounding["specs"][int(idx)]:
+            if kind in ("spec", "part", "dtc") and not r.grounding[kind + "s"][int(idx)]:
+                continue  # fails the deterministic evidence checks: a reviewer cannot rescue it
+            if kind in _PROSE and not r.grounding["numbers"][_PROSE[kind]][int(idx)]:
                 continue
-            if kind == "part" and not r.grounding["parts"][int(idx)]:
-                continue
-            if kind == "dtc" and not r.grounding["dtcs"][int(idx)]:
-                continue
-            if kind in ("step", "tip", "mistake", "symptom") and r.grounding["copied"][{"step": "steps", "tip": "tips", "mistake": "mistakes", "symptom": "symptoms"}[kind]][int(idx)]:
+            if kind in _PROSE and kind != "tool" and r.grounding["copied"][_PROSE[kind]][int(idx)]:
                 continue
             local = r.verdicts.get(key, {}).get("local")
             why, prio = "", None
-            if kind == "spec":
-                s = r.fact.specs[int(idx)]
-                sig = (topic.slug, re.sub(r"\W+", "", s.item.lower()), re.sub(r"\W+", "", f"{s.value}{s.unit}".lower()))
-                if is_safety(s.value, s.unit, s.safety_critical, s.item) and len(support[sig]) < max(2, policy.safety_min_threads) and local in ("supported", "partial"):
-                    why, prio = "safety-critical value awaiting corroboration", 0
+            if (r.id, key) in pending:
+                why, prio = f"safety-critical value awaiting corroboration ({pending[(r.id, key)]})", 0
             if prio is None and local == "partial":
                 why, prio = "local verifier answered partial", 1
+            if prio is None and local == DECOY_FAILED:
+                why, prio = "local verifier could not be trusted on this call (it accepted a planted false claim)", 1
             if prio is None and local == "supported" and _audit_pick(r.id, key, float(cfg.review.audit_rate)):
                 why, prio = "audit sample of a locally-supported claim", 2
             if prio is None:
@@ -116,7 +113,7 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
             queue.append({
                 "id": f"f{r.id}:{key}", "priority": prio, "why_queued": why, "kind": kind, "page": topic.title,
                 "claim": claim, "evidence_quote": evidence.get(key, ""),
-                "excerpt": excerpt_for(claim, evidence.get(key, ""), text, int(cfg.review.excerpt_chars)),
+                "excerpt": excerpt_for(claim, evidence.get(key, ""), text, int(cfg.review.excerpt_chars) * (3 if kind == "complete" else 1)),
                 "source_url": r.url, "thread_title": r.thread_title, "local_verdict": local or "not run",
             })
     queue.sort(key=lambda q: (q["priority"], q["id"]))

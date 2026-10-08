@@ -25,20 +25,37 @@ The local model is not trusted. Each item names the guarding test, or says none 
 - **Fail closed.** A claim publishes only if the verifier said `supported` (or a reviewer approved it).
   `verify.require_local_pass` must stay true; a missing verifier run publishes nothing.
   Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`.
-- **Procedures publish all-or-nothing.** One unsupported step withholds the whole procedure.
-- **Grounding means "appears in the source", not "is correct".** Numbers, part numbers, DTCs and links must
-  appear in the chunk; spec/part `evidence` must be a real quote (`grounding.evidence_in_text`).
+- **Every verifier call carries decoys.** `verify.make_decoy` plants one or two claims that state a number the source
+  never states; a call that calls one `supported` is retried once, then its claims are stored as `decoy_failed` (withheld).
+  `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,
+  `test_decoys_are_false_by_construction_and_honest_verifier_passes`. Test fakes must reject claims whose numbers are
+  not in the source, or every call is discarded.
+- **Procedures publish all-or-nothing.** One unsupported step, or an unsupported `complete` claim (the list leaves
+  nothing out), withholds the whole procedure. Test: `test_incomplete_procedure_is_withheld`.
+- **Grounding means "appears in the source", not "is correct".** Numbers (in specs and in prose), part numbers,
+  DTCs and links must appear in the chunk; spec/part `evidence` must be a real quote (`grounding.evidence_in_text`);
+  a unit a spec gives must be the unit the quote puts on that number (`grounding.unit_grounded`).
   `ground_fact` returns lists index-aligned with the fact's lists; a new list field on `Fact` needs a matching
-  entry. Tests: `tests/test_grounding.py`.
+  entry. `export.load_rows` recomputes grounding from chunk text on every export (`facts.grounding_json` is not read),
+  so a tightened rule applies to old facts. Tests: `tests/test_grounding.py`.
 - **Safety classification is deterministic.** `export.is_safety` (torque, capacities, pressure, preload) never
   relies on the model's `safety_critical` flag, which defaults to false.
   Test: `test_non_torque_safety_values_are_classified_deterministically`.
-- **Single-source safety values are withheld** (`verify.safety_min_threads: 2`, a manufacturer source, or a
-  reviewer's approval); disputed values are withheld. Tests: `test_single_source_safety_value_is_withheld_until_reviewed`,
-  `test_agreeing_threads_are_consensus_and_disputes_are_withheld`.
+- **Single-source safety values are withheld** (`verify.safety_min_threads: 2` threads with as many distinct
+  authors, a manufacturer source, or a reviewer's approval); disputed values are withheld.
+  Tests: `test_single_source_safety_value_is_withheld_until_reviewed`, `test_agreeing_threads_are_consensus_and_disputes_are_withheld`,
+  `test_same_author_in_two_threads_is_not_consensus`.
+- **A safety value in prose needs a published spec.** A torque, capacity or pressure value (`grounding.safety_values`)
+  in a summary, step, tip, tool, part or DTC text publishes only if the same number and unit published as a spec on
+  that page (DTC table: never); `qa` enforces it. Test: `test_safety_values_in_prose_need_a_published_spec`.
+- **The review queue takes pending values from the exporter** (`export.pending_spec_keys`), so it counts
+  corroboration exactly as the gate does. Test: `test_review_queue_counts_corroboration_like_the_exporter`.
+- **Near-duplicate merging never merges different numbers** (`export._similar`). Test: `test_dedupe_keeps_disagreeing_numbers_apart`.
 - **Everything published must have been verified.** `verify.claims_for_fact` must list every field the exporter
-  prints (part notes and DTC causes/tests/fix included). Add a published field, add its claim.
-  Tests: `test_verifier_sees_part_notes_and_dtc_advice`, `test_unverified_dtc_advice_is_not_published`.
+  prints: part notes, DTC causes/tests/fix, and the front matter and interchange metadata (`applies`: years, trims,
+  engines, drivetrain; `platform`; `difficulty`; `time`). Add a published field, add its claim, and add its key to
+  `review.CLAIM_KEY`. Tests: `test_verifier_sees_part_notes_and_dtc_advice`, `test_unverified_dtc_advice_is_not_published`,
+  `test_applicability_and_interchange_need_their_own_verdict`.
 - **No verbatim copying.** Text sharing a 12-word run with the source is dropped (`has_long_overlap`); the wiki
   paraphrases. Test: `test_copied_text_and_unstated_metadata_are_not_published`.
 - **`qa.py` is coupled to the page format.** Its `SPEC_LINE`/`PART_LINE` regexes parse what `export.render_page`

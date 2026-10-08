@@ -1,13 +1,16 @@
 """Merge verified facts from every source into wiki pages and reference files.
 
 Publish policy (fail closed; see README "Verification"):
-  1. Evidence: numbers, part numbers, codes and links must be traceable to the source text (grounding.py).
-  2. Local verifier: prose claims publish only when the local verifier said "supported"
-     (verify.require_local_pass). A procedure is published all-or-nothing: one unverified step withholds
-     the whole list, because a missing step is dangerous.
+  1. Evidence: numbers (with their units), part numbers, codes and links must be traceable to the source text
+     (grounding.py). Grounding is recomputed from the chunk text on every export, so a stricter rule applies to
+     facts extracted before it.
+  2. Local verifier: prose claims and metadata (years, trims, shared platform, difficulty, time) publish only when
+     the local verifier said "supported" (verify.require_local_pass). A procedure is published all-or-nothing: one
+     unverified step, or a failed completeness check, withholds the whole list, because a missing step is dangerous.
   3. Safety-critical values (torque, brake/steering/suspension/driveline fasteners, fluid specs) additionally
-     need >= verify.safety_min_threads agreeing threads, a manufacturer source, or a reviewer's approval.
-     Otherwise they go to wiki/pending_verification.md and are NOT in the page body.
+     need >= verify.safety_min_threads agreeing threads from as many distinct authors, a manufacturer source, or a
+     reviewer's approval. Otherwise they go to wiki/pending_verification.md and are NOT in the page body.
+     A torque, capacity or pressure value inside prose publishes only if the same value published as a spec.
   4. A reviewer's (Claude's or a human's) "reject"/"needs_human" always withholds; a human verdict overrides Claude's.
   5. Text copied verbatim from the source is withheld (the wiki must be reworded).
 Output is deterministic so git diffs stay small.
@@ -27,6 +30,7 @@ from typing import Any
 import yaml
 
 from .config import Config
+from .grounding import ground_fact, number_tokens, safety_values
 from .schemas import Fact
 from .topics import Topic, TopicIndex
 
@@ -97,12 +101,18 @@ def _norm_value(value: str, unit: str) -> str:
     return re.sub(r"[\s,]+", "", v)
 
 
+def _similar(a: str, b: str, threshold: float) -> bool:
+    """Near-identical wording AND the same numbers. "Torque to 150 ft-lb" and "Torque to 180 ft-lb" are a
+    disagreement, not a duplicate; merging them would cite the dissenting thread as support."""
+    return sorted(number_tokens(a)) == sorted(number_tokens(b)) and SequenceMatcher(None, _norm(a), _norm(b)).ratio() >= threshold
+
+
 def _dedupe(items: list[tuple[str, str]]) -> list[tuple[str, list[str]]]:
     """items: (text, sid). Near-duplicate texts merge; returns (text, [sids])."""
     kept: list[tuple[str, list[str]]] = []
     for text, sid in items:
         for k, sids in kept:
-            if SequenceMatcher(None, _norm(text), _norm(k)).ratio() >= 0.88:
+            if _similar(text, k, 0.88):
                 if sid not in sids:
                     sids.append(sid)
                 break
@@ -126,15 +136,18 @@ def load_rows(conn: sqlite3.Connection) -> list[FactRow]:
     verdicts: dict[int, Verdicts] = defaultdict(lambda: defaultdict(dict))
     for v in conn.execute("SELECT fact_id, claim_key, by, verdict FROM verdicts"):
         verdicts[v["fact_id"]][v["claim_key"]][v["by"]] = v["verdict"]
-    q = """SELECT f.id, f.thread_id, f.fact_json, f.grounding_json, t.url, t.title, t.author, t.posted,
+    q = """SELECT f.id, f.thread_id, f.fact_json, c.text AS chunk_text, t.url, t.title, t.author, t.posted,
                   s.id AS sid, s.type AS stype, s.trust
-           FROM facts f JOIN threads t ON t.id=f.thread_id JOIN sources s ON s.id=t.source_id ORDER BY f.id"""
-    return [
-        FactRow(r["id"], r["thread_id"], r["sid"], r["stype"], r["trust"], r["url"], r["title"], r["author"], r["posted"],
-                Fact.model_validate_json(r["fact_json"]), json.loads(r["grounding_json"]),
-                {k: dict(v) for k, v in verdicts.get(r["id"], {}).items()})
-        for r in conn.execute(q)
-    ]
+           FROM facts f JOIN chunks c ON c.id=f.chunk_id JOIN threads t ON t.id=f.thread_id JOIN sources s ON s.id=t.source_id
+           ORDER BY f.id"""
+    rows = []
+    for r in conn.execute(q):
+        fact = Fact.model_validate_json(r["fact_json"])
+        # grounding is recomputed (not read from facts.grounding_json) so tightened rules reach older facts
+        rows.append(FactRow(r["id"], r["thread_id"], r["sid"], r["stype"], r["trust"], r["url"], r["title"], r["author"],
+                            r["posted"], fact, ground_fact(fact, r["chunk_text"]),
+                            {k: dict(v) for k, v in verdicts.get(r["id"], {}).items()}))
+    return rows
 
 
 @dataclass
@@ -164,7 +177,7 @@ def confidence_for(page: Page, contributing: list[FactRow] | None = None) -> str
     if any(r.source_type == "manufacturer" for r in rows):
         return "confirmed"
     threads = {r.thread_id for r in rows}
-    authors = {r.author for r in rows if r.author}
+    authors = {r.author.strip().lower() for r in rows if r.author.strip()}
     if len(threads) >= 2 and len(authors) >= 2:
         return "community-consensus"
     return "[Unverified]"
@@ -193,55 +206,10 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
     diagrams: list[tuple[str, str]] = []
     contrib: set[int] = set()   # fact-row ids that contributed a published claim
 
+    # pass 1: values (parts, specs, diagrams)
+    part_rows: list[tuple[FactRow, int, Any]] = []
     for r in rows:
         f, g, sid = r.fact, r.grounding, r.sid
-        copied = g["copied"]
-
-        if f.summary:
-            ok, tag, why = gate(r, "summary", policy)
-            if copied["summary"]:
-                drop(r, "summary", f.summary, "verbatim overlap with source")
-            elif not ok:
-                drop(r, "summary", f.summary, why)
-            else:
-                page.reviewed_items += bool(tag)
-                summaries.append((f.summary, sid))
-                contrib.add(r.id)
-
-        # procedure: all-or-nothing
-        proc_ok = bool(f.steps)
-        for i, step in enumerate(f.steps):
-            ok, tag, why = gate(r, f"step:{i}", policy)
-            if copied["steps"][i] or not ok:
-                proc_ok = False
-                drop(r, f"step {i + 1} (procedure withheld)", step, "verbatim overlap with source" if copied["steps"][i] else why)
-            page.reviewed_items += bool(tag and ok)
-        steps_by_row.append((r, list(f.steps) if proc_ok else []))
-        if proc_ok:
-            contrib.add(r.id)
-
-        for key, lst, flags, dest in (("symptom", f.symptoms, copied["symptoms"], symptoms),
-                                      ("tip", f.tips, copied["tips"], tips),
-                                      ("mistake", f.mistakes, copied["mistakes"], mistakes)):
-            for i, text in enumerate(lst):
-                ok, tag, why = gate(r, f"{key}:{i}", policy)
-                if flags[i]:
-                    drop(r, key, text, "verbatim overlap with source")
-                elif not ok:
-                    drop(r, key, text, why)
-                else:
-                    page.reviewed_items += bool(tag)
-                    dest.append((text, sid))
-                    contrib.add(r.id)
-
-        for i, t in enumerate(f.tools):
-            ok, tag, why = gate(r, f"tool:{i}", policy)
-            if ok:
-                tools.append((t, sid))
-                contrib.add(r.id)
-            else:
-                drop(r, "tool", t, why)
-
         for i, p in enumerate(f.parts):
             if not g["parts"][i]:
                 drop(r, "part", f"{p.name} {p.part_number}", "part number/evidence not found in source")
@@ -250,19 +218,12 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             if not ok:
                 drop(r, "part", f"{p.name} {p.part_number}", why)
                 continue
-            page.reviewed_items += bool(tag)
-            contrib.add(r.id)
-            key = _norm(p.part_number) or _norm(p.name)
-            slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": []})
-            if p.notes and p.notes not in slot["notes"]:
-                slot["notes"].append(p.notes)
-            if sid not in slot["sids"]:
-                slot["sids"].append(sid)
+            part_rows.append((r, i, tag))
 
         for i, s in enumerate(f.specs):
             label = f"{s.item}: {s.value} {s.unit}".strip()
             if not g["specs"][i]:
-                drop(r, "spec", label, "value/evidence not found in source")
+                drop(r, "spec", label, "value/unit/evidence not found in source")
                 continue
             ok, tag, why = gate(r, f"spec:{i}", policy)
             if not ok:
@@ -270,11 +231,15 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 continue
             slot = specs.setdefault(_norm(s.item), {"item": s.item, "values": {}, "safety": False})
             v = slot["values"].setdefault(_norm_value(s.value, s.unit), {
-                "display": f"{s.value} {s.unit}".strip(), "sids": [], "threads": set(), "reviewed": "", "manufacturer": False, "url": r.url, "rids": set()})
+                "display": f"{s.value} {s.unit}".strip(), "sids": [], "threads": set(), "authors": set(), "reviewed": "",
+                "manufacturer": False, "url": r.url, "rids": set(), "keys": []})
             if sid not in v["sids"]:
                 v["sids"].append(sid)
             v["threads"].add(r.thread_id)
+            if r.author.strip():
+                v["authors"].add(r.author.strip().lower())
             v["rids"].add(r.id)
+            v["keys"].append((r.id, f"spec:{i}"))
             v["reviewed"] = v["reviewed"] or tag
             v["manufacturer"] = v["manufacturer"] or r.source_type == "manufacturer"
             slot["safety"] = slot["safety"] or is_safety(s.value, s.unit, s.safety_critical, s.item)
@@ -285,6 +250,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
 
     # specs: corroboration, disputes, and the safety-critical gate
     spec_lines: list[str] = []
+    published: set[tuple[str, str]] = set()   # (number, unit) of every published spec value on this page
     for slot in sorted(specs.values(), key=lambda s: s["item"].lower()):
         vals = list(slot["values"].values())
         strict = slot["safety"] and not policy.publish_unverified_safety
@@ -295,7 +261,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             elif strict:
                 page.disputes.append(slot["item"])
                 page.pending.append({"item": slot["item"], "value": " vs ".join(v["display"] for v in vals),
-                                     "why": "sources disagree", "url": vals[0]["url"]})
+                                     "why": "sources disagree", "url": vals[0]["url"], "keys": [k for v in vals for k in v["keys"]]})
                 continue
             else:
                 page.disputes.append(slot["item"])
@@ -304,37 +270,128 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 continue
         v = vals[0]
         n = len(v["threads"])
+        # independent reports: distinct threads AND distinct (known) authors, so one person cross-posting
+        # the same number in two threads is not consensus
+        n_ind = min(n, len(v["authors"]))
         if v["reviewed"]:
             tag = v["reviewed"]
         elif v["manufacturer"]:
             tag = "manufacturer source"
-        elif n >= 2 and (not strict or n >= policy.safety_min_threads):
+        elif n_ind >= 2 and (not strict or n_ind >= policy.safety_min_threads):
             tag = f"community-consensus, {n} threads"
-        elif strict and n < policy.safety_min_threads:
-            page.pending.append({"item": slot["item"], "value": v["display"], "why": f"only {n} thread(s); needs {policy.safety_min_threads} or a review", "url": v["url"]})
+        elif strict and n_ind < policy.safety_min_threads:
+            need = policy.safety_min_threads
+            why = (f"only {n} thread(s); needs {need} or a review" if n < need else
+                   f"{n} threads but {len(v['authors'])} distinct known author(s); needs {need} independent reports or a review")
+            page.pending.append({"item": slot["item"], "value": v["display"], "why": why, "url": v["url"], "keys": v["keys"]})
             continue
         else:
-            tag = "[Unverified] single report"
+            tag = "[Unverified] single report" if n == 1 else "[Unverified] not independently corroborated"
             if slot["safety"]:
                 page.single_source_safety.append(f"{slot['item']}: {v['display']}")
         page.reviewed_items += bool(v["reviewed"])
         contrib |= v["rids"]
+        published |= safety_values(v["display"])
         spec_lines.append(f"- **{slot['item']}**: {v['display']}{_fmt_src(v['sids'])} ({tag})")
+
+    def loose(text: str) -> str:
+        """Why `text` may not publish: it states a torque/capacity/pressure value that is not a published spec here."""
+        extra = sorted(safety_values(text) - published)
+        return ("safety-critical value not published as a corroborated spec: " + ", ".join(f"{n} {u}" for n, u in extra)) if extra else ""
+
+    for r, i, tag in part_rows:
+        p = r.fact.parts[i]
+        why = loose(p.name)
+        if why:
+            drop(r, "part", f"{p.name} {p.part_number}", why)
+            continue
+        page.reviewed_items += bool(tag)
+        contrib.add(r.id)
+        key = _norm(p.part_number) or _norm(p.name)
+        slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": []})
+        if p.notes and loose(p.notes):
+            drop(r, "part note", p.notes, loose(p.notes))
+        elif p.notes and p.notes not in slot["notes"]:
+            slot["notes"].append(p.notes)
+        if r.sid not in slot["sids"]:
+            slot["sids"].append(r.sid)
+
+    # pass 2: prose. Copied text, a number missing from the source, a verifier miss, or a loose safety value withholds it.
+    def prose(r: FactRow, key: str, text: str, copied: bool, numbers_ok: bool) -> tuple[bool, str, str]:
+        if copied:
+            return False, "", "verbatim overlap with source"
+        if not numbers_ok:
+            return False, "", "number not found in source"
+        ok, tag, why = gate(r, key, policy)
+        if not ok:
+            return False, "", why
+        why = loose(text)
+        return (False, "", why) if why else (True, tag, "")
+
+    for r in rows:
+        f, g, sid = r.fact, r.grounding, r.sid
+        copied, nums = g["copied"], g["numbers"]
+
+        if f.summary:
+            ok, tag, why = prose(r, "summary", f.summary, copied["summary"], nums["summary"])
+            if ok:
+                page.reviewed_items += bool(tag)
+                summaries.append((f.summary, sid))
+                contrib.add(r.id)
+            else:
+                drop(r, "summary", f.summary, why)
+
+        # procedure: all-or-nothing, and only when the verifier agreed the list leaves nothing out
+        proc_ok = bool(f.steps)
+        for i, step in enumerate(f.steps):
+            ok, tag, why = prose(r, f"step:{i}", step, copied["steps"][i], nums["steps"][i])
+            if not ok:
+                proc_ok = False
+                drop(r, f"step {i + 1} (procedure withheld)", step, why)
+            page.reviewed_items += bool(tag and ok)
+        if f.steps:
+            ok, tag, why = gate(r, "complete", policy)
+            if not ok:
+                proc_ok = False
+                drop(r, "completeness (procedure withheld)", "; ".join(f.steps), why)
+        steps_by_row.append((r, list(f.steps) if proc_ok else []))
+        if proc_ok:
+            contrib.add(r.id)
+
+        for key, lst, dest in (("symptom", f.symptoms, symptoms), ("tip", f.tips, tips), ("mistake", f.mistakes, mistakes),
+                               ("tool", f.tools, tools)):
+            for i, text in enumerate(lst):
+                ok, tag, why = prose(r, f"{key}:{i}", text, key != "tool" and copied[f"{key}s"][i], nums[f"{key}s"][i])
+                if ok:
+                    page.reviewed_items += bool(tag)
+                    dest.append((text, sid))
+                    contrib.add(r.id)
+                else:
+                    drop(r, key, text, why)
+
+        for key, present, label in (("applies", bool(f.years or f.trims or f.engines or f.drivetrain), "applicability"),
+                                    ("platform", bool(f.shared_platform), "shared platform")):
+            if present and not gate(r, key, policy)[0]:
+                drop(r, label, ", ".join(map(str, f.years + f.trims + f.engines + f.drivetrain)) if key == "applies"
+                     else ", ".join(f.shared_platform), gate(r, key, policy)[2])
 
     proc = [(r, s) for r, s in steps_by_row if s]
     proc.sort(key=lambda rs: (-len(rs[1]), -rs[0].trust, rs[0].id))
 
-    years = sorted({y for r in rows for y in r.fact.years if scope_years[0] <= y <= scope_years[1]})
-    diffs = sorted(r.fact.difficulty for r in rows if r.fact.difficulty)
-    est = Counter(r.fact.est_time for r in rows if r.fact.est_time).most_common(1)
+    # metadata is published only from facts whose metadata claim the verifier supported
+    applies = [r for r in rows if gate(r, "applies", policy)[0]]
+    platform = [r for r in rows if gate(r, "platform", policy)[0]]
+    years = sorted({y for r in applies for y in r.fact.years if scope_years[0] <= y <= scope_years[1]})
+    diffs = sorted(r.fact.difficulty for r in rows if r.fact.difficulty and gate(r, "difficulty", policy)[0])
+    est = Counter(r.fact.est_time for r in rows if r.fact.est_time and gate(r, "time", policy)[0]).most_common(1)
     conf = confidence_for(page, [r for r in rows if r.id in contrib])
     fm = {
         "title": page.topic.title,
         "category": page.topic.category,
-        "applies_to": {"years": years, "trims": sorted({t for r in rows for t in r.fact.trims}),
-                       "engine": sorted({e for r in rows for e in r.fact.engines}),
-                       "drivetrain": sorted({d for r in rows for d in r.fact.drivetrain})},
-        "shared_platform": sorted({s for r in rows for s in r.fact.shared_platform}),
+        "applies_to": {"years": years, "trims": sorted({t for r in applies for t in r.fact.trims}),
+                       "engine": sorted({e for r in applies for e in r.fact.engines}),
+                       "drivetrain": sorted({d for r in applies for d in r.fact.drivetrain})},
+        "shared_platform": sorted({s for r in platform for s in r.fact.shared_platform}),
         "difficulty": diffs[len(diffs) // 2] if diffs else None,
         "est_time": est[0][0] if est else None,
         "tools": [t for t, _ in _dedupe(tools)],
@@ -364,8 +421,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         r0, steps0 = proc[0]
         out += ["## Procedure", ""] + [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}]._", ""]
         for r, s in proc[1:]:
-            if SequenceMatcher(None, _norm(" ".join(s)), _norm(" ".join(steps0))).ratio() >= 0.85:
-                continue
+            if _similar(" ".join(s), " ".join(steps0), 0.85):
+                continue  # same procedure in other words; one with different numbers is shown as an alternate
             out += [f"<details><summary>Alternate procedure [{r.sid}]</summary>", ""] + [f"{i}. {x}" for i, x in enumerate(s, 1)] + ["", "</details>", ""]
     if fm["tools"]:
         out += ["## Tools", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(tools)] + [""]
@@ -403,19 +460,32 @@ def _write(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def pending_spec_keys(rows: list[FactRow], topics: TopicIndex, policy: Policy, scope_years: tuple[int, int]) -> dict[tuple[int, str], str]:
+    """{(fact_id, "spec:i"): why} for every spec value the exporter is holding in pending_verification.md.
+    The review queue uses this so it counts corroboration exactly the way the gate does."""
+    out: dict[tuple[int, str], str] = {}
+    for page in build_pages(rows, topics).values():
+        render_page(page, scope_years, policy)
+        for p in page.pending:
+            for key in p["keys"]:
+                out[key] = p["why"]
+    return out
+
+
 def _dtc_table(rows: list[FactRow], policy: Policy) -> list[list[str]]:
     by_code: dict[str, list[tuple[FactRow, Any]]] = defaultdict(list)
     for r in rows:
         for i, d in enumerate(r.fact.dtcs):
             if r.grounding["dtcs"][i] and gate(r, f"dtc:{i}", policy)[0]:
                 by_code[d.code.strip().upper()].append((r, d))
+    ok = lambda t: not safety_values(t)  # noqa: E731  (no spec gate stands behind the table, so no torque/capacity values)
     table = []
     for code in sorted(by_code):
         items = by_code[code]
-        desc = Counter(d.description for _, d in items if d.description).most_common(1)
-        causes = Counter(c.strip() for _, d in items for c in d.causes if c.strip())
-        tests = [t for t, _ in _dedupe([(t, "") for _, d in items for t in d.tests])]
-        fixes = [t for t, _ in _dedupe([(d.fix, "") for _, d in items if d.fix])]
+        desc = Counter(d.description for _, d in items if d.description and ok(d.description)).most_common(1)
+        causes = Counter(c.strip() for _, d in items for c in d.causes if c.strip() and ok(c))
+        tests = [t for t, _ in _dedupe([(t, "") for _, d in items for t in d.tests if ok(t)])]
+        fixes = [t for t, _ in _dedupe([(d.fix, "") for _, d in items if d.fix and ok(d.fix)])]
         table.append([code, desc[0][0] if desc else "", " | ".join(c for c, _ in causes.most_common(8)),
                       " | ".join(tests[:6]), " | ".join(fixes[:3]),
                       ",".join(sorted({r.sid for r, _ in items}, key=lambda s: int(s[1:])))])
@@ -479,14 +549,17 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     ic = [GENERATED, "# Xterra / Frontier / Titan interchange", "", "| Topic | Shared with | Years | Threads | Status |", "|---|---|---|---|---|"]
     grouped: dict[str, list[FactRow]] = defaultdict(list)
     for r in rows:
-        if r.fact.shared_platform and gate(r, "summary", policy)[0]:
+        # the verifier must have supported the shared-platform claim itself, not just some other part of the fact
+        if r.fact.shared_platform and gate(r, "platform", policy)[0]:
             grouped[topics.resolve(r.fact.topic, r.fact.category).title].append(r)
     for title in sorted(grouped):
         rs = grouped[title]
         n = len({r.thread_id for r in rs})
-        status = "confirmed" if any(r.source_type == "manufacturer" for r in rs) else ("community-consensus" if n >= 2 else "unconfirmed")
+        independent = min(n, len({r.author.strip().lower() for r in rs if r.author.strip()}))
+        status = "confirmed" if any(r.source_type == "manufacturer" for r in rs) else ("community-consensus" if independent >= 2 else "unconfirmed")
+        years = sorted({y for r in rs if gate(r, "applies", policy)[0] for y in r.fact.years})
         ic.append(f"| {title} | {', '.join(sorted({s for r in rs for s in r.fact.shared_platform}))} | "
-                  f"{', '.join(str(y) for y in sorted({y for r in rs for y in r.fact.years})) or 'n/a'} | {n} | {status} |")
+                  f"{', '.join(str(y) for y in years) or 'n/a'} | {n} | {status} |")
     _write(wiki / "interchange.md", "\n".join(ic) + "\n")
 
     src_rows = conn.execute(
