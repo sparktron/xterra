@@ -83,7 +83,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
 | `config/` | `settings.yaml`, `sources.yaml` (ranked sources), `topics.yaml` (seed page tree); `settings.local.yaml` is gitignored |
 | `prompts/` | `extract.md` and `verify.md`, the LLM system prompts |
 | `tests/` | Offline suite with HTML fixtures; no network or LLM server needed |
-| `wiki/` | Generated output; pages with the `GENERATED` header are overwritten by `xw export`. Untracked, except `wiki/encyclopedia/` |
+| `wiki/` | Generated output; pages with the `GENERATED` header are overwritten by `xw export`. Committed, so regenerate and review the diff before committing |
 | `wiki/encyclopedia/` | Hand-curated, committed reference pages (one per model year plus reference pages); edit by hand, cite every number |
 | `data/` | SQLite state and raw page cache. Gitignored; holds other people's posts |
 | `.claude/`, `.codex/`, `.agents/` | `/review-wiki` command and `wiki-reviewer` agent, per tool |
