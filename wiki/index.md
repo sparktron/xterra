@@ -3,7 +3,7 @@
 
 Status: `not-started` means no verified source has contributed yet.
 
-Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra encyclopedia](encyclopedia/index.md) (hand-curated from Nissan, EPA and NHTSA sources; not produced by this pipeline).
+Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference](vehicle/index.md) (hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).
 
 ## Diagnostics & Troubleshooting
 

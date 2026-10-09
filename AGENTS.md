@@ -68,9 +68,9 @@ The local model is not trusted. Each item names the guarding test, or says none 
   (`test_out_of_scope_years_are_dropped`); do not tighten the range without a source.
 - **Reviewer instructions exist in three copies**: `.claude/agents/wiki-reviewer.md`, `.codex/agents/wiki-reviewer.toml`
   and `.agents/skills/source-command-review-wiki/`. Edit them together. No test covers drift.
-- **`wiki/encyclopedia/` is hand-curated and outside the pipeline.** Model-year, paint, dimension, fluid, maintenance,
+- **`wiki/vehicle/` is the wiki's hand-curated reference section, outside the pipeline.** The wiki is one product; this folder is the part nothing generates. Model-year, paint, dimension, fluid, maintenance,
   part-number and recall pages from manufacturer, EPA, NHTSA and catalog sources. `export.CURATED_DIR` is not a topic
-  category, so export never deletes or rewrites it (it only links the hub from `index.md`); do not add `encyclopedia`
+  category, so export never deletes or rewrites it (it only links the hub from `index.md`); do not add `vehicle`
   to `topics.yaml`. Its pages must not carry the `GENERATED` line. `qa.check_curated` requires every line that states a
   number to cite an `[S<n>]` listed under that page's `## Sources` (with a URL) or say `[Unverified]`; that checks
   traceability, not truth. Test: `test_curated_pages_survive_export_and_every_number_cites_a_source`.
@@ -84,7 +84,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
 | `prompts/` | `extract.md` and `verify.md`, the LLM system prompts |
 | `tests/` | Offline suite with HTML fixtures; no network or LLM server needed |
 | `wiki/` | Generated output; pages with the `GENERATED` header are overwritten by `xw export`. Committed, so regenerate and review the diff before committing |
-| `wiki/encyclopedia/` | Hand-curated, committed reference pages (one per model year plus reference pages); edit by hand, cite every number |
+| `wiki/vehicle/` | Reference section of the wiki: hand-curated pages (one per model year plus reference pages); edit by hand, cite every number |
 | `data/` | SQLite state and raw page cache. Gitignored; holds other people's posts |
 | `.claude/`, `.codex/`, `.agents/` | `/review-wiki` command and `wiki-reviewer` agent, per tool |
 

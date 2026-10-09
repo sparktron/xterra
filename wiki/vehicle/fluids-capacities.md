@@ -1,6 +1,6 @@
 # Fluids and capacities
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 From the 'Recommended fluids/lubricants and capacities' tables of the 2008-2015 owner's manuals [S108][S109][S110][S111][S112][S113][S114][S115]. Nissan does not host owner's manuals before 2008, so 2005-2007 values are [Unverified]; the 2008 values are the closest documented. The manuals call capacities approximate: fill to the dipstick or level mark.
 

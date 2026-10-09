@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-08 · **Branch:** `docs/hub-standard` · **Commit:** the hand-curated encyclopedia on top of `35d74fb` (PR #4 merged), plus uncommitted work from elsewhere (see Active work)
+**Updated:** 2026-10-08 · **Branch:** `docs/hub-standard` · **Commit:** the hand-curated `wiki/vehicle/` section on top of `35d74fb` (PR #4 merged), plus uncommitted work from elsewhere (see Active work)
 
 ## Objective
 
@@ -15,7 +15,7 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Encyclopedia (2026-10-08): `wiki/encyclopedia/`, 23 hand-curated pages, committed. One page per model year 2005-2015
+Reference section (2026-10-08): `wiki/vehicle/`, 23 hand-curated pages of the wiki, committed. The wiki is one product; `wiki/index.md` links this section first, then the pipeline-built topics. One page per model year 2005-2015
 (trims and equipment, changes, output, plant, launch MSRP for 2011-2015, colors with paint codes, EPA mpg, owner's-manual
 fluids and torques, Nissan maintenance intervals, NHTSA recalls) plus hub, trims, paint codes, dimensions/towing,
 engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, parts, recalls and VIN pages. Code:
@@ -62,7 +62,7 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 ## Known problems
 
-- `qa.py` globs `wiki/*/*.md` for the pipeline checks (spec values and units, part numbers, loose safety values in page bodies). Those checks also match the top-level `wiki/encyclopedia/*.md` pages, which carry no generated spec or part lines, so they find nothing there; `check_curated` is what covers `encyclopedia/` (recursively, including `years/`). `wiki/dtc_table.csv`, `wiki/interchange.md` and `wiki/parts_diagrams.md` are not re-checked by `xw qa`.
+- `qa.py` globs `wiki/*/*.md` for the pipeline checks (spec values and units, part numbers, loose safety values in page bodies). Those checks also match the top-level `wiki/vehicle/*.md` pages, which carry no generated spec or part lines, so they find nothing there; `check_curated` is what covers `vehicle/` (recursively, including `years/`). `wiki/dtc_table.csv`, `wiki/interchange.md` and `wiki/parts_diagrams.md` are not re-checked by `xw qa`.
 - The decoys only test changed or invented numbers, the easiest error to catch; 0/202 accepted does not show the verifier catches wrong conditions, vehicles or missing context. The review audit did find those (below).
 - The recorded block reason says HTTP 409, which is not in the tracked `crawl.stop_statuses` (`[401, 402, 403]`). The cause is not established. `config/settings.local.yaml` was deliberately not read.
 - The README said the pipeline was "not yet run against a real server", which is no longer true (229 facts extracted, `xw doctor` passes); that clause was removed in the same commit as this file.
@@ -72,14 +72,14 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 | Check | Result | Detail |
 |---|---|---|
-| `pytest` on the working tree, current deps | passed | 75 passed on 2026-10-08 with the encyclopedia change (74 after the review fixes); Python 3.10.12, pytest 9.1.1, pydantic 2.13.5, httpx 0.28.1, lxml 6.1.3, beautifulsoup4 4.15.0 |
+| `pytest` on the working tree, current deps | passed | 75 passed on 2026-10-08 with the vehicle-section change (74 after the review fixes); Python 3.10.12, pytest 9.1.1, pydantic 2.13.5, httpx 0.28.1, lxml 6.1.3, beautifulsoup4 4.15.0 |
 | `pytest` at the declared floors | not re-run | 63 passed before the review fixes |
 | `xw doctor` | passed | LM Studio at `http://localhost:1234/v1`, `qwen3.8-27b`, RTX 3090, `crawl.contact` set |
 | `xw verify --redo` (real model) | done | 229 facts, 198 calls, decoys accepted 0/202, 0 calls discarded. Database backed up first (session scratchpad, not in repo) |
 | Claude review loop | done | 175 items in 7 batches: 108 approve, 39 reject, 28 needs_human. Verifier false-accept rate 9% (9/102 reviewed `supported` claims rejected or sent to a human); audit sample alone 2/19 |
-| `xw export && xw qa` | passed | after review-apply; again on 2026-10-08 with the 23 encyclopedia pages (`check_curated` clean) |
+| `xw export && xw qa` | passed | after review-apply; again on 2026-10-08 with the 23 `wiki/vehicle/` pages (`check_curated` clean) |
 
-Encyclopedia content was not reviewed line by line against its sources after generation; `qa` proves each number has a citation, not that the citation supports it. Part numbers were not checked against a VIN-specific catalog.
+Content of `wiki/vehicle/` was not reviewed line by line against its sources after generation; `qa` proves each number has a citation, not that the citation supports it. Part numbers were not checked against a VIN-specific catalog.
 
 Not run: `pytest` at the dependency floors after the fixes; a clean checkout; `scripts/bootstrap.sh`; `xw doctor --smoke`; a crawl of any source; `xw extract` with the changed code (only verify changed behaviour against the model).
 

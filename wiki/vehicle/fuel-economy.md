@@ -1,6 +1,6 @@
 # Fuel economy (EPA)
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 City / highway / combined miles per gallon on regular gasoline, as currently listed by fueleconomy.gov. EPA re-estimated pre-2008 ratings when it changed its method, so older figures may not match the original window sticker [Unverified].
 

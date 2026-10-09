@@ -1,6 +1,6 @@
 # Dimensions, weights and towing
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 ## Exterior
 

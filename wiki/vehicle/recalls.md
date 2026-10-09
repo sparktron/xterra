@@ -1,6 +1,6 @@
 # Recalls
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 Every campaign NHTSA's recall service lists for the 2005-2015 Xterra, as of this page's access date [S405][S406][S407][S408][S409][S410][S411][S412][S413][S414][S415]. Several are equipment campaigns for aftermarket or replacement parts, so they apply only to vehicles fitted with those parts. Enter your VIN at nhtsa.gov/recalls or a Nissan dealer to see open campaigns for your vehicle.
 

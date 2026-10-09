@@ -1,6 +1,6 @@
 # Trim levels by year
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 ## Which trims existed
 

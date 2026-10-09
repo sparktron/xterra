@@ -1,6 +1,6 @@
 # Replacement part numbers
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 Genuine Nissan part numbers for common service parts, as listed by a Nissan dealer's online catalog (NissanPartsDeal) for each model year. 'Listed for' is the span of model-year pages that show the part; 'Superseded by' is the catalog's replacement number. The catalog's fitment notes also name trims that never existed on this Xterra (for example 'XE' or 'Base Camp'), so treat ranges as catalog listings, and confirm by VIN at a Nissan parts counter before ordering [Unverified] for any specific vehicle.
 

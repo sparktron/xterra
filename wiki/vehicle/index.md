@@ -1,6 +1,6 @@
-# Nissan Xterra encyclopedia: second generation (N50), 2005-2015
+# Nissan Xterra wiki: reference, second generation (N50), 2005-2015
 
-Hand-curated reference for the 2005-2015 Nissan Xterra [S1][S11][S20]: trims, colors and paint codes, dimensions, fluids, maintenance, part numbers and recalls, year by year. Every number cites a listed source; anything no source states is marked [Unverified]. Repair how-tos and diagnostics from forum threads are in the [pipeline-built wiki](../index.md), which has its own verification rules.
+Hand-curated reference for the 2005-2015 Nissan Xterra [S1][S11][S20]: trims, colors and paint codes, dimensions, fluids, maintenance, part numbers and recalls, year by year. Every number cites a listed source; anything no source states is marked [Unverified]. This is the reference section of the Xterra wiki. Repair how-tos, diagnostics and community-sourced specs are in the rest of the [wiki](../index.md), built from forum threads under their own verification rules.
 
 ## Model years
 
@@ -44,7 +44,7 @@ Hand-curated reference for the 2005-2015 Nissan Xterra [S1][S11][S20]: trims, co
 
 ## How this section is kept honest
 
-- These pages are written by hand. `xw export` never deletes or rewrites anything under `wiki/encyclopedia/`; it only links this hub from the wiki index.
+- These pages are written by hand. `xw export` never deletes or rewrites anything under `wiki/vehicle/`; it only links this hub from the top of the wiki index.
 - `xw qa` checks every page here: a line that states a number must cite a source listed at the bottom of that page, or say [Unverified]. It checks traceability, not truth; a citation still has to say what the line says.
 - Prefer manufacturer sources (press kits, owner's manuals, Nissan's maintenance site), then government data (EPA, NHTSA), then catalogs. Say which when a source is third-party.
 - Torque, capacity and part-number values drive real repairs. Confirm part numbers by VIN with a Nissan parts counter, and torque values against the factory service manual for your year.

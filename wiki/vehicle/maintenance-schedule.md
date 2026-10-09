@@ -1,6 +1,6 @@
 # Maintenance schedule
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 Intervals from Nissan's online Service & Maintenance Guide, which is published per model year [S205][S206][S207][S208][S209][S210][S211][S212][S213][S214][S215]. Each [year page](index.md#model-years) has that year's full table. Months are the time limit, whichever comes first.
 

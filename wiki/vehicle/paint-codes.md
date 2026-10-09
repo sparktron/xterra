@@ -1,6 +1,6 @@
 # Paint codes
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 Factory exterior colors of the US-market 2005-2015 Xterra. Names, codes and year ranges are from ImportArchive's brochure-based list [S20], cross-checked against PaintScratch's per-year code lists [S505][S506][S507][S508][S509][S510][S511][S512][S513][S514][S515], the colors each Nissan press kit names [S2][S3][S4][S5][S6][S7][S8][S9][S10][S11], and Nissan's own touch-up paint part numbers, which embed the code [S22].
 

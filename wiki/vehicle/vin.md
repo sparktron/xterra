@@ -1,6 +1,6 @@
 # VIN decoding
 
-[Encyclopedia home](index.md)
+[Reference home](index.md)
 
 What NHTSA's VIN decoder (vPIC) reads from Xterra-pattern VINs [S30][S31][S32]. These are pattern decodes of sample VINs, not records of real vehicles.
 
