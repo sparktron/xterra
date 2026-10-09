@@ -1,0 +1,628 @@
+[
+  {
+    "id": "t1",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/one-stop-led-conversion-and-install-how-to-shop.16260/",
+    "thread_title": "One-Stop LED Conversion and Install How-to Shop",
+    "author_handle": "XterraS05",
+    "date_posted": "2009-03-22T18:04:46-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t4",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/",
+    "thread_title": "-How-to: From the Battery to the Roof Lights and In-between - PBR",
+    "author_handle": "XJ-TERRA",
+    "date_posted": "2010-12-26T22:43:45-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "fetched"
+  },
+  {
+    "id": "t5",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/torn-oil-hose-during-timing-chain-guide-job.291789/",
+    "thread_title": "Torn Oil Hose during Timing Chain Guide Job",
+    "author_handle": "RamTest",
+    "date_posted": "2025-05-30T21:35:59-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Rear bypass coolant hose replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t7",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/",
+    "thread_title": "How-to: Air Conditioner Fix - PBR",
+    "author_handle": "jedge99",
+    "date_posted": "2013-12-22T09:59:36-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t8",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-pictorial-guide-for-the-fog-light-bypass-mod-pbr.41057/",
+    "thread_title": "How-to: Pictorial Guide for the Fog Light Bypass MOD - PBR",
+    "author_handle": "skibum315",
+    "date_posted": "2011-04-10T02:16:08-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t9",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-rear-hatch-strut-replacement-pbr.51485/",
+    "thread_title": "How-to: Rear Hatch Strut Replacement - PBR",
+    "author_handle": "dezurtrat",
+    "date_posted": "2007-12-23T16:22:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Part sources and vendors",
+      "Rear hatch strut fitment",
+      "Rear hatch strut replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t10",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-replace-neutral-position-sensor-in-a-6mt.234802/",
+    "thread_title": "How-to: Replace Neutral Position Sensor in a 6MT | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Neutral position sensor replacement",
+      "Transmission and transfer case problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t11",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/",
+    "thread_title": "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)",
+    "author_handle": "alkeli",
+    "date_posted": "2009-07-22T17:42:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t12",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/2005-xterra-obd-ii-codes.2393/",
+    "thread_title": "2005+ Xterra OBD-II Codes",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "EVAP system faults",
+      "Engine trouble codes (VQ40DE)",
+      "OBD-II Scanner Connection Problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t13",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/calculating-amperage.24648/",
+    "thread_title": "Calculating Amperage",
+    "author_handle": "Oz",
+    "date_posted": "2007-10-27T20:59:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical load and wire sizing"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t14",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/ecm-location.36129/",
+    "thread_title": "ECM Location",
+    "author_handle": "Muzikman",
+    "date_posted": "2010-11-08T16:35:59-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Engine control module location"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t15",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/switches-and-you.43111/",
+    "thread_title": "Switches and You | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain",
+      "Lighting, aux fuse blocks and dual batteries",
+      "Switch selection and ratings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t16",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/air-conditoning-information.65352/",
+    "thread_title": "Air Conditoning Information",
+    "author_handle": "XterraPA",
+    "date_posted": "2007-03-02T14:51:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Fluids and capacities",
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t17",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/ipdm-fuse-list.266890/",
+    "thread_title": "IPDM Fuse List",
+    "author_handle": "tnelson",
+    "date_posted": "2017-05-05T11:52:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Fuse and relay maps",
+      "Xterra, Frontier and Titan parts interchange"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t18",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/abs-brake-vdc-slip-lights-all-on.283005/",
+    "thread_title": "ABS BRAKE VDC SLIP Lights all 'ON'",
+    "author_handle": "TeXas-Hooligan",
+    "date_posted": "2019-04-16T13:57:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ABS Brake VDC Slip Lights"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t19",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/",
+    "thread_title": "Electrical Issues, ECM or Bad Ground?",
+    "author_handle": "impeerical",
+    "date_posted": "2022-02-11T09:13:28-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t20",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/",
+    "thread_title": "Recommended Fluids and Capacity",
+    "author_handle": "Raymond06",
+    "date_posted": "2007-06-22T00:10:15-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Fluids and capacities",
+      "Front and rear differential fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t21",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/please-read-front-diff-failures.5479/",
+    "thread_title": "*** PLEASE READ *** ~ Front Diff Failures",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Front differential failure reports",
+      "Front differential repair outcomes",
+      "Warranty coverage for lifted Xterra"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t22",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/",
+    "thread_title": "Throttle Bottle Idle Air Re-learn",
+    "author_handle": "Shiny",
+    "date_posted": "2009-01-01T17:25:22-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Idle air volume learning"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t23",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/radiator-trans-issues-collection-of-salient-threads.36132/",
+    "thread_title": "Radiator/Trans Issues ... Collection of Salient Threads",
+    "author_handle": "xmedicG",
+    "date_posted": "2010-11-08T17:25:49-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Radiator replacement and SMOD fix",
+      "SMOD radiator transmission cooler failure",
+      "[reference] Part sources and vendors",
+      "[repair] Radiator replacement and SMOD fix"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t24",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/",
+    "thread_title": "SMOD Hit List - Year, Mileage, User and Outcome",
+    "author_handle": "Killswitch",
+    "date_posted": "2013-03-14T16:37:03-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change",
+      "Cooling upgrades",
+      "Fluids and capacities",
+      "Radiator replacement and SMOD fix",
+      "SMOD radiator transmission cooler failure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t25",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/",
+    "thread_title": "Thoughts and Observations on Engine and Auto Trans Cooling",
+    "author_handle": "jeff_redx",
+    "date_posted": "2008-12-28T12:17:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ATF heat from torque converter slip",
+      "ATF rad-cooler heat transfer",
+      "ATF rad-cooler warm-up behavior",
+      "ATF temp measurement driving conditions",
+      "Coolant drain and refill",
+      "Cooling upgrades",
+      "Engine cooling system operation",
+      "SMOD radiator transmission cooler failure",
+      "Torque converter heat management",
+      "Transmission and transfer case problems",
+      "Transmission cooling system behavior"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t26",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/",
+    "thread_title": "Want a Little More Power from Your X? Start Here",
+    "author_handle": "N.Y.X.",
+    "date_posted": "2014-04-09T16:47:11-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain",
+      "Intake, exhaust, tune and forced induction"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t27",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/",
+    "thread_title": "List of Calsonic Radiator Part Numbers Associated with SMOD",
+    "author_handle": "GringoRubio",
+    "date_posted": "2021-03-06T10:11:22-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Cooling upgrades",
+      "SMOD radiator transmission cooler failure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t28",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/torque-specs.1407/",
+    "thread_title": "Torque Specs | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t29",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/",
+    "thread_title": "How-to: ShrockWorks Sliders Install - PBR",
+    "author_handle": "usmc xterra",
+    "date_posted": "2006-01-28T21:15:59-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "[mods] Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t30",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-vias-rattle-fix.181130/",
+    "thread_title": "How-to: VIAS Rattle Fix",
+    "author_handle": "Fresh Prince",
+    "date_posted": "2015-02-15T15:27:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "VIAS rattle diagnosis and fix"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t31",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-replace-your-05-08-license-plate-light-housings-with-oem-parts.274716/",
+    "thread_title": "How-to: Replace your 05-08 License Plate Light Housings With OEM Parts",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2013-09-24T12:59:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "License plate light housing replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t32",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-2005-xterra-alternator-rebuild-work-in-progress.3527/",
+    "thread_title": "How-to: 2005 Xterra Alternator Rebuild (Work In Progress)",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Starter and alternator"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t33",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-upgrade-your-rear-wiper-to-14-or-16-pbr.24339/",
+    "thread_title": "How-to: Upgrade Your Rear Wiper to 14\" or 16\" - PBR",
+    "author_handle": "BORNGEARHEAD",
+    "date_posted": "2009-10-08T23:43:32-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Rear wiper upgrade"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t34",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/",
+    "thread_title": "How-to: Transmission PMF (Poor Man's Flush) - PBR",
+    "author_handle": "Rook",
+    "date_posted": "2009-07-07T13:21:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change",
+      "Cooling upgrades",
+      "Fluids and capacities",
+      "Specifications by model year",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t35",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/",
+    "thread_title": "How-to: Convert 2wd to 4x4",
+    "author_handle": "USMMA11NC",
+    "date_posted": "2012-01-31T12:37:20-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "2WD to 4x4 conversion",
+      "2WD to 4x4 conversion cost",
+      "Re-gearing ratios by tire size",
+      "Transfer case shifter installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t36",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-stop-hood-squeak-pbr.63948/",
+    "thread_title": "How-to: Stop Hood Squeak - PBR",
+    "author_handle": "scorpio",
+    "date_posted": "2013-05-11T14:38:39-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Hood squeak and latch adjustment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t38",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-abs-off-version-3.231530/",
+    "thread_title": "How-to: ABS Off Version 3",
+    "author_handle": "PhullD",
+    "date_posted": "2015-08-10T15:18:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ABS disable and switch mod",
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t39",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-repair-master-power-window-switch-%E2%80%93-updated.233938/",
+    "thread_title": "How-to: Repair Master Power Window Switch \u2013 Updated | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t40",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/diy-drop-in-cargo-roof-rack-%E2%80%9Cthe-golf-cart-roof-rack-hack%E2%80%9D.282013/",
+    "thread_title": "DIY: Drop in Cargo Roof Rack - \u201cThe Golf Cart Roof Rack Hack\u201d",
+    "author_handle": "CDL",
+    "date_posted": "2021-03-01T21:51:28-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks, snorkels and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t41",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-xterra-interior-buildout-drawer-and-kitchen-system.282917/",
+    "thread_title": "How-to: Xterra Interior Buildout Drawer and Kitchen System",
+    "author_handle": "Keevohh",
+    "date_posted": "2021-09-01T20:40:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Interior drawer and kitchen build"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t42",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/mode-door-actuator-replacement-on-a-2015-xterra.282964/",
+    "thread_title": "Mode Door Actuator Replacement on a 2015 Xterra",
+    "author_handle": "Tenlayer",
+    "date_posted": "2021-09-03T19:51:13-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t43",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/",
+    "thread_title": "How-to: Exhaust without the Drone",
+    "author_handle": "Old Army",
+    "date_posted": "2006-07-10T21:28:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Intake, exhaust, tune and forced induction"
+    ],
+    "status": "extracted"
+  }
+]

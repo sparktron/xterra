@@ -623,13 +623,13 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     good = ("# 2009 Nissan Xterra\n\n| Item | 2009 |\n|---|---|\n| Engine oil with filter | 5-3/8 qt [S13] |\n\n"
             "- Back to [2008](2008.md) and the [hub](../index.md)\n- Solar Yellow offered in 2009 [Unverified]\n\n"
             "## Sources\n\n- [S13] Nissan, 2009 Xterra Owner's Manual. https://owners.nissanusa.com/x.pdf\n")
-    page = cfg.wiki_dir / "encyclopedia" / "years" / "2009.md"
+    page = cfg.wiki_dir / "vehicle" / "years" / "2009.md"
     page.parent.mkdir(parents=True)
     page.write_text(good)
-    (cfg.wiki_dir / "encyclopedia" / "index.md").write_text("# Hub\n\n- [2009](years/2009.md)\n\n## Sources\n")
+    (cfg.wiki_dir / "vehicle" / "index.md").write_text("# Hub\n\n- [2009](years/2009.md)\n\n## Sources\n")
     export(cfg, conn)
     assert page.read_text() == good                       # not a topic category: export never deletes or rewrites it
-    assert "](encyclopedia/index.md)" in (cfg.wiki_dir / "index.md").read_text()
+    assert "](vehicle/index.md)" in (cfg.wiki_dir / "index.md").read_text()
     assert check_curated(cfg.wiki_dir) == [] and check_wiki(cfg, conn) == []
 
     page.write_text(good.replace(" [S13] |", " |"))

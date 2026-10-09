@@ -8,7 +8,7 @@ stored in the database, that:
   * every published part number appears in a thread the line cites
   * every torque-like value carries an allowed verification tag (consensus, manufacturer, or reviewed)
   * no cited thread id is unknown
-The hand-curated pages under wiki/encyclopedia/ have no thread text to check against; `check_curated` holds them to
+The hand-curated pages under wiki/vehicle/ have no thread text to check against; `check_curated` holds them to
 a citation rule instead: every line that states a number cites a source listed on that page, or says [Unverified].
 Exit status 1 on any violation, so it can gate commits and CI.
 """

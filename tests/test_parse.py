@@ -39,6 +39,17 @@ def test_xenforo_thread(fixtures):
     assert page.next_url == f"{url}page-2"
 
 
+def test_xenforo_thread_custom_theme(fixtures):
+    # thenewx.org "california" theme: posts are <article class="js-post ..."> without the stock
+    # message--post class, and the title is a plain <h1> rather than h1.p-title-value.
+    url = f"{BASE}/threads/torn-oil-hose.291789/"
+    page = xenforo.parse_thread((fixtures / "xenforo_thread_california.html").read_text(), url)
+    assert page.title == "Torn Oil Hose during Timing Chain Guide Job"  # no site suffix from <title>
+    assert [p.author for p in page.posts] == ["RamTest", "bw_hairston"]
+    assert page.posts[0].posted.startswith("2025-05-30")
+    assert all(p.text.strip() for p in page.posts)
+
+
 def test_generic_thread_extracts_main_text():
     html = "<html><head><title>Guide</title></head><body><nav>menu menu</nav><article><h1>Oil change</h1><p>" + "Drain the oil. " * 30 + "</p></article><footer>copyright</footer></body></html>"
     page = generic.parse_thread(html, "https://x.invalid/guide")
