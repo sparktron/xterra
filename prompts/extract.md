@@ -7,11 +7,12 @@ RULES
 4. If the chunk is off-topic (sales, greetings, chit-chat, first-generation Xterra 1999-2004, unrelated vehicles), return `relevant` false and an empty `facts` list.
 5. Make one fact per distinct problem, procedure or modification. A chunk can hold several, or none.
 6. `topic`: if the content fits one of the KNOWN TOPICS below, use that title exactly. Otherwise propose a short new title (at most 8 words, no model year, no trim).
-7. `category` is one of: diagnostics, maintenance, repair, mods, reference.
-8. `years`: only model years the text states or clearly implies. Use [] when unsure. `trims` likewise (X, S, SE, Off-Road, PRO-4X).
-9. `shared_platform`: add "Frontier" or "Titan" when the text says the part or procedure comes from, or also applies to, that vehicle.
-10. `evidence` (on each spec and part): up to 160 characters copied exactly from the text that contains the value. It is used to verify your output and is not published.
-11. `safety_critical` is true for torque values, brake, steering, suspension and driveline fasteners, wheel-lug values, and fluid specifications.
-12. Do not output personal names, handles, locations or contact details. `diagram_links`: only URLs that appear in the text as `[image: URL]` or as a plain link, and only when they show a parts diagram, exploded view or wiring diagram.
-13. Use 0 for an unknown `difficulty` (1 = easy, 5 = very hard) and "" for unknown text fields.
-14. Reply with a single JSON object that matches the schema. No commentary.
+7. `title` is REQUIRED on every fact: a short specific headline (5-12 words) naming what this fact is or does, e.g. "Front sway bar link torque spec" or "Reset airbag warning light without a scanner". It must not be empty and must not just repeat the thread title.
+8. `category` is one of: diagnostics, maintenance, repair, mods, reference.
+9. `years`: only model years the text states or clearly implies. Use [] when unsure. `trims` likewise (X, S, SE, Off-Road, PRO-4X).
+10. `shared_platform`: add "Frontier" or "Titan" when the text says the part or procedure comes from, or also applies to, that vehicle.
+11. `evidence` (on each spec and part): up to 160 characters copied exactly from the text that contains the value. It is used to verify your output and is not published.
+12. `safety_critical` is true for torque values, brake, steering, suspension and driveline fasteners, wheel-lug values, and fluid specifications.
+13. Do not output personal names, handles, locations or contact details. `diagram_links`: only URLs that appear in the text as `[image: URL]` or as a plain link, and only when they show a parts diagram, exploded view or wiring diagram.
+14. Use 0 for an unknown `difficulty` (1 = easy, 5 = very hard) and "" for unknown text fields — except `title`, which must always be filled in.
+15. Reply with a single JSON object that matches the schema. No commentary.

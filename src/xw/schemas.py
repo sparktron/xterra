@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any, Literal
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 CATEGORIES = ("diagnostics", "maintenance", "repair", "mods", "reference")
 Category = Literal["diagnostics", "maintenance", "repair", "mods", "reference"]
@@ -43,7 +43,7 @@ class Dtc(_M):
 class Fact(_M):
     category: Category
     topic: str
-    title: str
+    title: str = Field(description="Short specific headline (5-12 words) naming what this fact is or does; never empty")
     summary: str = ""
     years: list[int] = Field(default_factory=list)
     trims: list[str] = Field(default_factory=list)
@@ -61,6 +61,18 @@ class Fact(_M):
     mistakes: list[str] = Field(default_factory=list)
     dtcs: list[Dtc] = Field(default_factory=list)
     diagram_links: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def _fallback_title(cls, data: Any) -> Any:
+        # Some local models omit the required title even when prompted; derive one from topic so a single
+        # omission does not fail the whole chunk. Nothing downstream relies on the exact wording of title.
+        if isinstance(data, dict):
+            t = data.get("title")
+            if not (isinstance(t, str) and t.strip()):
+                topic = data.get("topic")
+                data["title"] = topic.strip() if isinstance(topic, str) and topic.strip() else "General"
+        return data
 
     @field_validator("difficulty", mode="before")
     @classmethod

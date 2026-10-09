@@ -1,7 +1,8 @@
 """XenForo 2.x adapter (forum listings and thread pages).
 
-[Unverified] Selectors follow stock XenForo 2 markup. Heavily customised themes may need tweaks;
-tests/fixtures hold representative samples to adjust against.
+Selectors are validated against both stock XenForo 2 markup and heavily customised themes
+(e.g. thenewx.org's "california" theme, where posts are <article class="js-post ..."> without the
+stock message--post class). tests/fixtures hold representative samples of each to adjust against.
 """
 from __future__ import annotations
 
@@ -54,16 +55,24 @@ def parse_forum(html: str, url: str) -> ForumPage:
 
 def parse_thread(html: str, url: str) -> ThreadPage:
     soup = BeautifulSoup(html, "lxml")
+    # Some captures carry an empty <h1 class="p-title-value"> placeholder, so require text.
     h1 = soup.select_one("h1.p-title-value")
-    if h1:
+    title = ""
+    if h1 is not None and h1.get_text(strip=True):
         for label in h1.select(".label, .labelLink"):
             label.decompose()
         title = h1.get_text(" ", strip=True)
-    else:
-        title = soup.title.get_text(strip=True) if soup.title else url
+    if not title:
+        # custom themes may use a plain <h1> (e.g. thenewx.org "california" theme);
+        # some pages also carry an empty structural h1, so take the first non-empty one
+        plain_h1 = next((h for h in soup.find_all("h1") if h.get_text(strip=True)), None)
+        title = plain_h1.get_text(" ", strip=True) if plain_h1 else (soup.title.get_text(strip=True) if soup.title else url)
 
     posts: list[Post] = []
-    for art in soup.select("article.message--post"):
+    # Stock XF2 markup uses article.message--post; heavily customised themes (e.g. thenewx.org
+    # "california") use article.js-post instead. The bbWrapper requirement below still filters out
+    # non-post elements that carry either class.
+    for art in soup.select("article.message--post, article.js-post"):
         body = art.select_one(".bbWrapper")
         if body is None:
             continue
