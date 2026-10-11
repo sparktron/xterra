@@ -16,6 +16,16 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - https://i.imgur.com/qfTPObn.jpg [t38]
 
+## Electrical wiring and fuse sizing
+
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24089 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24097 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24105 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24113 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24121 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24129 [t4]
+- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24137 [t4]
+
 ## Engine control module location
 
 - http://farm4.static.flickr.com/3610/3614121078_5bd55e8c4d.jpg [t14]

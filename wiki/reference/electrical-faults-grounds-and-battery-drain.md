@@ -15,12 +15,13 @@ est_time: null
 tools: []
 parts: []
 sources:
+- t2
 - t19
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -34,5 +35,6 @@ _No verified summary yet._
 
 ## Source attributions
 
+- **t2**: Xterra1102, "2005-2010 Xterra Wiring Diagrams", 2009-04-03. https://www.thenewx.org/threads/2005-2010-xterra-wiring-diagrams.36904/
 - **t19**: impeerical, "Electrical Issues, ECM or Bad Ground?", 2022-02-11. https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/
 

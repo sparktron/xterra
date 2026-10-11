@@ -10,6 +10,7 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | Topic | Status | Threads |
 |---|---|---|
 | [ABS Brake VDC Slip Lights](diagnostics/abs-brake-vdc-slip-lights.md) | [Unverified] | 1 |
+| [Airbag Reset Procedure](diagnostics/airbag-reset-procedure.md) | [Unverified] | 1 |
 | [ATF heat from torque converter slip](diagnostics/atf-heat-from-torque-converter-slip.md) | [Unverified] | 1 |
 | [ATF rad-cooler heat transfer](diagnostics/atf-rad-cooler-heat-transfer.md) | [Unverified] | 1 |
 | [Cooling upgrades](diagnostics/cooling-upgrades.md) | [Unverified] | 1 |
@@ -95,7 +96,7 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [Intake, exhaust, tune and forced induction](mods/performance-mods.md) | [Unverified] | 2 |
 | [Interior drawer and kitchen build](mods/interior-drawer-and-kitchen-build.md) | [Unverified] | 1 |
 | Lift kits and suspension lifts | not-started | 0 |
-| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | community-consensus | 5 |
+| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | community-consensus | 6 |
 | Lockers and traction control | not-started | 0 |
 | [Re-gearing ratios by tire size](mods/regearing.md) | [Unverified] | 1 |
 | [Rear wiper upgrade](mods/rear-wiper-upgrade.md) | [Unverified] | 1 |
@@ -120,22 +121,27 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [ATF heat from torque converter slip](reference/atf-heat-from-torque-converter-slip.md) | [Unverified] | 1 |
 | [ATF rad-cooler warm-up behavior](reference/atf-rad-cooler-warm-up-behavior.md) | [Unverified] | 1 |
 | [ATF temp measurement driving conditions](reference/atf-temp-measurement-driving-conditions.md) | [Unverified] | 1 |
-| [Electrical faults, grounds and battery drain](reference/electrical-faults-grounds-and-battery-drain.md) | [Unverified] | 1 |
+| [Calculating voltage drop for wire gauge](reference/calculating-voltage-drop-for-wire-gauge.md) | [Unverified] | 1 |
+| [Electrical faults, grounds and battery drain](reference/electrical-faults-grounds-and-battery-drain.md) | [Unverified] | 2 |
 | [Electrical load and wire sizing](reference/electrical-load-and-wire-sizing.md) | [Unverified] | 1 |
+| [Electrical wiring and fuse sizing](reference/electrical-wiring-and-fuse-sizing.md) | [Unverified] | 1 |
 | [Engine control module location](reference/engine-control-module-location.md) | [Unverified] | 1 |
 | [Engine cooling system operation](reference/engine-cooling-system-operation.md) | [Unverified] | 1 |
 | [Fluids and capacities](reference/fluid-capacities.md) | community-consensus | 4 |
 | Gear ratios and tire sizes | not-started | 0 |
+| [Grounding strategies for interior lights](reference/grounding-strategies-for-interior-lights.md) | [Unverified] | 1 |
 | [Heater core and A/C problems](reference/heater-core-and-a-c-problems.md) | [Unverified] | 1 |
 | [Idle air volume learning](reference/idle-air-volume-learning.md) | [Unverified] | 1 |
 | [Intake, exhaust, tune and forced induction](reference/intake-exhaust-tune-and-forced-induction.md) | [Unverified] | 1 |
 | [Interior drawer and kitchen build](reference/interior-drawer-and-kitchen-build.md) | [Unverified] | 1 |
 | [Lighting, aux fuse blocks and dual batteries](reference/lighting-aux-fuse-blocks-and-dual-batteries.md) | [Unverified] | 2 |
+| [Main fuse placement and protection](reference/main-fuse-placement-and-protection.md) | [Unverified] | 1 |
 | [Part sources and vendors](reference/part-sources.md) | [Unverified] | 1 |
 | Parts diagrams | not-started | 0 |
 | [Rear hatch strut fitment](reference/rear-hatch-strut-fitment.md) | [Unverified] | 1 |
 | [Rear wiper upgrade](reference/rear-wiper-upgrade.md) | [Unverified] | 1 |
 | [Roof racks, snorkels and storage](reference/roof-racks-snorkels-and-storage.md) | [Unverified] | 1 |
+| [Sizing main supply wire for multiple circuits](reference/sizing-main-supply-wire-for-multiple-circuits.md) | [Unverified] | 1 |
 | [SMOD radiator transmission cooler failure](reference/smod-radiator-transmission-cooler-failure.md) | [Unverified] | 2 |
 | [Specifications by model year](reference/specs-by-year.md) | [Unverified] | 1 |
 | [Starter and alternator](reference/starter-and-alternator.md) | [Unverified] | 1 |
@@ -144,5 +150,6 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [Torque specifications](reference/torque-specs.md) | [Unverified] | 2 |
 | [Transmission and transfer case problems](reference/transmission-and-transfer-case-problems.md) | [Unverified] | 1 |
 | [Transmission cooling system behavior](reference/transmission-cooling-system-behavior.md) | [Unverified] | 1 |
+| [Using relays to reduce switch current load](reference/using-relays-to-reduce-switch-current-load.md) | [Unverified] | 1 |
 | [Warranty coverage for lifted Xterra](reference/warranty-coverage-for-lifted-xterra.md) | [Unverified] | 1 |
 | [Xterra, Frontier and Titan parts interchange](reference/interchange.md) | [Unverified] | 1 |
