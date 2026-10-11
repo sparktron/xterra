@@ -44,7 +44,7 @@ class Fact(_M):
     category: Category
     topic: str
     title: str = Field(description="Short specific headline (5-12 words) naming what this fact is or does; never empty")
-    summary: str = ""
+    summary: str = Field(default="", description="One or two sentences, own words: what the job is and when to do it")
     years: list[int] = Field(default_factory=list)
     trims: list[str] = Field(default_factory=list)
     engines: list[str] = Field(default_factory=list)
@@ -53,7 +53,7 @@ class Fact(_M):
     difficulty: int = 0
     est_time: str = ""
     symptoms: list[str] = Field(default_factory=list)
-    steps: list[str] = Field(default_factory=list)
+    steps: list[str] = Field(default_factory=list, description="Every step the text gives, in order, one action each, short imperative sentences in your own words")
     tools: list[str] = Field(default_factory=list)
     parts: list[Part] = Field(default_factory=list)
     specs: list[Spec] = Field(default_factory=list)
