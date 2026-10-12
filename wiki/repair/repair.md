@@ -11,15 +11,16 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- 5.5 mm socket
 parts: []
 sources:
 - t7
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 4
+  reviewed_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -29,7 +30,11 @@ verification:
 
 ## Summary
 
-Remove the blower motor resistor to inspect it for signs of wear such as tarnish and metallic nodules. [t7]
+_No verified summary yet._
+
+## Tools
+
+- 5.5 mm socket [t7]
 
 ## Source attributions
 

@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 4
+  reviewed_items: 3
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install a momentary switch to interrupt the 4-wire plug's brown ground connection after removing drink holder molding. [t38]
 
 ## Procedure
 
@@ -42,7 +42,12 @@ _Procedure reported by [t38]._
 
 ## Tips & gotchas
 
+- The brown wire is identified as the specific ground line within the harness. [t38]
 - A momentary switch can interrupt the circuit, keeping ABS off until an engine restart. [t38]
+
+## Common mistakes
+
+- Using a flush push-button switch that requires depressing locking latches on both top and bottom to release properly. [t38]
 
 ## Source attributions
 

@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Identify if the radiator is a factory Calsonic unit or an aftermarket Nissan Value Advantage replacement. [t27]
 
 ## Procedure
 

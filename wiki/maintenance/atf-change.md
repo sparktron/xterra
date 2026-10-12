@@ -15,33 +15,28 @@ tools:
 - Funnel
 - Bucket or 5-gallon jug
 parts:
+- name: Clear hose (optional)
+  oem_part_no: ''
 - name: Nissan Matic-S ATF (or compatible)
   oem_part_no: ''
 sources:
 - t24
 - t34
-confidence: community-consensus
+confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 12
+  reviewed_items: 4
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
 # Automatic transmission fluid change
 
+> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Drain the entire volume of ATF from the system.
-2. Refill with Matic S automatic transmission fluid.
-
-_Procedure reported by [t24]._
+Hook a longer hose to the supply transmission line and direct it into a bucket. [t34]
 
 ## Tools
 
@@ -51,7 +46,12 @@ _Procedure reported by [t24]._
 
 ## Parts
 
+- Clear hose, optional [t34]
 - Nissan Matic-S ATF, or compatible [t34]
+
+## Tips & gotchas
+
+- Use a clear hose to monitor fluid color change from brownish-red to straight red. [t34]
 
 ## Common mistakes
 

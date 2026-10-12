@@ -3,7 +3,8 @@
 title: '[reference] Driveshaft flange torque specs'
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
   trims: []
   engine: []
   drivetrain: []
@@ -18,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,7 +29,7 @@ verification:
 
 ## Summary
 
-This job involves applying specific torque values to the driveshaft flange nuts, a necessary step when distinguishing between Model 2S1330 and BJ100 variants. [t28]
+Different models have different driveshaft flange nut specs. [t28]
 
 ## Tips & gotchas
 

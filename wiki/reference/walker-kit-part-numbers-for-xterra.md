@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-Locate the specific Walker exhaust system kit to identify its unique identifier, which is part number 9398521. [t43]
+Locate the specific Walker exhaust system kit number, which is 9398521. [t43]
 
 ## Source attributions
 

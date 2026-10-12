@@ -28,15 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Identify the switch type: SPST for single position or 3-position ON-OFF-ON (SPDT) for dual positions.
-
-_Procedure reported by [t4]._
+Identify the switch type as SPST or SPDT, noting relay contacts as optional NC. [t4]
 
 ## Diagrams (links only)
 

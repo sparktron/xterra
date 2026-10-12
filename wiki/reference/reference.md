@@ -17,7 +17,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   withheld_items: 6
   pending_safety_values: 0
 ---
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Identify the specific resistor part number required for a vehicle equipped with climate-controlled HVAC. [t7]
+Verify if the vehicle has a numbered fan setting or climate control option. [t7]
 
 Check for a vacuum or air leak sound coming from under the passenger dash when the AC button is pushed. [t7]
 

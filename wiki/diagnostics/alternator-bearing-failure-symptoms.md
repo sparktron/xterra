@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+The alternator bearing fails due to its low location and tendency to suck up mud. [t32]
 
 ## Tips & gotchas
 

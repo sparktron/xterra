@@ -4,8 +4,7 @@ title: '[reference] Calsonic radiator part numbers for SMOD'
 category: reference
 applies_to:
   years: []
-  trims:
-  - S
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -29,7 +28,7 @@ verification:
 
 ## Summary
 
-Locate and cross-reference a black embossed number on the factory-installed Calsonic radiator to identify specific parts for an SMOD modification. [t27]
+_No verified summary yet._
 
 ## Source attributions
 

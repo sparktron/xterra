@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 7
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Evaluate the current exhaust sound level, noting that stock is a 1/10 scale. [t43]
 
 ## Tips & gotchas
 

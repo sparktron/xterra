@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Use a 'non-insulated' (O-shaped) section of pliers to crimp ring connectors.
-2. Ensure the tool removes gaps between strands and outer shell for secure grip.
-
-_Procedure reported by [t4]._
+Use non-insulated O-shaped plier sections to crimp ring connectors, ensuring the tool removes gaps. [t4]
 
 ## Source attributions
 

@@ -3,7 +3,8 @@
 title: Mode door actuator replacement
 category: repair
 applies_to:
-  years: []
+  years:
+  - 2015
   trims: []
   engine: []
   drivetrain: []
@@ -12,14 +13,16 @@ difficulty: null
 est_time: about 20 minutes
 tools:
 - 5.5 mm wrench
-parts: []
+parts:
+- name: Mode Door Actuator
+  oem_part_no: ''
 sources:
 - t42
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -34,6 +37,10 @@ _No verified summary yet._
 ## Tools
 
 - 5.5 mm wrench [t42]
+
+## Parts
+
+- Mode Door Actuator: Nissan OEM or Dorman equivalent [t42]
 
 ## Source attributions
 

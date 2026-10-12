@@ -18,21 +18,33 @@ sources:
 - t11
 - t18
 - t19
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 10
+  reviewed_items: 2
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Electrical faults, grounds and battery drain
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
-_No verified summary yet._
+Connect a scan tool to the ABS system then navigate the menu to select an ABS function. [t18]
+
+Inspect negative battery terminal connection, replace if necessary, check fusible links, and consult FSM for ground locations. [t19]
+
+Find a bolt or nut on the vehicle body to use as a ground point. [t11]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Find a bolt or nut on the vehicle body to use as a ground point.
+2. Remove the fastener and sand down the area until bare metal is exposed.
+3. Attach the grounding wire securely, then replace the nut/bolt.
+
+_Procedure reported by [t11]._
 
 ## Tips & gotchas
 

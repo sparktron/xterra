@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,15 +28,7 @@ verification:
 
 ## Summary
 
-This job involves mounting the transfer case onto the vehicle with the transmission already in place, serving as a shortcut that allows installation while avoiding full rear exhaust disassembly through muscle and patience. [t35]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Mount the transfer case onto the vehicle with the transmission already in place.
-
-_Procedure reported by [t35]._
+Mount the transfer case onto the vehicle with the transmission already in place. [t35]
 
 ## Tips & gotchas
 

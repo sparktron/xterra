@@ -20,7 +20,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,22 +28,17 @@ verification:
 
 ## Summary
 
-Use parts diagrams to locate specific wire locations and verify correct colors with a Digital MultiMeter before making connections on your Nissan Xterra. [t2]
+Locate specific wire locations and identify correct colors using a Digital MultiMeter to verify before making connections. [t2]
+
+Identify the relay's internal electromagnet switch that handles high current. [t11]
 
 ## Procedure
 
 > **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
 
-1. Locate the specific wire location indicated on the diagram.
-2. Identify the correct wire color at that location using a Digital MultiMeter to verify it before making connections.
-
-_Procedure reported by [t2]._
-
-<details><summary>Alternate procedure [t11] [Partial]</summary>
-
 1. Identify the relay's internal electromagnet switch that handles high current.
 
-</details>
+_Procedure reported by [t11]._
 
 ## Tools
 

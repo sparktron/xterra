@@ -23,20 +23,18 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 16
-  pending_safety_values: 4
+  reviewed_items: 15
+  withheld_items: 7
+  pending_safety_values: 0
 ---
 
 # Transmission work for 2WD to 4WD conversion
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
-
 ## Summary
 
-_No verified summary yet._
+Remove the transmission, converter housing, and internal components to prepare a 2WD Xterra for conversion. [t35]
 
 ## Tools
 
@@ -47,6 +45,12 @@ _No verified summary yet._
 
 - 4WD Output Shaft, Shorter variant [t35]
 - Adapter Assembly [t35]
+
+## Specifications
+
+- **Band servo anchor end pin torque (final)**: 44 IN*LB [t35] (Claude-reviewed)
+- **Lock nut for band servo anchor (after backing off)**: 34 ft-lb [t35] (Claude-reviewed)
+- **Oil pump assembly bolt torque**: 35 ft*lb [t35] (Claude-reviewed)
 
 ## Tips & gotchas
 

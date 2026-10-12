@@ -21,8 +21,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -32,7 +32,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Build a steel divider and use it as a pivot point for a new slide design. [t41]
 
 ## Procedure
 
@@ -50,6 +50,7 @@ _Procedure reported by [t41]._
 
 ## Tips & gotchas
 
+- Shim up the front of the system approximately 2 inches with wood to remedy a downward cargo area slant. [t41]
 - If using drawers only, ignore the slant; if cooking on it, account for the angle. [t41]
 
 ## Diagrams (links only)

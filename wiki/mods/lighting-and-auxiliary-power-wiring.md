@@ -13,6 +13,7 @@ est_time: null
 tools:
 - Utility knife
 - Soldering iron and wire
+- Inline fuse holder (with protective cover)
 parts:
 - name: 12V Power Source
   oem_part_no: ''
@@ -27,8 +28,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 5
+  reviewed_items: 2
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -38,23 +39,13 @@ verification:
 
 ## Summary
 
-This job involves selecting and separately fusing a 12V power source from either direct battery voltage or an ignition-switched supply to enable automatic backup light synchronization via rear position lamps. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Select a 12V power source, such as direct battery voltage or ignition-switched supply from the cigar lighter circuit.
-2. Separately fuse this control supply to protect relays and prevent blowing main fuses if switches fail.
-3. Tap into position lamp wires at the rear kick panel connector for automatic backup light synchronization.
-4. Cut insulation on tapped wires, solder in long leads with an inline fuse holder or tap, then connect to relay coils.
-
-_Procedure reported by [t4]._
+Select and separately fuse a 12V power source from direct voltage or the cigar lighter circuit. [t4]
 
 ## Tools
 
 - Utility knife [t4]
 - Soldering iron and wire [t4]
+- Inline fuse holder (with protective cover) [t4]
 
 ## Parts
 
@@ -65,6 +56,7 @@ _Procedure reported by [t4]._
 
 ## Tips & gotchas
 
+- Use a smaller inline fuse that blows before the truck's main fuses to isolate wiring faults. [t4]
 - Tap into the cigar lighter circuit for 12V present only when the key is in ignition, saving battery drain. [t4]
 
 ## Common mistakes

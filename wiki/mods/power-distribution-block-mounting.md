@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-Mount the power distribution block using aluminum rivets to secure a custom-fabbed bracket. [t4]
+Mount the power distribution block using aluminum rivets to hold a custom-fabbed bracket together. [t4]
 
 ## Procedure
 

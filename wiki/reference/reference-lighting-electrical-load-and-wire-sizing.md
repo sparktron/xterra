@@ -17,23 +17,23 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 2
   withheld_items: 3
-  pending_safety_values: 3
+  pending_safety_values: 0
 ---
 
 # [reference] Lighting electrical load and wire sizing
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
-
 ## Summary
 
-_No verified summary yet._
+Measure the longest leg of the wiring run to estimate total length. [t4]
 
 ## Specifications
 
+- **Alternator output voltage**: 14.4V [t4] (Claude-reviewed)
+- **Battery voltage (engine off)**: 12.6V [t4] (Claude-reviewed)
 - **Wire length example for calculation**: 30 feet [t4] ([Unverified] single report)
 
 ## Diagrams (links only)

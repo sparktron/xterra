@@ -31,7 +31,7 @@ verification:
 
 ## Summary
 
-Affix a relay to an existing engine bay mounting location using two sheet metal screws. [t4]
+Affix the relay to an existing mounting location using two sheet metal screws. [t4]
 
 ## Procedure
 

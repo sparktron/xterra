@@ -3,8 +3,10 @@
 title: Exhaust performance gains with cat-back swap
 category: reference
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2006
+  trims:
+  - Off-Road
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +30,7 @@ verification:
 
 ## Summary
 
-Performing back-to-back 0 to 60 roll-on tests reveals that swapping out the cat-back exhaust removes a restrictive stock crimp joint, achieving an approximate time improvement of 0.4 seconds. [t43]
+Perform back-to-back 0 to 60 roll-on tests. [t43]
 
 ## Procedure
 

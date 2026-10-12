@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-This Fog Light Bypass Mod routes a 5' cable from the turn signal/fog light stalk through the grommet into the IPDM, soldering one end to the fog light relay and the other to an extension. [t8]
+Route a 5' cable from the turn signal/fog light stalk through the grommet into the IPDM. [t8]
 
 ## Parts
 

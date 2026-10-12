@@ -32,16 +32,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Drill a 1-1/8 inch hole in the roof to accommodate a seal-tight connector.
-2. Place masking tape on the open roof cover to mark a front-back safe zone for drilling.
-
-_Procedure reported by [t4]._
+Drill a hole in the roof and place masking tape to mark a safe zone. [t4]
 
 ## Parts
 

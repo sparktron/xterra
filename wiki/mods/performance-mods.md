@@ -28,8 +28,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 10
+  reviewed_items: 1
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -39,7 +39,9 @@ verification:
 
 ## Summary
 
-Install an UpRev tuner software to perform advanced diagnostics on a Nissan Xterra. [t26]
+Replace the stock Y-pipe with a Dynomax VT muffler. [t26]
+
+Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26]
 
 ## Procedure
 

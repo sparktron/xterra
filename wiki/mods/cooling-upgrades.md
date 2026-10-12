@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -30,16 +30,7 @@ verification:
 
 ## Summary
 
-Install a larger B&M radiator-style secondary transmission cooler in place of or alongside the existing unit, optionally mounting a fan between them to suck air through the new core. [t25]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Remove the existing secondary transmission cooler that is sandwiched behind the factory unit.
-2. Install a larger B&M radiator-style cooler in place of or alongside the previous setup.
-
-_Procedure reported by [t25]._
+Remove an existing secondary transmission cooler, install a larger B&M unit, then mount a fan between them. [t25]
 
 ## Parts
 

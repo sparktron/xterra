@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Remove the plenum or valve covers to visualize internal metal components, a job useful when addressing hose access issues where factory service manuals may lack clarity on part relationships. [t5]
+Remove the plenum or valve covers to visualize internal metal components. [t5]
 
 ## Tips & gotchas
 

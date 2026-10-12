@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 4
+  reviewed_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Locate the blower motor resistor under the passenger dash and remove its two 7/32" hex head screws. [t7]
 
 ## Procedure
 
@@ -41,7 +41,7 @@ _Procedure reported by [t7]._
 
 ## Specifications
 
-- **Socket alternative**: 5.5 mm socket [t7] ([Unverified] single report)
+- **Socket alternative**: 5.5 mm socket [t7] (Claude-reviewed)
 
 ## Diagrams (links only)
 

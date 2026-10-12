@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Add seal-tight connectors and orient a wet box junction downward to secure wires against movement while allowing water to drip out. [t4]
+Add seal-tight connectors to a wet box and orient it for drainage. [t4]
 
 ## Procedure
 

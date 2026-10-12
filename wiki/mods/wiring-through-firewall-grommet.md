@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Remove fuse box cover, nick grommet with razor blade, and apply white petroleum lube. [t4]
 
 ## Procedure
 

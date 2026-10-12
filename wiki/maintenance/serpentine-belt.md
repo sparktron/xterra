@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,17 +28,7 @@ verification:
 
 ## Summary
 
-This job involves checking accelerator pedal position and cycling the ignition switch to listen for throttle valve movement, a procedure performed whenever the electric throttle control actuator or ECM harness connector is disconnected. [t22]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Check that the accelerator pedal is fully released.
-2. Turn the ignition switch ON (no wait time specified).
-3. Turn the ignition switch OFF and wait at least 10 seconds while listening for throttle valve movement.
-
-_Procedure reported by [t22]._
+_No verified summary yet._
 
 ## Tips & gotchas
 

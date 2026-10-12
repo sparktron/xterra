@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 5
+  reviewed_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Remove the old exhaust, drill out broken studs if necessary, and install a new muffler with specific diameters. [t43]
 
 ## Procedure
 

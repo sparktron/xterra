@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-This job sets the rear differential torque specifications for a 2nd-generation Nissan Xterra C200, ensuring proper preload on pinion nuts and ring gear bolts that must be replaced upon installation. [t28]
+_No verified summary yet._
 
 ## Tips & gotchas
 

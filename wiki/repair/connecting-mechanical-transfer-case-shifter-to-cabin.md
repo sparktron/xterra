@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-This job connects a mechanical transfer case shifter to the cabin by replacing an existing control module and aligning it with the internal rotating shaft for gear selection. [t35]
+_No verified summary yet._
 
 ## Procedure
 

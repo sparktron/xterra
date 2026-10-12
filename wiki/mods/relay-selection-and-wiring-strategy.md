@@ -20,8 +20,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 6
+  reviewed_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -31,7 +31,17 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Select SPDT relays with sufficient current capacity, run a 12 AWG wire to each relay's common side, and use a master relay for voltage flow. [t4]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Select relays with sufficient current capacity, accounting for inrush currents of resistive lamp loads (aiming for 20A minimum).
+2. Choose SPDT configurations to allow one relay type to handle both actuator control and standard lighting needs.
+3. Run a 12 AWG wire from each fuse on the BlueSea block to terminal #30 (common side) of relays R-1 through R-6.
+
+_Procedure reported by [t4]._
 
 ## Parts
 

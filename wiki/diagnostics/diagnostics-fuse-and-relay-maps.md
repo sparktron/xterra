@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 6
+  reviewed_items: 1
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -28,17 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Locate the main inline fuse as close to the battery's positive terminal as possible.
-2. Ensure this primary fuse is rated higher than the downstream breaker box fuses (typically 60 amps).
-3. Connect a distribution or breaker box to receive power from that main line.
-
-_Procedure reported by [t11]._
+Locate the main inline fuse, ensure it is rated higher than downstream breakers, and connect a distribution box. [t11]
 
 ## Diagrams (links only)
 

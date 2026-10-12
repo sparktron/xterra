@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Attempt starting the engine five times without fully engaging Park and tapping away slush or debris from the transmission shifter to diagnose Engine code P1615. [t12]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Attempt to start the engine five times in a row without fully engaging Park.
-2. Tap away slush or debris from around the transmission shifter area.
-
-_Procedure reported by [t12]._
+Attempt to start the engine five times and tap away slush or debris. [t12]
 
 ## Source attributions
 

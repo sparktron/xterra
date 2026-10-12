@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Selecting slim roof rack lights that fit within a closed Dephep rack and feature wide-pattern bulbs to minimize angling needs. [t4]
+Choose slim roof rack lights that fit within the closed Dephep rack and offer a wide lighting pattern. [t4]
 
 ## Procedure
 

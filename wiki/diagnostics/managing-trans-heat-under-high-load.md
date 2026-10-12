@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Shift into lower gears to maintain engine RPM above 2500 and back off throttle when ATF temperatures approach the conservative target of 190F. [t25]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Shift the transmission into a lower gear to keep engine RPM above 2500.
-2. Back off on throttle input when ATF temperatures approach limits.
-
-_Procedure reported by [t25]._
+Shift into lower gear to keep RPM above 2500 and back off throttle when ATF temperatures approach limits. [t25]
 
 ## Tips & gotchas
 

@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Determine the specific type of antifreeze currently in use.
-2. Establish a regular schedule for changing this fluid to prevent overheating or contamination.
-
-_Procedure reported by [t23]._
+Determine specific type of antifreeze currently in use, then establish a regular schedule for changing it. [t23]
 
 ## Tips & gotchas
 

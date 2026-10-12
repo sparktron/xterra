@@ -18,8 +18,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 14
+  reviewed_items: 2
+  withheld_items: 11
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,9 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Check that the accelerator pedal is fully released, then cycle the ignition switch on for two to ten-second intervals. [t22]
+
+Ensure voltage, temperature, and pedal position are correct then perform accelerator learning steps. [t22]
 
 ## Procedure
 

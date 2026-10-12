@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,9 @@ verification:
 
 ## Summary
 
-This job establishes front suspension torque specifications for a 2nd-generation Nissan Xterra, noting that many fasteners may need new nuts to ensure proper seating. [t28]
+Many front suspension fasteners require replacing the nut after removal to ensure proper seating. [t28]
+
+Spring shackles and U-bolts require nut replacement after removal. [t28]
 
 ## Tips & gotchas
 

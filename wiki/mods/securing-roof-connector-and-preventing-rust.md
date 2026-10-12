@@ -18,8 +18,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 3
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,16 @@ verification:
 
 ## Summary
 
-This job secures a roof connector by cleaning the surrounding area and applying silicone to the threads, preventing rust while ensuring a tight fit. [t4]
+Clean the roof area around the hole with lighter fluid and apply silicone all around the connector threads. [t4]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Clean the roof area around the hole with lighter fluid to remove grease.
+2. Apply silicone all around the connector threads before inserting it into the drilled hole.
+
+_Procedure reported by [t4]._
 
 ## Tools
 

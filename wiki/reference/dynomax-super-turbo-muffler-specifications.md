@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This job involves installing a Dynomax cat-back system with an additional Super Turbo muffler to achieve a galvanized crimped construction and 'S' shaped exhaust path. The setup utilizes specific parts including the Cat back kit (19443), the Super Turbo muffler (17748), and Mega-Clamps (33226). [t43]
+Identify the specific Dynomax part numbers for a cat-back system and an additional super turbo. [t43]
 
 ## Tips & gotchas
 

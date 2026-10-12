@@ -17,20 +17,18 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   withheld_items: 1
-  pending_safety_values: 2
+  pending_safety_values: 0
 ---
 
 # [reference] Lighting fuse and wire gauge selection
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
-
 ## Summary
 
-_No verified summary yet._
+Select a main fuse sized smaller than the thinnest part of the circuit using 4AWG wire and a 60A fuse. [t4]
 
 ## Procedure
 
@@ -39,6 +37,10 @@ _No verified summary yet._
 1. Select a main fuse sized smaller than the thinnest part of the circuit to protect wiring from shorts.
 
 _Procedure reported by [t4]._
+
+## Specifications
+
+- **Main wire gauge for 6 circuits**: 4AWG [t4] (Claude-reviewed)
 
 ## Diagrams (links only)
 

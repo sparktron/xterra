@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This guide details how to inspect the back of a flush push-button switch to verify its pin alignment for proper connection. [t38]
+Inspect the back of a flush push-button switch to verify pin alignment. [t38]
 
 ## Source attributions
 

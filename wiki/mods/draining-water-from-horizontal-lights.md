@@ -28,11 +28,9 @@ verification:
 
 ## Summary
 
-Cutting a 3/16-inch hole in the back of each horizontal Hella light drains accumulated water. [t4]
+Cut a 3/16 inch hole in the back of each Hella light for water drainage. [t4]
 
 ## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
 
 1. Cut a 3/16 inch hole in the back of each Hella light for water drainage.
 

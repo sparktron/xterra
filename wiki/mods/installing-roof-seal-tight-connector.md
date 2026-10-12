@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,16 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Insert heat-shrink tubing between tape sections, screw in a seal-tight connector, then bend it while wet. [t4]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Insert heat-shrink tubing between the two tape sections and apply heat to shrink it.
+2. Screw in the seal-tight connector, then bend it while wet so silicone hardens into shape.
+
+_Procedure reported by [t4]._
 
 ## Source attributions
 

@@ -19,7 +19,9 @@ shared_platform: []
 difficulty: null
 est_time: ~10 days downtime or less with independent mechanic
 tools: []
-parts: []
+parts:
+- name: Radiator (check part number to avoid 'old' versions)
+  oem_part_no: ''
 sources:
 - t23
 - t24
@@ -27,8 +29,8 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 11
+  reviewed_items: 2
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -36,7 +38,9 @@ verification:
 
 ## Summary
 
-Send automatic transmission fluid to Blackstone Laboratories and check the resulting lab report for signs of mixed coolant. [t23]
+Send automatic transmission fluid to Blackstone Laboratories and check the lab report for coolant mixing. [t23]
+
+Inspect the ATF dipstick and coolant reservoir to check if both fluids appear old. [t27]
 
 ## Procedure
 
@@ -47,9 +51,14 @@ Send automatic transmission fluid to Blackstone Laboratories and check the resul
 
 _Procedure reported by [t23]._
 
+## Parts
+
+- Radiator, check part number to avoid 'old' versions: Ensure it is not an older design version if replacing after initial repair [t24]
+
 ## Tips & gotchas
 
 - Keep taking samples periodically to stay on top of the issue instead of immediately installing a bypass or new radiator. [t23]
+- Check the radiator part number before installation to ensure it isn't an older design version that may have been on dealer shelves. [t24]
 - Perform a complete drain and fill of Matic S fluid after repair. [t24]
 
 ## Common mistakes

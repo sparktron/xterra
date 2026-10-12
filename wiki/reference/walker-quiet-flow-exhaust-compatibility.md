@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Search for a Walker Quiet Flow muffler to fit existing cat-back tubes. [t43]
 
 ## Tips & gotchas
 

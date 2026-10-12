@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This job involves replacing short factory wires on Hella 500 Lights with longer, crimped replacements. [t4]
+Remove small factory wires from the lights and crimp connectors onto the new wire ends. [t4]
 
 ## Procedure
 

@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 5
+  reviewed_items: 1
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,19 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Pour approximately 2 liters of ATF directly into the torque converter before final installation. [t35]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Pour approximately 2 liters of ATF directly into the torque converter before final installation.
+
+_Procedure reported by [t35]._
+
+## Specifications
+
+- **Torque converter fill volume (new unit)**: approx 2 liters [t35] (Claude-reviewed)
 
 ## Tips & gotchas
 

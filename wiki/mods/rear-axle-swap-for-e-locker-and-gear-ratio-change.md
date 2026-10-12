@@ -19,8 +19,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 5
+  reviewed_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install an M226 rear axle with electronic locker in place of the existing 2WD setup. [t35]
 
 ## Parts
 

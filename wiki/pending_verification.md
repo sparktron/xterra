@@ -5,14 +5,4 @@ Safety-critical values that passed the evidence checks but are not yet corrobora
 
 | Topic | Item | Value | Why pending | Source |
 |---|---|---|---|---|
-| [reference] Fluids and capacities | Engine type associated with strong low-end torque | VQ40 engine | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/ |
-| [reference] Fluids and capacities | RPM threshold for torque converter slip heat generation | about 2500 rpm | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/ |
-| [reference] Lighting electrical load and wire sizing | Alternator output voltage | 14.4V | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/ |
-| [reference] Lighting electrical load and wire sizing | Battery voltage (engine off) | 12.6V | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/ |
-| [reference] Lighting electrical load and wire sizing | Target wire voltage drop (engine off) | 1 Volt | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/ |
-| [reference] Lighting fuse and wire gauge selection | Main wire gauge for 6 circuits | 4AWG | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/ |
-| [reference] Lighting fuse and wire gauge selection | Recommended main fuse size | 60A | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/ |
-| Transmission work for 2WD to 4WD conversion | Band servo anchor end pin torque (final) | 44 IN*LB | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
-| Transmission work for 2WD to 4WD conversion | Converter housing bolt torque (standard) | 38 ft*lb | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
-| Transmission work for 2WD to 4WD conversion | Lock nut for band servo anchor (after backing off) | 34 ft-lb | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
-| Transmission work for 2WD to 4WD conversion | Oil pump assembly bolt torque | 35 ft*lb | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
+| _none_ | | | | |

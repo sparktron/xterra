@@ -3,7 +3,8 @@
 title: '[reference] General maintenance fluid plug torques'
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
   trims: []
   engine: []
   drivetrain: []
@@ -18,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,7 +29,7 @@ verification:
 
 ## Summary
 
-This guide covers general maintenance for 2nd-generation Nissan Xterra fluid plug torques, ensuring proper sealing by accounting for specific washer and sealant requirements. [t28]
+Drain plugs often require crush washers or gaskets while fill plugs may need silicone RTV. [t28]
 
 ## Tips & gotchas
 

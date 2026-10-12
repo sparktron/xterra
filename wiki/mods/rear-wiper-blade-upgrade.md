@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 7
+  reviewed_items: 1
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,11 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install a longer aftermarket or Murano-style replacement blade with equal length on each end. [t33]
+
+## Tips & gotchas
+
+- Ensure the replacement blade has equal length on each end for proper fitment. [t33]
 
 ## Diagrams (links only)
 

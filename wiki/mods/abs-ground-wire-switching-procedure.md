@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 1
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Pull the brown ground wire from the harness and snip it into two ends. [t38]
 
 ## Procedure
 

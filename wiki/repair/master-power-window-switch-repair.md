@@ -21,7 +21,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 2
   withheld_items: 6
   pending_safety_values: 0
 ---
@@ -32,7 +32,7 @@ verification:
 
 ## Summary
 
-This master power window switch repair involves cleaning internal contacts and adjusting wing rockers to restore reliable operation on a 2nd-generation Nissan Xterra. [t39]
+Remove master power window switch, clean contacts with contact cleaner, then reinstall components. [t39]
 
 ## Tools
 

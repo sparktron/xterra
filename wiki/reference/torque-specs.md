@@ -3,9 +3,9 @@
 title: Torque specifications
 category: reference
 applies_to:
-  years: []
-  trims:
-  - 2nd Gen
+  years:
+  - 2005
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -21,8 +21,8 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 10
+  reviewed_items: 2
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -30,11 +30,11 @@ verification:
 
 ## Summary
 
-Monitor the ATF temperature and add a fan to the OEM air-cooler when assessing cooling needs or bypassing the radiator cooler. [t25]
+Monitor the ATF temperature and add a fan to the OEM air-cooler. [t25]
 
-This reference lists torque specifications for a 2nd-generation Nissan Xterra repair or modification to ensure proper fastener tightness. [t28]
+Note numbers in parentheses may represent Newton-meters or Kilogram-meters if following the Service Manual format. [t28]
 
-Selecting a 30-amp relay ensures proper handling of electrical loads during this modification. [t11]
+Select a relay rated for at least 30-AMPS. [t11]
 
 ## Procedure
 
@@ -44,6 +44,16 @@ Selecting a 30-amp relay ensures proper handling of electrical loads during this
 2. Add a fan to the OEM air-cooler if bypassing the rad-cooler.
 
 _Procedure reported by [t25]._
+
+<details><summary>Alternate procedure [t11] [Partial]</summary>
+
+1. Select a relay rated for at least 30-AMPS to handle the load.
+
+</details>
+
+## Common mistakes
+
+- The author manually entered numbers from assembly drawings, increasing the risk of typing errors compared to direct cut-and-paste methods. [t28]
 
 ## Diagrams (links only)
 

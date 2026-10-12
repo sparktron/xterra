@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -42,7 +42,6 @@ _Procedure reported by [t5]._
 ## Common mistakes
 
 - Assuming the job will be simple without removing both intake sections. [t5]
-- Forgetting that metal piping in tight spaces can cause hose damage. [t5]
 
 ## Source attributions
 

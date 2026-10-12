@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-This job involves adjusting the three bolts of the hood latch assembly to eliminate squeaking noises. [t36]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Open the hood to access the locking mechanism.
-2. Locate the three bolts holding the latch, spring, and clip together.
-
-_Procedure reported by [t36]._
+Locate three bolts holding the latch, spring, and clip together. [t36]
 
 ## Tips & gotchas
 

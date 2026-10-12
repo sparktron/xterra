@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Evaluate whether installing an external aftermarket ATF cooler is necessary to prevent altered torque converter lock-up caused by bypassed radiator restrictions. [t27]
+Evaluate the need for an external aftermarket ATF cooler and consider how it alters torque converter lock-up. [t27]
 
 ## Procedure
 

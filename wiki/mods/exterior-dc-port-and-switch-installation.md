@@ -22,7 +22,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -32,7 +32,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install a master on/off switch for the rear battery and add six exterior DC ports. [t41]
 
 ## Procedure
 

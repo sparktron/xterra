@@ -19,8 +19,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,16 @@ verification:
 
 ## Summary
 
-Bundle roof wires into a taped section approximately 6 inches long before applying generous amounts of silicone to seal all spaces. [t4]
+Bundle wires with electric tape six inches apart, spread them to fill gaps, then apply generous silicone. [t4]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Bundle all wires together and hold them with electric tape about 6 inches apart.
+2. Spread the wires between the tapes to fill gaps, then apply silicone generously in every space.
+
+_Procedure reported by [t4]._
 
 ## Tools
 

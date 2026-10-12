@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Inspecting various small components helps troubleshoot a mystery diagnostic trouble code P1283. [t12]
+Inspect various small components that may contribute to the reading. [t12]
 
 ## Source attributions
 

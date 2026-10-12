@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,15 +28,7 @@ verification:
 
 ## Summary
 
-Spray the hood latch area every two weeks to address frequent squeaking. [t36]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Spray the latch area with lubricant.
-
-_Procedure reported by [t36]._
+_No verified summary yet._
 
 ## Source attributions
 

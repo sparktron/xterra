@@ -33,19 +33,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Remove the passenger side kick panel by first pulling off two white plastic clips holding a side strip.
-2. Pop out the remaining floor and upper side retainers to fully remove the panel.
-3. Locate three relays inside the cabin that require fuses based on your specific wiring setup (automatic vs manual transmission).
-4. Wrap foam tape around the selected relay(s) and zip-tie them securely in place using kit-supplied hardware.
-5. Reinstall the kick panel, ensuring it is clipped firmly along its bottom rail.
-
-_Procedure reported by [t6]._
+Wrap foam tape around selected relays and zip-tie them securely in place. [t6]
 
 ## Tools
 

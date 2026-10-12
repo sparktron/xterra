@@ -10,15 +10,16 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Straight edge
 parts: []
 sources:
 - t35
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 1
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +29,7 @@ verification:
 
 ## Summary
 
-Align notches on the torque converter with those on the oil pump and insert it until seated, then use a straight edge across the housing to verify that bolt holes are spaced at least 25mm apart. [t35]
+Align notches, insert and rotate the torque converter, then use a straight edge to check bolt holes. [t35]
 
 ## Procedure
 
@@ -38,6 +39,10 @@ Align notches on the torque converter with those on the oil pump and insert it u
 2. Insert and rotate the converter into place until seated.
 
 _Procedure reported by [t35]._
+
+## Tools
+
+- Straight edge [t35]
 
 ## Specifications
 

@@ -20,8 +20,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 1
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -31,7 +31,16 @@ verification:
 
 ## Summary
 
-Drill a hole through the plastic fin on the outside of the VIAS valve and thread a screw in just enough so its point touches the rigid plenum fin, raising the valve slightly to stop the rattle. [t30]
+Drill a hole through the plastic fin on the outside of the VIAS valve and thread a screw in just enough so its point touches the rigid plenum fin. [t30]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Drill a hole through the plastic fin on the outside of the VIAS valve.
+2. Ensure you do not drill completely through to the rigid plenum fin resting against it.
+
+_Procedure reported by [t30]._
 
 ## Tools
 

@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 2
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,14 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Attach a wire loom behind the U-channel and position wires to avoid damage from screw tips. [t4]
+
+## Procedure
+
+1. Attach the wire loom behind (not inside) the 'U' channel between the two glove boxes.
+2. Ensure wires are positioned so they do not get damaged by screw tips when closing the box.
+
+_Procedure reported by [t4]._
 
 ## Source attributions
 

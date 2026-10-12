@@ -21,11 +21,11 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [Diagnostics Mystery code P1283 troubleshooting](diagnostics/diagnostics-mystery-code-p1283-troubleshooting.md) | [Unverified] | 1 |
 | Door, window and lock electrical faults | not-started | 0 |
 | Driveline and wheel bearing noises | not-started | 0 |
-| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | [Unverified] | 3 |
+| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | community-consensus | 3 |
 | [Eliminating Over-Sensitive ABS Pulsing](diagnostics/eliminating-over-sensitive-abs-pulsing.md) | [Unverified] | 1 |
 | [Engine and Auto Trans Cooling Observations](diagnostics/engine-and-auto-trans-cooling-observations.md) | [Unverified] | 1 |
 | Engine noise diagnosis | not-started | 0 |
-| [Engine trouble codes (VQ40DE)](diagnostics/dtc-reference-vq40de.md) | [Unverified] | 2 |
+| [Engine trouble codes (VQ40DE)](diagnostics/dtc-reference-vq40de.md) | community-consensus | 2 |
 | EVAP system faults | not-started | 0 |
 | [Exhaust drone and noise reduction](diagnostics/exhaust-drone-and-noise-reduction.md) | [Unverified] | 1 |
 | Frame and leaf spring bracket rust | not-started | 0 |
@@ -45,7 +45,7 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 |---|---|---|
 | [[diagnostics] Heater core and A/C problems](maintenance/diagnostics-heater-core-and-a-c-problems.md) | [Unverified] | 1 |
 | Air, cabin and fuel filters | not-started | 0 |
-| [Automatic transmission fluid change](maintenance/atf-change.md) | community-consensus | 2 |
+| [Automatic transmission fluid change](maintenance/atf-change.md) | [Unverified] | 2 |
 | Brake fluid flush and bleeding | not-started | 0 |
 | Brake pads and rotors | not-started | 0 |
 | Coolant drain and refill | not-started | 0 |

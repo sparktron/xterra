@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This job involves creating connections within a plastic junction box to simplify wiring, specifically by feeding wire loom from the rack and roof connector into the case's side opening. [t4]
+Connect wires in a plastic case attached inside the wet box, then feed wire loom from the rack and roof connector into the side opening. [t4]
 
 ## Procedure
 

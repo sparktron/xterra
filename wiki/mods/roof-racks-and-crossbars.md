@@ -27,7 +27,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -38,16 +38,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Mount the golf cart roof rack to the vehicle using custom brackets designed for specific roof styles.
-2. Drill holes into the existing factory roof rack as needed to accommodate the mounting points.
-
-_Procedure reported by [t40]._
+Mount the golf cart roof rack using custom brackets, drill factory holes as needed, use speed squares and punches for centers, then apply WD-40 to fit Ubolts. [t40]
 
 ## Tools
 

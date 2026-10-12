@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 4
+  reviewed_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Start the cold engine and check the reservoir level between fill limits while it runs. [t25]
 
 ## Tips & gotchas
 

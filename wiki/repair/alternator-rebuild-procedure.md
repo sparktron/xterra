@@ -29,8 +29,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 9
+  reviewed_items: 3
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -40,7 +40,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Soak pulley nut and remove it before flipping alternator to rebuild housing bearings. [t32]
 
 ## Tools
 

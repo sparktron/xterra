@@ -10,7 +10,8 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- 5.5 mm wrench
 parts:
 - name: Dorman Replacement Actuator
   oem_part_no: ''
@@ -21,8 +22,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 1
+  reviewed_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -33,6 +34,10 @@ verification:
 ## Summary
 
 _No verified summary yet._
+
+## Tools
+
+- 5.5 mm wrench [t42]
 
 ## Parts
 

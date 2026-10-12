@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-Check the radiator's part number prefix and suffix to identify if a unit is from the 21460 series or susceptible to an SMOD. [t27]
+_No verified summary yet._
 
 ## Source attributions
 

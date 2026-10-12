@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-Swap the IPDM unit from a donor vehicle to test its compatibility. [t17]
+Locate the IPDM fuse box and match the physical fuse number to identify specific circuit assignments. [t17]
 
 ## Procedure
 

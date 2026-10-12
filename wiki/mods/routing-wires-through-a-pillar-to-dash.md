@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 1
+  reviewed_items: 2
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Route the wire loom down the passenger side A-pillar and feed wires under the dash. [t4]
 
 ## Procedure
 

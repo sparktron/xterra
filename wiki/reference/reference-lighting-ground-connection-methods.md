@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Route the body ground for interior lights inside the truck cabin to protect against rain, snow, and road salt corrosion. [t4]
+Route the body ground for interior lights inside the truck cabin. [t4]
 
 ## Procedure
 

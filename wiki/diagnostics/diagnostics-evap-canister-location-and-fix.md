@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Locate the evaporative emissions canister behind the left rear wheel. [t12]
 
 ## Procedure
 

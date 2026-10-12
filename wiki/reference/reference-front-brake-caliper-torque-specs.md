@@ -18,8 +18,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 2
+  reviewed_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-This job specifies that the rear brake caliper's torque member bolt requires a higher setting than its bleed valve, which utilizes inch-pound measurements. [t28]
+Bleed valve uses inch-pounds while the torque member bolt holds the highest value. [t28]
 
 ## Tips & gotchas
 

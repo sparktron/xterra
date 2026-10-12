@@ -10,15 +10,16 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Pressure gauges
 parts: []
 sources:
 - t16
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 7
+  reviewed_items: 1
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -29,6 +30,10 @@ verification:
 ## Summary
 
 _No verified summary yet._
+
+## Tools
+
+- Pressure gauges [t16]
 
 ## Tips & gotchas
 

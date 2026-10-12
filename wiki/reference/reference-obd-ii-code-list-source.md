@@ -17,7 +17,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Visit an external web link to reference a comprehensive list of OBD-II codes. [t12]
+Visit the external web link to view a comprehensive list of codes. [t12]
 
 ## Procedure
 

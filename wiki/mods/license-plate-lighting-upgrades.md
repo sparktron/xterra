@@ -24,8 +24,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 5
+  reviewed_items: 3
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -35,7 +35,19 @@ verification:
 
 ## Summary
 
-This job involves upgrading the license plate lighting by replacing old housings with new LED units to improve illumination. [t31]
+Lower the spare tire, remove the old housing, twist out the bulb harness, splice wiring if needed, then apply grease and insert the LED light. [t31]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Lower the spare tire and slide it forward to clear access.
+2. Remove the old housing by pulling down or up on the L-shaped internal clamp until it slides off.
+3. Twist and pull out the bulb harness from outside the bumper, leaving two holes in the bodywork.
+4. Cut off corroded connectors on the existing wiring harness if necessary to splice in new ones.
+5. Apply dielectric grease inside the connector before inserting the LED light.
+
+_Procedure reported by [t31]._
 
 ## Tools
 
@@ -54,6 +66,10 @@ This job involves upgrading the license plate lighting by replacing old housings
 - Cut cardboard from the kit box to cover clear plastic windows while painting. [t31]
 - Sand new housings thoroughly with 600 grit sandpaper in every crevice and angle before priming. [t31]
 - Use a baking pan covered with trash bags as a rack for painting multiple coats without drips. [t31]
+
+## Common mistakes
+
+- Using halogen bulbs that generate too much heat, destroying the plastic housing over time. [t31]
 
 ## Source attributions
 

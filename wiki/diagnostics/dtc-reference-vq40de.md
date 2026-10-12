@@ -15,21 +15,19 @@ parts: []
 sources:
 - t12
 - t24
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 7
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
 # Engine trouble codes (VQ40DE)
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
-_No verified summary yet._
+Connect an OBD-II reader and turn the ignition on. [t12]
 
 ## Tips & gotchas
 

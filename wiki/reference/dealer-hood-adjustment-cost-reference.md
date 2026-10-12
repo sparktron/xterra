@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Visit a dealer to observe the mechanic performing this labor-intensive job, which costs $60. [t36]
+_No verified summary yet._
 
 ## Procedure
 

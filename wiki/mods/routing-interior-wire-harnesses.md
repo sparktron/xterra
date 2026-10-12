@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Pulling a wire harness into the interior of a Nissan Xterra by removing a connector nut and allowing silicone to settle. [t4]
+_No verified summary yet._
 
 ## Procedure
 

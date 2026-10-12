@@ -17,7 +17,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This guide defines the two distinct automatic transmission fluid cooling systems on a 2nd-generation Nissan Xterra, identifying the rad-cooler as the unit located at the radiator's bottom and the air-cooler as the separate exchanger positioned in front of the AC condenser. [t25]
+Refer to the rad-cooler as the ATF heat exchanger located in the bottom of the radiator. [t25]
 
 ## Tips & gotchas
 

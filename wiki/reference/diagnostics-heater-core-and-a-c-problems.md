@@ -21,7 +21,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 16
+  withheld_items: 17
   pending_safety_values: 0
 ---
 
@@ -35,7 +35,6 @@ _No verified summary yet._
 
 ## Tips & gotchas
 
-- Use this measurement to determine if an overcharge has occurred. [t16]
 - Distinguish between the 'Relief valve set pressure' and general operating pressures. [t16]
 - Confirm that Nissan Type R oil is equivalent to PAG100 viscosity. [t16]
 

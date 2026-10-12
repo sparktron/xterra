@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-This job sets the rear differential pinion nut and ring gear bolt torques to M225 or M226 specifications, ensuring proper preload when replacing worn fasteners. [t28]
+Replace pinion nut and ring gear bolts, then set the breather cap to specific inch-pounds. [t28]
 
 ## Source attributions
 

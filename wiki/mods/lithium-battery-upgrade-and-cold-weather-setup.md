@@ -10,15 +10,17 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Tank heater
+- Insulation
 parts: []
 sources:
 - t41
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 2
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +30,7 @@ verification:
 
 ## Summary
 
-Upgrade the main battery to a 210ah lithium unit and add a 12v tank heater with insulation to enable reliable cold weather charging. [t41]
+Upgrade the main battery to a 210ah lithium unit and add a 12v tank heater with insulation. [t41]
 
 ## Procedure
 
@@ -38,6 +40,11 @@ Upgrade the main battery to a 210ah lithium unit and add a 12v tank heater with 
 2. Add a 12v tank heater and insulation for cold weather charging.
 
 _Procedure reported by [t41]._
+
+## Tools
+
+- Tank heater [t41]
+- Insulation [t41]
 
 ## Tips & gotchas
 

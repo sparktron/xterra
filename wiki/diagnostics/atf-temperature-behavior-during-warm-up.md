@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 7
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-This job involves observing that the ATF in the pan reaches 100°F quicker than engine coolant hits 165°F during a warm-up from ambient conditions as low as 20°F, confirming heat comes from internal transmission generation. [t25]
+_No verified summary yet._
 
 ## Source attributions
 

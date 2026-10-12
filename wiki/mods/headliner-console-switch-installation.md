@@ -23,7 +23,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 3
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -34,7 +34,7 @@ verification:
 
 ## Summary
 
-This job involves installing a headliner console switch by removing the assembly and modifying an existing microphone mount, achieving proper switch depth with nut spacers. [t4]
+Remove headliner assembly and install console switch using nut spacers for depth. [t4]
 
 ## Procedure
 

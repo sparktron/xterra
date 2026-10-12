@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Calculate the specific resistance of a Tungsten filament lamp using Ohm's Law to determine that a standard 55W bulb draws 4.58A at 12V with a single bulb resistance of 2.62Ω. [t4]
+Calculate the specific resistance of a Tungsten filament lamp using Ohm's Law. [t4]
 
 ## Procedure
 

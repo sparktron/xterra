@@ -12,14 +12,16 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: B&M Auxiliary Cooler
+  oem_part_no: ''
 sources:
 - t24
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 6
+  reviewed_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -30,6 +32,19 @@ verification:
 ## Summary
 
 _No verified summary yet._
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Remove the stock radiator/cooler assembly.
+2. Install a B&M style auxiliary cooler with an integrated fan.
+
+_Procedure reported by [t24]._
+
+## Parts
+
+- B&M Auxiliary Cooler: Features built-in fan and thermostat switch [t24]
 
 ## Source attributions
 

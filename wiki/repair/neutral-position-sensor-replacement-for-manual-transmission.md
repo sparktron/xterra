@@ -22,8 +22,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 9
+  reviewed_items: 3
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -33,7 +33,7 @@ verification:
 
 ## Summary
 
-This job involves replacing the Neutral Position Sensor on a manual transmission to ensure proper gear indication and cruise control functionality. [t10]
+Replace the Neutral Position Sensor by removing the shifter knob and hex adapter to access the sensor. [t10]
 
 ## Tools
 

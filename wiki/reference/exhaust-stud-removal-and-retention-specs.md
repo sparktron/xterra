@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,15 +28,7 @@ verification:
 
 ## Summary
 
-Inspecting the secondary cat connections on a Nissan Xterra reveals that there are two studs per side, providing specific data points for exhaust stud removal and retention. [t43]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Inspect the secondary cat connections for broken studs.
-
-_Procedure reported by [t43]._
+Inspect the secondary cat connections for broken studs with two studs per side. [t43]
 
 ## Source attributions
 

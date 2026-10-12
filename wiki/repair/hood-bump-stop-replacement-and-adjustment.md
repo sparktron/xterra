@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Raise the hood, replace worn bump stops with new OEM ones, and ensure they apply upward pressure. [t36]
 
 ## Parts
 

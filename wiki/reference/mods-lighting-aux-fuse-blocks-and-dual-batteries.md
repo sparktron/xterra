@@ -29,7 +29,7 @@ verification:
 
 ## Summary
 
-This modification installs an auxiliary switch for lighting and dual batteries near the front roof light switch, achieving a factory-style appearance with either a push-to-make or push-to-break momentary action. [t15]
+Identify the Ign relay source for 12v power available when ignition is on or starting. [t17]
 
 ## Procedure
 

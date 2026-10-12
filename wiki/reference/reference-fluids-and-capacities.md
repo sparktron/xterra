@@ -30,18 +30,22 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 34
-  pending_safety_values: 2
+  reviewed_items: 4
+  withheld_items: 29
+  pending_safety_values: 0
 ---
 
 # [reference] Fluids and capacities
 
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
-
 ## Summary
 
-Locate and fill the A/C service port with HFC 134a refrigerant to achieve a total capacity of roughly 1.54 lbs. [t16]
+Use 4-gauge wire for the main power cable running from battery to breaker box. [t11]
+
+Run an 8-gauge wire from the breaker box to individual lights or loads. [t11]
+
+Reference transfer case fluid as Nissan's Matic D or the spec named J. [t20]
+
+Reference transfer case fluid as Matic D and transmission fluid as J. [t20]
 
 ## Procedure
 
@@ -50,6 +54,12 @@ Locate and fill the A/C service port with HFC 134a refrigerant to achieve a tota
 1. Use 4-gauge wire for the main power cable running from battery to breaker box.
 
 _Procedure reported by [t11]._
+
+<details><summary>Alternate procedure [t11] [Partial]</summary>
+
+1. Run 8-gauge wire from the breaker box to individual lights or loads.
+
+</details>
 
 ## Parts
 
@@ -65,7 +75,9 @@ _Procedure reported by [t11]._
 - **Altitude for high ATF temp incidents**: over 12,000 feet [t25] ([Unverified] single report)
 - **Ambient temperature range for specific data logs**: 50 - 60F [t25] ([Unverified] single report)
 - **Radiator part number for brass cooler alternative**: KOYO A2807 [t25] ([Unverified] single report)
+- **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
 - **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Unverified] single report)
+- **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
 
 ## Tips & gotchas
 

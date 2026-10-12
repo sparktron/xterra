@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Listen for a high-pitched, intermittent chirping noise to identify the specific sound characteristics of a hood squeak. [t36]
+_No verified summary yet._
 
 ## Procedure
 

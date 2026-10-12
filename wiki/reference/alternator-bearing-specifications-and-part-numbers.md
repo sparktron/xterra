@@ -32,7 +32,7 @@ verification:
 
 ## Summary
 
-This job identifies the front bearing as WBD part number 6303D with dimensions of 17x47x14 and notes the rear alternative is NSK part number B10-50D. [t32]
+The front bearing is identified by WBD part number 6303D with dimensions of 17x47x14. [t32]
 
 ## Parts
 
