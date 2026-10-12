@@ -11,7 +11,7 @@ from . import db, doctor as doctor_mod
 from .config import Config
 from .crawl import discover, harvest
 from .export import export_all
-from .extract import extract_pending
+from .extract import extract_pending, resummarize
 from .fetch import Blocked, Fetcher
 from .ingest import MANUAL_SOURCE, ingest_file
 from .llm import LLM
@@ -108,6 +108,12 @@ def _print_decoys(conn: sqlite3.Connection) -> None:
         return
     print(f"verifier decoys: accepted {d['accepted']}/{d['decoys']} ({d['decoy_accept_rate']:.0%}) over {d['calls']} call(s); "
           f"{d['discarded_calls']} call(s) discarded")
+
+
+def cmd_summarize(args: argparse.Namespace) -> int:
+    cfg, conn = _open(args)
+    print(f"summarized {resummarize(conn, LLM(cfg), redo=args.redo)} fact(s); run `xw verify` to check the new summaries")
+    return 0
 
 
 def cmd_verify(args: argparse.Namespace) -> int:
@@ -271,6 +277,10 @@ def build_parser() -> argparse.ArgumentParser:
     v.add_argument("--limit", type=int)
     v.add_argument("--redo", action="store_true", help="re-verify every claim, not only claims without a local verdict")
     v.set_defaults(fn=cmd_verify)
+
+    sm = sub.add_parser("summarize", help="write the summary of facts that lack one (from their steps), without re-extracting")
+    sm.add_argument("--redo", action="store_true", help="rewrite every summary; changed ones lose their verdicts")
+    sm.set_defaults(fn=cmd_summarize)
 
     sub.add_parser("export", help="build wiki/ from verified facts").set_defaults(fn=cmd_export)
 

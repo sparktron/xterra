@@ -24,7 +24,7 @@ Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions
 The reference section of the wiki, `wiki/vehicle/`, holds pages written by hand rather than extracted: one page per model year (2005-2015) plus trims, paint codes, dimensions, engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, part numbers, recalls and VIN decoding. Sources are Nissan press kits, owner's manuals and maintenance schedules, EPA, NHTSA, and paint and parts catalogs. `xw export` leaves these pages alone and links their hub from the top of `wiki/index.md`; `xw qa` fails if a line on them states a number without citing a source listed on that page or marking it `[Unverified]`.
 
 ## Commands
-`init doctor status discover harvest extract ingest verify export review-export review-apply qa run reset-source`
+`init doctor status discover harvest extract ingest summarize verify export review-export review-apply qa run reset-source`
 
 ## Legal
 Honors rate limits and never circumvents paywalls or blocks (401/402/403 hard stop). robots.txt checking is off by default (`respect_robots` in settings.yaml) — re-enable it before crawling a site that asks you not to. Forum text is others' content: the wiki publishes paraphrased facts with source links, not copies. Check each site's terms.

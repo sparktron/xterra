@@ -633,13 +633,24 @@ def test_unsupported_or_rejected_completeness_still_withholds_the_procedure(cfg,
     export(cfg, conn)
     assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # steps supported, list not
     assert "completeness (procedure withheld)" in (cfg.wiki_dir / "open_questions.md").read_text()
-    # a partial local verdict does not survive a reviewer's reject
+    # a partial local verdict does not survive a reviewer's reject ("a listed step is not in the source")
     conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
     conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) "
                  "SELECT fact_id, 'complete', 'claude', 'reject', '', '' FROM verdicts WHERE claim_key='complete'")
     conn.commit()
     export(cfg, conn)
     assert "## Procedure" not in page_text(cfg)
+    # ... but a reviewer's needs_human ("steps are stated, the list may be incomplete") shows it, marked Partial,
+    # even over a local `unsupported`; an approval shows it unmarked
+    conn.execute("UPDATE verdicts SET verdict='needs_human' WHERE claim_key='complete' AND by='claude'")
+    conn.execute("UPDATE verdicts SET verdict='unsupported' WHERE claim_key='complete' AND by='local'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" in page_text(cfg)
+    conn.execute("UPDATE verdicts SET verdict='approve' WHERE claim_key='complete' AND by='claude'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
 
 
 def test_partial_never_rescues_an_unsupported_step(cfg, conn, tmp_path):

@@ -30,10 +30,11 @@ The local model is not trusted. Each item names the guarding test, or says none 
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,
   `test_decoys_are_false_by_construction_and_honest_verifier_passes`. Test fakes must reject claims whose numbers are
   not in the source, or every call is discarded.
-- **A procedure publishes only with every step supported.** One unsupported or withheld step, or an `unsupported` (or
-  reviewer-rejected) `complete` claim, withholds the whole procedure. If every step is supported and the local verifier
-  only answers `partial` on `complete` (the list may leave something out), it publishes marked `[Partial]` (`export.PARTIAL_NOTE`),
-  sorts after complete procedures, and loses the mark on the next export once a verify or review upgrades the verdict.
+- **A procedure publishes only with every step supported.** One unsupported or withheld step, or an `unsupported` or
+  reviewer-`reject`ed `complete` claim (reject = a listed step is not in the source), withholds the whole procedure. If every step is
+  supported and the list only *may* leave something out (local verifier `partial`, or a reviewer's `needs_human` on `complete`),
+  it publishes marked `[Partial]` (`export.PARTIAL_NOTE`, `export.is_partial_completeness`), sorts after complete procedures, and loses
+  the mark on the next export once a verify or review upgrades the verdict.
   Tests: `test_partial_procedure_publishes_marked_partial_until_upgraded`,
   `test_unsupported_or_rejected_completeness_still_withholds_the_procedure`, `test_partial_never_rescues_an_unsupported_step`.
 - **Grounding means "appears in the source", not "is correct".** Numbers (in specs and in prose), part numbers,

@@ -72,10 +72,11 @@ def extract_chunk(llm: LLM, system: str, schema: dict, source_name: str, thread_
 
 
 SUMMARY_SYSTEM = (
-    "You write the one-to-two sentence summary line of a wiki page about a 2nd-generation Nissan Xterra repair or "
-    "modification. Use ONLY the title, steps, tips and values given. Say what the job is and what it achieves or when "
-    "you would do it. Do not add any fact, cause, benefit or part that is not in the input, do not copy the steps, and "
-    'do not mention forum users. Reply with one JSON object: {"summary": "..."}.'
+    "You write the one-line summary of a wiki page about a 2nd-generation Nissan Xterra repair or modification. "
+    "Write ONE short sentence (at most 25 words) that says what the job is, restating only what the title, steps, "
+    "tips and values below say, in their words. Do not state a purpose, benefit, cause, result, tool or part that is "
+    "not written in the input. Do not write a number or a count unless it appears as a digit in the input. Do not "
+    'mention forum users. Reply with one JSON object: {"summary": "..."}.'
 )
 SUMMARY_SCHEMA = {"type": "object", "properties": {"summary": {"type": "string"}}, "required": ["summary"]}
 
@@ -160,3 +161,24 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
         conn.commit()
         log(f"  chunk {row['cid']}: {stored} fact(s) in {time.monotonic() - started:.0f}s  [{row['title'][:50]}]")
     return processed
+
+
+def resummarize(conn: sqlite3.Connection, llm: LLM, *, redo: bool = False, log: Log = print) -> int:
+    """Write (or with `redo`, rewrite) the summary of stored facts. A changed summary loses its verdicts (they judged
+    the old text), so the next `xw verify` re-checks it. Returns the number of summaries changed."""
+    changed = 0
+    for row in conn.execute("SELECT id, fact_json FROM facts ORDER BY id").fetchall():
+        fact = Fact.model_validate_json(row["fact_json"])
+        if fact.summary.strip() and not redo:
+            continue
+        old, fact.summary = fact.summary, ""
+        fill_summary(llm, fact)
+        if not fact.summary or fact.summary == old:
+            fact.summary = old
+            continue
+        conn.execute("UPDATE facts SET fact_json=? WHERE id=?", (fact.model_dump_json(), row["id"]))
+        conn.execute("DELETE FROM verdicts WHERE fact_id=? AND claim_key='summary'", (row["id"],))
+        conn.commit()
+        changed += 1
+        log(f"  fact {row['id']}: {fact.summary[:100]}")
+    return changed

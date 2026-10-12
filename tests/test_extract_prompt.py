@@ -96,3 +96,26 @@ def test_every_chat_request_caps_the_output_length(cfg):
     llm = LLM(cfg, client=httpx.Client(transport=httpx.MockTransport(handler)))
     llm.chat_json("sys", "user", {"type": "object"})
     assert seen and seen[0]["max_tokens"] == cfg.llm.max_output_tokens == 8192
+
+
+def test_resummarize_rewrites_summaries_and_drops_only_their_verdicts(cfg, conn):
+    from xw.extract import resummarize
+
+    fact = Fact(category="diagnostics", topic="Reset", title="Reset the light", steps=["Turn the key to ON"], summary="Old.")
+    sid = conn.execute("SELECT id FROM sources LIMIT 1").fetchone()
+    assert sid is not None, "the conn fixture seeds sources"
+    tid = conn.execute("INSERT INTO threads(source_id, url, title, status) VALUES(?,?,?,?)", (sid[0], "http://x.invalid/t", "T", "extracted")).lastrowid
+    cid = conn.execute("INSERT INTO chunks(thread_id, idx, text, status) VALUES(?,?,?,?)", (tid, 0, "Turn the key to ON.", "done")).lastrowid
+    fid = conn.execute("INSERT INTO facts(thread_id, chunk_id, fact_json, grounding_json, created_at) VALUES(?,?,?,?,?)",
+                       (tid, cid, fact.model_dump_json(), "{}", "")).lastrowid
+    for key in ("summary", "step:0"):
+        conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)", (fid, key, "local", "supported", ""))
+    conn.commit()
+    assert resummarize(conn, _Scripted(AssertionError("must not run")), redo=False) == 0          # has a summary: untouched
+    assert resummarize(conn, _Scripted({"summary": "Turns the key to ON."}), redo=True) == 1
+    new = Fact.model_validate_json(conn.execute("SELECT fact_json FROM facts WHERE id=?", (fid,)).fetchone()[0])
+    assert new.summary == "Turns the key to ON."
+    keys = {r[0] for r in conn.execute("SELECT claim_key FROM verdicts WHERE fact_id=?", (fid,))}
+    assert keys == {"step:0"}                                                                      # the summary verdict is stale
+    assert resummarize(conn, _Scripted({"summary": ""}), redo=True) == 0                           # an empty answer keeps the old one
+    assert Fact.model_validate_json(conn.execute("SELECT fact_json FROM facts WHERE id=?", (fid,)).fetchone()[0]).summary == new.summary

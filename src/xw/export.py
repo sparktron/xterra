@@ -94,11 +94,17 @@ def gate(row: FactRow, key: str, policy: Policy) -> tuple[bool, str, str]:
 
 
 def is_partial_completeness(row: FactRow) -> bool:
-    """True when the only thing between a procedure and "complete" is the local verifier saying `partial` (the steps
-    are real but may not be all of them). A reviewer's reject/needs_human, or an `unsupported` answer, is not partial."""
+    """True when the steps are accurate but the list may leave something out, so the procedure publishes marked
+    [Partial]. A reviewer's `needs_human` on `complete` means exactly that ("every step is stated, the list may be
+    incomplete"); their `reject` means a listed step is NOT in the source, and `unsupported` from the local verifier
+    is not trusted to mean the lesser thing. The first decisive human/claude verdict decides, as in `gate`."""
     v = row.verdicts.get("complete", {})
-    if any(v.get(by) in ("reject", "needs_human") for by in ("human", "claude")):
-        return False
+    for by in ("human", "claude"):
+        d = v.get(by)
+        if d in ("approve", "reject"):
+            return False
+        if d == "needs_human":
+            return True
     return v.get("local") == "partial"
 
 
