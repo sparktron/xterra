@@ -609,13 +609,49 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
     assert any("outside the specifications: 99 ft-lb" in v for v in check_wiki(cfg, conn))
 
 
-def test_incomplete_procedure_is_withheld(cfg, conn, tmp_path):
+def test_partial_procedure_publishes_marked_partial_until_upgraded(cfg, conn, tmp_path):
+    # Every step supported, but the verifier only says the list MAY leave something out: better shown (marked) than hidden.
     add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
     extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
                        verifier=FakeVerifier(cfg, partial=("whole procedure",)))
     export(cfg, conn)
-    assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # every step supported, list incomplete
+    page = page_text(cfg)
+    assert "## Procedure" in page and "[Partial]" in page and "Final-tighten" in page
+    assert "completeness (procedure withheld)" not in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    # a later verify/review that confirms completeness removes the marker on the next export
+    conn.execute("UPDATE verdicts SET verdict='supported' WHERE claim_key='complete'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+
+
+def test_unsupported_or_rejected_completeness_still_withholds_the_procedure(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
+                       verifier=FakeVerifier(cfg, bad=("whole procedure",)))
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # steps supported, list not
     assert "completeness (procedure withheld)" in (cfg.wiki_dir / "open_questions.md").read_text()
+    # a partial local verdict does not survive a reviewer's reject
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
+    conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) "
+                 "SELECT fact_id, 'complete', 'claude', 'reject', '', '' FROM verdicts WHERE claim_key='complete'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)
+
+
+def test_partial_never_rescues_an_unsupported_step(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
+                       verifier=FakeVerifier(cfg))
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
+    conn.execute("UPDATE verdicts SET verdict='unsupported' WHERE claim_key='step:1'")
+    conn.commit()
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" not in page and "Separate the lower ball joint" not in page      # one bad step still withholds all
 
 
 def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_path):
