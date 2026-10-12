@@ -434,7 +434,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         for p in sorted(parts.values(), key=lambda p: p["name"].lower()):
             pn = f" ({p['part_number']})" if p["part_number"] else ""
             note = f": {'; '.join(p['notes'])}" if p["notes"] else ""
-            out.append(f"- {p['name']}{pn}{note}{_fmt_src(p['sids'])}")
+            # qa.PART_LINE reads a trailing "(...)" as the part number, so a name's own parentheses must not survive
+            name = re.sub(r"\s*\(([^)]*)\)", r", \1", p["name"]).replace("(", "").replace(")", "")
+            out.append(f"- {name}{pn}{note}{_fmt_src(p['sids'])}")
         out.append("")
     if spec_lines:
         out += ["## Specifications", ""] + spec_lines + [""]

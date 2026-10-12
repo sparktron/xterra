@@ -20,8 +20,10 @@ sources:
     primary: true
     enabled: true
     seeds:
-      - https://www.thenewx.org/forums/
-    howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "faq", "guide", "tutorial", "install", "swap", "replace", "fix", "sticky", "read first"]
+      - https://www.thenewx.org/forums/electrical.12/
+      - https://www.thenewx.org/forums/powertrain-driveline.11/
+      - https://www.thenewx.org/forums/how-tos.15/
+    howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "faq", "guide", "tutorial", "install", "swap", "replace", "fix", "sticky", "read first", "electrical", "powertrain"]
     skip_forums: ["for sale", "classified", "marketplace", "off topic", "off-topic", "introduc", "meet", "event", "vendor", "giveaway", "photos", "video"]
     notes: Primary source.
 

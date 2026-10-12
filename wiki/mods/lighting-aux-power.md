@@ -17,6 +17,7 @@ parts: []
 sources:
 - t1
 - t4
+- t6
 - t8
 - t11
 - t15
@@ -24,7 +25,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 7
-  withheld_items: 43
+  withheld_items: 154
   pending_safety_values: 0
 ---
 
@@ -36,15 +37,21 @@ _No verified summary yet._
 
 ## Specifications
 
+- **7-pin harness relay configuration (automatic transmission)**: 2 relays (1 blue and 1 brown) [t6] ([Unverified] single report)
+- **7-pin harness relay configuration (manual transmission)**: 3 relays [t6] ([Unverified] single report)
 - **accessory breaker rating**: 30AMP [t11] ([Unverified] single report)
 - **actuator control relay designations**: R-8 and R-9 [t4] ([Unverified] single report)
 - **aluminum switch plate size**: 4 3/4" x 2 1/4" [t4] ([Unverified] single report)
 - **auxiliary fuse block part number**: BlueSea 5026 [t4] ([Unverified] single report)
 - **auxiliary ground wire gauge from BlueSea to frame**: 4AWG [t4] ([Unverified] single report)
 - **auxiliary power cable gauge pulled through grommet**: 4AWG [t4] (Claude-reviewed)
+- **Bumper drilling cooling agent**: WD40 [t6] ([Unverified] single report)
+- **Bumper drilling cooling aid**: Spray WD40 to keep bit cool [t6] ([Unverified] single report)
+- **Bumper drilling cooling method**: Spray WD40 [t6] ([Unverified] single report)
 - **compression terminal part number for battery bolt and frame ground**: 54106 [t4] ([Unverified] single report)
 - **compression terminal part number for BlueSea bolts**: 54138 [t4] (Claude-reviewed)
 - **control cable wire count from switches to relays**: 9 wires [t4] ([Unverified] single report)
+- **Cooling method for bumper drilling**: Spray WD40 on bumper and bit periodically [t6] ([Unverified] single report)
 - **cost without tools or spare wire**: under $10.00 [t8] ([Unverified] single report)
 - **Crimping tool example**: Klein 1005 [t4] ([Unverified] single report)
 - **estimated time**: about 1 hour [t8] ([Unverified] single report)
@@ -53,7 +60,13 @@ _No verified summary yet._
 - **faceplate hole size**: six 1/2" holes in the plastic faceplate [t4] ([Unverified] single report)
 - **Front dome light LED bulbs**: 2 HID white 9-LED dome bulbs [t1] ([Unverified] single report)
 - **ground cable length used**: 19" negative battery cable [t4] ([Unverified] single report)
+- **Harness price**: $55 [t6] ([Unverified] single report)
 - **Hella drain hole size**: 3/16" [t4] ([Unverified] single report)
+- **Installation time estimate**: 4 hours total [t6] ([Unverified] single report)
+- **Installation time estimate (helofixer)**: 40 minutes [t6] ([Unverified] single report)
+- **Kick panel removal method**: Remove side strip first, then pop out 2 side retainers, then pull floor retainer [t6] ([Unverified] single report)
+- **Kick panel retainer type**: 2 white pop things [t6] ([Unverified] single report)
+- **Kick panel side retainer count**: 2 on the side [t6] ([Unverified] single report)
 - **lamp return wire gauge to BlueSea ground terminal**: 12AWG [t4] ([Unverified] single report)
 - **main feed protection fuse**: 60AMP [t11] ([Unverified] single report)
 - **main feed wire gauge**: 4-gauge [t11] ([Unverified] single report)
@@ -63,6 +76,7 @@ _No verified summary yet._
 - **OEM front roof-light switch location**: left of the steering wheel on P4X Offroad models [t15] ([Unverified] single report)
 - **plate bolt hole edge spacing**: holes for the four bolts 1/4" from the edges [t4] (Claude-reviewed)
 - **plate switch hole size and spacing**: six 1/2"dia. holes spaced 3/4" from each others [t4] ([Unverified] single report)
+- **Rear dummy plugs**: 2 different sizes (Murphy proof) [t6] ([Unverified] single report)
 - **relay output terminal for lamp load**: terminal 87 [t4] ([Unverified] single report)
 - **relay power input terminal**: terminal 30 [t4] ([Unverified] single report)
 - **relay power source**: 12V directly from the battery through a switch [t4] ([Unverified] single report)
@@ -82,6 +96,7 @@ _No verified summary yet._
 
 - **t1**: XterraS05, "One-Stop LED Conversion and Install How-to Shop", 2009-03-22. https://www.thenewx.org/threads/one-stop-led-conversion-and-install-how-to-shop.16260/
 - **t4**: XJ-TERRA, "-How-to: From the Battery to the Roof Lights and In-between - PBR", 2010-12-26. https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/
+- **t6**: brutus_skx, "How-to: Install 7-Pin Wiring Harness", 2007-06-17. https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/
 - **t8**: skibum315, "How-to: Pictorial Guide for the Fog Light Bypass MOD - PBR", 2011-04-10. https://www.thenewx.org/threads/how-to-pictorial-guide-for-the-fog-light-bypass-mod-pbr.41057/
 - **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
 - **t15**: "Switches and You | Second Generation Nissan Xterra Forums". https://www.thenewx.org/threads/switches-and-you.43111/

@@ -64,6 +64,7 @@ def test_same_site_redirect_is_followed(cfg, conn):
 
 
 def test_robots_disallow(cfg, conn):
+    cfg.crawl.respect_robots = True  # off by default; this test exercises the enabled path
     def handler(req):
         if req.url.path == "/robots.txt":
             return httpx.Response(200, text="User-agent: *\nDisallow: /private/\n")
@@ -77,6 +78,7 @@ def test_robots_disallow(cfg, conn):
 
 def test_robots_cross_host_redirect_is_read_not_trusted_blindly(cfg, conn):
     """robots.txt may redirect off-site (it did for the real forum); its rules are still honoured."""
+    cfg.crawl.respect_robots = True  # off by default; this test exercises the enabled path
     def handler(req):
         if req.url.host == "site.invalid" and req.url.path == "/robots.txt":
             return httpx.Response(302, headers={"location": "https://robots.other.invalid/robots.txt"})

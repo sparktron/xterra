@@ -15,6 +15,36 @@
     "status": "extracted"
   },
   {
+    "id": "t2",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/2005-2010-xterra-wiring-diagrams.36904/",
+    "thread_title": "2005-2010 Xterra Wiring Diagrams",
+    "author_handle": "Xterra1102",
+    "date_posted": "2009-04-03T18:23:14-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/airbag-reset-procedure.3820/",
+    "thread_title": "Airbag Reset Procedure",
+    "author_handle": "kokopop",
+    "date_posted": "2006-02-07T20:43:35-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Airbag Reset Procedure"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t4",
     "source_id": "manual",
     "url": "https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/",
@@ -25,9 +55,15 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Lighting, aux fuse blocks and dual batteries"
+      "Calculating voltage drop for wire gauge",
+      "Electrical wiring and fuse sizing",
+      "Grounding strategies for interior lights",
+      "Lighting, aux fuse blocks and dual batteries",
+      "Main fuse placement and protection",
+      "Sizing main supply wire for multiple circuits",
+      "Using relays to reduce switch current load"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t5",
@@ -41,6 +77,21 @@
     "trust_score": 3,
     "topics": [
       "Rear bypass coolant hose replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t6",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/",
+    "thread_title": "How-to: Install 7-Pin Wiring Harness",
+    "author_handle": "brutus_skx",
+    "date_posted": "2007-06-17T19:15:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
     ],
     "status": "extracted"
   },
