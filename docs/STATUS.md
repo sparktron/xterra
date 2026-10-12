@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-08 · **Branch:** `docs/hub-standard` · **Commit:** the hand-curated `wiki/vehicle/` section on top of `35d74fb` (PR #4 merged), plus uncommitted work from elsewhere (see Active work)
+**Updated:** 2026-10-12 · **Branch:** `wiki/electrical-airbag-harvest` (PR #7) · **Commit:** extractor, partial-procedure and output-cap changes on top of master `43ba06e`; the regenerated `wiki/` is a separate commit
 
 ## Objective
 
@@ -14,6 +14,17 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+Empty pages fix (2026-10-12). Pages published a title and a forum link: of 238 facts only 2 had `steps` and none had a `summary`,
+because `prompts/extract.md` never asked for them. Changes (PR #7):
+
+- `prompts/extract.md` rules 15-18: every step in order, one fact per procedure, the outcome as the last step, repeats as steps; summary and the other prose fields.
+- `src/xw/extract.py`: `extract_chunk` retries (max 2) when the source numbers more steps than came back and keeps the longest run; `fill_summary` writes the summary in a second small call because the 9B model returns `""` whatever the prompt or schema says (a required/`minLength` schema did not help: the server ignored it and the steps got shorter).
+- `src/xw/export.py`: a procedure whose steps are all supported but whose `complete` claim the local verifier answers `partial` publishes marked `[Partial]` (`PARTIAL_NOTE`); `unsupported`, a reviewer reject or any bad step still withholds it. Part names have their parentheses flattened because `qa.PART_LINE` read `Rear Bearing (NSK)` as a part number.
+- `src/xw/llm.py`, `config`: `llm.max_output_tokens: 8192`. A looping generation ran 18 minutes on one chunk; it now fails in minutes.
+- Full re-extract on the `manual` source (model `huihui-qwen3.5-9b-abliterated` on LM Studio :1235): 50 chunks, 177 facts, verify, export, `xw qa` passed. 135 pages exported, 69 with a procedure (64 `[Partial]`, 5 complete; was 1 before), 523 items withheld, verifier decoys accepted 4/206 (2%, 4 calls discarded and retried).
+- **Cost of the re-run:** the old facts and all 175 Claude review verdicts were deleted (backups: `data/xw.sqlite.bak-pre-reextract`, `data/xw.sqlite.bak-pre-rerun2`, gitignored). Published spec lines fell from 204 to 9 and torque/capacity lines from 97 to 33, because the previous 94 `Claude-reviewed` spec lines depended on those approvals and the new prompt puts standalone values in steps. Run `/review-wiki` (sends claims and short excerpts to Claude) to bring reviewed specs back.
+- Not done / not run: no review loop after the re-extract; summaries are still often withheld (of 150 checked: 66 supported, 77 partial, 7 unsupported; 70 of 140 generated pages say "No verified summary yet"); `thenewx` is still `blocked` so the new forum seeds in `config/sources.yaml` fetched nothing; `feat/lmstudio-provider-config` (`respect_robots: false`, 409 as a stop status) was merged into this branch at the user's request.
 
 Reference section (2026-10-08): `wiki/vehicle/`, 23 hand-curated pages of the wiki, committed. The wiki is one product; `wiki/index.md` links this section first, then the pipeline-built topics. One page per model year 2005-2015
 (trims and equipment, changes, output, plant, launch MSRP for 2011-2015, colors with paint codes, EPA mpg, owner's-manual
@@ -38,7 +49,7 @@ Previously committed on this branch: fixes from the 2026-10-07 approach review (
 5. Safety consensus needs distinct authors as well as distinct threads (author case-insensitive, also in page confidence and interchange status).
 6. The review queue's priority 0 comes from the exporter's own pending list (`export.pending_spec_keys`).
 7. Metadata the wiki prints is verified: `applies` (years, trims, engines, drivetrain), `platform`, `difficulty`, `time`. Interchange needs `platform`.
-8. Procedures need a supported `complete` claim (the step list leaves nothing out).
+8. Procedures need every step supported; a `partial` (not `unsupported`) `complete` claim publishes the procedure marked `[Partial]` (changed 2026-10-12).
 
 Also: grounding is recomputed on every export (old facts get new rules); `xw verify` verifies only missing claim keys, `--redo` re-verifies all.
 
