@@ -3,14 +3,18 @@
 title: Bumpers, sliders and skid plates
 category: mods
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: 1
+difficulty: null
 est_time: null
-tools: []
+tools:
+- Carpet
+- Tackle boxes
 parts: []
 sources:
 - t29
@@ -18,7 +22,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 22
   pending_safety_values: 0
 ---
 
@@ -28,12 +32,39 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Remove the small dampeners from the front bumper sliders as part of a modification aimed at addressing potential issues with their size for significant vibration damping. [t29]
 
-## Specifications
+## Procedure
 
-- **bottom slider tread tape length**: 8" [t29] ([Unverified] single report)
-- **front square slider tread tape length**: 10" [t29] ([Unverified] single report)
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Read the manufacturer directions once before starting.
+2. Set up a carpet and old tackle boxes to support the slider during installation.
+
+_Procedure reported by [t29]._
+
+<details><summary>Alternate procedure [t29] [Partial]</summary>
+
+1. Place the slider on two standard milk crates to hold it at height.
+
+</details>
+
+## Tools
+
+- Carpet [t29]
+- Tackle boxes [t29]
+
+## Tips & gotchas
+
+- Prime and paint metal backing plates before installing zinc hardware. [t29]
+- Use a step drill bit for cleaner holes if standard bits are unavailable. [t29]
+- Apply rust converter to frame areas after drilling to prevent internal corrosion. [t29]
+- Align the slider parallel to the rocker panel with even gaps from front to rear before marking holes. [t29]
+- Tuck the wire part of the bolt assembly up into the frame once tightened to prevent vibration. [t29]
+- Use tread tape cut into rounded corners on high-wear areas like the front square part and bottom 8 inches. [t29]
+- Slot a drilled hole with a rat tail file or step drill if alignment is off. [t29]
+- Note that these dampeners may be too small to significantly help with vehicle vibration damping. [t29]
+- Position the crate setup so the slider is within half an inch of the mounting locations. [t29]
 
 ## Source attributions
 

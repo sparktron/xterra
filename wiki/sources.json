@@ -25,7 +25,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Electrical faults, grounds and battery drain"
+      "[reference] Parts diagrams"
     ],
     "status": "extracted"
   },
@@ -55,13 +55,34 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Calculating voltage drop for wire gauge",
-      "Electrical wiring and fuse sizing",
-      "Grounding strategies for interior lights",
-      "Lighting, aux fuse blocks and dual batteries",
-      "Main fuse placement and protection",
-      "Sizing main supply wire for multiple circuits",
-      "Using relays to reduce switch current load"
+      "Creating Plastic Junction Box Connections",
+      "Crimping Ring Connectors for Vibration Resistance",
+      "Draining Water from Horizontal Lights",
+      "Finishing Interior Wire Connections",
+      "Headliner Console Switch Installation",
+      "Installing Roof Seal-Tight Connector",
+      "Lighting and Auxiliary Power Wiring",
+      "Lighting and Fuse Block Installation",
+      "Lighting and Wiring Modifications",
+      "Modifying Hella 500 Light Wiring",
+      "Power Distribution Block Mounting",
+      "Protecting Wires Behind Glove Box",
+      "Relay Mounting in Engine Bay",
+      "Relay Selection and Wiring Strategy",
+      "Routing Interior Wire Harnesses",
+      "Routing Wires Through A-Pillar to Dash",
+      "Sealing Roof Wire Penetrations",
+      "Securing Roof Connector and Preventing Rust",
+      "Securing Wires in Wet Box Junctions",
+      "Selecting Slim Roof Rack Lights",
+      "Soldering and Waterproofing Light Bulbs",
+      "Wiring Through Firewall Grommet",
+      "[reference] Lighting bulb resistance and current draw specs",
+      "[reference] Lighting circuit configurations and symbols",
+      "[reference] Lighting electrical load and wire sizing",
+      "[reference] Lighting fuse and wire gauge selection",
+      "[reference] Lighting ground connection methods",
+      "[reference] Lighting wire gauge equivalents for parallel runs"
     ],
     "status": "extracted"
   },
@@ -76,7 +97,9 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Rear bypass coolant hose replacement"
+      "Rear bypass coolant hose identification",
+      "Timing chain guide job complications",
+      "Valve cover removal for hose access"
     ],
     "status": "extracted"
   },
@@ -91,7 +114,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Lighting, aux fuse blocks and dual batteries"
+      "Electrical faults, grounds and battery drain"
     ],
     "status": "extracted"
   },
@@ -106,7 +129,9 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Heater core and A/C problems"
+      "Diagnostics",
+      "Reference",
+      "Repair"
     ],
     "status": "extracted"
   },
@@ -121,7 +146,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Lighting, aux fuse blocks and dual batteries"
+      "Fog Light Bypass Mod"
     ],
     "status": "extracted"
   },
@@ -136,9 +161,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Part sources and vendors",
-      "Rear hatch strut fitment",
-      "Rear hatch strut replacement"
+      "Rear Hatch Strut Replacement"
     ],
     "status": "extracted"
   },
@@ -153,8 +176,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Neutral position sensor replacement",
-      "Transmission and transfer case problems"
+      "Neutral Position Sensor replacement for manual transmission"
     ],
     "status": "extracted"
   },
@@ -169,7 +191,11 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Lighting, aux fuse blocks and dual batteries"
+      "Electrical faults, grounds and battery drain",
+      "Torque specifications",
+      "[diagnostics] Fuse and relay maps",
+      "[reference] Fluids and capacities",
+      "[reference] Parts diagrams"
     ],
     "status": "extracted"
   },
@@ -184,9 +210,12 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "EVAP system faults",
+      "Diagnostics Engine code P1615 for Park sensor issues",
+      "Diagnostics Evap canister location and fix",
+      "Diagnostics Evaporative emissions code P1446",
+      "Diagnostics Mystery code P1283 troubleshooting",
       "Engine trouble codes (VQ40DE)",
-      "OBD-II Scanner Connection Problems"
+      "Reference OBD-II code list source"
     ],
     "status": "extracted"
   },
@@ -201,7 +230,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Electrical load and wire sizing"
+      "[reference] Electrical amperage and wire gauge specs"
     ],
     "status": "extracted"
   },
@@ -216,7 +245,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Engine control module location"
+      "ECM Location and Identification"
     ],
     "status": "extracted"
   },
@@ -231,9 +260,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Electrical faults, grounds and battery drain",
-      "Lighting, aux fuse blocks and dual batteries",
-      "Switch selection and ratings"
+      "[mods] Lighting, aux fuse blocks and dual batteries"
     ],
     "status": "extracted"
   },
@@ -248,8 +275,8 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Fluids and capacities",
-      "Heater core and A/C problems"
+      "[diagnostics] Heater core and A/C problems",
+      "[reference] Fluids and capacities"
     ],
     "status": "extracted"
   },
@@ -264,8 +291,8 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Fuse and relay maps",
-      "Xterra, Frontier and Titan parts interchange"
+      "[diagnostics] Fuse and relay maps",
+      "[mods] Lighting, aux fuse blocks and dual batteries"
     ],
     "status": "extracted"
   },
@@ -280,7 +307,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "ABS Brake VDC Slip Lights"
+      "Electrical faults, grounds and battery drain"
     ],
     "status": "extracted"
   },
@@ -310,8 +337,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Fluids and capacities",
-      "Front and rear differential fluid change"
+      "[reference] Fluids and capacities"
     ],
     "status": "extracted"
   },
@@ -326,9 +352,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Front differential failure reports",
-      "Front differential repair outcomes",
-      "Warranty coverage for lifted Xterra"
+      "Specifications by model year"
     ],
     "status": "extracted"
   },
@@ -343,7 +367,8 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Idle air volume learning"
+      "Serpentine belt and tensioner",
+      "VVT and cam solenoid issues"
     ],
     "status": "extracted"
   },
@@ -358,10 +383,12 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Radiator replacement and SMOD fix",
+      "Aftermarket radiator and shroud options",
+      "Nissan Assist reimbursement for SMOD repairs",
       "SMOD radiator transmission cooler failure",
-      "[reference] Part sources and vendors",
-      "[repair] Radiator replacement and SMOD fix"
+      "Transmission cooler bypass pros and cons",
+      "Transmission fluid change frequency and type",
+      "Transmission rebuild and replacement sources"
     ],
     "status": "extracted"
   },
@@ -377,10 +404,9 @@
     "trust_score": 3,
     "topics": [
       "Automatic transmission fluid change",
-      "Cooling upgrades",
-      "Fluids and capacities",
-      "Radiator replacement and SMOD fix",
-      "SMOD radiator transmission cooler failure"
+      "Engine trouble codes (VQ40DE)",
+      "SMOD radiator transmission cooler failure",
+      "Secondary transmission cooler bypass setup"
     ],
     "status": "extracted"
   },
@@ -395,17 +421,16 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "ATF heat from torque converter slip",
-      "ATF rad-cooler heat transfer",
-      "ATF rad-cooler warm-up behavior",
-      "ATF temp measurement driving conditions",
-      "Coolant drain and refill",
+      "ATF Rad-Cooler and Air-Cooler Definitions",
+      "ATF Temperature Behavior During Warm-up",
+      "Air-Cooled ATF Cooler Performance Limits",
       "Cooling upgrades",
-      "Engine cooling system operation",
-      "SMOD radiator transmission cooler failure",
-      "Torque converter heat management",
-      "Transmission and transfer case problems",
-      "Transmission cooling system behavior"
+      "Engine Coolant Level Inspection Procedure",
+      "Engine and Auto Trans Cooling Observations",
+      "Fluids and capacities",
+      "Managing Trans Heat Under High Load",
+      "Torque specifications",
+      "[reference] Fluids and capacities"
     ],
     "status": "extracted"
   },
@@ -420,8 +445,8 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Electrical faults, grounds and battery drain",
-      "Intake, exhaust, tune and forced induction"
+      "Intake, exhaust, tune and forced induction",
+      "Torque specifications"
     ],
     "status": "extracted"
   },
@@ -436,8 +461,16 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Cooling upgrades",
-      "SMOD radiator transmission cooler failure"
+      "SMOD radiator transmission cooler failure",
+      "[reference] 21460 series radiator part numbers and variants",
+      "[reference] B1D60 Nissan Value Advantage radiator specs",
+      "[reference] Calsonic condenser part numbers for cross-reference",
+      "[reference] Calsonic radiator part numbers for SMOD",
+      "[reference] External cooler impact on torque converter lock-up",
+      "[reference] Factory label identification for faded radiators",
+      "[reference] Nissan Value Advantage vs Calsonic radiators",
+      "[reference] Radiator part number date codes and formats",
+      "[reference] Specific Calsonic radiator model number formats"
     ],
     "status": "extracted"
   },
@@ -452,8 +485,15 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Sway bar links and bushings",
-      "Torque specifications"
+      "Torque specifications",
+      "[reference] Driveshaft flange torque specs",
+      "[reference] Engine intake manifold bolt sequence and torque",
+      "[reference] Front brake caliper torque specs",
+      "[reference] Front differential torque specs (R180)",
+      "[reference] Front suspension torque specs",
+      "[reference] General maintenance fluid plug torques",
+      "[reference] Rear differential torque specs (M225/M226)",
+      "[reference] Wheel lug nut torque spec"
     ],
     "status": "extracted"
   },
@@ -468,8 +508,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Bumpers, sliders and skid plates",
-      "[mods] Bumpers, sliders and skid plates"
+      "Bumpers, sliders and skid plates"
     ],
     "status": "extracted"
   },
@@ -484,7 +523,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "VIAS rattle diagnosis and fix"
+      "VIAS Valve Rattle Fix"
     ],
     "status": "extracted"
   },
@@ -499,7 +538,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "License plate light housing replacement"
+      "License plate lighting upgrades"
     ],
     "status": "extracted"
   },
@@ -514,7 +553,9 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Starter and alternator"
+      "Alternator Bearing Failure Symptoms",
+      "Alternator Bearing Specifications and Part Numbers",
+      "Alternator Rebuild Procedure"
     ],
     "status": "extracted"
   },
@@ -529,7 +570,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Rear wiper upgrade"
+      "Rear wiper blade upgrade"
     ],
     "status": "extracted"
   },
@@ -544,11 +585,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Automatic transmission fluid change",
-      "Cooling upgrades",
-      "Fluids and capacities",
-      "Specifications by model year",
-      "Torque specifications"
+      "Automatic transmission fluid change"
     ],
     "status": "extracted"
   },
@@ -563,10 +600,13 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "2WD to 4x4 conversion",
-      "2WD to 4x4 conversion cost",
-      "Re-gearing ratios by tire size",
-      "Transfer case shifter installation"
+      "ATF capacity for torque converter fill during conversion",
+      "Connecting mechanical transfer case shifter to cabin",
+      "Installing transfer case while transmission is mounted",
+      "Rear axle swap for E-Locker and gear ratio change",
+      "Titan axle, differential and brake swaps",
+      "Torque converter alignment and bolt hole spacing check",
+      "Transmission work for 2WD to 4WD conversion"
     ],
     "status": "extracted"
   },
@@ -581,7 +621,13 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Hood squeak and latch adjustment"
+      "Bug deflector tab rubbing fix",
+      "Dealer hood adjustment cost reference",
+      "Hood bump stop replacement and adjustment",
+      "Hood latch locking mechanism description",
+      "Hood latch squeak fix",
+      "Hood squeak sound characteristics",
+      "Lubrication frequency for hood squeaks"
     ],
     "status": "extracted"
   },
@@ -596,8 +642,11 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "ABS disable and switch mod",
-      "Electrical faults, grounds and battery drain"
+      "5-Pin Relay Wiring Configuration",
+      "ABS Connector Pinout and Layout",
+      "ABS Deactivation Switch Installation",
+      "ABS Ground Wire Switching Procedure",
+      "Eliminating Over-Sensitive ABS Pulsing"
     ],
     "status": "extracted"
   },
@@ -612,7 +661,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Door, window and lock electrical faults"
+      "Master Power Window Switch Repair"
     ],
     "status": "extracted"
   },
@@ -627,7 +676,7 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Roof racks, snorkels and storage"
+      "Roof racks and crossbars"
     ],
     "status": "extracted"
   },
@@ -642,7 +691,9 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Interior drawer and kitchen build"
+      "Exterior DC port and switch installation",
+      "Interior drawer and kitchen system buildout",
+      "Lithium battery upgrade and cold weather setup"
     ],
     "status": "extracted"
   },
@@ -657,7 +708,8 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Heater core and A/C problems"
+      "Mode door actuator part numbers",
+      "Mode door actuator replacement"
     ],
     "status": "extracted"
   },
@@ -672,7 +724,14 @@
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Intake, exhaust, tune and forced induction"
+      "Dynomax Super Turbo muffler specifications",
+      "Exhaust drone and noise reduction",
+      "Exhaust hanger and support issues",
+      "Exhaust performance gains with cat-back swap",
+      "Exhaust stud removal and retention specs",
+      "Exhaust system upgrades and mufflers",
+      "Walker Quiet Flow exhaust compatibility",
+      "Walker kit part numbers for Xterra"
     ],
     "status": "extracted"
   }

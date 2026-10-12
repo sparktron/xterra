@@ -8,20 +8,19 @@ applies_to:
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: 1
+difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: B&M Cooler
+  oem_part_no: ''
 sources:
-- t24
 - t25
-- t27
-- t34
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 3
+  reviewed_items: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -31,16 +30,27 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install a larger B&M radiator-style secondary transmission cooler in place of or alongside the existing unit, optionally mounting a fan between them to suck air through the new core. [t25]
 
-## Specifications
+## Procedure
 
-- **vehicle speed below which the air-cooler does not cool ATF**: 20-25 mph [t25] (Claude-reviewed)
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Remove the existing secondary transmission cooler that is sandwiched behind the factory unit.
+2. Install a larger B&M radiator-style cooler in place of or alongside the previous setup.
+
+_Procedure reported by [t25]._
+
+## Parts
+
+- B&M Cooler: Larger size from Summit Racing [t25]
+
+## Tips & gotchas
+
+- Mount a fan between the new cooler and the radiator. [t25]
+- Attach the fan to the back side of the cooler so it sucks air through the core before pushing it into the radiator. [t25]
 
 ## Source attributions
 
-- **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 - **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
-- **t27**: GringoRubio, "List of Calsonic Radiator Part Numbers Associated with SMOD", 2021-03-06. https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/
-- **t34**: Rook, "How-to: Transmission PMF (Poor Man's Flush) - PBR", 2009-07-07. https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/
 

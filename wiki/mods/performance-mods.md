@@ -3,25 +3,33 @@
 title: Intake, exhaust, tune and forced induction
 category: mods
 applies_to:
-  years:
-  - 2006
+  years: []
   trims: []
   engine: []
   drivetrain: []
 shared_platform:
 - Frontier
-difficulty: 1
+difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Dynomax VT Muffler
+  oem_part_no: ''
+- name: Gasket set for spacer
+  oem_part_no: ''
+- name: Intake Manifold Spacer
+  oem_part_no: ''
+- name: Longer bolts and washers
+  oem_part_no: ''
+- name: UpRev Tuner
+  oem_part_no: ''
 sources:
 - t26
-- t43
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -31,10 +39,37 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install an UpRev tuner software to perform advanced diagnostics on a Nissan Xterra. [t26]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Replace the stock Y-pipe with a Dynomax VT muffler.
+
+_Procedure reported by [t26]._
+
+<details><summary>Alternate procedure [t26] [Partial]</summary>
+
+1. Install an UpRev tuner software for advanced diagnostics.
+
+</details>
+
+## Parts
+
+- Dynomax VT Muffler [t26]
+- Gasket set for spacer [t26]
+- Intake Manifold Spacer: CNC machined from 6061 Billet Aluminum; available in Blue, Black, Silver, Gold, or Red [t26]
+- Longer bolts and washers [t26]
+- UpRev Tuner [t26]
+
+## Tips & gotchas
+
+- The spacer acts as a heatsink to lower intake air temperatures. [t26]
+- Longer bolts are required due to the added height of the spacer. [t26]
+- The Dynomax muffler can be installed 'backwards' to eliminate the need for a Y-pipe. [t26]
 
 ## Source attributions
 
 - **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
-- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

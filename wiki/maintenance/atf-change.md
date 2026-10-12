@@ -8,28 +8,55 @@ applies_to:
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: 1
+difficulty: null
 est_time: null
-tools: []
-parts: []
+tools:
+- 10mm socket
+- Funnel
+- Bucket or 5-gallon jug
+parts:
+- name: Nissan Matic-S ATF (or compatible)
+  oem_part_no: ''
 sources:
 - t24
 - t34
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 12
   pending_safety_values: 0
 ---
 
 # Automatic transmission fluid change
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
 _No verified summary yet._
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Drain the entire volume of ATF from the system.
+2. Refill with Matic S automatic transmission fluid.
+
+_Procedure reported by [t24]._
+
+## Tools
+
+- 10mm socket [t34]
+- Funnel [t34]
+- Bucket or 5-gallon jug [t34]
+
+## Parts
+
+- Nissan Matic-S ATF, or compatible [t34]
+
+## Common mistakes
+
+- Letting the engine run too long without fluid causing overheating of the pump. [t34]
+- Not shifting gears during the flush leaving old fluid trapped in specific passages. [t34]
 
 ## Source attributions
 

@@ -3,40 +3,67 @@
 title: SMOD radiator transmission cooler failure
 category: diagnostics
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  - 2006
+  - 2007
+  - 2008
+  - 2009
+  trims:
+  - S
+  - SE
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
-est_time: null
+est_time: ~10 days downtime or less with independent mechanic
 tools: []
 parts: []
 sources:
 - t23
 - t24
-- t25
 - t27
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 11
   pending_safety_values: 0
 ---
 
 # SMOD radiator transmission cooler failure
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
-_No verified summary yet._
+Send automatic transmission fluid to Blackstone Laboratories and check the resulting lab report for signs of mixed coolant. [t23]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Send a sample of the automatic transmission fluid to Blackstone Laboratories for analysis.
+2. Check the lab report specifically for signs that coolant has mixed into the oil.
+
+_Procedure reported by [t23]._
+
+## Tips & gotchas
+
+- Keep taking samples periodically to stay on top of the issue instead of immediately installing a bypass or new radiator. [t23]
+- Perform a complete drain and fill of Matic S fluid after repair. [t24]
+
+## Common mistakes
+
+- Installing an 'old' style radiator during initial repairs which leads to premature failure shortly thereafter. [t24]
+
+## Diagrams (links only)
+
+- https://trade.mechanic.com.au/wsimages/icons/apple-icon-57x57.png [t27]
+- https://www.mechanic.com.au/images/dmImage/StandardImage/Nissan-trans-11.jpg [t27]
 
 ## Source attributions
 
 - **t23**: xmedicG, "Radiator/Trans Issues ... Collection of Salient Threads", 2010-11-08. https://www.thenewx.org/threads/radiator-trans-issues-collection-of-salient-threads.36132/
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
-- **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
 - **t27**: GringoRubio, "List of Calsonic Radiator Part Numbers Associated with SMOD", 2021-03-06. https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/
 

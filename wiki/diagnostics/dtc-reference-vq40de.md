@@ -14,11 +14,12 @@ tools: []
 parts: []
 sources:
 - t12
+- t24
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -30,7 +31,18 @@ verification:
 
 _No verified summary yet._
 
+## Tips & gotchas
+
+- Look out for symptoms like 'rumble strip' vibrations between 45 and 60 mph before full transmission failure. [t24]
+- Symptoms often progress from hard shifts to complete slipping within about 2,000 miles. [t24]
+
+## Diagrams (links only)
+
+- http://jbeamphotos.com/users/jbeam/offroad/05Xterra/05Xterra_OBDII_Codes.htm [t12]
+- http://nissanhelp.com/diy/common/nissan_engine_codes_read_2.php [t12]
+
 ## Source attributions
 
 - **t12**: Muzikman, "2005+ Xterra OBD-II Codes", 2006-01-28. https://www.thenewx.org/threads/2005-xterra-obd-ii-codes.2393/
+- **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 

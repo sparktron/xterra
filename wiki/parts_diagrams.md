@@ -3,30 +3,98 @@
 
 Links point at the original host. Reuse permission is unknown unless stated; do not copy images into the repo.
 
-## 2WD to 4x4 conversion
+## Diagnostics
 
-- http://farm8.staticflickr.com/7079/7309604416_7bc545f3b0_b.jpg [t35]
-- http://farm8.staticflickr.com/7081/7309641450_bc90d5645a_b.jpg [t35]
-- http://farm8.staticflickr.com/7094/7309666624_6986488449_b.jpg [t35]
-- http://farm9.staticflickr.com/8011/7309657780_a2c29c34aa_b.jpg [t35]
-- http://farm9.staticflickr.com/8019/7309621546_dca97996ee_b.jpg [t35]
-- http://farm9.staticflickr.com/8028/7309587722_3e184e9741_b.jpg [t35]
+- https://www.carparts.com/details/Nissan/Xterra/JC_Whitney/Blower_Motor_Resistor/2011/PRO-4X/6_Cyl_4-dot-0L/JRN19180003.html [t7]
 
-## ABS disable and switch mod
-
-- https://i.imgur.com/qfTPObn.jpg [t38]
-
-## Electrical wiring and fuse sizing
-
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24089 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24097 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24105 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24113 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24121 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24129 [t4]
-- http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24137 [t4]
-
-## Engine control module location
+## ECM Location and Identification
 
 - http://farm4.static.flickr.com/3610/3614121078_5bd55e8c4d.jpg [t14]
+
+## Electrical faults, grounds and battery drain
+
+- http://inlinethumb02.webshots.com/16769/2779462910102027759S500x500Q85.jpg [t6]
+- http://inlinethumb44.webshots.com/19755/2991208570102027759S500x500Q85.jpg [t6]
+
+## Engine trouble codes (VQ40DE)
+
+- http://jbeamphotos.com/users/jbeam/offroad/05Xterra/05Xterra_OBDII_Codes.htm [t12]
+- http://nissanhelp.com/diy/common/nissan_engine_codes_read_2.php [t12]
+
+## Fog Light Bypass Mod
+
+- http://maps.google.com/maps?ll=42.852875,-85.862313 [t8]
+
+## Interior drawer and kitchen system buildout
+
+- https://images1.mcmaster.com/init/gfx/favicon/192x192.png?ver=1766419622 [t41]
+- https://www.mcmaster.com/init/gfx/favicon/favicon.ico [t41]
+
+## Lighting, aux fuse blocks and dual batteries
+
+- http://www.thenewx.org/forum/showthread.php?t=12860 [t1]
+
+## Master Power Window Switch Repair
+
+- http://drive.google.com/uc?export=view&id=0B3zyMPBsTqO9SUhlUEZQaWNNLWM [t39]
+- http://drive.google.com/uc?export=view&id=0B3zyMPBsTqO9VWdiWmtPR1pzRWs [t39]
+
+## Rear Hatch Strut Replacement
+
+- [image: http://www.thenewx.org/forum/picture.php?albumid=1314&pictureid=22538] [t9]
+- [image: http://www.thenewx.org/forum/picture.php?albumid=1314&pictureid=22570] [t9]
+
+## Rear wiper blade upgrade
+
+- http://www.canadiantire.ca/AST/browse/4/Auto/AutoParts/WiperBlades/PRD~0210910P/PreciseFit+Teflon+Rear+Wiper+Blades.jsp [t33]
+
+## SMOD radiator transmission cooler failure
+
+- https://trade.mechanic.com.au/wsimages/icons/apple-icon-57x57.png [t27]
+- https://www.mechanic.com.au/images/dmImage/StandardImage/Nissan-trans-11.jpg [t27]
+
+## Torque specifications
+
+- https://www.thenewx.org/cdn-cgi/image/format=auto,onerror=redirect,quality=50,width=1920,fit=scale-down/https://images.platforum.cloud/banners/thenewx_org_banner_2880w.jpg [t28]
+
+## [diagnostics] Fuse and relay maps
+
+- [image: http://farm4.static.flickr.com/3643/4563562269_e36b97b858_o.jpg] [t11]
+- [image: http://www.otrattw.com/breaker.jpg] [t11]
+- [image: http://www.sherco-auto.com/Merchant2/graphics/00000001/PCDB60X3.jpg] [t11]
+
+## [diagnostics] Heater core and A/C problems
+
+- http://i20.photobucket.com/albums/b210/jeffazar/AllData/ACPressure_zps592f2139-1.jpg [t16]
+
+## [mods] Lighting, aux fuse blocks and dual batteries
+
+- http://www.semperx.com/images/gallery/funny-switch.jpg [t15]
+- http://www.semperx.com/images/gallery/swspst.gif [t15]
+
+## [reference] Electrical amperage and wire gauge specs
+
+- [image: http://www.nordstromsauto.com/CARPHOTOS/3/PG2257-3.jpg] [t13]
+- [image: http://www.sengpielaudio.com/FormulaWheelElectronics.gif] [t13]
+
+## [reference] Fluids and capacities
+
+- http://www.thenewx.org/forum/showpost.php?p=474945&postcount=35 [t25]
+
+## [reference] Lighting circuit configurations and symbols
+
+- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24121] [t4]
+
+## [reference] Lighting electrical load and wire sizing
+
+- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24129] [t4]
+
+## [reference] Lighting fuse and wire gauge selection
+
+- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24137] [t4]
+
+## [reference] Parts diagrams
+
+- [image: http://farm4.static.flickr.com/3279/4561961392_5b596ff36c_o.gif] [t11]
+- [image: http://image.made-in-china.com/2f0j00GIaTEntRzpQZ/Automotive-Relay-NRA04-.jpg] [t11]
 

@@ -30,6 +30,17 @@ verification:
 
 _No verified summary yet._
 
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Insert the key into the ignition and turn it to ON.
+2. Wait approximately 6 seconds for the airbag light to illuminate.
+3. As soon as the light starts blinking, turn the key off and remove it from the ignition.
+4. Repeat this cycle three times total.
+
+_Procedure reported by [t3]._
+
 ## Source attributions
 
 - **t3**: kokopop, "Airbag Reset Procedure", 2006-02-07. https://www.thenewx.org/threads/airbag-reset-procedure.3820/

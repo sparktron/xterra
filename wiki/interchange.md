@@ -3,5 +3,5 @@
 
 | Topic | Shared with | Years | Threads | Status |
 |---|---|---|---|---|
-| Front differential failure reports | Frontier | n/a | 1 | unconfirmed |
 | Intake, exhaust, tune and forced induction | Frontier | n/a | 1 | unconfirmed |
+| Specifications by model year | Frontier | n/a | 1 | unconfirmed |
