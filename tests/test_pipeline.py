@@ -321,6 +321,24 @@ def test_qa_catches_tampering(cfg, conn, tmp_path):
     assert any("unknown thread" in v for v in check_wiki(cfg, conn))
 
 
+def test_part_name_in_parentheses_is_not_mistaken_for_a_part_number(cfg, conn, tmp_path):
+    # qa.PART_LINE reads a trailing "(...)" as the part number; a numberless part named "Rear Bearing (NSK)" once
+    # failed qa for that reason. The exporter now flattens parentheses in names; qa is no looser.
+    add_notes(cfg, conn, tmp_path, [
+        ("a", "Write-up a on a 2008 lower arm: replace the rear bearing, an NSK one, and the pivot bolt. 54500-EA000 is the arm. " * 5, "alice"),
+    ])
+    parts = [{"name": "Rear Bearing (NSK)", "part_number": "", "evidence": "replace the rear bearing, an NSK one"},
+             {"name": "Arm (left)", "part_number": "54500-EA000", "evidence": "54500-EA000 is the arm"}]
+    extract_and_verify(cfg, conn, [("Write-up a", {"relevant": True, "facts": [arm_fact(parts=parts, specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    page = path.read_text()
+    assert "- Rear Bearing, NSK [t1]" in page and "- Arm, left (54500-EA000) [t1]" in page
+    assert check_wiki(cfg, conn) == []
+    path.write_text(page.replace("(54500-EA000)", "(77777-AB123)"))
+    assert any("part number not found" in v for v in check_wiki(cfg, conn))
+
+
 def test_copied_text_and_unstated_metadata_are_not_published(cfg, conn, tmp_path):
     text = "Loosen the lug nuts, raise the front, and support it on stands. Then continue on this 2008 Xterra X lower arm job. " * 4
     add_notes(cfg, conn, tmp_path, [("a", text, "alice")])
