@@ -80,3 +80,19 @@ def test_summary_is_written_from_the_extracted_fact_and_never_overwrites():
     fill_summary(_Scripted(AssertionError("must not be called")), empty)     # nothing to summarise from
     assert empty.summary == ""
     fill_summary(_Scripted(LLMError("down")), Fact(category="diagnostics", topic="x", title="y", steps=["a"]))   # best effort
+
+
+def test_every_chat_request_caps_the_output_length(cfg):
+    import httpx
+
+    from xw.llm import LLM
+
+    seen = []
+
+    def handler(request):
+        seen.append(__import__("json").loads(request.content))
+        return httpx.Response(200, json={"choices": [{"message": {"content": "{}"}}]})
+
+    llm = LLM(cfg, client=httpx.Client(transport=httpx.MockTransport(handler)))
+    llm.chat_json("sys", "user", {"type": "object"})
+    assert seen and seen[0]["max_tokens"] == cfg.llm.max_output_tokens == 8192

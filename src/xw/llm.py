@@ -85,7 +85,7 @@ class LLM:
                 "stream": False,
                 "keep_alive": "30m",
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-                "options": {"temperature": self.c.temperature, "num_ctx": self.c.num_ctx},
+                "options": {"temperature": self.c.temperature, "num_ctx": self.c.num_ctx, "num_predict": self.c.max_output_tokens},
             }
             if schema is not None:
                 body["format"] = schema
@@ -103,6 +103,7 @@ class LLM:
         body = {
             "model": self.model,
             "temperature": self.c.temperature,
+            "max_tokens": self.c.max_output_tokens,   # a looping generation otherwise runs until the timeout
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
         }
         if self.effort:

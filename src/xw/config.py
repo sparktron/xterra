@@ -20,6 +20,7 @@ DEFAULTS: dict[str, Any] = {
         "temperature": 0.1,
         "timeout_s": 900,
         "max_retries": 2,
+        "max_output_tokens": 8192,
     },
     "crawl": {
         "user_agent": "xterra-wiki-research/0.1",
