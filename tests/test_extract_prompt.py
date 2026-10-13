@@ -119,3 +119,23 @@ def test_resummarize_rewrites_summaries_and_drops_only_their_verdicts(cfg, conn)
     assert keys == {"step:0"}                                                                      # the summary verdict is stale
     assert resummarize(conn, _Scripted({"summary": ""}), redo=True) == 0                           # an empty answer keeps the old one
     assert Fact.model_validate_json(conn.execute("SELECT fact_json FROM facts WHERE id=?", (fid,)).fetchone()[0]).summary == new.summary
+
+
+def test_a_reply_from_a_different_model_than_requested_is_refused(cfg):
+    import httpx
+
+    from xw.llm import LLM
+
+    def answer(model):
+        def handler(request):
+            return httpx.Response(200, json={"model": model, "choices": [{"message": {"content": "{}"}}]})
+        return httpx.Client(transport=httpx.MockTransport(handler))
+
+    llm = LLM(cfg, model="big-model", client=answer("small-model"))
+    try:
+        llm.chat_json("s", "u", {"type": "object"})
+    except LLMError as exc:
+        assert "small-model" in str(exc) and "big-model" in str(exc)
+    else:
+        raise AssertionError("a swapped model must not be accepted")
+    assert LLM(cfg, model="big-model", client=answer("big-model")).chat_json("s", "u", {"type": "object"}) == {}
