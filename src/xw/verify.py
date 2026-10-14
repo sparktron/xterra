@@ -265,4 +265,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
         decoy_note = f"; decoys accepted {stats['accepted']}/{stats['decoys']}" if stats["accepted"] else ""
         log(f"  fact {row['id']}: {counts['supported']} supported, {counts['partial']} partial, {counts['unsupported']} unsupported"
             + (f", {counts[DECOY_FAILED]} discarded (verifier accepted a decoy)" if counts[DECOY_FAILED] else "") + decoy_note)
+    from .triage import reapply_decisions
+
+    reapply_decisions(conn)   # new facts (after a re-extraction) inherit the human's earlier decisions
     return done

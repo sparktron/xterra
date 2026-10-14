@@ -18,6 +18,7 @@ from .llm import LLM
 from .qa import check_wiki
 from .review import apply_reviews, export_review
 from .topics import TopicIndex
+from .triage import run_triage, summarize_queue, triage_queue
 from .verify import decoy_stats, verify_pending
 
 
@@ -113,6 +114,20 @@ def _print_decoys(conn: sqlite3.Connection) -> None:
 def cmd_summarize(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
     print(f"summarized {resummarize(conn, LLM(cfg), redo=args.redo)} fact(s); run `xw verify` to check the new summaries")
+    return 0
+
+
+def cmd_triage(args: argparse.Namespace) -> int:
+    cfg, conn = _open(args)
+    topics = TopicIndex(cfg.topics)
+    kinds = {k.strip() for k in args.kind.split(",") if k.strip()} if args.kind else None
+    if args.list:
+        print(summarize_queue(triage_queue(cfg, conn, topics, kinds=kinds, page=args.page)))
+        return 0
+    if not sys.stdin.isatty():
+        print("xw triage is interactive: run it in a terminal (or use --list for the queue).")
+        return 1
+    run_triage(cfg, conn, topics, kinds=kinds, page=args.page, limit=args.limit)
     return 0
 
 
@@ -281,6 +296,13 @@ def build_parser() -> argparse.ArgumentParser:
     sm = sub.add_parser("summarize", help="write the summary of facts that lack one (from their steps), without re-extracting")
     sm.add_argument("--redo", action="store_true", help="rewrite every summary; changed ones lose their verdicts")
     sm.set_defaults(fn=cmd_summarize)
+
+    tr = sub.add_parser("triage", help="confirm or reject the claims the pipeline is not sure about (interactive; decisions persist)")
+    tr.add_argument("--list", action="store_true", help="only show what is waiting, do not prompt")
+    tr.add_argument("--limit", type=int, help="stop after this many claims")
+    tr.add_argument("--kind", help="comma-separated claim kinds, e.g. step,spec,complete,summary")
+    tr.add_argument("--page", help="only pages whose title contains this text")
+    tr.set_defaults(fn=cmd_triage)
 
     sub.add_parser("export", help="build wiki/ from verified facts").set_defaults(fn=cmd_export)
 

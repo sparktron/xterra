@@ -26,6 +26,12 @@ The local model is not trusted. Each item names the guarding test, or says none 
   `verify.require_local_pass` must stay true; a missing verifier run publishes nothing.
   Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`.
 - **`supported` needs every verifier pass to agree** (`verify.consensus_runs`, default 2; `verify.consensus`). Tests: `test_two_passes_must_agree_before_a_claim_is_supported`, `test_a_decoy_failure_in_either_pass_withholds_the_claim`. `tests/conftest.py` pins the other tests to one pass so their verifier call counts stay meaningful.
+- **A human answer outranks every model and persists.** `xw triage` stores `human` verdicts (`triage.decide`) and a content-keyed copy in
+  `human_decisions` (thread + claim kind + normalised claim text); `triage.reapply_decisions` runs in verify, export and triage, so a
+  decision follows its claim across re-extraction and `verify --redo`, and a reworded claim is new and undecided. A human cannot publish what
+  the deterministic evidence checks refuse: those claims are never queued and `export` drops them before the gate. Approving a safety value
+  publishes it without a second source (the prompt says so). Tests: `test_a_human_decision_follows_its_claim_across_a_reextraction_and_a_redo`,
+  `test_triage_never_shows_what_the_evidence_checks_already_refuse`, `test_triage_warns_before_a_single_source_safety_value_is_approved`.
 - **Every verifier call carries decoys.** `verify.make_decoy` plants one or two claims that state a number the source
   never states; a call that calls one `supported` is retried once, then its claims are stored as `decoy_failed` (withheld).
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,

@@ -526,6 +526,9 @@ def _dtc_table(rows: list[FactRow], policy: Policy) -> list[list[str]]:
 
 
 def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dict[str, Any]:
+    from .triage import reapply_decisions  # lazy: triage imports review, which imports this module
+
+    reapply_decisions(conn)   # human decisions follow their claim across re-extractions
     wiki = cfg.wiki_dir
     policy = Policy.from_cfg(cfg)
     rows = load_rows(conn)

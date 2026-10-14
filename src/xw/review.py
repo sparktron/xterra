@@ -26,7 +26,7 @@ from typing import Any
 
 from .config import Config
 from .db import now
-from .export import Policy, load_rows, pending_spec_keys
+from .export import Policy, is_safety, load_rows, pending_spec_keys
 from .topics import TopicIndex
 from .verify import DECOY_FAILED, claims_for_fact
 
@@ -80,11 +80,26 @@ def _audit_pick(fact_id: int, key: str, rate: float) -> bool:
     return h < rate * 1000
 
 
-def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> list[dict[str, Any]]:
+def _risk(r, kind: str, idx: str) -> str:
+    """Why a wrong approval would matter: values and part numbers drive real repairs."""
+    if kind == "spec":
+        sp = r.fact.specs[int(idx)]
+        return "safety-critical value" if is_safety(sp.value, sp.unit, sp.safety_critical, sp.item) else "specification"
+    if kind == "part" and r.fact.parts[int(idx)].part_number:
+        return "part number"
+    return ""
+
+
+def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, triage: bool = False) -> list[dict[str, Any]]:
+    """The Claude review queue. With `triage=True` it is the human's queue instead: claims Claude was unsure about
+    (`needs_human`) come first, Claude's confident approvals and rejections stay decided, nothing is sampled for audit,
+    and each item carries its thread, a risk label and Claude's note."""
     policy = Policy.from_cfg(cfg)
     rows = load_rows(conn)
     chunk_text = {r["id"]: r["text"] for r in conn.execute("SELECT f.id, c.text FROM facts f JOIN chunks c ON c.id=f.chunk_id")}
     pending = pending_spec_keys(rows, topics, policy, (cfg.scope.years[0], cfg.scope.years[1]))
+    claude_notes = {(v["fact_id"], v["claim_key"]): v["note"] for v in
+                    conn.execute("SELECT fact_id, claim_key, note FROM verdicts WHERE by='claude'")} if triage else {}
 
     queue: list[dict[str, Any]] = []
     for r in rows:
@@ -93,8 +108,9 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
         evidence = {f"spec:{i}": s.evidence for i, s in enumerate(r.fact.specs)} | {f"part:{i}": p.evidence for i, p in enumerate(r.fact.parts)}
         for key, claim in claims_for_fact(r.fact):
             kind, _, idx = key.partition(":")
-            if r.verdicts.get(key, {}).get("human") or r.verdicts.get(key, {}).get("claude"):
-                continue  # already reviewed
+            decided = r.verdicts.get(key, {})
+            if decided.get("human") or (decided.get("claude") and not (triage and decided["claude"] == "needs_human")):
+                continue  # already reviewed (in triage, Claude's own "unsure" is still open)
             if kind in ("spec", "part", "dtc") and not r.grounding[kind + "s"][int(idx)]:
                 continue  # fails the deterministic evidence checks: a reviewer cannot rescue it
             if kind in _PROSE and not r.grounding["numbers"][_PROSE[kind]][int(idx)]:
@@ -103,13 +119,19 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
                 continue
             local = r.verdicts.get(key, {}).get("local")
             why, prio = "", None
-            if (r.id, key) in pending:
+            if triage and decided.get("claude") == "needs_human":
+                note = f": {claude_notes[(r.id, key)]}" if claude_notes.get((r.id, key)) else ""
+                if key == "complete":   # not doubt: "every step is stated, the list may be incomplete". Already shown as [Partial].
+                    why, prio = "Claude found the steps right but the list possibly incomplete (confirm it is complete to drop [Partial])" + note, 1
+                else:
+                    why, prio = "Claude was unsure" + note, 0
+            if prio is None and (r.id, key) in pending:
                 why, prio = f"safety-critical value awaiting corroboration ({pending[(r.id, key)]})", 0
             if prio is None and local == "partial":
                 why, prio = "local verifier answered partial", 1
             if prio is None and local == DECOY_FAILED:
                 why, prio = "local verifier could not be trusted on this call (it accepted a planted false claim)", 1
-            if prio is None and local == "supported" and _audit_pick(r.id, key, float(cfg.review.audit_rate)):
+            if prio is None and not triage and local == "supported" and _audit_pick(r.id, key, float(cfg.review.audit_rate)):
                 why, prio = "audit sample of a locally-supported claim", 2
             if prio is None:
                 continue
@@ -118,6 +140,7 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> li
                 "claim": claim, "evidence_quote": evidence.get(key, ""),
                 "excerpt": excerpt_for(claim, evidence.get(key, ""), text, int(cfg.review.excerpt_chars) * (3 if kind == "complete" else 1)),
                 "source_url": r.url, "thread_title": r.thread_title, "local_verdict": local or "not run",
+                "thread_id": r.thread_id, "risk": _risk(r, kind, idx),
             })
     queue.sort(key=lambda q: (q["priority"], q["id"]))
     return queue
