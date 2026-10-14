@@ -709,3 +709,77 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     assert any("no '## Sources' section" in v for v in check_curated(cfg.wiki_dir))
     page.write_text(GENERATED + "\n" + good)
     assert any("generated header" in v for v in check_wiki(cfg, conn))
+
+
+# --- verifier consensus: "supported" needs every pass to agree ------------------------------------------------
+class FlipVerifier(FakeVerifier):
+    """A FakeVerifier whose Nth call downgrades 'supported' to 'partial' for claims containing given words, standing in
+    for the small model flipping an answer between runs."""
+
+    def __init__(self, cfg, flips=None, **kw):
+        super().__init__(cfg, **kw)
+        self.flips = flips or {}
+
+    def chat_json(self, system, user, schema=None):
+        out = super().chat_json(system, user, schema)
+        texts = dict(re.findall(r"^(\d+)\. (.*)$", user.split("\n\nCLAIMS:\n", 1)[1], re.M))
+        for v in out["verdicts"]:
+            if v["verdict"] == "supported" and any(w in texts[str(v["id"])] for w in self.flips.get(self.calls, ())):
+                v["verdict"] = "partial"
+        return out
+
+
+def test_consensus_combines_passes_conservatively():
+    from xw.verify import DECOY_FAILED, consensus
+
+    one = {"a": "supported", "b": "supported", "c": "partial", "d": "unsupported", "e": "supported", "f": "partial", "g": "supported"}
+    two = {"a": "supported", "b": "partial", "c": "partial", "d": "unsupported", "e": "unsupported", "f": "unsupported", "g": DECOY_FAILED}
+    assert consensus([one, two]) == {"a": "supported", "b": "partial", "c": "partial", "d": "unsupported",
+                                     "e": "partial", "f": "unsupported", "g": DECOY_FAILED}
+    assert consensus([one]) == one and consensus([one, one]) == one
+
+
+def test_one_pass_can_publish_what_two_passes_do_not_when_the_model_flips(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    answers = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})]
+
+    single = FlipVerifier(cfg, flips={2: ("lower ball joint",)})          # the flip would hit pass 2, which never runs
+    extract_and_verify(cfg, conn, answers, verifier=single)
+    export(cfg, conn)
+    assert single.calls == 1 and "Separate the lower ball joint" in page_text(cfg)
+
+
+def test_two_passes_must_agree_before_a_claim_is_supported(cfg, conn, tmp_path):
+    from xw.verify import decoy_stats
+
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    v = FlipVerifier(cfg, flips={2: ("lower ball joint",)})               # pass 2 backs off one step
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=v)
+    assert v.calls == 2                                                    # two full passes
+    d = decoy_stats(conn)
+    assert d["calls"] == 2 and d["decoys"] >= 2 and d["accepted"] == 0     # every pass plants its own decoys
+    got = dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())
+    assert got["step:1"] == "partial" and got["step:0"] == "supported"     # disagreement is not support
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" not in page and "Separate the lower ball joint" not in page   # an unsupported step withholds it
+    assert "Remove the pivot bolts" not in page
+
+
+def test_two_passes_that_agree_publish_as_before(cfg, conn, tmp_path):
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    v = FlipVerifier(cfg)
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=v)
+    export(cfg, conn)
+    assert v.calls == 2 and "## Procedure" in page_text(cfg) and "Separate the lower ball joint" in page_text(cfg)
+
+
+def test_a_decoy_failure_in_either_pass_withholds_the_claim(cfg, conn, tmp_path):
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    stamp = FakeVerifier(cfg, rubber_stamp=True)                           # accepts decoys in both passes
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=stamp)
+    verdicts = {r[0] for r in conn.execute("SELECT verdict FROM verdicts WHERE by='local'")}
+    assert verdicts == {"decoy_failed"}

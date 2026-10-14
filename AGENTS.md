@@ -25,6 +25,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
 - **Fail closed.** A claim publishes only if the verifier said `supported` (or a reviewer approved it).
   `verify.require_local_pass` must stay true; a missing verifier run publishes nothing.
   Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`.
+- **`supported` needs every verifier pass to agree** (`verify.consensus_runs`, default 2; `verify.consensus`). Tests: `test_two_passes_must_agree_before_a_claim_is_supported`, `test_a_decoy_failure_in_either_pass_withholds_the_claim`. `tests/conftest.py` pins the other tests to one pass so their verifier call counts stay meaningful.
 - **Every verifier call carries decoys.** `verify.make_decoy` plants one or two claims that state a number the source
   never states; a call that calls one `supported` is retried once, then its claims are stored as `decoy_failed` (withheld).
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,

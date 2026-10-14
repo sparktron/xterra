@@ -163,16 +163,15 @@ def _judge(llm: LLM, system: str, source_text: str, batch: list[tuple[str, str]]
     return {items[i][0]: v for i, v in got.items() if items[i][0] is not None}, accepted == 0  # type: ignore[misc]
 
 
-def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]],
-                  stats: dict[str, int] | None = None) -> dict[str, str]:
-    """Return {claim_key: verdict}. Anything the model omits or garbles is 'unsupported'; anything judged in a
-    call that also accepted a decoy (twice) is 'decoy_failed'."""
-    stats = stats if stats is not None else _new_stats()
+def _verify_once(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]], stats: dict[str, int],
+                 salt: int) -> dict[str, str]:
+    """One full pass over `claims`: anything the model omits or garbles is 'unsupported'; anything judged in a call that
+    also accepted a decoy (twice) is 'decoy_failed'. `salt` changes the planted decoys between passes."""
     verdicts = {key: "unsupported" for key, _ in claims}
     for start in range(0, len(claims), MAX_CLAIMS_PER_CALL):
         batch = claims[start : start + MAX_CLAIMS_PER_CALL]
         for attempt in range(DECOY_ATTEMPTS):
-            result, clean = _judge(llm, system, source_text, batch, attempt, stats)
+            result, clean = _judge(llm, system, source_text, batch, attempt + DECOY_ATTEMPTS * salt, stats)
             if clean:
                 verdicts.update(result)
                 break
@@ -180,6 +179,34 @@ def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[st
         else:
             verdicts.update({key: DECOY_FAILED for key, _ in batch})
     return verdicts
+
+
+def consensus(passes: list[dict[str, str]]) -> dict[str, str]:
+    """Combine verifier passes. `supported` only when EVERY pass said supported. A decoy failure in any pass stands.
+    Passes that disagree where one said supported are `partial` (the verifier cannot decide); passes that all
+    refused agree on the worse of what they said."""
+    out: dict[str, str] = {}
+    for key in passes[0]:
+        vs = [p.get(key, "unsupported") for p in passes]
+        if DECOY_FAILED in vs:
+            out[key] = DECOY_FAILED
+        elif len(set(vs)) == 1:
+            out[key] = vs[0]
+        elif "supported" in vs:
+            out[key] = "partial"
+        else:
+            out[key] = "unsupported" if "unsupported" in vs else "partial"
+    return out
+
+
+def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]],
+                  stats: dict[str, int] | None = None, runs: int = 1) -> dict[str, str]:
+    """Return {claim_key: verdict}. With `runs` > 1 the whole judgement is repeated (every pass shuffles the claims and
+    plants its own decoys) and a claim is 'supported' only if every pass supported it: a single run of the small
+    local model flips about 30% of its answers."""
+    stats = stats if stats is not None else _new_stats()
+    passes = [_verify_once(llm, system, source_text, claims, stats, n) for n in range(max(1, runs))]
+    return passes[0] if len(passes) == 1 else consensus(passes)
 
 
 def decoy_stats(conn: sqlite3.Connection) -> dict[str, Any]:
@@ -194,6 +221,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
     """Verify every claim that has no local verdict yet (so claims added to `claims_for_fact` later get checked on
     existing facts). `redo` re-verifies everything. Returns the number of facts verified."""
     system = (cfg.root / "prompts" / "verify.md").read_text(encoding="utf-8")
+    runs = int(cfg.verify.get("consensus_runs") or 1)
     have: dict[int, set[str]] = defaultdict(set)
     if not redo:
         for v in conn.execute("SELECT fact_id, claim_key FROM verdicts WHERE by='local'"):
@@ -216,7 +244,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
             continue
         stats = _new_stats()
         try:
-            verdicts = verify_claims(llm, system, row["text"], claims, stats)
+            verdicts = verify_claims(llm, system, row["text"], claims, stats, runs=runs)
         except LLMError as exc:
             failures += 1
             log(f"  fact {row['id']}: {exc}")
