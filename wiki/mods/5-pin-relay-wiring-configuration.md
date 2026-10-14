@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Connect pin 86 to the signal wire from the ABS Off switch and hook up pin 85 to ground. [t38]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Connect pin 86 to the signal wire from the ABS Off switch.
-2. Hook up pin 85 to ground.
-
-_Procedure reported by [t38]._
+_No verified summary yet._
 
 ## Source attributions
 

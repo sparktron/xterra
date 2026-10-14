@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 7
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Locate the main inline fuse, ensure it is rated higher than downstream breakers, and connect a distribution box. [t11]
+_No verified summary yet._
 
 ## Diagrams (links only)
 

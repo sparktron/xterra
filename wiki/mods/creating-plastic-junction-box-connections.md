@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Connect wires in a plastic case attached inside the wet box, then feed wire loom from the rack and roof connector into the side opening. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Connect wires in a plastic case attached inside the wet box for simplicity.
-2. Feed wire loom from the rack and roof connector into the side opening of the wet box.
-
-_Procedure reported by [t4]._
+_No verified summary yet._
 
 ## Source attributions
 

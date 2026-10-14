@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Solder wires from inside lights together, then solder outside light pairs. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Solder wires from inside lights together, then solder outside light pairs.
-2. Cut back seal-tight connectors on backlight wires and solder longer replacements.
-
-_Procedure reported by [t4]._
+_No verified summary yet._
 
 ## Source attributions
 

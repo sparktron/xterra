@@ -19,7 +19,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,6 +28,15 @@ verification:
 ## Summary
 
 Connect an OBD-II reader and turn the ignition on. [t12]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Connect the OBD-II reader to the vehicle's diagnostic jack.
+2. Turn the ignition key to the ON position without starting the engine.
+
+_Procedure reported by [t12]._
 
 ## Tips & gotchas
 

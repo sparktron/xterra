@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 3
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Locate the blower motor resistor under the passenger dash and remove its two 7/32" hex head screws. [t7]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Locate the blower motor resistor under the passenger dash.
-2. Remove the two hex head screws holding the unit in place.
-
-_Procedure reported by [t7]._
+_No verified summary yet._
 
 ## Specifications
 

@@ -12,8 +12,6 @@ difficulty: null
 est_time: null
 tools: []
 parts:
-- name: Aluminum foil ashtray
-  oem_part_no: ''
 - name: Seal-tight connector
   oem_part_no: ''
 sources:
@@ -22,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -32,11 +30,10 @@ verification:
 
 ## Summary
 
-Drill a hole in the roof and place masking tape to mark a safe zone. [t4]
+_No verified summary yet._
 
 ## Parts
 
-- Aluminum foil ashtray [t4]
 - Seal-tight connector [t4]
 
 ## Tips & gotchas

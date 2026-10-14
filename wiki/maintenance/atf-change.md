@@ -26,7 +26,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 4
-  withheld_items: 10
+  withheld_items: 13
   pending_safety_values: 0
 ---
 
@@ -56,7 +56,6 @@ Hook a longer hose to the supply transmission line and direct it into a bucket. 
 ## Common mistakes
 
 - Letting the engine run too long without fluid causing overheating of the pump. [t34]
-- Not shifting gears during the flush leaving old fluid trapped in specific passages. [t34]
 
 ## Source attributions
 

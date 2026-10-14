@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -35,11 +35,6 @@ Remove an existing secondary transmission cooler, install a larger B&M unit, the
 ## Parts
 
 - B&M Cooler: Larger size from Summit Racing [t25]
-
-## Tips & gotchas
-
-- Mount a fan between the new cooler and the radiator. [t25]
-- Attach the fan to the back side of the cooler so it sucks air through the core before pushing it into the radiator. [t25]
 
 ## Source attributions
 

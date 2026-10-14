@@ -11,16 +11,14 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts:
-- name: M226 Rear Axle
-  oem_part_no: ''
+parts: []
 sources:
 - t35
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -30,11 +28,7 @@ verification:
 
 ## Summary
 
-Install an M226 rear axle with electronic locker in place of the existing 2WD setup. [t35]
-
-## Parts
-
-- M226 Rear Axle [t35]
+_No verified summary yet._
 
 ## Tips & gotchas
 

@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -30,15 +30,6 @@ verification:
 ## Summary
 
 Align notches, insert and rotate the torque converter, then use a straight edge to check bolt holes. [t35]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Align the notches on the torque converter with those on the oil pump.
-2. Insert and rotate the converter into place until seated.
-
-_Procedure reported by [t35]._
 
 ## Tools
 

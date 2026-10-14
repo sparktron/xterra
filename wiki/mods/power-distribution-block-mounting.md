@@ -34,6 +34,8 @@ Mount the power distribution block using aluminum rivets to hold a custom-fabbed
 
 ## Procedure
 
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
 1. Mount the power distribution block using aluminum rivets to hold a custom-fabbed bracket together.
 
 _Procedure reported by [t4]._

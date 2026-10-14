@@ -14,12 +14,6 @@ tools: []
 parts:
 - name: Castrol ATF
   oem_part_no: ''
-- name: DEXRON III ATF
-  oem_part_no: ''
-- name: Genuine Nissan Matic D ATF
-  oem_part_no: ''
-- name: MERCON ATF
-  oem_part_no: ''
 - name: Royal Purple ATF
   oem_part_no: ''
 sources:
@@ -31,7 +25,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 4
-  withheld_items: 29
+  withheld_items: 39
   pending_safety_values: 0
 ---
 
@@ -42,10 +36,6 @@ verification:
 Use 4-gauge wire for the main power cable running from battery to breaker box. [t11]
 
 Run an 8-gauge wire from the breaker box to individual lights or loads. [t11]
-
-Reference transfer case fluid as Nissan's Matic D or the spec named J. [t20]
-
-Reference transfer case fluid as Matic D and transmission fluid as J. [t20]
 
 ## Procedure
 
@@ -64,19 +54,13 @@ _Procedure reported by [t11]._
 ## Parts
 
 - Castrol ATF [t20]
-- DEXRON III ATF [t20]
-- Genuine Nissan Matic D ATF [t20]
-- MERCON ATF [t20]
 - Royal Purple ATF [t20]
 
 ## Specifications
 
-- **Air density percentage at high altitude**: about 70% [t25] ([Unverified] single report)
-- **Altitude for high ATF temp incidents**: over 12,000 feet [t25] ([Unverified] single report)
 - **Ambient temperature range for specific data logs**: 50 - 60F [t25] ([Unverified] single report)
 - **Radiator part number for brass cooler alternative**: KOYO A2807 [t25] ([Unverified] single report)
 - **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
-- **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Unverified] single report)
 - **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
 
 ## Tips & gotchas
@@ -84,7 +68,6 @@ _Procedure reported by [t11]._
 - If replacing an individual component, add 1oz of lubricant for every part swapped (e.g., condenser and compressor requires 2oz total). [t16]
 - Ensure the refrigerant is HFC 134a. [t16]
 - Most DIY kits contain only 17oz, so expect to add an extra 5+ oz if the system is completely empty. [t16]
-- Watch for a pressure variance of plus or minus .11 lbs. [t16]
 
 ## Diagrams (links only)
 

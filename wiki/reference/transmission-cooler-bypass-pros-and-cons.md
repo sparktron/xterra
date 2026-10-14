@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -29,6 +29,14 @@ verification:
 ## Summary
 
 Evaluate installing a transmission cooler bypass or keeping the stock setup. [t23]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Evaluate the decision to install a transmission cooler bypass versus keeping the stock setup.
+
+_Procedure reported by [t23]._
 
 ## Source attributions
 

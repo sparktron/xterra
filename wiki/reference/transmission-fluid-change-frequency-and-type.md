@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Determine specific type of antifreeze currently in use, then establish a regular schedule for changing it. [t23]
+_No verified summary yet._
 
 ## Tips & gotchas
 

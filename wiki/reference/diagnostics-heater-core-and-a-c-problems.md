@@ -3,10 +3,7 @@
 title: '[diagnostics] Heater core and A/C problems'
 category: reference
 applies_to:
-  years:
-  - 2005
-  - 2007
-  - 2013
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -21,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 17
+  withheld_items: 21
   pending_safety_values: 0
 ---
 
@@ -35,7 +32,6 @@ _No verified summary yet._
 
 ## Tips & gotchas
 
-- Distinguish between the 'Relief valve set pressure' and general operating pressures. [t16]
 - Confirm that Nissan Type R oil is equivalent to PAG100 viscosity. [t16]
 
 ## Source attributions

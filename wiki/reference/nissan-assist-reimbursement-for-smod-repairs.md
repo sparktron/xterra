@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Submit details of previous radiator or transmission repairs on the Reimbursement Request Form. [t23]
+_No verified summary yet._
 
 ## Tips & gotchas
 

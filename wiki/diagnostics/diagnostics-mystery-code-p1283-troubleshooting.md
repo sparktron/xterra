@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Inspect various small components that may contribute to the reading. [t12]
+_No verified summary yet._
 
 ## Source attributions
 

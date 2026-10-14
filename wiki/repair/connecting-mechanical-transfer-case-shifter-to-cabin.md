@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -30,16 +30,6 @@ verification:
 ## Summary
 
 _No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Remove the existing control module from the transmission area.
-2. Identify the rotating shaft inside the hole that controls gear selection (2Hi to 4Hi to 4Lo).
-3. Mark the shaft with two dots using a black sharpie for reference alignment.
-
-_Procedure reported by [t35]._
 
 ## Tools
 

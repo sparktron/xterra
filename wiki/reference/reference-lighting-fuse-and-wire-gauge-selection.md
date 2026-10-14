@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Select a main fuse sized smaller than the thinnest part of the circuit using 4AWG wire and a 60A fuse. [t4]
+_No verified summary yet._
 
 ## Procedure
 

@@ -12,10 +12,7 @@ difficulty: null
 est_time: null
 tools:
 - Tall ladder
-- Pliers
 parts:
-- name: 'Ball Socket (Part #9416K79)'
-  oem_part_no: ''
 - name: 'Gas Spring with Threaded Ends (Part #9416K147)'
   oem_part_no: ''
 sources:
@@ -24,7 +21,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 7
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -39,17 +36,14 @@ _No verified summary yet._
 ## Tools
 
 - Tall ladder [t9]
-- Pliers [t9]
 
 ## Parts
 
-- Ball Socket, Part #9416K79: M8 thread, x2 [t9]
 - Gas Spring with Threaded Ends, Part #9416K147: 175 lbs force, 18.18" extended length, x2 [t9]
 
 ## Tips & gotchas
 
 - Reuse the original retaining clip and socket from the old struts where possible. [t9]
-- Use a little Loctite when putting ball sockets on to prevent them loosening. [t9]
 
 ## Common mistakes
 

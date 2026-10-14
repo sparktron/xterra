@@ -22,7 +22,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 7
+  withheld_items: 12
   pending_safety_values: 0
 ---
 
@@ -32,24 +32,13 @@ verification:
 
 Monitor the ATF temperature and add a fan to the OEM air-cooler. [t25]
 
-Note numbers in parentheses may represent Newton-meters or Kilogram-meters if following the Service Manual format. [t28]
-
-Select a relay rated for at least 30-AMPS. [t11]
-
 ## Procedure
 
 > **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
 
-1. Monitor the ATF temperature to assess cooling needs.
-2. Add a fan to the OEM air-cooler if bypassing the rad-cooler.
-
-_Procedure reported by [t25]._
-
-<details><summary>Alternate procedure [t11] [Partial]</summary>
-
 1. Select a relay rated for at least 30-AMPS to handle the load.
 
-</details>
+_Procedure reported by [t11]._
 
 ## Common mistakes
 

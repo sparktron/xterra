@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -38,10 +38,6 @@ _No verified summary yet._
 2. Remove the lower intake manifold.
 
 _Procedure reported by [t5]._
-
-## Common mistakes
-
-- Assuming the job will be simple without removing both intake sections. [t5]
 
 ## Source attributions
 

@@ -12,8 +12,6 @@ difficulty: null
 est_time: null
 tools: []
 parts:
-- name: Low profile strut channel
-  oem_part_no: ''
 - name: Wood shims (2x4)
   oem_part_no: ''
 sources:
@@ -22,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -45,7 +43,6 @@ _Procedure reported by [t41]._
 
 ## Parts
 
-- Low profile strut channel: Optional reinforcement; 6'8" length mentioned [t41]
 - Wood shims, 2x4: To shim up the front of the system ~2 inches [t41]
 
 ## Tips & gotchas

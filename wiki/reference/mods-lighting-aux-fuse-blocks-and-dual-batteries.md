@@ -33,6 +33,8 @@ Identify the Ign relay source for 12v power available when ignition is on or sta
 
 ## Procedure
 
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
 1. Identify the 'Ign relay' source for 12v power available when ignition is on or starting.
 
 _Procedure reported by [t17]._

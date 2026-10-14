@@ -3,10 +3,8 @@
 title: Alternator Bearing Failure Symptoms
 category: diagnostics
 applies_to:
-  years:
-  - 2005
-  trims:
-  - OR
+  years: []
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -20,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -30,7 +28,7 @@ verification:
 
 ## Summary
 
-The alternator bearing fails due to its low location and tendency to suck up mud. [t32]
+_No verified summary yet._
 
 ## Tips & gotchas
 

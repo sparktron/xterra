@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -28,11 +28,10 @@ verification:
 
 ## Summary
 
-Monitor coolant temperature at the radiator bottom where the ATF heat exchanger is located. [t25]
+_No verified summary yet._
 
 ## Tips & gotchas
 
-- Note that the ATF rad-cooler does not actively heat the fluid; it simply transfers ambient coolant temperature to it. [t25]
 - Observe that high load driving under 2500 rpm generates significant converter slip and internal trans heat. [t25]
 
 ## Source attributions

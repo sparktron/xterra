@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -29,14 +29,6 @@ verification:
 ## Summary
 
 Route the body ground for interior lights inside the truck cabin. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Route the body ground for interior lights inside the truck cabin to protect against rain, snow, and road salt corrosion.
-
-_Procedure reported by [t4]._
 
 ## Source attributions
 

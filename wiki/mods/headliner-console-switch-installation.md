@@ -12,11 +12,8 @@ difficulty: null
 est_time: null
 tools:
 - Mini blade saw
-- Dremel tool
 parts:
 - name: Aluminum plate (4 3/4" x 2 1/4")
-  oem_part_no: ''
-- name: Illuminated Duckbill Toggle Switches
   oem_part_no: ''
 sources:
 - t4
@@ -24,7 +21,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -34,7 +31,7 @@ verification:
 
 ## Summary
 
-Remove headliner assembly and install console switch using nut spacers for depth. [t4]
+_No verified summary yet._
 
 ## Procedure
 
@@ -48,12 +45,10 @@ _Procedure reported by [t4]._
 ## Tools
 
 - Mini blade saw [t4]
-- Dremel tool [t4]
 
 ## Parts
 
 - Aluminum plate, 4 3/4" x 2 1/4" [t4]
-- Illuminated Duckbill Toggle Switches [t4]
 
 ## Tips & gotchas
 

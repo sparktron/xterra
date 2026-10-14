@@ -3,10 +3,8 @@
 title: Bumpers, sliders and skid plates
 category: mods
 applies_to:
-  years:
-  - 2005
-  trims:
-  - X
+  years: []
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -25,7 +23,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 8
-  withheld_items: 15
+  withheld_items: 19
   pending_safety_values: 0
 ---
 
@@ -52,12 +50,6 @@ _Procedure reported by [t29]._
 
 1. Install the front long bolt first to secure a backing plate.
 2. Snug the rear bolt loosely so it can be adjusted later.
-
-</details>
-
-<details><summary>Alternate procedure [t29] [Partial]</summary>
-
-1. Place the slider on two standard milk crates to hold it at height.
 
 </details>
 

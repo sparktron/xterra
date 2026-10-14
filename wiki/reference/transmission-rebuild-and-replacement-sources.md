@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -29,14 +29,6 @@ verification:
 ## Summary
 
 _No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Contact local transmission shops like Aamco for a potential rebuild with an extended warranty.
-
-_Procedure reported by [t23]._
 
 ## Tips & gotchas
 

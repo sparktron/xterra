@@ -14,15 +14,13 @@ tools: []
 parts:
 - name: 12v tank heater
   oem_part_no: ''
-- name: Insulation
-  oem_part_no: ''
 sources:
 - t41
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -32,7 +30,7 @@ verification:
 
 ## Summary
 
-Install a master on/off switch for the rear battery and add six exterior DC ports. [t41]
+_No verified summary yet._
 
 ## Procedure
 
@@ -46,7 +44,6 @@ _Procedure reported by [t41]._
 ## Parts
 
 - 12v tank heater: For cold weather applications [t41]
-- Insulation: To wrap the battery for cold climates [t41]
 
 ## Source attributions
 

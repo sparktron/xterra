@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Use non-insulated O-shaped plier sections to crimp ring connectors, ensuring the tool removes gaps. [t4]
+_No verified summary yet._
 
 ## Source attributions
 

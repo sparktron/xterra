@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -31,15 +31,6 @@ verification:
 ## Summary
 
 Remove fuse box cover, nick grommet with razor blade, and apply white petroleum lube. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Remove the cover from the engine compartment fuse box.
-2. Slide a hand with a razor blade down the firewall to make a small nick in the grommet for easier wire passage.
-
-_Procedure reported by [t4]._
 
 ## Tools
 

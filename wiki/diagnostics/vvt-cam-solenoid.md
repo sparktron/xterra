@@ -10,8 +10,7 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Clock or stopwatch
+tools: []
 parts: []
 sources:
 - t22
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 11
+  withheld_items: 19
   pending_safety_values: 0
 ---
 
@@ -29,24 +28,7 @@ verification:
 
 ## Summary
 
-Check that the accelerator pedal is fully released, then cycle the ignition switch on for two to ten-second intervals. [t22]
-
-Ensure voltage, temperature, and pedal position are correct then perform accelerator learning steps. [t22]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Check that the accelerator pedal is fully released.
-2. Turn the ignition switch ON and wait at least 2 seconds.
-3. Turn the ignition switch OFF and wait at least 10 seconds.
-4. Turn the ignition switch ON again and wait at least 2 seconds.
-
-_Procedure reported by [t22]._
-
-## Tools
-
-- Clock or stopwatch [t22]
+_No verified summary yet._
 
 ## Tips & gotchas
 
@@ -54,10 +36,7 @@ _Procedure reported by [t22]._
 
 ## Common mistakes
 
-- Failing to wait long enough between ignition cycles. [t22]
 - Missing any preparation condition for even a moment, which cancels learning. [t22]
-- Not disconnecting the battery when cleaning a nasty throttle body unit that had compensated previously. [t22]
-- Running the car without relearning immediately after a long period of driving with a dirty intake. [t22]
 
 ## Source attributions
 

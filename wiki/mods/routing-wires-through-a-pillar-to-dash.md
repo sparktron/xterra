@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -29,15 +29,6 @@ verification:
 ## Summary
 
 Route the wire loom down the passenger side A-pillar and feed wires under the dash. [t4]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Route the wire loom down the passenger side 'A' pillar beside the windshield.
-2. Feed wires under the dash through an existing opening sized just large enough for them.
-
-_Procedure reported by [t4]._
 
 ## Source attributions
 

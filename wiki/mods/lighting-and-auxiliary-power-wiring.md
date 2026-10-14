@@ -29,7 +29,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 6
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -39,7 +39,7 @@ verification:
 
 ## Summary
 
-Select and separately fuse a 12V power source from direct voltage or the cigar lighter circuit. [t4]
+_No verified summary yet._
 
 ## Tools
 
@@ -57,11 +57,6 @@ Select and separately fuse a 12V power source from direct voltage or the cigar l
 ## Tips & gotchas
 
 - Use a smaller inline fuse that blows before the truck's main fuses to isolate wiring faults. [t4]
-- Tap into the cigar lighter circuit for 12V present only when the key is in ignition, saving battery drain. [t4]
-
-## Common mistakes
-
-- Connecting an in-line fuse tap incorrectly by swapping power and ground sides on the socket, causing original fuses to blow instead of the new one. [t4]
 
 ## Source attributions
 

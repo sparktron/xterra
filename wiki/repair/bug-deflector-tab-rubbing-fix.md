@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -28,20 +28,7 @@ verification:
 
 ## Summary
 
-Apply a piece of velcro underneath the bug deflector tabs. [t36]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Open the hood and inspect the area where bug deflector tabs sit.
-2. Look for paint rubbed off in the channel to confirm rubbing.
-
-_Procedure reported by [t36]._
-
-## Tips & gotchas
-
-- Apply a piece of velcro underneath the bug deflector tabs. [t36]
+_No verified summary yet._
 
 ## Source attributions
 

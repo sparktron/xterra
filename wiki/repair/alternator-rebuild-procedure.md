@@ -3,10 +3,8 @@
 title: Alternator Rebuild Procedure
 category: repair
 applies_to:
-  years:
-  - 2005
-  trims:
-  - OR
+  years: []
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -21,8 +19,6 @@ tools:
 - 8mm Socket
 - Small Gear Puller
 - Flat Head Screw Driver
-- Hammer (Deadblow preferred)
-- Stiff Wire
 parts: []
 sources:
 - t32
@@ -30,7 +26,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 7
+  withheld_items: 14
   pending_safety_values: 0
 ---
 
@@ -40,7 +36,7 @@ verification:
 
 ## Summary
 
-Soak pulley nut and remove it before flipping alternator to rebuild housing bearings. [t32]
+_No verified summary yet._
 
 ## Tools
 
@@ -52,8 +48,6 @@ Soak pulley nut and remove it before flipping alternator to rebuild housing bear
 - 8mm Socket [t32]
 - Small Gear Puller [t32]
 - Flat Head Screw Driver [t32]
-- Hammer (Deadblow preferred) [t32]
-- Stiff Wire [t32]
 
 ## Tips & gotchas
 
@@ -63,7 +57,6 @@ Soak pulley nut and remove it before flipping alternator to rebuild housing bear
 ## Common mistakes
 
 - Damaging the sliprings while removing the rear bearing from the shaft. [t32]
-- Letting brushes fall off when sliding the end housing onto the rotor without securing them first. [t32]
 
 ## Source attributions
 

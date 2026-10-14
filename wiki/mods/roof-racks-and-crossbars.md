@@ -16,11 +16,7 @@ tools:
 parts:
 - name: Bike tube
   oem_part_no: ''
-- name: Golf cart drop-in roof rack (e.g., RHOX Garvin style)
-  oem_part_no: ''
 - name: Vibration-damping U-bolts
-  oem_part_no: ''
-- name: WD-40
   oem_part_no: ''
 sources:
 - t40
@@ -28,7 +24,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 1
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -38,7 +34,7 @@ verification:
 
 ## Summary
 
-Mount the golf cart roof rack using custom brackets, drill factory holes as needed, use speed squares and punches for centers, then apply WD-40 to fit Ubolts. [t40]
+_No verified summary yet._
 
 ## Tools
 
@@ -48,9 +44,7 @@ Mount the golf cart roof rack using custom brackets, drill factory holes as need
 ## Parts
 
 - Bike tube: Used as an inner liner for the Ubolt housing/bracket [t40]
-- Golf cart drop-in roof rack, e.g., RHOX Garvin style: Heavy duty black powder coated steel, measures 5"H x 32"W x 52"L [t40]
 - Vibration-damping U-bolts: Ordered from McMaster-Carr [t40]
-- WD-40: To help seat the vibration damping bolts [t40]
 
 ## Tips & gotchas
 

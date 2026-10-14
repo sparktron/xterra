@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -30,7 +30,7 @@ verification:
 
 ## Summary
 
-Upgrade the main battery to a 210ah lithium unit and add a 12v tank heater with insulation. [t41]
+_No verified summary yet._
 
 ## Procedure
 

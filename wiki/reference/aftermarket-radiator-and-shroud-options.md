@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -28,11 +28,7 @@ verification:
 
 ## Summary
 
-Source a Koyo brand radiator while looking for specific shroud fittings. [t23]
-
-## Common mistakes
-
--  [t23]
+_No verified summary yet._
 
 ## Source attributions
 

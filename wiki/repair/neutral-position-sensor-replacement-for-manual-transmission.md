@@ -23,7 +23,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 7
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -33,7 +33,7 @@ verification:
 
 ## Summary
 
-Replace the Neutral Position Sensor by removing the shifter knob and hex adapter to access the sensor. [t10]
+_No verified summary yet._
 
 ## Tools
 
@@ -49,10 +49,6 @@ Replace the Neutral Position Sensor by removing the shifter knob and hex adapter
 
 - Press the shifter further into gear with your hand to help set cruise control during testing. [t10]
 - Drill out seized bolts on the metal ring using a 5mm, 3/16-inch, or #9 drill if needed. [t10]
-
-## Common mistakes
-
-- Buying the wrong sensor for an automatic transmission instead of manual. [t10]
 
 ## Source attributions
 

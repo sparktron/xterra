@@ -4,8 +4,7 @@ title: '[reference] 21460 series radiator part numbers and variants'
 category: reference
 applies_to:
   years: []
-  trims:
-  - S
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 

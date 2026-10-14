@@ -19,7 +19,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -30,10 +30,6 @@ verification:
 ## Summary
 
 _No verified summary yet._
-
-## Tips & gotchas
-
-- Pinion nut and ring gear bolts require replacement after removal. [t28]
 
 ## Source attributions
 

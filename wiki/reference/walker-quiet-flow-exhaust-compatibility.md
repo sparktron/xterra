@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -28,11 +28,7 @@ verification:
 
 ## Summary
 
-Search for a Walker Quiet Flow muffler to fit existing cat-back tubes. [t43]
-
-## Tips & gotchas
-
-- Walker Quiet Flow kits often come with separate aluminized steel pipes rather than all stainless. [t43]
+_No verified summary yet._
 
 ## Source attributions
 

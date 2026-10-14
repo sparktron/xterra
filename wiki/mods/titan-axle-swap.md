@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 6
   pending_safety_values: 0
 ---
 

@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Attempt to start the engine five times and tap away slush or debris. [t12]
+_No verified summary yet._
 
 ## Source attributions
 

@@ -10,18 +10,15 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Sheet metal screw
-parts:
-- name: Relay
-  oem_part_no: ''
+tools: []
+parts: []
 sources:
 - t4
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -40,14 +37,6 @@ Affix the relay to an existing mounting location using two sheet metal screws. [
 1. Affix the relay to an existing mounting location using two sheet metal screws.
 
 _Procedure reported by [t4]._
-
-## Tools
-
-- Sheet metal screw [t4]
-
-## Parts
-
-- Relay [t4]
 
 ## Source attributions
 

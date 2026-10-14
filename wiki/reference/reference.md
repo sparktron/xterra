@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 6
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -34,15 +34,11 @@ Check for a vacuum or air leak sound coming from under the passenger dash when t
 
 ## Procedure
 
-1. Identify the specific resistor part number for vehicles with 'climate control' HVAC.
-
-_Procedure reported by [t7]._
-
-<details><summary>Alternate procedure [t7] [Partial]</summary>
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
 
 1. Verify if the vehicle has a numbered fan setting or 'climate control' option.
 
-</details>
+_Procedure reported by [t7]._
 
 ## Source attributions
 

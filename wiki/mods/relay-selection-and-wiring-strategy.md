@@ -4,24 +4,21 @@ title: Relay Selection and Wiring Strategy
 category: mods
 applies_to:
   years: []
-  trims:
-  - Off-Road
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts:
-- name: Aluminum angle for relay support
-  oem_part_no: ''
+parts: []
 sources:
 - t4
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -42,10 +39,6 @@ Select SPDT relays with sufficient current capacity, run a 12 AWG wire to each r
 3. Run a 12 AWG wire from each fuse on the BlueSea block to terminal #30 (common side) of relays R-1 through R-6.
 
 _Procedure reported by [t4]._
-
-## Parts
-
-- Aluminum angle for relay support [t4]
 
 ## Tips & gotchas
 

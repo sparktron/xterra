@@ -11,16 +11,14 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts:
-- name: Hood Bump Stops
-  oem_part_no: ''
+parts: []
 sources:
 - t36
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -30,11 +28,7 @@ verification:
 
 ## Summary
 
-Raise the hood, replace worn bump stops with new OEM ones, and ensure they apply upward pressure. [t36]
-
-## Parts
-
-- Hood Bump Stops: OEM preferred, raised up for better pressure [t36]
+_No verified summary yet._
 
 ## Source attributions
 

@@ -32,6 +32,8 @@ Choose slim roof rack lights that fit within the closed Dephep rack and offer a 
 
 ## Procedure
 
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
 1. Choose lights slim enough to fit inside the Dephep rack with the lightcage closed.
 2. Select bulbs offering a wide lighting pattern to minimize angling needs.
 

@@ -21,7 +21,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -32,15 +32,6 @@ verification:
 ## Summary
 
 _No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Remove the stock radiator/cooler assembly.
-2. Install a B&M style auxiliary cooler with an integrated fan.
-
-_Procedure reported by [t24]._
 
 ## Parts
 

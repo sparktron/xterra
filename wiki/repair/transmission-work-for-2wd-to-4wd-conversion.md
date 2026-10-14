@@ -13,18 +13,14 @@ est_time: null
 tools:
 - Transmission jack
 - Allen wrench
-parts:
-- name: 4WD Output Shaft (Shorter variant)
-  oem_part_no: ''
-- name: Adapter Assembly
-  oem_part_no: ''
+parts: []
 sources:
 - t35
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 15
-  withheld_items: 7
+  withheld_items: 13
   pending_safety_values: 0
 ---
 
@@ -34,17 +30,12 @@ verification:
 
 ## Summary
 
-Remove the transmission, converter housing, and internal components to prepare a 2WD Xterra for conversion. [t35]
+_No verified summary yet._
 
 ## Tools
 
 - Transmission jack [t35]
 - Allen wrench [t35]
-
-## Parts
-
-- 4WD Output Shaft, Shorter variant [t35]
-- Adapter Assembly [t35]
 
 ## Specifications
 

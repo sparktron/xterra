@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -29,15 +29,6 @@ verification:
 ## Summary
 
 Drive at speeds between 45 and 70 mph for maximum efficiency. [t25]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Drive the vehicle at speeds between 45 and 70 mph for maximum efficiency.
-2. Add an external fan if low-speed driving is frequent.
-
-_Procedure reported by [t25]._
 
 ## Tips & gotchas
 

@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 3
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -29,19 +29,6 @@ verification:
 ## Summary
 
 _No verified summary yet._
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Divide the total wattage of your accessory by 12 volts to find the required amperage.
-2. Select a wire gauge from the chart that can handle the calculated amp load.
-
-_Procedure reported by [t13]._
-
-## Tips & gotchas
-
-- Assume 13.5 volts for charging system calculations instead of standard 12 volts to be more conservative. [t13]
 
 ## Diagrams (links only)
 

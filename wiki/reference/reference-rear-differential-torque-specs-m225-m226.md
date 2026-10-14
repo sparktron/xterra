@@ -29,7 +29,11 @@ verification:
 
 ## Summary
 
-Replace pinion nut and ring gear bolts, then set the breather cap to specific inch-pounds. [t28]
+_No verified summary yet._
+
+## Tips & gotchas
+
+- Pinion nut and ring gear bolts require replacement after removal; breather cap uses inch-pounds. [t28]
 
 ## Source attributions
 

@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,16 +28,7 @@ verification:
 
 ## Summary
 
-Evaluate the need for an external aftermarket ATF cooler and consider how it alters torque converter lock-up. [t27]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Evaluate the need for an external aftermarket ATF cooler on vehicles with OEM radiators.
-2. Consider that bypassing radiator restrictions might alter torque converter charge pressure.
-
-_Procedure reported by [t27]._
+_No verified summary yet._
 
 ## Source attributions
 

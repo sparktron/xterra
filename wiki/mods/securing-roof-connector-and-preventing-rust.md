@@ -10,8 +10,7 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Lighter fluid
+tools: []
 parts: []
 sources:
 - t4
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -39,10 +38,6 @@ Clean the roof area around the hole with lighter fluid and apply silicone all ar
 2. Apply silicone all around the connector threads before inserting it into the drilled hole.
 
 _Procedure reported by [t4]._
-
-## Tools
-
-- Lighter fluid [t4]
 
 ## Source attributions
 

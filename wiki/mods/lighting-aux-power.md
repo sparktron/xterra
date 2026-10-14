@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -29,13 +29,6 @@ verification:
 ## Summary
 
 Pull out the old bulb and insert a new LED that may need rotating to light. [t1]
-
-## Procedure
-
-1. Pull out the old bulb from the socket.
-2. Insert the new LED bulb into the same position.
-
-_Procedure reported by [t1]._
 
 ## Diagrams (links only)
 

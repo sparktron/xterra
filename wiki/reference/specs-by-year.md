@@ -12,7 +12,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
-difficulty: 1
+difficulty: null
 est_time: null
 tools: []
 parts: []

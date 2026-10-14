@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,11 +28,10 @@ verification:
 
 ## Summary
 
-Start the cold engine and check the reservoir level between fill limits while it runs. [t25]
+_No verified summary yet._
 
 ## Tips & gotchas
 
-- Perform this check with the running engine for an accurate reading of the pressurized system. [t25]
 - Ensure coolant is present in the reservoir to prevent air from being circulated back into the main system. [t25]
 
 ## Source attributions

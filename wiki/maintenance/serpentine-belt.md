@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -33,7 +33,6 @@ _No verified summary yet._
 ## Tips & gotchas
 
 - Listen for the operating sound of the throttle valve moving during the 10-second window after turning ignition OFF. [t22]
-- Perform this procedure each time the harness connector of the electric throttle control actuator or ECM is disconnected. [t22]
 
 ## Source attributions
 

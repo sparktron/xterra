@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Locate the ECU in the engine compartment on the passenger side, then position yourself near the firewall against the fender. [t14]
+_No verified summary yet._
 
 ## Diagrams (links only)
 

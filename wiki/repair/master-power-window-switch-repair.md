@@ -22,7 +22,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 6
+  withheld_items: 13
   pending_safety_values: 0
 ---
 
@@ -32,7 +32,7 @@ verification:
 
 ## Summary
 
-Remove master power window switch, clean contacts with contact cleaner, then reinstall components. [t39]
+_No verified summary yet._
 
 ## Tools
 
@@ -40,15 +40,6 @@ Remove master power window switch, clean contacts with contact cleaner, then rei
 - Sandpaper (one sheet) [t39]
 - Two small flat-tip screwdrivers or eyeglass repair toolkit size tools [t39]
 - One Phillips tip screwdriver or snow crab pick [t39]
-
-## Tips & gotchas
-
-- Clean all buttons even if only one is malfunctioning to prevent future issues. [t39]
-- Work carefully as the assembly is mostly plastic and prone to cracking. [t39]
-
-## Common mistakes
-
-- Removing the door lock switch unnecessarily, risking a ball bearing flying out of its spring housing. [t39]
 
 ## Diagrams (links only)
 

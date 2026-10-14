@@ -15,15 +15,13 @@ tools:
 parts:
 - name: 7-Pin Wiring Harness
   oem_part_no: ''
-- name: Foam Tape
-  oem_part_no: ''
 sources:
 - t6
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -33,7 +31,7 @@ verification:
 
 ## Summary
 
-Wrap foam tape around selected relays and zip-tie them securely in place. [t6]
+_No verified summary yet._
 
 ## Tools
 
@@ -42,7 +40,6 @@ Wrap foam tape around selected relays and zip-tie them securely in place. [t6]
 ## Parts
 
 - 7-Pin Wiring Harness: Dealer kit with directions and pictures; approx $55. [t6]
-- Foam Tape: Supplied with kit for insulating and securing the relay area. [t6]
 
 ## Diagrams (links only)
 

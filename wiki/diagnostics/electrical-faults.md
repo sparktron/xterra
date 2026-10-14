@@ -22,7 +22,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 5
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -30,11 +30,7 @@ verification:
 
 ## Summary
 
-Connect a scan tool to the ABS system then navigate the menu to select an ABS function. [t18]
-
-Inspect negative battery terminal connection, replace if necessary, check fusible links, and consult FSM for ground locations. [t19]
-
-Find a bolt or nut on the vehicle body to use as a ground point. [t11]
+_No verified summary yet._
 
 ## Procedure
 

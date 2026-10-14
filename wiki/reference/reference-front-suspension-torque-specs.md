@@ -3,8 +3,7 @@
 title: '[reference] Front suspension torque specs'
 category: reference
 applies_to:
-  years:
-  - 2005
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -32,10 +31,6 @@ verification:
 Many front suspension fasteners require replacing the nut after removal to ensure proper seating. [t28]
 
 Spring shackles and U-bolts require nut replacement after removal. [t28]
-
-## Tips & gotchas
-
-- Many fasteners require replacing the nut after removal to ensure proper seating. [t28]
 
 ## Source attributions
 

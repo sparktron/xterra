@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 5
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-Install a longer aftermarket or Murano-style replacement blade with equal length on each end. [t33]
+_No verified summary yet._
 
 ## Tips & gotchas
 

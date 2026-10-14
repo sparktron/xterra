@@ -15,13 +15,9 @@ tools: []
 parts:
 - name: Dynomax VT Muffler
   oem_part_no: ''
-- name: Gasket set for spacer
-  oem_part_no: ''
 - name: Intake Manifold Spacer
   oem_part_no: ''
 - name: Longer bolts and washers
-  oem_part_no: ''
-- name: UpRev Tuner
   oem_part_no: ''
 sources:
 - t26
@@ -29,7 +25,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 9
+  withheld_items: 16
   pending_safety_values: 0
 ---
 
@@ -39,31 +35,13 @@ verification:
 
 ## Summary
 
-Replace the stock Y-pipe with a Dynomax VT muffler. [t26]
-
 Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Replace the stock Y-pipe with a Dynomax VT muffler.
-
-_Procedure reported by [t26]._
-
-<details><summary>Alternate procedure [t26] [Partial]</summary>
-
-1. Install an UpRev tuner software for advanced diagnostics.
-
-</details>
 
 ## Parts
 
 - Dynomax VT Muffler [t26]
-- Gasket set for spacer [t26]
 - Intake Manifold Spacer: CNC machined from 6061 Billet Aluminum; available in Blue, Black, Silver, Gold, or Red [t26]
 - Longer bolts and washers [t26]
-- UpRev Tuner [t26]
 
 ## Tips & gotchas
 

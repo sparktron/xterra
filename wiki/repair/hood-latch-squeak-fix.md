@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 4
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -33,10 +33,6 @@ Locate three bolts holding the latch, spring, and clip together. [t36]
 ## Tips & gotchas
 
 - If using new hood bump stops, adjust the latch closer to them. [t36]
-
-## Common mistakes
-
-- Applying duct tape only once a month instead of permanently fixing it. [t36]
 
 ## Source attributions
 

@@ -28,7 +28,16 @@ verification:
 
 ## Summary
 
-Inspect the grill area to look for black embossed numbers on faded radiators. [t27]
+_No verified summary yet._
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Inspect the grill area where brackets and retainer pins may have been removed.
+2. Look for black embossed numbers that might be obscured by heat or age.
+
+_Procedure reported by [t27]._
 
 ## Source attributions
 

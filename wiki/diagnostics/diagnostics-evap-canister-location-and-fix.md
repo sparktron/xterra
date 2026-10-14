@@ -4,8 +4,7 @@ title: Diagnostics Evap canister location and fix
 category: diagnostics
 applies_to:
   years: []
-  trims:
-  - X
+  trims: []
   engine: []
   drivetrain: []
 shared_platform: []
@@ -19,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -29,7 +28,7 @@ verification:
 
 ## Summary
 
-Locate the evaporative emissions canister behind the left rear wheel. [t12]
+_No verified summary yet._
 
 ## Procedure
 

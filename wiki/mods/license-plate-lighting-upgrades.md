@@ -25,7 +25,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -35,7 +35,7 @@ verification:
 
 ## Summary
 
-Lower the spare tire, remove the old housing, twist out the bulb harness, splice wiring if needed, then apply grease and insert the LED light. [t31]
+_No verified summary yet._
 
 ## Procedure
 
@@ -65,7 +65,6 @@ _Procedure reported by [t31]._
 
 - Cut cardboard from the kit box to cover clear plastic windows while painting. [t31]
 - Sand new housings thoroughly with 600 grit sandpaper in every crevice and angle before priming. [t31]
-- Use a baking pan covered with trash bags as a rack for painting multiple coats without drips. [t31]
 
 ## Common mistakes
 
