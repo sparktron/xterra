@@ -11,24 +11,29 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: VIAS (Variable Intake Air Solenoid)
+  oem_part_no: ''
 sources:
 - t22
-confidence: '[Unverified]'
+- t30
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 19
+  withheld_items: 21
   pending_safety_values: 0
 ---
 
 # VVT and cam solenoid issues
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
 _No verified summary yet._
+
+## Parts
+
+- VIAS, Variable Intake Air Solenoid [t30]
 
 ## Tips & gotchas
 
@@ -41,4 +46,5 @@ _No verified summary yet._
 ## Source attributions
 
 - **t22**: Shiny, "Throttle Bottle Idle Air Re-learn", 2009-01-01. https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/
+- **t30**: Fresh Prince, "How-to: VIAS Rattle Fix", 2015-02-15. https://www.thenewx.org/threads/how-to-vias-rattle-fix.181130/
 

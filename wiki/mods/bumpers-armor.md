@@ -11,18 +11,20 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools:
-- Carpet
-- Tackle boxes
-- Step drill bit
-- Right angle drill
-- Two milk crates
-parts: []
+- Jack or jack stand
+- Drill
+- Uni-bit
+parts:
+- name: Long thread bolt for front frame mount
+  oem_part_no: ''
+- name: Zinc hardware kit with metal backing plates
+  oem_part_no: ''
 sources:
 - t29
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 8
+  reviewed_items: 3
   withheld_items: 19
   pending_safety_values: 0
 ---
@@ -33,49 +35,23 @@ verification:
 
 ## Summary
 
-Install the front long bolt first, then snug the rear bolt loosely after aligning the slider. [t29]
-
-Place the slider on two standard milk crates to hold it at height. [t29]
-
-## Procedure
-
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
-
-1. Read the manufacturer directions once before starting.
-2. Set up a carpet and old tackle boxes to support the slider during installation.
-
-_Procedure reported by [t29]._
-
-<details><summary>Alternate procedure [t29] [Partial]</summary>
-
-1. Install the front long bolt first to secure a backing plate.
-2. Snug the rear bolt loosely so it can be adjusted later.
-
-</details>
+_No verified summary yet._
 
 ## Tools
 
-- Carpet [t29]
-- Tackle boxes [t29]
-- Step drill bit [t29]
-- Right angle drill [t29]
-- Two milk crates [t29]
+- Jack or jack stand [t29]
+- Drill [t29]
+- Uni-bit [t29]
+
+## Parts
+
+- Long thread bolt for front frame mount [t29]
+- Zinc hardware kit with metal backing plates [t29]
 
 ## Tips & gotchas
 
-- Prime and paint metal backing plates before installing zinc hardware. [t29]
-- Apply rust converter to frame areas after drilling to prevent internal corrosion. [t29]
-- Align the slider parallel to the rocker panel with even gaps from front to rear before marking holes. [t29]
-- Tuck the wire part of the bolt assembly up into the frame once tightened to prevent vibration. [t29]
-- Use tread tape cut into rounded corners on high-wear areas like the front square part and bottom 8 inches. [t29]
-- Slot a drilled hole with a rat tail file or step drill if alignment is off. [t29]
-- Note that these dampeners may be too small to significantly help with vehicle vibration damping. [t29]
-- This method allows for a solo installation without needing jack stands or jacking up the front end. [t29]
-- Position the crate setup so the slider is within half an inch of the mounting locations. [t29]
-
-## Common mistakes
-
-- Overtightening the front long bolt which bends the backing plate, [t29]
+- Use a uni-bit for cleaner hole drilling compared to standard bits. [t29]
+- Utilize milk crates as props if jacking up the front end is difficult or impossible. [t29]
 
 ## Source attributions
 

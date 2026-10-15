@@ -21,21 +21,22 @@ parts:
   oem_part_no: ''
 sources:
 - t26
-confidence: '[Unverified]'
+- t43
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 16
+  withheld_items: 28
   pending_safety_values: 0
 ---
 
 # Intake, exhaust, tune and forced induction
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
 Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26]
+
+Install a Dynomax Cat Back Stainless Kit with Super Turbo muffler and Walker Mega-Clamps. [t43]
 
 ## Parts
 
@@ -48,8 +49,11 @@ Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26
 - The spacer acts as a heatsink to lower intake air temperatures. [t26]
 - Longer bolts are required due to the added height of the spacer. [t26]
 - The Dynomax muffler can be installed 'backwards' to eliminate the need for a Y-pipe. [t26]
+- The Walker Quiet Flow features a 20-inch body length. [t43]
+- It has a 2-1/2 inch ID inlet and outlet with an offset inlet and centered outlet. [t43]
 
 ## Source attributions
 
 - **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
+- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

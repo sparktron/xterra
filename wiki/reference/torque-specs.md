@@ -18,11 +18,12 @@ sources:
 - t25
 - t26
 - t28
+- t43
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 12
+  withheld_items: 15
   pending_safety_values: 0
 ---
 
@@ -40,6 +41,16 @@ Monitor the ATF temperature and add a fan to the OEM air-cooler. [t25]
 
 _Procedure reported by [t11]._
 
+<details><summary>Alternate procedure [t43] [Partial]</summary>
+
+1. Locate the exhaust studs connecting the pipes.
+
+</details>
+
+## Tips & gotchas
+
+- Note that these are often left with only two studs remaining after multiple removals. [t43]
+
 ## Common mistakes
 
 - The author manually entered numbers from assembly drawings, increasing the risk of typing errors compared to direct cut-and-paste methods. [t28]
@@ -54,4 +65,5 @@ _Procedure reported by [t11]._
 - **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
 - **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
 - **t28**: "Torque Specs | Second Generation Nissan Xterra Forums". https://www.thenewx.org/threads/torque-specs.1407/
+- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

@@ -14,11 +14,12 @@ tools: []
 parts: []
 sources:
 - t25
+- t43
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -30,7 +31,12 @@ verification:
 
 _No verified summary yet._
 
+## Tips & gotchas
+
+- Consider installing a heat shield if exhaust pipe heat warms up the rubber end of the transfer case. [t43]
+
 ## Source attributions
 
 - **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
+- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

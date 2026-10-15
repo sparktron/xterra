@@ -10,21 +10,17 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Speed square
-- Punch
+tools: []
 parts:
-- name: Bike tube
-  oem_part_no: ''
-- name: Vibration-damping U-bolts
+- name: Drop-in Cargo Rack
   oem_part_no: ''
 sources:
 - t40
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 6
+  reviewed_items: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -34,22 +30,15 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
-
-## Tools
-
-- Speed square [t40]
-- Punch [t40]
+Mount a drop-in cargo rack and install crossbars to serve as roof racks. [t40]
 
 ## Parts
 
-- Bike tube: Used as an inner liner for the Ubolt housing/bracket [t40]
-- Vibration-damping U-bolts: Ordered from McMaster-Carr [t40]
+- Drop-in Cargo Rack: Specifically a 'Golf Cart Roof Rack' style [t40]
 
 ## Tips & gotchas
 
-- Use a speed square to find centers and a punch to create dimples before drilling. [t40]
-- Apply WD-40 to get the Ubolts through the drilled holes in the rack. [t40]
+- Consider mounting an awning using the ends of the Unistrut bars on one side. [t40]
 
 ## Source attributions
 

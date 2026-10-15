@@ -15,6 +15,7 @@ est_time: null
 tools: []
 parts: []
 sources:
+- t7
 - t11
 - t18
 - t19
@@ -22,7 +23,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 10
+  withheld_items: 11
   pending_safety_values: 0
 ---
 
@@ -30,7 +31,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Locate the fuse and relay box under the hood next to the windshield washer bottle, then check the blower motor relay. [t7]
 
 ## Procedure
 
@@ -42,13 +43,22 @@ _No verified summary yet._
 
 _Procedure reported by [t11]._
 
+<details><summary>Alternate procedure [t7] [Partial]</summary>
+
+1. Locate the fuse and relay box under the hood next to the windshield washer bottle.
+2. Check the blower motor relay within that box.
+
+</details>
+
 ## Tips & gotchas
 
 - Check fusible links on the positive cable side as an alternative power source issue. [t19]
 - Consult the Factory Service Manual (FSM) for specific ground locations, starting with body and chassis grounds. [t19]
+- Consult the PG chapter of a service manual for an electrical units location section if needed. [t7]
 
 ## Source attributions
 
+- **t7**: jedge99, "How-to: Air Conditioner Fix - PBR", 2013-12-22. https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/
 - **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
 - **t18**: TeXas-Hooligan, "ABS BRAKE VDC SLIP Lights all 'ON'", 2019-04-16. https://www.thenewx.org/threads/abs-brake-vdc-slip-lights-all-on.283005/
 - **t19**: impeerical, "Electrical Issues, ECM or Bad Ground?", 2022-02-11. https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/

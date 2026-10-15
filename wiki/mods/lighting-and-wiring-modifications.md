@@ -10,9 +10,19 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Heat gun
+- Ring connector crimper
 parts:
+- name: Aluminum foil (ashtray)
+  oem_part_no: ''
+- name: Electric tape
+  oem_part_no: ''
+- name: Plastic case/junction box
+  oem_part_no: ''
 - name: Seal-tight connector
+  oem_part_no: ''
+- name: Silicone
   oem_part_no: ''
 sources:
 - t4
@@ -20,7 +30,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  withheld_items: 20
   pending_safety_values: 0
 ---
 
@@ -30,11 +40,31 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Route wires and install seal-tight connectors with silicone to secure lighting modifications. [t4]
+
+## Tools
+
+- Heat gun [t4]
+- Ring connector crimper [t4]
 
 ## Parts
 
+- Aluminum foil, ashtray [t4]
+- Electric tape [t4]
+- Plastic case/junction box [t4]
 - Seal-tight connector [t4]
+- Silicone [t4]
+
+## Tips & gotchas
+
+- Use a rubber washer if available, or apply extra silicone on its own [t4]
+- Ensure no air remains trapped to prevent rust at the drilled spot [t4]
+- Choose slim enough lights for a Dephep rack in closed position [t4]
+- Use heat-shrink tubing with a thin wall of glue over solder joints [t4]
+- Use thin-wall glue heat-shrink tubing so it reduces in size and melts [t4]
+- Orient the box with an opening in the bottom so water drips out [t4]
+- Ensure all wire strands are fully crimped by bending the wire if needed [t4]
+- Essential for non-100% sealed slim lights like the Hella 500 [t4]
 
 ## Source attributions
 

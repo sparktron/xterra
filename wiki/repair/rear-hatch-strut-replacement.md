@@ -11,7 +11,8 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools:
-- Tall ladder
+- Tall Ladder
+- Vice
 parts:
 - name: 'Gas Spring with Threaded Ends (Part #9416K147)'
   oem_part_no: ''
@@ -31,23 +32,26 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Support the raised hatch, remove both existing struts, attach new ball sockets to each gas spring strut, and install them. [t9]
 
 ## Tools
 
-- Tall ladder [t9]
+- Tall Ladder [t9]
+- Vice [t9]
 
 ## Parts
 
-- Gas Spring with Threaded Ends, Part #9416K147: 175 lbs force, 18.18" extended length, x2 [t9]
+- Gas Spring with Threaded Ends, Part #9416K147 [t9]
+
+## Specifications
+
+- **Strut Force (New Replacement)**: 175 lbs [t9] ([Unverified] single report)
+- **Strut Force (OEM)**: 145 lbs [t9] ([Unverified] single report)
 
 ## Tips & gotchas
 
-- Reuse the original retaining clip and socket from the old struts where possible. [t9]
-
-## Common mistakes
-
-- Forgetting that both sides must be removed at once for better hatch clearance. [t9]
+- Reuse the clip and socket from the old struts if possible. [t9]
+- Use a vice to hold the old strut while unscrewing it. [t9]
 
 ## Diagrams (links only)
 

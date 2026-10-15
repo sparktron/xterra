@@ -5,4 +5,6 @@ Safety-critical values that passed the evidence checks but are not yet corrobora
 
 | Topic | Item | Value | Why pending | Source |
 |---|---|---|---|---|
-| _none_ | | | | |
+| Transmission and transfer case problems | Band servo anchor end pin final torque | 44IN*LB | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
+| Transmission and transfer case problems | Oil pump bolt torque (with RTV) | 35ft*lb | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |
+| Transmission and transfer case problems | Self-sealing converter housing bolt torque | 45ft*lb | only 1 thread(s); needs 2 or a review | https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/ |

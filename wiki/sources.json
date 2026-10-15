@@ -50,39 +50,19 @@
     "url": "https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/",
     "thread_title": "-How-to: From the Battery to the Roof Lights and In-between - PBR",
     "author_handle": "XJ-TERRA",
-    "date_posted": "2010-12-26T22:43:45-0500",
+    "date_posted": "2010-12-26",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Creating Plastic Junction Box Connections",
-      "Crimping Ring Connectors for Vibration Resistance",
-      "Draining Water from Horizontal Lights",
-      "Finishing Interior Wire Connections",
-      "Headliner Console Switch Installation",
-      "Installing Roof Seal-Tight Connector",
+      "Grounding system using a 19-inch negative battery cable",
       "Lighting and Auxiliary Power Wiring",
-      "Lighting and Fuse Block Installation",
+      "Lighting and Electrical Upgrades",
       "Lighting and Wiring Modifications",
-      "Modifying Hella 500 Light Wiring",
-      "Power Distribution Block Mounting",
-      "Protecting Wires Behind Glove Box",
-      "Relay Mounting in Engine Bay",
-      "Relay Selection and Wiring Strategy",
-      "Routing Interior Wire Harnesses",
-      "Routing Wires Through A-Pillar to Dash",
-      "Sealing Roof Wire Penetrations",
-      "Securing Roof Connector and Preventing Rust",
-      "Securing Wires in Wet Box Junctions",
-      "Selecting Slim Roof Rack Lights",
-      "Soldering and Waterproofing Light Bulbs",
-      "Wiring Through Firewall Grommet",
-      "[reference] Lighting bulb resistance and current draw specs",
-      "[reference] Lighting circuit configurations and symbols",
-      "[reference] Lighting electrical load and wire sizing",
-      "[reference] Lighting fuse and wire gauge selection",
-      "[reference] Lighting ground connection methods",
-      "[reference] Lighting wire gauge equivalents for parallel runs"
+      "Power distribution block mounting with aluminum rivets",
+      "Relay mounting using existing sheet metal screw holes",
+      "Wiring harness installation via firewall grommet",
+      "[reference] Electrical system wiring and fuse sizing"
     ],
     "status": "extracted"
   },
@@ -109,12 +89,13 @@
     "url": "https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/",
     "thread_title": "How-to: Install 7-Pin Wiring Harness",
     "author_handle": "brutus_skx",
-    "date_posted": "2007-06-17T19:15:00-0400",
+    "date_posted": "2007-06-17",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Electrical faults, grounds and battery drain"
+      "Electrical faults, grounds and battery drain",
+      "Lighting, aux fuse blocks and dual batteries"
     ],
     "status": "extracted"
   },
@@ -124,14 +105,17 @@
     "url": "https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/",
     "thread_title": "How-to: Air Conditioner Fix - PBR",
     "author_handle": "jedge99",
-    "date_posted": "2013-12-22T09:59:36-0500",
+    "date_posted": "2013-12-22",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Diagnostics",
-      "Reference",
-      "Repair"
+      "Blower motor removal and inspection",
+      "Blower resistor operation and symptoms",
+      "Electrical faults, grounds and battery drain",
+      "Heater core and A/C problems",
+      "[reference] Part selection for climate control vs numbered fan settings",
+      "[reference] Torque specifications for blower motor resistor"
     ],
     "status": "extracted"
   },
@@ -156,7 +140,7 @@
     "url": "https://www.thenewx.org/threads/how-to-rear-hatch-strut-replacement-pbr.51485/",
     "thread_title": "How-to: Rear Hatch Strut Replacement - PBR",
     "author_handle": "dezurtrat",
-    "date_posted": "2007-12-23T16:22:00-0500",
+    "date_posted": "2007-12-23",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
@@ -503,7 +487,7 @@
     "url": "https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/",
     "thread_title": "How-to: ShrockWorks Sliders Install - PBR",
     "author_handle": "usmc xterra",
-    "date_posted": "2006-01-28T21:15:59-0500",
+    "date_posted": "2006-01-28",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
@@ -518,12 +502,16 @@
     "url": "https://www.thenewx.org/threads/how-to-vias-rattle-fix.181130/",
     "thread_title": "How-to: VIAS Rattle Fix",
     "author_handle": "Fresh Prince",
-    "date_posted": "2015-02-15T15:27:00-0500",
+    "date_posted": "2015-02-15",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "VIAS Valve Rattle Fix"
+      "Nissan TSB for VIAS rattle fix",
+      "VIAS Valve Rattle Fix",
+      "VIAS rattle fix with screw method",
+      "VIAS valve movement characteristics",
+      "VVT and cam solenoid issues"
     ],
     "status": "extracted"
   },
@@ -533,12 +521,13 @@
     "url": "https://www.thenewx.org/threads/how-to-replace-your-05-08-license-plate-light-housings-with-oem-parts.274716/",
     "thread_title": "How-to: Replace your 05-08 License Plate Light Housings With OEM Parts",
     "author_handle": "General_Tarfun",
-    "date_posted": "2013-09-24T12:59:00-0400",
+    "date_posted": "2013-09-24",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "License plate lighting upgrades"
+      "License plate light housing replacement",
+      "Trim guide (X, S, SE, Off-Road, PRO-4X)"
     ],
     "status": "extracted"
   },
@@ -548,14 +537,15 @@
     "url": "https://www.thenewx.org/threads/how-to-2005-xterra-alternator-rebuild-work-in-progress.3527/",
     "thread_title": "How-to: 2005 Xterra Alternator Rebuild (Work In Progress)",
     "author_handle": "Muzikman",
-    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_posted": "2006-01-28",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Alternator Bearing Failure Symptoms",
-      "Alternator Bearing Specifications and Part Numbers",
-      "Alternator Rebuild Procedure"
+      "Alternator bearing replacement",
+      "Alternator failure symptoms",
+      "Alternator part numbers for N50",
+      "Alternator rebuild and bearing service"
     ],
     "status": "extracted"
   },
@@ -565,12 +555,14 @@
     "url": "https://www.thenewx.org/threads/how-to-upgrade-your-rear-wiper-to-14-or-16-pbr.24339/",
     "thread_title": "How-to: Upgrade Your Rear Wiper to 14\" or 16\" - PBR",
     "author_handle": "BORNGEARHEAD",
-    "date_posted": "2009-10-08T23:43:32-0400",
+    "date_posted": "2009-10-08",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Rear wiper blade upgrade"
+      "Rear wiper blade upgrade",
+      "Stock rear wiper sweep dimensions",
+      "Vendor sources for rear wiper blades"
     ],
     "status": "extracted"
   },
@@ -580,7 +572,7 @@
     "url": "https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/",
     "thread_title": "How-to: Transmission PMF (Poor Man's Flush) - PBR",
     "author_handle": "Rook",
-    "date_posted": "2009-07-07T13:21:00-0400",
+    "date_posted": "2009-07-07",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
@@ -595,18 +587,13 @@
     "url": "https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/",
     "thread_title": "How-to: Convert 2wd to 4x4",
     "author_handle": "USMMA11NC",
-    "date_posted": "2012-01-31T12:37:20-0500",
+    "date_posted": "2012-01-31",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "ATF capacity for torque converter fill during conversion",
-      "Connecting mechanical transfer case shifter to cabin",
-      "Installing transfer case while transmission is mounted",
-      "Rear axle swap for E-Locker and gear ratio change",
-      "Titan axle, differential and brake swaps",
-      "Torque converter alignment and bolt hole spacing check",
-      "Transmission work for 2WD to 4WD conversion"
+      "Transfer case conversion and shifting",
+      "Transmission and transfer case problems"
     ],
     "status": "extracted"
   },
@@ -637,16 +624,15 @@
     "url": "https://www.thenewx.org/threads/how-to-abs-off-version-3.231530/",
     "thread_title": "How-to: ABS Off Version 3",
     "author_handle": "PhullD",
-    "date_posted": "2015-08-10T15:18:00-0400",
+    "date_posted": "2015-08-10",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "5-Pin Relay Wiring Configuration",
-      "ABS Connector Pinout and Layout",
-      "ABS Deactivation Switch Installation",
-      "ABS Ground Wire Switching Procedure",
-      "Eliminating Over-Sensitive ABS Pulsing"
+      "ABS plug location and wiring details",
+      "ABS system disable switch",
+      "Diagnostics: ABS Off Version 3 Switch Mod",
+      "Reference: ABS Module Connector Pinout Variations"
     ],
     "status": "extracted"
   },
@@ -671,12 +657,13 @@
     "url": "https://www.thenewx.org/threads/diy-drop-in-cargo-roof-rack-%E2%80%9Cthe-golf-cart-roof-rack-hack%E2%80%9D.282013/",
     "thread_title": "DIY: Drop in Cargo Roof Rack - \u201cThe Golf Cart Roof Rack Hack\u201d",
     "author_handle": "CDL",
-    "date_posted": "2021-03-01T21:51:28-0500",
+    "date_posted": "2021-03-01",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Roof racks and crossbars"
+      "Roof racks and crossbars",
+      "Roof racks and storage systems"
     ],
     "status": "extracted"
   },
@@ -719,19 +706,14 @@
     "url": "https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/",
     "thread_title": "How-to: Exhaust without the Drone",
     "author_handle": "Old Army",
-    "date_posted": "2006-07-10T21:28:00-0400",
+    "date_posted": "2006-07-10",
     "date_scraped": null,
     "type": "manual",
     "trust_score": 3,
     "topics": [
-      "Dynomax Super Turbo muffler specifications",
-      "Exhaust drone and noise reduction",
-      "Exhaust hanger and support issues",
-      "Exhaust performance gains with cat-back swap",
-      "Exhaust stud removal and retention specs",
-      "Exhaust system upgrades and mufflers",
-      "Walker Quiet Flow exhaust compatibility",
-      "Walker kit part numbers for Xterra"
+      "Fluids and capacities",
+      "Intake, exhaust, tune and forced induction",
+      "Torque specifications"
     ],
     "status": "extracted"
   }

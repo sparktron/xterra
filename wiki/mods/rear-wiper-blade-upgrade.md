@@ -17,8 +17,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 7
+  reviewed_items: 0
+  withheld_items: 12
   pending_safety_values: 0
 ---
 
@@ -28,15 +28,11 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Locate and remove the existing rear wiper assembly to install a 2-inch longer Murano blade. [t33]
 
 ## Tips & gotchas
 
-- Ensure the replacement blade has equal length on each end for proper fitment. [t33]
-
-## Diagrams (links only)
-
-- http://www.canadiantire.ca/AST/browse/4/Auto/AutoParts/WiperBlades/PRD~0210910P/PreciseFit+Teflon+Rear+Wiper+Blades.jsp [t33]
+- Note that the Murano wiper is 2 inches longer than stock. [t33]
 
 ## Source attributions
 

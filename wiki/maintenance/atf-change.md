@@ -11,13 +11,11 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools:
-- 10mm socket
-- Funnel
-- Bucket or 5-gallon jug
+- Clear hose
+- Hose clamps (spring or screw type)
+- 5-gallon plastic jugs
 parts:
-- name: Clear hose (optional)
-  oem_part_no: ''
-- name: Nissan Matic-S ATF (or compatible)
+- name: Veggie oil jug (optional)
   oem_part_no: ''
 sources:
 - t24
@@ -25,8 +23,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 4
-  withheld_items: 13
+  reviewed_items: 2
+  withheld_items: 24
   pending_safety_values: 0
 ---
 
@@ -36,26 +34,31 @@ verification:
 
 ## Summary
 
-Hook a longer hose to the supply transmission line and direct it into a bucket. [t34]
+_No verified summary yet._
 
 ## Tools
 
-- 10mm socket [t34]
-- Funnel [t34]
-- Bucket or 5-gallon jug [t34]
+- Clear hose [t34]
+- Hose clamps (spring or screw type) [t34]
+- 5-gallon plastic jugs [t34]
 
 ## Parts
 
-- Clear hose, optional [t34]
-- Nissan Matic-S ATF, or compatible [t34]
+- Veggie oil jug, optional [t34]
 
 ## Tips & gotchas
 
-- Use a clear hose to monitor fluid color change from brownish-red to straight red. [t34]
+- Use a 5-gallon fast-food veggie oil container to catch fluid and keep the garage clean. [t34]
+- Monitor color change by looking through clear hose or using a bright light. [t34]
 
 ## Common mistakes
 
-- Letting the engine run too long without fluid causing overheating of the pump. [t34]
+- Draining too quickly without shifting gears, leaving old fluid trapped in specific paths. [t34]
+
+## Diagrams (links only)
+
+- http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9921 [t34]
+- http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9929 [t34]
 
 ## Source attributions
 
