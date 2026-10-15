@@ -1223,3 +1223,17 @@ def test_every_copy_of_the_reviewer_instructions_describes_corrections():
     root = Path(__file__).resolve().parents[1]
     for text in [(root / p).read_text() for p in (".claude/agents/wiki-reviewer.md", ".codex/agents/wiki-reviewer.toml")] + [INSTRUCTIONS]:
         assert "correct" in text and "corrected" in text and "never add a number" in text.lower(), text[:80]
+
+
+def test_a_claude_correction_that_changes_only_a_unit_waits_and_one_the_source_contradicts_is_refused(cfg, conn, tmp_path):
+    """Codex review of #9 (P2), for corrections: a unit is part of the number. 83 ft-lb -> 83 in-lb is a change a person
+    must accept, and a unit the source never puts on that number is refused outright."""
+    steps = ["Support the truck securely on stands", "Separate the lower ball joint with a fork", "Tighten the pivot bolts to 83 ft-lb"]
+    _triage_setup(cfg, conn, tmp_path, steps=steps)
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-111", [
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down to 83 in-lb"}])
+    assert stats["refused"] == 1 and stats["corrected"] == stats["pending"] == 0      # the source says 83 ft-lb
+    from xw.corrections import changes_numbers
+    assert changes_numbers("Use a 10mm socket", "Use a 10 cm socket") and changes_numbers("83 ft-lb", "83 in-lb")
+    assert not changes_numbers("Tighten to 83 ft-lb", "Snug them to 83 ft-lbs")

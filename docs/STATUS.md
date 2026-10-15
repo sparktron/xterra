@@ -15,6 +15,17 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Codex review of PR #9 (2026-10-15, 2 findings, both fixed): (P1) `extract.apply_guide_steps` let a guide call that
+stopped early replace fragments holding more steps in total (it compared with the longest fragment only); it now needs
+at least as many steps as all the fragments together. (P2) `extract.reword_copied` compared numbers without their units
+(`10mm` -> `10 cm` passed); it now uses `grounding.same_measures`. The same applies to corrections:
+`corrections.changes_numbers` counts a unit change as a number change (a person decides), and `corrections.refusal`
+refuses a unit the source does not put on that number (`unit_grounded`). 3 regression tests, each failing before its
+fix; `pytest` 123 passed; re-export unchanged, `xw qa` passes; no existing step states a unit its source does not.
+Limits: units `grounding` does not know (cm, inch) are still compared by numeral only, and prose outside corrections
+gets no unit check. The 14 guides extracted on 2026-10-14 used the old P1 rule; their replaced fragments are gone, so
+that cannot be re-checked, but each published one was Claude-reviewed for completeness.
+
 Reviewer corrections (2026-10-15, branch `feat/guide-first-extraction`, PR #9). Option A with the number carve-out
 from `docs/proposals/reviewer-corrections.md`; the as-built differences are listed at the top of that file.
 

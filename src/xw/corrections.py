@@ -8,10 +8,10 @@ all-or-nothing, so one misworded step used to withhold a 20-60 step guide whose 
 - A correction is kept beside the extraction, keyed like `human_decisions` (thread + claim kind + hash of the ORIGINAL
   claim text), so it follows the claim across a re-extraction that states the same text and lapses when it changes.
 - It is applied when facts are loaded (`export.load_rows`, and through it review and triage). Every deterministic check
-  runs on the corrected text: a correction stating a number the source does not, or copying 12 words of it, is not used
-  and the claim keeps its original text and verdicts. A torque, capacity or pressure value still needs a published spec.
-- Who publishes: a person's correction, and Claude's when it keeps the original's numbers, are `accepted`. Claude's
-  that changes a number is `pending` until a person accepts it in `xw triage`.
+  runs on the corrected text: a correction stating a number the source does not, giving a number a unit the source does
+  not, or copying 12 words of it, is not used and the claim keeps its original text and verdicts. A torque, capacity or pressure value still needs a published spec.
+- Who publishes: a person's correction, and Claude's when it keeps the original's numbers and units, are `accepted`.
+  Claude's that changes a number or a unit is `pending` until a person accepts it in `xw triage`.
 - After a step is corrected, `complete` counts only a reviewer verdict on the corrected list (`complete_lists` holds
   the hash of the list each reviewer judged); the local verifier's never counts, because it judged the old wording.
 """
@@ -23,7 +23,7 @@ import sqlite3
 from typing import Any
 
 from .db import now
-from .grounding import has_long_overlap, number_tokens, numbers_grounded
+from .grounding import has_long_overlap, numbers_grounded, same_measures, unit_grounded
 from .schemas import Fact
 from .verify import claims_for_fact
 
@@ -47,13 +47,16 @@ def refusal(corrected: str, source: str) -> str:
     """Why `corrected` may not stand in for a claim from `source`, or "" if the deterministic checks pass."""
     if not numbers_grounded(corrected, source):
         return "states a number the source does not"
+    if not unit_grounded(corrected, "", source):
+        return "gives a number a unit the source does not"
     if has_long_overlap(corrected, source):
         return "copies 12 or more words of the source"
     return ""
 
 
 def changes_numbers(original: str, corrected: str) -> bool:
-    return sorted(number_tokens(original)) != sorted(number_tokens(corrected))
+    """A number added, dropped or changed, or a number given another unit."""
+    return not same_measures(original, corrected)
 
 
 def load_accepted(conn: sqlite3.Connection) -> Table:

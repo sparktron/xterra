@@ -13,7 +13,7 @@ from pydantic import ValidationError
 from .config import Config
 from .crawl import is_guide_chunk
 from .db import now
-from .grounding import grounded_terms, ground_fact, has_long_overlap, number_tokens
+from .grounding import grounded_terms, ground_fact, has_long_overlap, same_measures
 from .llm import LLM, LLMError
 from .schemas import Extraction, Fact, extraction_schema
 from .topics import TopicIndex
@@ -131,7 +131,8 @@ REWORD_SCHEMA = {"type": "object", "properties": {"step": {"type": "string"}}, "
 def reword_copied(llm: LLM, steps: list[str], text: str) -> list[str]:
     """The exporter drops a step that shares a 12-word run with the source, and with it the whole procedure. The guide
     call copies a few sentences of a long write-up, so each copied step gets one rewording call. A rewording that
-    still copies, changes the numbers or comes back empty is not used: the step stays as it was and stays withheld."""
+    still copies, changes a number or its unit, or comes back empty is not used: the step stays as it was and stays
+    withheld."""
     out = []
     for step in steps:
         if has_long_overlap(step, text):
@@ -141,7 +142,7 @@ def reword_copied(llm: LLM, steps: list[str], text: str) -> list[str]:
                 ans = None
             new = ans.get("step") if isinstance(ans, dict) else None
             new = " ".join(new.split()) if isinstance(new, str) else ""
-            if new and not has_long_overlap(new, text) and sorted(number_tokens(new)) == sorted(number_tokens(step)):
+            if new and not has_long_overlap(new, text) and same_measures(new, step):
                 step = new
         out.append(step)
     return out
@@ -149,11 +150,13 @@ def reword_copied(llm: LLM, steps: list[str], text: str) -> list[str]:
 
 def apply_guide_steps(result: Extraction, steps: list[str]) -> Extraction:
     """A guide chunk holds one write-up, so its procedure is one fact. When the focused call found more steps than the
-    longest procedure the full extraction returned, the procedure fragments become one fact with those steps; the
-    tools, parts, specs and tips the fragments carried are kept on it, and the facts without steps stay as they are.
-    Nothing is waived: every step is grounded and verified, and `complete` is judged on the whole list."""
+    longest procedure the full extraction returned, and at least as many as all its procedure fragments together (a
+    call that stopped early must not replace ten two-step fragments with three steps), the fragments become one fact
+    with those steps; the tools, parts, specs and tips they carried are kept on it, and the facts without steps stay as
+    they are. Nothing is waived: every step is grounded and verified, and `complete` is judged on the whole list."""
     procs = [f for f in result.facts if f.steps]
-    if not result.relevant or not steps or len(steps) <= max((len(f.steps) for f in procs), default=0):
+    longest, together = max((len(f.steps) for f in procs), default=0), sum(len(f.steps) for f in procs)
+    if not result.relevant or not steps or len(steps) <= longest or len(steps) < together:
         return result
     if not procs:
         procs = result.facts[:1]   # the guide's own fact, which the extractor gave no steps

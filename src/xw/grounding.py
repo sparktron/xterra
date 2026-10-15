@@ -93,6 +93,12 @@ def numbers_with_units(text: str) -> list[tuple[str, str | None]]:
     return [(m.group(), _unit_near(flat, m.start(), m.end())) for m in _NUM.finditer(flat)]
 
 
+def same_measures(a: str, b: str) -> bool:
+    """`a` and `b` state the same numbers with the same units. A rewording that keeps "10" but turns "10mm" into
+    "10 cm" or "10" changes the measurement (`number_tokens` alone sees no difference)."""
+    return sorted(numbers_with_units(a), key=str) == sorted(numbers_with_units(b), key=str)
+
+
 def unit_grounded(value: str, unit: str, text: str) -> bool:
     """Every number the claim gives a unit to must carry that same unit somewhere in `text`.
     Catches "80 ft-lb" claimed from a source that says "80 in-lb" or "80 Nm" (spec_grounded only sees "80")."""
