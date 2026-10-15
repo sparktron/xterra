@@ -18,17 +18,22 @@ so after a re-extraction or a `verify --redo` the same claim in the same thread 
 Answers: `a` approve, `r` reject, `p` (completeness claims only) the steps are right but the list may be incomplete,
 so the procedure publishes marked [Partial]; anything typed after the letter is stored as your note. `s` skips,
 `u` undoes your last answer, `q` quits.
+
+A Claude correction that changes a number (corrections.py) is shown first, as kind `correction`, with the extracted
+wording and Claude's beside the excerpt: `a` lets the correction stand, `r` throws it away (the claim keeps its old
+wording and verdicts).
 """
 from __future__ import annotations
 
-import hashlib
 import re
 import sqlite3
 import textwrap
 from collections import Counter
 from typing import Any, Callable
 
+from . import corrections
 from .config import Config
+from .corrections import claim_hash  # noqa: F401  (decisions and corrections share one content key)
 from .db import now
 from .review import build_queue
 from .schemas import Fact
@@ -36,17 +41,9 @@ from .topics import TopicIndex
 from .verify import claims_for_fact
 
 Out = Callable[[str], None]
-PRIORITY_LABELS = {0: "Claude was unsure, or a safety value awaits corroboration",
+PRIORITY_LABELS = {0: "Claude was unsure, a safety value awaits corroboration, or Claude's correction changes a number",
                    1: "verifier answered partial / could not be trusted, or a procedure is published as [Partial]"}
 WIDTH = 100
-
-
-def _norm(text: str) -> str:
-    return re.sub(r"\W+", " ", text.lower()).strip()
-
-
-def claim_hash(text: str) -> str:
-    return hashlib.sha1(_norm(text).encode("utf-8")).hexdigest()[:20]
 
 
 def _kind(key: str) -> str:
@@ -88,7 +85,12 @@ def summarize_queue(items: list[dict[str, Any]]) -> str:
 
 # ---- decisions --------------------------------------------------------------------------------------------
 def decide(conn: sqlite3.Connection, item: dict[str, Any], verdict: str, note: str = "") -> None:
+    if item["kind"] == "correction":
+        corrections.decide_pending(conn, item["thread_id"], item["claim_kind"], item["claim_hash"], verdict == "approve", note)
+        return
     fid, key = _split(item["id"])
+    if key == "complete":   # remember the list judged: a later step correction voids this answer
+        corrections.record_judged_list(conn, fid, "human", item["claim"])
     conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) VALUES(?,?,?,?,?,?)",
                  (fid, key, "human", verdict, note[:500], now()))
     conn.execute("INSERT OR REPLACE INTO human_decisions(thread_id, claim_kind, claim_hash, claim_text, verdict, note, created_at) "
@@ -98,6 +100,9 @@ def decide(conn: sqlite3.Connection, item: dict[str, Any], verdict: str, note: s
 
 
 def undo(conn: sqlite3.Connection, item: dict[str, Any]) -> None:
+    if item["kind"] == "correction":
+        corrections.reopen(conn, item["thread_id"], item["claim_kind"], item["claim_hash"])
+        return
     fid, key = _split(item["id"])
     conn.execute("DELETE FROM verdicts WHERE fact_id=? AND claim_key=? AND by='human'", (fid, key))
     conn.execute("DELETE FROM human_decisions WHERE thread_id=? AND claim_kind=? AND claim_hash=?",
@@ -133,7 +138,10 @@ def render(item: dict[str, Any], pos: int, total: int, excerpt_chars: int = 1200
     if item["risk"]:
         lines.append(f"!! {item['risk'].upper()}: your approval publishes it" + (" without a second source." if item["risk"] ==
                                                                                  "safety-critical value" else "."))
-    lines += ["", "CLAIM:", wrap(item["claim"], "  ")]
+    if item["kind"] == "correction":
+        lines += ["", "CLAIM AS EXTRACTED:", wrap(item["claim"], "  "), "", "CLAUDE'S CORRECTION:", wrap(item["corrected"], "  ")]
+    else:
+        lines += ["", "CLAIM:", wrap(item["claim"], "  ")]
     if item["evidence_quote"]:
         lines += ["", "QUOTE THE MODEL GAVE:", wrap(item["evidence_quote"], "  ")]
     lines += ["", f"SOURCE EXCERPT ({item['thread_title'][:60]}):", wrap(item["excerpt"][:excerpt_chars], "  "), f"  {item['source_url']}"]
@@ -166,8 +174,8 @@ def run_triage(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, kin
             break
         item = items[i]
         out(render(item, i + 1, len(items), int(cfg.review.excerpt_chars) * (2 if item["kind"] == "complete" else 1)))
-        options = "[a]pprove  [r]eject" + ("  [p]artial: steps right, list may be incomplete" if item["kind"] == "complete" else "") \
-                  + "  [s]kip  [u]ndo  [q]uit"
+        options = ("[a]ccept the correction  [r]eject it" if item["kind"] == "correction" else "[a]pprove  [r]eject") \
+            + ("  [p]artial: steps right, list may be incomplete" if item["kind"] == "complete" else "") + "  [s]kip  [u]ndo  [q]uit"
         try:
             raw = input_fn(f"\n{options}\n> ").strip()
         except EOFError:

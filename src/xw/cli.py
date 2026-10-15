@@ -157,6 +157,9 @@ def cmd_review_apply(args: argparse.Namespace) -> int:
     print(f"applied {stats['applied']} verdict(s); {stats['invalid']} invalid entr{'y' if stats['invalid'] == 1 else 'ies'} ignored")
     if stats["stale"]:
         print(f"skipped {stats['stale']} verdict(s) whose claim text has changed since it was reviewed (they will be queued again)")
+    if stats["corrected"] or stats["pending"] or stats["refused"]:
+        print(f"corrections: {stats['corrected']} accepted, {stats['pending']} waiting for a person in `xw triage` (they change a "
+              f"number), {stats['refused']} refused (a number not in the source, or copied text)")
     if rate is None:
         print("no audited claims yet, so the local verifier's reliability is not measured")
     else:

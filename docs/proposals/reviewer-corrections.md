@@ -1,6 +1,18 @@
 # Proposal: reviewer corrections (corrected wording)
 
-**Status:** proposed, not implemented · **Written:** 2026-10-15 · **Needs:** a decision on the trust model (below)
+**Status:** accepted 2026-10-15 (option A with the number carve-out) and implemented in `src/xw/corrections.py` ·
+**Written:** 2026-10-15
+
+Differences from the text below, as built:
+- `tool` claims are not correctable. The claim text is "Tool needed: <name>", and a wrong tool name is a reject.
+- `complete` after a correction: each reviewer `complete` verdict records the hash of the list it judged
+  (`complete_lists`). Only a verdict on the corrected list counts, never the local verifier's. The exception for a
+  verdict in the same file as the correction is kept. This replaces comparing timestamps, which have one-second
+  resolution and would also let a re-applied human decision on the old list count again.
+- A person writes a correction with `xw review-apply --by human`. Triage only accepts or rejects Claude's pending ones;
+  there is no `e <text>` answer.
+- `review.audit_stats` (the verifier false-accept rate) does not count a correction of a locally `supported` claim as a
+  rejection.
 
 ## Problem
 

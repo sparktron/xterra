@@ -83,8 +83,20 @@ The local model is not trusted. Each item names the guarding test, or says none 
   challenge pages mark the source blocked; no retry, header spoofing, proxy, mirror or cache. Tests: `tests/test_fetch.py`.
 - **Wiki scope years (`scope.years: [2005, 2016]`) are `[Unverified]`.** Out-of-scope years are dropped
   (`test_out_of_scope_years_are_dropped`); do not tighten the range without a source.
+- **A correction never bypasses grounding.** A reviewer's `correct` verdict (`corrections.py`) rewords one step, summary,
+  tip, mistake or symptom; values, metadata, tools and `complete` are only judged, and steps cannot be added or reordered.
+  The corrected text is re-checked against the chunk on every load (numbers in the source, no 12-word copy) and still
+  needs a published spec for a safety value. A Claude correction that changes a number waits for a person (`xw triage`).
+  After a step is corrected, only a reviewer's `complete` verdict on the corrected list counts (`complete_lists`), never
+  the local verifier's. Tests: `test_a_correction_with_an_unsourced_number_or_copied_text_is_never_used`,
+  `test_a_corrected_step_with_a_torque_value_still_needs_a_published_spec`,
+  `test_a_complete_verdict_on_the_old_list_does_not_publish_a_corrected_procedure`,
+  `test_a_claude_correction_that_changes_a_number_waits_for_a_person`,
+  `test_correcting_a_value_metadata_tool_or_complete_claim_is_invalid_input`.
 - **Reviewer instructions exist in three copies**: `.claude/agents/wiki-reviewer.md`, `.codex/agents/wiki-reviewer.toml`
-  and `.agents/skills/source-command-review-wiki/`. Edit them together. No test covers drift.
+  and `.agents/skills/source-command-review-wiki/` (with `review.INSTRUCTIONS` in each batch). Edit them together.
+  `test_every_copy_of_the_reviewer_instructions_describes_corrections` checks only the `correct` rules; nothing else
+  covers drift.
 - **`wiki/vehicle/` is the wiki's hand-curated reference section, outside the pipeline.** The wiki is one product; this folder is the part nothing generates. Model-year, paint, dimension, fluid, maintenance,
   part-number and recall pages from manufacturer, EPA, NHTSA and catalog sources. `export.CURATED_DIR` is not a topic
   category, so export never deletes or rewrites it (it only links the hub from `index.md`); do not add `vehicle`
@@ -96,7 +108,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
 
 | Path | Role |
 |---|---|
-| `src/xw/` | Pipeline: `fetch`, `crawl`, `parse/`, `extract`, `grounding`, `verify`, `export`, `review`, `qa`, `llm`, `db`, `cli` |
+| `src/xw/` | Pipeline: `fetch`, `crawl`, `parse/`, `extract`, `grounding`, `verify`, `export`, `review`, `corrections`, `triage`, `qa`, `llm`, `db`, `cli` |
 | `config/` | `settings.yaml`, `sources.yaml` (ranked sources), `topics.yaml` (seed page tree); `settings.local.yaml` is gitignored |
 | `prompts/` | `extract.md` and `verify.md`, the LLM system prompts |
 | `tests/` | Offline suite with HTML fixtures; no network or LLM server needed |

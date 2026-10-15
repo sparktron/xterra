@@ -1047,3 +1047,179 @@ def test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied(cfg, con
     conn.commit()
     again = export_review(cfg, conn, TopicIndex(cfg.topics))                          # the rewritten claim is queued again
     assert again and any(i["id"] == f"f{fid}:summary" for p in again for i in _json.loads(p.read_text())["items"])
+
+
+# ---- reviewer corrections (docs/proposals/reviewer-corrections.md: option A, number changes wait for a person) -------
+def correction_round(cfg, conn, name, verdicts, by="claude"):
+    """Write a batch holding the claims these verdicts answer, as the pipeline shows them now, and its verdicts file;
+    then apply it like `xw review-apply`."""
+    from xw.corrections import displayed_claims
+
+    review_dir = cfg.data_dir / "review"
+    review_dir.mkdir(parents=True, exist_ok=True)
+    items = []
+    for v in verdicts:
+        fid, key = v["id"][1:].split(":", 1)
+        items.append({"id": v["id"], "claim": displayed_claims(conn, int(fid)).get(key, "")})
+    (review_dir / f"{name}.json").write_text(json.dumps({"items": items}))
+    path = review_dir / f"{name}.verdicts.json"
+    path.write_text(json.dumps({"verdicts": verdicts}))
+    return apply_reviews(cfg, conn, [path], by=by)
+
+
+def _row(conn):
+    from xw.export import load_rows
+    return load_rows(conn)[0]
+
+
+def test_a_reviewer_correction_rewords_a_step_and_the_procedure_publishes(cfg, conn, tmp_path):
+    """A garbled step used to leave only reject or needs_human, and either withholds the whole procedure."""
+    _triage_setup(cfg, conn, tmp_path)                       # step 1 is `partial` locally: the procedure is withheld
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-101", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Pop the lower ball joint loose with a fork", "note": "wording"},
+        {"id": f"f{fid}:complete", "verdict": "needs_human", "note": "judged with the correction in view"}])
+    assert stats["corrected"] == 1 and stats["applied"] == 1 and stats["pending"] == stats["refused"] == 0
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "2. Pop the lower ball joint loose with a fork" in page and "Separate the lower ball joint" not in page
+    assert "[Partial]" in page and "1 step reworded by a reviewer" in page
+    assert check_wiki(cfg, conn) == []
+    assert "Separate the lower ball joint with a fork" in conn.execute("SELECT fact_json FROM facts").fetchone()[0]  # extraction kept
+
+
+def test_a_correction_with_an_unsourced_number_or_copied_text_is_never_used(cfg, conn, tmp_path):
+    from xw.corrections import store
+
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-102", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Separate the lower ball joint with a 32mm fork"},   # no 32 in the source
+        {"id": f"f{fid}:step:2", "verdict": "correct",
+         "corrected": "Lower control arm job on a 2008. Torque the inner pivot bolts to 83 ft-lb on the lower arm."}])  # copies the source
+    assert stats["refused"] == 2 and stats["corrected"] == stats["pending"] == 0
+    assert conn.execute("SELECT count(*) FROM corrections").fetchone()[0] == 0
+    # a stored correction is re-checked on every export (rules may tighten after it was accepted): it is not used
+    store(conn, _row(conn).thread_id, "step:1", "Separate the lower ball joint with a fork",
+          "Pop the ball joint loose. Lower control arm job on a 2008. Torque the inner pivot bolts to 83 ft-lb on the lower arm.", "human")
+    row = _row(conn)
+    assert row.fact.steps[1] == "Separate the lower ball joint with a fork" and row.corrected == {}
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)
+
+
+def test_a_corrected_step_with_a_torque_value_still_needs_a_published_spec(cfg, conn, tmp_path):
+    steps = ["Support the truck securely on stands", "Separate the lower ball joint with a fork", "Tighten the pivot bolts to 83 ft-lb"]
+    _triage_setup(cfg, conn, tmp_path, steps=steps)          # no spec on the page
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-103", [
+        {"id": f"f{fid}:step:1", "verdict": "approve"},
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down to 83 ft-lb"},
+        {"id": f"f{fid}:complete", "verdict": "approve"}])
+    assert _row(conn).fact.steps[2] == "Snug the inner pivot bolts down to 83 ft-lb"
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)              # 83 ft-lb in prose, but not published as a spec here
+    # a person's correction outranks Claude's, and may change a number; without the torque value the procedure publishes
+    stats = correction_round(cfg, conn, "batch-104", [
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down"},
+        {"id": f"f{fid}:complete", "verdict": "approve"}], by="human")
+    assert stats["corrected"] == 1
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "3. Snug the inner pivot bolts down" in page and "83 ft-lb" not in page and check_wiki(cfg, conn) == []
+
+
+def test_a_correction_follows_its_claim_across_a_reextraction_and_lapses_when_the_text_changes(cfg, conn, tmp_path):
+    answers = _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-105", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Pop the lower ball joint loose with a fork"}])
+
+    def reextract(ans):
+        conn.execute("DELETE FROM verdicts")
+        conn.execute("DELETE FROM facts")
+        conn.execute("UPDATE chunks SET status='pending'")
+        conn.commit()
+        extract_and_verify(cfg, conn, ans, verifier=FakeVerifier(cfg, partial=("lower ball joint",)))
+
+    reextract(answers)                                       # same text, new fact id
+    row = _row(conn)
+    assert row.id != fid and row.fact.steps[1] == "Pop the lower ball joint loose with a fork" and row.corrected == {"step:1": "claude"}
+    reworded = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[], steps=[
+        "Support the truck securely on stands", "Split the lower ball joint using a fork", "Remove the pivot bolts and drop the arm"])]})]
+    reextract(reworded)                                      # different text: the correction says nothing about it
+    row = _row(conn)
+    assert row.fact.steps[1] == "Split the lower ball joint using a fork" and row.corrected == {}
+
+
+def test_a_complete_verdict_on_the_old_list_does_not_publish_a_corrected_procedure(cfg, conn, tmp_path):
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-106", [{"id": f"f{fid}:step:1", "verdict": "approve"},
+                                              {"id": f"f{fid}:complete", "verdict": "approve"}])
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+    correction_round(cfg, conn, "batch-107", [{"id": f"f{fid}:step:0", "verdict": "correct", "corrected": "Put the truck on jack stands"}])
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)              # that approval judged the old list; local verdicts never count here
+    queued = [i for p in export_review(cfg, conn, TopicIndex(cfg.topics)) for i in json.loads(p.read_text())["items"]]
+    redo = next(i for i in queued if i["id"] == f"f{fid}:complete")
+    assert "reworded" in redo["why_queued"] and "Put the truck on jack stands" in redo["claim"]
+    correction_round(cfg, conn, "batch-108", [{"id": f"f{fid}:complete", "verdict": "approve"}])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "1. Put the truck on jack stands" in page and "[Partial]" not in page and "1 step reworded by a reviewer" in page
+
+
+NOTE_C = "Front lower arm swap. Loosen the 2 pivot bolts first, then the 3 ball joint nuts. Torque the inner pivot bolts to 83 ft-lb. " * 4
+
+
+def test_a_claude_correction_that_changes_a_number_waits_for_a_person(cfg, conn, tmp_path):
+    from xw.triage import run_triage, triage_queue
+
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_C, "alice")])
+    extract_and_verify(cfg, conn, [("pivot bolts first", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[], steps=[
+        "Loosen the 3 pivot bolts", "Loosen the ball joint nuts"])]})], verifier=FakeVerifier(cfg, partial=("3 pivot",)))
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-109", [
+        {"id": f"f{fid}:step:0", "verdict": "correct", "corrected": "Loosen the 2 pivot bolts first", "note": "source says 2"}])
+    assert stats["pending"] == 1 and stats["corrected"] == 0
+    assert _row(conn).fact.steps[0] == "Loosen the 3 pivot bolts"                     # not used until a person accepts it
+    queue = triage_queue(cfg, conn, TopicIndex(cfg.topics))
+    item = queue[0]
+    assert item["kind"] == "correction" and item["corrected"] == "Loosen the 2 pivot bolts first" and item["priority"] == 0
+    assert sum(1 for i in queue if i["id"] == f"f{fid}:step:0") == 1                   # shown once, as the correction
+    shown = []
+    run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}, input_fn=_answers("a checked the source", "done"), out=shown.append)
+    assert "CLAUDE'S CORRECTION" in "\n".join(shown)
+    row = _row(conn)
+    assert row.fact.steps[0] == "Loosen the 2 pivot bolts first" and row.corrected == {"step:0": "claude"}
+    assert triage_queue(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}) == []
+    # a rejected proposal is never used and not asked again
+    stats = correction_round(cfg, conn, "batch-110", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Loosen the 3 ball joint nuts"}])
+    assert stats["pending"] == 1
+    run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}, input_fn=_answers("r not what it says", "done"), out=lambda m: None)
+    assert _row(conn).fact.steps[1] == "Loosen the ball joint nuts"
+    assert triage_queue(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}) == []
+
+
+def test_correcting_a_value_metadata_tool_or_complete_claim_is_invalid_input(cfg, conn, tmp_path):
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    stats = claude_verdicts(cfg, conn, [
+        {"id": f"f{fid}:complete", "verdict": "correct", "corrected": "These steps are the whole job"},
+        {"id": f"f{fid}:applies", "verdict": "correct", "corrected": "Applies to 2008"},
+        {"id": f"f{fid}:tool:0", "verdict": "correct", "corrected": "Tool needed: 22mm socket"},
+        {"id": f"f{fid}:step:1", "verdict": "correct"},                                                 # no wording given
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Separate the lower ball joint with a fork."}])  # no change
+    assert stats["invalid"] == 5 and stats["corrected"] == stats["pending"] == 0
+    assert conn.execute("SELECT count(*) FROM corrections").fetchone()[0] == 0
+
+
+def test_every_copy_of_the_reviewer_instructions_describes_corrections():
+    from xw.review import INSTRUCTIONS
+
+    root = Path(__file__).resolve().parents[1]
+    for text in [(root / p).read_text() for p in (".claude/agents/wiki-reviewer.md", ".codex/agents/wiki-reviewer.toml")] + [INSTRUCTIONS]:
+        assert "correct" in text and "corrected" in text and "never add a number" in text.lower(), text[:80]

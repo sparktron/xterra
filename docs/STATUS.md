@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-15 · **Branch:** `feat/guide-first-extraction` off master `d659f60` (PRs #7 and #8 merged) · **Commits:** guide-first extraction (below), then the regenerated `wiki/` as its own commit
+**Updated:** 2026-10-15 · **Branch:** `feat/guide-first-extraction` off master `d659f60` (PRs #7 and #8 merged) · **Commits:** guide-first extraction, then reviewer corrections (both below), each followed by its regenerated `wiki/` commit
 
 ## Objective
 
@@ -14,6 +14,28 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+Reviewer corrections (2026-10-15, branch `feat/guide-first-extraction`, PR #9). Option A with the number carve-out
+from `docs/proposals/reviewer-corrections.md`; the as-built differences are listed at the top of that file.
+
+- Code: `src/xw/corrections.py` (new), tables `corrections` and `complete_lists` (`db.py`), `review.apply_reviews`
+  (a `correct` verdict, applied before the file's other verdicts), `review.build_queue` (re-queues `complete` after a
+  step correction; pending corrections lead the triage queue), `export.load_rows`/`gate` (corrections applied on load
+  and re-checked against the chunk; tag `Claude-corrected`/`Human-corrected`; footer "N steps reworded by a reviewer"),
+  `triage.py` (`a`/`r` on a pending correction), `cli.py` (counts), `review.INSTRUCTIONS` and the reviewer copies.
+- Tests first: 8 new in `tests/test_pipeline.py` (listed under the AGENTS.md invariant "A correction never bypasses
+  grounding"); all 8 failed before the implementation. `pytest`: 120 passed.
+- Data: DB backed up to `data/xw.sqlite.bak-pre-corrections`. Batch 011 (22 items, judged against the guide chunks):
+  17 corrections accepted, 1 waiting for a person (the PMF summary drops "25 ft-lbs"), 0 refused, 4 `complete` verdicts.
+- Result (`xw export && xw qa`, qa passes): **license-plate light housings publish 21 steps (complete, 2 reworded),
+  hatch struts 7 steps (`[Partial]`, 2 reworded).** Sliders (21 steps, 7 reworded) and PMF flush (11 steps, 5
+  reworded) now pass every step gate. They are still withheld by the safety-value rule: sliders step 18 says "90 ft
+  Lbs", and the PMF steps say 25 ft-lbs, 4 or 5 quarts and 6 or 7 quarts, none of them a corroborated spec on the
+  page. The PMF `spec:0` "Transmission pan bolt torque: 25 ft-lbs" should not be approved as labelled: the source's
+  bolt is the drain bolt on the pan, and specs cannot be corrected. Unblocking needs a second thread, a reviewer-approved
+  spec, or a person's correction without the number. That is a decision, not done here.
+- Not done: no `e <text>` correction in triage (use `xw review-apply --by human`); a person cannot yet undo an accepted
+  Claude correction from triage (it is not listed; deleting its `corrections` row does it).
 
 Guide-first extraction (2026-10-14, branch `feat/guide-first-extraction`). Before it, the best generated procedure on the wiki had 5 steps and the
 other 38 procedure pages averaged under 2; the how-to threads, whose first post is a step-by-step guide, came out as
@@ -119,8 +141,8 @@ Earlier uncommitted changes from other work, not part of the review fixes:
    work: each approval can publish a whole guide; (b) a reviewer *correction* path: today a reviewer can only reject a
    misworded step, which withholds the whole procedure (26-59-step guides die on one word). A corrected wording that
    must pass the same deterministic grounding (numbers, 12-word overlap) would keep the gate and save the procedure.
-   It changes the review contract (`review.py`, `triage.py`, the three reviewer copies), so it needs a decision on
-   who may publish a correction; the design, options and tests are in `docs/proposals/reviewer-corrections.md`;
+   Built 2026-10-15 (see Active work), so what's left is the safety-value blockers on the sliders and PMF guides and
+   `xw triage` for the one pending correction;
    (c) try `verify.verify_model` or the guide call on the 14B model loaded on :1235; the 9B misreads about one step
    in ten of a long guide; (d) re-save t8 (fog-light bypass: the guide post itself is missing from the capture), t36
    (hood squeak: opening post is 53 chars) and t41 (drawer: 334 chars) and `xw ingest` them; keep the saved HTML
@@ -191,5 +213,5 @@ No decision records exist. The design decisions are in `README.md` (Verification
 | Design and verification layers | `README.md` |
 | Settings | `config/settings.yaml` |
 | Sources | `config/sources.yaml` |
-| Reviewer corrections (proposed, not built) | `docs/proposals/reviewer-corrections.md` |
+| Reviewer corrections (design, decision, as-built differences) | `docs/proposals/reviewer-corrections.md`, `src/xw/corrections.py` |
 | Commit history | `git log` |
