@@ -18,7 +18,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 5
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -28,7 +28,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Measure the longest leg of the wiring run to estimate total length. [t4]
 
 ## Specifications
 

@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -35,10 +35,6 @@ _No verified summary yet._
 ## Parts
 
 - Seal-tight connector [t4]
-
-## Tips & gotchas
-
-- Drill slightly toward the passenger side so wires pass beside the ceiling console. [t4]
 
 ## Source attributions
 
