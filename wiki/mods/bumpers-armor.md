@@ -24,8 +24,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 3
-  withheld_items: 19
+  reviewed_items: 10
+  withheld_items: 17
   pending_safety_values: 0
 ---
 
@@ -35,7 +35,7 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install ShrockWorks sliders: paint the backing plates, mark and drill the frame holes, bolt the sliders on level, then add tread tape. [t29]
 
 ## Tools
 

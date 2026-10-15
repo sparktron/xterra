@@ -22,8 +22,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 8
-  withheld_items: 11
+  reviewed_items: 10
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -34,6 +34,32 @@ verification:
 ## Summary
 
 Replace the license plate light housing by painting new housings and installing LED bulbs with spliced connectors. [t31]
+
+## Procedure
+
+1. Cut two small pieces of cardboard from the kit box.
+2. Place the cardboard over the clear plastic windows on both housings to protect them.
+3. Sand the new housings with 600 grit sandpaper until every crevice is scratched and no longer shiny.
+4. Wipe down all sanded surfaces several times with denatured alcohol and paper towels to remove dust.
+5. Arrange a baking pan covered with a trash bag and paper towels as a painting rack for the housings.
+6. Apply 2-3 coats of primer, waiting 15 minutes between each coat until dry.
+7. Spray 2-3 coats of base color paint over the primed surfaces, allowing 15 minutes between coats.
+8. Finish with two wet but non-running coats of clear coat and let it completely dry for one hour.
+9. Drop the reserve wheel downward then shove it aside.
+10. Remove the old housings by pulling or pushing their L-shaped internal clamps until they slide off.
+11. Twist and pull each bulb harness from inside the bumper, then remove the light housing from outside.
+12. Cut off the corroded original bulb connectors if necessary to splice in new ones from the kit.
+13. Apply heat shrink tubing over the spliced wire connections to create a watertight seal.
+14. Slide wire sheathing over the protected wires where they might rub against other parts.
+15. Put dielectric grease into each of the two bulb connectors before installing them.
+16. Plug the new LED bulbs into the greased connectors, then switch the truck's lights on to check that they light.
+17. Rotate any non-illuminating bulbs 180 degrees inside their sockets if needed, then retest both sides.
+18. Place each new housing onto the outside of its corresponding bumper side.
+19. Lean under the bumper and slide the mounting clip into place on one side to secure it.
+20. Repeat the clipping process for the second side's housing.
+21. Push each bulb connector into its housing and twist it until it locks in place.
+
+_Procedure reported by [t31]; 2 steps reworded by a reviewer. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-replace-your-05-08-license-plate-light-housings-with-oem-parts.274716/>_
 
 ## Tools
 

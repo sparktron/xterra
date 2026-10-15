@@ -21,8 +21,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 2
-  withheld_items: 10
+  reviewed_items: 4
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -33,6 +33,20 @@ verification:
 ## Summary
 
 Support the raised hatch, remove both existing struts, attach new ball sockets to each gas spring strut, and install them. [t9]
+
+## Procedure
+
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Open the rear hatch.
+2. Support the raised hatch with a tall ladder to hold its weight when struts are removed.
+3. Remove both existing strut assemblies from the vehicle.
+4. Attach new ball sockets to one end of each new gas spring strut.
+5. Mount the end of the new strut that carries the old socket and spring onto the ball on the hatch.
+6. At the other end, press the new ball socket onto its ball, slide the retaining clip into the socket and turn the clip to its locked position.
+7. Repeat this entire process for the opposite side.
+
+_Procedure reported by [t9]; 2 steps reworded by a reviewer. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-rear-hatch-strut-replacement-pbr.51485/>_
 
 ## Tools
 

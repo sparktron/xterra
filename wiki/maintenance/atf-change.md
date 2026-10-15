@@ -23,8 +23,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 2
-  withheld_items: 24
+  reviewed_items: 6
+  withheld_items: 23
   pending_safety_values: 0
 ---
 
