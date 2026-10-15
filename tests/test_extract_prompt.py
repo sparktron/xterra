@@ -39,6 +39,7 @@ class _Scripted:
 
     def chat_json(self, system, user, schema=None):
         self.calls += 1
+        self.last_user = user
         r = self.replies.pop(0)
         if isinstance(r, Exception):
             raise r
@@ -139,3 +140,41 @@ def test_a_reply_from_a_different_model_than_requested_is_refused(cfg):
     else:
         raise AssertionError("a swapped model must not be accepted")
     assert LLM(cfg, model="big-model", client=answer("big-model")).chat_json("s", "u", {"type": "object"}) == {}
+
+
+def test_a_retry_keeps_the_first_runs_other_facts_and_what_the_retry_dropped():
+    first = {"relevant": True, "facts": [
+        {"category": "diagnostics", "topic": "Reset", "title": "Reset the light", "steps": ["step 0", "step 1"],
+         "tips": ["Keep the key in the ON position"], "specs": [{"item": "Delay", "value": "6", "unit": "s"}]},
+        {"category": "reference", "topic": "Other job", "title": "A different job in the same chunk", "steps": ["only step"]}]}
+    retry = _facts(4)                                  # a longer Reset procedure, but without the tip, the spec or the other fact
+    llm = _Scripted(first, retry)
+    res = extract_chunk(llm, "sys", {}, "src", "Reset", SRC)
+    assert llm.calls == 2 and len(res.facts) == 2                                   # the unrelated fact survived the retry
+    reset = next(f for f in res.facts if f.topic == "Reset")
+    assert len(reset.steps) == 4 and reset.tips == ["Keep the key in the ON position"] and reset.specs[0].item == "Delay"
+    other = next(f for f in res.facts if f.topic == "Other job")
+    assert other.steps == ["only step"]
+
+
+def test_summary_is_also_written_for_facts_with_only_parts_symptoms_or_codes():
+    from xw.schemas import Dtc, Part
+
+    cases = [Fact(category="reference", topic="Parts", title="Rear bearing", parts=[Part(name="Rear bearing", part_number="6203")]),
+             Fact(category="diagnostics", topic="Codes", title="P0340", dtcs=[Dtc(code="P0340", description="Camshaft sensor circuit")]),
+             Fact(category="diagnostics", topic="Wipers", title="Streaks", symptoms=["Blade streaks"], mistakes=["Do not tug the arm"]),
+             Fact(category="mods", topic="Tools", title="Crimping", tools=["Ratcheting crimper"])]
+    for fact in cases:
+        llm = _Scripted({"summary": "A short description."})
+        fill_summary(llm, fact)
+        assert llm.calls == 1 and fact.summary == "A short description.", fact.title
+    assert "PART: Rear bearing 6203" in _last_prompt(cases[0]) and "CODE: P0340 Camshaft" in _last_prompt(cases[1])
+    empty = Fact(category="reference", topic="Nothing", title="Nothing to say")
+    fill_summary(_Scripted(AssertionError("must not be called")), empty)
+
+
+def _last_prompt(fact):
+    llm = _Scripted({"summary": "x"})
+    fact.summary = ""
+    fill_summary(llm, fact)
+    return llm.last_user

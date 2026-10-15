@@ -77,6 +77,14 @@ CREATE TABLE IF NOT EXISTS verdicts(
   created_at TEXT,
   PRIMARY KEY(fact_id, claim_key, by)
 );
+-- How many verifier passes stood behind a local verdict. No row = a verdict from before this table (one pass), so raising
+-- verify.consensus_runs makes a normal `xw verify` re-judge those claims without --redo.
+CREATE TABLE IF NOT EXISTS verdict_runs(
+  fact_id INTEGER NOT NULL,
+  claim_key TEXT NOT NULL,
+  runs INTEGER NOT NULL,
+  PRIMARY KEY(fact_id, claim_key)
+);
 -- A human's confirm/reject of one claim, kept by CONTENT (thread + kind + normalised claim text) rather than fact id,
 -- so it survives re-extraction: `triage.reapply_decisions` copies it onto any new fact that states the same claim.
 CREATE TABLE IF NOT EXISTS human_decisions(

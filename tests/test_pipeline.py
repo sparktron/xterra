@@ -944,3 +944,54 @@ def test_xw_triage_list_is_a_plain_report(root, capsys):
     assert main(["--root", str(root), "init"]) == 0
     assert main(["--root", str(root), "triage", "--list"]) == 0
     assert "Nothing is waiting" in capsys.readouterr().out
+
+
+# --- review findings on the consensus/summary work -----------------------------------------------------------------
+def test_raising_consensus_runs_re_judges_claims_that_only_had_one_pass(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    answers = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})]
+    one = FlipVerifier(cfg)
+    extract_and_verify(cfg, conn, answers, verifier=one)                              # consensus_runs is 1 in the test config
+    assert one.calls == 1 and {r[0] for r in conn.execute("SELECT runs FROM verdict_runs")} == {1}
+    assert dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())["step:1"] == "supported"
+
+    cfg.verify._d["consensus_runs"] = 2                                                # the operator turns consensus on...
+    two = FlipVerifier(cfg, flips={2: ("lower ball joint",)})
+    assert verify_pending(cfg, conn, two, log=lambda m: None) == 1                     # ...and a plain `xw verify` (no --redo) applies it
+    assert two.calls == 2
+    assert dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())["step:1"] == "partial"
+    assert {r[0] for r in conn.execute("SELECT runs FROM verdict_runs")} == {2}
+    idle = FlipVerifier(cfg)
+    assert verify_pending(cfg, conn, idle, log=lambda m: None) == 0 and idle.calls == 0   # now nothing is stale
+
+    conn.execute("DELETE FROM verdict_runs")                                           # a database from before the table existed
+    legacy = FlipVerifier(cfg)
+    assert verify_pending(cfg, conn, legacy, log=lambda m: None) == 1 and legacy.calls == 2
+
+
+def test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})])
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='summary'")    # queue the summary for review
+    conn.commit()
+    batches = export_review(cfg, conn, TopicIndex(cfg.topics))
+    review_dir = cfg.data_dir / "review"
+    import json as _json
+    items = _json.loads(batches[0].read_text())["items"]
+    assert any(i["id"] == f"f{fid}:summary" for i in items)
+    (review_dir / "batch-001.verdicts.json").write_text(_json.dumps({"verdicts": [{"id": i["id"], "verdict": "approve", "note": "ok"} for i in items]}))
+
+    # `xw summarize --redo` rewrites the summary and drops its verdicts, but the batch and the approval are still on disk
+    fact = conn.execute("SELECT fact_json FROM facts").fetchone()[0]
+    conn.execute("UPDATE facts SET fact_json=?", (fact.replace("Both front lower arms can be swapped", "A completely different claim about the arms"),))
+    conn.execute("DELETE FROM verdicts WHERE claim_key='summary'")
+    conn.commit()
+    stats = apply_reviews(cfg, conn)
+    assert stats["stale"] >= 1
+    assert not conn.execute("SELECT 1 FROM verdicts WHERE claim_key='summary' AND by='claude'").fetchone()   # the old approval did not transfer
+
+    conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)", (fid, "summary", "local", "partial", ""))
+    conn.commit()
+    again = export_review(cfg, conn, TopicIndex(cfg.topics))                          # the rewritten claim is queued again
+    assert again and any(i["id"] == f"f{fid}:summary" for p in again for i in _json.loads(p.read_text())["items"])

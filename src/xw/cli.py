@@ -155,6 +155,8 @@ def cmd_review_apply(args: argparse.Namespace) -> int:
     stats = apply_reviews(cfg, conn, [Path(p) for p in args.paths] or None, by=args.by)
     rate = stats["verifier_false_accept_rate"]
     print(f"applied {stats['applied']} verdict(s); {stats['invalid']} invalid entr{'y' if stats['invalid'] == 1 else 'ies'} ignored")
+    if stats["stale"]:
+        print(f"skipped {stats['stale']} verdict(s) whose claim text has changed since it was reviewed (they will be queued again)")
     if rate is None:
         print("no audited claims yet, so the local verifier's reliability is not measured")
     else:

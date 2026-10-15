@@ -53,9 +53,43 @@ def _extract_once(llm: LLM, system: str, schema: dict, source_name: str, thread_
         raise LLMError(f"schema validation failed: {exc.errors()[:2]}") from exc
 
 
+def _longest(result: Extraction) -> Fact | None:
+    return max(result.facts, key=lambda f: len(f.steps), default=None)
+
+
+def _norm_item(x: object) -> str:
+    return re.sub(r"\W+", " ", str(x).lower()).strip()
+
+
+def _merge_retry(best: Extraction, again: Extraction) -> Extraction:
+    """The retry found a longer procedure. Swap only that fact in: every other fact of the first run stays, and the
+    first run's tips, specs, parts and so on that the retry lacks are carried onto it (a retry may drop content)."""
+    old, new = _longest(best), _longest(again)
+    if new is None or len(new.steps) <= (len(old.steps) if old else 0):
+        return best
+    merged = new.model_copy(deep=True)
+    if old is not None:
+        for field in ("symptoms", "tools", "tips", "mistakes", "diagram_links"):
+            have = {_norm_item(x) for x in getattr(merged, field)}
+            getattr(merged, field).extend(x for x in getattr(old, field) if _norm_item(x) not in have)
+        have_spec = {(_norm_item(sp.item), _norm_item(sp.value)) for sp in merged.specs}
+        merged.specs.extend(sp for sp in old.specs if (_norm_item(sp.item), _norm_item(sp.value)) not in have_spec)
+        have_part = {_norm_item(pt.name) for pt in merged.parts}
+        merged.parts.extend(pt for pt in old.parts if _norm_item(pt.name) not in have_part)
+        merged.dtcs.extend(d for d in old.dtcs if _norm_item(d.code) not in {_norm_item(x.code) for x in merged.dtcs})
+        for field in ("years", "trims", "engines", "drivetrain", "shared_platform"):
+            if not getattr(merged, field):
+                setattr(merged, field, list(getattr(old, field)))
+        merged.summary = merged.summary or old.summary
+        merged.est_time = merged.est_time or old.est_time
+        merged.difficulty = merged.difficulty or old.difficulty
+    facts = [merged if f is old else f for f in best.facts] if old is not None else [*best.facts, merged]
+    return Extraction(relevant=True, facts=facts)
+
+
 def extract_chunk(llm: LLM, system: str, schema: dict, source_name: str, thread_title: str, text: str) -> Extraction:
     """One extraction. The local model sometimes stops a numbered procedure early; when the source numbers more steps
-    than came back, retry (a few times) and keep the run with the most steps. Everything still goes through grounding
+    than came back, retry (a few times) and swap in the run with the most steps (without losing the rest of the first run). Everything still goes through grounding
     and the verifier, so a retry can only add candidate steps, never skip a check."""
     best = _extract_once(llm, system, schema, source_name, thread_title, text)
     want = numbered_steps(text)
@@ -66,8 +100,7 @@ def extract_chunk(llm: LLM, system: str, schema: dict, source_name: str, thread_
             again = _extract_once(llm, system, schema, source_name, thread_title, text)
         except LLMError:
             continue
-        if _most_steps(again) > _most_steps(best):
-            best = again
+        best = _merge_retry(best, again)
     return best
 
 
@@ -84,10 +117,14 @@ SUMMARY_SCHEMA = {"type": "object", "properties": {"summary": {"type": "string"}
 def fill_summary(llm: LLM, fact: Fact) -> None:
     """The extractor leaves `summary` empty on a small model whatever the prompt says, so write it in a second, tiny
     call from what was already extracted. The verifier checks it against the source like any other claim."""
-    if fact.summary.strip() or not (fact.steps or fact.tips or fact.specs):
+    if fact.summary.strip() or not (fact.steps or fact.tips or fact.specs or fact.symptoms or fact.tools or fact.parts
+                                    or fact.mistakes or fact.dtcs):
         return
     lines = [f"TITLE: {fact.title}", f"TOPIC: {fact.topic}"]
-    lines += [f"STEP {i}: {t}" for i, t in enumerate(fact.steps, 1)] + [f"TIP: {t}" for t in fact.tips]
+    lines += [f"SYMPTOM: {t}" for t in fact.symptoms] + [f"STEP {i}: {t}" for i, t in enumerate(fact.steps, 1)]
+    lines += [f"TOOL: {t}" for t in fact.tools] + [f"PART: {pt.name} {pt.part_number}".strip() for pt in fact.parts[:8]]
+    lines += [f"TIP: {t}" for t in fact.tips] + [f"MISTAKE: {t}" for t in fact.mistakes]
+    lines += [f"CODE: {d.code} {d.description}".strip() for d in fact.dtcs[:8]]
     lines += [f"VALUE: {sp.item}: {sp.value} {sp.unit}".strip() for sp in fact.specs[:6]]
     try:
         out = llm.chat_json(SUMMARY_SYSTEM, "\n".join(lines), SUMMARY_SCHEMA)

@@ -27,6 +27,7 @@ from typing import Any
 from .config import Config
 from .db import now
 from .export import Policy, is_safety, load_rows, pending_spec_keys
+from .schemas import Fact
 from .topics import TopicIndex
 from .verify import DECOY_FAILED, claims_for_fact
 
@@ -149,12 +150,14 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
 def export_review(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> list[Path]:
     review_dir = cfg.data_dir / "review"
     review_dir.mkdir(parents=True, exist_ok=True)
-    already: set[str] = set()
+    already: dict[str, set[str]] = {}
     for f in review_dir.glob("batch-*.json"):
         if f.name.endswith(".verdicts.json"):
             continue
-        already |= {i["id"] for i in json.loads(f.read_text(encoding="utf-8")).get("items", [])}
-    items = [q for q in build_queue(cfg, conn, topics) if q["id"] not in already]
+        for i in json.loads(f.read_text(encoding="utf-8")).get("items", []):
+            already.setdefault(i["id"], set()).add(i["claim"])
+    # an id counts as already queued only for the same claim text: a rewritten summary is a new claim to review
+    items = [q for q in build_queue(cfg, conn, topics) if q["claim"] not in already.get(q["id"], set())]
     n = len([f for f in review_dir.glob("batch-*.json") if not f.name.endswith(".verdicts.json")])
     size = int(cfg.review.batch_size)
     written: list[Path] = []
@@ -172,9 +175,12 @@ def apply_reviews(cfg: Config, conn: sqlite3.Connection, paths: list[Path] | Non
     if by not in ("claude", "human"):
         raise ValueError("by must be 'claude' or 'human'")
     files = paths or sorted((cfg.data_dir / "review").glob("*.verdicts.json"))
-    applied = rejected_input = 0
+    applied = rejected_input = stale = 0
+    current: dict[int, dict[str, str]] = {}   # fact id -> {claim_key: claim text} as the database says now
     for f in files:
         data = json.loads(Path(f).read_text(encoding="utf-8"))
+        batch = Path(f).with_name(Path(f).name.replace(".verdicts.json", ".json"))   # the batch these verdicts answer
+        judged = {i["id"]: i["claim"] for i in json.loads(batch.read_text(encoding="utf-8")).get("items", [])} if batch.exists() else {}
         for v in data.get("verdicts", []):
             item_id, verdict = str(v.get("id", "")), str(v.get("verdict", "")).lower()
             m = re.match(r"^f(\d+):(.+)$", item_id)
@@ -182,11 +188,19 @@ def apply_reviews(cfg: Config, conn: sqlite3.Connection, paths: list[Path] | Non
                     not conn.execute("SELECT 1 FROM facts WHERE id=?", (int(m.group(1)),)).fetchone():
                 rejected_input += 1
                 continue
+            fid = int(m.group(1))
+            if item_id in judged:   # a verdict judged THAT text; if the claim has changed since, it says nothing about the new one
+                if fid not in current:
+                    current[fid] = dict(claims_for_fact(Fact.model_validate_json(
+                        conn.execute("SELECT fact_json FROM facts WHERE id=?", (fid,)).fetchone()[0])))
+                if current[fid].get(m.group(2)) != judged[item_id]:
+                    stale += 1
+                    continue
             conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) VALUES(?,?,?,?,?,?)",
                          (int(m.group(1)), m.group(2), by, verdict, str(v.get("note", ""))[:500], now()))
             applied += 1
     conn.commit()
-    return {"applied": applied, "invalid": rejected_input, **audit_stats(conn)}
+    return {"applied": applied, "invalid": rejected_input, "stale": stale, **audit_stats(conn)}
 
 
 def audit_stats(conn: sqlite3.Connection) -> dict[str, Any]:

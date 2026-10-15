@@ -224,8 +224,15 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
     runs = int(cfg.verify.get("consensus_runs") or 1)
     have: dict[int, set[str]] = defaultdict(set)
     if not redo:
-        for v in conn.execute("SELECT fact_id, claim_key FROM verdicts WHERE by='local'"):
-            have[v["fact_id"]].add(v["claim_key"])
+        stale = 0
+        for v in conn.execute("SELECT v.fact_id, v.claim_key, COALESCE(r.runs, 1) AS runs FROM verdicts v "
+                              "LEFT JOIN verdict_runs r ON r.fact_id=v.fact_id AND r.claim_key=v.claim_key WHERE v.by='local'"):
+            if v["runs"] >= runs:
+                have[v["fact_id"]].add(v["claim_key"])
+            else:
+                stale += 1   # judged by fewer passes than verify.consensus_runs now demands
+        if stale:
+            log(f"  re-judging {stale} claim(s) that were verified with fewer than {runs} pass(es)")
     rows = conn.execute("SELECT f.id, f.fact_json, c.text FROM facts f JOIN chunks c ON c.id=f.chunk_id ORDER BY f.id").fetchall()
     done = failures = 0
     for row in rows:
@@ -237,6 +244,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
         if not all_claims and "_none" not in have[row["id"]]:
             conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)",
                          (row["id"], "_none", "local", "supported", now()))
+            conn.execute("INSERT OR REPLACE INTO verdict_runs(fact_id, claim_key, runs) VALUES(?,?,?)", (row["id"], "_none", runs))
             conn.commit()
             done += 1
             continue
@@ -257,6 +265,8 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
             "INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)",
             [(row["id"], key, "local", verdict, now()) for key, verdict in verdicts.items()],
         )
+        conn.executemany("INSERT OR REPLACE INTO verdict_runs(fact_id, claim_key, runs) VALUES(?,?,?)",
+                         [(row["id"], key, runs) for key in verdicts])
         conn.execute("INSERT INTO decoy_checks(fact_id, calls, decoys, accepted, discarded, created_at) VALUES(?,?,?,?,?,?)",
                      (row["id"], stats["calls"], stats["decoys"], stats["accepted"], stats["discarded"], now()))
         conn.commit()

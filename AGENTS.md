@@ -32,6 +32,11 @@ The local model is not trusted. Each item names the guarding test, or says none 
   the deterministic evidence checks refuse: those claims are never queued and `export` drops them before the gate. Approving a safety value
   publishes it without a second source (the prompt says so). Tests: `test_a_human_decision_follows_its_claim_across_a_reextraction_and_a_redo`,
   `test_triage_never_shows_what_the_evidence_checks_already_refuse`, `test_triage_warns_before_a_single_source_safety_value_is_approved`.
+- **A verdict is only as good as the passes and the text behind it.** Each local verdict records its pass count (`verdict_runs`; no row = one pass),
+  so raising `verify.consensus_runs` makes a plain `xw verify` re-judge older claims. A review verdict applies only to the claim text it judged
+  (`review.apply_reviews` compares the batch's claim with the current one and skips stale ones; `export_review` re-queues a changed claim), so
+  `summarize --redo` cannot inherit an old approval. Tests: `test_raising_consensus_runs_re_judges_claims_that_only_had_one_pass`,
+  `test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied`.
 - **Every verifier call carries decoys.** `verify.make_decoy` plants one or two claims that state a number the source
   never states; a call that calls one `supported` is retried once, then its claims are stored as `decoy_failed` (withheld).
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,
