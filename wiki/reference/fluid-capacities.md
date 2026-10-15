@@ -3,8 +3,7 @@
 title: Fluids and capacities
 category: reference
 applies_to:
-  years:
-  - 2009
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -14,37 +13,24 @@ est_time: null
 tools: []
 parts: []
 sources:
-- t16
-- t20
-- t24
-- t34
-confidence: community-consensus
+- t25
+confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 3
-  withheld_items: 12
+  reviewed_items: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # Fluids and capacities
 
+> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
 ## Summary
 
 _No verified summary yet._
 
-## Specifications
-
-- **A/C lubricant capacity**: 180mls (6.1 US fl oz) [t16] (Claude-reviewed)
-- **DIY kit shortfall for an empty system**: additional 5+ oz of refrigerant [t16] ([Unverified] single report)
-- **Lubricant added per replaced A/C component**: 1oz per individual A/C component [t16] (Claude-reviewed)
-- **Nissan Type R oil viscosity, user-identified**: PAG100 [t16] ([Unverified] single report)
-- **Refrigerant type**: HFC 134a (R-134a) [t16] ([Unverified] single report)
-- **Transfer case capacity**: 2 1/8 qt or 2.0L [t20] (Claude-reviewed)
-
 ## Source attributions
 
-- **t16**: XterraPA, "Air Conditoning Information", 2007-03-02. https://www.thenewx.org/threads/air-conditoning-information.65352/
-- **t20**: Raymond06, "Recommended Fluids and Capacity", 2007-06-22. https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/
-- **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
-- **t34**: Rook, "How-to: Transmission PMF (Poor Man's Flush) - PBR", 2009-07-07. https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/
+- **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
 

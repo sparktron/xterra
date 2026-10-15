@@ -609,13 +609,60 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
     assert any("outside the specifications: 99 ft-lb" in v for v in check_wiki(cfg, conn))
 
 
-def test_incomplete_procedure_is_withheld(cfg, conn, tmp_path):
+def test_partial_procedure_publishes_marked_partial_until_upgraded(cfg, conn, tmp_path):
+    # Every step supported, but the verifier only says the list MAY leave something out: better shown (marked) than hidden.
     add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
     extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
                        verifier=FakeVerifier(cfg, partial=("whole procedure",)))
     export(cfg, conn)
-    assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # every step supported, list incomplete
+    page = page_text(cfg)
+    assert "## Procedure" in page and "[Partial]" in page and "Final-tighten" in page
+    assert "completeness (procedure withheld)" not in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    # a later verify/review that confirms completeness removes the marker on the next export
+    conn.execute("UPDATE verdicts SET verdict='supported' WHERE claim_key='complete'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+
+
+def test_unsupported_or_rejected_completeness_still_withholds_the_procedure(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
+                       verifier=FakeVerifier(cfg, bad=("whole procedure",)))
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # steps supported, list not
     assert "completeness (procedure withheld)" in (cfg.wiki_dir / "open_questions.md").read_text()
+    # a partial local verdict does not survive a reviewer's reject ("a listed step is not in the source")
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
+    conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) "
+                 "SELECT fact_id, 'complete', 'claude', 'reject', '', '' FROM verdicts WHERE claim_key='complete'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)
+    # ... but a reviewer's needs_human ("steps are stated, the list may be incomplete") shows it, marked Partial,
+    # even over a local `unsupported`; an approval shows it unmarked
+    conn.execute("UPDATE verdicts SET verdict='needs_human' WHERE claim_key='complete' AND by='claude'")
+    conn.execute("UPDATE verdicts SET verdict='unsupported' WHERE claim_key='complete' AND by='local'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" in page_text(cfg)
+    conn.execute("UPDATE verdicts SET verdict='approve' WHERE claim_key='complete' AND by='claude'")
+    conn.commit()
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+
+
+def test_partial_never_rescues_an_unsupported_step(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
+                       verifier=FakeVerifier(cfg))
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
+    conn.execute("UPDATE verdicts SET verdict='unsupported' WHERE claim_key='step:1'")
+    conn.commit()
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" not in page and "Separate the lower ball joint" not in page      # one bad step still withholds all
 
 
 def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_path):
@@ -662,3 +709,289 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     assert any("no '## Sources' section" in v for v in check_curated(cfg.wiki_dir))
     page.write_text(GENERATED + "\n" + good)
     assert any("generated header" in v for v in check_wiki(cfg, conn))
+
+
+# --- verifier consensus: "supported" needs every pass to agree ------------------------------------------------
+class FlipVerifier(FakeVerifier):
+    """A FakeVerifier whose Nth call downgrades 'supported' to 'partial' for claims containing given words, standing in
+    for the small model flipping an answer between runs."""
+
+    def __init__(self, cfg, flips=None, **kw):
+        super().__init__(cfg, **kw)
+        self.flips = flips or {}
+
+    def chat_json(self, system, user, schema=None):
+        out = super().chat_json(system, user, schema)
+        texts = dict(re.findall(r"^(\d+)\. (.*)$", user.split("\n\nCLAIMS:\n", 1)[1], re.M))
+        for v in out["verdicts"]:
+            if v["verdict"] == "supported" and any(w in texts[str(v["id"])] for w in self.flips.get(self.calls, ())):
+                v["verdict"] = "partial"
+        return out
+
+
+def test_consensus_combines_passes_conservatively():
+    from xw.verify import DECOY_FAILED, consensus
+
+    one = {"a": "supported", "b": "supported", "c": "partial", "d": "unsupported", "e": "supported", "f": "partial", "g": "supported"}
+    two = {"a": "supported", "b": "partial", "c": "partial", "d": "unsupported", "e": "unsupported", "f": "unsupported", "g": DECOY_FAILED}
+    assert consensus([one, two]) == {"a": "supported", "b": "partial", "c": "partial", "d": "unsupported",
+                                     "e": "partial", "f": "unsupported", "g": DECOY_FAILED}
+    assert consensus([one]) == one and consensus([one, one]) == one
+
+
+def test_one_pass_can_publish_what_two_passes_do_not_when_the_model_flips(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    answers = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})]
+
+    single = FlipVerifier(cfg, flips={2: ("lower ball joint",)})          # the flip would hit pass 2, which never runs
+    extract_and_verify(cfg, conn, answers, verifier=single)
+    export(cfg, conn)
+    assert single.calls == 1 and "Separate the lower ball joint" in page_text(cfg)
+
+
+def test_two_passes_must_agree_before_a_claim_is_supported(cfg, conn, tmp_path):
+    from xw.verify import decoy_stats
+
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    v = FlipVerifier(cfg, flips={2: ("lower ball joint",)})               # pass 2 backs off one step
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=v)
+    assert v.calls == 2                                                    # two full passes
+    d = decoy_stats(conn)
+    assert d["calls"] == 2 and d["decoys"] >= 2 and d["accepted"] == 0     # every pass plants its own decoys
+    got = dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())
+    assert got["step:1"] == "partial" and got["step:0"] == "supported"     # disagreement is not support
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" not in page and "Separate the lower ball joint" not in page   # an unsupported step withholds it
+    assert "Remove the pivot bolts" not in page
+
+
+def test_two_passes_that_agree_publish_as_before(cfg, conn, tmp_path):
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    v = FlipVerifier(cfg)
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=v)
+    export(cfg, conn)
+    assert v.calls == 2 and "## Procedure" in page_text(cfg) and "Separate the lower ball joint" in page_text(cfg)
+
+
+def test_a_decoy_failure_in_either_pass_withholds_the_claim(cfg, conn, tmp_path):
+    cfg.verify._d["consensus_runs"] = 2
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    stamp = FakeVerifier(cfg, rubber_stamp=True)                           # accepts decoys in both passes
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})], verifier=stamp)
+    verdicts = {r[0] for r in conn.execute("SELECT verdict FROM verdicts WHERE by='local'")}
+    assert verdicts == {"decoy_failed"}
+
+
+# --- human triage: confirm or reject what the pipeline is not sure about --------------------------------------
+def _triage_setup(cfg, conn, tmp_path, **fact_over):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    answers = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[], **fact_over)]})]
+    extract_and_verify(cfg, conn, answers, verifier=FakeVerifier(cfg, partial=("lower ball joint",)))
+    return answers
+
+
+def _answers(*replies):
+    """Scripted terminal input; running out behaves like closed stdin (EOFError), which the loop treats as quitting."""
+    it = iter(replies)
+
+    def read(prompt):
+        try:
+            return next(it)
+        except StopIteration:
+            raise EOFError from None
+    return read
+
+
+def _human(conn):
+    return {(f, k): (v, n) for f, k, v, n in conn.execute("SELECT fact_id, claim_key, verdict, note FROM verdicts WHERE by='human'")}
+
+
+def test_triage_queue_holds_only_claims_nobody_has_settled(cfg, conn, tmp_path):
+    from xw.triage import triage_queue
+
+    _triage_setup(cfg, conn, tmp_path)
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    topics = TopicIndex(cfg.topics)
+
+    def put(key, by, verdict, note=""):
+        conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) VALUES(?,?,?,?,?,'')", (fid, key, by, verdict, note))
+
+    put("step:0", "local", "partial"); put("step:0", "claude", "approve")           # Claude was confident: settled
+    put("step:2", "local", "partial"); put("step:2", "claude", "reject")            # Claude was confident: settled
+    put("tip:0", "claude", "needs_human", "the excerpt is ambiguous")                # Claude unsure: ask a human
+    put("summary", "local", "partial"); put("summary", "human", "approve")          # already decided by a human
+    put("tool:0", "local", "supported")                                               # the verifier is happy: not low confidence
+    put("tool:1", "local", "unsupported")                                             # judged false: not low confidence either
+    conn.commit()
+    items = {i["id"]: i for i in triage_queue(cfg, conn, topics)}
+    assert set(items) == {f"f{fid}:step:1", f"f{fid}:complete", f"f{fid}:tip:0"}   # the two verifier partials + Claude's doubt
+    assert items[f"f{fid}:tip:0"]["priority"] == 0 and "ambiguous" in items[f"f{fid}:tip:0"]["why_queued"]
+    assert items[f"f{fid}:step:1"]["priority"] == 1 and items[f"f{fid}:step:1"]["thread_id"]
+
+
+def test_triage_never_shows_what_the_evidence_checks_already_refuse(cfg, conn, tmp_path):
+    from xw.triage import triage_queue
+
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    s = spec("99", "torque the inner pivot bolt to 99 ft-lb")                          # 99 is nowhere in the source
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[s])]})])
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='spec:0'")
+    conn.commit()
+    assert f"f{fid}:spec:0" not in {i["id"] for i in triage_queue(cfg, conn, TopicIndex(cfg.topics))}
+
+
+def test_triage_loop_approve_reject_partial_skip_and_undo(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    _triage_setup(cfg, conn, tmp_path)
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    shown = []
+    # queue order is complete, step:1. Approve both; at the end undo the last answer; reject that step with a note; finish.
+    run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("a", "a", "u", "r the fork is not in the thread", "done"), out=shown.append)
+    h = _human(conn)
+    assert h[(fid, "complete")][0] == "approve" and h[(fid, "step:1")] == ("reject", "the fork is not in the thread")
+    assert conn.execute("SELECT count(*) FROM human_decisions").fetchone()[0] == 2
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)                                           # a rejected step withholds the procedure
+    text = "\n".join(shown)
+    assert "CLAIM:" in text and "SOURCE EXCERPT" in text and "2 claim(s) waiting" in text
+
+
+def test_triage_approving_the_step_and_marking_the_list_partial_publishes_it_marked(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    _triage_setup(cfg, conn, tmp_path)
+    run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("p steps are right, torque step missing", "a"), out=lambda m: None)
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "Separate the lower ball joint" in page and "[Partial]" in page and check_wiki(cfg, conn) == []
+
+
+def test_triage_confirming_the_whole_procedure_drops_the_partial_mark(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    _triage_setup(cfg, conn, tmp_path)
+    run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("a", "a"), out=lambda m: None)
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "Separate the lower ball joint" in page and "[Partial]" not in page
+
+
+def test_triage_skip_quit_and_bad_input_decide_nothing(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    _triage_setup(cfg, conn, tmp_path)
+    out = []
+    counts = run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"step"}, input_fn=_answers("zzz", "p", "s"), out=out.append)
+    assert not _human(conn) and counts["skipped"] == 1
+    assert len([m for m in out if m.startswith("answer a, r,")]) == 2        # "zzz" and "p" (partial is for completeness claims only)
+    counts = run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("a", "q"), out=lambda m: None)
+    assert counts["approve"] == 1 and len(_human(conn)) == 1                 # q stops before the second claim
+    assert run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers(), out=lambda m: None)["approve"] == 0   # EOF ends cleanly
+
+
+def test_a_human_decision_follows_its_claim_across_a_reextraction_and_a_redo(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    answers = _triage_setup(cfg, conn, tmp_path)
+    old = conn.execute("SELECT id FROM facts").fetchone()[0]
+    run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("a", "a"), out=lambda m: None)
+    verify_pending(cfg, conn, FakeVerifier(cfg, partial=("lower ball joint",)), redo=True, log=lambda m: None)
+    assert (old, "step:1") in _human(conn)                                                 # --redo leaves human verdicts alone
+
+    conn.execute("DELETE FROM verdicts"); conn.execute("DELETE FROM facts"); conn.execute("UPDATE chunks SET status='pending', attempts=0")
+    conn.commit()                                                                          # what a re-extraction does to fact ids
+    extract_and_verify(cfg, conn, answers, verifier=FakeVerifier(cfg, partial=("lower ball joint",)))
+    new = conn.execute("SELECT id FROM facts").fetchone()[0]
+    assert new != old and _human(conn)[(new, "step:1")][0] == "approve" and _human(conn)[(new, "complete")][0] == "approve"
+    export(cfg, conn)
+    assert "Separate the lower ball joint" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+
+
+def test_a_reworded_claim_is_a_new_undecided_claim(cfg, conn, tmp_path):
+    from xw.triage import run_triage, triage_queue
+
+    answers = _triage_setup(cfg, conn, tmp_path)
+    run_triage(cfg, conn, TopicIndex(cfg.topics), input_fn=_answers("a", "a"), out=lambda m: None)
+    reworded = [(answers[0][0], {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[],
+                steps=["Support the truck securely on stands", "Use a fork to separate the lower ball joint", "Remove the pivot bolts and drop the arm"])]})]
+    conn.execute("DELETE FROM verdicts"); conn.execute("DELETE FROM facts"); conn.execute("UPDATE chunks SET status='pending', attempts=0")
+    conn.commit()
+    extract_and_verify(cfg, conn, reworded, verifier=FakeVerifier(cfg, partial=("lower ball joint",)))
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    assert (fid, "step:1") not in _human(conn)
+    assert f"f{fid}:step:1" in {i["id"] for i in triage_queue(cfg, conn, TopicIndex(cfg.topics))}
+
+
+def test_triage_warns_before_a_single_source_safety_value_is_approved(cfg, conn, tmp_path):
+    from xw.triage import run_triage
+
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    s = spec("83", "Torque the inner pivot bolts to 83 ft-lb")
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[s])]})])
+    out = []
+    run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"spec"}, input_fn=_answers("a approved against the service manual"), out=out.append)
+    assert any("SAFETY-CRITICAL VALUE" in m and "without a second source" in m for m in out)
+    export(cfg, conn)
+    assert "83 ft-lb" in page_text(cfg) and "Human-reviewed" in page_text(cfg) and check_wiki(cfg, conn) == []
+
+
+def test_xw_triage_list_is_a_plain_report(root, capsys):
+    assert main(["--root", str(root), "init"]) == 0
+    assert main(["--root", str(root), "triage", "--list"]) == 0
+    assert "Nothing is waiting" in capsys.readouterr().out
+
+
+# --- review findings on the consensus/summary work -----------------------------------------------------------------
+def test_raising_consensus_runs_re_judges_claims_that_only_had_one_pass(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    answers = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})]
+    one = FlipVerifier(cfg)
+    extract_and_verify(cfg, conn, answers, verifier=one)                              # consensus_runs is 1 in the test config
+    assert one.calls == 1 and {r[0] for r in conn.execute("SELECT runs FROM verdict_runs")} == {1}
+    assert dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())["step:1"] == "supported"
+
+    cfg.verify._d["consensus_runs"] = 2                                                # the operator turns consensus on...
+    two = FlipVerifier(cfg, flips={2: ("lower ball joint",)})
+    assert verify_pending(cfg, conn, two, log=lambda m: None) == 1                     # ...and a plain `xw verify` (no --redo) applies it
+    assert two.calls == 2
+    assert dict(conn.execute("SELECT claim_key, verdict FROM verdicts WHERE by='local'").fetchall())["step:1"] == "partial"
+    assert {r[0] for r in conn.execute("SELECT runs FROM verdict_runs")} == {2}
+    idle = FlipVerifier(cfg)
+    assert verify_pending(cfg, conn, idle, log=lambda m: None) == 0 and idle.calls == 0   # now nothing is stale
+
+    conn.execute("DELETE FROM verdict_runs")                                           # a database from before the table existed
+    legacy = FlipVerifier(cfg)
+    assert verify_pending(cfg, conn, legacy, log=lambda m: None) == 1 and legacy.calls == 2
+
+
+def test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})])
+    fid = conn.execute("SELECT id FROM facts").fetchone()[0]
+    conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='summary'")    # queue the summary for review
+    conn.commit()
+    batches = export_review(cfg, conn, TopicIndex(cfg.topics))
+    review_dir = cfg.data_dir / "review"
+    import json as _json
+    items = _json.loads(batches[0].read_text())["items"]
+    assert any(i["id"] == f"f{fid}:summary" for i in items)
+    (review_dir / "batch-001.verdicts.json").write_text(_json.dumps({"verdicts": [{"id": i["id"], "verdict": "approve", "note": "ok"} for i in items]}))
+
+    # `xw summarize --redo` rewrites the summary and drops its verdicts, but the batch and the approval are still on disk
+    fact = conn.execute("SELECT fact_json FROM facts").fetchone()[0]
+    conn.execute("UPDATE facts SET fact_json=?", (fact.replace("Both front lower arms can be swapped", "A completely different claim about the arms"),))
+    conn.execute("DELETE FROM verdicts WHERE claim_key='summary'")
+    conn.commit()
+    stats = apply_reviews(cfg, conn)
+    assert stats["stale"] >= 1
+    assert not conn.execute("SELECT 1 FROM verdicts WHERE claim_key='summary' AND by='claude'").fetchone()   # the old approval did not transfer
+
+    conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)", (fid, "summary", "local", "partial", ""))
+    conn.commit()
+    again = export_review(cfg, conn, TopicIndex(cfg.topics))                          # the rewritten claim is queued again
+    assert again and any(i["id"] == f"f{fid}:summary" for p in again for i in _json.loads(p.read_text())["items"])

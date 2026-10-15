@@ -163,16 +163,15 @@ def _judge(llm: LLM, system: str, source_text: str, batch: list[tuple[str, str]]
     return {items[i][0]: v for i, v in got.items() if items[i][0] is not None}, accepted == 0  # type: ignore[misc]
 
 
-def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]],
-                  stats: dict[str, int] | None = None) -> dict[str, str]:
-    """Return {claim_key: verdict}. Anything the model omits or garbles is 'unsupported'; anything judged in a
-    call that also accepted a decoy (twice) is 'decoy_failed'."""
-    stats = stats if stats is not None else _new_stats()
+def _verify_once(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]], stats: dict[str, int],
+                 salt: int) -> dict[str, str]:
+    """One full pass over `claims`: anything the model omits or garbles is 'unsupported'; anything judged in a call that
+    also accepted a decoy (twice) is 'decoy_failed'. `salt` changes the planted decoys between passes."""
     verdicts = {key: "unsupported" for key, _ in claims}
     for start in range(0, len(claims), MAX_CLAIMS_PER_CALL):
         batch = claims[start : start + MAX_CLAIMS_PER_CALL]
         for attempt in range(DECOY_ATTEMPTS):
-            result, clean = _judge(llm, system, source_text, batch, attempt, stats)
+            result, clean = _judge(llm, system, source_text, batch, attempt + DECOY_ATTEMPTS * salt, stats)
             if clean:
                 verdicts.update(result)
                 break
@@ -180,6 +179,34 @@ def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[st
         else:
             verdicts.update({key: DECOY_FAILED for key, _ in batch})
     return verdicts
+
+
+def consensus(passes: list[dict[str, str]]) -> dict[str, str]:
+    """Combine verifier passes. `supported` only when EVERY pass said supported. A decoy failure in any pass stands.
+    Passes that disagree where one said supported are `partial` (the verifier cannot decide); passes that all
+    refused agree on the worse of what they said."""
+    out: dict[str, str] = {}
+    for key in passes[0]:
+        vs = [p.get(key, "unsupported") for p in passes]
+        if DECOY_FAILED in vs:
+            out[key] = DECOY_FAILED
+        elif len(set(vs)) == 1:
+            out[key] = vs[0]
+        elif "supported" in vs:
+            out[key] = "partial"
+        else:
+            out[key] = "unsupported" if "unsupported" in vs else "partial"
+    return out
+
+
+def verify_claims(llm: LLM, system: str, source_text: str, claims: list[tuple[str, str]],
+                  stats: dict[str, int] | None = None, runs: int = 1) -> dict[str, str]:
+    """Return {claim_key: verdict}. With `runs` > 1 the whole judgement is repeated (every pass shuffles the claims and
+    plants its own decoys) and a claim is 'supported' only if every pass supported it: a single run of the small
+    local model flips about 30% of its answers."""
+    stats = stats if stats is not None else _new_stats()
+    passes = [_verify_once(llm, system, source_text, claims, stats, n) for n in range(max(1, runs))]
+    return passes[0] if len(passes) == 1 else consensus(passes)
 
 
 def decoy_stats(conn: sqlite3.Connection) -> dict[str, Any]:
@@ -194,10 +221,18 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
     """Verify every claim that has no local verdict yet (so claims added to `claims_for_fact` later get checked on
     existing facts). `redo` re-verifies everything. Returns the number of facts verified."""
     system = (cfg.root / "prompts" / "verify.md").read_text(encoding="utf-8")
+    runs = int(cfg.verify.get("consensus_runs") or 1)
     have: dict[int, set[str]] = defaultdict(set)
     if not redo:
-        for v in conn.execute("SELECT fact_id, claim_key FROM verdicts WHERE by='local'"):
-            have[v["fact_id"]].add(v["claim_key"])
+        stale = 0
+        for v in conn.execute("SELECT v.fact_id, v.claim_key, COALESCE(r.runs, 1) AS runs FROM verdicts v "
+                              "LEFT JOIN verdict_runs r ON r.fact_id=v.fact_id AND r.claim_key=v.claim_key WHERE v.by='local'"):
+            if v["runs"] >= runs:
+                have[v["fact_id"]].add(v["claim_key"])
+            else:
+                stale += 1   # judged by fewer passes than verify.consensus_runs now demands
+        if stale:
+            log(f"  re-judging {stale} claim(s) that were verified with fewer than {runs} pass(es)")
     rows = conn.execute("SELECT f.id, f.fact_json, c.text FROM facts f JOIN chunks c ON c.id=f.chunk_id ORDER BY f.id").fetchall()
     done = failures = 0
     for row in rows:
@@ -209,6 +244,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
         if not all_claims and "_none" not in have[row["id"]]:
             conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)",
                          (row["id"], "_none", "local", "supported", now()))
+            conn.execute("INSERT OR REPLACE INTO verdict_runs(fact_id, claim_key, runs) VALUES(?,?,?)", (row["id"], "_none", runs))
             conn.commit()
             done += 1
             continue
@@ -216,7 +252,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
             continue
         stats = _new_stats()
         try:
-            verdicts = verify_claims(llm, system, row["text"], claims, stats)
+            verdicts = verify_claims(llm, system, row["text"], claims, stats, runs=runs)
         except LLMError as exc:
             failures += 1
             log(f"  fact {row['id']}: {exc}")
@@ -229,6 +265,8 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
             "INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, created_at) VALUES(?,?,?,?,?)",
             [(row["id"], key, "local", verdict, now()) for key, verdict in verdicts.items()],
         )
+        conn.executemany("INSERT OR REPLACE INTO verdict_runs(fact_id, claim_key, runs) VALUES(?,?,?)",
+                         [(row["id"], key, runs) for key in verdicts])
         conn.execute("INSERT INTO decoy_checks(fact_id, calls, decoys, accepted, discarded, created_at) VALUES(?,?,?,?,?,?)",
                      (row["id"], stats["calls"], stats["decoys"], stats["accepted"], stats["discarded"], now()))
         conn.commit()
@@ -237,4 +275,7 @@ def verify_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, *, limit: in
         decoy_note = f"; decoys accepted {stats['accepted']}/{stats['decoys']}" if stats["accepted"] else ""
         log(f"  fact {row['id']}: {counts['supported']} supported, {counts['partial']} partial, {counts['unsupported']} unsupported"
             + (f", {counts[DECOY_FAILED]} discarded (verifier accepted a decoy)" if counts[DECOY_FAILED] else "") + decoy_note)
+    from .triage import reapply_decisions
+
+    reapply_decisions(conn)   # new facts (after a re-extraction) inherit the human's earlier decisions
     return done

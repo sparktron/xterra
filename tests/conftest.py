@@ -20,7 +20,8 @@ def root(tmp_path: Path) -> Path:
     shutil.copytree(REPO / "config", tmp_path / "config")
     shutil.copytree(REPO / "prompts", tmp_path / "prompts")
     (tmp_path / "config" / "settings.local.yaml").write_text(
-        "crawl:\n  min_delay_s: 0\n  jitter_s: 0\n  contact: tests@example.invalid\n", encoding="utf-8"
+        "crawl:\n  min_delay_s: 0\n  jitter_s: 0\n  contact: tests@example.invalid\n"
+        "verify:\n  consensus_runs: 1   # tests of consensus set their own; the rest count single verifier calls\n", encoding="utf-8"
     )
     return tmp_path
 

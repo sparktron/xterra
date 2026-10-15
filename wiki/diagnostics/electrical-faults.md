@@ -15,34 +15,41 @@ est_time: null
 tools: []
 parts: []
 sources:
-- t15
+- t11
+- t18
 - t19
-- t26
-- t38
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 3
+  reviewed_items: 2
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
 # Electrical faults, grounds and battery drain
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 ## Summary
 
 _No verified summary yet._
 
-## Specifications
+## Procedure
 
-- **ABS sensor fault**: can cause ABS, VDC, and prevent 4wd operation [t38] (Claude-reviewed)
+> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+
+1. Find a bolt or nut on the vehicle body to use as a ground point.
+2. Remove the fastener and sand down the area until bare metal is exposed.
+3. Attach the grounding wire securely, then replace the nut/bolt.
+
+_Procedure reported by [t11]._
+
+## Tips & gotchas
+
+- Check fusible links on the positive cable side as an alternative power source issue. [t19]
+- Consult the Factory Service Manual (FSM) for specific ground locations, starting with body and chassis grounds. [t19]
 
 ## Source attributions
 
-- **t15**: "Switches and You | Second Generation Nissan Xterra Forums". https://www.thenewx.org/threads/switches-and-you.43111/
+- **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
+- **t18**: TeXas-Hooligan, "ABS BRAKE VDC SLIP Lights all 'ON'", 2019-04-16. https://www.thenewx.org/threads/abs-brake-vdc-slip-lights-all-on.283005/
 - **t19**: impeerical, "Electrical Issues, ECM or Bad Ground?", 2022-02-11. https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/
-- **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
-- **t38**: PhullD, "How-to: ABS Off Version 3", 2015-08-10. https://www.thenewx.org/threads/how-to-abs-off-version-3.231530/
 

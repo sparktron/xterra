@@ -16,15 +16,16 @@ Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions
 ## Verification (the local model is not trusted)
 1. Deterministic grounding: numbers (in values and in prose), part numbers, DTCs and links must appear in the source; a unit a value is given must be the unit the source puts on that number; spec/part evidence must be a real quote; verbatim copying is dropped. Re-applied on every export.
 2. Local verifier pass, covering prose, values, a completeness check on each procedure, and the metadata the wiki prints (years, trims, shared platform, difficulty, time); anything not `supported` is withheld. Each call carries planted false claims (decoys); a call that accepts one is discarded. `xw status` shows the decoy accept rate.
-3. Policy gate: procedures publish all-or-nothing; safety values (torque etc.) need 2+ agreeing threads from distinct authors, a manufacturer source, or reviewer approval, else they go to `wiki/pending_verification.md`; disputes are withheld; a safety value inside prose publishes only if it also published as a spec.
+3. Policy gate: a procedure publishes only if every step is supported (a procedure the verifier can only call possibly incomplete publishes marked `[Partial]`); safety values (torque etc.) need 2+ agreeing threads from distinct authors, a manufacturer source, or reviewer approval, else they go to `wiki/pending_verification.md`; disputes are withheld; a safety value inside prose publishes only if it also published as a spec.
 4. Optional Claude review (`/review-wiki` or `xw review-export` / `xw review-apply`): only the claim and a short excerpt are in the batch; you run it. Reports the verifier's false-accept rate.
+5. Human triage (`xw triage`): you confirm or reject what is still low confidence (Claude was unsure, a safety value awaits a second source, the verifier answered partial). Your answer outranks Claude's and the verifier's, and is stored by claim content so it survives re-extraction and `verify --redo`. `xw triage --list` shows what is waiting; `--limit`, `--kind step,spec,...` and `--page` narrow it.
 5. `xw qa` re-checks the published pages against raw source text; exit 1 on violation.
 
 ## Reference section (hand-curated)
 The reference section of the wiki, `wiki/vehicle/`, holds pages written by hand rather than extracted: one page per model year (2005-2015) plus trims, paint codes, dimensions, engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, part numbers, recalls and VIN decoding. Sources are Nissan press kits, owner's manuals and maintenance schedules, EPA, NHTSA, and paint and parts catalogs. `xw export` leaves these pages alone and links their hub from the top of `wiki/index.md`; `xw qa` fails if a line on them states a number without citing a source listed on that page or marking it `[Unverified]`.
 
 ## Commands
-`init doctor status discover harvest extract ingest verify export review-export review-apply qa run reset-source`
+`init doctor status discover harvest extract ingest summarize verify export review-export review-apply triage qa run reset-source`
 
 ## Legal
 Honors rate limits and never circumvents paywalls or blocks (401/402/403 hard stop). robots.txt checking is off by default (`respect_robots` in settings.yaml) — re-enable it before crawling a site that asks you not to. Forum text is others' content: the wiki publishes paraphrased facts with source links, not copies. Check each site's terms.

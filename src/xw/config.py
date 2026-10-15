@@ -20,6 +20,7 @@ DEFAULTS: dict[str, Any] = {
         "temperature": 0.1,
         "timeout_s": 900,
         "max_retries": 2,
+        "max_output_tokens": 8192,
     },
     "crawl": {
         "user_agent": "xterra-wiki-research/0.1",
@@ -45,6 +46,7 @@ DEFAULTS: dict[str, Any] = {
         "safety_min_threads": 2,           # safety-critical values need N agreeing threads, a manufacturer source, or a reviewer's approval
         "publish_unverified_safety": False,
         "verify_model": "",                # optional second model for the verifier pass (a different model catches different mistakes)
+        "consensus_runs": 2,               # run the verifier this many times; a claim is "supported" only if every run said so
     },
     "review": {"audit_rate": 0.1, "batch_size": 25, "excerpt_chars": 900},
 }

@@ -3,22 +3,26 @@
 title: Specifications by model year
 category: reference
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  - 2006
+  trims:
+  - S
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools: []
 parts: []
 sources:
-- t34
+- t21
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 0
+  reviewed_items: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -30,11 +34,7 @@ verification:
 
 _No verified summary yet._
 
-## Specifications
-
-- **Transmission dipstick fill tube cap socket size**: 10mm [t34] (Claude-reviewed)
-
 ## Source attributions
 
-- **t34**: Rook, "How-to: Transmission PMF (Poor Man's Flush) - PBR", 2009-07-07. https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/
+- **t21**: Muzikman, "*** PLEASE READ *** ~ Front Diff Failures", 2006-01-28. https://www.thenewx.org/threads/please-read-front-diff-failures.5479/
 

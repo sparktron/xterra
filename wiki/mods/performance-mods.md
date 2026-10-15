@@ -3,25 +3,29 @@
 title: Intake, exhaust, tune and forced induction
 category: mods
 applies_to:
-  years:
-  - 2006
+  years: []
   trims: []
   engine: []
   drivetrain: []
 shared_platform:
 - Frontier
-difficulty: 1
+difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Dynomax VT Muffler
+  oem_part_no: ''
+- name: Intake Manifold Spacer
+  oem_part_no: ''
+- name: Longer bolts and washers
+  oem_part_no: ''
 sources:
 - t26
-- t43
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 6
+  reviewed_items: 1
+  withheld_items: 16
   pending_safety_values: 0
 ---
 
@@ -31,10 +35,21 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26]
+
+## Parts
+
+- Dynomax VT Muffler [t26]
+- Intake Manifold Spacer: CNC machined from 6061 Billet Aluminum; available in Blue, Black, Silver, Gold, or Red [t26]
+- Longer bolts and washers [t26]
+
+## Tips & gotchas
+
+- The spacer acts as a heatsink to lower intake air temperatures. [t26]
+- Longer bolts are required due to the added height of the spacer. [t26]
+- The Dynomax muffler can be installed 'backwards' to eliminate the need for a Y-pipe. [t26]
 
 ## Source attributions
 
 - **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
-- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

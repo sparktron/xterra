@@ -93,6 +93,21 @@ def gate(row: FactRow, key: str, policy: Policy) -> tuple[bool, str, str]:
     return False, "", f"local verifier: {local or 'not run'}"
 
 
+def is_partial_completeness(row: FactRow) -> bool:
+    """True when the steps are accurate but the list may leave something out, so the procedure publishes marked
+    [Partial]. A reviewer's `needs_human` on `complete` means exactly that ("every step is stated, the list may be
+    incomplete"); their `reject` means a listed step is NOT in the source, and `unsupported` from the local verifier
+    is not trusted to mean the lesser thing. The first decisive human/claude verdict decides, as in `gate`."""
+    v = row.verdicts.get("complete", {})
+    for by in ("human", "claude"):
+        d = v.get(by)
+        if d in ("approve", "reject"):
+            return False
+        if d == "needs_human":
+            return True
+    return v.get("local") == "partial"
+
+
 def _norm(s: str) -> str:
     return re.sub(r"\W+", " ", s.lower()).strip()
 
@@ -126,6 +141,10 @@ def _dedupe(items: list[tuple[str, str]]) -> list[tuple[str, list[str]]]:
 
 _SAFETY_UNITS = re.compile(r"(\b(qts?|quarts?|liters?|litres?|gal(lons?)?|pints?|fl\.?\s*oz|ml|psi|kpa|bar)\b|\d\s*l\b)", re.I)
 _SAFETY_ITEMS = re.compile(r"(torque|tighten|capacity|preload|backlash|end[\s-]?play|pressure|clearance|refill|fill)", re.I)
+
+
+PARTIAL_NOTE = ("> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the "
+                "whole procedure. Steps or precautions may be missing; read the source thread before relying on it.")
 
 
 def is_safety(value: str, unit: str, flag: bool, item: str = "") -> bool:
@@ -200,6 +219,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
 
     summaries: list[tuple[str, str]] = []
     steps_by_row: list[tuple[FactRow, list[str]]] = []
+    partial_ids: set[int] = set()
     symptoms: list[tuple[str, str]] = []
     tips: list[tuple[str, str]] = []
     mistakes: list[tuple[str, str]] = []
@@ -344,7 +364,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             else:
                 drop(r, "summary", f.summary, why)
 
-        # procedure: all-or-nothing, and only when the verifier agreed the list leaves nothing out
+        # procedure: every step must publish (one bad step withholds the whole procedure). If the verifier could only
+        # say the list may leave something out (`partial`), it still publishes, marked [Partial], until a later
+        # verify/review upgrades the verdict; `unsupported` or a reviewer's reject still withholds it.
         proc_ok = bool(f.steps)
         for i, step in enumerate(f.steps):
             ok, tag, why = prose(r, f"step:{i}", step, copied["steps"][i], nums["steps"][i])
@@ -354,7 +376,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             page.reviewed_items += bool(tag and ok)
         if f.steps:
             ok, tag, why = gate(r, "complete", policy)
-            if not ok:
+            if not ok and proc_ok and is_partial_completeness(r):
+                partial_ids.add(r.id)
+            elif not ok:
                 proc_ok = False
                 drop(r, "completeness (procedure withheld)", "; ".join(f.steps), why)
         steps_by_row.append((r, list(f.steps) if proc_ok else []))
@@ -379,7 +403,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                      else ", ".join(f.shared_platform), gate(r, key, policy)[2])
 
     proc = [(r, s) for r, s in steps_by_row if s]
-    proc.sort(key=lambda rs: (-len(rs[1]), -rs[0].trust, rs[0].id))
+    proc.sort(key=lambda rs: (rs[0].id in partial_ids, -len(rs[1]), -rs[0].trust, rs[0].id))   # complete before partial
 
     # metadata is published only from facts whose metadata claim the verifier supported
     applies = [r for r in rows if gate(r, "applies", policy)[0]]
@@ -422,11 +446,15 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         out += ["## Symptoms / When you need this", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(symptoms)] + [""]
     if proc:
         r0, steps0 = proc[0]
-        out += ["## Procedure", ""] + [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}]._", ""]
+        out += ["## Procedure", ""]
+        if r0.id in partial_ids:
+            out += [PARTIAL_NOTE, ""]
+        out += [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}]._", ""]
         for r, s in proc[1:]:
             if _similar(" ".join(s), " ".join(steps0), 0.85):
                 continue  # same procedure in other words; one with different numbers is shown as an alternate
-            out += [f"<details><summary>Alternate procedure [{r.sid}]</summary>", ""] + [f"{i}. {x}" for i, x in enumerate(s, 1)] + ["", "</details>", ""]
+            mark = " [Partial]" if r.id in partial_ids else ""
+            out += [f"<details><summary>Alternate procedure [{r.sid}]{mark}</summary>", ""] + [f"{i}. {x}" for i, x in enumerate(s, 1)] + ["", "</details>", ""]
     if fm["tools"]:
         out += ["## Tools", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(tools)] + [""]
     if parts:
@@ -498,6 +526,9 @@ def _dtc_table(rows: list[FactRow], policy: Policy) -> list[list[str]]:
 
 
 def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dict[str, Any]:
+    from .triage import reapply_decisions  # lazy: triage imports review, which imports this module
+
+    reapply_decisions(conn)   # human decisions follow their claim across re-extractions
     wiki = cfg.wiki_dir
     policy = Policy.from_cfg(cfg)
     rows = load_rows(conn)

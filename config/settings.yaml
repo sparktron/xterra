@@ -14,6 +14,7 @@ llm:
   temperature: 0.1
   timeout_s: 900
   max_retries: 2                 # extra attempts when the model returns invalid JSON
+  max_output_tokens: 8192        # hard cap per reply; a model stuck in a loop fails in minutes, not after timeout_s
 
 crawl:
   user_agent: "xterra-wiki-research/0.1"
@@ -49,6 +50,7 @@ verify:
   safety_min_threads: 2         # torque/capacity-style values need this many agreeing threads (from as many distinct authors), a manufacturer source, or a reviewer's approval
   publish_unverified_safety: false
   verify_model: ""              # optional second local model for the verifier pass; empty = same model
+  consensus_runs: 2             # verifier passes per claim (each shuffles the claims and plants its own decoys); "supported" needs every pass to agree. 1 = single pass
 
 review:                         # optional Claude review (opt-in; you run it, nothing is sent automatically)
   audit_rate: 0.1               # share of locally-"supported" claims sampled to measure the verifier's false-accept rate

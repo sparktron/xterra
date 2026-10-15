@@ -8,18 +8,25 @@ applies_to:
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: 1
+difficulty: null
 est_time: null
-tools: []
-parts: []
+tools:
+- 10mm socket
+- Funnel
+- Bucket or 5-gallon jug
+parts:
+- name: Clear hose (optional)
+  oem_part_no: ''
+- name: Nissan Matic-S ATF (or compatible)
+  oem_part_no: ''
 sources:
 - t24
 - t34
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 3
+  reviewed_items: 4
+  withheld_items: 13
   pending_safety_values: 0
 ---
 
@@ -29,7 +36,26 @@ verification:
 
 ## Summary
 
-_No verified summary yet._
+Hook a longer hose to the supply transmission line and direct it into a bucket. [t34]
+
+## Tools
+
+- 10mm socket [t34]
+- Funnel [t34]
+- Bucket or 5-gallon jug [t34]
+
+## Parts
+
+- Clear hose, optional [t34]
+- Nissan Matic-S ATF, or compatible [t34]
+
+## Tips & gotchas
+
+- Use a clear hose to monitor fluid color change from brownish-red to straight red. [t34]
+
+## Common mistakes
+
+- Letting the engine run too long without fluid causing overheating of the pump. [t34]
 
 ## Source attributions
 

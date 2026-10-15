@@ -85,7 +85,7 @@ class LLM:
                 "stream": False,
                 "keep_alive": "30m",
                 "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-                "options": {"temperature": self.c.temperature, "num_ctx": self.c.num_ctx},
+                "options": {"temperature": self.c.temperature, "num_ctx": self.c.num_ctx, "num_predict": self.c.max_output_tokens},
             }
             if schema is not None:
                 body["format"] = schema
@@ -103,6 +103,7 @@ class LLM:
         body = {
             "model": self.model,
             "temperature": self.c.temperature,
+            "max_tokens": self.c.max_output_tokens,   # a looping generation otherwise runs until the timeout
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
         }
         if self.effort:
@@ -119,7 +120,13 @@ class LLM:
             body["response_format"] = {"type": "json_object"}
             r = self.client.post(url, json=body, headers=self.headers)
         r.raise_for_status()
-        return r.json()["choices"][0]["message"]["content"]
+        data = r.json()
+        served = data.get("model")
+        if self.provider == "lmstudio" and isinstance(served, str) and served != self.model:
+            # The router can swap models under us (another client loads a different one). A verdict from the wrong
+            # model must never be stored as if the configured verifier had made it.
+            raise LLMError(f"server answered with model {served!r}, not the requested {self.model!r}")
+        return data["choices"][0]["message"]["content"]
 
     def chat_json(self, system: str, user: str, schema: dict[str, Any] | None = None) -> dict[str, Any]:
         """Return a parsed JSON object; retry with a repair note when the output is not valid JSON."""

@@ -25,13 +25,30 @@ The local model is not trusted. Each item names the guarding test, or says none 
 - **Fail closed.** A claim publishes only if the verifier said `supported` (or a reviewer approved it).
   `verify.require_local_pass` must stay true; a missing verifier run publishes nothing.
   Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`.
+- **`supported` needs every verifier pass to agree** (`verify.consensus_runs`, default 2; `verify.consensus`). Tests: `test_two_passes_must_agree_before_a_claim_is_supported`, `test_a_decoy_failure_in_either_pass_withholds_the_claim`. `tests/conftest.py` pins the other tests to one pass so their verifier call counts stay meaningful.
+- **A human answer outranks every model and persists.** `xw triage` stores `human` verdicts (`triage.decide`) and a content-keyed copy in
+  `human_decisions` (thread + claim kind + normalised claim text); `triage.reapply_decisions` runs in verify, export and triage, so a
+  decision follows its claim across re-extraction and `verify --redo`, and a reworded claim is new and undecided. A human cannot publish what
+  the deterministic evidence checks refuse: those claims are never queued and `export` drops them before the gate. Approving a safety value
+  publishes it without a second source (the prompt says so). Tests: `test_a_human_decision_follows_its_claim_across_a_reextraction_and_a_redo`,
+  `test_triage_never_shows_what_the_evidence_checks_already_refuse`, `test_triage_warns_before_a_single_source_safety_value_is_approved`.
+- **A verdict is only as good as the passes and the text behind it.** Each local verdict records its pass count (`verdict_runs`; no row = one pass),
+  so raising `verify.consensus_runs` makes a plain `xw verify` re-judge older claims. A review verdict applies only to the claim text it judged
+  (`review.apply_reviews` compares the batch's claim with the current one and skips stale ones; `export_review` re-queues a changed claim), so
+  `summarize --redo` cannot inherit an old approval. Tests: `test_raising_consensus_runs_re_judges_claims_that_only_had_one_pass`,
+  `test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied`.
 - **Every verifier call carries decoys.** `verify.make_decoy` plants one or two claims that state a number the source
   never states; a call that calls one `supported` is retried once, then its claims are stored as `decoy_failed` (withheld).
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,
   `test_decoys_are_false_by_construction_and_honest_verifier_passes`. Test fakes must reject claims whose numbers are
   not in the source, or every call is discarded.
-- **Procedures publish all-or-nothing.** One unsupported step, or an unsupported `complete` claim (the list leaves
-  nothing out), withholds the whole procedure. Test: `test_incomplete_procedure_is_withheld`.
+- **A procedure publishes only with every step supported.** One unsupported or withheld step, or an `unsupported` or
+  reviewer-`reject`ed `complete` claim (reject = a listed step is not in the source), withholds the whole procedure. If every step is
+  supported and the list only *may* leave something out (local verifier `partial`, or a reviewer's `needs_human` on `complete`),
+  it publishes marked `[Partial]` (`export.PARTIAL_NOTE`, `export.is_partial_completeness`), sorts after complete procedures, and loses
+  the mark on the next export once a verify or review upgrades the verdict.
+  Tests: `test_partial_procedure_publishes_marked_partial_until_upgraded`,
+  `test_unsupported_or_rejected_completeness_still_withholds_the_procedure`, `test_partial_never_rescues_an_unsupported_step`.
 - **Grounding means "appears in the source", not "is correct".** Numbers (in specs and in prose), part numbers,
   DTCs and links must appear in the chunk; spec/part `evidence` must be a real quote (`grounding.evidence_in_text`);
   a unit a spec gives must be the unit the quote puts on that number (`grounding.unit_grounded`).
