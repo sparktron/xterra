@@ -5,13 +5,15 @@ import json
 import re
 import sqlite3
 import time
+from collections import Counter
 from typing import Callable
 
 from pydantic import ValidationError
 
 from .config import Config
+from .crawl import is_guide_chunk
 from .db import now
-from .grounding import grounded_terms, ground_fact
+from .grounding import grounded_terms, ground_fact, has_long_overlap, number_tokens
 from .llm import LLM, LLMError
 from .schemas import Extraction, Fact, extraction_schema
 from .topics import TopicIndex
@@ -69,21 +71,103 @@ def _merge_retry(best: Extraction, again: Extraction) -> Extraction:
         return best
     merged = new.model_copy(deep=True)
     if old is not None:
-        for field in ("symptoms", "tools", "tips", "mistakes", "diagram_links"):
-            have = {_norm_item(x) for x in getattr(merged, field)}
-            getattr(merged, field).extend(x for x in getattr(old, field) if _norm_item(x) not in have)
-        have_spec = {(_norm_item(sp.item), _norm_item(sp.value)) for sp in merged.specs}
-        merged.specs.extend(sp for sp in old.specs if (_norm_item(sp.item), _norm_item(sp.value)) not in have_spec)
-        have_part = {_norm_item(pt.name) for pt in merged.parts}
-        merged.parts.extend(pt for pt in old.parts if _norm_item(pt.name) not in have_part)
-        merged.dtcs.extend(d for d in old.dtcs if _norm_item(d.code) not in {_norm_item(x.code) for x in merged.dtcs})
-        for field in ("years", "trims", "engines", "drivetrain", "shared_platform"):
-            if not getattr(merged, field):
-                setattr(merged, field, list(getattr(old, field)))
+        _carry_over(merged, old)
         merged.summary = merged.summary or old.summary
-        merged.est_time = merged.est_time or old.est_time
-        merged.difficulty = merged.difficulty or old.difficulty
     facts = [merged if f is old else f for f in best.facts] if old is not None else [*best.facts, merged]
+    return Extraction(relevant=True, facts=facts)
+
+
+def _carry_over(merged: Fact, old: Fact) -> None:
+    """Add to `merged` whatever `old` carried that `merged` lacks, except steps and summary."""
+    for field in ("symptoms", "tools", "tips", "mistakes", "diagram_links"):
+        have = {_norm_item(x) for x in getattr(merged, field)}
+        getattr(merged, field).extend(x for x in getattr(old, field) if _norm_item(x) not in have)
+    have_spec = {(_norm_item(sp.item), _norm_item(sp.value)) for sp in merged.specs}
+    merged.specs.extend(sp for sp in old.specs if (_norm_item(sp.item), _norm_item(sp.value)) not in have_spec)
+    have_part = {_norm_item(pt.name) for pt in merged.parts}
+    merged.parts.extend(pt for pt in old.parts if _norm_item(pt.name) not in have_part)
+    merged.dtcs.extend(d for d in old.dtcs if _norm_item(d.code) not in {_norm_item(x.code) for x in merged.dtcs})
+    for field in ("years", "trims", "engines", "drivetrain", "shared_platform"):
+        if not getattr(merged, field):
+            setattr(merged, field, list(getattr(old, field)))
+    merged.est_time = merged.est_time or old.est_time
+    merged.difficulty = merged.difficulty or old.difficulty
+
+
+GUIDE_SYSTEM = (
+    "You turn ONE forum how-to guide about a 2nd-generation Nissan Xterra into the numbered steps of a wiki procedure. "
+    "List EVERY action the author performs or tells the reader to do, in the order the guide gives them, from the first "
+    "preparation to the final check. One action per step, a short imperative sentence in your own words; do not copy the "
+    "author's sentences. Keep each number, size and unit exactly as written, and write no number the guide does not give. "
+    "Do not add steps from your own knowledge, do not merge the whole job into a few steps, and do not stop before the "
+    "guide's last step. Skip jokes, thanks and commentary. If the text is not a procedure, return an empty list. "
+    'Reply with one JSON object: {"steps": ["...", "..."]}.'
+)
+GUIDE_SCHEMA = {"type": "object", "properties": {"steps": {"type": "array", "items": {"type": "string"}}}, "required": ["steps"]}
+
+
+def guide_steps(llm: LLM, thread_title: str, text: str) -> list[str]:
+    """The whole step list of a guide chunk, from one call that can only answer with steps. Asked for every field at
+    once, the 9B model splits a long write-up into many two-step facts whatever the prompt says (live, 2026-10-14: a
+    2wd-to-4x4 guide came back as 26 fragments; this call returned it as one 66-step list)."""
+    try:
+        out = llm.chat_json(GUIDE_SYSTEM, f"THREAD TITLE: {thread_title}\n\nGUIDE:\n{text}", GUIDE_SCHEMA)
+    except LLMError:
+        return []
+    steps = out.get("steps") if isinstance(out, dict) else None
+    if not isinstance(steps, list):
+        return []
+    return [" ".join(s.split()) for s in steps if isinstance(s, str) and s.strip()]
+
+
+REWORD_SYSTEM = (
+    "Rewrite ONE instruction from a car-repair guide as a short imperative sentence in different words. Keep its "
+    "meaning and every number and unit exactly; add nothing. Do not reuse the original's wording for more than a few "
+    'words in a row. Reply with one JSON object: {"step": "..."}.'
+)
+REWORD_SCHEMA = {"type": "object", "properties": {"step": {"type": "string"}}, "required": ["step"]}
+
+
+def reword_copied(llm: LLM, steps: list[str], text: str) -> list[str]:
+    """The exporter drops a step that shares a 12-word run with the source, and with it the whole procedure. The guide
+    call copies a few sentences of a long write-up, so each copied step gets one rewording call. A rewording that
+    still copies, changes the numbers or comes back empty is not used: the step stays as it was and stays withheld."""
+    out = []
+    for step in steps:
+        if has_long_overlap(step, text):
+            try:
+                ans = llm.chat_json(REWORD_SYSTEM, step, REWORD_SCHEMA)
+            except LLMError:
+                ans = None
+            new = ans.get("step") if isinstance(ans, dict) else None
+            new = " ".join(new.split()) if isinstance(new, str) else ""
+            if new and not has_long_overlap(new, text) and sorted(number_tokens(new)) == sorted(number_tokens(step)):
+                step = new
+        out.append(step)
+    return out
+
+
+def apply_guide_steps(result: Extraction, steps: list[str]) -> Extraction:
+    """A guide chunk holds one write-up, so its procedure is one fact. When the focused call found more steps than the
+    longest procedure the full extraction returned, the procedure fragments become one fact with those steps; the
+    tools, parts, specs and tips the fragments carried are kept on it, and the facts without steps stay as they are.
+    Nothing is waived: every step is grounded and verified, and `complete` is judged on the whole list."""
+    procs = [f for f in result.facts if f.steps]
+    if not result.relevant or not steps or len(steps) <= max((len(f.steps) for f in procs), default=0):
+        return result
+    if not procs:
+        procs = result.facts[:1]   # the guide's own fact, which the extractor gave no steps
+        if not procs:
+            return result
+    topics = Counter(f.topic for f in procs)
+    base = max(procs, key=lambda f: (topics[f.topic], len(f.steps)))
+    merged = base.model_copy(deep=True)
+    merged.steps, merged.summary = list(steps), ""   # a fragment's summary describes the fragment; fill_summary redoes it
+    for f in procs:
+        if f is not base:
+            _carry_over(merged, f)
+    gone = {id(f) for f in procs if f is not base}
+    facts = [merged if f is base else f for f in result.facts if id(f) not in gone]
     return Extraction(relevant=True, facts=facts)
 
 
@@ -155,6 +239,9 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
         started = time.monotonic()
         try:
             result = extract_chunk(llm, system, schema, row["sname"], row["title"], row["text"])
+            if is_guide_chunk(row["text"]):
+                steps = reword_copied(llm, guide_steps(llm, row["title"], row["text"]), row["text"])
+                result = apply_guide_steps(result, steps)
         except LLMError as exc:
             failures += 1
             attempts = row["attempts"] + 1

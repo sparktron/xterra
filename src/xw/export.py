@@ -30,6 +30,7 @@ from typing import Any
 import yaml
 
 from .config import Config
+from .crawl import is_guide_chunk
 from .grounding import ground_fact, number_tokens, safety_values
 from .schemas import Fact
 from .topics import Topic, TopicIndex
@@ -70,6 +71,7 @@ class FactRow:
     fact: Fact
     grounding: dict[str, Any]
     verdicts: Verdicts = field(default_factory=dict)
+    photos: int = 0   # `[image: ...]` markers in the fact's chunk when it is the author's guide (at most 10 per post kept)
 
     @property
     def sid(self) -> str:
@@ -168,7 +170,8 @@ def load_rows(conn: sqlite3.Connection) -> list[FactRow]:
         # grounding is recomputed (not read from facts.grounding_json) so tightened rules reach older facts
         rows.append(FactRow(r["id"], r["thread_id"], r["sid"], r["stype"], r["trust"], r["url"], r["title"], r["author"],
                             r["posted"], fact, ground_fact(fact, r["chunk_text"]),
-                            {k: dict(v) for k, v in verdicts.get(r["id"], {}).items()}))
+                            {k: dict(v) for k, v in verdicts.get(r["id"], {}).items()},
+                            r["chunk_text"].count("[image:") if is_guide_chunk(r["chunk_text"]) else 0))
     return rows
 
 
@@ -449,7 +452,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         out += ["## Procedure", ""]
         if r0.id in partial_ids:
             out += [PARTIAL_NOTE, ""]
-        out += [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}]._", ""]
+        # the wiki rewrites the steps and does not copy the author's photos; it says where they are
+        pics = f" Photos of this job are in the source: <{r0.url}>" if r0.photos else ""
+        out += [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}].{pics}_", ""]
         for r, s in proc[1:]:
             if _similar(" ".join(s), " ".join(steps0), 0.85):
                 continue  # same procedure in other words; one with different numbers is shown as an alternate

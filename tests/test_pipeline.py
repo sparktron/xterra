@@ -10,9 +10,9 @@ import httpx
 
 from xw import db
 from xw.cli import main
-from xw.crawl import build_chunks, discover, harvest
+from xw.crawl import build_chunks, discover, harvest, is_guide_chunk, is_guide_title, store_thread
 from xw.export import GENERATED, export_all
-from xw.extract import extract_pending
+from xw.extract import GUIDE_SYSTEM, extract_pending
 from xw.fetch import Blocked, Fetcher
 from xw.grounding import number_tokens, spec_grounded
 from xw.ingest import ingest_file
@@ -416,6 +416,58 @@ def test_build_chunks_splits_and_skips_noise():
     assert len(chunks) >= 2 and all(c.startswith("THREAD: T") for c in chunks)
     assert not any("thanks" in c for c in chunks)
     assert "(continued)" in chunks[1]
+
+
+def test_guide_thread_chunks_the_authors_writeup_alone():
+    posts = [Post("op", "", "Pull the kick panel and remove the strip. " * 8), Post("op", "", "Then route the harness. " * 6),
+             Post("b", "", "Great write-up, which socket did you use? " * 3), Post("op", "", "A 10mm socket for the bracket. " * 3)]
+    chunks = build_chunks("How-to: 7-pin harness", posts, max_chars=14000, min_chars=100, min_post_chars=60, guide_first=True)
+    assert len(chunks) == 2 and is_guide_chunk(chunks[0]) and not is_guide_chunk(chunks[1])
+    assert "route the harness" in chunks[0] and "which socket" not in chunks[0]
+    assert "10mm" in chunks[1]                      # the author's later answer is part of the discussion
+    assert len(build_chunks("How-to: 7-pin harness", posts, 14000, 100, 60)) == 1   # without guide_first: unchanged
+    # a one-line opener is not a write-up: the thread stays one discussion chunk
+    opener = [Post("op", "", "Any write-ups on this?"), Post("b", "", "Here is how I did it. " * 10)]
+    assert [is_guide_chunk(c) for c in build_chunks("How-to: x", opener, 14000, 100, 60, guide_first=True)] == [False]
+    assert is_guide_title("How-to: Install 7-Pin Wiring Harness") and is_guide_title("DIY: Drop in Cargo Roof Rack")
+    assert is_guide_title("Airbag Reset Procedure") and not is_guide_title("How to remove the rear seat?")
+    assert not is_guide_title("*** PLEASE READ *** ~ Front Diff Failures")
+
+
+def test_guide_steps_publish_as_one_procedure_with_a_pointer_to_the_photos(cfg, conn, tmp_path):
+    """Live, the 9B model returned a write-up as many two-step facts. The guide's own chunk gets one steps-only call;
+    its steps replace the fragments and still pass grounding and the verifier like any other step."""
+    url = "https://forum.example.invalid/threads/hatch-struts.9/"
+    conn.execute("INSERT INTO threads(source_id, url, title, kind, priority) VALUES('manual', ?, 'How-to: Hatch struts', 'manual', 1)", (url,))
+    tid = conn.execute("SELECT id FROM threads WHERE url=?", (url,)).fetchone()["id"]
+    guide = ("Open the hatch all the way and have a helper hold it, or prop it with a length of wood, so it cannot drop "
+             "on you while a strut is off.\nPop the trim cover off with a plastic panel tool. [image: https://forum.example.invalid/a.jpg]\n"
+             "Lever the old strut clips up with a flat screwdriver.\nPress the new strut onto both ball studs.\n"
+             "Close the hatch, open it again and make sure it stays up on its own.")
+    reply = "Nice job, mine took ten minutes start to finish with a borrowed panel tool."
+    store_thread(cfg, conn, tid, "How-to: Hatch struts", [Post("op", "", guide), Post("b", "", reply)], 1)
+    assert [is_guide_chunk(r["text"]) for r in conn.execute("SELECT text FROM chunks WHERE thread_id=? ORDER BY idx", (tid,))] == [True, False]
+    frag = lambda steps: {"category": "repair", "topic": "Rear hatch strut replacement", "title": "Replace hatch struts", "steps": steps}  # noqa: E731
+    answers = [("Pop the trim", {"relevant": True, "facts": [frag(["Remove the trim cover", "Release the strut clips"]),
+                                                             frag(["Fit the new strut on the studs", "Test the hatch"])]})]
+    steps = ["Have a helper hold the open hatch, or prop it with wood", "Take off the trim cover using a plastic panel tool",
+             "Pry up the clips on the old strut with a flat screwdriver",
+             "Push the new strut onto both ball studs", "Shut and reopen the hatch and check that it holds itself up"]
+
+    class GuideLLM(FakeLLM):
+        def chat_json(self, system, user, schema=None):
+            return {"steps": steps} if system == GUIDE_SYSTEM else super().chat_json(system, user, schema)
+
+    topics = TopicIndex(cfg.topics)
+    extract_pending(cfg, conn, GuideLLM(cfg, answers), topics, log=lambda m: None)
+    facts = [json.loads(r["fact_json"]) for r in conn.execute("SELECT fact_json FROM facts WHERE thread_id=?", (tid,))]
+    assert [f["steps"] for f in facts if f["steps"]] == [steps]
+    verify_pending(cfg, conn, FakeVerifier(cfg), log=lambda m: None)
+    export(cfg, conn)
+    page = next(p for p in cfg.wiki_dir.glob("*/*.md") if "Push the new strut" in p.read_text())
+    text = page.read_text()
+    assert "5. Shut and reopen the hatch" in text and f"Photos of this job are in the source: <{url}>" in text
+    assert check_wiki(cfg, conn) == []
 
 
 def test_cli_init_status_export_qa(root, capsys):

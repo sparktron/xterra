@@ -76,7 +76,10 @@ def parse_thread(html: str, url: str) -> ThreadPage:
         body = art.select_one(".bbWrapper")
         if body is None:
             continue
-        time_tag = art.select_one("time.u-dt")
+        # the post's own timestamp sits on its permalink; the first `time.u-dt` in the article can be another date
+        # (in the ingested thenewx threads some authors carry one date on all their posts, and replies predate post 1)
+        time_tag = art.select_one(".message-attribution-main time.u-dt, .message-attribution time.u-dt, "
+                                  ".MessageCard__date-created time.u-dt, a.MessageCard__date-created time") or art.select_one("time.u-dt")
         posts.append(
             Post(
                 author=art.get("data-author", "") or (art.select_one(".message-name") or art).get_text(" ", strip=True)[:60],

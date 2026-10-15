@@ -178,3 +178,46 @@ def _last_prompt(fact):
     fact.summary = ""
     fill_summary(llm, fact)
     return llm.last_user
+
+
+# --- guide chunks: one steps-only call, and the fragments become one procedure ----------------------------------------
+def test_guide_steps_replace_procedure_fragments_and_keep_what_they_carried():
+    from xw.extract import apply_guide_steps
+    from xw.schemas import Extraction
+
+    frag = lambda steps, **kw: {"category": "mods", "topic": "Sliders", "title": "Install sliders", "steps": steps, **kw}  # noqa: E731
+    res = Extraction.model_validate({"relevant": True, "facts": [
+        frag(["a", "b"], tools=["Step drill bit"], summary="Paints the plates."), frag(["c", "d"], tips=["Prime the backing plates"]),
+        {"category": "reference", "topic": "Sliders", "title": "Hardware", "parts": [{"name": "Backing plate"}]}]})
+    steps = ["s1", "s2", "s3", "s4", "s5"]
+    out = apply_guide_steps(res, steps)
+    procs = [f for f in out.facts if f.steps]
+    assert len(out.facts) == 2 and len(procs) == 1                 # the fact without steps is untouched
+    assert procs[0].steps == steps and procs[0].tools == ["Step drill bit"] and procs[0].tips == ["Prime the backing plates"]
+    assert procs[0].summary == ""                                  # a fragment's summary is redone for the whole job
+    assert apply_guide_steps(res, ["x", "y"]) is res                # no more steps than the extraction found: unchanged
+    assert apply_guide_steps(Extraction(relevant=False, facts=[]), steps).facts == []
+    lone = Extraction.model_validate({"relevant": True, "facts": [{"category": "repair", "topic": "Struts", "title": "Struts"}]})
+    assert apply_guide_steps(lone, steps).facts[0].steps == steps  # the guide's own fact, given no steps by the extractor
+
+
+def test_guide_steps_call_is_best_effort_and_cleans_its_answer():
+    from xw.extract import GUIDE_SYSTEM, guide_steps
+
+    llm = _Scripted({"steps": ["  Pull   the panel ", "", 7, "Unclip the strut"]})
+    assert guide_steps(llm, "How-to: Struts", "text") == ["Pull the panel", "Unclip the strut"]
+    assert guide_steps(_Scripted(LLMError("down")), "t", "x") == [] and guide_steps(_Scripted({"relevant": True}), "t", "x") == []
+    assert "EVERY action" in GUIDE_SYSTEM and "own words" in GUIDE_SYSTEM and "no number" in GUIDE_SYSTEM
+
+
+def test_a_copied_guide_step_is_reworded_once_and_a_bad_rewording_is_not_used():
+    from xw.extract import reword_copied
+
+    src = "Now loosen the three 10mm bolts that hold the bracket to the frame rail and lower the whole assembly slowly."
+    copied = "Loosen the three 10mm bolts that hold the bracket to the frame rail and lower the whole assembly"
+    own = "Lower the assembly"
+    llm = _Scripted({"step": "Undo the bracket's three 10mm bolts at the frame rail, then let the assembly down gently."})
+    assert reword_copied(llm, [own, copied], src) == [own, "Undo the bracket's three 10mm bolts at the frame rail, then let the assembly down gently."]
+    assert llm.calls == 1                                                            # only the copied step is sent
+    for bad in ({"step": copied}, {"step": "Undo the bracket's 12mm bolts and lower it."}, {"step": ""}, LLMError("down")):
+        assert reword_copied(_Scripted(bad), [copied], src) == [copied]              # still copied: stays (and stays withheld)

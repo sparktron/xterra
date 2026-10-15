@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-12 · **Branch:** `wiki/electrical-airbag-harvest` (PR #7) · **Commit:** extractor, partial-procedure and output-cap changes on top of master `43ba06e`; the regenerated `wiki/` is a separate commit
+**Updated:** 2026-10-15 · **Branch:** `feat/guide-first-extraction` off master `d659f60` (PRs #7 and #8 merged) · **Commits:** guide-first extraction (below), then the regenerated `wiki/` as its own commit
 
 ## Objective
 
@@ -14,6 +14,51 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+Guide-first extraction (2026-10-14, branch `feat/guide-first-extraction`). Before it, the best generated procedure on the wiki had 5 steps and the
+other 38 procedure pages averaged under 2; the how-to threads, whose first post is a step-by-step guide, came out as
+many two-step fragments. Causes found: (1) the author's guide shared one chunk with 15-25 replies; (2) asked for every
+field at once, the 9B model splits a long write-up into fragments whatever `prompts/extract.md` says (live: the
+2wd-to-4x4 guide came back as 26 facts even with the replies removed). Changes:
+
+- `crawl.build_chunks(guide_first=...)`: when the title reads as a write-up (`crawl.is_guide_title`: how-to, DIY,
+  write-up, walkthrough, pictorial, tutorial, procedure; not a question), the author's opening run of posts is chunked
+  alone and marked `GUIDE:` on the chunk's second line. A one-line opener (under `min_chunk_chars`) is not split off.
+  Short reply chunks are kept (a reply may correct a step).
+- `extract.guide_steps`: on a guide chunk, one extra call whose schema is only `{"steps": [...]}`; `apply_guide_steps`
+  replaces the procedure fragments with one fact carrying those steps when it found more, keeping the fragments'
+  tools/parts/specs/tips; `reword_copied` gives a step that shares a 12-word run with the source one rewording call
+  (kept only if it no longer copies and has the same numbers). No gate changed: every step is grounded and verified
+  and `complete` is judged on the whole list.
+- `export`: a procedure from a guide chunk with `[image: ...]` markers ends "Photos of this job are in the source:
+  <thread URL>". The wiki rewrites steps and never copies the authors' text or photos (README Legal, `has_long_overlap`).
+- `parse/xenforo.py`: the post date comes from the permalink's `<time>`; the first `<time>` in an article could be
+  another date (some authors carry one date on every post across threads, and replies predate post 1).
+- Tests: 6 new (`test_guide_thread_chunks_the_authors_writeup_alone`, `test_guide_steps_publish_as_one_procedure_with_a_pointer_to_the_photos`,
+  3 in `test_extract_prompt.py`, `test_xenforo_post_date_comes_from_the_permalink_not_the_first_time_tag`); the
+  parser and extract tests fail on the old code, the pipeline tests cannot import it. `pytest`: 112 passed (Python 3.10.12).
+- Data: DB backed up to `data/xw.sqlite.bak-pre-guide-chunks`. 14 how-to threads (t4, t6, t7, t9, t29-t35, t38, t40,
+  t43) re-chunked from their stored chunk text (the saved HTML is not kept anywhere, so they could not be re-parsed)
+  by a one-off script; their old facts and verdicts dropped; `xw extract` (31 chunks), rewording of 10 copied steps,
+  `xw verify` (54 facts, decoys accepted 7/752, 7 calls discarded). t8 was left alone (see Known problems).
+- Main procedure per guide after the local verifier: 7-pin harness 26 steps, alternator rebuild 28, 2wd-to-4x4 59,
+  battery-to-roof-lights 34, sliders 21, license-plate lights 21, PMF flush 11, ABS off 11, roof rack 8, exhaust 8,
+  hatch struts 7, VIAS 5. The 2-pass verifier left 2-21 steps per guide `partial`.
+- Claude review (inline, wiki-reviewer rules, batches 007-010, 76 claims on the main procedure of 8 guides): 53
+  approve, 8 reject, 15 needs_human. Rejected for misread steps: sliders (step 11 misreads a photo caption), PMF
+  flush (fluid "out of the bucket"; 10mm socket "secures" the cap; check/gear order), license-plate lights (LEDs
+  into housings instead of connectors), 2wd-to-4x4 `complete` (10mm bolt, "grease rings"). Judged against the full
+  guide chunk where the 900-character excerpt was cut short.
+- Result (`xw export && xw qa`, qa passes): 112 generated pages (was 140: fragment pages merged), 29 with a procedure
+  (was 39), 87 procedure lines (was 71), 4 procedures of 5+ steps (was 1), 109 tips (was 86). Published long
+  procedures: 7-pin harness (26, `[Partial]`), a battery-to-roof-lights section (9), VIAS rattle fix (5). Pages that
+  lost a short procedure: the old 1-2 step fragments of the same guides, plus `bumpers-armor` (4) and
+  `license-plate-lighting-upgrades` (5), whose new whole procedures were rejected for a misread step.
+- Waiting on a person (`xw triage`): hatch struts (steps 4-5), ABS off (step 4), sliders step 17 and the 2wd-to-4x4
+  steps marked needs_human. Each publishes the whole procedure once approved. 2wd-to-4x4 also needs its torque values
+  published as specs (single source: pending).
+- Not run: `xw doctor --smoke`; a fresh `xw ingest` of saved HTML through the new parser and chunker (no HTML on
+  disk); the guide path on threads other than these 14; review of the other 269 queued claims (`xw review-export`).
 
 Empty pages fix (2026-10-12). Pages published a title and a forum link: of 238 facts only 2 had `steps` and none had a `summary`,
 because `prompts/extract.md` never asked for them. Changes (PR #7):
@@ -70,6 +115,17 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 ## Next
 
+0. (2026-10-14 review) In order of yield for how-to pages: (a) `xw triage` the needs_human steps listed under Active
+   work: each approval can publish a whole guide; (b) a reviewer *correction* path: today a reviewer can only reject a
+   misworded step, which withholds the whole procedure (26-59-step guides die on one word). A corrected wording that
+   must pass the same deterministic grounding (numbers, 12-word overlap) would keep the gate and save the procedure.
+   It changes the review contract (`review.py`, `triage.py`, the three reviewer copies), so it needs a decision on
+   who may publish a correction; the design, options and tests are in `docs/proposals/reviewer-corrections.md`;
+   (c) try `verify.verify_model` or the guide call on the 14B model loaded on :1235; the 9B misreads about one step
+   in ten of a long guide; (d) re-save t8 (fog-light bypass: the guide post itself is missing from the capture), t36
+   (hood squeak: opening post is 53 chars) and t41 (drawer: 334 chars) and `xw ingest` them; keep the saved HTML
+   (nothing does now, so parser fixes cannot be re-applied); (e) give guide procedures their own page instead of
+   the model's hub topic (the 7-pin harness sits under "Lighting, aux fuse blocks and dual batteries").
 1. Decide what to do with the `thenewx` block. The pipeline stops on it by design; the options are `xw ingest` of pages saved from a browser session, or another source.
 2. Run `nissan-frontier-forum` and `clubfrontier` for the first time. Their URLs and forum software are `[Unverified]` in `config/sources.yaml`.
 3. Resolve the 28 `needs_human` review verdicts (`xw review-apply --by human`), listed in `data/review/*.verdicts.json`.
@@ -87,6 +143,18 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 - The recorded block reason says HTTP 409, which is not in the tracked `crawl.stop_statuses` (`[401, 402, 403]`). The cause is not established. `config/settings.local.yaml` was deliberately not read.
 - The README said the pipeline was "not yet run against a real server", which is no longer true (229 facts extracted, `xw doctor` passes); that clause was removed in the same commit as this file.
 - Dependencies are floors without ceilings and the repo has no CI.
+- `xw qa` does not re-check procedure steps, summaries or tips against the source (numbers, 12-word copying); it
+  checks spec lines, part lines and loose safety values. The README says qa "re-checks the published pages against
+  raw source text"; only export's grounding covers the prose.
+- Ingested threads with wrong data that cannot be re-parsed (no saved HTML): t8's first captured post is a reply (the
+  author's guide is missing, so the page credits the wrong author); some post dates are not post dates (fixed in the
+  parser for future ingests only); t10, t15, t28 and t39 went through the generic parser (no authors, one post).
+- `html_to_text` keeps at most 10 images per post, so the photo count of a pictorial guide is a floor.
+- `config/settings.yaml` ships `respect_robots: false` as the default for every source (merged at the user's request);
+  AGENTS.md asks not to disable it for a site that asks not to be crawled. A per-source or local override would be safer.
+- The local verifier's false-accept rate on the current facts is 48% (32 of 66 reviewed `supported` claims), from
+  `xw review-apply` on 2026-10-14; locally-supported steps also carried misreads the review found only through
+  `complete` (t29 step 3, t34 steps 4 and 9, t35 steps 1 and 37).
 
 ## Validation state
 
@@ -123,4 +191,5 @@ No decision records exist. The design decisions are in `README.md` (Verification
 | Design and verification layers | `README.md` |
 | Settings | `config/settings.yaml` |
 | Sources | `config/sources.yaml` |
-| Commit history | `git log` (19 commits, 2026-10-06 to 2026-10-07) |
+| Reviewer corrections (proposed, not built) | `docs/proposals/reviewer-corrections.md` |
+| Commit history | `git log` |
