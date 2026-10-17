@@ -19,7 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  partial_items: 0
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -27,9 +30,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
+
 ## Summary
 
-_No verified summary yet._
+[Unverified value] Owner's manual for '06 also lists 98 ft-lbs. [t28]
+
+## Tips & gotchas
+
+- [Unverified value] Owner's manual for '06 also lists 98 ft-lbs. [t28]
 
 ## Source attributions
 

@@ -19,11 +19,16 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
   withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Engine trouble codes (VQ40DE)
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -31,7 +36,7 @@ Connect an OBD-II reader and turn the ignition on. [t12]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Connect the OBD-II reader to the vehicle's diagnostic jack.
 2. Turn the ignition key to the ON position without starting the engine.

@@ -12,6 +12,8 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: Low profile strut channel
+  oem_part_no: ''
 - name: Wood shims (2x4)
   oem_part_no: ''
 sources:
@@ -20,7 +22,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 2
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,13 +33,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Build a steel divider and use it as a pivot point for a new slide design. [t41]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Build a steel divider to surround the fridge area.
 2. Use this divider as a pivot point for a new, stronger slide design.
@@ -43,6 +50,7 @@ _Procedure reported by [t41]._
 
 ## Parts
 
+- [Partial] Low profile strut channel: Optional reinforcement; 6'8" length mentioned [t41]
 - Wood shims, 2x4: To shim up the front of the system ~2 inches [t41]
 
 ## Tips & gotchas

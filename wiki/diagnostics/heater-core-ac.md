@@ -4,7 +4,8 @@ title: Heater core and A/C problems
 category: diagnostics
 applies_to:
   years: []
-  trims: []
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 8
+  partial_items: 3
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,20 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Run the fan for 5 minutes, then turn on AC and keep windows down. [t7]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Run the fan without AC for 5 minutes with windows down to cool the system.
+2. [Partial] Turn on the AC and keep windows down for another 5 minutes.
+
+_Procedure reported by [t7]._
 
 ## Tips & gotchas
 

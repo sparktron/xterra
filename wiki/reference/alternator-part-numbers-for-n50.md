@@ -3,7 +3,8 @@
 title: Alternator part numbers for N50
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
   trims: []
   engine: []
   drivetrain: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  partial_items: 1
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,20 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 The front bearing is a WBD 6303D and the rear is an NSK B10-50D. [t32]
+
+## Specifications
+
+- **Front bearing part number (WBD)**: 6303D [t32] ([Unverified] single report)
+- **Rear bearing part number (NSK)**: B10-50D [t32] ([Unverified] single report)
+
+## Tips & gotchas
+
+- [Partial] The front bearing is identified by WBD and the rear by NSK. [t32]
 
 ## Source attributions
 

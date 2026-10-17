@@ -7,7 +7,8 @@ applies_to:
   trims: []
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  partial_items: 3
+  partial_fields:
+  - shared_platform
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,16 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Listen for bearing noise indicating the unit is failing. [t32]
+
+## Tips & gotchas
+
+- [Partial] Bearings often fail due to mud accumulation at the lowest point of the engine. [t32]
+- [Partial] The issue may not stop the alternator from working but rather degrade performance over time. [t32]
 
 ## Source attributions
 

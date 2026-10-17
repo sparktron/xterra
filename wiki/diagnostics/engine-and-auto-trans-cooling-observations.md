@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 8
+  partial_items: 4
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -26,12 +29,20 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Monitor coolant temperature at the radiator bottom where the ATF heat exchanger is located. [t25]
+
+## Specifications
+
+- **Engine max operating temp**: 205F [t25] ([Partial] [Unverified] single report)
+- **Thermostat opening range (min)**: 165F [t25] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
+- [Partial] Note that the ATF rad-cooler does not actively heat the fluid; it simply transfers ambient coolant temperature to it. [t25]
 - Observe that high load driving under 2500 rpm generates significant converter slip and internal trans heat. [t25]
 
 ## Source attributions

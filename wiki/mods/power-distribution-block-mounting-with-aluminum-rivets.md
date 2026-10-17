@@ -14,13 +14,18 @@ tools: []
 parts:
 - name: Aluminum Rivets
   oem_part_no: ''
+- name: Power Distribution Block
+  oem_part_no: ''
 sources:
 - t4
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,13 +33,25 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Attach a custom bracket and secure the power distribution block with aluminum rivets. [t4]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Attach a custom bracket to the vehicle using self-tapping screws.
+2. Secure the power distribution block to the bracket with aluminum rivets.
+
+_Procedure reported by [t4]._
 
 ## Parts
 
 - Aluminum Rivets [t4]
+- [Partial] Power Distribution Block [t4]
 
 ## Source attributions
 

@@ -11,14 +11,23 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: 14-inch or 16-inch Rear Wiper Blade
+  oem_part_no: ''
+- name: Metal version wiper blade (optional)
+  oem_part_no: 28790CA025
+- name: Murano Rear Wiper
+  oem_part_no: 28790-CB000
 sources:
 - t33
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 12
+  partial_items: 7
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -26,13 +35,34 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Locate and remove the existing rear wiper assembly to install a 2-inch longer Murano blade. [t33]
 
+[Partial] Select a rear wiper blade that is two inches longer than stock and has equal length on both ends. [t33]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Select a rear wiper blade that is 2 inches longer than stock.
+2. [Partial] Ensure the new blade has equal length on both ends to fit properly.
+
+_Procedure reported by [t33]._
+
+## Parts
+
+- [Partial] 14-inch or 16-inch Rear Wiper Blade: Must be 2 inches longer than stock with equal end lengths [t33]
+- [Partial] Metal version wiper blade, optional (28790CA025): Alternative material option found in search results. [t33]
+- Murano Rear Wiper (28790-CB000) [t33]
+
 ## Tips & gotchas
 
 - Note that the Murano wiper is 2 inches longer than stock. [t33]
+- [Partial] Look for blades that clip right into the existing mount. [t33]
+- [Partial] Consider a blade with a rubber sheath to protect against ice buildup. [t33]
 
 ## Source attributions
 

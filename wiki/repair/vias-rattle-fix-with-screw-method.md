@@ -10,15 +10,21 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
-parts: []
+tools:
+- Screw
+parts:
+- name: Epoxy
+  oem_part_no: ''
 sources:
 - t30
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -26,9 +32,19 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Fix the VIAS rattle using a screw and epoxy. [t30]
+
+## Tools
+
+- [Partial] Screw [t30]
+
+## Parts
+
+- [Partial] Epoxy [t30]
 
 ## Source attributions
 

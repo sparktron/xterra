@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -26,12 +29,23 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Measure the distance from the center point to the edge of the glass on the top sweep. [t33]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Measure the distance from the center point to the edge of the glass on the top sweep.
+
+_Procedure reported by [t33]._
 
 ## Tips & gotchas
 
+- [Partial] Stock wiper adds approximately 1 inch of gain on each side. [t33]
 - Total length increases by roughly 2 inches compared to stock. [t33]
 
 ## Source attributions

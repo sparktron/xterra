@@ -3,8 +3,10 @@
 title: Nissan TSB for VIAS rattle fix
 category: reference
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2014
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,7 +20,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 2
+  partial_items: 0
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -26,9 +32,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Nissan issues a Technical Service Bulletin to address the VIAS rattle. [t30]
+
+## Specifications
+
+- **TSB Number**: NTB05-015b [t30] ([Unverified] single report)
 
 ## Source attributions
 

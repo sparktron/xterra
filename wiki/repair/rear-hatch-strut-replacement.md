@@ -3,8 +3,10 @@
 title: Rear Hatch Strut Replacement
 category: repair
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -13,7 +15,10 @@ est_time: null
 tools:
 - Tall Ladder
 - Vice
+- Jack
 parts:
+- name: 10mm Ball Socket, M8 Thread
+  oem_part_no: ''
 - name: 'Gas Spring with Threaded Ends (Part #9416K147)'
   oem_part_no: ''
 sources:
@@ -22,7 +27,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 4
-  withheld_items: 7
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -30,13 +39,17 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Support the raised hatch, remove both existing struts, attach new ball sockets to each gas spring strut, and install them. [t9]
 
+[Partial] Raise the rear hatch and insert a jack stand under the hinge area. [t9]
+
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Open the rear hatch.
 2. Support the raised hatch with a tall ladder to hold its weight when struts are removed.
@@ -52,9 +65,11 @@ _Procedure reported by [t9]; 2 steps reworded by a reviewer. Photos of this job 
 
 - Tall Ladder [t9]
 - Vice [t9]
+- [Partial] Jack [t9]
 
 ## Parts
 
+- [Partial] 10mm Ball Socket, M8 Thread [t9]
 - Gas Spring with Threaded Ends, Part #9416K147 [t9]
 
 ## Specifications

@@ -18,13 +18,18 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 5
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
 # Hood latch squeak fix
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -33,6 +38,10 @@ Locate three bolts holding the latch, spring, and clip together. [t36]
 ## Tips & gotchas
 
 - If using new hood bump stops, adjust the latch closer to them. [t36]
+
+## Common mistakes
+
+- [Partial] Applying duct tape only once a month instead of permanently fixing it. [t36]
 
 ## Source attributions
 

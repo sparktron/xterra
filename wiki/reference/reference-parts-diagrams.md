@@ -10,7 +10,8 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Digital MultiMeter
 parts: []
 sources:
 - t2
@@ -19,26 +20,38 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 9
+  partial_items: 5
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
 # [reference] Parts diagrams
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Locate specific wire locations and identify correct colors using a Digital MultiMeter to verify before making connections. [t2]
+
+[Partial] Identify the relay's internal electromagnet switch that handles high current. [t11]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Identify the relay's internal electromagnet switch that handles high current.
 
 _Procedure reported by [t11]._
 
+## Tools
+
+- [Partial] Digital MultiMeter [t2]
+
 ## Tips & gotchas
 
+- [Partial] Use the diagrams as guidelines rather than blindly following them since they are just references. [t2]
 - Note that 2011 models likely share the same wiring configuration as 2010. [t2]
 
 ## Diagrams (links only)

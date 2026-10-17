@@ -13,23 +13,33 @@ est_time: null
 tools:
 - Wire crimping tool
 - Heat shrink
+- Primer spray cans
 - 600 grit sandpaper
+- Denatured alcohol
+- Paper towels
 parts:
 - name: 2 LED bulbs (T10 W5W 194)
   oem_part_no: ''
+- name: Westin Automotive License Plate Kit 00007153
+  oem_part_no: '00007153'
 sources:
 - t31
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 10
-  withheld_items: 9
+  partial_items: 5
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
 # License plate light housing replacement
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -65,16 +75,31 @@ _Procedure reported by [t31]; 2 steps reworded by a reviewer. Photos of this job
 
 - Wire crimping tool [t31]
 - Heat shrink [t31]
+- [Partial] Primer spray cans [t31]
 - 600 grit sandpaper [t31]
+- [Partial] Denatured alcohol [t31]
+- [Partial] Paper towels [t31]
 
 ## Parts
 
 - 2 LED bulbs, T10 W5W 194: Low brightness, white 4k color SMD LEDs. [t31]
+- Westin Automotive License Plate Kit 00007153 (00007153): Includes new mounting screws and plastic inserts; comes in chrome metal finish. [t31]
+
+## Specifications
+
+- **Base coat coats**: 2-3 coats [t31] ([Unverified] single report)
+- **Clear coat coats**: Wet but not running, 2 total [t31] ([Unverified] single report)
+- **Primer coats**: 2-3 good coats [t31] ([Unverified] single report)
 
 ## Tips & gotchas
 
+- [Partial] Cut small pieces of cardboard from the kit box to cover clear plastic windows during painting. [t31]
 - Sand every crevice and angle thoroughly before wiping with denatured alcohol to remove dust. [t31]
 - Use a baking pan covered with a trash bag as a makeshift painting rack. [t31]
+
+## Common mistakes
+
+- [Partial] Not covering the original halogen bulbs if keeping them for emergency use, leading to heat damage on new housings (though this applies more to originals). [t31]
 
 ## Diagrams (links only)
 

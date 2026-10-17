@@ -4,7 +4,8 @@ title: '[reference] Part selection for climate control vs numbered fan settings'
 category: reference
 applies_to:
   years: []
-  trims: []
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -12,6 +13,8 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: Blower Motor Resistor
+  oem_part_no: ''
 - name: Part Number JRN19180003
   oem_part_no: ''
 sources:
@@ -20,7 +23,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,13 +35,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Select Part Number JRN19180003 for climate control or standard numbered fan settings. [t7]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Identify if the HVAC system has 'climate control' or standard numbered fan settings.
 
@@ -42,11 +51,13 @@ _Procedure reported by [t7]._
 
 ## Parts
 
+- [Partial] Blower Motor Resistor: Silver, heat sink appearance for climate control; Tarnished gray with metallic nodules when worn. [t7]
 - Part Number JRN19180003: Specific part number found on carparts.com for the climate control variant. [t7]
 
 ## Tips & gotchas
 
 - Look for a resistor that is silver and resembles a heat sink if using 'climate control' trim. [t7]
+- [Partial] Expect an old worn-out resistor to be visibly tarnished gray with metallic nodules on blade faces. [t7]
 
 ## Source attributions
 

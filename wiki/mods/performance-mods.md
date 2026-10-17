@@ -3,8 +3,11 @@
 title: Intake, exhaust, tune and forced induction
 category: mods
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2014
+  trims:
+  - Off-Road
+  - PRO-4X
   engine: []
   drivetrain: []
 shared_platform:
@@ -13,12 +16,20 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: Dynomax Cat-Back System (Optional)
+  oem_part_no: ''
 - name: Dynomax VT Muffler
+  oem_part_no: ''
+- name: Gasket set for spacer
   oem_part_no: ''
 - name: Intake Manifold Spacer
   oem_part_no: ''
 - name: Longer bolts and washers
   oem_part_no: ''
+- name: UpRev Tuner
+  oem_part_no: ''
+- name: Walker Quiet Flow Muffler
+  oem_part_no: '9398521'
 sources:
 - t26
 - t43
@@ -26,23 +37,67 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 28
+  partial_items: 8
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Intake, exhaust, tune and forced induction
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
+
+[Partial] Replace the stock Y-pipe with a Dynomax VT muffler. [t26]
 
 Install an UpRev tuner software for advanced diagnostics at a cost of $500. [t26]
 
 Install a Dynomax Cat Back Stainless Kit with Super Turbo muffler and Walker Mega-Clamps. [t43]
 
+[Partial] Install the Walker Quiet Flow muffler into an existing Dynomax cat-back system. [t43]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Install the Walker Quiet Flow muffler into an existing Dynomax cat-back system.
+2. Modify the assembly slightly to ensure a proper fit between the two systems.
+
+_Procedure reported by [t43]._
+
+<details><summary>Alternate procedure [t26] [Partial]</summary>
+
+1. [Partial] Replace the stock Y-pipe with a Dynomax VT muffler.
+
+</details>
+
+<details><summary>Alternate procedure [t26] [Partial]</summary>
+
+1. [Partial] Install an UpRev tuner software for advanced diagnostics.
+
+</details>
+
 ## Parts
 
+- [Partial] Dynomax Cat-Back System, Optional [t43]
 - Dynomax VT Muffler [t26]
+- [Partial] Gasket set for spacer [t26]
 - Intake Manifold Spacer: CNC machined from 6061 Billet Aluminum; available in Blue, Black, Silver, Gold, or Red [t26]
 - Longer bolts and washers [t26]
+- [Partial] UpRev Tuner [t26]
+- Walker Quiet Flow Muffler (9398521) [t43]
+
+## Specifications
+
+- **Cost of diagnostic software**: $500 [t26] ([Partial] [Unverified] single report)
+- **Dynomax Cat Back Part Number**: 19443 [t43] ([Unverified] single report)
+- **Estimated total cost including labor**: $350 [t26] ([Partial] [Unverified] single report)
+- **Peak horsepower gain at 5600rpm**: 8hp [t26] ([Unverified] single report)
+- **Spacer thickness (initial)**: 3/8 inch [t26] ([Unverified] single report)
+- **Walker Mega-Clamp Size**: 2-1/2" [t43] ([Unverified] single report)
 
 ## Tips & gotchas
 

@@ -23,19 +23,30 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 11
+  partial_items: 5
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Electrical faults, grounds and battery drain
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
+
+[Partial] Connect a scan tool to the ABS system then navigate the menu to select an ABS function. [t18]
+
+[Partial] Inspect negative battery terminal connection, replace if necessary, check fusible links, and consult FSM for ground locations. [t19]
+
+[Partial] Find a bolt or nut on the vehicle body to use as a ground point. [t11]
 
 Locate the fuse and relay box under the hood next to the windshield washer bottle, then check the blower motor relay. [t7]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Find a bolt or nut on the vehicle body to use as a ground point.
 2. Remove the fastener and sand down the area until bare metal is exposed.
@@ -55,6 +66,7 @@ _Procedure reported by [t11]._
 - Check fusible links on the positive cable side as an alternative power source issue. [t19]
 - Consult the Factory Service Manual (FSM) for specific ground locations, starting with body and chassis grounds. [t19]
 - Consult the PG chapter of a service manual for an electrical units location section if needed. [t7]
+- [Partial] Swap in a known good brown relay from another slot to test functionality. [t7]
 
 ## Source attributions
 

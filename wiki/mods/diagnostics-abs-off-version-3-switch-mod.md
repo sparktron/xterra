@@ -12,6 +12,7 @@ difficulty: null
 est_time: null
 tools:
 - Flush push-button switch
+- Wire cutters
 parts: []
 sources:
 - t38
@@ -19,7 +20,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  partial_items: 4
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -27,13 +31,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Locate the brown wire in the wiring loom connecting to the ABS module, then cut it and attach an inline flush push-button switch. [t38]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Locate the brown wire in the wiring loom that connects to the ABS module.
 2. Cut this brown wire and attach a switch inline with it.
@@ -43,10 +49,16 @@ _Procedure reported by [t38]._
 ## Tools
 
 - Flush push-button switch [t38]
+- [Partial] Wire cutters [t38]
 
 ## Tips & gotchas
 
 - Use a flush button where the ground disconnects when depressed, sinking about 1/8 inch. [t38]
+- [Partial] Note that some switches have locking latches on both top and bottom; use thumb tips to release them. [t38]
+
+## Common mistakes
+
+- [Partial] Using a switch with mismatched pin-outs without testing continuity first. [t38]
 
 ## Source attributions
 

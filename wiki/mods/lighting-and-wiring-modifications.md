@@ -12,6 +12,7 @@ difficulty: null
 est_time: null
 tools:
 - Heat gun
+- Lighter fluid
 - Ring connector crimper
 parts:
 - name: Aluminum foil (ashtray)
@@ -24,19 +25,26 @@ parts:
   oem_part_no: ''
 - name: Silicone
   oem_part_no: ''
+- name: Wire loom
+  oem_part_no: ''
 sources:
 - t4
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 20
+  partial_items: 5
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Lighting and Wiring Modifications
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -45,6 +53,7 @@ Route wires and install seal-tight connectors with silicone to secure lighting m
 ## Tools
 
 - Heat gun [t4]
+- [Partial] Lighter fluid [t4]
 - Ring connector crimper [t4]
 
 ## Parts
@@ -54,11 +63,15 @@ Route wires and install seal-tight connectors with silicone to secure lighting m
 - Plastic case/junction box [t4]
 - Seal-tight connector [t4]
 - Silicone [t4]
+- [Partial] Wire loom [t4]
 
 ## Tips & gotchas
 
+- [Partial] Remove the nut from the connector before pulling the harness inside [t4]
 - Use a rubber washer if available, or apply extra silicone on its own [t4]
 - Ensure no air remains trapped to prevent rust at the drilled spot [t4]
+- [Partial] Use mechanical protection only on the part inside the dash [t4]
+- [Partial] Tape wires together for easier installation of pillar covers [t4]
 - Choose slim enough lights for a Dephep rack in closed position [t4]
 - Use heat-shrink tubing with a thin wall of glue over solder joints [t4]
 - Use thin-wall glue heat-shrink tubing so it reduces in size and melts [t4]

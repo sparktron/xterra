@@ -3,22 +3,30 @@
 title: '[diagnostics] Heater core and A/C problems'
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
+  - 2007
+  - 2013
   trims: []
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Pressure gauges
 parts: []
 sources:
 - t16
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  withheld_items: 21
+  reviewed_items: 1
+  partial_items: 5
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -26,12 +34,26 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Unverified value] Connect pressure gauges and observe high-side stabilization around 551.0 psi with expected variance. [t16]
+
+[Partial] [Unverified value] Monitor high-side gauge while engine runs and recognize safety cut-off at 398 psi causing compressor cycle off. [t16]
+
+## Tools
+
+- [Partial] Pressure gauges [t16]
 
 ## Tips & gotchas
 
+- [Partial] [Unverified value] Expect a variance of plus or minus 43.5 psi on the gauge reading. [t16]
+- [Partial] [Unverified value] Recognize that a safety cut-off at 398 psi causes the compressor to cycle off, mimicking full-throttle cutoff behavior. [t16]
+- [Unverified value] Identify when the pressure reaches 433.6 psi as the point where the relief valve vents to atmosphere. [t16]
+- [Partial] Distinguish between the 'Relief valve set pressure' and general operating pressures. [t16]
 - Confirm that Nissan Type R oil is equivalent to PAG100 viscosity. [t16]
 
 ## Source attributions

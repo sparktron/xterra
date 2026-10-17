@@ -4,7 +4,8 @@ title: Lighting and Auxiliary Power Wiring
 category: mods
 applies_to:
   years: []
-  trims: []
+  trims:
+  - Off-Road
   engine: []
   drivetrain: []
 shared_platform: []
@@ -12,7 +13,11 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: 12V Fuse
+  oem_part_no: ''
 - name: In-line fuse holder with wire leads and protective cover
+  oem_part_no: ''
+- name: Utility knife
   oem_part_no: ''
 sources:
 - t4
@@ -20,7 +25,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,13 +37,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Cut an aluminum plate 4 3/4" x 2 1/4", use four nuts as spacers, and flip switches upside-down. [t4]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Pull the assembly downward starting at the sunglasses holder.
 2. Disconnect and unscrew the part that holds the microphone.
@@ -50,7 +61,9 @@ _Procedure reported by [t4]. Photos of this job are in the source: <https://www.
 
 ## Parts
 
+- [Partial] 12V Fuse: Smaller size than the truck's standard fuse [t4]
 - In-line fuse holder with wire leads and protective cover [t4]
+- [Partial] Utility knife [t4]
 
 ## Tips & gotchas
 

@@ -4,7 +4,8 @@ title: Electrical faults, grounds and battery drain
 category: reference
 applies_to:
   years: []
-  trims: []
+  trims:
+  - SE
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  partial_items: 1
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Hook up a trailer to test the system and verify that all trailer lights are synchronized with the Xterra's electrical output. [t6]
 
 ## Tips & gotchas
 

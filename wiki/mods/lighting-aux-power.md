@@ -15,8 +15,11 @@ tools:
 - Bi-metal drill bit
 - Dremel tool
 - Zip ties
+- Foam tape
 - WD40 spray
 parts:
+- name: 7-Pin Wiring Harness Kit
+  oem_part_no: ''
 - name: White plastic clips (retainers)
   oem_part_no: ''
 sources:
@@ -26,11 +29,16 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 15
-  withheld_items: 6
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Lighting, aux fuse blocks and dual batteries
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -40,7 +48,7 @@ Route and secure 7-pin wiring harness components while installing a receiver int
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Remove the side strip from the passenger kick panel by pulling it with even pressure.
 2. Detach the two white pop clips holding the side strip in place.
@@ -71,16 +79,25 @@ Route and secure 7-pin wiring harness components while installing a receiver int
 
 _Procedure reported by [t6]. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/>_
 
+<details><summary>Alternate procedure [t1] [Partial]</summary>
+
+1. [Partial] Pull out the old bulb from the socket.
+2. Insert the new LED bulb into the same position.
+
+</details>
+
 ## Tools
 
 - 7-pin wiring harness kit [t6]
 - Bi-metal drill bit [t6]
 - Dremel tool [t6]
 - Zip ties [t6]
+- [Partial] Foam tape [t6]
 - WD40 spray [t6]
 
 ## Parts
 
+- [Partial] 7-Pin Wiring Harness Kit: Bought from Nissan dealer, includes directions and foam tape [t6]
 - White plastic clips, retainers: Held in place by 2 white pop things on side strip [t6]
 
 ## Tips & gotchas

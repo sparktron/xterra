@@ -20,6 +20,9 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -28,13 +31,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Drill a hole through the movable VIAS valve fin and thread in a coarse threaded screw to press upward on the rigid plenum fin. [t30]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Locate the plastic fin on the outside of the VIAS valve that is restricted by two other rigid fins attached to the intake plenum.
 2. Drill a hole through the movable valve fin, taking care not to drill completely through the opposing rigid plenum fin resting against it.

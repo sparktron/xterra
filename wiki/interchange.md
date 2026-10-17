@@ -3,5 +3,7 @@
 
 | Topic | Shared with | Years | Threads | Status |
 |---|---|---|---|---|
+| Alternator failure symptoms | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Intake, exhaust, tune and forced induction | Frontier | n/a | 1 | unconfirmed |
 | Specifications by model year | Frontier | n/a | 1 | unconfirmed |
+| Transmission and transfer case problems | Frontier | n/a | 1 | unconfirmed [Partial] |

@@ -3,7 +3,8 @@
 title: ATF Temperature Behavior During Warm-up
 category: diagnostics
 applies_to:
-  years: []
+  years:
+  - 2008
   trims: []
   engine: []
   drivetrain: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 8
+  partial_items: 1
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 _No verified summary yet._
+
+## Specifications
+
+- **Engine coolant thermostat open point**: 165F [t25] ([Partial] [Unverified] single report)
 
 ## Source attributions
 

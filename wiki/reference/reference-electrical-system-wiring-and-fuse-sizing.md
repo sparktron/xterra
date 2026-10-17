@@ -10,7 +10,8 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Tape measure
 parts: []
 sources:
 - t4
@@ -18,7 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 15
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -26,13 +30,27 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Calculate current and resistance, then select wire gauge and fuses to limit voltage drop. [t4]
 
+## Tools
+
+- [Partial] Tape measure [t4]
+
+## Specifications
+
+- **Current draw for two 55W lamps**: ~10A [t4] ([Unverified] single report)
+- **Equivalent size for four wires of 14AWG**: 8AWG [t4] ([Unverified] single report)
+- **Main fuse rating (example)**: 60A [t4] ([Unverified] single report)
+- **Target voltage drop**: 1 volt or less [t4] ([Unverified] single report)
+
 ## Tips & gotchas
 
 - Use the total length of the longest leg for calculations, as other legs will be shorter. [t4]
+- [Partial] Aim to keep voltage loss at 1 volt or less (approx. 8%) across any single lamp setup. [t4]
 - Use a wire gauge table to find the resistance per foot. [t4]
 - Select a gauge that results in about 1 volt of loss. [t4]
 - Remember that a smaller gauge number means a bigger wire. [t4]

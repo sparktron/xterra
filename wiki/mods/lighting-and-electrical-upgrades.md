@@ -4,13 +4,19 @@ title: Lighting and Electrical Upgrades
 category: mods
 applies_to:
   years: []
-  trims: []
+  trims:
+  - Off-Road
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Color-keyed compression terminal crimper (2-ton capacity)
+- Ty-raps
+- Heat-shrink tubing
+- Wire loom
+- Relay mounting bracket (aluminum angle)
 parts:
 - name: Aluminum L-bar spacer
   oem_part_no: ''
@@ -30,13 +36,19 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 34
+  partial_items: 21
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
 # Lighting and Electrical Upgrades
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -46,12 +58,49 @@ Mount a main power breaker near the battery using a custom bracket. [t4]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Crimp standard color-keyed compression terminals onto each end of the battery wires.
+2. Select one-hole, all-copper, straight-shaped connectors sized for a #10 BlueSea bolt and part number 54138.
+3. [Partial] Select similar one-hole copper connectors sized for a 1/4" battery or frame ground bolt and part number 54106.
+4. [Partial] Slide heat-shrink tubing over the crimped connectors to provide insulation.
+5. Cover the entire length of the cable with plastic wire loom, angling the opening downward at the bottom.
+6. Mount a fuse holder on a piece of twisted metal secured by an existing bolt holding the coolant canister.
+7. Route every wire lower before rising up or entering connectors to allow water to drip off first.
+8. Connect the main power directly to the battery post, bypassing any existing fuses.
+9. [Partial] Attach the big 4AWG cable under the existing loom using a ty-rap tightened just enough to prevent movement.
+10. Guide the wire through an existing grommet on the other side of the steering column.
+11. Pull a small taped wire through the driver-side rubber cabin gasket as a fisher for the main 4AWG cable.
+12. [Partial] Install the wire loom over the pulled-through section and apply silicone sealant around it.
+13. Route the incoming wire lower than the hole, then back up to prevent water from tracking inside.
+14. Connect the red relay output wire to a ground screw under the hood for the bumper lights.
+15. [Partial] Ty-rap the main supply wire loom with electric tape to the frame and route it toward the passenger-side fuse block.
+16. Install a BlueSea 5026 fuse block on an aluminum L-bar spacer bolted beside the glove box.
+17. Run a 4AWG ground wire from the top of the distribution block behind the unit and bolt it to the sanded frame below.
+18. Select SPDT relays with at least a 20A lamp load capacity for controlling actuators and lights.
+19. Mount relay supports under the radio using aluminum angle attached to existing screw holes on the HVAC frame.
+20. [Partial] Run a 12AWG wire from each fuse in the BlueSea block to terminal #30 of relays R-1 through R-6.
+21. Connect another 12AWG wire from terminal #87 of those same relays up toward one side of the roof lights.
+22. Run a black 12AWG return wire from the other side of each light back to a ground terminal on the BlueSea block.
+23. [Partial] Wire relay R-7 in the top row as a master switch that feeds voltage to all other switches and clearance lights.
+24. Install a multi-wire cable near the sunglasses holder containing nine wires for controlling the individual relays.
+
+_Procedure reported by [t4]. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/>_
+
+<details><summary>Alternate procedure [t4] [Partial]</summary>
 
 1. Mount a main power breaker near the battery using a custom bracket.
 2. Remove the engine compartment fuse box cover to access the firewall grommet.
 
-_Procedure reported by [t4]._
+</details>
+
+## Tools
+
+- [Partial] Color-keyed compression terminal crimper (2-ton capacity) [t4]
+- [Partial] Ty-raps [t4]
+- [Partial] Heat-shrink tubing [t4]
+- [Partial] Wire loom [t4]
+- [Partial] Relay mounting bracket (aluminum angle) [t4]
 
 ## Parts
 
@@ -64,9 +113,13 @@ _Procedure reported by [t4]._
 
 ## Specifications
 
+- **Compression terminal size (for #10 bolt)**: #10 [t4] ([Partial] [Unverified] single report)
 - **Compression terminal size (for 1/4" bolt)**: 1/4" [t4] ([Unverified] single report)
 - **Ground wire gauge for frame connection**: 4 AWG [t4] ([Unverified] single report)
+- **Main supply cable gauge**: 4 AWG [t4] ([Unverified] single report)
 - **Recommended minimum relay current for lamp loads**: 20A [t4] ([Unverified] single report)
+- **Standard terminal connection for lamps**: #30 and #87 [t4] ([Partial] [Unverified] single report)
+- **Wire for 55W light pair**: 12 AWG [t4] ([Partial] [Unverified] single report)
 - **Wire gauge from fuse block to relay terminal #30**: 12 AWG [t4] ([Unverified] single report)
 
 ## Tips & gotchas
@@ -74,9 +127,15 @@ _Procedure reported by [t4]._
 - Keep the opening of the plastic wire loom at the bottom to allow water to escape easily. [t4]
 - Sand metal grounding points before bolting them down for better contact. [t4]
 - Use SPDT relays for actuators to allow later flexibility in wiring N.O. or N.C. contacts. [t4]
+- [Partial] Mount master switch controls near the sunglasses holder using a 9-wire serial communication cable bundle. [t4]
+- [Partial] Install the fuse block on a spacer behind the frame if direct mounting interferes, attaching a plate in front of it first. [t4]
 - Look for relays with built-in tabs if direct bolting is preferred over socket mounting. [t4]
 - Account for inrush current when selecting relays and wires, as lamp resistance is lower when cold than hot. [t4]
+- [Partial] Use silicone sealant around grommet entries for extra security, though not strictly required. [t4]
+- [Partial] Use a master relay (R-7) to control voltage flow to all other switches for centralized on/off capability. [t4]
+- [Partial] Avoid grounding directly onto rusty bumpers unless using insulated terminals or screws. [t4]
 - Route the wire lower than the hole and back up before entering so water drips off rather than tracking inside. [t4]
+- [Partial] Use silicone sealant around the grommet for a tight finish, though not strictly required. [t4]
 - Ensure crimping tool applies 2 tons of pressure to prevent loosening and heat points over time. [t4]
 - Use one-hole connectors for compatibility with various bolt sizes (e.g., #10 or 1/4 inch). [t4]
 

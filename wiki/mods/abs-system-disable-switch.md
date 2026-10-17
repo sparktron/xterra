@@ -3,7 +3,8 @@
 title: ABS system disable switch
 category: mods
 applies_to:
-  years: []
+  years:
+  - 2015
   trims: []
   engine: []
   drivetrain: []
@@ -14,19 +15,29 @@ tools: []
 parts:
 - name: 5-pin automotive relay
   oem_part_no: ''
+- name: Momentary push switch
+  oem_part_no: ''
+- name: Rocker style momentary push switch
+  oem_part_no: ''
 sources:
 - t38
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 13
+  partial_items: 3
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
 # ABS system disable switch
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -35,10 +46,13 @@ Pop off drink holder molding, locate plug with four wires, and connect snipped b
 ## Parts
 
 - 5-pin automotive relay [t38]
+- [Partial] Momentary push switch: Or a rocker style with 5-pin relay configuration as described below. [t38]
+- [Partial] Rocker style momentary push switch [t38]
 
 ## Tips & gotchas
 
 - The brown wire is identified as the ground for the plug. [t38]
+- [Partial] A momentary switch will interrupt ABS immediately and keep it off until an engine restart occurs. [t38]
 - The circuit switches from a normally closed state to an interrupted path when the switch triggers. [t38]
 
 ## Diagrams (links only)

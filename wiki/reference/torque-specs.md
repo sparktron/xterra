@@ -5,6 +5,7 @@ category: reference
 applies_to:
   years:
   - 2005
+  - 2015
   trims: []
   engine: []
   drivetrain: []
@@ -23,23 +24,48 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 15
+  partial_items: 5
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Torque specifications
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Monitor the ATF temperature and add a fan to the OEM air-cooler. [t25]
 
+[Partial] Note numbers in parentheses may represent Newton-meters or Kilogram-meters if following the Service Manual format. [t28]
+
+[Partial] Select a relay rated for at least 30-AMPS. [t11]
+
+[Partial] Locate the exhaust studs, apply anti-seize compound, and note any remaining two studs. [t43]
+
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Monitor the ATF temperature to assess cooling needs.
+2. [Partial] Add a fan to the OEM air-cooler if bypassing the rad-cooler.
+
+_Procedure reported by [t25]._
+
+<details><summary>Alternate procedure [t26] [Partial]</summary>
+
+1. [Partial] Tighten the Intake Manifold Spacer bolts to specification.
+
+</details>
+
+<details><summary>Alternate procedure [t11] [Partial]</summary>
 
 1. Select a relay rated for at least 30-AMPS to handle the load.
 
-_Procedure reported by [t11]._
+</details>
 
 <details><summary>Alternate procedure [t43] [Partial]</summary>
 
@@ -47,8 +73,13 @@ _Procedure reported by [t11]._
 
 </details>
 
+## Specifications
+
+- **Recommended relay rating**: 30-AMP [t11] ([Unverified] single report)
+
 ## Tips & gotchas
 
+- [Partial] Apply anti-seize compound to the threads before reinstallation. [t43]
 - Note that these are often left with only two studs remaining after multiple removals. [t43]
 
 ## Common mistakes

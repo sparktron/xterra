@@ -3,8 +3,10 @@
 title: Alternator rebuild and bearing service
 category: repair
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  trims:
+  - OR
   engine: []
   drivetrain: []
 shared_platform: []
@@ -35,7 +37,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 18
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -43,9 +49,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Hit pulley nut with penetrating oil, remove it and pulley, split housings, swap bearings, polish slip rings, then reassemble. [t32]
 
 ## Tools
 
@@ -67,9 +75,15 @@ _No verified summary yet._
 - Front housing bearing [t32]
 - Rear rotor shaft bearing [t32]
 
+## Tips & gotchas
+
+- [Partial] Use 600 grit wet/dry sandpaper wrapped around the slip rings and polish them in one direction to remove dirt, grime, and major scoring. [t32]
+- [Partial] Apply penetrating oil instead of water when using a wet piece of sandpaper for polishing. [t32]
+
 ## Common mistakes
 
 - Damaging the delicate slip rings while removing the rear bearing from the rotor shaft. [t32]
+- [Partial] Forgetting to align mounting tabs before sliding the front housing back on. [t32]
 
 ## Source attributions
 

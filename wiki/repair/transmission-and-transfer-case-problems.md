@@ -4,10 +4,12 @@ title: Transmission and transfer case problems
 category: repair
 applies_to:
   years: []
-  trims: []
+  trims:
+  - C200K
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools:
@@ -19,6 +21,8 @@ parts:
   oem_part_no: ''
 - name: Adapter Assembly
   oem_part_no: ''
+- name: Electric Locker
+  oem_part_no: ''
 - name: M226 Rear Axle
   oem_part_no: ''
 sources:
@@ -26,16 +30,23 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 18
-  withheld_items: 18
-  pending_safety_values: 3
+  reviewed_items: 19
+  partial_items: 5
+  partial_fields:
+  - applies_to
+  - shared_platform
+  unconfirmed_safety_values: 5
+  withheld_items: 7
+  pending_safety_values: 0
 ---
 
 # Transmission and transfer case problems
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -51,12 +62,25 @@ _No verified summary yet._
 
 - 4WD Output Shaft [t35]
 - Adapter Assembly [t35]
+- [Partial] Electric Locker [t35]
 - M226 Rear Axle [t35]
+
+## Specifications
+
+- **Band servo anchor end pin final torque**: 44IN*LB [t35] ([Unverified] single report)
+- **Converter housing bolt torque**: 38ft*lb [t35] ([Partial] [Unverified] single report)
+- **Lock nut for band servo anchor**: 34ft-lb [t35] ([Partial] [Unverified] single report)
+- **Oil pump bolt torque (with RTV)**: 35ft*lb [t35] ([Unverified] single report)
+- **Original 2WD gear ratio**: 2.93 [t35] ([Partial] [Unverified] single report)
+- **Rear extension assembly bolt count**: 10 [t35] ([Unverified] single report)
+- **Self-sealing converter housing bolt torque**: 45ft*lb [t35] ([Unverified] single report)
+- **Target 4WD gear ratio (Frontier source)**: 3.36 [t35] ([Unverified] single report)
 
 ## Tips & gotchas
 
 - Turn the crankshaft clockwise when viewing it from the front of the vehicle. [t35]
 - Use petroleum jelly on new seal rings for easier installation. [t35]
+- [Partial] Source ring and pinion sets from a Frontier vehicle for interchangeability. [t35]
 
 ## Source attributions
 

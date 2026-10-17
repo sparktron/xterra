@@ -3,7 +3,8 @@
 title: Alternator bearing replacement
 category: repair
 applies_to:
-  years: []
+  years:
+  - 2005
   trims: []
   engine: []
   drivetrain: []
@@ -18,7 +19,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  partial_items: 2
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -26,9 +31,24 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Remove the alternator from the engine and note that the front bearing is a WBD 6303D. [t32]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Remove the alternator from the engine.
+
+_Procedure reported by [t32]._
+
+## Specifications
+
+- **Front bearing size**: 17x47x14 [t32] ([Unverified] single report)
+- **Rear bearing size**: 10x27x11 [t32] ([Unverified] single report)
 
 ## Tips & gotchas
 
