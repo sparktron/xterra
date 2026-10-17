@@ -1,0 +1,110 @@
+# CI for the xw pipeline. Everything here runs offline: the test suite fakes the forum and the LLM, and no job
+# needs data/ (the SQLite state and raw cache are gitignored because they hold other people's posts).
+#
+# Not run here, and why:
+#   - `xw qa` on the generated pages: it re-checks them against data/xw.sqlite, which is never committed.
+#     The hand-curated reference section (wiki/vehicle/) needs no database, so its check runs below.
+#   - `xw doctor`, extraction and verification: they need a local LLM server.
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: pytest (Python ${{ matrix.python }}, current releases)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.12", "3.13"]   # 3.10 is the declared minimum (requires-python >= 3.10)
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install
+        run: |
+          python -m pip install -U pip
+          python -m pip install -e ".[dev]"
+      - name: Test
+        run: python -m pytest -q
+
+  test-floors:
+    # Dependencies are floors with no ceiling (AGENTS.md). This job installs exactly the floor of each one, read from
+    # pyproject.toml, so a change that needs a newer release than the floor fails here instead of on someone's machine.
+    name: pytest (Python 3.10, dependency floors)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Pin every dependency to its declared floor
+        run: |
+          python - > floors.txt <<'EOF'
+          import pathlib, re
+          text = pathlib.Path("pyproject.toml").read_text()
+          project = text.split("[project]", 1)[1].split("[project.scripts]", 1)[0]   # dependencies + optional dev
+          floors = re.findall(r'"([A-Za-z0-9_.-]+)>=([0-9.]+)"', project)
+          assert floors, "no floors found in pyproject.toml"
+          print("\n".join(f"{name}=={version}" for name, version in floors))
+          EOF
+          cat floors.txt
+      - name: Install at the floors
+        run: |
+          python -m pip install -U pip
+          python -m pip install -c floors.txt -e ".[dev]"
+          python -m pip list
+      - name: Test
+        run: python -m pytest -q
+
+  repo-checks:
+    name: repo hygiene and curated pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Nothing private is tracked
+        # AGENTS.md: never commit data/ (other people's posts), config/settings.local.yaml or .env.
+        run: |
+          tracked=$(git ls-files -- 'data/*' 'config/settings.local.yaml' '.env' '*/.env')
+          if [ -n "$tracked" ]; then
+            echo "::error::These files must never be committed:"
+            echo "$tracked"
+            exit 1
+          fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+      - name: Install
+        run: python -m pip install -e .
+      - name: Curated reference pages cite a source for every number (qa.check_curated)
+        run: |
+          python - <<'EOF'
+          from pathlib import Path
+          from xw.qa import check_curated
+          violations = check_curated(Path("wiki"))
+          for v in violations:
+              print(f"::error::{v}")
+          print(f"curated pages: {len(violations)} violation(s)")
+          raise SystemExit(1 if violations else 0)
+          EOF
