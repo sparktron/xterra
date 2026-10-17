@@ -32,8 +32,9 @@ verifier's `partial`.
   settings off restore the fail-closed policy (`strict(cfg)` in the tests).
 - `qa`: an unconfirmed safety spec needs a mark and the banner; an unconfirmed value in prose needs `[Unverified value]`
   (and, without a spec, its unit in a cited thread); `[Unverified value]` needs the banner.
-- Tests: 6 new (one found by the live export: a part note "12 quarts" published unmarked), 9 updated; the fail-closed
-  ones now run under `strict`. `pytest` 130 passed.
+- Tests: 6 new (one found by the live export: a part note "12 quarts" published unmarked), 8 updated (1 renamed); the
+  fail-closed ones now run under `strict`. With the value-only change: 8 new, 10 updated, 1 removed (the quote test);
+  `pytest` 123 -> 130 passed. (Commit e970405's message says 11 updated; 10 is right.)
 - Result (`xw export && xw qa`, qa passes): withheld items 686 -> 276; 277 items published marked `[Partial]`; 9 safety
   values published unconfirmed (marked); 0 withheld. Generated pages: procedure pages 31 -> 55, procedure lines 115 ->
   241, procedures of 5+ steps 6 -> 12, spec lines 11 -> 62, part lines 52 -> 89, tips 109 -> 163 (these include the
