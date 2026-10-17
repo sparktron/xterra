@@ -207,7 +207,8 @@ def cmd_export(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
     result = export_all(cfg, conn, TopicIndex(cfg.topics))
     print(f"exported {result['pages']} page(s) from {result['facts']} fact(s); {result['dtc_codes']} DTC row(s); "
-          f"{result['dropped']} item(s) withheld; {result['pending']} safety value(s) pending verification; "
+          f"{result['dropped']} item(s) withheld; {result['partial']} item(s) published marked [Partial]; "
+          f"{result['unconfirmed']} safety value(s) published unconfirmed (marked); {result['pending']} safety value(s) withheld; "
           f"{result['disputes']} dispute(s); {result['missing_topics']} topic(s) uncovered")
     return 0
 

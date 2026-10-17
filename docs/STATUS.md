@@ -15,6 +15,47 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Partial and unconfirmed claims publish marked (2026-10-16, decided by the user, PR #9). "All of the partials should
+be added with a partial flag signifying it needs more work", and "I'm fine with possibly wrong torque and pressure as long
+as they are marked as such and get checked in subsequent runs". Before it, 387 of 686 withheld items were the local
+verifier's `partial`.
+
+- `verify.publish_partial` (new, default on): `export.gate` returns the tag `[Partial]` for a local `partial`. The item
+  publishes with `[Partial]` before it (steps, summary, symptoms, tips, mistakes, tools, parts), inside the spec tag,
+  in front matter `verification.partial_fields`/`partial_items`, the DTC table `status` column and the interchange
+  status; the page carries `PAGE_PARTIAL_NOTE`, a procedure `PARTIAL_NOTE`. Partial claims stay queued (priority 1).
+- `verify.publish_unverified_safety` (existing, now default on): an unconfirmed torque/capacity/pressure spec publishes
+  tagged `[Unverified]`/`[Partial]` under `SAFETY_NOTE`; prose repeating it gets `[Unverified value]`; a prose value with
+  no spec publishes marked if the source puts that unit on that number (`unit_grounded`). All of these stay in the review
+  queue at priority 0 and in `pending_verification.md` ("Published marked"). Disputed safety values stay withheld.
+- Kept: `unsupported`, decoy failures, no verifier run and a reviewer's `reject`/`needs_human` publish nothing. Both
+  settings off restore the fail-closed policy (`strict(cfg)` in the tests).
+- `qa`: an unconfirmed safety spec needs a mark and the banner; an unconfirmed value in prose needs `[Unverified value]`
+  (and, without a spec, its unit in a cited thread); `[Unverified value]` needs the banner.
+- Tests: 6 new (one found by the live export: a part note "12 quarts" published unmarked), 9 updated; the fail-closed
+  ones now run under `strict`. `pytest` 130 passed.
+- Result (`xw export && xw qa`, qa passes): withheld items 686 -> 276; 277 items published marked `[Partial]`; 9 safety
+  values published unconfirmed (marked); 0 withheld. Generated pages: procedure pages 31 -> 55, procedure lines 115 ->
+  241, procedures of 5+ steps 6 -> 12, spec lines 11 -> 62, part lines 52 -> 89, tips 109 -> 163 (these include the
+  value-only grounding change below). The sliders (21 steps) and PMF flush (11) guides now publish with their torque and
+  volume steps marked `[Unverified value]`. Still published as labelled: "Transmission pan bolt torque: 25 ft-lbs
+  [Unverified]", whose source bolt is the drain bolt (pan perimeter bolts take far less); a reviewer should reject or
+  a person correct it.
+- Remaining withheld (276): Claude reject 156, Claude needs_human 40, local unsupported 40, spec value not in source 30,
+  number not in source 6, copied text 3, safety value with a unit the source does not give 1.
+
+Value-only grounding for specs and parts (2026-10-16, decided by the user: "only the value needs to be correct",
+PR #9). `ground_fact` checked that a spec's or part's `evidence` was a verbatim quote containing the value; 39
+specs and 10 part numbers whose value (and unit) are in the source were dropped because the 9B left `evidence` empty or
+paraphrased it. `grounding.spec_value_grounded` now checks only the value: every number in the source, and the spec's
+unit the unit the source puts on that number; a part number must be in the source. Still refused: 29 "values" with no
+number in the source ("various", "Battery") and 1 with a unit the source does not give. `evidence_in_text`,
+`spec_evidenced`, `part_evidenced` removed. Tests: 2 new, 2 updated; `pytest` 124 passed. Result (`xw export && xw qa`,
+qa passes): withheld items 720 -> 686; 23 spec lines and 6 part numbers newly published (all locally `supported`,
+single-report values tagged `[Unverified]`); safety values held for corroboration 3 -> 7. Some new spec labels are
+loose (e.g. "Target 4WD gear ratio: 3.36", a ratio the author planned and then dropped): the label is the
+verifier's and reviewer's call, not grounding's.
+
 Codex review of PR #9 (2026-10-15, 2 findings, both fixed): (P1) `extract.apply_guide_steps` let a guide call that
 stopped early replace fragments holding more steps in total (it compared with the longest fragment only); it now needs
 at least as many steps as all the fragments together. (P2) `extract.reword_copied` compared numbers without their units

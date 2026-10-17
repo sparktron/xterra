@@ -22,9 +22,14 @@ The README's Verification section is the design statement; this file holds what 
 
 The local model is not trusted. Each item names the guarding test, or says none exists.
 
-- **Fail closed.** A claim publishes only if the verifier said `supported` (or a reviewer approved it).
-  `verify.require_local_pass` must stay true; a missing verifier run publishes nothing.
-  Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`.
+- **Nothing unconfirmed publishes unmarked.** A claim publishes if the verifier said `supported` or a reviewer approved it,
+  or (decided 2026-10-16, `verify.publish_partial`, default on) the verifier said `partial`: then it carries a visible
+  `[Partial]` mark ("needs more work", `export.PARTIAL`), the page says so, and the claim stays in the review/triage
+  queues so a later verify, review or source drops the mark. `unsupported`, `decoy_failed`, a missing verifier run and a
+  reviewer's `reject`/`needs_human` still publish nothing. `verify.require_local_pass` must stay true. Setting
+  `publish_partial` and `publish_unverified_safety` to false restores the fail-closed policy (`strict` in the tests).
+  Tests: `test_fails_closed_when_verifier_has_not_run`, `test_verifier_disagreement_withholds_claims_and_whole_procedures`,
+  `test_a_partial_claim_publishes_flagged_and_loses_the_flag_once_confirmed`, `test_publish_partial_off_restores_fail_closed`.
 - **`supported` needs every verifier pass to agree** (`verify.consensus_runs`, default 2; `verify.consensus`). Tests: `test_two_passes_must_agree_before_a_claim_is_supported`, `test_a_decoy_failure_in_either_pass_withholds_the_claim`. `tests/conftest.py` pins the other tests to one pass so their verifier call counts stay meaningful.
 - **A human answer outranks every model and persists.** `xw triage` stores `human` verdicts (`triage.decide`) and a content-keyed copy in
   `human_decisions` (thread + claim kind + normalised claim text); `triage.reapply_decisions` runs in verify, export and triage, so a
@@ -42,30 +47,43 @@ The local model is not trusted. Each item names the guarding test, or says none 
   `decoy_checks` records the rate (`xw status`). Tests: `test_verifier_that_accepts_decoys_is_discarded`,
   `test_decoys_are_false_by_construction_and_honest_verifier_passes`. Test fakes must reject claims whose numbers are
   not in the source, or every call is discarded.
-- **A procedure publishes only with every step supported.** One unsupported or withheld step, or an `unsupported` or
-  reviewer-`reject`ed `complete` claim (reject = a listed step is not in the source), withholds the whole procedure. If every step is
-  supported and the list only *may* leave something out (local verifier `partial`, or a reviewer's `needs_human` on `complete`),
-  it publishes marked `[Partial]` (`export.PARTIAL_NOTE`, `export.is_partial_completeness`), sorts after complete procedures, and loses
-  the mark on the next export once a verify or review upgrades the verdict.
+- **A procedure publishes only with every step publishable.** One unsupported or withheld step, or an `unsupported` or
+  reviewer-`reject`ed `complete` claim (reject = a listed step is not in the source), withholds the whole procedure. A step the
+  verifier only partly supports is shown with `[Partial]` before it; if any step is partial, or the list only *may* leave
+  something out (local verifier `partial`, or a reviewer's `needs_human` on `complete`), the procedure carries `export.PARTIAL_NOTE`,
+  sorts after complete procedures, and loses the mark on the next export once a verify or review upgrades the verdict.
   Tests: `test_partial_procedure_publishes_marked_partial_until_upgraded`,
   `test_unsupported_or_rejected_completeness_still_withholds_the_procedure`, `test_partial_never_rescues_an_unsupported_step`.
 - **Grounding means "appears in the source", not "is correct".** Numbers (in specs and in prose), part numbers,
-  DTCs and links must appear in the chunk; spec/part `evidence` must be a real quote (`grounding.evidence_in_text`);
-  a unit a spec gives must be the unit the quote puts on that number (`grounding.unit_grounded`).
+  DTCs and links must appear in the chunk, and a unit a spec gives must be the unit the chunk puts on that number
+  (`grounding.spec_value_grounded`, `unit_grounded`). Only the value needs to be correct (decided 2026-10-16): the
+  model's `evidence` quote is not a gate, it only helps the verifier and reviewer find the value
+  (`test_a_value_needs_to_be_in_the_source_not_the_models_quote`,
+  `test_a_value_with_a_paraphrased_or_missing_quote_publishes_and_a_wrong_value_does_not`).
   `ground_fact` returns lists index-aligned with the fact's lists; a new list field on `Fact` needs a matching
   entry. `export.load_rows` recomputes grounding from chunk text on every export (`facts.grounding_json` is not read),
   so a tightened rule applies to old facts. Tests: `tests/test_grounding.py`.
 - **Safety classification is deterministic.** `export.is_safety` (torque, capacities, pressure, preload) never
   relies on the model's `safety_critical` flag, which defaults to false.
   Test: `test_non_torque_safety_values_are_classified_deterministically`.
-- **Single-source safety values are withheld** (`verify.safety_min_threads: 2` threads with as many distinct
-  authors, a manufacturer source, or a reviewer's approval); disputed values are withheld.
-  Tests: `test_single_source_safety_value_is_withheld_until_reviewed`, `test_agreeing_threads_are_consensus_and_disputes_are_withheld`,
+- **An unconfirmed safety value publishes only marked, and keeps being re-checked.** Confirmed means
+  `verify.safety_min_threads` (2) threads with as many distinct authors, a manufacturer source, or a reviewer's approval.
+  Decided 2026-10-16 (`verify.publish_unverified_safety`, default on): an unconfirmed torque/capacity/pressure value
+  publishes with `[Unverified]` or `[Partial]` in its spec tag under `export.SAFETY_NOTE`, prose repeating it carries
+  `[Unverified value]`, `pending_verification.md` lists it, and the review queue keeps it at priority 0. With the setting
+  off it is withheld. Disputed safety values are always withheld. `qa` refuses an unconfirmed safety spec without a mark
+  and the banner, and an unconfirmed value repeated in prose without `[Unverified value]`.
+  Tests: `test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked`,
+  `test_a_partial_safety_value_publishes_marked_and_a_partial_never_beats_a_firmer_no`,
+  `test_single_source_safety_value_is_withheld_until_reviewed` (strict), `test_agreeing_threads_are_consensus_and_disputes_are_withheld`,
   `test_same_author_in_two_threads_is_not_consensus`.
-- **A safety value in prose needs a published spec.** A torque, capacity or pressure value (`grounding.safety_values`)
-  in a summary, step, tip, tool, part or DTC text publishes only if the same number and unit published as a spec on
-  that page (DTC table: never); `qa` enforces it. Test: `test_safety_values_in_prose_need_a_published_spec`.
-- **The review queue takes pending values from the exporter** (`export.pending_spec_keys`), so it counts
+- **A safety value in prose is backed by a spec or marked.** A torque, capacity or pressure value (`grounding.safety_values`)
+  in a summary, step, tip, tool or part text publishes if the same number and unit published as a spec on that page (marked
+  `[Unverified value]` when that spec is unconfirmed), or, with `publish_unverified_safety`, if the source puts that unit
+  on that number (`unit_grounded`); then it is marked `[Unverified value]` and queued at priority 0. The DTC table never
+  carries one. `qa` enforces it. Tests: `test_safety_values_in_prose_need_a_published_spec` (strict),
+  `test_a_safety_value_in_prose_without_a_spec_needs_its_unit_in_the_source_and_a_mark`, `test_a_part_note_with_an_unconfirmed_volume_is_marked`.
+- **The review queue takes pending and unconfirmed values from the exporter** (`export.pending_spec_keys`), so it counts
   corroboration exactly as the gate does. Test: `test_review_queue_counts_corroboration_like_the_exporter`.
 - **Near-duplicate merging never merges different numbers** (`export._similar`). Test: `test_dedupe_keeps_disagreeing_numbers_apart`.
 - **Everything published must have been verified.** `verify.claims_for_fact` must list every field the exporter
@@ -89,7 +107,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
   needs a published spec for a safety value. A Claude correction that changes a number waits for a person (`xw triage`).
   After a step is corrected, only a reviewer's `complete` verdict on the corrected list counts (`complete_lists`), never
   the local verifier's. Tests: `test_a_correction_with_an_unsourced_number_or_copied_text_is_never_used`,
-  `test_a_corrected_step_with_a_torque_value_still_needs_a_published_spec`,
+  `test_a_corrected_step_with_a_torque_value_is_marked_unconfirmed_or_needs_a_spec`,
   `test_a_complete_verdict_on_the_old_list_does_not_publish_a_corrected_procedure`,
   `test_a_claude_correction_that_changes_a_number_waits_for_a_person`,
   `test_correcting_a_value_metadata_tool_or_complete_claim_is_invalid_input`.

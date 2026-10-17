@@ -46,9 +46,12 @@ scope:
   years: [2005, 2016]
 
 verify:
-  require_local_pass: true      # fail closed: a claim is published only if the verifier pass said "supported" (or a reviewer approved it)
+  require_local_pass: true      # a claim is published only if the verifier said "supported" (or "partial", see below) or a reviewer approved it
+  publish_partial: true         # decided 2026-10-16: a "partial" verdict publishes the claim marked [Partial] ("needs more work"); it stays in
+                                # the review/triage queues and later runs upgrade or drop it. false = fail closed (partial withholds)
   safety_min_threads: 2         # torque/capacity-style values need this many agreeing threads (from as many distinct authors), a manufacturer source, or a reviewer's approval
-  publish_unverified_safety: false
+  publish_unverified_safety: true   # decided 2026-10-16: an unconfirmed torque/capacity/pressure value publishes marked [Unverified]/[Partial]
+                                    # under a warning banner and stays queued for corroboration. false = withhold it (pending_verification.md)
   verify_model: ""              # optional second local model for the verifier pass; empty = same model
   consensus_runs: 2             # verifier passes per claim (each shuffles the claims and plants its own decoys); "supported" needs every pass to agree. 1 = single pass
 

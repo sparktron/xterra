@@ -1,16 +1,22 @@
 """Merge verified facts from every source into wiki pages and reference files.
 
-Publish policy (fail closed; see README "Verification"):
+Publish policy (see README "Verification"; what is not confirmed is published only when marked):
   1. Evidence: numbers (with their units), part numbers, codes and links must be traceable to the source text
      (grounding.py). Grounding is recomputed from the chunk text on every export, so a stricter rule applies to
      facts extracted before it.
-  2. Local verifier: prose claims and metadata (years, trims, shared platform, difficulty, time) publish only when
-     the local verifier said "supported" (verify.require_local_pass). A procedure is published all-or-nothing: one
-     unverified step, or a failed completeness check, withholds the whole list, because a missing step is dangerous.
-  3. Safety-critical values (torque, brake/steering/suspension/driveline fasteners, fluid specs) additionally
-     need >= verify.safety_min_threads agreeing threads from as many distinct authors, a manufacturer source, or a
-     reviewer's approval. Otherwise they go to wiki/pending_verification.md and are NOT in the page body.
-     A torque, capacity or pressure value inside prose publishes only if the same value published as a spec.
+  2. Local verifier: prose claims and metadata (years, trims, shared platform, difficulty, time) publish when the
+     local verifier said "supported" (verify.require_local_pass) or, with verify.publish_partial (default on, decided
+     2026-10-16), "partial": then the claim carries a visible [Partial] mark ("needs more work") and stays in the
+     review/triage queues, so a later supported verdict, a review or another source drops the mark. "unsupported",
+     a decoy failure or a missing verifier run still publish nothing. A procedure is all-or-nothing in that sense: one
+     withheld step, or a failed completeness check, withholds the whole list.
+  3. Safety-critical values (torque, brake/steering/suspension/driveline fasteners, fluid specs) are confirmed by
+     >= verify.safety_min_threads agreeing threads from as many distinct authors, a manufacturer source, or a
+     reviewer's approval. With verify.publish_unverified_safety (default on, decided 2026-10-16) an unconfirmed one
+     publishes marked [Unverified] (or [Partial]) under a warning banner and stays queued for corroboration; with it
+     off it goes to wiki/pending_verification.md instead. Disputed safety values are always withheld. A torque,
+     capacity or pressure value inside prose publishes only if the same value published as a spec, and is marked
+     when that spec is.
   4. A reviewer's (Claude's or a human's) "reject"/"needs_human" always withholds; a human verdict overrides Claude's.
   5. Text copied verbatim from the source is withheld (the wiki must be reworded).
 Output is deterministic so git diffs stay small.
@@ -32,7 +38,7 @@ import yaml
 from . import corrections
 from .config import Config
 from .crawl import is_guide_chunk
-from .grounding import ground_fact, number_tokens, safety_values
+from .grounding import ground_fact, number_tokens, safety_values, unit_grounded
 from .schemas import Fact
 from .topics import Topic, TopicIndex
 from .verify import claims_for_fact
@@ -48,12 +54,18 @@ _TORQUE = re.compile(r"(ft[\s.\-·]*lbs?|lb[\s.\-·]*ft|in[\s.\-·]*lbs?|n[\s.\-
 class Policy:
     require_local_pass: bool = True
     safety_min_threads: int = 2
-    publish_unverified_safety: bool = False
+    publish_unverified_safety: bool = True
+    publish_partial: bool = True
 
     @classmethod
     def from_cfg(cls, cfg: Config) -> "Policy":
         v = cfg.verify
-        return cls(bool(v.require_local_pass), int(v.safety_min_threads), bool(v.publish_unverified_safety))
+        return cls(bool(v.require_local_pass), int(v.safety_min_threads), bool(v.get("publish_unverified_safety", True)),
+                   bool(v.get("publish_partial", True)))
+
+
+PARTIAL = "[Partial]"            # gate tag: published on the local verifier's `partial` (needs more work)
+UNVERIFIED_VALUE = "[Unverified value]"   # prose stating a safety value whose spec is not confirmed
 
 
 Verdicts = dict[str, dict[str, str]]  # claim_key -> {by: verdict}
@@ -75,6 +87,7 @@ class FactRow:
     verdicts: Verdicts = field(default_factory=dict)
     photos: int = 0   # `[image: ...]` markers in the fact's chunk when it is the author's guide (at most 10 per post kept)
     corrected: dict[str, str] = field(default_factory=dict)   # claim_key -> who reworded it (corrections.py)
+    text: str = ""   # the chunk the fact came from
 
     @property
     def sid(self) -> str:
@@ -98,7 +111,13 @@ def gate(row: FactRow, key: str, policy: Policy) -> tuple[bool, str, str]:
     local = v.get("local")
     if local == "supported":
         return True, "", ""
+    if local == "partial" and policy.publish_partial:
+        return True, PARTIAL, ""
     return False, "", f"local verifier: {local or 'not run'}"
+
+
+def _reviewed(tag: str) -> bool:
+    return bool(tag) and tag != PARTIAL
 
 
 def is_partial_completeness(row: FactRow) -> bool:
@@ -133,6 +152,21 @@ def _similar(a: str, b: str, threshold: float) -> bool:
     return sorted(number_tokens(a)) == sorted(number_tokens(b)) and SequenceMatcher(None, _norm(a), _norm(b)).ratio() >= threshold
 
 
+def _dedupe_marked(items: list[tuple[str, str, bool]]) -> list[tuple[str, list[str], bool]]:
+    """items: (text, sid, partial). Like `_dedupe`; a merged item is partial only if every report of it was."""
+    kept: list[tuple[str, list[str], list[bool]]] = []
+    for text, sid, part in items:
+        for k, sids, parts in kept:
+            if _similar(text, k, 0.88):
+                if sid not in sids:
+                    sids.append(sid)
+                parts.append(part)
+                break
+        else:
+            kept.append((text.strip(), [sid], [part]))
+    return [(t, sids, all(parts)) for t, sids, parts in kept]
+
+
 def _dedupe(items: list[tuple[str, str]]) -> list[tuple[str, list[str]]]:
     """items: (text, sid). Near-duplicate texts merge; returns (text, [sids])."""
     kept: list[tuple[str, list[str]]] = []
@@ -151,8 +185,14 @@ _SAFETY_UNITS = re.compile(r"(\b(qts?|quarts?|liters?|litres?|gal(lons?)?|pints?
 _SAFETY_ITEMS = re.compile(r"(torque|tighten|capacity|preload|backlash|end[\s-]?play|pressure|clearance|refill|fill)", re.I)
 
 
-PARTIAL_NOTE = ("> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the "
-                "whole procedure. Steps or precautions may be missing; read the source thread before relying on it.")
+PARTIAL_NOTE = ("> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked "
+                "[Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source "
+                "thread before relying on it. Later runs fill it in as more sources are found.")
+PAGE_PARTIAL_NOTE = ("> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in "
+                     "the review queue and are firmed up, corrected or removed as more sources come in.")
+SAFETY_NOTE = ("> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they "
+               "come from one source or are only partly supported. Verify against the factory service manual before use; "
+               "later runs re-check them against new sources.")
 
 
 def is_safety(value: str, unit: str, flag: bool, item: str = "") -> bool:
@@ -184,7 +224,7 @@ def load_rows(conn: sqlite3.Connection) -> list[FactRow]:
         # grounding is recomputed (not read from facts.grounding_json) so tightened rules reach older facts, and corrections
         rows.append(FactRow(r["id"], r["thread_id"], r["sid"], r["stype"], r["trust"], r["url"], r["title"], r["author"],
                             r["posted"], fact, ground_fact(fact, r["chunk_text"]), v,
-                            r["chunk_text"].count("[image:") if is_guide_chunk(r["chunk_text"]) else 0, done))
+                            r["chunk_text"].count("[image:") if is_guide_chunk(r["chunk_text"]) else 0, done, r["chunk_text"]))
     return rows
 
 
@@ -195,8 +235,10 @@ class Page:
     dropped: list[dict[str, str]] = field(default_factory=list)   # withheld items, with the reason
     pending: list[dict[str, str]] = field(default_factory=list)   # safety-critical values awaiting corroboration/review
     disputes: list[str] = field(default_factory=list)
-    single_source_safety: list[str] = field(default_factory=list)
+    single_source_safety: list[str] = field(default_factory=list)   # unconfirmed safety values published (marked)
+    unconfirmed: list[dict[str, Any]] = field(default_factory=list)  # the same, with their claim keys, for re-checking
     reviewed_items: int = 0
+    partial_items: int = 0
 
 
 def build_pages(rows: list[FactRow], topics: TopicIndex) -> dict[tuple[str, str], Page]:
@@ -233,13 +275,13 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
     rows = sorted(page.rows, key=lambda r: (-r.trust, r.id))
     drop = lambda r, kind, text, why: page.dropped.append({"kind": kind, "text": text[:160], "url": r.url, "why": why})  # noqa: E731
 
-    summaries: list[tuple[str, str]] = []
-    steps_by_row: list[tuple[FactRow, list[str]]] = []
-    partial_ids: set[int] = set()
-    symptoms: list[tuple[str, str]] = []
-    tips: list[tuple[str, str]] = []
-    mistakes: list[tuple[str, str]] = []
-    tools: list[tuple[str, str]] = []
+    summaries: list[tuple[str, str, bool]] = []      # (text, sid, published on a `partial` verdict)
+    steps_by_row: list[tuple[FactRow, list[str], list[bool]]] = []
+    partial_ids: set[int] = set()   # procedures with a [Partial] step or completeness
+    symptoms: list[tuple[str, str, bool]] = []
+    tips: list[tuple[str, str, bool]] = []
+    mistakes: list[tuple[str, str, bool]] = []
+    tools: list[tuple[str, str, bool]] = []
     parts: dict[str, dict[str, Any]] = {}
     specs: dict[str, dict[str, Any]] = {}
     diagrams: list[tuple[str, str]] = []
@@ -271,7 +313,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             slot = specs.setdefault(_norm(s.item), {"item": s.item, "values": {}, "safety": False})
             v = slot["values"].setdefault(_norm_value(s.value, s.unit), {
                 "display": f"{s.value} {s.unit}".strip(), "sids": [], "threads": set(), "authors": set(), "reviewed": "",
-                "manufacturer": False, "url": r.url, "rids": set(), "keys": []})
+                "manufacturer": False, "url": r.url, "rids": set(), "keys": [], "partial": True})
             if sid not in v["sids"]:
                 v["sids"].append(sid)
             v["threads"].add(r.thread_id)
@@ -279,7 +321,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 v["authors"].add(r.author.strip().lower())
             v["rids"].add(r.id)
             v["keys"].append((r.id, f"spec:{i}"))
-            v["reviewed"] = v["reviewed"] or tag
+            v["reviewed"] = v["reviewed"] or (tag if _reviewed(tag) else "")
+            v["partial"] = v["partial"] and tag == PARTIAL     # partial only if every report of the value is
             v["manufacturer"] = v["manufacturer"] or r.source_type == "manufacturer"
             slot["safety"] = slot["safety"] or is_safety(s.value, s.unit, s.safety_critical, s.item)
 
@@ -290,6 +333,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
     # specs: corroboration, disputes, and the safety-critical gate
     spec_lines: list[str] = []
     published: set[tuple[str, str]] = set()   # (number, unit) of every published spec value on this page
+    unconfirmed_values: set[tuple[str, str]] = set()   # ... of those, the safety values published unconfirmed
     for slot in sorted(specs.values(), key=lambda s: s["item"].lower()):
         vals = list(slot["values"].values())
         strict = slot["safety"] and not policy.publish_unverified_safety
@@ -297,7 +341,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             approved = [v for v in vals if v["reviewed"]]
             if len(approved) == 1:
                 vals = approved  # a reviewer settled the disagreement
-            elif strict:
+            elif slot["safety"]:   # a disputed safety value is withheld whatever publish_unverified_safety says
                 page.disputes.append(slot["item"])
                 page.pending.append({"item": slot["item"], "value": " vs ".join(v["display"] for v in vals),
                                      "why": "sources disagree", "url": vals[0]["url"], "keys": [k for v in vals for k in v["keys"]]})
@@ -326,30 +370,53 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             continue
         else:
             tag = "[Unverified] single report" if n == 1 else "[Unverified] not independently corroborated"
-            if slot["safety"]:
-                page.single_source_safety.append(f"{slot['item']}: {v['display']}")
+        if v["partial"]:
+            tag = f"{PARTIAL} {tag}"
+            page.partial_items += 1
+        confirmed = bool(v["reviewed"]) or v["manufacturer"] or (n_ind >= policy.safety_min_threads and not v["partial"])
+        if slot["safety"] and not confirmed:   # published marked; stays queued until a second source or a review
+            page.single_source_safety.append(f"{slot['item']}: {v['display']}")
+            page.unconfirmed.append({"item": slot["item"], "value": v["display"], "url": v["url"], "keys": v["keys"],
+                                     "why": f"published marked ({tag}); needs {policy.safety_min_threads} independent reports or a review"})
+            unconfirmed_values |= safety_values(v["display"])
         page.reviewed_items += bool(v["reviewed"])
         contrib |= v["rids"]
         published |= safety_values(v["display"])
         spec_lines.append(f"- **{slot['item']}**: {v['display']}{_fmt_src(v['sids'])} ({tag})")
 
-    def loose(text: str) -> str:
-        """Why `text` may not publish: it states a torque/capacity/pressure value that is not a published spec here."""
-        extra = sorted(safety_values(text) - published)
-        return ("safety-critical value not published as a corroborated spec: " + ", ".join(f"{n} {u}" for n, u in extra)) if extra else ""
+    def mark(text: str, partial: bool) -> str:
+        """[Partial] for a claim the verifier only partly supports; [Unverified value] for a safety value whose spec
+        on this page is not confirmed."""
+        unverified = bool(safety_values(text) & unconfirmed_values)
+        return (f"{PARTIAL} " if partial else "") + (f"{UNVERIFIED_VALUE} " if unverified else "") + text
+
+    def loose(text: str, source: str) -> str:
+        """Why `text` may not publish: it states a torque/capacity/pressure value that is not a published spec here.
+        With publish_unverified_safety such a value may still publish if the source puts that unit on that number: it
+        is then an unconfirmed value (marked [Unverified value] by `mark`, re-checked by the review queue)."""
+        extra = safety_values(text) - published
+        if not extra:
+            return ""
+        if policy.publish_unverified_safety:
+            if unit_grounded(text, "", source):
+                unconfirmed_values.update(extra)
+                return ""
+            return "safety-critical value the source does not state with that unit: " + ", ".join(f"{n} {u}" for n, u in sorted(extra))
+        return "safety-critical value not published as a corroborated spec: " + ", ".join(f"{n} {u}" for n, u in sorted(extra))
 
     for r, i, tag in part_rows:
         p = r.fact.parts[i]
-        why = loose(p.name)
+        why = loose(p.name, r.text)
         if why:
             drop(r, "part", f"{p.name} {p.part_number}", why)
             continue
-        page.reviewed_items += bool(tag)
+        page.reviewed_items += _reviewed(tag)
         contrib.add(r.id)
         key = _norm(p.part_number) or _norm(p.name)
-        slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": []})
-        if p.notes and loose(p.notes):
-            drop(r, "part note", p.notes, loose(p.notes))
+        slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": [], "partial": True})
+        slot["partial"] = slot["partial"] and tag == PARTIAL
+        if p.notes and loose(p.notes, r.text):
+            drop(r, "part note", p.notes, loose(p.notes, r.text))
         elif p.notes and p.notes not in slot["notes"]:
             slot["notes"].append(p.notes)
         if r.sid not in slot["sids"]:
@@ -364,7 +431,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         ok, tag, why = gate(r, key, policy)
         if not ok:
             return False, "", why
-        why = loose(text)
+        why = loose(text, r.text)
         return (False, "", why) if why else (True, tag, "")
 
     for r in rows:
@@ -374,30 +441,33 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         if f.summary:
             ok, tag, why = prose(r, "summary", f.summary, copied["summary"], nums["summary"])
             if ok:
-                page.reviewed_items += bool(tag)
-                summaries.append((f.summary, sid))
+                page.reviewed_items += _reviewed(tag)
+                summaries.append((f.summary, sid, tag == PARTIAL))
                 contrib.add(r.id)
             else:
                 drop(r, "summary", f.summary, why)
 
-        # procedure: every step must publish (one bad step withholds the whole procedure). If the verifier could only
-        # say the list may leave something out (`partial`), it still publishes, marked [Partial], until a later
-        # verify/review upgrades the verdict; `unsupported` or a reviewer's reject still withholds it.
+        # procedure: every step must publish (one withheld step withholds the whole procedure). A step or completeness
+        # claim the verifier only partly supports publishes marked [Partial] until a later verify/review upgrades it;
+        # `unsupported` or a reviewer's reject still withholds it.
         proc_ok = bool(f.steps)
+        step_partial: list[bool] = []
         for i, step in enumerate(f.steps):
             ok, tag, why = prose(r, f"step:{i}", step, copied["steps"][i], nums["steps"][i])
             if not ok:
                 proc_ok = False
                 drop(r, f"step {i + 1} (procedure withheld)", step, why)
-            page.reviewed_items += bool(tag and ok)
+            page.reviewed_items += bool(ok and _reviewed(tag))
+            step_partial.append(ok and tag == PARTIAL)
         if f.steps:
             ok, tag, why = gate(r, "complete", policy)
-            if not ok and proc_ok and is_partial_completeness(r):
-                partial_ids.add(r.id)
-            elif not ok:
+            partial_list = (ok and tag == PARTIAL) or (not ok and is_partial_completeness(r))
+            if not ok and not (proc_ok and partial_list):
                 proc_ok = False
                 drop(r, "completeness (procedure withheld)", "; ".join(f.steps), why)
-        steps_by_row.append((r, list(f.steps) if proc_ok else []))
+            if partial_list or any(step_partial):
+                partial_ids.add(r.id)
+        steps_by_row.append((r, list(f.steps) if proc_ok else [], step_partial))
         if proc_ok:
             contrib.add(r.id)
 
@@ -406,8 +476,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             for i, text in enumerate(lst):
                 ok, tag, why = prose(r, f"{key}:{i}", text, key != "tool" and copied[f"{key}s"][i], nums[f"{key}s"][i])
                 if ok:
-                    page.reviewed_items += bool(tag)
-                    dest.append((text, sid))
+                    page.reviewed_items += _reviewed(tag)
+                    dest.append((text, sid, tag == PARTIAL))
                     contrib.add(r.id)
                 else:
                     drop(r, key, text, why)
@@ -418,15 +488,28 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
                 drop(r, label, ", ".join(map(str, f.years + f.trims + f.engines + f.drivetrain)) if key == "applies"
                      else ", ".join(f.shared_platform), gate(r, key, policy)[2])
 
-    proc = [(r, s) for r, s in steps_by_row if s]
+    proc = [(r, s, sp) for r, s, sp in steps_by_row if s]
     proc.sort(key=lambda rs: (rs[0].id in partial_ids, -len(rs[1]), -rs[0].trust, rs[0].id))   # complete before partial
 
-    # metadata is published only from facts whose metadata claim the verifier supported
+    # metadata is published only from facts whose metadata claim passed the gate; a field fed by a `partial` verdict is
+    # listed in verification.partial_fields
     applies = [r for r in rows if gate(r, "applies", policy)[0]]
     platform = [r for r in rows if gate(r, "platform", policy)[0]]
     years = sorted({y for r in applies for y in r.fact.years if scope_years[0] <= y <= scope_years[1]})
     diffs = sorted(r.fact.difficulty for r in rows if r.fact.difficulty and gate(r, "difficulty", policy)[0])
     est = Counter(r.fact.est_time for r in rows if r.fact.est_time and gate(r, "time", policy)[0]).most_common(1)
+    partial_fields = sorted(name for name, key, used in (
+        ("applies_to", "applies", [r for r in applies if r.fact.years or r.fact.trims or r.fact.engines or r.fact.drivetrain]),
+        ("shared_platform", "platform", platform),
+        ("difficulty", "difficulty", [r for r in rows if r.fact.difficulty]),
+        ("est_time", "time", [r for r in rows if r.fact.est_time])) if any(gate(r, key, policy)[1] == PARTIAL for r in used))
+    # count what the page body prints marked [Partial] (deduplicated, as rendered)
+    lists = {name: _dedupe_marked(items) for name, items in (("summary", summaries), ("symptom", symptoms), ("tip", tips),
+                                                                ("mistake", mistakes), ("tool", tools))}
+    page.partial_items += sum(part for items in lists.values() for _, _, part in items)
+    page.partial_items += sum(1 for p in parts.values() if p["partial"])
+    if proc:
+        page.partial_items += sum(proc[0][2]) + (proc[0][0].id in partial_ids and not any(proc[0][2]))
     conf = confidence_for(page, [r for r in rows if r.id in contrib])
     fm = {
         "title": page.topic.title,
@@ -437,31 +520,35 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         "shared_platform": sorted({s for r in platform for s in r.fact.shared_platform}),
         "difficulty": diffs[len(diffs) // 2] if diffs else None,
         "est_time": est[0][0] if est else None,
-        "tools": [t for t, _ in _dedupe(tools)],
+        "tools": [t for t, _, _ in lists["tool"]],
         "parts": [{"name": p["name"], "oem_part_no": p["part_number"]} for p in sorted(parts.values(), key=lambda p: p["name"].lower())],
         "sources": sorted({r.sid for r in rows}, key=lambda s: int(s[1:])),
         "confidence": conf,
         "verification": {"local_pass_required": policy.require_local_pass, "reviewed_items": page.reviewed_items,
+                         "partial_items": page.partial_items, "partial_fields": partial_fields,
+                         "unconfirmed_safety_values": len(page.unconfirmed),
                          "withheld_items": len(page.dropped), "pending_safety_values": len(page.pending)},
     }
 
     out = [GENERATED, "---", yaml.safe_dump(fm, sort_keys=False, allow_unicode=True).strip(), "---", "", f"# {page.topic.title}", ""]
     if conf == "[Unverified]":
         out += ["> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.", ""]
-    if page.single_source_safety:
-        out += ["> **Safety-critical values below come from one source only.** Verify against the factory service manual before use.", ""]
+    if page.single_source_safety or unconfirmed_values:
+        out += [SAFETY_NOTE, ""]
+    if page.partial_items or partial_fields:
+        out += [PAGE_PARTIAL_NOTE, ""]
     if page.pending:
         out += ["> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.", ""]
     out += ["## Summary", ""]
     if summaries:
-        for text, sids in _dedupe(summaries):
-            out += [f"{text}{_fmt_src(sids)}", ""]
+        for text, sids, part in lists["summary"]:
+            out += [f"{mark(text, part)}{_fmt_src(sids)}", ""]
     else:
         out += ["_No verified summary yet._", ""]
     if symptoms:
-        out += ["## Symptoms / When you need this", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(symptoms)] + [""]
+        out += ["## Symptoms / When you need this", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["symptom"]] + [""]
     if proc:
-        r0, steps0 = proc[0]
+        r0, steps0, partial0 = proc[0]
         out += ["## Procedure", ""]
         if r0.id in partial_ids:
             out += [PARTIAL_NOTE, ""]
@@ -469,14 +556,16 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
         pics = f" Photos of this job are in the source: <{r0.url}>" if r0.photos else ""
         n = sum(k.startswith("step:") for k in r0.corrected)
         fixed = f"; {n} step{'s' if n != 1 else ''} reworded by a reviewer" if n else ""
-        out += [f"{i}. {s}" for i, s in enumerate(steps0, 1)] + ["", f"_Procedure reported by [{r0.sid}]{fixed}.{pics}_", ""]
-        for r, s in proc[1:]:
+        out += [f"{i}. {mark(s, pt)}" for i, (s, pt) in enumerate(zip(steps0, partial0), 1)] + \
+            ["", f"_Procedure reported by [{r0.sid}]{fixed}.{pics}_", ""]
+        for r, s, sp in proc[1:]:
             if _similar(" ".join(s), " ".join(steps0), 0.85):
                 continue  # same procedure in other words; one with different numbers is shown as an alternate
-            mark = " [Partial]" if r.id in partial_ids else ""
-            out += [f"<details><summary>Alternate procedure [{r.sid}]{mark}</summary>", ""] + [f"{i}. {x}" for i, x in enumerate(s, 1)] + ["", "</details>", ""]
+            alt = " [Partial]" if r.id in partial_ids else ""
+            out += [f"<details><summary>Alternate procedure [{r.sid}]{alt}</summary>", ""] + \
+                [f"{i}. {mark(x, pt)}" for i, (x, pt) in enumerate(zip(s, sp), 1)] + ["", "</details>", ""]
     if fm["tools"]:
-        out += ["## Tools", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(tools)] + [""]
+        out += ["## Tools", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tool"]] + [""]
     if parts:
         out += ["## Parts", ""]
         for p in sorted(parts.values(), key=lambda p: p["name"].lower()):
@@ -484,14 +573,14 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             note = f": {'; '.join(p['notes'])}" if p["notes"] else ""
             # qa.PART_LINE reads a trailing "(...)" as the part number, so a name's own parentheses must not survive
             name = re.sub(r"\s*\(([^)]*)\)", r", \1", p["name"]).replace("(", "").replace(")", "")
-            out.append(f"- {name}{pn}{note}{_fmt_src(p['sids'])}")
+            out.append(f"- {mark(f'{name}{pn}{note}', p['partial'])}{_fmt_src(p['sids'])}")
         out.append("")
     if spec_lines:
         out += ["## Specifications", ""] + spec_lines + [""]
     if tips:
-        out += ["## Tips & gotchas", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(tips)] + [""]
+        out += ["## Tips & gotchas", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tip"]] + [""]
     if mistakes:
-        out += ["## Common mistakes", ""] + [f"- {t}{_fmt_src(s)}" for t, s in _dedupe(mistakes)] + [""]
+        out += ["## Common mistakes", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["mistake"]] + [""]
     if diagrams:
         out += ["## Diagrams (links only)", ""] + [f"- {u} [{s}]" for u, s in sorted(set(diagrams))] + [""]
     out += ["## Source attributions", ""]
@@ -514,12 +603,13 @@ def _write(path: Path, text: str) -> None:
 
 
 def pending_spec_keys(rows: list[FactRow], topics: TopicIndex, policy: Policy, scope_years: tuple[int, int]) -> dict[tuple[int, str], str]:
-    """{(fact_id, "spec:i"): why} for every spec value the exporter is holding in pending_verification.md.
-    The review queue uses this so it counts corroboration exactly the way the gate does."""
+    """{(fact_id, "spec:i"): why} for every safety value the exporter holds back or publishes unconfirmed (marked).
+    The review queue uses this so it counts corroboration exactly the way the gate does, and keeps re-checking a
+    published [Unverified]/[Partial] value until a second source or a review confirms it."""
     out: dict[tuple[int, str], str] = {}
     for page in build_pages(rows, topics).values():
         render_page(page, scope_years, policy)
-        for p in page.pending:
+        for p in page.pending + page.unconfirmed:
             for key in p["keys"]:
                 out[key] = p["why"]
     return out
@@ -527,10 +617,13 @@ def pending_spec_keys(rows: list[FactRow], topics: TopicIndex, policy: Policy, s
 
 def _dtc_table(rows: list[FactRow], policy: Policy) -> list[list[str]]:
     by_code: dict[str, list[tuple[FactRow, Any]]] = defaultdict(list)
+    partial: dict[str, list[bool]] = defaultdict(list)
     for r in rows:
         for i, d in enumerate(r.fact.dtcs):
-            if r.grounding["dtcs"][i] and gate(r, f"dtc:{i}", policy)[0]:
+            ok, tag, _ = gate(r, f"dtc:{i}", policy)
+            if r.grounding["dtcs"][i] and ok:
                 by_code[d.code.strip().upper()].append((r, d))
+                partial[d.code.strip().upper()].append(tag == PARTIAL)
     ok = lambda t: not safety_values(t)  # noqa: E731  (no spec gate stands behind the table, so no torque/capacity values)
     table = []
     for code in sorted(by_code):
@@ -541,7 +634,8 @@ def _dtc_table(rows: list[FactRow], policy: Policy) -> list[list[str]]:
         fixes = [t for t, _ in _dedupe([(d.fix, "") for _, d in items if d.fix and ok(d.fix)])]
         table.append([code, desc[0][0] if desc else "", " | ".join(c for c, _ in causes.most_common(8)),
                       " | ".join(tests[:6]), " | ".join(fixes[:3]),
-                      ",".join(sorted({r.sid for r, _ in items}, key=lambda s: int(s[1:])))])
+                      ",".join(sorted({r.sid for r, _ in items}, key=lambda s: int(s[1:]))),
+                      "partial" if all(partial[code]) else ""])
     return table
 
 
@@ -563,6 +657,8 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     summary: dict[str, dict[str, Any]] = {}
     dropped: list[tuple[str, dict[str, str]]] = []
     pending: list[tuple[str, dict[str, str]]] = []
+    unconfirmed: list[tuple[str, dict[str, Any]]] = []
+    partial_items = 0
     disputes: list[tuple[str, str]] = []
     single: list[tuple[str, str]] = []
     for (cat, slug), page in sorted(pages.items()):
@@ -571,6 +667,8 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
         summary[f"{cat}/{slug}"] = {"title": page.topic.title, **meta}
         dropped += [(page.topic.title, d) for d in page.dropped]
         pending += [(page.topic.title, d) for d in page.pending]
+        unconfirmed += [(page.topic.title, d) for d in page.unconfirmed]
+        partial_items += page.partial_items
         disputes += [(page.topic.title, d) for d in page.disputes]
         single += [(page.topic.title, d) for d in page.single_source_safety]
 
@@ -589,7 +687,7 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     dtc = _dtc_table(rows, policy)
     with (wiki / "dtc_table.csv").open("w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
-        w.writerow(["code", "description", "likely_causes_ranked", "test_steps", "fix", "source_ids"])
+        w.writerow(["code", "description", "likely_causes_ranked", "test_steps", "fix", "source_ids", "status"])
         w.writerows(dtc)
 
     pd_lines = [GENERATED, "# Parts diagrams (links only)", "",
@@ -617,6 +715,8 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
         independent = min(n, len({r.author.strip().lower() for r in rs if r.author.strip()}))
         status = "confirmed" if any(r.source_type == "manufacturer" for r in rs) else ("community-consensus" if independent >= 2 else "unconfirmed")
         years = sorted({y for r in rs if gate(r, "applies", policy)[0] for y in r.fact.years})
+        if all(gate(r, "platform", policy)[1] == PARTIAL for r in rs):
+            status += " [Partial]"
         ic.append(f"| {title} | {', '.join(sorted({s for r in rs for s in r.fact.shared_platform}))} | "
                   f"{', '.join(str(y) for y in years) or 'n/a'} | {n} | {status} |")
     _write(wiki / "interchange.md", "\n".join(ic) + "\n")
@@ -636,12 +736,16 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
          "trust_score": r["trust"], "topics": sorted(topics_by_thread[r["id"]]), "status": r["status"]}
         for r in src_rows], indent=2) + "\n")
 
-    pv = [GENERATED, "# Pending verification (NOT published)", "",
-          "Safety-critical values that passed the evidence checks but are not yet corroborated. They stay out of the wiki "
-          f"until {policy.safety_min_threads}+ independent threads agree, a manufacturer source confirms them, or a reviewer approves them "
-          "(`xw review-export`, then the `wiki-reviewer` agent in Claude Code, then `xw review-apply`).", "",
-          "| Topic | Item | Value | Why pending | Source |", "|---|---|---|---|---|"]
+    pv = [GENERATED, "# Pending verification", "",
+          "Safety-critical values that passed the evidence checks but are not confirmed: confirmed means "
+          f"{policy.safety_min_threads}+ independent threads agree, a manufacturer source states it, or a reviewer approved it "
+          "(`xw review-export`, then the `wiki-reviewer` agent in Claude Code, then `xw review-apply`). Every value below stays "
+          "in the review queue and is re-checked on each run.", "",
+          "## Withheld (NOT published)", "", "| Topic | Item | Value | Why pending | Source |", "|---|---|---|---|---|"]
     pv += [f"| {t} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for t, d in pending] or ["| _none_ | | | | |"]
+    pv += ["", "## Published marked [Unverified] or [Partial] (possibly wrong; check the source before use)", "",
+           "| Topic | Item | Value | Status | Source |", "|---|---|---|---|---|"]
+    pv += [f"| {t} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for t, d in unconfirmed] or ["| _none_ | | | | |"]
     _write(wiki / "pending_verification.md", "\n".join(pv) + "\n")
 
     oq = [GENERATED, "# Open questions and gaps", ""]
@@ -660,4 +764,4 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     _write(wiki / "open_questions.md", "\n".join(oq) + "\n")
 
     return {"pages": len(pages), "facts": len(rows), "dtc_codes": len(dtc), "dropped": len(dropped), "pending": len(pending),
-            "disputes": len(disputes), "missing_topics": len(missing)}
+            "unconfirmed": len(unconfirmed), "partial": partial_items, "disputes": len(disputes), "missing_topics": len(missing)}

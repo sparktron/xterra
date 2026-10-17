@@ -30,6 +30,7 @@ from . import corrections
 from .config import Config
 from .db import now
 from .export import Policy, is_safety, load_rows, pending_spec_keys
+from .grounding import safety_values
 from .topics import TopicIndex
 from .verify import DECOY_FAILED, claims_for_fact
 
@@ -153,6 +154,8 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
                 why, prio = "local verifier answered partial", 1
             if prio is None and local == DECOY_FAILED:
                 why, prio = "local verifier could not be trusted on this call (it accepted a planted false claim)", 1
+            if prio is None and kind in _PROSE and policy.publish_unverified_safety and safety_values(claim):
+                why, prio = "states a torque/capacity/pressure value that no reviewer has confirmed (published marked if unconfirmed)", 0
             if prio is None and key == "complete" and any(k.startswith("step:") for k in r.corrected):
                 why, prio = "a reviewer reworded steps of this procedure: judge the corrected list", 1
             if prio is None and not triage and local == "supported" and _audit_pick(r.id, key, float(cfg.review.audit_rate)):
