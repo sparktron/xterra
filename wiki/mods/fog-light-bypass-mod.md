@@ -20,7 +20,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 4
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -28,9 +31,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Route a 5' cable from the turn signal/fog light stalk through the grommet into the IPDM. [t8]
 
 ## Parts
 
@@ -38,6 +43,7 @@ _No verified summary yet._
 
 ## Tips & gotchas
 
+- [Partial] Route a 5' cable from the turn signal/fog light stalk through the grommet into the IPDM. [t8]
 - Solder one end of the wire to the fog light relay and the other to an extension on the stalk. [t8]
 
 ## Diagrams (links only)

@@ -3,17 +3,18 @@
 title: Electrical faults, grounds and battery drain
 category: mods
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  trims:
+  - SE
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Zip ties
+tools: []
 parts:
-- name: 7-Pin Wiring Harness
+- name: 7-Pin Tow Wiring Harness Kit
   oem_part_no: ''
 sources:
 - t6
@@ -21,7 +22,11 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 9
+  partial_items: 8
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,22 +34,63 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Ensure vehicle is off with key removed and disconnect negative battery terminal. [t6]
 
-## Tools
+[Partial] Locate an existing plug, zip tie in a kit sub-harness, wrap foam tape around selected relays, and secure them. [t6]
 
-- Zip ties [t6]
+[Partial] Remove a protective plug from an existing harness, identify two dummy plugs, then plug in the kit-supplied harness. [t6]
+
+[Partial] Route harness and mount 7-pin receptacle for trailer connection. [t6]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Ensure the vehicle is off with the key removed from the ignition.
+2. [Partial] Disconnect the negative battery terminal for extra safety.
+
+_Procedure reported by [t6]._
+
+<details><summary>Alternate procedure [t6] [Partial]</summary>
+
+1. Locate the existing plug/harness behind the passenger side kick panel.
+2. Plug in the kit's sub-harness into this location and zip tie it securely to the existing wiring.
+
+</details>
+
+<details><summary>Alternate procedure [t6] [Partial]</summary>
+
+1. Remove the protective plug from an existing harness attached to the inner frame rail behind the driver's side rear tire.
+2. Identify and remove two dummy plugs of different sizes (Murphy-proofing).
+
+</details>
+
+<details><summary>Alternate procedure [t6] [Partial]</summary>
+
+1. [Partial] Route the harness to the desired location for the trailer receptacle.
+2. [Partial] Mount the 7-pin receptacle at that chosen spot.
+
+</details>
 
 ## Parts
 
-- 7-Pin Wiring Harness: Dealer kit with directions and pictures; approx $55. [t6]
+- 7-Pin Tow Wiring Harness Kit: Includes sub-harness and color-coded relays [t6]
+
+## Tips & gotchas
+
+- [Partial] Select the correct relay configuration based on transmission type: use two of three included relays for automatic transmissions, or all three for manual transmissions. [t6]
+- Wrap foam tape around the selected relays before securing them inside the fuse box area. [t6]
+- Zip-tie the wrapped relays to a convenient spot within the interior paneling. [t6]
+- Plug the kit-supplied harness into these two specific locations. [t6]
+- [Partial] For off-road use, mount the plug on the bottom lip of the rear bumper to prevent rocks from tearing it off (alternative to drilling a hole). [t6]
 
 ## Diagrams (links only)
 
-- http://inlinethumb02.webshots.com/16769/2779462910102027759S500x500Q85.jpg [t6]
-- http://inlinethumb44.webshots.com/19755/2991208570102027759S500x500Q85.jpg [t6]
+- http://www.courtesyparts.com/Mercha...n=PROD&Store_Code=CP&Product_Code=999T8-N5005 [t6]
 
 ## Source attributions
 

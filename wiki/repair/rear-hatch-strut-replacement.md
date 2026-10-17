@@ -3,16 +3,22 @@
 title: Rear Hatch Strut Replacement
 category: repair
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
 tools:
-- Tall ladder
+- Tall Ladder
+- Vice
+- Jack
 parts:
+- name: 10mm Ball Socket, M8 Thread
+  oem_part_no: ''
 - name: 'Gas Spring with Threaded Ends (Part #9416K147)'
   oem_part_no: ''
 sources:
@@ -20,8 +26,12 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 2
-  withheld_items: 10
+  reviewed_items: 4
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -29,25 +39,48 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+Support the raised hatch, remove both existing struts, attach new ball sockets to each gas spring strut, and install them. [t9]
+
+[Partial] Raise the rear hatch and insert a jack stand under the hinge area. [t9]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Open the rear hatch.
+2. Support the raised hatch with a tall ladder to hold its weight when struts are removed.
+3. Remove both existing strut assemblies from the vehicle.
+4. Attach new ball sockets to one end of each new gas spring strut.
+5. Mount the end of the new strut that carries the old socket and spring onto the ball on the hatch.
+6. At the other end, press the new ball socket onto its ball, slide the retaining clip into the socket and turn the clip to its locked position.
+7. Repeat this entire process for the opposite side.
+
+_Procedure reported by [t9]; 2 steps reworded by a reviewer. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-rear-hatch-strut-replacement-pbr.51485/>_
 
 ## Tools
 
-- Tall ladder [t9]
+- Tall Ladder [t9]
+- Vice [t9]
+- [Partial] Jack [t9]
 
 ## Parts
 
-- Gas Spring with Threaded Ends, Part #9416K147: 175 lbs force, 18.18" extended length, x2 [t9]
+- [Partial] 10mm Ball Socket, M8 Thread [t9]
+- Gas Spring with Threaded Ends, Part #9416K147 [t9]
+
+## Specifications
+
+- **Strut Force (New Replacement)**: 175 lbs [t9] ([Unverified] single report)
+- **Strut Force (OEM)**: 145 lbs [t9] ([Unverified] single report)
 
 ## Tips & gotchas
 
-- Reuse the original retaining clip and socket from the old struts where possible. [t9]
-
-## Common mistakes
-
-- Forgetting that both sides must be removed at once for better hatch clearance. [t9]
+- Reuse the clip and socket from the old struts if possible. [t9]
+- Use a vice to hold the old strut while unscrewing it. [t9]
 
 ## Diagrams (links only)
 

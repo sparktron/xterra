@@ -11,14 +11,21 @@ shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Metal Section of Rear Bypass Hose
+  oem_part_no: 14053-EA200
+- name: Rear Bypass Coolant Hose
+  oem_part_no: 14055-EA200
 sources:
 - t5
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -26,9 +33,24 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Identify the rear bypass coolant hose by its part number, noting it as a two-piece design. [t5]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Identify the rear bypass coolant hose by its part number.
+
+_Procedure reported by [t5]._
+
+## Parts
+
+- Metal Section of Rear Bypass Hose (14053-EA200) [t5]
+- [Partial] Rear Bypass Coolant Hose (14055-EA200) [t5]
 
 ## Tips & gotchas
 

@@ -157,6 +157,9 @@ def cmd_review_apply(args: argparse.Namespace) -> int:
     print(f"applied {stats['applied']} verdict(s); {stats['invalid']} invalid entr{'y' if stats['invalid'] == 1 else 'ies'} ignored")
     if stats["stale"]:
         print(f"skipped {stats['stale']} verdict(s) whose claim text has changed since it was reviewed (they will be queued again)")
+    if stats["corrected"] or stats["pending"] or stats["refused"]:
+        print(f"corrections: {stats['corrected']} accepted, {stats['pending']} waiting for a person in `xw triage` (they change a "
+              f"number), {stats['refused']} refused (a number not in the source, or copied text)")
     if rate is None:
         print("no audited claims yet, so the local verifier's reliability is not measured")
     else:
@@ -204,7 +207,8 @@ def cmd_export(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
     result = export_all(cfg, conn, TopicIndex(cfg.topics))
     print(f"exported {result['pages']} page(s) from {result['facts']} fact(s); {result['dtc_codes']} DTC row(s); "
-          f"{result['dropped']} item(s) withheld; {result['pending']} safety value(s) pending verification; "
+          f"{result['dropped']} item(s) withheld; {result['partial']} item(s) published marked [Partial]; "
+          f"{result['unconfirmed']} safety value(s) published unconfirmed (marked); {result['pending']} safety value(s) withheld; "
           f"{result['disputes']} dispute(s); {result['missing_topics']} topic(s) uncovered")
     return 0
 

@@ -11,7 +11,8 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: about 20 minutes
-tools: []
+tools:
+- 5.5 mm wrench
 parts:
 - name: Mode Door Actuator
   oem_part_no: ''
@@ -21,7 +22,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 1
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -29,9 +33,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 _No verified summary yet._
+
+## Tools
+
+- [Partial] 5.5 mm wrench [t42]
 
 ## Parts
 

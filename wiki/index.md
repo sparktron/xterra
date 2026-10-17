@@ -12,32 +12,29 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [[diagnostics] Fuse and relay maps](diagnostics/diagnostics-fuse-and-relay-maps.md) | [Unverified] | 1 |
 | [Air-Cooled ATF Cooler Performance Limits](diagnostics/air-cooled-atf-cooler-performance-limits.md) | [Unverified] | 1 |
 | [Airbag Reset Procedure](diagnostics/airbag-reset-procedure.md) | [Unverified] | 1 |
-| [Alternator Bearing Failure Symptoms](diagnostics/alternator-bearing-failure-symptoms.md) | [Unverified] | 1 |
+| [Alternator failure symptoms](diagnostics/alternator-failure-symptoms.md) | [Unverified] | 1 |
 | [ATF Temperature Behavior During Warm-up](diagnostics/atf-temperature-behavior-during-warm-up.md) | [Unverified] | 1 |
-| [Diagnostics](diagnostics/diagnostics.md) | [Unverified] | 1 |
 | [Diagnostics Engine code P1615 for Park sensor issues](diagnostics/diagnostics-engine-code-p1615-for-park-sensor-issues.md) | [Unverified] | 1 |
 | [Diagnostics Evap canister location and fix](diagnostics/diagnostics-evap-canister-location-and-fix.md) | [Unverified] | 1 |
 | [Diagnostics Evaporative emissions code P1446](diagnostics/diagnostics-evaporative-emissions-code-p1446.md) | [Unverified] | 1 |
 | [Diagnostics Mystery code P1283 troubleshooting](diagnostics/diagnostics-mystery-code-p1283-troubleshooting.md) | [Unverified] | 1 |
 | Door, window and lock electrical faults | not-started | 0 |
 | Driveline and wheel bearing noises | not-started | 0 |
-| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | community-consensus | 3 |
-| [Eliminating Over-Sensitive ABS Pulsing](diagnostics/eliminating-over-sensitive-abs-pulsing.md) | [Unverified] | 1 |
+| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | community-consensus | 4 |
 | [Engine and Auto Trans Cooling Observations](diagnostics/engine-and-auto-trans-cooling-observations.md) | [Unverified] | 1 |
 | Engine noise diagnosis | not-started | 0 |
 | [Engine trouble codes (VQ40DE)](diagnostics/dtc-reference-vq40de.md) | community-consensus | 2 |
 | EVAP system faults | not-started | 0 |
-| [Exhaust drone and noise reduction](diagnostics/exhaust-drone-and-noise-reduction.md) | [Unverified] | 1 |
 | Frame and leaf spring bracket rust | not-started | 0 |
 | Fuse and relay maps | not-started | 0 |
-| Heater core and A/C problems | not-started | 0 |
+| [Heater core and A/C problems](diagnostics/heater-core-ac.md) | [Unverified] | 1 |
 | [Hood squeak sound characteristics](diagnostics/hood-squeak-sound-characteristics.md) | [Unverified] | 1 |
 | [Managing Trans Heat Under High Load](diagnostics/managing-trans-heat-under-high-load.md) | [Unverified] | 1 |
 | [SMOD radiator transmission cooler failure](diagnostics/smod.md) | community-consensus | 3 |
 | Timing chain and guide wear | not-started | 0 |
 | Torque converter shudder | not-started | 0 |
 | Transmission and transfer case problems | not-started | 0 |
-| [VVT and cam solenoid issues](diagnostics/vvt-cam-solenoid.md) | [Unverified] | 1 |
+| [VVT and cam solenoid issues](diagnostics/vvt-cam-solenoid.md) | community-consensus | 2 |
 
 ## Maintenance
 
@@ -64,88 +61,72 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 
 | Topic | Status | Threads |
 |---|---|---|
-| [Alternator Rebuild Procedure](repair/alternator-rebuild-procedure.md) | [Unverified] | 1 |
+| [Alternator bearing replacement](repair/alternator-bearing-replacement.md) | [Unverified] | 1 |
+| [Alternator rebuild and bearing service](repair/alternator-rebuild-and-bearing-service.md) | [Unverified] | 1 |
 | Ball joints and tie rods | not-started | 0 |
+| [Blower motor removal and inspection](repair/blower-motor-removal-and-inspection.md) | [Unverified] | 1 |
 | [Bug deflector tab rubbing fix](repair/bug-deflector-tab-rubbing-fix.md) | [Unverified] | 1 |
 | Clutch and transmission replacement | not-started | 0 |
-| [Connecting mechanical transfer case shifter to cabin](repair/connecting-mechanical-transfer-case-shifter-to-cabin.md) | [Unverified] | 1 |
 | Control arms and bushings | not-started | 0 |
 | CV axles and U-joints | not-started | 0 |
 | Differential rebuild and re-gearing | not-started | 0 |
 | Fuel pump and sending unit | not-started | 0 |
 | [Hood bump stop replacement and adjustment](repair/hood-bump-stop-replacement-and-adjustment.md) | [Unverified] | 1 |
 | [Hood latch squeak fix](repair/hood-latch-squeak-fix.md) | [Unverified] | 1 |
-| [Installing transfer case while transmission is mounted](repair/installing-transfer-case-while-transmission-is-mounted.md) | [Unverified] | 1 |
 | Leaf spring and shackle repair | not-started | 0 |
 | [Master Power Window Switch Repair](repair/master-power-window-switch-repair.md) | [Unverified] | 1 |
 | [Mode door actuator replacement](repair/mode-door-actuator-replacement.md) | [Unverified] | 1 |
 | [Neutral Position Sensor replacement for manual transmission](repair/neutral-position-sensor-replacement-for-manual-transmission.md) | [Unverified] | 1 |
 | Radiator replacement and SMOD fix | not-started | 0 |
 | [Rear Hatch Strut Replacement](repair/rear-hatch-strut-replacement.md) | [Unverified] | 1 |
-| [Repair](repair/repair.md) | [Unverified] | 1 |
 | Sensor replacement (cam, crank, O2, MAF) | not-started | 0 |
 | Shocks, springs and bump stops | not-started | 0 |
 | Starter and alternator | not-started | 0 |
 | Sway bar links and bushings | not-started | 0 |
 | Timing chain and guide replacement | not-started | 0 |
 | [Timing chain guide job complications](repair/timing-chain-guide-job-complications.md) | [Unverified] | 1 |
-| [Transmission work for 2WD to 4WD conversion](repair/transmission-work-for-2wd-to-4wd-conversion.md) | [Unverified] | 1 |
+| [Transmission and transfer case problems](repair/transmission-and-transfer-case-problems.md) | [Unverified] | 1 |
+| [VIAS rattle fix with screw method](repair/vias-rattle-fix-with-screw-method.md) | [Unverified] | 1 |
+| [VIAS Valve Rattle Fix](repair/vias-valve-rattle-fix.md) | [Unverified] | 1 |
 | Water pump and thermostat | not-started | 0 |
 
 ## Modifications & Off-Road Builds
 
 | Topic | Status | Threads |
 |---|---|---|
-| [5-Pin Relay Wiring Configuration](mods/5-pin-relay-wiring-configuration.md) | [Unverified] | 1 |
-| [ABS Deactivation Switch Installation](mods/abs-deactivation-switch-installation.md) | [Unverified] | 1 |
-| [ABS Ground Wire Switching Procedure](mods/abs-ground-wire-switching-procedure.md) | [Unverified] | 1 |
+| [ABS system disable switch](mods/abs-system-disable-switch.md) | [Unverified] | 1 |
 | [Bumpers, sliders and skid plates](mods/bumpers-armor.md) | [Unverified] | 1 |
 | [Cooling upgrades](mods/cooling-upgrades.md) | [Unverified] | 1 |
-| [Creating Plastic Junction Box Connections](mods/creating-plastic-junction-box-connections.md) | [Unverified] | 1 |
-| [Crimping Ring Connectors for Vibration Resistance](mods/crimping-ring-connectors-for-vibration-resistance.md) | [Unverified] | 1 |
-| [Draining Water from Horizontal Lights](mods/draining-water-from-horizontal-lights.md) | [Unverified] | 1 |
+| [Diagnostics: ABS Off Version 3 Switch Mod](mods/diagnostics-abs-off-version-3-switch-mod.md) | [Unverified] | 1 |
 | [Electrical faults, grounds and battery drain](mods/electrical-faults-grounds-and-battery-drain.md) | [Unverified] | 1 |
-| [Exhaust system upgrades and mufflers](mods/exhaust-system-upgrades-and-mufflers.md) | [Unverified] | 1 |
 | [Exterior DC port and switch installation](mods/exterior-dc-port-and-switch-installation.md) | [Unverified] | 1 |
-| [Finishing Interior Wire Connections](mods/finishing-interior-wire-connections.md) | [Unverified] | 1 |
 | [Fog Light Bypass Mod](mods/fog-light-bypass-mod.md) | [Unverified] | 1 |
-| [Headliner Console Switch Installation](mods/headliner-console-switch-installation.md) | [Unverified] | 1 |
-| [Installing Roof Seal-Tight Connector](mods/installing-roof-seal-tight-connector.md) | [Unverified] | 1 |
-| [Intake, exhaust, tune and forced induction](mods/performance-mods.md) | [Unverified] | 1 |
+| [Grounding system using a 19-inch negative battery cable](mods/grounding-system-using-a-19-inch-negative-battery-cable.md) | [Unverified] | 1 |
+| [Intake, exhaust, tune and forced induction](mods/performance-mods.md) | community-consensus | 2 |
 | [Interior drawer and kitchen system buildout](mods/interior-drawer-and-kitchen-system-buildout.md) | [Unverified] | 1 |
-| [License plate lighting upgrades](mods/license-plate-lighting-upgrades.md) | [Unverified] | 1 |
+| [License plate light housing replacement](mods/license-plate-light-housing-replacement.md) | [Unverified] | 1 |
 | Lift kits and suspension lifts | not-started | 0 |
 | [Lighting and Auxiliary Power Wiring](mods/lighting-and-auxiliary-power-wiring.md) | [Unverified] | 1 |
-| [Lighting and Fuse Block Installation](mods/lighting-and-fuse-block-installation.md) | [Unverified] | 1 |
+| [Lighting and Electrical Upgrades](mods/lighting-and-electrical-upgrades.md) | [Unverified] | 1 |
 | [Lighting and Wiring Modifications](mods/lighting-and-wiring-modifications.md) | [Unverified] | 1 |
-| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | [Unverified] | 1 |
+| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | community-consensus | 2 |
 | [Lithium battery upgrade and cold weather setup](mods/lithium-battery-upgrade-and-cold-weather-setup.md) | [Unverified] | 1 |
 | Lockers and traction control | not-started | 0 |
-| [Modifying Hella 500 Light Wiring](mods/modifying-hella-500-light-wiring.md) | [Unverified] | 1 |
-| [Power Distribution Block Mounting](mods/power-distribution-block-mounting.md) | [Unverified] | 1 |
-| [Protecting Wires Behind Glove Box](mods/protecting-wires-behind-glove-box.md) | [Unverified] | 1 |
+| [Power distribution block mounting with aluminum rivets](mods/power-distribution-block-mounting-with-aluminum-rivets.md) | [Unverified] | 1 |
 | Re-gearing ratios by tire size | not-started | 0 |
-| [Rear axle swap for E-Locker and gear ratio change](mods/rear-axle-swap-for-e-locker-and-gear-ratio-change.md) | [Unverified] | 1 |
 | [Rear wiper blade upgrade](mods/rear-wiper-blade-upgrade.md) | [Unverified] | 1 |
-| [Relay Mounting in Engine Bay](mods/relay-mounting-in-engine-bay.md) | [Unverified] | 1 |
-| [Relay Selection and Wiring Strategy](mods/relay-selection-and-wiring-strategy.md) | [Unverified] | 1 |
+| [Relay mounting using existing sheet metal screw holes](mods/relay-mounting-using-existing-sheet-metal-screw-holes.md) | [Unverified] | 1 |
 | [Roof racks and crossbars](mods/roof-racks-and-crossbars.md) | [Unverified] | 1 |
+| [Roof racks and storage systems](mods/roof-racks-and-storage-systems.md) | [Unverified] | 1 |
 | Roof racks, snorkels and storage | not-started | 0 |
-| [Routing Interior Wire Harnesses](mods/routing-interior-wire-harnesses.md) | [Unverified] | 1 |
-| [Routing Wires Through A-Pillar to Dash](mods/routing-wires-through-a-pillar-to-dash.md) | [Unverified] | 1 |
-| [Sealing Roof Wire Penetrations](mods/sealing-roof-wire-penetrations.md) | [Unverified] | 1 |
 | [Secondary transmission cooler bypass setup](mods/secondary-transmission-cooler-bypass-setup.md) | [Unverified] | 1 |
-| [Securing Roof Connector and Preventing Rust](mods/securing-roof-connector-and-preventing-rust.md) | [Unverified] | 1 |
-| [Securing Wires in Wet Box Junctions](mods/securing-wires-in-wet-box-junctions.md) | [Unverified] | 1 |
-| [Selecting Slim Roof Rack Lights](mods/selecting-slim-roof-rack-lights.md) | [Unverified] | 1 |
-| [Soldering and Waterproofing Light Bulbs](mods/soldering-and-waterproofing-light-bulbs.md) | [Unverified] | 1 |
 | Tires, wheels and fitment | not-started | 0 |
-| [Titan axle, differential and brake swaps](mods/titan-axle-swap.md) | [Unverified] | 1 |
+| Titan axle, differential and brake swaps | not-started | 0 |
 | Titan VK56 engine swap | not-started | 0 |
-| Trim guide (X, S, SE, Off-Road, PRO-4X) | not-started | 0 |
-| [VIAS Valve Rattle Fix](mods/vias-valve-rattle-fix.md) | [Unverified] | 1 |
+| [Transfer case conversion and shifting](mods/transfer-case-conversion-and-shifting.md) | [Unverified] | 1 |
+| [Trim guide (X, S, SE, Off-Road, PRO-4X)](mods/trim-guide.md) | [Unverified] | 1 |
 | Winches and recovery gear | not-started | 0 |
-| [Wiring Through Firewall Grommet](mods/wiring-through-firewall-grommet.md) | [Unverified] | 1 |
+| [Wiring harness installation via firewall grommet](mods/wiring-harness-installation-via-firewall-grommet.md) | [Unverified] | 1 |
 
 ## Reference Data
 
@@ -160,6 +141,7 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [[reference] Calsonic radiator part numbers for SMOD](reference/reference-calsonic-radiator-part-numbers-for-smod.md) | [Unverified] | 1 |
 | [[reference] Driveshaft flange torque specs](reference/reference-driveshaft-flange-torque-specs.md) | [Unverified] | 1 |
 | [[reference] Electrical amperage and wire gauge specs](reference/reference-electrical-amperage-and-wire-gauge-specs.md) | [Unverified] | 1 |
+| [[reference] Electrical system wiring and fuse sizing](reference/reference-electrical-system-wiring-and-fuse-sizing.md) | [Unverified] | 1 |
 | [[reference] Engine intake manifold bolt sequence and torque](reference/reference-engine-intake-manifold-bolt-sequence-and-torque.md) | [Unverified] | 1 |
 | [[reference] External cooler impact on torque converter lock-up](reference/reference-external-cooler-impact-on-torque-converter-lock-up.md) | [Unverified] | 1 |
 | [[reference] Factory label identification for faded radiators](reference/reference-factory-label-identification-for-faded-radiators.md) | [Unverified] | 1 |
@@ -168,47 +150,41 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 | [[reference] Front differential torque specs (R180)](reference/reference-front-differential-torque-specs-r180.md) | [Unverified] | 1 |
 | [[reference] Front suspension torque specs](reference/reference-front-suspension-torque-specs.md) | [Unverified] | 1 |
 | [[reference] General maintenance fluid plug torques](reference/reference-general-maintenance-fluid-plug-torques.md) | [Unverified] | 1 |
-| [[reference] Lighting bulb resistance and current draw specs](reference/reference-lighting-bulb-resistance-and-current-draw-specs.md) | [Unverified] | 1 |
-| [[reference] Lighting circuit configurations and symbols](reference/reference-lighting-circuit-configurations-and-symbols.md) | [Unverified] | 1 |
-| [[reference] Lighting electrical load and wire sizing](reference/reference-lighting-electrical-load-and-wire-sizing.md) | [Unverified] | 1 |
-| [[reference] Lighting fuse and wire gauge selection](reference/reference-lighting-fuse-and-wire-gauge-selection.md) | [Unverified] | 1 |
-| [[reference] Lighting ground connection methods](reference/reference-lighting-ground-connection-methods.md) | [Unverified] | 1 |
-| [[reference] Lighting wire gauge equivalents for parallel runs](reference/reference-lighting-wire-gauge-equivalents-for-parallel-runs.md) | [Unverified] | 1 |
 | [[reference] Nissan Value Advantage vs Calsonic radiators](reference/reference-nissan-value-advantage-vs-calsonic-radiators.md) | [Unverified] | 1 |
+| [[reference] Part selection for climate control vs numbered fan settings](reference/reference-part-selection-for-climate-control-vs-numbered-fan.md) | [Unverified] | 1 |
 | [[reference] Parts diagrams](reference/reference-parts-diagrams.md) | community-consensus | 2 |
 | [[reference] Radiator part number date codes and formats](reference/reference-radiator-part-number-date-codes-and-formats.md) | [Unverified] | 1 |
 | [[reference] Rear differential torque specs (M225/M226)](reference/reference-rear-differential-torque-specs-m225-m226.md) | [Unverified] | 1 |
 | [[reference] Specific Calsonic radiator model number formats](reference/reference-specific-calsonic-radiator-model-number-formats.md) | [Unverified] | 1 |
+| [[reference] Torque specifications for blower motor resistor](reference/reference-torque-specifications-for-blower-motor-resistor.md) | [Unverified] | 1 |
 | [[reference] Wheel lug nut torque spec](reference/reference-wheel-lug-nut-torque-spec.md) | [Unverified] | 1 |
-| [ABS Connector Pinout and Layout](reference/abs-connector-pinout-and-layout.md) | [Unverified] | 1 |
+| [ABS plug location and wiring details](reference/abs-plug-location-and-wiring-details.md) | [Unverified] | 1 |
 | [Aftermarket radiator and shroud options](reference/aftermarket-radiator-and-shroud-options.md) | [Unverified] | 1 |
-| [Alternator Bearing Specifications and Part Numbers](reference/alternator-bearing-specifications-and-part-numbers.md) | [Unverified] | 1 |
-| [ATF capacity for torque converter fill during conversion](reference/atf-capacity-for-torque-converter-fill-during-conversion.md) | [Unverified] | 1 |
+| [Alternator part numbers for N50](reference/alternator-part-numbers-for-n50.md) | [Unverified] | 1 |
 | [ATF Rad-Cooler and Air-Cooler Definitions](reference/atf-rad-cooler-and-air-cooler-definitions.md) | [Unverified] | 1 |
+| [Blower resistor operation and symptoms](reference/blower-resistor-operation-and-symptoms.md) | [Unverified] | 1 |
 | [Dealer hood adjustment cost reference](reference/dealer-hood-adjustment-cost-reference.md) | [Unverified] | 1 |
-| [Dynomax Super Turbo muffler specifications](reference/dynomax-super-turbo-muffler-specifications.md) | [Unverified] | 1 |
 | [ECM Location and Identification](reference/ecm-location-and-identification.md) | [Unverified] | 1 |
-| [Exhaust hanger and support issues](reference/exhaust-hanger-and-support-issues.md) | [Unverified] | 1 |
-| [Exhaust performance gains with cat-back swap](reference/exhaust-performance-gains-with-cat-back-swap.md) | [Unverified] | 1 |
-| [Exhaust stud removal and retention specs](reference/exhaust-stud-removal-and-retention-specs.md) | [Unverified] | 1 |
-| [Fluids and capacities](reference/fluid-capacities.md) | [Unverified] | 1 |
+| [Electrical faults, grounds and battery drain](reference/electrical-faults-grounds-and-battery-drain.md) | [Unverified] | 1 |
+| [Fluids and capacities](reference/fluid-capacities.md) | [Unverified] | 2 |
 | Gear ratios and tire sizes | not-started | 0 |
 | [Hood latch locking mechanism description](reference/hood-latch-locking-mechanism-description.md) | [Unverified] | 1 |
 | [Lubrication frequency for hood squeaks](reference/lubrication-frequency-for-hood-squeaks.md) | [Unverified] | 1 |
 | [Mode door actuator part numbers](reference/mode-door-actuator-part-numbers.md) | [Unverified] | 1 |
 | [Nissan Assist reimbursement for SMOD repairs](reference/nissan-assist-reimbursement-for-smod-repairs.md) | [Unverified] | 1 |
+| [Nissan TSB for VIAS rattle fix](reference/nissan-tsb-for-vias-rattle-fix.md) | [Unverified] | 1 |
 | Part sources and vendors | not-started | 0 |
 | Parts diagrams | not-started | 0 |
 | [Rear bypass coolant hose identification](reference/rear-bypass-coolant-hose-identification.md) | [Unverified] | 1 |
-| [Reference](reference/reference.md) | [Unverified] | 1 |
 | [Reference OBD-II code list source](reference/reference-obd-ii-code-list-source.md) | [Unverified] | 1 |
+| [Reference: ABS Module Connector Pinout Variations](reference/reference-abs-module-connector-pinout-variations.md) | [Unverified] | 1 |
 | [Specifications by model year](reference/specs-by-year.md) | [Unverified] | 1 |
-| [Torque converter alignment and bolt hole spacing check](reference/torque-converter-alignment-and-bolt-hole-spacing-check.md) | [Unverified] | 1 |
-| [Torque specifications](reference/torque-specs.md) | community-consensus | 4 |
+| [Stock rear wiper sweep dimensions](reference/stock-rear-wiper-sweep-dimensions.md) | [Unverified] | 1 |
+| [Torque specifications](reference/torque-specs.md) | community-consensus | 5 |
 | [Transmission cooler bypass pros and cons](reference/transmission-cooler-bypass-pros-and-cons.md) | [Unverified] | 1 |
 | [Transmission fluid change frequency and type](reference/transmission-fluid-change-frequency-and-type.md) | [Unverified] | 1 |
 | [Transmission rebuild and replacement sources](reference/transmission-rebuild-and-replacement-sources.md) | [Unverified] | 1 |
 | [Valve cover removal for hose access](reference/valve-cover-removal-for-hose-access.md) | [Unverified] | 1 |
-| [Walker kit part numbers for Xterra](reference/walker-kit-part-numbers-for-xterra.md) | [Unverified] | 1 |
-| [Walker Quiet Flow exhaust compatibility](reference/walker-quiet-flow-exhaust-compatibility.md) | [Unverified] | 1 |
+| [Vendor sources for rear wiper blades](reference/vendor-sources-for-rear-wiper-blades.md) | [Unverified] | 1 |
+| [VIAS valve movement characteristics](reference/vias-valve-movement-characteristics.md) | [Unverified] | 1 |
 | Xterra, Frontier and Titan parts interchange | not-started | 0 |

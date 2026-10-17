@@ -22,7 +22,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 13
+  partial_items: 5
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -30,9 +33,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Remove master power window switch, clean contacts with contact cleaner, then reinstall components. [t39]
 
 ## Tools
 
@@ -40,6 +45,16 @@ _No verified summary yet._
 - Sandpaper (one sheet) [t39]
 - Two small flat-tip screwdrivers or eyeglass repair toolkit size tools [t39]
 - One Phillips tip screwdriver or snow crab pick [t39]
+
+## Tips & gotchas
+
+- [Partial] Clean all buttons even if only one is malfunctioning to prevent future issues. [t39]
+- [Partial] Work carefully as the assembly is mostly plastic and prone to cracking. [t39]
+
+## Common mistakes
+
+- [Partial] Removing the door lock switch unnecessarily, risking a ball bearing flying out of its spring housing. [t39]
+- [Partial] Failing to align the wing rockers correctly due to their asymmetrical ends. [t39]
 
 ## Diagrams (links only)
 

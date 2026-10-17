@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -26,9 +29,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Determine specific type of antifreeze currently in use, then establish a regular schedule for changing it. [t23]
 
 ## Tips & gotchas
 

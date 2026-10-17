@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 4
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -26,12 +29,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Start the cold engine and check the reservoir level between fill limits while it runs. [t25]
 
 ## Tips & gotchas
 
+- [Partial] Perform this check with the running engine for an accurate reading of the pressurized system. [t25]
 - Ensure coolant is present in the reservoir to prevent air from being circulated back into the main system. [t25]
 
 ## Source attributions

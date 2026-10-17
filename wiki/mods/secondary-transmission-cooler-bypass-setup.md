@@ -21,7 +21,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 5
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -29,9 +32,20 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 _No verified summary yet._
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Remove the stock radiator/cooler assembly.
+2. Install a B&M style auxiliary cooler with an integrated fan.
+
+_Procedure reported by [t24]._
 
 ## Parts
 

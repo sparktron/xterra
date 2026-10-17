@@ -14,10 +14,14 @@ tools: []
 parts: []
 sources:
 - t25
+- t43
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
   withheld_items: 3
   pending_safety_values: 0
 ---
@@ -26,11 +30,26 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Identify the transfer case location, considering a heat shield for exhaust warmth. [t43]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Identify the transfer case location.
+
+_Procedure reported by [t43]._
+
+## Tips & gotchas
+
+- Consider installing a heat shield if exhaust pipe heat warms up the rubber end of the transfer case. [t43]
 
 ## Source attributions
 
 - **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
+- **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 

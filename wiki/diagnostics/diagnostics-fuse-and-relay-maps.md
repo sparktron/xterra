@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 10
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -26,9 +29,16 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Locate the main inline fuse, ensure it is rated higher than downstream breakers, and connect a distribution box. [t11]
+
+## Specifications
+
+- **Downstream circuit protection**: 30-AMP to 40-AMP [t11] ([Partial] [Unverified] single report)
+- **Main battery fuse rating**: 60-AMPS [t11] ([Partial] [Unverified] single report)
 
 ## Diagrams (links only)
 

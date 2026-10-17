@@ -12,7 +12,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
-difficulty: null
+difficulty: 1
 est_time: null
 tools: []
 parts: []
@@ -22,6 +22,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
+  partial_items: 0
+  partial_fields:
+  - difficulty
+  unconfirmed_safety_values: 0
   withheld_items: 3
   pending_safety_values: 0
 ---
@@ -29,6 +33,8 @@ verification:
 # Specifications by model year
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 

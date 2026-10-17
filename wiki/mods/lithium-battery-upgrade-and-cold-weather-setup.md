@@ -20,7 +20,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 2
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -28,13 +31,15 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Upgrade the main battery to a 210ah lithium unit and add a 12v tank heater with insulation. [t41]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Upgrade the main battery to a 210ah lithium unit.
 2. Add a 12v tank heater and insulation for cold weather charging.

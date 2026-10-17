@@ -4,32 +4,32 @@ title: Lighting and Auxiliary Power Wiring
 category: mods
 applies_to:
   years: []
-  trims: []
+  trims:
+  - Off-Road
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Utility knife
-- Soldering iron and wire
-- Inline fuse holder (with protective cover)
+tools: []
 parts:
-- name: 12V Power Source
+- name: 12V Fuse
   oem_part_no: ''
-- name: Fuses
+- name: In-line fuse holder with wire leads and protective cover
   oem_part_no: ''
-- name: Relays
-  oem_part_no: ''
-- name: Switches
+- name: Utility knife
   oem_part_no: ''
 sources:
 - t4
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 2
-  withheld_items: 10
+  reviewed_items: 0
+  partial_items: 4
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -37,26 +37,37 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Cut an aluminum plate 4 3/4" x 2 1/4", use four nuts as spacers, and flip switches upside-down. [t4]
 
-## Tools
+## Procedure
 
-- Utility knife [t4]
-- Soldering iron and wire [t4]
-- Inline fuse holder (with protective cover) [t4]
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Pull the assembly downward starting at the sunglasses holder.
+2. Disconnect and unscrew the part that holds the microphone.
+3. Cut an opening at the rear using a Dremel fitted with a miniature blade.
+4. Slice a 4 3/4" by 2 1/4" aluminum sheet, drilling bolt holes 1/4" in from each side.
+5. Use four nuts as spacers under the plate so the switches sit at the good depth.
+6. Remove the spacer ring of each switch.
+7. Make six 1/2" holes in the plastic faceplate using an Unibit.
+8. Flip the switch upside-down to reverse the +12vdc and Ground connections for illumination when OFF.
+9. Open the sunglasses holder about 1 inch to see the switches.
+
+_Procedure reported by [t4]. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/>_
 
 ## Parts
 
-- 12V Power Source [t4]
-- Fuses [t4]
-- Relays [t4]
-- Switches [t4]
+- [Partial] 12V Fuse: Smaller size than the truck's standard fuse [t4]
+- In-line fuse holder with wire leads and protective cover [t4]
+- [Partial] Utility knife [t4]
 
 ## Tips & gotchas
 
-- Use a smaller inline fuse that blows before the truck's main fuses to isolate wiring faults. [t4]
+- Use a smaller in-line fuse that blows before the main circuit to isolate faults. [t4]
 
 ## Source attributions
 
