@@ -44,6 +44,10 @@ verifier's `partial`.
   a person correct it.
 - Remaining withheld (276): Claude reject 156, Claude needs_human 40, local unsupported 40, spec value not in source 30,
   number not in source 6, copied text 3, safety value with a unit the source does not give 1.
+- Codex review of #9 on `107ff89` (2026-10-18, 1 finding, fixed): with `safety_min_threads` above 2, two independent
+  reports published an unconfirmed safety value tagged `community-consensus` without a mark. The tag now reads
+  `[Unverified] community-consensus, N threads, needs M`, and `qa` refuses a consensus tag below the threshold. 1
+  regression test (fails before the fix); `pytest` 131 passed; re-export unchanged (default threshold 2).
 
 Value-only grounding for specs and parts (2026-10-16, decided by the user: "only the value needs to be correct",
 PR #9). `ground_fact` checked that a spec's or part's `evidence` was a verbatim quote containing the value; 39

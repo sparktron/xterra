@@ -75,6 +75,8 @@ The local model is not trusted. Each item names the guarding test, or says none 
   and the banner, and an unconfirmed value repeated in prose without `[Unverified value]`.
   Tests: `test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked`,
   `test_a_partial_safety_value_publishes_marked_and_a_partial_never_beats_a_firmer_no`,
+  `test_consensus_below_a_raised_safety_threshold_is_marked_unverified` (qa also refuses a `community-consensus` tag
+  with fewer threads than `safety_min_threads`),
   `test_single_source_safety_value_is_withheld_until_reviewed` (strict), `test_agreeing_threads_are_consensus_and_disputes_are_withheld`,
   `test_same_author_in_two_threads_is_not_consensus`.
 - **A safety value in prose is backed by a spec or marked.** A torque, capacity or pressure value (`grounding.safety_values`)

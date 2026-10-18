@@ -89,6 +89,11 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     violations.append(f"{rel}: unit not found with that value in cited thread(s): {m['item']}: {m['value']}")
                 confirmed = any(m["tag"].startswith(t) for t in SAFE_TAGS)
                 marked = "[Unverified]" in m["tag"] or m["tag"].startswith(PARTIAL)
+                need = int(cfg.verify.safety_min_threads)
+                if is_safety(m["value"], "", False, m["item"]) and (c := re.match(r"community-consensus, (\d+) threads", m["tag"])) \
+                        and int(c[1]) < need:
+                    violations.append(f"{rel}: safety value tagged community-consensus with {c[1]} thread(s), below "
+                                      f"verify.safety_min_threads ({need}): {m['item']}: {m['value']}")
                 if is_safety(m["value"], "", False, m["item"]) and not confirmed and not (marked and banner):
                     violations.append(f"{rel}: safety-critical value without corroboration, review or a visible [Unverified]/[Partial] "
                                       f"mark under the warning banner: {m['item']}: {m['value']} ({m['tag']})")

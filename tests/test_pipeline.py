@@ -1387,3 +1387,22 @@ def test_a_part_note_with_an_unconfirmed_volume_is_marked(cfg, conn, tmp_path):
     page = page_text(cfg)
     assert "- [Unverified value] Matic S ATF: 12 quarts for the flush [t1]" in page and SAFETY_NOTE in page
     assert check_wiki(cfg, conn) == []
+
+
+def test_consensus_below_a_raised_safety_threshold_is_marked_unverified(cfg, conn, tmp_path):
+    """Codex review of #9 (P1): with safety_min_threads 3, two independent reports took the community-consensus tag
+    unmarked although the value was not confirmed, and qa took that tag as confirmed."""
+    cfg.verify.as_dict()["safety_min_threads"] = 3
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice"), ("b", NOTE_A.replace("2008", "2010"), "bob")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        parts=[], diagram_links=[], specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "83 ft-lb [t1, t2] ([Unverified] community-consensus, 2 threads, needs 3)" in page and SAFETY_NOTE in page
+    assert check_wiki(cfg, conn) == []
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("([Unverified] community-consensus, 2 threads, needs 3)", "(community-consensus, 2 threads)"))
+    assert any("below verify.safety_min_threads" in v for v in check_wiki(cfg, conn))   # qa holds the threshold too
+    cfg.verify.as_dict()["safety_min_threads"] = 2
+    export(cfg, conn)
+    assert "83 ft-lb [t1, t2] (community-consensus, 2 threads)" in page_text(cfg) and SAFETY_NOTE not in page_text(cfg)

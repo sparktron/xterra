@@ -374,6 +374,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy) -> tup
             tag = f"{PARTIAL} {tag}"
             page.partial_items += 1
         confirmed = bool(v["reviewed"]) or v["manufacturer"] or (n_ind >= policy.safety_min_threads and not v["partial"])
+        if slot["safety"] and not confirmed and not v["partial"] and "[Unverified]" not in tag:
+            # consensus below a raised safety_min_threads (Codex review of #9): the tag must not read as confirmed
+            tag = f"[Unverified] {tag}, needs {policy.safety_min_threads}"
         if slot["safety"] and not confirmed:   # published marked; stays queued until a second source or a review
             page.single_source_safety.append(f"{slot['item']}: {v['display']}")
             page.unconfirmed.append({"item": slot["item"], "value": v["display"], "url": v["url"], "keys": v["keys"],
