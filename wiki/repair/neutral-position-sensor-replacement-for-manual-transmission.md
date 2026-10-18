@@ -15,6 +15,8 @@ tools:
 - 10mm socket
 - Wobble extensions
 parts:
+- name: Neutral Position Sensor (NPS)
+  oem_part_no: 32006CD10B
 - name: White plastic hex adapter
   oem_part_no: ''
 sources:
@@ -23,7 +25,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 3
-  withheld_items: 9
+  partial_items: 2
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -31,9 +36,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Replace the Neutral Position Sensor by removing the shifter knob and hex adapter to access the sensor. [t10]
 
 ## Tools
 
@@ -43,12 +50,17 @@ _No verified summary yet._
 
 ## Parts
 
+- Neutral Position Sensor, NPS (32006CD10B) [t10]
 - White plastic hex adapter: Often breaks off; may need replacement or zip tie. [t10]
 
 ## Tips & gotchas
 
 - Press the shifter further into gear with your hand to help set cruise control during testing. [t10]
 - Drill out seized bolts on the metal ring using a 5mm, 3/16-inch, or #9 drill if needed. [t10]
+
+## Common mistakes
+
+- [Partial] Buying the wrong sensor for an automatic transmission instead of manual. [t10]
 
 ## Source attributions
 

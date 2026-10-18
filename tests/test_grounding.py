@@ -1,5 +1,5 @@
-from xw.grounding import (dtc_grounded, evidence_in_text, grounded_terms, ground_fact, has_long_overlap, link_grounded,
-                          number_tokens, part_grounded, spec_grounded)
+from xw.grounding import (dtc_grounded, grounded_terms, ground_fact, has_long_overlap, link_grounded, number_tokens,
+                          part_grounded, spec_grounded, spec_value_grounded)
 from xw.schemas import Fact, Part, Spec
 
 TEXT = "Torque the pivot bolts to 83 ft-lb. Drain 1,000 ml and refill 7,5 l. New arm 54500-EA000. Code P0340 returned. [image: https://x.invalid/a.png]"
@@ -33,12 +33,17 @@ def test_part_dtc_link():
     assert link_grounded("https://x.invalid/a.png", TEXT) and not link_grounded("https://x.invalid/b.png", TEXT)
 
 
-def test_evidence_must_be_a_real_quote():
-    assert evidence_in_text("Torque the pivot bolts to 83 ft-lb", TEXT)
-    assert evidence_in_text("torque the  pivot bolts to 83 FT-LB.", TEXT)          # case/whitespace/period tolerant
-    assert evidence_in_text("...pivot bolts to 83 ft-lb...", TEXT)                  # model-added ellipses tolerated
-    assert not evidence_in_text("Torque the pivot bolts to 90 ft-lb", TEXT)         # altered quote
-    assert not evidence_in_text("", TEXT) and not evidence_in_text("short", TEXT)
+def test_a_value_needs_to_be_in_the_source_not_the_models_quote():
+    """Decided 2026-10-16: only the value needs to be correct. 39 specs and 10 part numbers whose value (with its unit)
+    is in the source were dropped because the model left `evidence` empty or paraphrased it; what makes a value wrong is
+    a number, unit or part number the source does not state, and those are still refused."""
+    for ev in ("", "the pivot bolts take 83 foot-pounds", "Torque the pivot bolts to 83 ft-lb"):
+        assert spec_value_grounded(Spec(item="Pivot bolt torque", value="83", unit="ft-lb", evidence=ev), TEXT)
+    assert not spec_value_grounded(Spec(item="Pivot bolt torque", value="85", unit="ft-lb",
+                                        evidence="Torque the pivot bolts to 83 ft-lb"), TEXT)          # invented number
+    assert not spec_value_grounded(Spec(item="Pivot bolt torque", value="83", unit="in-lb"), TEXT)      # wrong unit
+    assert not spec_value_grounded(Spec(item="Fuse size", value="various"), TEXT)                       # not a value
+    assert not spec_value_grounded(Spec(item="Pivot bolt torque", value="113", unit="N·m"), TEXT)       # converted
 
 
 def test_grounded_terms():
@@ -57,7 +62,7 @@ def test_long_overlap():
     assert not has_long_overlap("too short to flag", src)
 
 
-def test_ground_fact_alignment_requires_evidence():
+def test_ground_fact_alignment_checks_values_not_quotes():
     fact = Fact(
         category="repair", topic="Control arms", title="t", summary="s",
         parts=[Part(name="arm", part_number="54500-EA000", evidence="New arm 54500-EA000"),
@@ -70,12 +75,12 @@ def test_ground_fact_alignment_requires_evidence():
                Spec(item="evidence without the number", value="83 ft-lb", evidence="Torque the pivot bolts")],
     )
     g = ground_fact(fact, TEXT)
-    assert g["parts"] == [True, False, False, True]   # number in text but no quote -> not trusted; no part number -> nothing to check
-    assert g["specs"] == [True, False, False, False]
+    assert g["parts"] == [True, False, True, True]    # the part number is what must be in the source; no part number -> nothing to check
+    assert g["specs"] == [True, False, True, True]    # 120 ft-lb is invented; a missing or partial quote no longer matters
 
 
 def test_unit_must_match_the_source():
-    from xw.grounding import spec_evidenced, unit_grounded
+    from xw.grounding import unit_grounded
     assert unit_grounded("80", "ft-lb", "torque to 80 ft lbs") and unit_grounded("80-90", "ft-lb", "80 to 90 foot pounds")
     assert not unit_grounded("80", "ft-lb", "torque to 80 in-lbs")                 # 12x error: inch-pounds
     assert not unit_grounded("80", "ft-lb", "torque to 80 Nm")
@@ -83,7 +88,7 @@ def test_unit_must_match_the_source():
     assert unit_grounded("9", "N·m", "9 Nm (80 in-lb)") and not unit_grounded("9", "in-lb", "9 Nm (80 in-lb)")
     assert unit_grounded("83", "", "83 Nm")                                        # no unit claimed, nothing to check
     s = Spec(item="Pivot bolt", value="80", unit="ft-lb", evidence="tighten the pivot bolt to 80 in-lbs")
-    assert not spec_evidenced(s, "Then tighten the pivot bolt to 80 in-lbs and lower it.")
+    assert not spec_value_grounded(s, "Then tighten the pivot bolt to 80 in-lbs and lower it.")
 
 
 def test_units_attach_only_to_adjacent_numbers():

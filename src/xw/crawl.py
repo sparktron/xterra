@@ -91,14 +91,39 @@ def discover(cfg: Config, conn: sqlite3.Connection, fetcher: Fetcher, source: sq
     return added
 
 
-def build_chunks(title: str, posts: list[Post], max_chars: int, min_chars: int, min_post_chars: int) -> list[str]:
-    """Group posts into LLM-sized chunks at post boundaries; split oversized posts at paragraphs."""
+# A thread titled as a write-up opens with its author's guide. Mixed into one chunk with twenty replies, the small
+# model returns that guide as several two-step fragments, so the author's opening posts get chunks of their own,
+# marked with GUIDE_MARK on the second line (extract.py then asks for the guide's whole step list in one call).
+GUIDE_TITLE = re.compile(r"\b(how[\s-]?to|diy|write[\s-]?up|walk[\s-]?through|step[\s-]by[\s-]step|pictorial|tutorial|procedure)\b", re.I)
+GUIDE_MARK = "GUIDE: the thread author's own write-up, without the replies"
+
+
+def is_guide_title(title: str) -> bool:
+    t = title.strip()
+    return bool(GUIDE_TITLE.search(t)) and not t.endswith("?")   # "How to remove the rear seat?" is a question
+
+
+def is_guide_chunk(text: str) -> bool:
+    lines = text.split("\n", 2)
+    return len(lines) > 1 and lines[1] == GUIDE_MARK
+
+
+def build_chunks(title: str, posts: list[Post], max_chars: int, min_chars: int, min_post_chars: int,
+                 guide_first: bool = False) -> list[str]:
+    """Group posts into LLM-sized chunks at post boundaries; split oversized posts at paragraphs. With `guide_first`,
+    the opening run of posts by the thread's author is chunked on its own when it holds at least `min_chars`."""
+    lead = 0
+    if guide_first and posts and posts[0].author:
+        while lead < len(posts) and posts[lead].author == posts[0].author:
+            lead += 1
     blocks: list[str] = []
+    n_guide = 0   # blocks that come from the author's opening posts
     for i, p in enumerate(posts):
         if i > 0 and len(p.text) < min_post_chars:
             continue  # "bump", "thanks", "subscribed"
         header = f"### Post {i + 1}" + (f" by {p.author}" if p.author else "") + (f" ({p.posted[:10]})" if p.posted else "")
         body = p.text
+        before = len(blocks)
         if len(body) + len(header) > max_chars:
             room = max(200, max_chars - len(header) - 12)
             paras, cur = body.split("\n\n"), ""
@@ -117,18 +142,29 @@ def build_chunks(title: str, posts: list[Post], max_chars: int, min_chars: int, 
                 blocks.append(f"{header} (part)\n{cur}")
         else:
             blocks.append(f"{header}\n{body}")
+        if i < lead:
+            n_guide += len(blocks) - before
 
-    chunks: list[str] = []
-    cur = ""
-    for b in blocks:
-        if cur and len(cur) + len(b) + 2 > max_chars:
+    def pack(bs: list[str]) -> list[str]:
+        chunks: list[str] = []
+        cur = ""
+        for b in bs:
+            if cur and len(cur) + len(b) + 2 > max_chars:
+                chunks.append(cur)
+                cur = ""
+            cur += ("\n\n" if cur else "") + b
+        if cur:
             chunks.append(cur)
-            cur = ""
-        cur += ("\n\n" if cur else "") + b
-    if cur:
-        chunks.append(cur)
-    chunks = [c for c in chunks if len(c) >= min_chars] or chunks[:1]
-    return [f"THREAD: {title}" + ("" if i == 0 else " (continued)") + "\n\n" + c for i, c in enumerate(chunks)]
+        return chunks
+
+    guide = pack(blocks[:n_guide])
+    if sum(map(len, guide)) < min_chars:   # no real write-up up front (a one-line opener): chunk as a discussion
+        guide, n_guide = [], 0
+    rest = pack(blocks[n_guide:])
+    rest = [c for c in rest if len(c) >= min_chars] or rest[:1]   # keep short replies: one may correct a step
+    heads = [GUIDE_MARK] * len(guide) + [""] * len(rest)
+    return [f"THREAD: {title}" + ("" if i == 0 else " (continued)") + (f"\n{h}" if h else "") + "\n\n" + c
+            for i, (c, h) in enumerate(zip(guide + rest, heads))]
 
 
 def store_thread(cfg: Config, conn: sqlite3.Connection, thread_id: int, title: str, posts: list[Post], pages: int) -> int:
@@ -138,8 +174,10 @@ def store_thread(cfg: Config, conn: sqlite3.Connection, thread_id: int, title: s
         (title, first.author if first else "", first.posted if first else "", pages, thread_id),
     )
     conn.execute("DELETE FROM chunks WHERE thread_id=? AND status='pending'", (thread_id,))
+    stored_title = conn.execute("SELECT title FROM threads WHERE id=?", (thread_id,)).fetchone()[0]
     chunks = build_chunks(
-        title, posts, cfg.extract.max_chunk_chars, cfg.extract.min_chunk_chars, cfg.crawl.min_post_chars
+        title, posts, cfg.extract.max_chunk_chars, cfg.extract.min_chunk_chars, cfg.crawl.min_post_chars,
+        guide_first=is_guide_title(stored_title or title),
     )
     for idx, text in enumerate(chunks):
         conn.execute("INSERT OR IGNORE INTO chunks(thread_id, idx, text) VALUES(?,?,?)", (thread_id, idx, text))

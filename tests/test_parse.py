@@ -66,3 +66,20 @@ def test_adapter_registry():
         assert "unknown adapter" in str(exc)
     else:
         raise AssertionError("expected ValueError")
+
+
+def test_xenforo_post_date_comes_from_the_permalink_not_the_first_time_tag():
+    """In the ingested thenewx threads some authors carry one date on every post and replies predate post 1, i.e. the
+    first <time> in the article was not the post's own. The post date sits on its permalink in both themes."""
+    html = """<html><body><h1 class="p-title-value">How-to: x</h1>
+      <article class="message message--post" data-author="op"><div class="message-userExtras"><dl><dt>Joined</dt>
+        <dd><time class="u-dt" datetime="2006-01-28T10:00:00-0500">Jan 28, 2006</time></dd></dl></div>
+        <header class="message-attribution"><a class="message-attribution-main" href="/p/1">
+          <time class="u-dt" datetime="2011-04-10T09:00:00-0400">Apr 10, 2011</time></a></header>
+        <div class="bbWrapper">Guide text</div></article>
+      <article class="js-post" data-author="b"><div class="MessageCard"><span class="member-since">
+        <time class="u-dt" datetime="2009-09-22T08:00:00-0400">Sep 22, 2009</time></span>
+        <a class="MessageCard__date-created" href="/p/2"><time class="u-dt" datetime="2011-04-12T09:00:00-0400">Apr 12</time></a>
+        <div class="bbWrapper">Reply text</div></div></article></body></html>"""
+    page = xenforo.parse_thread(html, f"{BASE}/threads/x.1/")
+    assert [p.posted[:10] for p in page.posts] == ["2011-04-10", "2011-04-12"]

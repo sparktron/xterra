@@ -42,9 +42,10 @@ DEFAULTS: dict[str, Any] = {
     "scope": {"years": [2005, 2016]},
     # Nothing the local model says is trusted on its own. See README "Verification".
     "verify": {
-        "require_local_pass": True,        # text claims publish only if the local verifier judged them "supported"
+        "require_local_pass": True,        # text claims publish only if the local verifier judged them "supported" (or "partial", below)
+        "publish_partial": True,           # a "partial" verdict publishes the claim marked [Partial] (needs more work; still queued)
         "safety_min_threads": 2,           # safety-critical values need N agreeing threads, a manufacturer source, or a reviewer's approval
-        "publish_unverified_safety": False,
+        "publish_unverified_safety": True,   # an unconfirmed torque/capacity/pressure value publishes marked; still queued
         "verify_model": "",                # optional second model for the verifier pass (a different model catches different mistakes)
         "consensus_runs": 2,               # run the verifier this many times; a claim is "supported" only if every run said so
     },

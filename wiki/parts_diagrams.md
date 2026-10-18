@@ -3,9 +3,15 @@
 
 Links point at the original host. Reuse permission is unknown unless stated; do not copy images into the repo.
 
-## Diagnostics
+## ABS system disable switch
 
-- https://www.carparts.com/details/Nissan/Xterra/JC_Whitney/Blower_Motor_Resistor/2011/PRO-4X/6_Cyl_4-dot-0L/JRN19180003.html [t7]
+- https://i.imgur.com/qfTPObn.jpg [t38]
+- https://i.imgur.com/tYZ7z3A.png [t38]
+
+## Automatic transmission fluid change
+
+- http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9921 [t34]
+- http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9929 [t34]
 
 ## ECM Location and Identification
 
@@ -13,8 +19,7 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Electrical faults, grounds and battery drain
 
-- http://inlinethumb02.webshots.com/16769/2779462910102027759S500x500Q85.jpg [t6]
-- http://inlinethumb44.webshots.com/19755/2991208570102027759S500x500Q85.jpg [t6]
+- http://www.courtesyparts.com/Mercha...n=PROD&Store_Code=CP&Product_Code=999T8-N5005 [t6]
 
 ## Engine trouble codes (VQ40DE)
 
@@ -25,10 +30,19 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - http://maps.google.com/maps?ll=42.852875,-85.862313 [t8]
 
+## Heater core and A/C problems
+
+- https://www.carparts.com/details/Nissan/Xterra/JC_Whitney/Blower_Motor_Resistor/2011/PRO-4X/6_Cyl_4-dot-0L/JRN19180003.html [t7]
+
 ## Interior drawer and kitchen system buildout
 
 - https://images1.mcmaster.com/init/gfx/favicon/192x192.png?ver=1766419622 [t41]
 - https://www.mcmaster.com/init/gfx/favicon/favicon.ico [t41]
+
+## License plate light housing replacement
+
+- https://i.imgur.com/06xGiOz.jpg [t31]
+- https://i.imgur.com/C5ToCy3.jpg [t31]
 
 ## Lighting, aux fuse blocks and dual batteries
 
@@ -44,10 +58,6 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - [image: http://www.thenewx.org/forum/picture.php?albumid=1314&pictureid=22538] [t9]
 - [image: http://www.thenewx.org/forum/picture.php?albumid=1314&pictureid=22570] [t9]
 
-## Rear wiper blade upgrade
-
-- http://www.canadiantire.ca/AST/browse/4/Auto/AutoParts/WiperBlades/PRD~0210910P/PreciseFit+Teflon+Rear+Wiper+Blades.jsp [t33]
-
 ## SMOD radiator transmission cooler failure
 
 - https://trade.mechanic.com.au/wsimages/icons/apple-icon-57x57.png [t27]
@@ -56,6 +66,17 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 ## Torque specifications
 
 - https://www.thenewx.org/cdn-cgi/image/format=auto,onerror=redirect,quality=50,width=1920,fit=scale-down/https://images.platforum.cloud/banners/thenewx_org_banner_2880w.jpg [t28]
+
+## Trim guide (X, S, SE, Off-Road, PRO-4X)
+
+- [image: https://i.imgur.com/V3fvqIv.png] [t31]
+- [image: https://uploads.tapatalk-cdn.com/20190401/07887206f22faf9a2adcb49afd1df8fb.jpg] [t31]
+- https://i.imgur.com/V3fvqIv.png [t31]
+
+## VIAS Valve Rattle Fix
+
+- [image: https://i.imgur.com/cK32V91.jpg] [t30]
+- [image: https://i.imgur.com/luXu4VA.jpg] [t30]
 
 ## [diagnostics] Fuse and relay maps
 
@@ -80,18 +101,6 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 ## [reference] Fluids and capacities
 
 - http://www.thenewx.org/forum/showpost.php?p=474945&postcount=35 [t25]
-
-## [reference] Lighting circuit configurations and symbols
-
-- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24121] [t4]
-
-## [reference] Lighting electrical load and wire sizing
-
-- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24129] [t4]
-
-## [reference] Lighting fuse and wire gauge selection
-
-- [image: http://www.thenewx.org/forum/picture.php?albumid=706&pictureid=24137] [t4]
 
 ## [reference] Parts diagrams
 

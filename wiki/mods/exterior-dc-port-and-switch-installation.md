@@ -10,9 +10,12 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Master switch
 parts:
 - name: 12v tank heater
+  oem_part_no: ''
+- name: Insulation
   oem_part_no: ''
 sources:
 - t41
@@ -20,7 +23,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 3
+  partial_items: 4
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 0
   pending_safety_values: 0
 ---
 
@@ -28,22 +34,29 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+[Partial] Install a master on/off switch for the rear battery and add six exterior DC ports. [t41]
 
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Install a master on/off switch for the rear battery.
 2. Add six exterior DC ports to handle various loads.
 
 _Procedure reported by [t41]._
 
+## Tools
+
+- [Partial] Master switch [t41]
+
 ## Parts
 
 - 12v tank heater: For cold weather applications [t41]
+- [Partial] Insulation: To wrap the battery for cold climates [t41]
 
 ## Source attributions
 

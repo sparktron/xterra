@@ -14,6 +14,8 @@ Review queue, in priority order:
   2. an audit sample (verify.audit_rate) of claims the local verifier said "supported", used to measure
      how often the local verifier waves bad claims through
 Claims the verifier judged "unsupported", and anything failing the deterministic evidence checks, are never queued.
+A procedure whose steps a reviewer reworded (`correct`, see corrections.py) has its `complete` claim queued again at
+priority 1, because the earlier verdicts judged the old list.
 """
 from __future__ import annotations
 
@@ -24,10 +26,11 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
+from . import corrections
 from .config import Config
 from .db import now
 from .export import Policy, is_safety, load_rows, pending_spec_keys
-from .schemas import Fact
+from .grounding import safety_values
 from .topics import TopicIndex
 from .verify import DECOY_FAILED, claims_for_fact
 
@@ -48,7 +51,14 @@ INSTRUCTIONS = (
     "needs_human and say what seems missing (the wiki then shows the steps marked Partial; reject would hide them). "
     "kind `applies`/`platform`: approve only if the excerpt says the repair or part applies to those years, trims or vehicles, "
     "not merely that they are mentioned. "
-    "Be strict: when unsure, do not approve. Write {\"verdicts\": [{\"id\": ..., \"verdict\": ..., \"note\": ...}]} to the verdict_file."
+    "correct = (kinds step, summary, tip, mistake, symptom only) the excerpt states the action or fact but the claim garbles "
+    "it (wrong object, place, order word or detail): add \"corrected\": the excerpt's meaning as one sentence in your own "
+    "words. Never add a number, part, tool or step the excerpt does not state, never copy 12 words of it in a row, and do "
+    "not use it to fix a list (a missing or extra step is a `complete` answer). If the excerpt does not state the claim at "
+    "all, answer reject. A correction that changes a number waits for a person. When you correct steps of a procedure, "
+    "judge its `complete` item in the same file with your corrections applied. "
+    "Be strict: when unsure, do not approve. Write {\"verdicts\": [{\"id\": ..., \"verdict\": ..., \"note\": ...}]} "
+    "(plus \"corrected\" on a correct verdict) to the verdict_file."
 )
 
 
@@ -101,6 +111,7 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
     pending = pending_spec_keys(rows, topics, policy, (cfg.scope.years[0], cfg.scope.years[1]))
     claude_notes = {(v["fact_id"], v["claim_key"]): v["note"] for v in
                     conn.execute("SELECT fact_id, claim_key, note FROM verdicts WHERE by='claude'")} if triage else {}
+    proposals = corrections.load_pending(conn) if triage else {}
 
     queue: list[dict[str, Any]] = []
     for r in rows:
@@ -109,6 +120,17 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
         evidence = {f"spec:{i}": s.evidence for i, s in enumerate(r.fact.specs)} | {f"part:{i}": p.evidence for i, p in enumerate(r.fact.parts)}
         for key, claim in claims_for_fact(r.fact):
             kind, _, idx = key.partition(":")
+            fix = proposals.get((r.thread_id, kind, corrections.claim_hash(claim))) if kind in corrections.CORRECTABLE else None
+            if fix:   # Claude's rewording changes a number: only a person can let it stand (whatever else was said of the claim)
+                queue.append({
+                    "id": f"f{r.id}:{key}", "priority": 0, "kind": "correction", "claim_kind": kind, "claim_hash": fix["claim_hash"],
+                    "why_queued": "Claude reworded this claim and changed a number" + (f": {fix['note']}" if fix["note"] else ""),
+                    "page": topic.title, "claim": claim, "corrected": fix["corrected"], "evidence_quote": "",
+                    "excerpt": excerpt_for(fix["corrected"], "", text, int(cfg.review.excerpt_chars)),
+                    "source_url": r.url, "thread_title": r.thread_title, "local_verdict": r.verdicts.get(key, {}).get("local") or "not run",
+                    "thread_id": r.thread_id, "risk": _risk(r, kind, idx),
+                })
+                continue
             decided = r.verdicts.get(key, {})
             if decided.get("human") or (decided.get("claude") and not (triage and decided["claude"] == "needs_human")):
                 continue  # already reviewed (in triage, Claude's own "unsure" is still open)
@@ -132,6 +154,10 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
                 why, prio = "local verifier answered partial", 1
             if prio is None and local == DECOY_FAILED:
                 why, prio = "local verifier could not be trusted on this call (it accepted a planted false claim)", 1
+            if prio is None and kind in _PROSE and policy.publish_unverified_safety and safety_values(claim):
+                why, prio = "states a torque/capacity/pressure value that no reviewer has confirmed (published marked if unconfirmed)", 0
+            if prio is None and key == "complete" and any(k.startswith("step:") for k in r.corrected):
+                why, prio = "a reviewer reworded steps of this procedure: judge the corrected list", 1
             if prio is None and not triage and local == "supported" and _audit_pick(r.id, key, float(cfg.review.audit_rate)):
                 why, prio = "audit sample of a locally-supported claim", 2
             if prio is None:
@@ -175,32 +201,69 @@ def apply_reviews(cfg: Config, conn: sqlite3.Connection, paths: list[Path] | Non
     if by not in ("claude", "human"):
         raise ValueError("by must be 'claude' or 'human'")
     files = paths or sorted((cfg.data_dir / "review").glob("*.verdicts.json"))
-    applied = rejected_input = stale = 0
-    current: dict[int, dict[str, str]] = {}   # fact id -> {claim_key: claim text} as the database says now
+    applied = rejected_input = stale = fixed = waiting = refused = 0
     for f in files:
         data = json.loads(Path(f).read_text(encoding="utf-8"))
         batch = Path(f).with_name(Path(f).name.replace(".verdicts.json", ".json"))   # the batch these verdicts answer
         judged = {i["id"]: i["claim"] for i in json.loads(batch.read_text(encoding="utf-8")).get("items", [])} if batch.exists() else {}
-        for v in data.get("verdicts", []):
-            item_id, verdict = str(v.get("id", "")), str(v.get("verdict", "")).lower()
+        entries = [(str(v.get("id", "")), str(v.get("verdict", "")).lower(), v) for v in data.get("verdicts", [])]
+
+        # corrections first, so that a `complete` verdict in the same file counts for the corrected list
+        table = corrections.load_accepted(conn)
+        before: dict[int, dict[str, str]] = {}   # fact id -> claims as shown before this file's corrections
+        touched: set[int] = set()                # facts whose steps this file corrected
+        for item_id, verdict, v in entries:
+            if verdict != "correct":
+                continue
+            m = re.match(r"^f(\d+):(.+)$", item_id)
+            ctx = corrections.fact_context(conn, int(m.group(1))) if m and CLAIM_KEY.match(m.group(2)) else None
+            new = " ".join(str(v.get("corrected") or "").split())
+            if ctx is None or corrections.kind_of(m.group(2)) not in corrections.CORRECTABLE or not new:
+                rejected_input += 1   # values, metadata, tools and `complete` are judged, never reworded
+                continue
+            fid, key = int(m.group(1)), m.group(2)
+            fact, thread_id, source = ctx
+            original = dict(claims_for_fact(fact)).get(key)
+            shown = before.setdefault(fid, corrections.displayed_claims(conn, fid, table))
+            if original is None or corrections._norm(new) == corrections._norm(shown.get(key, "")):
+                rejected_input += 1
+                continue
+            if item_id in judged and judged[item_id] != shown[key]:
+                stale += 1
+                continue
+            if corrections.refusal(new, source):
+                refused += 1   # the same deterministic checks as any extracted claim
+                continue
+            status = corrections.store(conn, thread_id, key, original, new, by, str(v.get("note", "")))
+            fixed += status == "accepted"
+            waiting += status == "pending"
+            if corrections.kind_of(key) == "step" and status == "accepted":
+                touched.add(fid)
+
+        table = corrections.load_accepted(conn)
+        for item_id, verdict, v in entries:
+            if verdict == "correct":
+                continue
             m = re.match(r"^f(\d+):(.+)$", item_id)
             if not m or verdict not in REVIEW_VERDICTS or not CLAIM_KEY.match(m.group(2)) or \
                     not conn.execute("SELECT 1 FROM facts WHERE id=?", (int(m.group(1)),)).fetchone():
                 rejected_input += 1
                 continue
-            fid = int(m.group(1))
+            fid, key = int(m.group(1)), m.group(2)
+            shown = corrections.displayed_claims(conn, fid, table)
             if item_id in judged:   # a verdict judged THAT text; if the claim has changed since, it says nothing about the new one
-                if fid not in current:
-                    current[fid] = dict(claims_for_fact(Fact.model_validate_json(
-                        conn.execute("SELECT fact_json FROM facts WHERE id=?", (fid,)).fetchone()[0])))
-                if current[fid].get(m.group(2)) != judged[item_id]:
+                same_file = key == "complete" and fid in touched and judged[item_id] == before[fid].get(key)
+                if shown.get(key) != judged[item_id] and not same_file:
                     stale += 1
                     continue
             conn.execute("INSERT OR REPLACE INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) VALUES(?,?,?,?,?,?)",
-                         (int(m.group(1)), m.group(2), by, verdict, str(v.get("note", ""))[:500], now()))
+                         (fid, key, by, verdict, str(v.get("note", ""))[:500], now()))
+            if key == "complete" and key in shown:
+                corrections.record_judged_list(conn, fid, by, shown[key])
             applied += 1
     conn.commit()
-    return {"applied": applied, "invalid": rejected_input, "stale": stale, **audit_stats(conn)}
+    return {"applied": applied, "invalid": rejected_input, "stale": stale, "corrected": fixed, "pending": waiting,
+            "refused": refused, **audit_stats(conn)}
 
 
 def audit_stats(conn: sqlite3.Connection) -> dict[str, Any]:

@@ -10,21 +10,22 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools:
-- Speed square
-- Punch
+tools: []
 parts:
-- name: Bike tube
+- name: Drop-in Cargo Rack
   oem_part_no: ''
-- name: Vibration-damping U-bolts
+- name: Unistrut or Superstrut bars
   oem_part_no: ''
 sources:
 - t40
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 1
-  withheld_items: 6
+  reviewed_items: 0
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -32,24 +33,30 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
-_No verified summary yet._
+Mount a drop-in cargo rack and install crossbars to serve as roof racks. [t40]
 
-## Tools
+## Procedure
 
-- Speed square [t40]
-- Punch [t40]
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Mount the drop-in cargo rack onto the factory roof rails.
+2. Install Unistrut or Superstrut bars across the width of the rack to serve as crossbars.
+
+_Procedure reported by [t40]._
 
 ## Parts
 
-- Bike tube: Used as an inner liner for the Ubolt housing/bracket [t40]
-- Vibration-damping U-bolts: Ordered from McMaster-Carr [t40]
+- Drop-in Cargo Rack: Specifically a 'Golf Cart Roof Rack' style [t40]
+- [Partial] Unistrut or Superstrut bars: Used as crossbars to replace OEM ones if desired [t40]
 
 ## Tips & gotchas
 
-- Use a speed square to find centers and a punch to create dimples before drilling. [t40]
-- Apply WD-40 to get the Ubolts through the drilled holes in the rack. [t40]
+- [Partial] Position the rack at a height that balances clearance underneath with stability. [t40]
+- Consider mounting an awning using the ends of the Unistrut bars on one side. [t40]
 
 ## Source attributions
 

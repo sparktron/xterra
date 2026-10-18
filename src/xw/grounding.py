@@ -93,6 +93,12 @@ def numbers_with_units(text: str) -> list[tuple[str, str | None]]:
     return [(m.group(), _unit_near(flat, m.start(), m.end())) for m in _NUM.finditer(flat)]
 
 
+def same_measures(a: str, b: str) -> bool:
+    """`a` and `b` state the same numbers with the same units. A rewording that keeps "10" but turns "10mm" into
+    "10 cm" or "10" changes the measurement (`number_tokens` alone sees no difference)."""
+    return sorted(numbers_with_units(a), key=str) == sorted(numbers_with_units(b), key=str)
+
+
 def unit_grounded(value: str, unit: str, text: str) -> bool:
     """Every number the claim gives a unit to must carry that same unit somewhere in `text`.
     Catches "80 ft-lb" claimed from a source that says "80 in-lb" or "80 Nm" (spec_grounded only sees "80")."""
@@ -144,30 +150,12 @@ def link_grounded(url: str, text: str) -> bool:
     return bool(url) and url in text
 
 
-def _squash(s: str) -> str:
-    s = s.lower().replace(" ", " ")
-    for a, b in (("’", "'"), ("‘", "'"), ("“", '"'), ("”", '"'), ("–", "-"), ("—", "-"), ("−", "-")):
-        s = s.replace(a, b)
-    return re.sub(r"\s+", " ", s).strip()
-
-
-def evidence_in_text(evidence: str, text: str, min_len: int = 8) -> bool:
-    """The model's quoted evidence must exist in the source (whitespace/case/quote-style insensitive)."""
-    ev = re.sub(r"^(\.\.\.|…)+|(\.\.\.|…)+$", "", _squash(evidence)).strip(" .")
-    return len(ev) >= min_len and ev in _squash(text)
-
-
-def spec_evidenced(spec, text: str) -> bool:
-    """A spec needs a real quote from the source, its numbers must sit inside that quote, and a unit the
-    claim gives must be the unit the quote puts on that number."""
-    return (evidence_in_text(spec.evidence, text) and spec_grounded(spec.value, spec.unit, spec.evidence)
-            and unit_grounded(spec.value, spec.unit, spec.evidence))
-
-
-def part_evidenced(part, text: str) -> bool:
-    if not part.part_number:
-        return True
-    return evidence_in_text(part.evidence, text) and part_grounded(part.part_number, part.evidence)
+def spec_value_grounded(spec, text: str) -> bool:
+    """A spec's value as far as the source can show it: every number in it appears in `text`, and a unit it gives is
+    the unit `text` puts on that number. The model's `evidence` quote is not checked: decided 2026-10-16, only the
+    value needs to be correct (a missing or paraphrased quote dropped 39 specs whose values were right). Whether the
+    value belongs to that item is the verifier's and the reviewer's call; `evidence` only helps them find it."""
+    return spec_grounded(spec.value, spec.unit, text) and unit_grounded(spec.value, spec.unit, text)
 
 
 def grounded_terms(terms: list[str], text: str) -> list[str]:
@@ -202,8 +190,8 @@ def _flags(items: Iterable[str], source: str) -> list[bool]:
 def ground_fact(fact: Fact, text: str) -> dict:
     """Per-item grounding and copy flags, index-aligned with the lists inside `fact`."""
     return {
-        "specs": [spec_grounded(s.value, s.unit, text) and spec_evidenced(s, text) for s in fact.specs],
-        "parts": [(part_grounded(p.part_number, text) and part_evidenced(p, text)) if p.part_number else True for p in fact.parts],
+        "specs": [spec_value_grounded(s, text) for s in fact.specs],
+        "parts": [part_grounded(p.part_number, text) if p.part_number else True for p in fact.parts],
         "dtcs": [dtc_grounded(d.code, text) for d in fact.dtcs],
         "diagrams": [link_grounded(u, text) for u in fact.diagram_links],
         "numbers": {

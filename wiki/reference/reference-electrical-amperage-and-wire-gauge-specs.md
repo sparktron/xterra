@@ -18,7 +18,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 1
-  withheld_items: 6
+  partial_items: 3
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -26,9 +29,28 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 _No verified summary yet._
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Divide the total wattage of your accessory by 12 volts to find the required amperage.
+2. [Partial] Select a wire gauge from the chart that can handle the calculated amp load.
+
+_Procedure reported by [t13]._
+
+## Tips & gotchas
+
+- [Partial] Assume 13.5 volts for charging system calculations instead of standard 12 volts to be more conservative. [t13]
+
+## Common mistakes
+
+- [Partial] Ignoring that resistance increases on light bulb filaments when heat builds up during operation. [t13]
 
 ## Diagrams (links only)
 

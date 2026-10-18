@@ -14,6 +14,14 @@ tools: []
 parts:
 - name: Castrol ATF
   oem_part_no: ''
+- name: DEXRON III ATF
+  oem_part_no: ''
+- name: Genuine Nissan A/C System Lubricant
+  oem_part_no: KLH00-PAGR0
+- name: Genuine Nissan Matic D ATF
+  oem_part_no: ''
+- name: MERCON ATF
+  oem_part_no: ''
 - name: Royal Purple ATF
   oem_part_no: ''
 sources:
@@ -25,21 +33,34 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 4
-  withheld_items: 39
+  partial_items: 12
+  partial_fields: []
+  unconfirmed_safety_values: 2
+  withheld_items: 22
   pending_safety_values: 0
 ---
 
 # [reference] Fluids and capacities
 
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
+
+[Partial] Use Matic-J ATF, Calsonic aluminum radiator, or KOYO brass alternative; note the VQ40's strong low-end torque. [t25]
 
 Use 4-gauge wire for the main power cable running from battery to breaker box. [t11]
 
 Run an 8-gauge wire from the breaker box to individual lights or loads. [t11]
 
+[Partial] Reference transfer case fluid as Nissan's Matic D or the spec named J. [t20]
+
+[Partial] Reference transfer case fluid as Matic D and transmission fluid as J. [t20]
+
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Use 4-gauge wire for the main power cable running from battery to breaker box.
 
@@ -54,20 +75,32 @@ _Procedure reported by [t11]._
 ## Parts
 
 - Castrol ATF [t20]
+- [Partial] DEXRON III ATF [t20]
+- Genuine Nissan A/C System Lubricant (KLH00-PAGR0) [t16]
+- [Partial] Genuine Nissan Matic D ATF [t20]
+- [Partial] MERCON ATF [t20]
 - Royal Purple ATF [t20]
 
 ## Specifications
 
+- **Air density percentage at high altitude**: about 70% [t25] ([Partial] [Unverified] single report)
+- **Altitude for high ATF temp incidents**: over 12,000 feet [t25] ([Partial] [Unverified] single report)
 - **Ambient temperature range for specific data logs**: 50 - 60F [t25] ([Unverified] single report)
+- **Light circuit gauge**: 8-gauge [t11] ([Partial] [Unverified] single report)
+- **Main power gauge**: 4-gauge [t11] ([Unverified] single report)
 - **Radiator part number for brass cooler alternative**: KOYO A2807 [t25] ([Unverified] single report)
 - **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
+- **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Partial] [Unverified] single report)
 - **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
+- **Transfer case capacity (imperial)**: 2 1/8 qt [t20] ([Unverified] single report)
+- **Transfer case capacity (metric)**: 2.0L [t20] ([Unverified] single report)
 
 ## Tips & gotchas
 
 - If replacing an individual component, add 1oz of lubricant for every part swapped (e.g., condenser and compressor requires 2oz total). [t16]
 - Ensure the refrigerant is HFC 134a. [t16]
 - Most DIY kits contain only 17oz, so expect to add an extra 5+ oz if the system is completely empty. [t16]
+- [Partial] Watch for a pressure variance of plus or minus .11 lbs. [t16]
 
 ## Diagrams (links only)
 

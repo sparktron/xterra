@@ -4,7 +4,8 @@ title: '[reference] 21460 series radiator part numbers and variants'
 category: reference
 applies_to:
   years: []
-  trims: []
+  trims:
+  - S
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,13 +19,19 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 5
+  partial_items: 0
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # [reference] 21460 series radiator part numbers and variants
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 

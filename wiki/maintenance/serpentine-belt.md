@@ -18,13 +18,18 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  withheld_items: 6
+  partial_items: 1
+  partial_fields: []
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
 # Serpentine belt and tensioner
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
@@ -33,6 +38,7 @@ _No verified summary yet._
 ## Tips & gotchas
 
 - Listen for the operating sound of the throttle valve moving during the 10-second window after turning ignition OFF. [t22]
+- [Partial] Perform this procedure each time the harness connector of the electric throttle control actuator or ECM is disconnected. [t22]
 
 ## Source attributions
 

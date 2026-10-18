@@ -20,7 +20,7 @@ from pathlib import Path
 
 from .config import Config
 from .grounding import part_grounded, safety_values, spec_grounded, unit_grounded
-from .export import CURATED_DIR, GENERATED, is_safety
+from .export import CURATED_DIR, GENERATED, PARTIAL, SAFETY_NOTE, UNVERIFIED_VALUE, is_safety
 
 SPEC_LINE = re.compile(r"^- \*\*(?P<item>.+?)\*\*: (?P<value>.+?) \[(?P<sids>t\d+(?:, t\d+)*)\] \((?P<tag>[^)]*)\)\s*$")
 PART_LINE = re.compile(r"^- (?P<name>.+?) \((?P<pn>[^)]+)\)(?::.*?)? \[(?P<sids>t\d+(?:, t\d+)*)\]\s*$")
@@ -50,12 +50,18 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
         body = lines.index("---", 2) + 1 if lines[1:2] == ["---"] and "---" in lines[2:] else 1
         # only real Specifications lines count as published; a spec-shaped line elsewhere must not exempt itself
         published: set[tuple[str, str]] = set()
+        unconfirmed: set[tuple[str, str]] = set()   # safety values published marked [Unverified]/[Partial]
+        banner = SAFETY_NOTE in lines
+        if any(UNVERIFIED_VALUE in line for line in lines[body:]) and not banner:
+            violations.append(f"{rel}: [Unverified value] in the body but no warning banner")
         sec = ""
         for line in lines[body:]:
             if line.startswith("## "):
                 sec = line[3:].strip()
             elif sec == "Specifications" and (m := SPEC_LINE.match(line)):
                 published |= safety_values(m["value"])
+                if not any(m["tag"].startswith(t) for t in SAFE_TAGS):
+                    unconfirmed |= safety_values(m["value"])
         section = ""
         for line in lines[body:]:
             if line.startswith("## "):
@@ -81,11 +87,27 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     violations.append(f"{rel}: value not found in cited thread(s): {m['item']}: {m['value']}")
                 elif not any(unit_grounded(m["value"], "", t or "") for t in texts):
                     violations.append(f"{rel}: unit not found with that value in cited thread(s): {m['item']}: {m['value']}")
-                if is_safety(m["value"], "", False, m["item"]) and not any(m["tag"].startswith(t) for t in SAFE_TAGS):
-                    violations.append(f"{rel}: safety-critical value without corroboration/review: {m['item']}: {m['value']} ({m['tag']})")
+                confirmed = any(m["tag"].startswith(t) for t in SAFE_TAGS)
+                marked = "[Unverified]" in m["tag"] or m["tag"].startswith(PARTIAL)
+                need = int(cfg.verify.safety_min_threads)
+                if is_safety(m["value"], "", False, m["item"]) and (c := re.match(r"community-consensus, (\d+) threads", m["tag"])) \
+                        and int(c[1]) < need:
+                    violations.append(f"{rel}: safety value tagged community-consensus with {c[1]} thread(s), below "
+                                      f"verify.safety_min_threads ({need}): {m['item']}: {m['value']}")
+                if is_safety(m["value"], "", False, m["item"]) and not confirmed and not (marked and banner):
+                    violations.append(f"{rel}: safety-critical value without corroboration, review or a visible [Unverified]/[Partial] "
+                                      f"mark under the warning banner: {m['item']}: {m['value']} ({m['tag']})")
                 continue
             if section != "Source attributions":
-                loose = safety_values(_URL.sub("", line)) - published
+                vals = safety_values(_URL.sub("", line))
+                if vals & unconfirmed and UNVERIFIED_VALUE not in line:
+                    violations.append(f"{rel}: unconfirmed safety value repeated in prose without {UNVERIFIED_VALUE}: {line[:100]}")
+                loose = vals - published
+                if loose and UNVERIFIED_VALUE in line:   # an unconfirmed value without a spec, marked as such (export.loose):
+                    # the source must put that unit on that number (step lines cite their thread in the procedure footer)
+                    texts = [_thread_text(conn, s_) or "" for s_ in sorted(set(re.findall(r"\bt\d+\b", "\n".join(lines))))]
+                    if any(unit_grounded(_URL.sub("", line), "", tx) for tx in texts):
+                        loose = set()
                 if loose:
                     violations.append(f"{rel}: safety-critical value outside the specifications: {', '.join(f'{n} {u}' for n, u in sorted(loose))}: {line[:100]}")
             if section == "Parts":

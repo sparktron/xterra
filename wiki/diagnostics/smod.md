@@ -17,7 +17,7 @@ applies_to:
   drivetrain: []
 shared_platform: []
 difficulty: null
-est_time: null
+est_time: ~10 days downtime or less with independent mechanic
 tools: []
 parts:
 - name: Radiator (check part number to avoid 'old' versions)
@@ -30,19 +30,27 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  withheld_items: 13
+  partial_items: 5
+  partial_fields:
+  - est_time
+  unconfirmed_safety_values: 0
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
 # SMOD radiator transmission cooler failure
 
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
+
 ## Summary
 
 Send automatic transmission fluid to Blackstone Laboratories and check the lab report for coolant mixing. [t23]
 
+[Partial] Inspect the ATF dipstick and coolant reservoir to check if both fluids appear old. [t27]
+
 ## Procedure
 
-> **[Partial]** Every step below is supported by the source, but the verifier could not confirm this is the whole procedure. Steps or precautions may be missing; read the source thread before relying on it.
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Send a sample of the automatic transmission fluid to Blackstone Laboratories for analysis.
 2. Check the lab report specifically for signs that coolant has mixed into the oil.
@@ -55,7 +63,13 @@ _Procedure reported by [t23]._
 
 ## Tips & gotchas
 
+- [Partial] Keep taking samples periodically to stay on top of the issue instead of immediately installing a bypass or new radiator. [t23]
 - Check the radiator part number before installation to ensure it isn't an older design version that may have been on dealer shelves. [t24]
+- [Partial] Perform a complete drain and fill of Matic S fluid after repair. [t24]
+
+## Common mistakes
+
+- [Partial] Installing an 'old' style radiator during initial repairs which leads to premature failure shortly thereafter. [t24]
 
 ## Diagrams (links only)
 

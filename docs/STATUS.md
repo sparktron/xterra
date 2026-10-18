@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-12 · **Branch:** `wiki/electrical-airbag-harvest` (PR #7) · **Commit:** extractor, partial-procedure and output-cap changes on top of master `43ba06e`; the regenerated `wiki/` is a separate commit
+**Updated:** 2026-10-15 · **Branch:** `feat/guide-first-extraction` off master `d659f60` (PRs #7 and #8 merged) · **Commits:** guide-first extraction, then reviewer corrections (both below), each followed by its regenerated `wiki/` commit
 
 ## Objective
 
@@ -14,6 +14,130 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+Partial and unconfirmed claims publish marked (2026-10-16, decided by the user, PR #9). "All of the partials should
+be added with a partial flag signifying it needs more work", and "I'm fine with possibly wrong torque and pressure as long
+as they are marked as such and get checked in subsequent runs". Before it, 387 of 686 withheld items were the local
+verifier's `partial`.
+
+- `verify.publish_partial` (new, default on): `export.gate` returns the tag `[Partial]` for a local `partial`. The item
+  publishes with `[Partial]` before it (steps, summary, symptoms, tips, mistakes, tools, parts), inside the spec tag,
+  in front matter `verification.partial_fields`/`partial_items`, the DTC table `status` column and the interchange
+  status; the page carries `PAGE_PARTIAL_NOTE`, a procedure `PARTIAL_NOTE`. Partial claims stay queued (priority 1).
+- `verify.publish_unverified_safety` (existing, now default on): an unconfirmed torque/capacity/pressure spec publishes
+  tagged `[Unverified]`/`[Partial]` under `SAFETY_NOTE`; prose repeating it gets `[Unverified value]`; a prose value with
+  no spec publishes marked if the source puts that unit on that number (`unit_grounded`). All of these stay in the review
+  queue at priority 0 and in `pending_verification.md` ("Published marked"). Disputed safety values stay withheld.
+- Kept: `unsupported`, decoy failures, no verifier run and a reviewer's `reject`/`needs_human` publish nothing. Both
+  settings off restore the fail-closed policy (`strict(cfg)` in the tests).
+- `qa`: an unconfirmed safety spec needs a mark and the banner; an unconfirmed value in prose needs `[Unverified value]`
+  (and, without a spec, its unit in a cited thread); `[Unverified value]` needs the banner.
+- Tests: 6 new (one found by the live export: a part note "12 quarts" published unmarked), 8 updated (1 renamed); the
+  fail-closed ones now run under `strict`. With the value-only change: 8 new, 10 updated, 1 removed (the quote test);
+  `pytest` 123 -> 130 passed. (Commit e970405's message says 11 updated; 10 is right.)
+- Result (`xw export && xw qa`, qa passes): withheld items 686 -> 276; 277 items published marked `[Partial]`; 9 safety
+  values published unconfirmed (marked); 0 withheld. Generated pages: procedure pages 31 -> 55, procedure lines 115 ->
+  241, procedures of 5+ steps 6 -> 12, spec lines 11 -> 62, part lines 52 -> 89, tips 109 -> 163 (these include the
+  value-only grounding change below). The sliders (21 steps) and PMF flush (11) guides now publish with their torque and
+  volume steps marked `[Unverified value]`. Still published as labelled: "Transmission pan bolt torque: 25 ft-lbs
+  [Unverified]", whose source bolt is the drain bolt (pan perimeter bolts take far less); a reviewer should reject or
+  a person correct it.
+- Remaining withheld (276): Claude reject 156, Claude needs_human 40, local unsupported 40, spec value not in source 30,
+  number not in source 6, copied text 3, safety value with a unit the source does not give 1.
+- Codex review of #9 on `107ff89` (2026-10-18, 1 finding, fixed): with `safety_min_threads` above 2, two independent
+  reports published an unconfirmed safety value tagged `community-consensus` without a mark. The tag now reads
+  `[Unverified] community-consensus, N threads, needs M`, and `qa` refuses a consensus tag below the threshold. 1
+  regression test (fails before the fix); `pytest` 131 passed; re-export unchanged (default threshold 2).
+
+Value-only grounding for specs and parts (2026-10-16, decided by the user: "only the value needs to be correct",
+PR #9). `ground_fact` checked that a spec's or part's `evidence` was a verbatim quote containing the value; 39
+specs and 10 part numbers whose value (and unit) are in the source were dropped because the 9B left `evidence` empty or
+paraphrased it. `grounding.spec_value_grounded` now checks only the value: every number in the source, and the spec's
+unit the unit the source puts on that number; a part number must be in the source. Still refused: 29 "values" with no
+number in the source ("various", "Battery") and 1 with a unit the source does not give. `evidence_in_text`,
+`spec_evidenced`, `part_evidenced` removed. Tests: 2 new, 2 updated; `pytest` 124 passed. Result (`xw export && xw qa`,
+qa passes): withheld items 720 -> 686; 23 spec lines and 6 part numbers newly published (all locally `supported`,
+single-report values tagged `[Unverified]`); safety values held for corroboration 3 -> 7. Some new spec labels are
+loose (e.g. "Target 4WD gear ratio: 3.36", a ratio the author planned and then dropped): the label is the
+verifier's and reviewer's call, not grounding's.
+
+Codex review of PR #9 (2026-10-15, 2 findings, both fixed): (P1) `extract.apply_guide_steps` let a guide call that
+stopped early replace fragments holding more steps in total (it compared with the longest fragment only); it now needs
+at least as many steps as all the fragments together. (P2) `extract.reword_copied` compared numbers without their units
+(`10mm` -> `10 cm` passed); it now uses `grounding.same_measures`. The same applies to corrections:
+`corrections.changes_numbers` counts a unit change as a number change (a person decides), and `corrections.refusal`
+refuses a unit the source does not put on that number (`unit_grounded`). 3 regression tests, each failing before its
+fix; `pytest` 123 passed; re-export unchanged, `xw qa` passes; no existing step states a unit its source does not.
+Limits: units `grounding` does not know (cm, inch) are still compared by numeral only, and prose outside corrections
+gets no unit check. The 14 guides extracted on 2026-10-14 used the old P1 rule; their replaced fragments are gone, so
+that cannot be re-checked, but each published one was Claude-reviewed for completeness.
+
+Reviewer corrections (2026-10-15, branch `feat/guide-first-extraction`, PR #9). Option A with the number carve-out
+from `docs/proposals/reviewer-corrections.md`; the as-built differences are listed at the top of that file.
+
+- Code: `src/xw/corrections.py` (new), tables `corrections` and `complete_lists` (`db.py`), `review.apply_reviews`
+  (a `correct` verdict, applied before the file's other verdicts), `review.build_queue` (re-queues `complete` after a
+  step correction; pending corrections lead the triage queue), `export.load_rows`/`gate` (corrections applied on load
+  and re-checked against the chunk; tag `Claude-corrected`/`Human-corrected`; footer "N steps reworded by a reviewer"),
+  `triage.py` (`a`/`r` on a pending correction), `cli.py` (counts), `review.INSTRUCTIONS` and the reviewer copies.
+- Tests first: 8 new in `tests/test_pipeline.py` (listed under the AGENTS.md invariant "A correction never bypasses
+  grounding"); all 8 failed before the implementation. `pytest`: 120 passed.
+- Data: DB backed up to `data/xw.sqlite.bak-pre-corrections`. Batch 011 (22 items, judged against the guide chunks):
+  17 corrections accepted, 1 waiting for a person (the PMF summary drops "25 ft-lbs"), 0 refused, 4 `complete` verdicts.
+- Result (`xw export && xw qa`, qa passes): **license-plate light housings publish 21 steps (complete, 2 reworded),
+  hatch struts 7 steps (`[Partial]`, 2 reworded).** Sliders (21 steps, 7 reworded) and PMF flush (11 steps, 5
+  reworded) now pass every step gate. They are still withheld by the safety-value rule: sliders step 18 says "90 ft
+  Lbs", and the PMF steps say 25 ft-lbs, 4 or 5 quarts and 6 or 7 quarts, none of them a corroborated spec on the
+  page. The PMF `spec:0` "Transmission pan bolt torque: 25 ft-lbs" should not be approved as labelled: the source's
+  bolt is the drain bolt on the pan, and specs cannot be corrected. Unblocking needs a second thread, a reviewer-approved
+  spec, or a person's correction without the number. That is a decision, not done here.
+- Not done: no `e <text>` correction in triage (use `xw review-apply --by human`); a person cannot yet undo an accepted
+  Claude correction from triage (it is not listed; deleting its `corrections` row does it).
+
+Guide-first extraction (2026-10-14, branch `feat/guide-first-extraction`). Before it, the best generated procedure on the wiki had 5 steps and the
+other 38 procedure pages averaged under 2; the how-to threads, whose first post is a step-by-step guide, came out as
+many two-step fragments. Causes found: (1) the author's guide shared one chunk with 15-25 replies; (2) asked for every
+field at once, the 9B model splits a long write-up into fragments whatever `prompts/extract.md` says (live: the
+2wd-to-4x4 guide came back as 26 facts even with the replies removed). Changes:
+
+- `crawl.build_chunks(guide_first=...)`: when the title reads as a write-up (`crawl.is_guide_title`: how-to, DIY,
+  write-up, walkthrough, pictorial, tutorial, procedure; not a question), the author's opening run of posts is chunked
+  alone and marked `GUIDE:` on the chunk's second line. A one-line opener (under `min_chunk_chars`) is not split off.
+  Short reply chunks are kept (a reply may correct a step).
+- `extract.guide_steps`: on a guide chunk, one extra call whose schema is only `{"steps": [...]}`; `apply_guide_steps`
+  replaces the procedure fragments with one fact carrying those steps when it found more, keeping the fragments'
+  tools/parts/specs/tips; `reword_copied` gives a step that shares a 12-word run with the source one rewording call
+  (kept only if it no longer copies and has the same numbers). No gate changed: every step is grounded and verified
+  and `complete` is judged on the whole list.
+- `export`: a procedure from a guide chunk with `[image: ...]` markers ends "Photos of this job are in the source:
+  <thread URL>". The wiki rewrites steps and never copies the authors' text or photos (README Legal, `has_long_overlap`).
+- `parse/xenforo.py`: the post date comes from the permalink's `<time>`; the first `<time>` in an article could be
+  another date (some authors carry one date on every post across threads, and replies predate post 1).
+- Tests: 6 new (`test_guide_thread_chunks_the_authors_writeup_alone`, `test_guide_steps_publish_as_one_procedure_with_a_pointer_to_the_photos`,
+  3 in `test_extract_prompt.py`, `test_xenforo_post_date_comes_from_the_permalink_not_the_first_time_tag`); the
+  parser and extract tests fail on the old code, the pipeline tests cannot import it. `pytest`: 112 passed (Python 3.10.12).
+- Data: DB backed up to `data/xw.sqlite.bak-pre-guide-chunks`. 14 how-to threads (t4, t6, t7, t9, t29-t35, t38, t40,
+  t43) re-chunked from their stored chunk text (the saved HTML is not kept anywhere, so they could not be re-parsed)
+  by a one-off script; their old facts and verdicts dropped; `xw extract` (31 chunks), rewording of 10 copied steps,
+  `xw verify` (54 facts, decoys accepted 7/752, 7 calls discarded). t8 was left alone (see Known problems).
+- Main procedure per guide after the local verifier: 7-pin harness 26 steps, alternator rebuild 28, 2wd-to-4x4 59,
+  battery-to-roof-lights 34, sliders 21, license-plate lights 21, PMF flush 11, ABS off 11, roof rack 8, exhaust 8,
+  hatch struts 7, VIAS 5. The 2-pass verifier left 2-21 steps per guide `partial`.
+- Claude review (inline, wiki-reviewer rules, batches 007-010, 76 claims on the main procedure of 8 guides): 53
+  approve, 8 reject, 15 needs_human. Rejected for misread steps: sliders (step 11 misreads a photo caption), PMF
+  flush (fluid "out of the bucket"; 10mm socket "secures" the cap; check/gear order), license-plate lights (LEDs
+  into housings instead of connectors), 2wd-to-4x4 `complete` (10mm bolt, "grease rings"). Judged against the full
+  guide chunk where the 900-character excerpt was cut short.
+- Result (`xw export && xw qa`, qa passes): 112 generated pages (was 140: fragment pages merged), 29 with a procedure
+  (was 39), 87 procedure lines (was 71), 4 procedures of 5+ steps (was 1), 109 tips (was 86). Published long
+  procedures: 7-pin harness (26, `[Partial]`), a battery-to-roof-lights section (9), VIAS rattle fix (5). Pages that
+  lost a short procedure: the old 1-2 step fragments of the same guides, plus `bumpers-armor` (4) and
+  `license-plate-lighting-upgrades` (5), whose new whole procedures were rejected for a misread step.
+- Waiting on a person (`xw triage`): hatch struts (steps 4-5), ABS off (step 4), sliders step 17 and the 2wd-to-4x4
+  steps marked needs_human. Each publishes the whole procedure once approved. 2wd-to-4x4 also needs its torque values
+  published as specs (single source: pending).
+- Not run: `xw doctor --smoke`; a fresh `xw ingest` of saved HTML through the new parser and chunker (no HTML on
+  disk); the guide path on threads other than these 14; review of the other 269 queued claims (`xw review-export`).
 
 Empty pages fix (2026-10-12). Pages published a title and a forum link: of 238 facts only 2 had `steps` and none had a `summary`,
 because `prompts/extract.md` never asked for them. Changes (PR #7):
@@ -70,6 +194,17 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 
 ## Next
 
+0. (2026-10-14 review) In order of yield for how-to pages: (a) `xw triage` the needs_human steps listed under Active
+   work: each approval can publish a whole guide; (b) a reviewer *correction* path: today a reviewer can only reject a
+   misworded step, which withholds the whole procedure (26-59-step guides die on one word). A corrected wording that
+   must pass the same deterministic grounding (numbers, 12-word overlap) would keep the gate and save the procedure.
+   Built 2026-10-15 (see Active work), so what's left is the safety-value blockers on the sliders and PMF guides and
+   `xw triage` for the one pending correction;
+   (c) try `verify.verify_model` or the guide call on the 14B model loaded on :1235; the 9B misreads about one step
+   in ten of a long guide; (d) re-save t8 (fog-light bypass: the guide post itself is missing from the capture), t36
+   (hood squeak: opening post is 53 chars) and t41 (drawer: 334 chars) and `xw ingest` them; keep the saved HTML
+   (nothing does now, so parser fixes cannot be re-applied); (e) give guide procedures their own page instead of
+   the model's hub topic (the 7-pin harness sits under "Lighting, aux fuse blocks and dual batteries").
 1. Decide what to do with the `thenewx` block. The pipeline stops on it by design; the options are `xw ingest` of pages saved from a browser session, or another source.
 2. Run `nissan-frontier-forum` and `clubfrontier` for the first time. Their URLs and forum software are `[Unverified]` in `config/sources.yaml`.
 3. Resolve the 28 `needs_human` review verdicts (`xw review-apply --by human`), listed in `data/review/*.verdicts.json`.
@@ -86,7 +221,21 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 - The decoys only test changed or invented numbers, the easiest error to catch; 0/202 accepted does not show the verifier catches wrong conditions, vehicles or missing context. The review audit did find those (below).
 - The recorded block reason says HTTP 409, which is not in the tracked `crawl.stop_statuses` (`[401, 402, 403]`). The cause is not established. `config/settings.local.yaml` was deliberately not read.
 - The README said the pipeline was "not yet run against a real server", which is no longer true (229 facts extracted, `xw doctor` passes); that clause was removed in the same commit as this file.
-- Dependencies are floors without ceilings and the repo has no CI.
+- Dependencies are floors without ceilings. CI (GitHub Actions, PR #10, merged 2026-10-18) runs `pytest` at current
+  releases on Python 3.10/3.12/3.13 and at the floors on 3.10, plus the tracked-secrets/data check and `qa.check_curated`;
+  it cannot run `xw qa` on generated pages (needs `data/`) or anything that needs the LLM server.
+- `xw qa` does not re-check procedure steps, summaries or tips against the source (numbers, 12-word copying); it
+  checks spec lines, part lines and loose safety values. The README says qa "re-checks the published pages against
+  raw source text"; only export's grounding covers the prose.
+- Ingested threads with wrong data that cannot be re-parsed (no saved HTML): t8's first captured post is a reply (the
+  author's guide is missing, so the page credits the wrong author); some post dates are not post dates (fixed in the
+  parser for future ingests only); t10, t15, t28 and t39 went through the generic parser (no authors, one post).
+- `html_to_text` keeps at most 10 images per post, so the photo count of a pictorial guide is a floor.
+- `config/settings.yaml` ships `respect_robots: false` as the default for every source (merged at the user's request);
+  AGENTS.md asks not to disable it for a site that asks not to be crawled. A per-source or local override would be safer.
+- The local verifier's false-accept rate on the current facts is 48% (32 of 66 reviewed `supported` claims), from
+  `xw review-apply` on 2026-10-14; locally-supported steps also carried misreads the review found only through
+  `complete` (t29 step 3, t34 steps 4 and 9, t35 steps 1 and 37).
 
 ## Validation state
 
@@ -124,4 +273,5 @@ No decision records exist. The design decisions are in `README.md` (Verification
 | Design and verification layers | `README.md` |
 | Settings | `config/settings.yaml` |
 | Sources | `config/sources.yaml` |
-| Commit history | `git log` (19 commits, 2026-10-06 to 2026-10-07) |
+| Reviewer corrections (design, decision, as-built differences) | `docs/proposals/reviewer-corrections.md`, `src/xw/corrections.py` |
+| Commit history | `git log` |

@@ -10,9 +10,9 @@ import httpx
 
 from xw import db
 from xw.cli import main
-from xw.crawl import build_chunks, discover, harvest
-from xw.export import GENERATED, export_all
-from xw.extract import extract_pending
+from xw.crawl import build_chunks, discover, harvest, is_guide_chunk, is_guide_title, store_thread
+from xw.export import GENERATED, SAFETY_NOTE, export_all
+from xw.extract import GUIDE_SYSTEM, extract_pending
 from xw.fetch import Blocked, Fetcher
 from xw.grounding import number_tokens, spec_grounded
 from xw.ingest import ingest_file
@@ -143,6 +143,11 @@ def fact_id(conn):
     return conn.execute("SELECT id FROM facts ORDER BY id LIMIT 1").fetchone()[0]
 
 
+def strict(cfg):
+    """The fail-closed configuration (both off): partial verdicts and unconfirmed safety values are withheld."""
+    cfg.verify.as_dict().update(publish_partial=False, publish_unverified_safety=False)
+
+
 def claude_verdicts(cfg, conn, verdicts, by="claude"):
     path = cfg.data_dir / "review" / "manual.verdicts.json"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -163,6 +168,7 @@ def test_discover_prioritises_and_filters(cfg, conn):
 
 
 def test_single_source_safety_value_is_withheld_until_reviewed(cfg, conn):
+    strict(cfg)   # the default publishes it marked instead: test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked
     fetcher, src = setup_site(cfg, conn)
     discover(cfg, conn, fetcher, src, log=lambda m: None)
     harvest(cfg, conn, fetcher, src, log=lambda m: None)
@@ -227,9 +233,9 @@ def test_verifier_disagreement_withholds_claims_and_whole_procedures(cfg, conn, 
                        verifier=FakeVerifier(cfg, bad=("lower ball joint",), partial=("weight on the suspension",)))
     export(cfg, conn)
     page, oq = page_text(cfg), (cfg.wiki_dir / "open_questions.md").read_text()
-    assert "## Procedure" not in page and "Remove the pivot bolts" not in page   # one bad step withholds the whole procedure
-    assert "Final-tighten" not in page                                          # 'partial' is not enough
-    assert "local verifier: unsupported" in oq and "local verifier: partial" in oq
+    assert "## Procedure" not in page and "Remove the pivot bolts" not in page   # one unsupported step withholds the procedure
+    assert "- [Partial] Final-tighten" in page                                  # 'partial' publishes, marked as needing work
+    assert "local verifier: unsupported" in oq and "local verifier: partial" not in oq
     assert "pickle fork" in page                                                # unrelated verified tool still published
     assert "21mm socket" not in page and "number not found in source" in oq     # "21" is not in this source
 
@@ -418,6 +424,58 @@ def test_build_chunks_splits_and_skips_noise():
     assert "(continued)" in chunks[1]
 
 
+def test_guide_thread_chunks_the_authors_writeup_alone():
+    posts = [Post("op", "", "Pull the kick panel and remove the strip. " * 8), Post("op", "", "Then route the harness. " * 6),
+             Post("b", "", "Great write-up, which socket did you use? " * 3), Post("op", "", "A 10mm socket for the bracket. " * 3)]
+    chunks = build_chunks("How-to: 7-pin harness", posts, max_chars=14000, min_chars=100, min_post_chars=60, guide_first=True)
+    assert len(chunks) == 2 and is_guide_chunk(chunks[0]) and not is_guide_chunk(chunks[1])
+    assert "route the harness" in chunks[0] and "which socket" not in chunks[0]
+    assert "10mm" in chunks[1]                      # the author's later answer is part of the discussion
+    assert len(build_chunks("How-to: 7-pin harness", posts, 14000, 100, 60)) == 1   # without guide_first: unchanged
+    # a one-line opener is not a write-up: the thread stays one discussion chunk
+    opener = [Post("op", "", "Any write-ups on this?"), Post("b", "", "Here is how I did it. " * 10)]
+    assert [is_guide_chunk(c) for c in build_chunks("How-to: x", opener, 14000, 100, 60, guide_first=True)] == [False]
+    assert is_guide_title("How-to: Install 7-Pin Wiring Harness") and is_guide_title("DIY: Drop in Cargo Roof Rack")
+    assert is_guide_title("Airbag Reset Procedure") and not is_guide_title("How to remove the rear seat?")
+    assert not is_guide_title("*** PLEASE READ *** ~ Front Diff Failures")
+
+
+def test_guide_steps_publish_as_one_procedure_with_a_pointer_to_the_photos(cfg, conn, tmp_path):
+    """Live, the 9B model returned a write-up as many two-step facts. The guide's own chunk gets one steps-only call;
+    its steps replace the fragments and still pass grounding and the verifier like any other step."""
+    url = "https://forum.example.invalid/threads/hatch-struts.9/"
+    conn.execute("INSERT INTO threads(source_id, url, title, kind, priority) VALUES('manual', ?, 'How-to: Hatch struts', 'manual', 1)", (url,))
+    tid = conn.execute("SELECT id FROM threads WHERE url=?", (url,)).fetchone()["id"]
+    guide = ("Open the hatch all the way and have a helper hold it, or prop it with a length of wood, so it cannot drop "
+             "on you while a strut is off.\nPop the trim cover off with a plastic panel tool. [image: https://forum.example.invalid/a.jpg]\n"
+             "Lever the old strut clips up with a flat screwdriver.\nPress the new strut onto both ball studs.\n"
+             "Close the hatch, open it again and make sure it stays up on its own.")
+    reply = "Nice job, mine took ten minutes start to finish with a borrowed panel tool."
+    store_thread(cfg, conn, tid, "How-to: Hatch struts", [Post("op", "", guide), Post("b", "", reply)], 1)
+    assert [is_guide_chunk(r["text"]) for r in conn.execute("SELECT text FROM chunks WHERE thread_id=? ORDER BY idx", (tid,))] == [True, False]
+    frag = lambda steps: {"category": "repair", "topic": "Rear hatch strut replacement", "title": "Replace hatch struts", "steps": steps}  # noqa: E731
+    answers = [("Pop the trim", {"relevant": True, "facts": [frag(["Remove the trim cover", "Release the strut clips"]),
+                                                             frag(["Fit the new strut on the studs", "Test the hatch"])]})]
+    steps = ["Have a helper hold the open hatch, or prop it with wood", "Take off the trim cover using a plastic panel tool",
+             "Pry up the clips on the old strut with a flat screwdriver",
+             "Push the new strut onto both ball studs", "Shut and reopen the hatch and check that it holds itself up"]
+
+    class GuideLLM(FakeLLM):
+        def chat_json(self, system, user, schema=None):
+            return {"steps": steps} if system == GUIDE_SYSTEM else super().chat_json(system, user, schema)
+
+    topics = TopicIndex(cfg.topics)
+    extract_pending(cfg, conn, GuideLLM(cfg, answers), topics, log=lambda m: None)
+    facts = [json.loads(r["fact_json"]) for r in conn.execute("SELECT fact_json FROM facts WHERE thread_id=?", (tid,))]
+    assert [f["steps"] for f in facts if f["steps"]] == [steps]
+    verify_pending(cfg, conn, FakeVerifier(cfg), log=lambda m: None)
+    export(cfg, conn)
+    page = next(p for p in cfg.wiki_dir.glob("*/*.md") if "Push the new strut" in p.read_text())
+    text = page.read_text()
+    assert "5. Shut and reopen the hatch" in text and f"Photos of this job are in the source: <{url}>" in text
+    assert check_wiki(cfg, conn) == []
+
+
 def test_cli_init_status_export_qa(root, capsys):
     assert main(["--root", str(root), "init"]) == 0
     assert main(["--root", str(root), "status"]) == 0
@@ -553,14 +611,19 @@ def test_same_author_in_two_threads_is_not_consensus(cfg, conn, tmp_path):
     s = spec("83", "torque the inner pivot bolt to 83 ft-lb")
     extract_and_verify(cfg, conn, [(w, {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]}) for w in ("Write-up a", "Write-up b")])
     export(cfg, conn)
+    page = page_text(cfg)
+    assert "83 ft-lb [t1, t2] ([Unverified] not independently corroborated)" in page   # published, but not as confirmed
+    assert SAFETY_NOTE in page and "confidence: community-consensus" not in page
+    strict(cfg)
+    export(cfg, conn)
     assert "83 ft-lb" not in page_text(cfg)
     assert "1 distinct known author" in (cfg.wiki_dir / "pending_verification.md").read_text()
-    assert "confidence: community-consensus" not in page_text(cfg)
 
 
 def test_review_queue_counts_corroboration_like_the_exporter(cfg, conn, tmp_path):
     """Thread b states the same value but its verifier pass rejected it, so the exporter has one supporting thread
-    and withholds the value. The queue must offer it for review at priority 0, not skip it as already corroborated."""
+    and publishes the value only marked unconfirmed. The queue must offer it for review at priority 0, not skip it as
+    already corroborated."""
     class RejectsB(FakeVerifier):
         def chat_json(self, system, user, schema=None):
             out = super().chat_json(system, user, schema)
@@ -576,13 +639,14 @@ def test_review_queue_counts_corroboration_like_the_exporter(cfg, conn, tmp_path
     extract_and_verify(cfg, conn, [(w, {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]}) for w in ("Write-up a", "Write-up b")],
                        verifier=RejectsB(cfg))
     export(cfg, conn)
-    assert "only 1 thread" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "needs 2 independent reports" in (cfg.wiki_dir / "pending_verification.md").read_text()
     batch = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())
     top = batch["items"][0]
-    assert top["id"] == f"f{fact_id(conn)}:spec:0" and top["priority"] == 0 and "only 1 thread" in top["why_queued"]
+    assert top["id"] == f"f{fact_id(conn)}:spec:0" and top["priority"] == 0 and "published marked" in top["why_queued"]
 
 
 def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
+    strict(cfg)   # with the defaults the single-source spec publishes marked: see the test after this one
     add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Refill the diff with 2.75 qt of gear oil. " * 3, "alice")])
     extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
         steps=["Support the truck on stands", "Torque the pivot bolts to 83 ft-lb with the arm loaded"],
@@ -607,6 +671,41 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
     # a spec-shaped line outside Specifications must not count as a published spec (and exempt itself)
     path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- **Torque**: 99 ft-lb [t1] (community-consensus, 2 threads)\n\n## Tools"))
     assert any("outside the specifications: 99 ft-lb" in v for v in check_wiki(cfg, conn))
+
+
+def test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked(cfg, conn, tmp_path):
+    """Decided 2026-10-16: a possibly wrong torque/capacity/pressure value may publish if it is marked as such and checked
+    again on later runs. It is tagged [Unverified] under a warning banner, prose repeating it says [Unverified value],
+    pending_verification.md lists it, the review queue keeps it at priority 0, and a review removes the marks."""
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Refill the diff with 2.75 qt of gear oil. " * 3, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        steps=["Support the truck on stands", "Torque the pivot bolts to 83 ft-lb with the arm loaded"],
+        tips=["Top off the diff with 2.75 qt afterwards"], parts=[], diagram_links=[],
+        specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "**Inner pivot bolt torque**: 83 ft-lb [t1] ([Unverified] single report)" in page and SAFETY_NOTE in page
+    assert "2. [Unverified value] Torque the pivot bolts to 83 ft-lb with the arm loaded" in page
+    assert "- [Unverified value] Top off the diff with 2.75 qt afterwards [t1]" in page   # no spec, but the source says 2.75 qt
+    pv = (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert pv.index("Published marked") < pv.index("83 ft-lb")
+    assert check_wiki(cfg, conn) == []
+    fid = fact_id(conn)
+    top = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())["items"][0]
+    assert top["id"] == f"f{fid}:spec:0" and top["priority"] == 0
+
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace(SAFETY_NOTE, ""))
+    assert any("visible [Unverified]/[Partial] mark under the warning banner" in v for v in check_wiki(cfg, conn))
+    path.write_text(page.replace("[Unverified value] ", ""))
+    assert any("without [Unverified value]" in v for v in check_wiki(cfg, conn))
+
+    claude_verdicts(cfg, conn, [{"id": f"f{fid}:spec:0", "verdict": "approve"}])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "83 ft-lb [t1] (Claude-reviewed)" in page and "2. Torque the pivot bolts to 83 ft-lb with the arm loaded" in page
+    assert "- [Unverified value] Top off the diff with 2.75 qt afterwards [t1]" in page and SAFETY_NOTE in page   # still unconfirmed
+    assert check_wiki(cfg, conn) == []
 
 
 def test_partial_procedure_publishes_marked_partial_until_upgraded(cfg, conn, tmp_path):
@@ -763,8 +862,8 @@ def test_two_passes_must_agree_before_a_claim_is_supported(cfg, conn, tmp_path):
     assert got["step:1"] == "partial" and got["step:0"] == "supported"     # disagreement is not support
     export(cfg, conn)
     page = page_text(cfg)
-    assert "## Procedure" not in page and "Separate the lower ball joint" not in page   # an unsupported step withholds it
-    assert "Remove the pivot bolts" not in page
+    assert "2. [Partial] Separate the lower ball joint" in page        # published, but marked: not shown as supported
+    assert "1. Support the truck securely on stands" in page
 
 
 def test_two_passes_that_agree_publish_as_before(cfg, conn, tmp_path):
@@ -995,3 +1094,315 @@ def test_a_review_verdict_for_a_claim_that_was_rewritten_is_not_applied(cfg, con
     conn.commit()
     again = export_review(cfg, conn, TopicIndex(cfg.topics))                          # the rewritten claim is queued again
     assert again and any(i["id"] == f"f{fid}:summary" for p in again for i in _json.loads(p.read_text())["items"])
+
+
+# ---- reviewer corrections (docs/proposals/reviewer-corrections.md: option A, number changes wait for a person) -------
+def correction_round(cfg, conn, name, verdicts, by="claude"):
+    """Write a batch holding the claims these verdicts answer, as the pipeline shows them now, and its verdicts file;
+    then apply it like `xw review-apply`."""
+    from xw.corrections import displayed_claims
+
+    review_dir = cfg.data_dir / "review"
+    review_dir.mkdir(parents=True, exist_ok=True)
+    items = []
+    for v in verdicts:
+        fid, key = v["id"][1:].split(":", 1)
+        items.append({"id": v["id"], "claim": displayed_claims(conn, int(fid)).get(key, "")})
+    (review_dir / f"{name}.json").write_text(json.dumps({"items": items}))
+    path = review_dir / f"{name}.verdicts.json"
+    path.write_text(json.dumps({"verdicts": verdicts}))
+    return apply_reviews(cfg, conn, [path], by=by)
+
+
+def _row(conn):
+    from xw.export import load_rows
+    return load_rows(conn)[0]
+
+
+def test_a_reviewer_correction_rewords_a_step_and_the_procedure_publishes(cfg, conn, tmp_path):
+    """A garbled step used to leave only reject or needs_human, and either withholds the whole procedure."""
+    _triage_setup(cfg, conn, tmp_path)                       # step 1 is `partial` locally: the procedure is withheld
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-101", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Pop the lower ball joint loose with a fork", "note": "wording"},
+        {"id": f"f{fid}:complete", "verdict": "needs_human", "note": "judged with the correction in view"}])
+    assert stats["corrected"] == 1 and stats["applied"] == 1 and stats["pending"] == stats["refused"] == 0
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "2. Pop the lower ball joint loose with a fork" in page and "Separate the lower ball joint" not in page
+    assert "[Partial]" in page and "1 step reworded by a reviewer" in page
+    assert check_wiki(cfg, conn) == []
+    assert "Separate the lower ball joint with a fork" in conn.execute("SELECT fact_json FROM facts").fetchone()[0]  # extraction kept
+
+
+def test_a_correction_with_an_unsourced_number_or_copied_text_is_never_used(cfg, conn, tmp_path):
+    from xw.corrections import store
+
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-102", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Separate the lower ball joint with a 32mm fork"},   # no 32 in the source
+        {"id": f"f{fid}:step:2", "verdict": "correct",
+         "corrected": "Lower control arm job on a 2008. Torque the inner pivot bolts to 83 ft-lb on the lower arm."}])  # copies the source
+    assert stats["refused"] == 2 and stats["corrected"] == stats["pending"] == 0
+    assert conn.execute("SELECT count(*) FROM corrections").fetchone()[0] == 0
+    # a stored correction is re-checked on every export (rules may tighten after it was accepted): it is not used
+    store(conn, _row(conn).thread_id, "step:1", "Separate the lower ball joint with a fork",
+          "Pop the ball joint loose. Lower control arm job on a 2008. Torque the inner pivot bolts to 83 ft-lb on the lower arm.", "human")
+    row = _row(conn)
+    assert row.fact.steps[1] == "Separate the lower ball joint with a fork" and row.corrected == {}
+    export(cfg, conn)
+    assert "2. [Partial] Separate the lower ball joint with a fork" in page_text(cfg)   # original wording, still partial
+
+
+def test_a_corrected_step_with_a_torque_value_is_marked_unconfirmed_or_needs_a_spec(cfg, conn, tmp_path):
+    steps = ["Support the truck securely on stands", "Separate the lower ball joint with a fork", "Tighten the pivot bolts to 83 ft-lb"]
+    _triage_setup(cfg, conn, tmp_path, steps=steps)          # no spec on the page
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-103", [
+        {"id": f"f{fid}:step:1", "verdict": "approve"},
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down to 83 ft-lb"},
+        {"id": f"f{fid}:complete", "verdict": "approve"}])
+    assert _row(conn).fact.steps[2] == "Snug the inner pivot bolts down to 83 ft-lb"
+    export(cfg, conn)
+    assert "3. [Unverified value] Snug the inner pivot bolts down to 83 ft-lb" in page_text(cfg)   # no spec here: marked
+    assert check_wiki(cfg, conn) == []
+    strict(cfg)
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)              # strict: 83 ft-lb in prose needs a published spec
+    cfg.verify.as_dict().update(publish_partial=True, publish_unverified_safety=True)
+    # a person's correction outranks Claude's, and may change a number; without the torque value the procedure publishes
+    stats = correction_round(cfg, conn, "batch-104", [
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down"},
+        {"id": f"f{fid}:complete", "verdict": "approve"}], by="human")
+    assert stats["corrected"] == 1
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "3. Snug the inner pivot bolts down" in page and "83 ft-lb" not in page and check_wiki(cfg, conn) == []
+
+
+def test_a_correction_follows_its_claim_across_a_reextraction_and_lapses_when_the_text_changes(cfg, conn, tmp_path):
+    answers = _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-105", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Pop the lower ball joint loose with a fork"}])
+
+    def reextract(ans):
+        conn.execute("DELETE FROM verdicts")
+        conn.execute("DELETE FROM facts")
+        conn.execute("UPDATE chunks SET status='pending'")
+        conn.commit()
+        extract_and_verify(cfg, conn, ans, verifier=FakeVerifier(cfg, partial=("lower ball joint",)))
+
+    reextract(answers)                                       # same text, new fact id
+    row = _row(conn)
+    assert row.id != fid and row.fact.steps[1] == "Pop the lower ball joint loose with a fork" and row.corrected == {"step:1": "claude"}
+    reworded = [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[], steps=[
+        "Support the truck securely on stands", "Split the lower ball joint using a fork", "Remove the pivot bolts and drop the arm"])]})]
+    reextract(reworded)                                      # different text: the correction says nothing about it
+    row = _row(conn)
+    assert row.fact.steps[1] == "Split the lower ball joint using a fork" and row.corrected == {}
+
+
+def test_a_complete_verdict_on_the_old_list_does_not_publish_a_corrected_procedure(cfg, conn, tmp_path):
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    correction_round(cfg, conn, "batch-106", [{"id": f"f{fid}:step:1", "verdict": "approve"},
+                                              {"id": f"f{fid}:complete", "verdict": "approve"}])
+    export(cfg, conn)
+    assert "## Procedure" in page_text(cfg) and "[Partial]" not in page_text(cfg)
+    correction_round(cfg, conn, "batch-107", [{"id": f"f{fid}:step:0", "verdict": "correct", "corrected": "Put the truck on jack stands"}])
+    export(cfg, conn)
+    assert "## Procedure" not in page_text(cfg)              # that approval judged the old list; local verdicts never count here
+    queued = [i for p in export_review(cfg, conn, TopicIndex(cfg.topics)) for i in json.loads(p.read_text())["items"]]
+    redo = next(i for i in queued if i["id"] == f"f{fid}:complete")
+    assert "reworded" in redo["why_queued"] and "Put the truck on jack stands" in redo["claim"]
+    correction_round(cfg, conn, "batch-108", [{"id": f"f{fid}:complete", "verdict": "approve"}])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "1. Put the truck on jack stands" in page and "[Partial]" not in page and "1 step reworded by a reviewer" in page
+
+
+NOTE_C = "Front lower arm swap. Loosen the 2 pivot bolts first, then the 3 ball joint nuts. Torque the inner pivot bolts to 83 ft-lb. " * 4
+
+
+def test_a_claude_correction_that_changes_a_number_waits_for_a_person(cfg, conn, tmp_path):
+    from xw.triage import run_triage, triage_queue
+
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_C, "alice")])
+    extract_and_verify(cfg, conn, [("pivot bolts first", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[], steps=[
+        "Loosen the 3 pivot bolts", "Loosen the ball joint nuts"])]})], verifier=FakeVerifier(cfg, partial=("3 pivot",)))
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-109", [
+        {"id": f"f{fid}:step:0", "verdict": "correct", "corrected": "Loosen the 2 pivot bolts first", "note": "source says 2"}])
+    assert stats["pending"] == 1 and stats["corrected"] == 0
+    assert _row(conn).fact.steps[0] == "Loosen the 3 pivot bolts"                     # not used until a person accepts it
+    queue = triage_queue(cfg, conn, TopicIndex(cfg.topics))
+    item = queue[0]
+    assert item["kind"] == "correction" and item["corrected"] == "Loosen the 2 pivot bolts first" and item["priority"] == 0
+    assert sum(1 for i in queue if i["id"] == f"f{fid}:step:0") == 1                   # shown once, as the correction
+    shown = []
+    run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}, input_fn=_answers("a checked the source", "done"), out=shown.append)
+    assert "CLAUDE'S CORRECTION" in "\n".join(shown)
+    row = _row(conn)
+    assert row.fact.steps[0] == "Loosen the 2 pivot bolts first" and row.corrected == {"step:0": "claude"}
+    assert triage_queue(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}) == []
+    # a rejected proposal is never used and not asked again
+    stats = correction_round(cfg, conn, "batch-110", [
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Loosen the 3 ball joint nuts"}])
+    assert stats["pending"] == 1
+    run_triage(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}, input_fn=_answers("r not what it says", "done"), out=lambda m: None)
+    assert _row(conn).fact.steps[1] == "Loosen the ball joint nuts"
+    assert triage_queue(cfg, conn, TopicIndex(cfg.topics), kinds={"correction"}) == []
+
+
+def test_correcting_a_value_metadata_tool_or_complete_claim_is_invalid_input(cfg, conn, tmp_path):
+    _triage_setup(cfg, conn, tmp_path)
+    fid = fact_id(conn)
+    stats = claude_verdicts(cfg, conn, [
+        {"id": f"f{fid}:complete", "verdict": "correct", "corrected": "These steps are the whole job"},
+        {"id": f"f{fid}:applies", "verdict": "correct", "corrected": "Applies to 2008"},
+        {"id": f"f{fid}:tool:0", "verdict": "correct", "corrected": "Tool needed: 22mm socket"},
+        {"id": f"f{fid}:step:1", "verdict": "correct"},                                                 # no wording given
+        {"id": f"f{fid}:step:1", "verdict": "correct", "corrected": "Separate the lower ball joint with a fork."}])  # no change
+    assert stats["invalid"] == 5 and stats["corrected"] == stats["pending"] == 0
+    assert conn.execute("SELECT count(*) FROM corrections").fetchone()[0] == 0
+
+
+def test_every_copy_of_the_reviewer_instructions_describes_corrections():
+    from xw.review import INSTRUCTIONS
+
+    root = Path(__file__).resolve().parents[1]
+    for text in [(root / p).read_text() for p in (".claude/agents/wiki-reviewer.md", ".codex/agents/wiki-reviewer.toml")] + [INSTRUCTIONS]:
+        assert "correct" in text and "corrected" in text and "never add a number" in text.lower(), text[:80]
+
+
+def test_a_claude_correction_that_changes_only_a_unit_waits_and_one_the_source_contradicts_is_refused(cfg, conn, tmp_path):
+    """Codex review of #9 (P2), for corrections: a unit is part of the number. 83 ft-lb -> 83 in-lb is a change a person
+    must accept, and a unit the source never puts on that number is refused outright."""
+    steps = ["Support the truck securely on stands", "Separate the lower ball joint with a fork", "Tighten the pivot bolts to 83 ft-lb"]
+    _triage_setup(cfg, conn, tmp_path, steps=steps)
+    fid = fact_id(conn)
+    stats = correction_round(cfg, conn, "batch-111", [
+        {"id": f"f{fid}:step:2", "verdict": "correct", "corrected": "Snug the inner pivot bolts down to 83 in-lb"}])
+    assert stats["refused"] == 1 and stats["corrected"] == stats["pending"] == 0      # the source says 83 ft-lb
+    from xw.corrections import changes_numbers
+    assert changes_numbers("Use a 10mm socket", "Use a 10 cm socket") and changes_numbers("83 ft-lb", "83 in-lb")
+    assert not changes_numbers("Tighten to 83 ft-lb", "Snug them to 83 ft-lbs")
+
+
+def test_a_value_with_a_paraphrased_or_missing_quote_publishes_and_a_wrong_value_does_not(cfg, conn, tmp_path):
+    """Only the value needs to be correct (2026-10-16): the model's `evidence` quote is not a gate any more."""
+    note = ("Lower control arm job on a 2008. Use a 21mm socket on the pivot bolts. Torque the inner pivot bolts to 83 ft-lb. "
+            "The new arm is 54500-EA000. ") * 6
+    add_notes(cfg, conn, tmp_path, [("a", note, "alice")])
+    specs = [{"item": "Pivot bolt socket size", "value": "21", "unit": "mm", "evidence": "the socket is twenty-one millimetres"},
+             {"item": "Tie rod socket size", "value": "19", "unit": "mm", "evidence": ""},          # 19 is not in the source
+             {"item": "Pivot bolt torque", "value": "83", "unit": "in-lb", "evidence": ""}]         # the source says ft-lb
+    parts = [{"name": "Lower control arm", "part_number": "54500-EA000", "evidence": ""}]
+    extract_and_verify(cfg, conn, [("21mm socket", {"relevant": True, "facts": [arm_fact(specs=specs, parts=parts, diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "**Pivot bolt socket size**: 21 mm [t1]" in page
+    assert "- Lower control arm (54500-EA000) [t1]" in page                                       # no quote at all
+    assert "19 mm" not in page and "83 in-lb" not in page
+    assert check_wiki(cfg, conn) == []
+
+
+# ---- partial claims publish flagged (verify.publish_partial, decided 2026-10-16) ----------------------------------------
+def test_a_partial_claim_publishes_flagged_and_loses_the_flag_once_confirmed(cfg, conn, tmp_path):
+    """387 of 686 withheld items were the local verifier's `partial`. They now publish marked [Partial] (needs more work)
+    and stay queued, so a later supported verdict or a review drops the mark."""
+    _triage_setup(cfg, conn, tmp_path)                       # step 1 and `complete` are partial locally
+    fid = fact_id(conn)
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" in page and "2. [Partial] Separate the lower ball joint with a fork" in page
+    assert "1. Support the truck securely on stands" in page          # a supported step carries no mark
+    assert "needs more work" in page.lower() and check_wiki(cfg, conn) == []
+    queued = {i["id"] for p in export_review(cfg, conn, TopicIndex(cfg.topics)) for i in json.loads(p.read_text())["items"]}
+    assert {f"f{fid}:step:1", f"f{fid}:complete"} <= queued          # still asked about
+    claude_verdicts(cfg, conn, [{"id": f"f{fid}:step:1", "verdict": "approve"}, {"id": f"f{fid}:complete", "verdict": "approve"}])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "2. Separate the lower ball joint with a fork" in page and "[Partial]" not in page
+
+
+def test_a_partial_safety_value_publishes_marked_and_a_partial_never_beats_a_firmer_no(cfg, conn, tmp_path):
+    """Two independent threads agree on a torque value the verifier only partly supports: it publishes marked [Partial]
+    under the warning banner and stays queued. A partial never overrides `unsupported` or a reviewer's reject."""
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice"), ("b", NOTE_A.replace("2008", "2010"), "bob")])
+    fact = arm_fact(parts=[], diagram_links=[], specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")],
+                    tips=["Final-tighten the pivot bolts with the truck's weight on the suspension", "Grease the bushings first"])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [fact]})],
+                       verifier=FakeVerifier(cfg, partial=("83 ft-lb", "Grease"), bad=("weight on the suspension",)))
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "**Inner pivot bolt torque**: 83 ft-lb [t1, t2] ([Partial] community-consensus, 2 threads)" in page
+    assert SAFETY_NOTE in page and "83 ft-lb" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "- [Partial] Grease the bushings first" in page              # an ordinary partial tip publishes, marked
+    assert "Final-tighten" not in page                                 # unsupported stays out
+    assert check_wiki(cfg, conn) == []
+    claude_verdicts(cfg, conn, [{"id": f"f{r[0]}:tip:1", "verdict": "reject"} for r in conn.execute("SELECT id FROM facts")])
+    export(cfg, conn)
+    assert "Grease the bushings first" not in page_text(cfg) and check_wiki(cfg, conn) == []
+
+
+def test_publish_partial_off_restores_fail_closed(cfg, conn, tmp_path):
+    cfg.verify.as_dict()["publish_partial"] = False
+    _triage_setup(cfg, conn, tmp_path)
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "## Procedure" not in page and "[Partial]" not in page
+
+
+def test_a_safety_value_in_prose_without_a_spec_needs_its_unit_in_the_source_and_a_mark(cfg, conn, tmp_path):
+    """With publish_unverified_safety, a torque/capacity value stated only in prose publishes marked [Unverified value]
+    when the source puts that unit on that number, and is queued at priority 0 until a reviewer confirms it."""
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Refill the diff with 2.75 qt of gear oil. " * 3, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        tips=["Top off the diff with 2.75 qt afterwards", "Top off the diff with 2.75 L afterwards"], parts=[], diagram_links=[],
+        specs=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "- [Unverified value] Top off the diff with 2.75 qt afterwards [t1]" in page
+    assert "2.75 L" not in page                                        # the source never says litres
+    assert "does not state with that unit: 2.75 L" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    fid = fact_id(conn)
+    queued = {i["id"]: i for p in export_review(cfg, conn, TopicIndex(cfg.topics)) for i in json.loads(p.read_text())["items"]}
+    assert queued[f"f{fid}:tip:0"]["priority"] == 0
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("[Unverified value] Top off", "Top off"))
+    assert any("outside the specifications: 2.75 qt" in v for v in check_wiki(cfg, conn))   # unmarked: refused
+
+
+def test_a_part_note_with_an_unconfirmed_volume_is_marked(cfg, conn, tmp_path):
+    """Found on the live export: a part note stating "12 quarts" published unmarked, and qa refused the page."""
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Buy 12 quarts of Matic S ATF for the flush. " * 3, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        parts=[{"name": "Matic S ATF", "part_number": "", "notes": "12 quarts for the flush", "evidence": ""}],
+        diagram_links=[], specs=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "- [Unverified value] Matic S ATF: 12 quarts for the flush [t1]" in page and SAFETY_NOTE in page
+    assert check_wiki(cfg, conn) == []
+
+
+def test_consensus_below_a_raised_safety_threshold_is_marked_unverified(cfg, conn, tmp_path):
+    """Codex review of #9 (P1): with safety_min_threads 3, two independent reports took the community-consensus tag
+    unmarked although the value was not confirmed, and qa took that tag as confirmed."""
+    cfg.verify.as_dict()["safety_min_threads"] = 3
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A, "alice"), ("b", NOTE_A.replace("2008", "2010"), "bob")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        parts=[], diagram_links=[], specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "83 ft-lb [t1, t2] ([Unverified] community-consensus, 2 threads, needs 3)" in page and SAFETY_NOTE in page
+    assert check_wiki(cfg, conn) == []
+    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("([Unverified] community-consensus, 2 threads, needs 3)", "(community-consensus, 2 threads)"))
+    assert any("below verify.safety_min_threads" in v for v in check_wiki(cfg, conn))   # qa holds the threshold too
+    cfg.verify.as_dict()["safety_min_threads"] = 2
+    export(cfg, conn)
+    assert "83 ft-lb [t1, t2] (community-consensus, 2 threads)" in page_text(cfg) and SAFETY_NOTE not in page_text(cfg)

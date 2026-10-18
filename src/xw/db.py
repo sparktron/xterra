@@ -68,6 +68,7 @@ CREATE TABLE IF NOT EXISTS facts(
 -- by='local'  -> verdict supported | partial | unsupported | decoy_failed   (local verifier model)
 -- by='claude' -> verdict approve | reject | needs_human       (Claude review of source excerpts)
 -- by='human'  -> same as claude; a human verdict overrides Claude's
+-- (a reviewer's `correct` answer is not a verdict row: it goes to `corrections`)
 CREATE TABLE IF NOT EXISTS verdicts(
   fact_id INTEGER NOT NULL,
   claim_key TEXT NOT NULL,
@@ -96,6 +97,29 @@ CREATE TABLE IF NOT EXISTS human_decisions(
   note TEXT DEFAULT '',
   created_at TEXT,
   PRIMARY KEY(thread_id, claim_kind, claim_hash)
+);
+-- A reviewer's rewording of one prose claim (corrections.py), kept by CONTENT of the original claim like human_decisions,
+-- so it follows the claim across a re-extraction that states the same text. Applied on load, re-checked against the
+-- source every time; status: accepted | pending (Claude changed a number: a person must accept) | rejected.
+CREATE TABLE IF NOT EXISTS corrections(
+  thread_id INTEGER NOT NULL,
+  claim_kind TEXT NOT NULL,              -- step | summary | tip | mistake | symptom
+  claim_hash TEXT NOT NULL,              -- of the ORIGINAL claim text
+  original TEXT NOT NULL,
+  corrected TEXT NOT NULL,
+  by TEXT NOT NULL,                      -- claude | human (who wrote the wording)
+  status TEXT NOT NULL,
+  note TEXT DEFAULT '',
+  created_at TEXT,
+  PRIMARY KEY(thread_id, claim_kind, claim_hash, by)
+);
+-- The step list a reviewer's `complete` verdict judged (hash of the claim text). Once a step of the fact is corrected,
+-- only a `complete` verdict on the corrected list counts.
+CREATE TABLE IF NOT EXISTS complete_lists(
+  fact_id INTEGER NOT NULL,
+  by TEXT NOT NULL,
+  list_hash TEXT NOT NULL,
+  PRIMARY KEY(fact_id, by)
 );
 -- One row per locally verified fact: planted false claims (decoys) shown to the verifier and how many it accepted.
 CREATE TABLE IF NOT EXISTS decoy_checks(
