@@ -217,7 +217,9 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 - The decoys only test changed or invented numbers, the easiest error to catch; 0/202 accepted does not show the verifier catches wrong conditions, vehicles or missing context. The review audit did find those (below).
 - The recorded block reason says HTTP 409, which is not in the tracked `crawl.stop_statuses` (`[401, 402, 403]`). The cause is not established. `config/settings.local.yaml` was deliberately not read.
 - The README said the pipeline was "not yet run against a real server", which is no longer true (229 facts extracted, `xw doctor` passes); that clause was removed in the same commit as this file.
-- Dependencies are floors without ceilings and the repo has no CI.
+- Dependencies are floors without ceilings. CI (GitHub Actions, PR #10, merged 2026-10-18) runs `pytest` at current
+  releases on Python 3.10/3.12/3.13 and at the floors on 3.10, plus the tracked-secrets/data check and `qa.check_curated`;
+  it cannot run `xw qa` on generated pages (needs `data/`) or anything that needs the LLM server.
 - `xw qa` does not re-check procedure steps, summaries or tips against the source (numbers, 12-word copying); it
   checks spec lines, part lines and loose safety values. The README says qa "re-checks the published pages against
   raw source text"; only export's grounding covers the prose.
