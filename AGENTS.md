@@ -145,17 +145,23 @@ scripts/run_all.sh       # xw doctor, run, export, qa
 ## Test commands
 
 ```bash
-.venv/bin/pytest         # the gate; there is no CI in this repo
-.venv/bin/xw qa          # exit 1 if a published page violates the grounding rules
+.venv/bin/pytest         # the gate, also run by CI on every push to master and every pull request
+.venv/bin/xw qa          # exit 1 if a published page violates the grounding rules (local only: needs data/)
 ```
+
+CI (`.github/workflows/ci.yml`, GitHub Actions) runs `pytest` on Python 3.10, 3.12 and 3.13 with current releases and on
+3.10 with every dependency at its declared floor (read from `pyproject.toml`), fails if anything under `data/`,
+`config/settings.local.yaml` or a `.env` is tracked, and runs `qa.check_curated` on `wiki/vehicle/`. It cannot run
+`xw qa` on the generated pages (they are checked against `data/xw.sqlite`, which is never committed) or anything that
+needs the LLM server, so those stay local steps before a wiki commit.
 
 ## Validation requirements
 
 The suite is offline and does not exercise a real LLM or a live forum. A change to `llm.py`, a prompt, or a parser
 is not validated until `xw doctor` passes against the local server and a sample thread has been run through
 `xw ingest` then `xw verify`. After any export-affecting change run `xw export && xw qa`. Dependencies are floors
-with no ceiling (`httpx>=0.27`, `pydantic>=2.6`, `lxml>=5.0`, `beautifulsoup4>=4.12`); the suite passed at the
-floors and at current releases on 2026-10-07 (see `docs/STATUS.md`).
+with no ceiling (`httpx>=0.27`, `pydantic>=2.6`, `lxml>=5.0`, `beautifulsoup4>=4.12`); CI's `test-floors` job runs the
+suite at exactly those floors on every change (it passed locally at the floors on 2026-10-17, see `docs/STATUS.md`).
 
 ## Cross-repository contracts
 

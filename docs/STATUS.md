@@ -236,7 +236,8 @@ Earlier uncommitted changes from other work, not part of the review fixes:
 | Check | Result | Detail |
 |---|---|---|
 | `pytest` on the working tree, current deps | passed | 75 passed on 2026-10-08 with the vehicle-section change (74 after the review fixes); Python 3.10.12, pytest 9.1.1, pydantic 2.13.5, httpx 0.28.1, lxml 6.1.3, beautifulsoup4 4.15.0 |
-| `pytest` at the declared floors | not re-run | 63 passed before the review fixes |
+| `pytest` at the declared floors | passed | 2026-10-17, master `d659f60`: 106 passed on Python 3.10.12 with httpx 0.27.0, beautifulsoup4 4.12.0, lxml 5.0.0, pydantic 2.6.0 (pydantic-core 2.16.1), PyYAML 6.0, pytest 8.0.0; the `feat/guide-first-extraction` branch (PR #9) also passed, 130 tests |
+| CI (GitHub Actions, `.github/workflows/ci.yml`) | added 2026-10-17 | `pytest` on 3.10/3.12/3.13 with current releases and on 3.10 at the floors; tracked-secrets/data check; `qa.check_curated`. Every step was run locally first on 3.10; 3.12 and 3.13 first run on GitHub. `xw qa` on generated pages stays local (needs `data/`) |
 | `xw doctor` | passed | LM Studio at `http://localhost:1234/v1`, `qwen3.8-27b`, RTX 3090, `crawl.contact` set |
 | `xw verify --redo` (real model) | done | 229 facts, 198 calls, decoys accepted 0/202, 0 calls discarded. Database backed up first (session scratchpad, not in repo) |
 | Claude review loop | done | 175 items in 7 batches: 108 approve, 39 reject, 28 needs_human. Verifier false-accept rate 9% (9/102 reviewed `supported` claims rejected or sent to a human); audit sample alone 2/19 |
