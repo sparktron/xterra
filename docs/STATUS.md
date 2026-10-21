@@ -16,6 +16,24 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+More first-gen guides (2026-10-21, asked by the user). Three more guides in `wiki/first-gen/vehicle/guides/`; the hub
+was regenerated with `scripts/guides_hub.py first-gen`, and `check_curated` is clean with 0 broken links.
+
+- **`supercharger.md`:** the VG33ER from 2004 EM.
+  - Removal, inspection (flange flatness 0.12 mm; pulley turning torque 0.5 N·m or less; bypass actuator 12 and
+    33.3 kPa), and installation torques (supercharger and collector bolts 24.5-31.3 N·m in sequence; throttle body
+    in two passes).
+  - The supercharger/A/C belt specs from 2004 MA-25, and the 2002 recall.
+  - Owners' rebuild and swap notes.
+- **`solid-axle-swap.md`:** owners' experience only, covering axle donors, suspension options, driveshaft, steering,
+  brake pedal fixes (master cylinder or removing the ABS unit), and gearing.
+- **`lift-kits.md`:** lift layers and owners' parts choices, Nissan's unladen-tightening and alignment rules
+  (2002 SU), and a DIY 2 in body lift. The body mount torques are one owner's figures, marked `[Unverified]`.
+- **Separation check:** it caught an owner's claim that a second-gen add-a-leaf fits the first gen. The claim was
+  removed rather than reworded around the check.
+- **Pending:** the first-gen section index's Guide column links the three new guides on the next export. That export
+  waits for the first-gen extract and verify run that is in progress.
+
 Full re-export after second-gen verification (2026-10-21, asked by the user).
 
 - **Verify:** `xw verify` finished: 918 facts. The verifier accepted 40 of 4,472 decoys (1%), and those calls were

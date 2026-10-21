@@ -15,6 +15,12 @@ Torque, capacity and part-number values drive real repairs. Where Nissan changed
 - [Timing belt (VG33E and VG33ER)](timing-belt-water-pump.md) [S3]
 - [Torsion bars: ride height, removal and adjustment](torsion-bars.md)
 
+## Modifications & Off-Road Builds
+
+- [Lift kits, torsion bar lifts and body lifts](lift-kits.md)
+- [Solid axle swap (SAS)](solid-axle-swap.md)
+- [Supercharger (VG33ER): inspection, belt, rebuild and swaps](supercharger.md) [S3]
+
 ## How these guides are kept honest
 
 - `xw export` never rewrites this folder; it links each guide from its topic's row in the section's [wiki index](../../index.md).
