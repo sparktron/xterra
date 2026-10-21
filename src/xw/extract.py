@@ -16,14 +16,18 @@ from .db import now
 from .grounding import grounded_terms, ground_fact, has_long_overlap, same_measures
 from .llm import LLM, LLMError
 from .schemas import Extraction, Fact, extraction_schema
-from .topics import TopicIndex
+from .topics import DEFAULT_GENERATION, TopicIndex
+from . import generations
 
 Log = Callable[[str], None]
 
 
-def build_system_prompt(cfg: Config, topics: TopicIndex) -> str:
+def build_system_prompt(cfg: Config, topics: TopicIndex, generation: str = DEFAULT_GENERATION) -> str:
+    """The extraction prompt for one generation: its vehicle, the other generation as off-topic, and its own topics."""
+    g = generations.by_id(cfg)[generation]
     base = (cfg.root / "prompts" / "extract.md").read_text(encoding="utf-8")
-    return f"{base}\nKNOWN TOPICS (use the exact title when the content fits):\n{topics.titles_for_prompt()}\n"
+    base = base.replace("<<VEHICLE>>", g.prompt_vehicle).replace("<<OFFTOPIC>>", g.prompt_offtopic)
+    return f"{base}\nKNOWN TOPICS (use the exact title when the content fits):\n{topics.titles_for_prompt(generation)}\n"
 
 
 def _user_message(source_name: str, thread_title: str, text: str) -> str:
@@ -225,14 +229,14 @@ def fill_summary(llm: LLM, fact: Fact) -> None:
 def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: TopicIndex, *, source_id: str | None = None,
                     limit: int | None = None, log: Log = print) -> int:
     """Process pending chunks (highest-priority threads first). Returns the number of chunks processed."""
-    system = build_system_prompt(cfg, topics)
+    prompts: dict[str, str] = {}   # one per generation: a first-gen source's chunks get the first-gen prompt and topics
     schema = extraction_schema()
     where, args = "c.status='pending'", []
     if source_id:
         where += " AND t.source_id=?"
         args.append(source_id)
     rows = conn.execute(
-        f"""SELECT c.id AS cid, c.text, c.attempts, t.id AS tid, t.title, s.name AS sname
+        f"""SELECT c.id AS cid, c.text, c.attempts, t.id AS tid, t.title, s.name AS sname, s.id AS sid
             FROM chunks c JOIN threads t ON t.id=c.thread_id JOIN sources s ON s.id=t.source_id
             WHERE {where} ORDER BY t.priority, t.views DESC, t.id, c.idx""",
         args,
@@ -240,6 +244,10 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
     processed = failures = 0
     for row in rows[: limit or None]:
         started = time.monotonic()
+        gen = generations.source_generation(cfg, row["sid"]) or DEFAULT_GENERATION
+        if gen not in prompts:
+            prompts[gen] = build_system_prompt(cfg, topics, gen)
+        system = prompts[gen]
         try:
             result = extract_chunk(llm, system, schema, row["sname"], row["title"], row["text"])
             if is_guide_chunk(row["text"]):
@@ -266,7 +274,7 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
                 lo, hi = cfg.scope.years
                 stated = [y for y in fact.years if str(y) in row["text"]]
                 if stated and not any(lo <= y <= hi for y in stated):
-                    continue  # only out-of-scope model years (e.g. first-generation Xterra)
+                    continue  # only model years no generation of the wiki covers
                 fact.years = [y for y in stated if lo <= y <= hi]
                 fact.trims = grounded_terms(fact.trims, row["text"])
                 fact.engines = grounded_terms(fact.engines, row["text"])

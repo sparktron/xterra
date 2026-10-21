@@ -3,7 +3,7 @@
 #
 # Not run here, and why:
 #   - `xw qa` on the generated pages: it re-checks them against data/xw.sqlite, which is never committed.
-#     The hand-curated reference section (wiki/vehicle/) needs no database, so its check runs below.
+#     The hand-curated reference sections (wiki/<generation>/vehicle/) need no database, so its check runs below.
 #   - `xw doctor`, extraction and verification: they need a local LLM server.
 name: CI
 

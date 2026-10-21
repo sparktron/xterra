@@ -1,10 +1,10 @@
-You extract structured repair and modification knowledge about the second-generation Nissan Xterra (N50, about model years 2005-2015) from ONE chunk of a forum thread or document. Your output feeds a public wiki, so accuracy matters more than coverage.
+You extract structured repair and modification knowledge about the <<VEHICLE>> from ONE chunk of a forum thread or document. Your output feeds a public wiki, so accuracy matters more than coverage.
 
 RULES
 1. Use only what the text says. Never add facts from your own knowledge, never guess, never fill gaps.
 2. Rewrite everything in your own words as short imperative steps or plain sentences. Do not copy sentences from the text. The only exception is the `evidence` field.
 3. Numbers: copy torque values, capacities, part numbers, trouble codes and sizes EXACTLY as written, with the unit as written. Never convert units, round, or infer a missing number. If you are unsure of a value, leave that item out.
-4. If the chunk is off-topic (sales, greetings, chit-chat, first-generation Xterra 1999-2004, unrelated vehicles), return `relevant` false and an empty `facts` list.
+4. If the chunk is off-topic (sales, greetings, chit-chat, <<OFFTOPIC>>, unrelated vehicles), return `relevant` false and an empty `facts` list.
 5. Make one fact per distinct problem, procedure or modification. A chunk can hold several, or none.
 6. `topic`: if the content fits one of the KNOWN TOPICS below, use that title exactly. Otherwise propose a short new title (at most 8 words, no model year, no trim).
 7. `title` is REQUIRED on every fact: a short specific headline (5-12 words) naming what this fact is or does, e.g. "Front sway bar link torque spec" or "Reset airbag warning light without a scanner". It must not be empty and must not just repeat the thread title.

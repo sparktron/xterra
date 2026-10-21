@@ -41,9 +41,13 @@ extract:
   max_consecutive_failures: 5   # stop extraction if the LLM keeps failing (server down, model not loaded)
 
 scope:
-  # [Unverified] I believe the N50 ran 2005-2015 (no 2016 model year). The range is kept permissive
-  # (2005-2016) so nothing the user cares about is dropped; tighten it once verified.
-  years: [2005, 2016]
+  # Model years kept at extraction: both generations. Facts stating only years outside this range are dropped.
+  # [Unverified] I believe the N50 ran 2005-2015 (no 2016 model year); the range stays permissive (to 2016).
+  years: [2000, 2016]
+
+# generations: one completely separate wiki section each (decided 2026-10-20: "They are nothing alike").
+# Defaults are in src/xw/config.py (titles, year ranges, the words that name each generation). [Unverified]:
+# the first generation's span 2000-2004 is from general knowledge, not yet from a cited source.
 
 verify:
   require_local_pass: true      # a claim is published only if the verifier said "supported" (or "partial", see below) or a reviewer approved it

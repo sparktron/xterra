@@ -25,8 +25,9 @@ def _parse_html(html: str, url: str) -> ThreadPage:
 
 
 def ingest_file(cfg: Config, conn: sqlite3.Connection, path: Path, *, url: str = "", title: str = "", author: str = "",
-                posted: str = "", kind: str = "manual") -> int | None:
-    """Create/refresh a manual thread from a local file. Returns the thread id, or None if nothing usable."""
+                posted: str = "", kind: str = "manual", source: str = MANUAL_SOURCE) -> int | None:
+    """Create/refresh a manual thread from a local file. Returns the thread id, or None if nothing usable. `source`
+    picks the manual source, and with it the wiki generation (`manual` is second-gen, `manual-gen1` first-gen)."""
     suffix = path.suffix.lower()
     raw = path.read_text(encoding="utf-8", errors="replace")
     key = url or f"file://{path.resolve()}"
@@ -41,7 +42,7 @@ def ingest_file(cfg: Config, conn: sqlite3.Connection, path: Path, *, url: str =
         ttl = title
     conn.execute(
         "INSERT OR IGNORE INTO threads(source_id, url, title, author, kind, priority, status) VALUES(?,?,?,?,?,?, 'queued')",
-        (MANUAL_SOURCE, key, ttl, author, kind, 1.0),
+        (source, key, ttl, author, kind, 1.0),
     )
     row = conn.execute("SELECT id, status FROM threads WHERE url=?", (key,)).fetchone()
     if author or posted:

@@ -39,7 +39,29 @@ DEFAULTS: dict[str, Any] = {
         "min_post_chars": 60,
     },
     "extract": {"max_chunk_chars": 14000, "min_chunk_chars": 400, "max_consecutive_failures": 5},
-    "scope": {"years": [2005, 2016]},
+    "scope": {"years": [2000, 2016]},
+    # The wiki has one completely separate section per generation (the user, 2026-10-20: "They are nothing alike").
+    # A fact goes to the generation its stated model years fall in, else to its source's `generation`; one that spans
+    # two generations, or has neither, publishes in none. `markers` name a generation: a claim on another
+    # generation's page that matches them is withheld (export) and refused (qa).
+    "generations": {
+        "first-gen": {
+            "title": "First generation (WD22), 2000-2004",
+            "years": [2000, 2004],
+            "prompt_vehicle": "first-generation Nissan Xterra (WD22, model years 2000-2004)",
+            "prompt_offtopic": "second-generation Xterra 2005-2015",
+            "markers": [r"\b(1st|first)[\s-]*gen(eration)?s?\b", r"\bgen[\s-]*(1|i|one)\b", r"\bwd22\b", r"\bd22\b",
+                        r"\bka24(de)?\b", r"\bvg33(e|er)?\b", r"\b(2000|00)\s*[-–]\s*(2004|04)\b"],
+        },
+        "second-gen": {
+            "title": "Second generation (N50), 2005-2015",
+            "years": [2005, 2016],
+            "prompt_vehicle": "second-generation Nissan Xterra (N50, about model years 2005-2015)",
+            "prompt_offtopic": "first-generation Xterra 1999-2004",
+            "markers": [r"\b(2nd|second)[\s-]*gen(eration)?s?\b", r"\bgen[\s-]*(2|ii|two)\b", r"\bn50\b", r"\bd40\b",
+                        r"\bvq40(de)?\b", r"\b2005\s*[-–]\s*(2015|2016|15|16)\b", r"\b2005\+"],
+        },
+    },
     # Nothing the local model says is trusted on its own. See README "Verification".
     "verify": {
         "require_local_pass": True,        # text claims publish only if the local verifier judged them "supported" (or "partial", below)
@@ -112,8 +134,9 @@ class Config:
         self.scope = Section(raw["scope"])
         self.verify = Section(raw["verify"])
         self.review = Section(raw["review"])
+        self.generations: dict[str, dict[str, Any]] = raw["generations"]
         self.sources = sources
-        self.topics = topics
+        self.topics = topics   # {generation id: {"categories": {...}}}, from topics.yaml
 
     @classmethod
     def load(cls, root: str | Path | None = None) -> "Config":
@@ -122,7 +145,9 @@ class Config:
         raw = _merge(DEFAULTS, _read_yaml(cfg_dir / "settings.yaml"))
         raw = _merge(raw, _read_yaml(cfg_dir / "settings.local.yaml"))
         sources = (_read_yaml(cfg_dir / "sources.yaml").get("sources")) or []
-        topics = (_read_yaml(cfg_dir / "topics.yaml").get("categories")) or {}
+        tree = _read_yaml(cfg_dir / "topics.yaml")
+        # one topic tree per generation; a legacy single tree (`categories:`) is the second generation's
+        topics = tree.get("generations") or ({"second-gen": {"categories": tree["categories"]}} if tree.get("categories") else {})
         return cls(root_path, raw, sources, topics)
 
     @property

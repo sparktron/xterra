@@ -197,7 +197,8 @@ def cmd_ingest(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
     count = 0
     for p in args.paths:
-        tid = ingest_file(cfg, conn, Path(p), url=args.url, title=args.title, author=args.author, posted=args.date)
+        tid = ingest_file(cfg, conn, Path(p), url=args.url, title=args.title, author=args.author, posted=args.date,
+                          source=args.source)
         print(f"{'ingested' if tid else 'nothing usable in'} {p}" + (f" (thread t{tid})" if tid else ""))
         count += 1 if tid else 0
     return 0 if count else 1
@@ -209,7 +210,10 @@ def cmd_export(args: argparse.Namespace) -> int:
     print(f"exported {result['pages']} page(s) from {result['facts']} fact(s); {result['dtc_codes']} DTC row(s); "
           f"{result['dropped']} item(s) withheld; {result['partial']} item(s) published marked [Partial]; "
           f"{result['unconfirmed']} safety value(s) published unconfirmed (marked); {result['pending']} safety value(s) withheld; "
-          f"{result['disputes']} dispute(s); {result['missing_topics']} topic(s) uncovered")
+          f"{result['disputes']} dispute(s); {result['missing_topics']} topic(s) uncovered; "
+          f"{result['unrouted']} fact(s) in no generation's section")
+    for gid, r in result["generations"].items():
+        print(f"  {gid}: {r['pages']} page(s) from {r['facts']} fact(s), {r['dropped']} withheld")
     return 0
 
 
@@ -290,6 +294,7 @@ def build_parser() -> argparse.ArgumentParser:
     i.add_argument("paths", nargs="+")
     i.add_argument("--url", default="", help="original URL, used for attribution (single file)")
     i.add_argument("--title", default="")
+    i.add_argument("--source", default=MANUAL_SOURCE, help="manual source to file it under: `manual` (second-gen) or `manual-gen1`")
     i.add_argument("--author", default="", help="public handle of the original poster")
     i.add_argument("--date", default="")
     i.set_defaults(fn=cmd_ingest)
