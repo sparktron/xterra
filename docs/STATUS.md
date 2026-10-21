@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-20 · **Branch:** `master` (`98f266a`, PR #9 merged), with uncommitted guides, parser, export and source changes (Active work, first item) · Earlier: guide-first extraction and reviewer corrections, each followed by its regenerated `wiki/` commit
+**Updated:** 2026-10-21 · **Branch:** `master` (`98f266a`, PR #9 merged), with uncommitted guides, parser, export and source changes (Active work, first item) · Earlier: guide-first extraction and reviewer corrections, each followed by its regenerated `wiki/` commit
 
 ## Objective
 
@@ -15,6 +15,35 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+First-gen brake, hub/bearing and drivetrain guides (2026-10-21, asked by the user). Three more guides in
+`wiki/first-gen/vehicle/guides/`, named after their first-gen `topics.yaml` slugs. The hub was regenerated
+(9 guides), and `check_curated` is clean. The new guides have 0 broken links or anchors and name no other generation.
+
+- **`brake-service.md`:** sources are the 2000 and 2004 MA and 7 threads.
+  - Nissan's rotor, pad, drum and lining limits per manual year (pad standard 11 mm in 2000, 10 mm in 2004).
+  - Wheel nut torque per year (2000: 118-147 N·m; 2004: 98-117 N·m), fluid, and the Schedule 1 intervals.
+  - ABS blink codes. Owners disagree on the diagnosis terminal and report blown fuses, so the guide lists every report.
+  - Upgrades and the Pathfinder rear disc swap. The 90 ft-lb axle nut torque is one owner's figure, marked `[Unverified]`.
+  - **Gap:** the guide has no pad, caliper or shoe replacement steps and no caliper torques, because the BR section isn't downloaded.
+- **`wheel-bearing-service.md`:** sources are the 2004 FAX, the 2004 MA and 4 threads.
+  - 2WD and 4WD preload procedures with every torque and preload value from the FAX text and service data.
+  - The component drawings' torques (FAX-12, FAX-13, FAX-20), read from rendered pages.
+  - The auto-locking hub noise table, manual hub conversion, CV axle removal, and the full-lock clunk.
+  - Disagreements found:
+    - The 2WD lock nut back-off is 45° in the procedure but 45°-60° in the service data table; both are shown.
+    - Owners disagreed on refitting the snap ring with manual hubs. The guide cites the FAX rule (the snap ring sets the drive shaft's end play and isn't reused).
+- **`transmission-transfer-case-issues.md`:** sources are the 2000 and 2004 MA and 12 threads.
+  - Fluids and capacities per manual year. The FS5R30A 2WD holds 2.4 L in 2000 and 2.8 L in 2004. The gear oil changed from GL-4 75W-90 to Nissan MTF 75W-85.
+  - Plug torques, and the A/T, M/T, transfer and differential fluid procedures.
+  - Owners' notes on the clutch, the TX10 Pathfinder case swap, the Pathfinder 5-speed gears and shift knobs.
+- **Not done:** none of the three guides has been reviewed by anyone but their writer.
+  - The first-gen index's Guide column links them on the next export.
+  - The BR, AT, TF and MT sections are not downloaded (ask first).
+- **First-gen extract/verify run:**
+  - The first attempt stopped after 8 chunks: LM Studio returned a 400, then refused connections.
+  - LM Studio came back after a restart, and `xw doctor` passed.
+  - The run was restarted (`data/xterranation-gen1-extract-verify-2026-10-21-resume.log`). The interrupted chunks were still `pending`, so nothing was lost.
 
 More first-gen guides (2026-10-21, asked by the user). Three more guides in `wiki/first-gen/vehicle/guides/`; the hub
 was regenerated with `scripts/guides_hub.py first-gen`, and `check_curated` is clean with 0 broken links.

@@ -6,9 +6,15 @@ Step-by-step maintenance and repair guides for the first-generation Xterra only:
 
 Torque, capacity and part-number values drive real repairs. Where Nissan changed a value between model years, the guide gives each manual year's value. When the guides and your own year's manual disagree, the manual wins.
 
+## Diagnostics & Troubleshooting
+
+- [Transmission, transfer case, clutch and differential fluids](transmission-transfer-case-issues.md)
+
 ## Maintenance
 
+- [Brakes: inspection limits, ABS codes and upgrades](brake-service.md)
 - [Engine oil and filter change (KA24DE and VG33E/VG33ER)](engine-oil-change.md) [S3]
+- [Front hubs, wheel bearings and CV axles](wheel-bearing-service.md)
 
 ## Repair Procedures
 
