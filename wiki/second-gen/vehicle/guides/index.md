@@ -74,8 +74,8 @@ Torque, capacity and part-number values drive real repairs. Where Nissan changed
 
 ## How these guides are kept honest
 
-- `xw export` never rewrites this folder; it links each guide from its topic's row in the [second-gen wiki index](../../index.md).
-- `xw qa` checks every guide: a line that states a number must cite a source listed at the bottom of its page, or say [Unverified]. That checks traceability, not truth.
+- `xw export` never rewrites this folder; it links each guide from its topic's row in the section's [wiki index](../../index.md).
+- `xw qa` checks every guide: a line that states a number must cite a source listed at the bottom of its page, or say [Unverified], and no line may name the other generation. That checks traceability, not truth.
 - Factory service manual torque values are printed on the manual's exploded-view drawings; each guide names the manual year, section and page.
 - Forum write-ups from thenewx.org were read from the Internet Archive's copies, because the site blocks automated access.
 

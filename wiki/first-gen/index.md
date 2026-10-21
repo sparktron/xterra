@@ -5,6 +5,10 @@ This section covers only the First generation (WD22), 2000-2004. The Second gene
 
 Status: `not-started` means no verified source has contributed yet.
 
+Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference](vehicle/index.md) (hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).
+
+Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/index.md) (hand-written from the factory service manual and forum write-ups; every step and number cites its source). The Guide column below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.
+
 ## Diagnostics & Troubleshooting
 
 | Topic | Guide | Status | Threads |
@@ -31,7 +35,7 @@ Status: `not-started` means no verified source has contributed yet.
 | Brake pads, rotors and drums |  | not-started | 0 |
 | Coolant drain and refill |  | not-started | 0 |
 | Drive belts and tensioners |  | not-started | 0 |
-| Engine oil and filter change |  | not-started | 0 |
+| Engine oil and filter change | [Guide](vehicle/guides/engine-oil-change.md) | not-started | 0 |
 | Front and rear differential fluid change |  | not-started | 0 |
 | Maintenance schedule (normal and severe use) |  | not-started | 0 |
 | Manual transmission fluid change |  | not-started | 0 |
@@ -55,9 +59,9 @@ Status: `not-started` means no verified source has contributed yet.
 | Shocks and bump stops |  | not-started | 0 |
 | Starter and alternator |  | not-started | 0 |
 | Thermostat, radiator and cooling fan |  | not-started | 0 |
-| Timing belt and water pump (VG33E) |  | not-started | 0 |
+| Timing belt and water pump (VG33E) | [Guide](vehicle/guides/timing-belt-water-pump.md) | not-started | 0 |
 | Timing chain and guides (KA24DE) |  | not-started | 0 |
-| Torsion bars and front ride height |  | not-started | 0 |
+| Torsion bars and front ride height | [Guide](vehicle/guides/torsion-bars.md) | not-started | 0 |
 
 ## Modifications & Off-Road Builds
 
