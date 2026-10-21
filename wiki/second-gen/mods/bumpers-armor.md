@@ -7,11 +7,14 @@ applies_to:
   years:
   - 2005
   trims:
+  - Off-Road
+  - PRO-4X
   - X
   engine: []
   drivetrain: []
-shared_platform: []
-difficulty: null
+shared_platform:
+- Frontier
+difficulty: 3
 est_time: null
 tools:
 - Step drill bit
@@ -42,20 +45,81 @@ tools:
 - 2 Axle Stands
 - Bottle Jack
 - Needle Nose Pliers
+- Tube bender
+- SM000 hole saw kit (or regular holesaw)
+- Slow hand drill, slow-speed drill press, or mag-base drill
+- Pin
+- Hinges
+- Fabrication tools
+- Self-tapping screw
+- Tiny bolt
+- Lock washer
+- CNC plasma table
+- CNC brake press
+- Welding machine (industrial grade)
+- Grinder
+- Pipe bender
+- Angle grinder with 4.5 inch cut-off wheel
 parts:
+- name: .120 x 1.75 tubing
+  oem_part_no: ''
 - name: 1/2-inch x 2-inch bolts, lock washers, and flat washers
   oem_part_no: ''
 - name: 1/2-inch x 4-inch bolts with flat washers
   oem_part_no: ''
+- name: 1/4" sheet metal
+  oem_part_no: ''
 - name: 1/4-inch x 1-1/4-inch backing plate with welded nut
   oem_part_no: ''
+- name: 10 ga sheet metal
+  oem_part_no: ''
+- name: 12 ga sheet metal
+  oem_part_no: ''
 - name: 3/8-inch x 1-inch thread-cutting bolts
+  oem_part_no: ''
+- name: Angle iron
+  oem_part_no: ''
+- name: Calmini Tube Bumper
+  oem_part_no: ''
+- name: Carbon Fiber
+  oem_part_no: ''
+- name: Chrome Front Bumper
+  oem_part_no: ''
+- name: Chrome Side Sliders
+  oem_part_no: ''
+- name: Clevis tabs
+  oem_part_no: ''
+- name: Custom fabricated bumper
+  oem_part_no: ''
+- name: Dimpled plate
+  oem_part_no: ''
+- name: DOM Tubing
+  oem_part_no: ''
+- name: Drop bracket (e.g., Calmini)
+  oem_part_no: ''
+- name: Fairlead
+  oem_part_no: ''
+- name: Fairlead assembly
   oem_part_no: ''
 - name: First Aid Kit (original)
   oem_part_no: ''
 - name: Flush-mounted Dually light (or SR series)
   oem_part_no: ''
+- name: Front Bumper
+  oem_part_no: ''
 - name: Gasket
+  oem_part_no: ''
+- name: Gussets
+  oem_part_no: ''
+- name: Hardcore Offroad Front Bumper Kit
+  oem_part_no: ''
+- name: Hella FF Lights
+  oem_part_no: ''
+- name: KEVLAR
+  oem_part_no: ''
+- name: L-Bracket
+  oem_part_no: ''
+- name: Light bar
   oem_part_no: ''
 - name: Light template
   oem_part_no: ''
@@ -65,17 +129,59 @@ parts:
   oem_part_no: ''
 - name: Magnet Paints Chassis Saver (UPC99)
   oem_part_no: ''
+- name: Nismo Front Bumper
+  oem_part_no: ''
+- name: Nismo Rear Bumper
+  oem_part_no: ''
+- name: Plate
+  oem_part_no: ''
+- name: Plating
+  oem_part_no: ''
 - name: PP Engineering Sliders
+  oem_part_no: ''
+- name: Quick-release pin
+  oem_part_no: ''
+- name: Radiator skid plate
   oem_part_no: ''
 - name: Rear Bumper
   oem_part_no: ''
+- name: Rear Swing-Away Bumper
+  oem_part_no: ''
+- name: Rigid LED fogs
+  oem_part_no: ''
+- name: Sheet metal face plate
+  oem_part_no: ''
 - name: ShrockWorks Sliders
+  oem_part_no: ''
+- name: Skid plate
+  oem_part_no: ''
+- name: Sliders (optional)
+  oem_part_no: ''
+- name: SM000 hole saw kit
   oem_part_no: ''
 - name: Smittybilt Axe
   oem_part_no: ''
+- name: Steel frame structure
+  oem_part_no: ''
+- name: Steel plate
+  oem_part_no: ''
+- name: Synthetic rope
+  oem_part_no: ''
 - name: Tire Carrier (Optional)
   oem_part_no: ''
+- name: Tube
+  oem_part_no: ''
+- name: Tube (e.g., 2x4 box)
+  oem_part_no: ''
+- name: Tubing
+  oem_part_no: ''
+- name: Two mounting plates (welded)
+  oem_part_no: ''
 - name: White Knuckle Offroad Sliders
+  oem_part_no: ''
+- name: Winch
+  oem_part_no: ''
+- name: Winch mount
   oem_part_no: ''
 - name: Zinc hardware kit with metal backing plates
   oem_part_no: ''
@@ -83,23 +189,50 @@ sources:
 - t29
 - t179
 - t180
+- t182
+- t184
+- t185
+- t192
+- t200
 - t283
 - t406
+- t407
+- t409
+- t410
+- t412
+- t414
+- t418
+- t423
 - t479
 - t482
 - t584
+- t585
+- t588
+- t594
+- t599
+- t601
+- t612
+- t724
+- t725
 - t728
+- t729
+- t732
+- t733
+- t734
+- t735
+- t737
 - t937
 - t985
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 11
-  partial_items: 45
+  partial_items: 144
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 0
-  withheld_items: 9
+  - difficulty
+  unconfirmed_safety_values: 1
+  withheld_items: 47
   pending_safety_values: 0
 ---
 
@@ -167,9 +300,137 @@ Decide whether to install a body lift before purchasing rock sliders. [t728]
 
 [Partial] Remove the tow hook from the frame rail by pulling it down while unscrewing its bolt. [t584]
 
+[Partial] Remove the stock plastic bumper then cut away sections of the front grille. [t601]
+
+Mount the winch on a separate plate welded to frame rails, then attach only the fairlead assembly to the front tube. [t588]
+
+[Partial] Construct the bumper using 1-5/8 inch diameter DOM tubing. [t588]
+
+Weld the front tubing into the notch frame horns and add a second support tube. [t588]
+
+[Partial] Install a hoop on the top of the bumper to protect future auxiliary lights and use it as protection for the radiator. [t588]
+
+[Partial] Add gussets to the mounting brackets, include recovery points, and add a skid plate. [t588]
+
+[Partial] Weld clevis tabs to the bottom of the main vertical tubes. [t588]
+
+Add flares to the bumper design to position them for protecting the fenders. [t588]
+
+[Partial] Create a longer swingarm on the rear bumper designed to accommodate a jerrycan fitment. [t588]
+
+Mount Hella FF 75 lights on the bumper tubing with welded tabs and wire them directly to factory plugs. [t588]
+
+[Partial] Attach a light bar to the roof rack using an L-bracket and add braces. [t588]
+
+[Partial] Fill the space between bumper tubes with plate material. [t588]
+
+Weld a tube behind the main gusset. [t588]
+
+Install a winch mount between the upright tubes of an existing tube bumper. [t588]
+
+[Partial] Construct a hybrid bumper using both tube and dimpled plate. [t588]
+
+[Partial] Build a rear bumper to match the front design. [t588]
+
+[Partial] Mount a winch and fairlead via a frame plate rather than directly to the bumper. [t588]
+
+[Partial] Add a hoop to the top of the bumper. [t588]
+
+[Partial] Use 10 ga metal for the main plate and roll or form 12 ga metal for wing fillers. [t588]
+
+Use 1/4-inch metal for a winch plate with adequate bracing behind it. [t588]
+
+Bake bends on both lines of tubing under the main tube to ensure alignment. [t588]
+
+[Partial] Install Nismo bumpers designed for 2nd-gen Xterra models featuring cutouts intended to fit around the grille dip. [t185]
+
+[Partial] Design a front bumper with a top bar, incorporate Rigid LED fogs, wire them independently, mount a 10,000-pound winch between frame rails using synthetic line. [t733]
+
+Cut approximately 3.5 inches off the fender, then weld a 2x2 square tube into the cut section. [t733]
+
+[Partial] Install a chrome front bumper and matching side sliders, noting that electroplated chrome may help prevent rust. [t410]
+
+[Partial] Cut the rear bumper sections that rest on the underside of the frame. [t612]
+
+[Partial] Mount a front bumper with a capacity of 20" to the vehicle. [t612]
+
+[Partial] Install the rear bumper onto the vehicle frame and connect the trailer wiring harness. [t732]
+
+[Partial] Select carbon fiber, add Kevlar layers, and choose a heat-tolerant resin. [t594]
+
+Weld two mounting plates to roof rack rails and install a quick-release pin. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper with offset hinges. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper then flip its swing-away mechanism outward. [t725]
+
+[Partial] Install a drop-down tire carrier arm with a crank mechanism. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and install a latch or lock on the drop-down arm. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and attach a jerry can holder near the drop-down arm. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper with an install of a two-way industrial hinge. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and install grease zerts on the hinge tube. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and install pins on either side of the drop-down arm. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and extend the hinge past the bumper overhang. [t725]
+
+[Partial] Mount a tire carrier to the rear bumper and install a cage on the back side of the tires. [t725]
+
+[Partial] Mount the Jeep Wrangler front bumper rock crawler winch plate onto the Xterra and secure it using fabrication skills to adapt mounting points. [t182]
+
+[Partial] Mount front bumpers with self-tapping screws, tiny bolts and lock washers. [t184]
+
+Select a heavy-duty front bumper from brands like ARB, Hefty, or Shrockworks. [t585]
+
+[Partial] Install the front aluminum skid plate and mount the transmission transfer case skid. [t735]
+
+Trace, export flat patterns for sheet metal parts and framework to cut face and frame from steel. [t192]
+
+Evaluate front bumper protection and consider a rear swing-away bumper for gear storage. [t412]
+
+Decide between Shrockworks and Hefty Fabworks considering the typical four-plus-month wait. [t414]
+
+[Partial] Mock up main bars with posts, tack weld them together, then trim slider tips if too tight. [t729]
+
+[Partial] Install a front bumper kit with a scorpion liner and optional sliders. [t418]
+
+[Partial] Install a full set of Hefty FabWorks skids and add front and rear armored bumpers. [t734]
+
+[Partial] Consider purchasing custom-fabbed bumpers from local fabricators or online classifieds. [t200]
+
+[Partial] Install bumpers, sliders, and skid plates using an angle grinder. [t409]
+
+[Partial] Remove front mud flaps by unscrewing three screws per side. [t423]
+
+Reinstall the front mud flaps to support inner fenders. [t423]
+
+[Partial] Install Shrockworks rock sliders. [t423]
+
+Apply a coating to the rock sliders before installation. [t423]
+
+[Partial] Mount a hitch-mounted swivel spare tire carrier. [t423]
+
+[Partial] Purchase a full-size tire for the spare carrier. [t423]
+
+[Partial] Fabricate a swing-style carrier to maintain hatch access. [t423]
+
+[Partial] Position and secure a radiator skid plate between an aftermarket drop bracket and original factory brackets. [t599]
+
+[Partial] Replace the stock rear bumper with a custom tube-style unit featuring welded 2x4 box sections. [t724]
+
+[Partial] Install a Calmini tube bumper on a second-generation Xterra, optionally painting it black. [t737]
+
 ## Procedure
 
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+1. Cut the rear bumper sections that rest on the underside of the frame.
+
+_Procedure reported by [t612]._
+
+<details><summary>Alternate procedure [t29] [Partial]</summary>
 
 1. Prime and paint the two metal backing plates.
 2. Lay down a carpet on the ground to support the sliders during installation.
@@ -193,7 +454,7 @@ Decide whether to install a body lift before purchasing rock sliders. [t728]
 20. Cut tread tape into shapes and round off all corners for a custom fit.
 21. Apply the cut tread tape along the slider edges where tire blast is expected.
 
-_Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/>_
+</details>
 
 <details><summary>Alternate procedure [t482] [Partial]</summary>
 
@@ -215,6 +476,24 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 
 </details>
 
+<details><summary>Alternate procedure [t192] [Partial]</summary>
+
+1. Trace the front bash bar mounting plate to gather measurements.
+2. Export flat patterns for sheet metal parts and framework to a CNC plasma table.
+3. Cut the face of the bumper from 3/16" thick steel.
+4. [Partial] Cut the frame structure from 1/2" thick steel.
+5. Bend various parts using a CNC brake press.
+6. Slot pieces together in front of the car to test fitment before final welding.
+7. Weld all components and grind out bad welds as needed.
+8. Mount the bumper to the frame rails, noting that it may only attach to the bottom if tabs are cut off.
+9. Cut the center section of the factory bumper plastic to allow clearance for the new design.
+10. [Partial] Prime the exposed metal areas on the car while driving with the bumper installed temporarily.
+11. Bend a custom bull bar piece using a pipe bender to fit specific placement needs.
+12. Weld the bull bar, shackle bushings, and any remaining fixes onto the main assembly.
+13. Use cardboard 'CAD' pieces to fill gaps between the new bumper and factory plastics.
+
+</details>
+
 <details><summary>Alternate procedure [t937] [Partial]</summary>
 
 1. [Partial] Locate the rear hatch handle.
@@ -230,11 +509,29 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 
 </details>
 
+<details><summary>Alternate procedure [t733] [Partial]</summary>
+
+1. Design a front bumper with a top bar to support the grill in place.
+2. Incorporate two sets of Rigid LED fog lights (one amber, one white) into the design.
+3. Wire the amber fogs differently than the factory set for independent operation.
+4. Mount a 10,000-pound winch between the frame rails to maximize safety factor.
+5. Use synthetic line instead of wire rope for the winch setup.
+
+</details>
+
 <details><summary>Alternate procedure [t283] [Partial]</summary>
 
 1. [Partial] Cut a piece of metal to create the recovery point shape.
 2. [Partial] Weld the cut pieces together to form a single unit.
 3. [Partial] Install the welded assembly onto the rear frame.
+
+</details>
+
+<details><summary>Alternate procedure [t729] [Partial]</summary>
+
+1. [Partial] Mock up the main bar and posts.
+2. Tack weld the cut main bar to the tacked-on mounting posts.
+3. Trim the front tip of the slider if it is too tight against the fender.
 
 </details>
 
@@ -291,6 +588,216 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 
 1. Remove the tow hook from the frame rail.
 2. Pull down on the tow hook while unscrewing the bolt to extract it.
+
+</details>
+
+<details><summary>Alternate procedure [t601] [Partial]</summary>
+
+1. Remove the stock plastic bumper.
+2. [Partial] Cut away sections of the front grille as needed for clearance.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Mount the winch to a separate plate welded directly to the frame rails rather than bolting it straight onto the bumper.
+2. [Partial] Attach only the fairlead assembly to the front tube of the custom bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Use 10 ga metal for the main plate if sufficient bracing is behind it.
+2. Roll or form 12 ga metal for wing fillers to achieve the desired shape.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Use 1/4-inch metal for the winch plate.
+2. Ensure adequate bracing behind the winch plate to support it.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Bake bends on both lines of tubing under the main tube to ensure alignment.
+2. [Partial] Ensure bent tubes lie on the same 'plane' before plating them flat.
+
+</details>
+
+<details><summary>Alternate procedure [t733] [Partial]</summary>
+
+1. Cut approximately 3.5 inches off the fender.
+2. [Partial] Weld a 2x2 square tube into the cut section.
+
+</details>
+
+<details><summary>Alternate procedure [t410] [Partial]</summary>
+
+1. Install a chrome front bumper from brands like Shrock, Hefty, RLC, or ARB.
+2. [Partial] Add matching chrome side sliders to protect the rocker panels.
+
+</details>
+
+<details><summary>Alternate procedure [t732] [Partial]</summary>
+
+1. [Partial] Install the rear bumper onto the vehicle frame.
+2. [Partial] Connect the trailer wiring harness to power the tag light.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Weld two mounting plates to the roof rack rails.
+2. Install a quick-release pin through the welded plates.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. Mount a tire carrier to the rear bumper.
+2. [Partial] Position the carrier so it swings away from the hatch rather than flipping down directly over it.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. Flip the swing-away mechanism so it swings out toward the outside instead of inward.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. Install a drop-down tire carrier arm.
+2. [Partial] Add a crank mechanism to lower the arm without lifting the heavy tire.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. [Partial] Install a latch or lock on the drop-down arm.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. [Partial] Install bump stops on the drop-down arm.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. Mount a tire carrier to the rear bumper.
+2. [Partial] Install a two-way industrial hinge allowing both swing-away and drop-down motion.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. Mount a tire carrier to the rear bumper.
+2. Install pins on either side of the drop-down arm.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. [Partial] Extend the hinge past the bumper overhang.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. Flip the entire swing-away assembly so it faces outward.
+
+</details>
+
+<details><summary>Alternate procedure [t725] [Partial]</summary>
+
+1. [Partial] Mount a tire carrier to the rear bumper.
+2. [Partial] Install a cage on the back side of the tires.
+
+</details>
+
+<details><summary>Alternate procedure [t182] [Partial]</summary>
+
+1. [Partial] Mount the Jeep Wrangler front bumper rock crawler winch plate onto the Xterra.
+2. Secure it using fabrication skills and tools to adapt mounting points.
+
+</details>
+
+<details><summary>Alternate procedure [t184] [Partial]</summary>
+
+1. [Partial] Mount the front bumper using self-tapping screws.
+2. [Partial] Alternatively, use tiny bolts with lock washers.
+
+</details>
+
+<details><summary>Alternate procedure [t585] [Partial]</summary>
+
+1. Select a heavy-duty front bumper from brands like ARB, Hefty, or Shrockworks.
+2. [Partial] Mount the new unit to replace the stock assembly for improved approach angles and protection.
+
+</details>
+
+<details><summary>Alternate procedure [t735] [Partial]</summary>
+
+1. Install the front aluminum skid plate.
+2. Mount the transmission/transfer case skid.
+
+</details>
+
+<details><summary>Alternate procedure [t412] [Partial]</summary>
+
+1. [Partial] Evaluate the need for front bumper protection against obstacles at hood level.
+2. Consider rear swing-away bumpers to store gear outside the cargo area instead of inside.
+
+</details>
+
+<details><summary>Alternate procedure [t414] [Partial]</summary>
+
+1. Decide between Shrockworks or Hefty Fabworks based on lead time preferences.
+2. Consider that Shrockworks typically has a 4+ month wait for delivery.
+
+</details>
+
+<details><summary>Alternate procedure [t734] [Partial]</summary>
+
+1. Install the full set of Hefty FabWorks skids.
+2. [Partial] Add front and rear armored bumpers if desired.
+
+</details>
+
+<details><summary>Alternate procedure [t200] [Partial]</summary>
+
+1. [Partial] Consider purchasing from a local fabricator to minimize shipping costs.
+2. Look for custom-fabbed bumpers if you can lend your Xterra for testing.
+
+</details>
+
+<details><summary>Alternate procedure [t599] [Partial]</summary>
+
+1. Position the bottom of the radiator skid plate between the aftermarket drop bracket and the original factory mounting bracket.
+2. [Partial] Secure the assembly using two bolts that attach to the top of the drop bracket.
+
+</details>
+
+<details><summary>Alternate procedure [t724] [Partial]</summary>
+
+1. [Partial] Replace the stock rear bumper with a custom tube-style unit.
+2. Weld 2x4 box tubing sections to form two main chunks for structure.
+
+</details>
+
+<details><summary>Alternate procedure [t737] [Partial]</summary>
+
+1. Install the Calmini tube bumper on a second-generation Xterra.
+2. Optionally paint the front plate black to reduce visual bulk.
 
 </details>
 
@@ -366,6 +873,126 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 
 </details>
 
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Construct the bumper using 1-5/8 inch diameter DOM tubing.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Weld the front tube into the notch frame horns.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Install a hoop on the top of the bumper to protect future auxiliary lights.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Add gussets to the mounting brackets for reinforcement.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Weld clevis tabs to the bottom of the main vertical tubes.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Add flares to the bumper design.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Create a longer swingarm on the rear bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Mount Hella FF 75 lights on the bumper tubing.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Attach a light bar to the roof rack using an L-bracket.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Weld a tube behind the main gusset.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Install a winch mount between the upright tubes of an existing tube bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. Add a hoop to the top of the bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Construct a hybrid bumper using both tube and dimpled plate.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Mount a winch to the frame via a plate rather than directly to the bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t588] [Partial]</summary>
+
+1. [Partial] Add a hoop to the top of the bumper.
+
+</details>
+
+<details><summary>Alternate procedure [t612] [Partial]</summary>
+
+1. Mount a front bumper to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t423] [Partial]</summary>
+
+1. Remove front mud flaps by unscrewing three screws per side.
+
+</details>
+
+<details><summary>Alternate procedure [t423] [Partial]</summary>
+
+1. Reinstall the front mud flaps to support inner fenders.
+
+</details>
+
+<details><summary>Alternate procedure [t423] [Partial]</summary>
+
+1. Apply a coating to the rock sliders before installation.
+
+</details>
+
+<details><summary>Alternate procedure [t423] [Partial]</summary>
+
+1. Purchase a full-size tire for the spare carrier.
+
+</details>
+
 ## Tools
 
 - [Partial] Step drill bit [t29]
@@ -374,7 +1001,7 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - [Partial] Flat wire nut [t29]
 - Drill [t29, t985]
 - Uni-bit [t29]
-- Welder [t179, t283]
+- Welder [t179, t283, t725]
 - Angle grinder [t179]
 - PB Blaster [t937]
 - 1/2-inch wrench [t985]
@@ -396,31 +1023,92 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - 2 Axle Stands [t482]
 - Bottle Jack [t482]
 - Needle Nose Pliers [t482]
+- [Partial] Tube bender [t588]
+- [Partial] SM000 hole saw kit (or regular holesaw) [t588]
+- Slow hand drill, slow-speed drill press, or mag-base drill [t588]
+- [Partial] Pin [t725]
+- Hinges [t725]
+- Fabrication tools [t182]
+- [Partial] Self-tapping screw [t184]
+- [Partial] Tiny bolt [t184]
+- Lock washer [t184]
+- CNC plasma table [t192]
+- CNC brake press [t192]
+- [Partial] Welding machine (industrial grade) [t192]
+- [Partial] Grinder [t192]
+- [Partial] Pipe bender [t192]
+- Angle grinder with 4.5 inch cut-off wheel [t409]
 
 ## Parts
 
+- [Partial] .120 x 1.75 tubing [t588]
 - 1/2-inch x 2-inch bolts, lock washers, and flat washers [t482]
 - 1/2-inch x 4-inch bolts with flat washers [t482]
+- [Partial] 1/4" sheet metal [t588]
 - 1/4-inch x 1-1/4-inch backing plate with welded nut [t482]
+- [Partial] 10 ga sheet metal [t588]
+- 12 ga sheet metal [t588]
 - 3/8-inch x 1-inch thread-cutting bolts [t482]
+- Angle iron [t588]
+- [Partial] Calmini Tube Bumper: 1.75 inch DOM tubing construction [t737]
+- Carbon Fiber: For total structural strength [t594]
+- Chrome Front Bumper: Brands include Shrock/Hefty/RLC/ARB [t410]
+- Chrome Side Sliders [t410]
+- [Partial] Clevis tabs: 2" from bottom [t588]
+- [Partial] Custom fabricated bumper [t200]
+- Dimpled plate [t588]
+- DOM Tubing: 1-5/8" OD [t588]
+- Drop bracket, e.g., Calmini: Aftermarket front bumper drop bracket [t599]
+- [Partial] Fairlead [t588]
+- [Partial] Fairlead assembly: Attached directly to bumper tube [t588]
 - [Partial] First Aid Kit, original [t937]
 - [Partial] Flush-mounted Dually light, or SR series [t985]
+- Front Bumper: Options include ARB, lighter, Hefty, or Shrockworks, heavier/stronger.; Provides approach angle improvement and winch mounting capability; may require stronger front coils due to added weight. [t585, t412]
 - Gasket [t985]
+- Gussets [t588]
+- Hardcore Offroad Front Bumper Kit: Includes skid, scorpion liner, winch mount, and light guards [t418]
+- [Partial] Hella FF Lights: 75 series [t588]
+- [Partial] KEVLAR: To absorb impact forces [t594]
+- L-Bracket [t588]
+- Light bar [t588]
 - Light template [t985]
 - Long thread bolt for front frame mount [t29]
 - M12 x 30mm Grade 10.9 bolt and washer [t482]
 - Magnet Paints Chassis Saver, UPC99 [t406]
+- Nismo Front Bumper: Approximately 105 lbs; weight falls between Hefty aluminum and steel options. [t185]
+- Nismo Rear Bumper: Designed mainly for mounting lights and recovery points with the hitch hanging underneath. [t185]
+- [Partial] Plate: welded to frame for winch support [t588]
+- Plating: .090 wall thickness, 10 gauge [t588]
 - PP Engineering Sliders [t406]
+- Quick-release pin [t725]
+- [Partial] Radiator skid plate: Must have 4 bolt holes at the top and 2 at the bottom [t599]
 - Rear Bumper: Brands include MAXterra, Shrockworks, TAG/KMA, Hefty Fabworks, GetSome Fabrication, or custom builds. [t180]
+- Rear Swing-Away Bumper: Allows carrying a 48" Hi-Lift jack, spare tire, CB antenna, and toolbox; offers better departure angle. [t412]
+- [Partial] Rigid LED fogs: Two sets: one amber, one white [t733]
+- Sheet metal face plate: 3/16" thick [t192]
 - [Partial] ShrockWorks Sliders [t29]
+- Skid plate [t588]
+- Sliders, optional: Sold separately for $250 to protect the bumper corners. [t418]
+- SM000 hole saw kit [t588]
 - [Partial] Smittybilt Axe [t937]
+- Steel frame structure: 1/2" thick [t192]
+- [Partial] Steel plate: 1/2" thick for center and bottom support [t724]
+- Synthetic rope [t588]
 - Tire Carrier, Optional: Often integrated; note that some designs lean back toward the hatch while others extend forward. Can be a standalone unit like from a Hummer H2. [t180]
+- Tube [t588]
+- Tube, e.g., 2x4 box [t724]
+- [Partial] Tubing: 2" x .250 wall [t588]
+- Two mounting plates, welded [t725]
 - [Partial] White Knuckle Offroad Sliders [t482]
+- Winch: e.g., Engo 10,000lb; 10,000-pound capacity with synthetic line [t588, t733]
+- [Partial] Winch mount: Welded plate attached to frame [t588]
 - Zinc hardware kit with metal backing plates [t29]
 
 ## Specifications
 
+- **Bumper Capacity**: 20" [t612] ([Partial] [Unverified] single report)
 - **Bumper mounting bolt size**: M14x1.5 [t180] ([Unverified] single report)
+- **Front Bumper Weight**: ~105 lbs [t185] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -447,6 +1135,52 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - Note that rear notched holes help address individual frame idiosyncrasies. [t406]
 - Use a bottle jack for best results when adjusting the slider position. [t482]
 - Keep all 1/2-inch fasteners loose initially to allow full adjustment of the slider. [t482]
+- Use a synthetic rope for the winch line. [t588]
+- Ensure the top hoop protects future light mounts and shields the radiator from rollover damage. [t588]
+- Attach only the fairlead directly to the bumper; run the line through it. [t588]
+- [Partial] Use a tube jack bender to shape the tubing. [t588]
+- [Partial] Add a second support tube behind the gusset for extra strength if used as a bulldozer. [t588]
+- [Partial] Use this hoop also as protection for the radiator in case of a roll-over. [t588]
+- [Partial] Include recovery points on the assembly. [t588]
+- [Partial] Position them specifically to protect the fenders from debris. [t588]
+- Design it to accommodate a jerrycan fitment. [t588]
+- Weld tabs to the tube for mounting purposes. [t588]
+- Wire them directly to factory plugs so they function as fog lights. [t588]
+- Add a brace going back to the roof rack on each side. [t588]
+- [Partial] Ensure it is strong enough to handle bulldozer-style usage. [t588]
+- [Partial] Perform some cutting and welding to fit the mount perfectly. [t588]
+- [Partial] Use it primarily as protection for future light sets and secondary radiator shielding. [t588]
+- Consider using tube and dimpled plate for consistency. [t588]
+- Run the line through the fairlead which is attached to the bumper, while the winch itself bolts low on a frame plate. [t588]
+- [Partial] Ensure at least 10k lbs of pressure if using a dimple die set; 12 to 15k is often used. [t588]
+- [Partial] Roll or form the 12 ga wing filler material to match the main tube. [t588]
+- [Partial] Provide sufficient bracing behind thin plates to prevent flexing. [t588]
+- [Partial] Align and bake bends so plates can form flat over uneven surfaces. [t588]
+- The front bumper features cutouts that are not perfectly round. [t185]
+- [Partial] Fog light openings may require verification if using 3-inch fog lights, though they appear large enough. [t185]
+- [Partial] The design is low profile and intended to fit around the grille dip found on 2009+ models. [t185]
+- Ensure the winch is mounted as low as possible to reduce leverage and bumper movement. [t733]
+- Position recovery points close to or directly on the frame horns to minimize torque during pulls. [t733]
+- Note that chrome is electroplated rather than just sprayed, which may help prevent rust. [t410]
+- [Partial] This is often considered the hardest part of a body lift installation. [t612]
+- Choose a resin that tolerates heat from the exhaust system. [t594]
+- [Partial] Offset the hinge location further out on the frame for better leverage and clearance. [t725]
+- [Partial] Use duct tape or super glue as a mounting alternative if standard hardware fails. [t184]
+- Consider zip ties for securing fog lights to the bumper. [t184]
+- Shrock and Hefty bumpers are noted as being heavier and stronger than the ARB. [t585]
+- ARB offers a better aesthetic look but may lack some functional heft compared to others. [t585]
+- [Partial] Use cardboard 'CAD' to fill gaps between the new bumper and factory plastics. [t192]
+- Consider adding mounting tabs down the road if only using front frame rail mounts. [t192]
+- Use a jig with clamps or tack welds to cut tubes at specific angles without a tube bender. [t729]
+- Set the angle of the tube 45 degrees off the outside face of the bar. [t729]
+- Check shipping costs as they can range from $100-$200. [t418]
+- [Partial] Verify rigidity of the scorpion liner material before purchase. [t418]
+- Check online classifieds (CL) for used bumpers to save the most money. [t200]
+- Note that mounting bolts on the drop bracket can be tricky to access due to limited space. [t599]
+- [Partial] Keep the design simple to ensure long-term durability. [t724]
+- Bend tubing ends with a hammer until they follow the body line. [t724]
+- The bumper features vertical supports that cover the sides of the radiator and AC condenser. [t737]
+- An aluminum skid plate covers the face of the core support to protect against intrusion. [t737]
 
 ## Common mistakes
 
@@ -458,9 +1192,23 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - [Partial] Destroying the template on the first side before repeating it on the other. [t985]
 - [Partial] Trapping rust or dirt between sliders and frame during cleaning. [t482]
 - Overtightening thread-cutting bolts before threads are fully cut, potentially stripping them. [t482]
+- [Partial] Potential gap at the top of the bumper when installed on a 2005-2008 model where the stock top stops earlier. [t185]
+- Stock skid plates may be incompatible with the new front bumper, potentially requiring bending or drilling. [t185]
+- [Partial] Hydrogen embrittlement causing parts to break on hard impact (specifically noted with sliders modeled after Shrocks). [t410]
+- [Partial] Using nickel-plated shiny rims for off-road duty where durability is key. [t410]
+- [Partial] Skipping the post-plate oven bake cycle of 4-6 hours to avoid hydrogen embrittlement. [t410]
+- [Partial] Expecting a perfect off-the-shelf fit without modification. [t182]
+- Forgetting about the radiator clearance, causing a bracket to run into it by almost 2 inches. [t192]
+- [Partial] Cutting the center of the bumper before finalizing fitment with plastics. [t192]
+- [Partial] Running a winch immediately without securing it to the tow hook mounts on the frame rails. [t192]
+- [Partial] Applying auto body primer over still-drying metal primer, requiring acetone and re-priming to fix. [t729]
+- Buying from vendors like Iron Bull who may not include necessary nuts and bolts. [t200]
+- [Partial] Encountering alignment issues with bumpers that require a fab shop to fix mounting points (specifically noted for Iron Bull). [t200]
 
 ## Diagrams (links only)
 
+- [image: http://dhyde.wtxrc.com/upgrades/driveway1.jpg] [t585]
+- [image: http://dhyde.wtxrc.com/upgrades/driveway2.jpg] [t585]
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1245_zps020bb18b.jpg] [t937]
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1246_zps572bc708.jpg] [t937]
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1247_zps1a85be18.jpg] [t937]
@@ -471,13 +1219,68 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1252_zpsb1f90485.jpg] [t937]
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1253_zps3473855e.jpg] [t937]
 - [image: http://i1203.photobucket.com/albums/bb394/Targetshooter84/2012%20Xterra%20Mods/Smittybilt/IMAG1255_zps12759cc0.jpg] [t937]
+- [image: http://i155.photobucket.com/albums/s296/tomtom63/Xterra/Tubebumper2.jpg] [t588]
+- [image: http://i573.photobucket.com/albums/ss176/ryandavenportzj/2011-06-06_12-05-40_926.jpg] [t732]
+- [image: http://i900.photobucket.com/albums/ac201/mudchet/photo1_zps9df2a81a.jpg] [t599]
+- [image: http://i900.photobucket.com/albums/ac201/mudchet/photo2_zps0d7d97a3.jpg] [t599]
+- [image: http://img.tapatalk.com/aefe755c-0189-d2dd.jpg] [t732]
+- [image: https://farm9.staticflickr.com/8699/16803139168_2c0456e428_b.jpg] [t410]
+- [image: https://i.imgur.com/1jVXo9V.png] [t192]
+- [image: https://i.imgur.com/9yT3W1l.png] [t192]
+- [image: https://i.imgur.com/R9ZIYW4.jpg] [t192]
+- [image: https://i.imgur.com/lKNhFfJ.jpg] [t192]
+- [image: https://i.imgur.com/p7MGh1G.jpg] [t192]
+- [image: https://rparts-sites.s3.amazonaws.com/995a4be1935d4e9aef1d2a2d6e06f601/favicon.ico?1727478542] [t185]
+- [image: https://www.4x4parts.com/nissan/images/_projects/58760bc6eac476c6549a87a3375acc2e.jpg] [t410]
+- [image: https://www.xterranation.org/data/attachments/1/1570-22fd2c4241a9fd3050e0ab49559924c3.jpg] [t418]
+- [image: https://www.xterranation.org/data/attachments/1/1571-e7261623d27db3ebd34f1162200284c7.jpg] [t418]
+- [image: https://www.xterranation.org/data/attachments/19/19082-6abe07cf4143fc0f111c12025c58fcd6.jpg] [t185]
+- http://a2.sphotos.ak.fbcdn.net/hphotos-ak-ash4/393701_10100168937424899_5806493_44578430_2146303513_n.jpg [t735]
+- http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/310556_10100168930244289_5806493_44578423_194243631_n.jpg [t601]
+- http://a3.sphotos.ak.fbcdn.net/hphotos-ak-ash4/317254_10100168937325099_5806493_44578428_614180721_n.jpg [t735]
+- http://a6.sphotos.ak.fbcdn.net/hphotos-ak-snc7/426036_318938364815094_123162537726012_839035_1768636882_n.jpg [t601]
+- http://a7.sphotos.ak.fbcdn.net/hphotos-ak-ash4/298791_10100168927908969_5806493_44578421_817345663_n.jpg [t735]
+- http://a8.sphotos.ak.fbcdn.net/hphotos-ak-ash4/382757_10100142630998189_5806493_44409865_1640162950_n.jpg [t601]
+- http://farm9.staticflickr.com/8019/7607188966_fbfedb384c_z.jpg [t601]
+- http://farm9.staticflickr.com/8294/7607188658_56630e3e34_z.jpg [t601]
+- http://i1063.photobucket.com/albums/t503/childreth13/10934320_10152982638658926_1380505339_n_zpsvub68xao.jpg [t414]
+- http://i1198.photobucket.com/albums/aa445/Diadaga/IMAG0184.jpg [t601]
+- http://i1198.photobucket.com/albums/aa445/Diadaga/IMAG0185.jpg [t601]
+- http://i1198.photobucket.com/albums/aa445/Diadaga/IMAG0189_zpsc7d7371b.jpg [t601]
+- http://i151.photobucket.com/albums/s123/macland06/Build%20Thread/STH72129.jpg [t601]
+- http://i151.photobucket.com/albums/s123/macland06/Build%20Thread/STH72371.jpg [t601]
+- http://i155.photobucket.com/albums/s296/tomtom63/ECXC2K11/100_9856.jpg [t734]
+- http://i175.photobucket.com/albums/w148/L1feguard83/bumper2007.jpg [t725]
+- http://i339.photobucket.com/albums/n464/OKCanyon/Frontier/IMG_0366.jpg [t601]
+- http://i658.photobucket.com/albums/uu304/evilmidget/IMAG0112.jpg [t724]
+- http://i696.photobucket.com/albums/vv328/Redzoneallstar/2012-05-06_11-11-23_348.jpg [t601]
+- http://i696.photobucket.com/albums/vv328/Redzoneallstar/Resampled952012-05-069511-10-2495409.jpg [t601]
+- http://i696.photobucket.com/albums/vv328/Redzoneallstar/Resampled952012-05-069511-10-3795944.jpg [t601]
+- http://i71.photobucket.com/albums/i152/racerxxl/Sml/anim_beer.gif [t601]
 - http://i90.photobucket.com/albums/k259/admrl20/Xterra%20photos/GasTankSkidOriginal_zps691f4bd3.png [t179]
+- http://purenissan.com/Image 0002.jpg [t737]
+- http://purenissan.com/Image 0003.jpg [t737]
+- http://purenissan.com/Image 0006.jpg [t737]
+- http://purenissan.com/Image 0007.jpg [t737]
 - http://scoop.diamondgalleries.com/Image/NewsImage/4/68835/160085/1 [t937]
 - http://www.julianwinter.com/xterra/BareSteel.jpg [t406]
 - http://www.julianwinter.com/xterra/Monstaliner.jpg [t406]
 - http://www.julianwinter.com/xterra/MonstalinerCloseUp.jpg [t406]
 - http://www.julianwinter.com/xterra/PrimedWithChassisSaver.jpg [t406]
 - http://www.julianwinter.com/xterra/ReadyToInstall.jpg [t406]
+- http://www.nilight.com/cdn/shop/files/JKU-Front-Bumper-Rock-Crawler-Winch-Plate-Nilight-41386546_1200x1200.png?v=1713756804 [t182]
+- https://c1.staticflickr.com/9/8768/17870881506_0ebf9330a8.jpg [t407]
+- https://c2.staticflickr.com/6/5452/17274639214_f27bda6f8f.jpg [t407]
+- https://c2.staticflickr.com/6/5466/17710971459_44ca199767.jpg [t407]
+- https://c4.staticflickr.com/8/7667/17329744953_e390db5d57.jpg [t407]
+- https://farm8.staticflickr.com/7146/6524216239_6d5412f15c_b.jpg [t412]
+- https://farm8.staticflickr.com/7153/6524215893_2c9ae01618_b.jpg [t412]
+- https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-snc7/295934_718460817004_40301227_35856055_1059905431_n.jpg [t734]
+- https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/p480x480/10703590_685384128205932_7932502328843778135_n.jpg?oh=a6c221c70e86c801294872bbafbca3aa&oe=5537D22D&__gda__=1428956787_492dc7db20e02d433feaf8c4f2a18bd0 [t414]
+- https://miro.medium.com/v2/resize:fit:1100/format:webp/1*U_OrSHO0qr03YWuYxyr1Lg.jpeg [t184]
+- https://www.nilight.com/products/2007-2018-jeep-wrangler-jk-jku-front-bumper-rock-crawler-winch-plate/ [t182]
+- https://www.xterranation.org/data/attachments/0/256-3ddd6ae551ceb8d6e6595537711ff935.jpg [t724]
+- https://www.xterranation.org/data/attachments/4/4049-72432e329c29c63bf3210a9e417eda98.jpg [t184]
 - https://www.youtube.com/watch?v=58K4qDzAIYk [t283]
 
 ## Source attributions
@@ -485,12 +1288,38 @@ _Procedure reported by [t29]; 7 steps reworded by a reviewer. Photos of this job
 - **t29**: usmc xterra, "How-to: ShrockWorks Sliders Install - PBR", 2006-01-28. https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
 - **t180**: gorillamel, "Aftermarket Rear Bumpers for 2nd Gens", 2011-11-02. https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/
+- **t182**: leclerc16, "Will it fit?", 2024-05-01. https://www.xterranation.org/index.php?threads/will-it-fit.11174/
+- **t184**: JeffPro4x, "hardcore offroad", 2017-07-24. https://www.xterranation.org/index.php?threads/hardcore-offroad.8179/
+- **t185**: xyoverland, "Nismo releasing front and rear bumpers for the Xterra", 2021-09-25. https://www.xterranation.org/index.php?threads/nismo-releasing-front-and-rear-bumpers-for-the-xterra.10278/
+- **t192**: blakens, "Custom Front Bumper for my '05", 2019-08-06. https://www.xterranation.org/index.php?threads/custom-front-bumper-for-my-05.8938/
+- **t200**: Red River, "Front/rear bumpers", 2018-06-11. https://www.xterranation.org/index.php?threads/front-rear-bumpers.8453/
 - **t283**: Sturmovik, "DIY Rear Recovery Point", 2022-06-29. https://www.xterranation.org/index.php?threads/diy-rear-recovery-point.10655/
 - **t406**: 18elle81, "PP Engineering Slider Installation", 2015-09-07. https://www.xterranation.org/index.php?threads/pp-engineering-slider-installation.7174/
+- **t407**: evilmonkey, "New P&P Engineering Front Tube Winch Bumper", 2015-05-25. https://www.xterranation.org/index.php?threads/new-p-p-engineering-front-tube-winch-bumper.6899/
+- **t409**: jorge.alves.5015, "What's the rear bumper center piece made of?", 2015-04-21. https://www.xterranation.org/index.php?threads/whats-the-rear-bumper-center-piece-made-of.6781/
+- **t410**: J Everett, "A terrible idea!", 2012-03-12. https://www.xterranation.org/index.php?threads/a-terrible-idea.1199/
+- **t412**: TheFauxFox, "Priority: Front vs. Rear Bumper?", 2015-02-18. https://www.xterranation.org/index.php?threads/priority-front-vs-rear-bumper.6509/
+- **t414**: RioDeColumbia, "Shrockworks vs. Hefty Fabworks Front Bumper", 2015-02-12. https://www.xterranation.org/index.php?threads/shrockworks-vs-hefty-fabworks-front-bumper.6490/
+- **t418**: 2011XTERROR, "Hardcore Offroad bumpers", 2014-06-12. https://www.xterranation.org/index.php?threads/hardcore-offroad-bumpers.5500/
+- **t423**: Southpaw, "Very early take on my new setup", 2017-09-28. https://www.xterranation.org/index.php?threads/very-early-take-on-my-new-setup.8231/
 - **t479**: xyoverland, "How To: Rago Fab Ditch Light Bracket Install - 2nd Gen Xterra", 2021-02-20. https://www.xterranation.org/index.php?threads/how-to-rago-fab-ditch-light-bracket-install-2nd-gen-xterra.9917/
 - **t482**: xyoverland, "White Knuckle Offroad Sliders Instructions Annotated; Improved Images", 2021-01-08. https://www.xterranation.org/index.php?threads/white-knuckle-offroad-sliders-instructions-annotated-improved-images.9869/
 - **t584**: obi_krash, "Rad Skid Install - stuck", 2014-06-10. https://www.xterranation.org/index.php?threads/rad-skid-install-stuck.5479/
+- **t585**: Levi_Xterra, "Reasons to get an armored front bumper", 2014-05-21. https://www.xterranation.org/index.php?threads/reasons-to-get-an-armored-front-bumper.5384/
+- **t588**: TomsRedX, "Custom front bumpers", 2011-11-25. https://www.xterranation.org/index.php?threads/custom-front-bumpers.425/
+- **t594**: Zombieitch, "Carbonfiber skids", 2013-06-26. https://www.xterranation.org/index.php?threads/carbonfiber-skids.3665/
+- **t599**: scottmen, "Front Bumper with Drop Bracket Question", 2013-02-22. https://www.xterranation.org/index.php?threads/front-bumper-with-drop-bracket-question.3019/
+- **t601**: Macland, "Hefty Fabworks bumpers", 2011-10-29. https://www.xterranation.org/index.php?threads/hefty-fabworks-bumpers.80/
+- **t612**: NoahSki, "Firestone Destination MT", 2014-08-18. https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/
+- **t724**: ymbhonk, "Hummer Tire Carrier", 2012-08-16. https://www.xterranation.org/index.php?threads/hummer-tire-carrier.2126/
+- **t725**: civicjoe, "Rear bumper Mock Up IDEA", 2011-12-14. https://www.xterranation.org/index.php?threads/rear-bumper-mock-up-idea.550/
 - **t728**: Le Loup, "Places to buy and have Rock Sliders installed", 2012-05-13. https://www.xterranation.org/index.php?threads/places-to-buy-and-have-rock-sliders-installed.1579/
+- **t729**: NOXIOUS007, "Custom Sliders 2007 Xterra IRONHIDE!", 2012-04-08. https://www.xterranation.org/index.php?threads/custom-sliders-2007-xterra-ironhide.1386/
+- **t732**: Matt2558, "TAG rear bumper", 2012-01-26. https://www.xterranation.org/index.php?threads/tag-rear-bumper.832/
+- **t733**: ryandavenport, "Ryan's Front Bumper Brain Storming Thread", 2011-12-04. https://www.xterranation.org/index.php?threads/ryans-front-bumper-brain-storming-thread.484/
+- **t734**: civicjoe, "Hefty FabWorks Skids", 2011-10-31. https://www.xterranation.org/index.php?threads/hefty-fabworks-skids.132/
+- **t735**: hoplesshumansrus, "ASFIR Aluminum Skids", 2011-11-18. https://www.xterranation.org/index.php?threads/asfir-aluminum-skids.383/
+- **t737**: civicjoe, "New Tube Bumper for 2nd Gens", 2012-01-07. https://www.xterranation.org/index.php?threads/new-tube-bumper-for-2nd-gens.712/
 - **t937**: TN4x4Xterra, "How to install Smittybilt Axe with First Aid Kit", 2013-02-12. https://www.xterranation.org/index.php?threads/how-to-install-smittybilt-axe-with-first-aid-kit.2977/
 - **t985**: metzican, "How To: Rigid Dualy Flush Mounted in rear corner panels.", 2013-03-30. https://www.xterranation.org/index.php?threads/how-to-rigid-dualy-flush-mounted-in-rear-corner-panels.3193/
 

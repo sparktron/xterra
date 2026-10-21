@@ -6,9 +6,13 @@ category: reference
 applies_to:
   years:
   - 2005
+  - 2014
   - 2015
   trims:
   - P4X
+  - PRO-2X
+  - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -33,22 +37,31 @@ sources:
 - t26
 - t28
 - t43
+- t69
 - t73
 - t98
 - t119
+- t289
 - t373
 - t395
+- t559
+- t612
 - t642
 - t811
+- t881
+- t882
+- t932
+- t1020
+- t1022
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 13
+  partial_items: 20
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 11
+  unconfirmed_safety_values: 2
+  withheld_items: 20
   pending_safety_values: 0
 ---
 
@@ -81,6 +94,18 @@ Torque specifications vary by U-bolt diameter. [t373]
 [Partial] Replace the crush washers on the banjo bolts with thicker ones. [t98]
 
 [Partial] [Unverified value] Torque the pinion nut to 5 in-lbs to increase preload. [t119]
+
+Install new Mitzone red aluminum rocker covers and gaskets to seal the cylinder head. [t69]
+
+[Partial] Re-torque all nuts and use thread-on nuts to prevent grinding off material. [t559]
+
+[Partial] Tighten the two top bolts that anchor the rear bumper to the frame. [t612]
+
+[Partial] Torque the front differential carrier bolts to secure the new locker unit. [t881]
+
+[Partial] Torque the differential carrier bolts to secure the drop-in mechanism. [t882]
+
+[Partial] Tighten the front camber bolts to secure the adjustable control arms using Grade 8 or Class 12.9 bolts. [t1022]
 
 ## Procedure
 
@@ -133,6 +158,36 @@ _Procedure reported by [t25]._
 
 </details>
 
+<details><summary>Alternate procedure [t69] [Partial]</summary>
+
+1. Install new 'Mitzone' red aluminum rocker covers/gaskets to seal the cylinder head.
+
+</details>
+
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. Re-torque all nuts installed during the lift procedure after a week or so.
+
+</details>
+
+<details><summary>Alternate procedure [t612] [Partial]</summary>
+
+1. Tighten the two top bolts that anchor the rear bumper to the frame.
+
+</details>
+
+<details><summary>Alternate procedure [t881] [Partial]</summary>
+
+1. [Partial] Torque the front differential carrier bolts to secure the new locker unit.
+
+</details>
+
+<details><summary>Alternate procedure [t289] [Partial]</summary>
+
+1. [Partial] Locate the front lower control arm bushing bolts.
+
+</details>
+
 ## Tools
 
 - [Partial] Torch wrench or torque wrench [t811]
@@ -147,6 +202,7 @@ _Procedure reported by [t25]._
 
 ## Specifications
 
+- **Camber bolt grade**: Grade 8 or Class 12.9 [t1022] ([Partial] [Unverified] single report)
 - **Nissan OEM Cam Bolt Price (per unit)**: $5.19 [t642] ([Unverified] single report)
 - **OE Disk Eccentric Washer Price**: $3.59 [t642] ([Unverified] single report)
 - **OE Nut-Slock Price (per unit)**: $0.59 [t642] ([Unverified] single report)
@@ -162,6 +218,8 @@ _Procedure reported by [t25]._
 - Prefer the Nissan bolt where the washer is integrated into the head to prevent rounding out over time. [t642]
 - Note that the Febest bolt is considered a replica of the Nissan style. [t642]
 - [Partial] Check the thickness of supplied crush washers before installation to ensure a proper seal on banjo bolts. [t98]
+- [Partial] Use thread-on nuts to prevent grinding off too much material when trimming hanging U-bolts with a wheel grinder. [t559]
+- The aluminum housing is prone to breaking if spider gear fragments get wedged between main gears and the case. [t881]
 
 ## Common mistakes
 
@@ -178,11 +236,20 @@ _Procedure reported by [t25]._
 - **t26**: N.Y.X., "Want a Little More Power from Your X? Start Here", 2014-04-09. https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/
 - **t28**: "Torque Specs | Second Generation Nissan Xterra Forums". https://www.thenewx.org/threads/torque-specs.1407/
 - **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
+- **t69**: mantiss, "Annoying P0133 O2 Sensor (B1S1) Circuit Slow Response Code", 2024-02-23. https://www.xterranation.org/index.php?threads/annoying-p0133-o2-sensor-b1s1-circuit-slow-response-code.11136/
 - **t73**: Just a Hunter, "TORQUE Specs", 2019-08-03. https://www.xterranation.org/index.php?threads/torque-specs.8902/
 - **t98**: Brunnie, "Z1 Transmission Cooler Upgrade", 2026-05-04. https://www.xterranation.org/index.php?threads/z1-transmission-cooler-upgrade.11535/
 - **t119**: KC!, "2015 Xterra P4X M226 Pinion Seal Replacement", 2026-05-02. https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/
+- **t289**: Dylans33, "HELP!! Im completely lost with these issues.", 2024-06-09. https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/
 - **t373**: Maxxpags, "Installed Ironman lift yesterday, got a vibration now", 2022-06-10. https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/
 - **t395**: Gen X, "Replace Battery Terminals, Battery & Alternator", 2021-10-08. https://www.xterranation.org/index.php?threads/replace-battery-terminals-battery-alternator.10299/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
+- **t612**: NoahSki, "Firestone Destination MT", 2014-08-18. https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/
 - **t642**: General_Tarfun, "How-to: OEM Nissan-Style Cam Bolts", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/
 - **t811**: outback97, "Remove Knuckle And Hub If Replacing Lca + Uca?  Lower Control Armageddon Complete", 2019-12-16. https://www.xterranation.org/index.php?threads/remove-knuckle-and-hub-if-replacing-lca-uca-lower-control-armageddon-complete.9265/
+- **t881**: Ron ap Rhys, "ARB Locker for the R180", 2012-02-01. https://www.xterranation.org/index.php?threads/arb-locker-for-the-r180.882/
+- **t882**: gorillamel, "Lunchbox Locker", 2012-02-05. https://www.xterranation.org/index.php?threads/lunchbox-locker.925/
+- **t932**: tommyboy, "2" Lift, (Spacers and AAL)", 2011-10-27. https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/
+- **t1020**: Kyle, "Selecting a Lift?", 2014-08-10. https://www.xterranation.org/index.php?threads/selecting-a-lift.5775/
+- **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
 

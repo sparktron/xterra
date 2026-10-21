@@ -18,27 +18,30 @@ parts:
 - name: Wiring harness with diagram
   oem_part_no: ''
 sources:
+- t977
 - t1039
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 7
+  partial_items: 9
   partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 0
+  unconfirmed_safety_values: 2
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Lighting and Aux Fuse Blocks
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Connect wires from a Daystar KU800 switch to terminal A and B, then plug into fuse box slot C. [t1039]
+
+[Partial] Determine total light current draw, select appropriate wire gauge, and use a relay size of 2 x 30A. [t977]
 
 ## Procedure
 
@@ -55,10 +58,22 @@ verification:
 
 _Procedure reported by [t1039]._
 
+<details><summary>Alternate procedure [t977] [Partial]</summary>
+
+1. Determine the total current draw for all lights to be installed.
+2. Select a wire gauge rated appropriately for that specific amperage.
+
+</details>
+
 ## Parts
 
 - Daystar KU800 switch [t1039]
 - Wiring harness with diagram [t1039]
+
+## Specifications
+
+- **Main Fuse Size**: 80A (approximate) [t977] ([Partial] [Unverified] single report)
+- **Relay Size**: 2 x 30A relays [t977] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -66,9 +81,12 @@ _Procedure reported by [t1039]._
 
 ## Diagrams (links only)
 
+- [image: http://i1166.photobucket.com/albums/q603/xterrapics/DSCN6030_zps2c48a4f4.jpg] [t977]
+- [image: http://i1166.photobucket.com/albums/q603/xterrapics/DSCN6031_zpsc5018a8c.jpg] [t977]
 - http://www.amazon.com/Road-Jeep-Light-Wiring-Harness/dp/B00D1CQVIY/ref=cm_cr_pr_product_top?ie=UTF8 [t1039]
 
 ## Source attributions
 
+- **t977**: Jlb377, "Roof Light Wiring", 2014-12-08. https://www.xterranation.org/index.php?threads/roof-light-wiring.6226/
 - **t1039**: RioDeColumbia, "How to Install New Switch", 2014-09-05. https://www.xterranation.org/index.php?threads/how-to-install-new-switch.5888/
 

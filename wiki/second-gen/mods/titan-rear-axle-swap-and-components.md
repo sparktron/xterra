@@ -14,33 +14,38 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: Axle Shaft (if needed)
+  oem_part_no: ''
+- name: M226 Axle Assembly
+  oem_part_no: ''
 - name: Titan front spindles
   oem_part_no: ''
 - name: Titan rear axle assembly
   oem_part_no: ''
 sources:
 - t257
-confidence: '[Unverified]'
+- t353
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 6
   partial_fields:
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Titan rear axle swap and components
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Swap the entire Titan rear axle assembly and install Titan front spindles. [t257]
+
+Select a PRO-4X M226 axle assembly for the best balance of price and features. [t353]
 
 ## Procedure
 
@@ -51,16 +56,33 @@ verification:
 
 _Procedure reported by [t257]._
 
+<details><summary>Alternate procedure [t353] [Partial]</summary>
+
+1. Select a PRO-4X M226 axle assembly for the best balance of price and features.
+2. [Partial] Verify that the rear differential gear ratio matches your current front diff or plan to regear both.
+
+</details>
+
 ## Parts
 
+- Axle Shaft, if needed: May be required if the donor axle has bent flanges or unequal lengths. [t353]
+- [Partial] M226 Axle Assembly: Specifically a PRO-4X version preferred for value and features [t353]
 - Titan front spindles [t257]
 - Titan rear axle assembly [t257]
 
 ## Tips & gotchas
 
 - Consider swapping Titan brakes into the front to match the axle width. [t257]
+- Consider 3.69 gearing from a manual transmission version for lower stock ratios. [t353]
+- Note that M226 axles have an outer diameter of 1.366 inches compared to the 8.8's 1.32 inches. [t353]
+
+## Common mistakes
+
+- [Partial] Ignoring wheel pattern width differences between the M226 and standard 8.8s. [t353]
+- [Partial] Failing to match front differential ratios, leading to uneven axle shaft lengths. [t353]
 
 ## Source attributions
 
 - **t257**: Prawn, "Almost Swapped...", 2020-12-15. https://www.xterranation.org/index.php?threads/almost-swapped.9826/
+- **t353**: Stingingfork, "Need Advice on Next Mod - Switching Out a C200K with a M226 Axle Assy.", 2021-02-26. https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/
 

@@ -5,7 +5,8 @@ generation: second-gen
 category: diagnostics
 applies_to:
   years: []
-  trims: []
+  trims:
+  - SLIP
   engine: []
   drivetrain: []
 shared_platform: []
@@ -29,12 +30,14 @@ parts:
 sources:
 - t286
 - t492
+- t672
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 17
-  partial_fields: []
+  partial_items: 20
+  partial_fields:
+  - applies_to
   unconfirmed_safety_values: 0
   withheld_items: 1
   pending_safety_values: 0
@@ -49,6 +52,8 @@ verification:
 Run a ground wire, connect power, and check if the AC clutch engages when applied. [t286]
 
 Identify the code as P0420, which indicates a Bank 1 issue. [t492]
+
+[Partial] Inspect all three transfer case switches located inside the transmission housing, then disconnect each individually. [t672]
 
 ## Procedure
 
@@ -73,6 +78,13 @@ Identify the code as P0420, which indicates a Bank 1 issue. [t492]
 17. Monitor engine temperature during off-roading while the AC is cranking.
 
 _Procedure reported by [t286]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/>_
+
+<details><summary>Alternate procedure [t672] [Partial]</summary>
+
+1. [Partial] Inspect all three transfer case switches located inside the transmission housing.
+2. Disconnect each switch individually to isolate potential faults.
+
+</details>
 
 ## Tools
 
@@ -108,9 +120,16 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 - Be prepared for the engine cover to be hot enough to burn skin. [t286]
 - This breaker may pop under extreme heat conditions. [t286]
 - Allow time for it to cool down before attempting to close or reset it again. [t286]
+- Clean electrical contacts with electric parts cleaner if cleaning is needed. [t672]
+- [Partial] Focus on the front-most switch as it is prone to cracking and splitting due to its spring-loaded design. [t672]
+
+## Common mistakes
+
+- [Partial] Assuming a broken switch will stay intact without inspecting closely for hairline cracks that split under pressure. [t672]
 
 ## Diagrams (links only)
 
+- http://shop.advanceautoparts.com/p/crc-lectra-motive-electric-parts-cleaner-19-oz.-05018/7040069-P [t672]
 - https://pics.josx2.com/_data/i/galleries/Forum_Pics/VK-Swap/misc_pics/ECU-AC-me.jpg [t286]
 - https://www.xterranation.org/data/attachments/15/15000-97950a33c66e9f006513e69e7646ba0d.jpg [t492]
 
@@ -118,4 +137,5 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 
 - **t286**: josx2, "How-to: VK-swap with Auto Trans", 2019-08-04. https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/
 - **t492**: AlbatrossCafe, "Replacement Catalytic Converter Questions", 2020-11-15. https://www.xterranation.org/index.php?threads/replacement-catalytic-converter-questions.9778/
+- **t672**: TheFauxFox, "4LO Light Blinking", 2015-04-20. https://www.xterranation.org/index.php?threads/4lo-light-blinking.6776/
 

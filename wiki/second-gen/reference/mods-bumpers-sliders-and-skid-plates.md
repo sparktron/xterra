@@ -5,6 +5,7 @@ generation: second-gen
 category: reference
 applies_to:
   years:
+  - 2013
   - 2015
   trims: []
   engine: []
@@ -22,11 +23,12 @@ tools:
 parts: []
 sources:
 - t179
-confidence: '[Unverified]'
+- t195
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 10
+  partial_items: 11
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 4
@@ -34,8 +36,6 @@ verification:
 ---
 
 # [mods] Bumpers, sliders and skid plates
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -48,6 +48,8 @@ verification:
 [Partial] Remove the factory lightweight aluminum gas tank skid and install a heavier steel version. [t179]
 
 [Partial] Cut the plate to size using a fine-tooth carbide plywood Skilsaw blade, then glue sections with spoolgun MIG welding. [t179]
+
+[Partial] Factory skid plates are adequate for intermediate trails but may require upgrading. [t195]
 
 ## Procedure
 
@@ -97,8 +99,11 @@ _Procedure reported by [t179]._
 - [Partial] Consider an aluminum engine skid paired with the new steel gas tank skid for a balanced approach. [t179]
 - Use 1/4" aluminum for medium-duty applications. [t179]
 - Print PDFs on regular letter paper and tape them together to create a cut pattern. [t179]
+- Factory skid plates are adequate for intermediate trails but may require upgrading if tackling jagged, pointy rocks. [t195]
+- The transmission pan is often exposed on the PRO-4X unless a specific skid plate was installed during previous maintenance. [t195]
 
 ## Source attributions
 
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
+- **t195**: Henry, "2013 Pro 4x Question", 2020-04-20. https://www.xterranation.org/index.php?threads/2013-pro-4x-question.9474/
 

@@ -4,8 +4,12 @@ title: Control arms and bushings
 generation: second-gen
 category: repair
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2005
+  - 2010
+  trims:
+  - AT/S
+  - S
   engine: []
   drivetrain: []
 shared_platform:
@@ -21,18 +25,29 @@ parts:
   oem_part_no: ''
 - name: New LCA bushings
   oem_part_no: ''
+- name: Plated, beefed-up control arms
+  oem_part_no: ''
+- name: Replacement Uniballs
+  oem_part_no: ''
+- name: SPC UCA
+  oem_part_no: ''
 sources:
 - t373
 - t550
+- t553
+- t559
 - t698
+- t731
+- t893
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 10
-  partial_fields: []
+  partial_items: 16
+  partial_fields:
+  - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 4
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -48,6 +63,14 @@ Select a lower control arm brand, noting that OEM parts are often preferred over
 
 [Partial] Drop the control arm and heat mounting tabs to soften metal before installation. [t698]
 
+[Partial] Replace UCA bushings with SPC units then grease them at each oil change. [t553]
+
+Install SPC Upper Control Arms (UCA) to fix touchy steering caused by camber/toe issues. [t559]
+
+[Partial] Remove existing uniballs from the UCA assembly and install new, higher-quality uniball joints. [t893]
+
+[Partial] Replace the stock control arm with a plated and beefed-up version. [t731]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -61,6 +84,20 @@ _Procedure reported by [t550]._
 
 1. [Partial] Drop the control arm from the vehicle.
 2. Heat the UCA or LCA mounting tabs to soften the metal.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Replace upper control arm (UCA) bushings with SPC units to handle increased static ride height and prevent inner fender rubbing.
+2. Grease the new bushings during every oil change for extended life.
+
+</details>
+
+<details><summary>Alternate procedure [t893] [Partial]</summary>
+
+1. [Partial] Remove the existing uniballs from the UCA assembly.
+2. [Partial] Install new, higher-quality uniball joints.
 
 </details>
 
@@ -79,6 +116,9 @@ _Procedure reported by [t550]._
 - [Partial] Anti-seize compound [t373]
 - Lower Control Arm: OEM, Moog, AC Delco, Mevotech, Dorman, ADO Enhanced [t550]
 - [Partial] New LCA bushings [t373]
+- Plated, beefed-up control arms: Alternative to full custom fabrication [t731]
+- [Partial] Replacement Uniballs: Recommended to prevent premature failure [t893]
+- [Partial] SPC UCA: Features a built-in degree for alignment [t559]
 
 ## Tips & gotchas
 
@@ -88,6 +128,9 @@ _Procedure reported by [t550]._
 - [Partial] Look for arms with weld washers to ensure proper seating. [t550]
 - Use heat instead of hydraulic pressure if cost is a concern. [t698]
 - Accept that this method suits older, less critical trail rigs. [t698]
+- [Partial] Expect the rear end to sit about 1.5 inches higher than the front with a full tank of fuel. [t559]
+- Replace these early as they tend to blow out in less than a month without offloading. [t893]
+- Stock control arms are generally strong enough for normal use. [t731]
 
 ## Common mistakes
 
@@ -98,5 +141,9 @@ _Procedure reported by [t550]._
 
 - **t373**: Maxxpags, "Installed Ironman lift yesterday, got a vibration now", 2022-06-10. https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/
 - **t550**: kryter, "LCA replacement for 14 x", 2021-12-18. https://www.xterranation.org/index.php?threads/lca-replacement-for-14-x.10422/
+- **t553**: scoyoc, "The Strengths (and Pitfalls) Of Bilstein 5100's", 2020-03-26. https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t698**: Howard F, "Hot Or Cold? How To Bend Metal Without Too Much Distress", 2020-06-12. https://www.xterranation.org/index.php?threads/hot-or-cold-how-to-bend-metal-without-too-much-distress.9560/
+- **t731**: BigMeanTam, "Control Arm Skids - are they Unobtanium for the X?", 2012-03-19. https://www.xterranation.org/index.php?threads/control-arm-skids-are-they-unobtanium-for-the-x.1249/
+- **t893**: X4Life, "ebay uca lift kit", 2016-02-10. https://www.xterranation.org/index.php?threads/ebay-uca-lift-kit.7505/
 

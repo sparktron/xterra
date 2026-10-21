@@ -10,6 +10,7 @@ applies_to:
   engine: []
   drivetrain: []
 shared_platform:
+- Frontier
 - Titan
 difficulty: null
 est_time: null
@@ -17,28 +18,29 @@ tools: []
 parts: []
 sources:
 - t246
-confidence: '[Unverified]'
+- t261
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 4
   partial_fields:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Titan VK56 engine swap suspension components
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Install Moog inner and outer tie rod ends, then mount Titan brake calipers and rotors. [t246]
+
+[Partial] Install an M205 engine and fit NI-8354 Pathfinder CV axles to maintain Xterra width dimensions. [t261]
 
 ## Procedure
 
@@ -49,7 +51,16 @@ verification:
 
 _Procedure reported by [t246]._
 
+## Specifications
+
+- **Pathfinder CV axle part number**: NI-8354 [t261] ([Unverified] single report)
+
+## Tips & gotchas
+
+- [Partial] Match rear gear ratios if using the front M205 setup. [t261]
+
 ## Source attributions
 
 - **t246**: sleeper00, "Titan Swap Registry", 2011-12-20. https://www.xterranation.org/index.php?threads/titan-swap-registry.599/
+- **t261**: Brunnie, "Can It Really Be This Simple?", 2020-01-30. https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/
 

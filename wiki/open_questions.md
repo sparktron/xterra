@@ -3,7 +3,7 @@
 
 Each section publishes only its own generation's facts. These state model years in more than one generation, or no model year and come from a source with no generation, so neither section publishes them.
 
-_None._
+- t442 "2nd Gen seat brackets": First-gen Xterra Corbeau bracket fitment notes. Reason: it would go to the Second generation (N50), 2005-2015 but its title names the First generation (WD22), 2000-2004. (https://www.xterranation.org/index.php?threads/2nd-gen-seat-brackets.5299/)
 
 ## Blocked sources (all generations)
 

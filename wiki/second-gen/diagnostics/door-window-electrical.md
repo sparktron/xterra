@@ -8,6 +8,7 @@ applies_to:
   - 2009
   trims:
   - 09+
+  - S
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,17 +19,18 @@ tools:
 - Wire cutters or similar tool
 parts: []
 sources:
+- t168
 - t764
 - t936
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 12
+  partial_items: 13
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -43,6 +45,8 @@ verification:
 [Partial] Identify auto-locking behavior and determine if it occurs at 15 mph. [t936]
 
 [Partial] Replace the airbag light's old LED with a new 3mm unit and reset the electrical faults. [t764]
+
+Remove steering wheel to access clock spring part number and check connectors. [t168]
 
 ## Procedure
 
@@ -86,6 +90,13 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t168] [Partial]</summary>
+
+1. Remove the steering wheel to access the clock spring part number directly.
+2. [Partial] Disconnect the negative/ground wire for the air bag if it is wrapped around other connectors.
+
+</details>
+
 ## Tools
 
 - Philips screwdriver [t764]
@@ -103,19 +114,23 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 - Set both modes to 'off' to convert power locks into manual operation. [t936]
 - Use a small flathead screwdriver if the specific Torx bit is unavailable. [t764]
 - Apply super glue at the edge of the circuit board where plastic tabs were snipped to secure it. [t764]
+- Look at the actual stamped part number on the component rather than guessing from dealer sites. [t168]
 
 ## Common mistakes
 
 - [Partial] Removing the LED without replacing or soldering it securely, causing the light to illuminate and requiring a reset procedure. [t764]
 - [Partial] Messing up the solid solder connection on the positive pad so the system detects an open circuit. [t764]
+- [Partial] Assuming the head unit is faulty without checking if disconnecting the battery reset the system first. [t168]
 
 ## Diagrams (links only)
 
 - https://i.imgur.com/N4WFvtL.png?1 [t764]
 - https://i.imgur.com/qdS50o8.png [t764]
+- https://www.xterranation.org/data/attachments/30/30623-bacf71948d883209afc95b4c90b84d49.jpg [t168]
 
 ## Source attributions
 
+- **t168**: xyoverland, "Thought my clock spring was bad, but maybe not?", 2023-12-30. https://www.xterranation.org/index.php?threads/thought-my-clock-spring-was-bad-but-maybe-not.11092/
 - **t764**: General_Tarfun, "How-to: Change Color Of Passenger Airbag Light LED (05-08)", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-change-color-of-passenger-airbag-light-led-05-08.8918/
 - **t936**: J Everett, "HOW TO: Override the auto lock/unlock on 09+ Xterras", 2012-07-13. https://www.xterranation.org/index.php?threads/how-to-override-the-auto-lock-unlock-on-09-xterras.1976/
 

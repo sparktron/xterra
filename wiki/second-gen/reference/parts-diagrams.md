@@ -4,13 +4,16 @@ title: Parts diagrams
 generation: second-gen
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
+  - 2014
   trims:
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: null
+difficulty: 1
 est_time: null
 tools:
 - Wire strippers
@@ -25,15 +28,21 @@ parts:
 sources:
 - t78
 - t273
+- t443
+- t559
+- t726
+- t748
+- t1022
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 14
+  partial_items: 18
   partial_fields:
   - applies_to
+  - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -46,6 +55,16 @@ verification:
 [Partial] Connect the Diode Dynamics C1R Hitch Light Kit harness pins 1 through 7 to corresponding factory wires. [t273]
 
 [Partial] Identify the auxiliary transmission cooler and soak it in fluid to help identify connections. [t78]
+
+Use a specialized alignment tech method similar to what is found at local Goodyear tire stores. [t559]
+
+Front wheel width measures approximately 39 inches. [t748]
+
+[Partial] Refer to the Nisstec catalog page for specific camper bolt dimensions and styles. [t1022]
+
+[Partial] View engine skid plate diagram via PDF to identify parts. [t726]
+
+[Partial] View the specific console scratch location on a 2012 PRO-4X. [t443]
 
 ## Procedure
 
@@ -76,6 +95,24 @@ _Procedure reported by [t273]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t1022] [Partial]</summary>
+
+1. Refer to the Nisstec catalog page for specific camber bolt dimensions and styles.
+
+</details>
+
+<details><summary>Alternate procedure [t726] [Partial]</summary>
+
+1. [Partial] View the engine skid plate diagram.
+
+</details>
+
+<details><summary>Alternate procedure [t443] [Partial]</summary>
+
+1. [Partial] View the specific console scratch location on a 2012 PRO-4X.
+
+</details>
+
 ## Tools
 
 - [Partial] Wire strippers [t273]
@@ -87,6 +124,10 @@ _Procedure reported by [t273]. Photos of this job are in the source: <https://ww
 - Diode Dynamics C1R Hitch Light Kit [t273]
 - Power Steering Cooler: Identified as the smaller component requiring identification of line routing. [t78]
 
+## Specifications
+
+- **Front wheel width (265/70/R18)**: ~39" [t748] ([Partial] [Unverified] single report)
+
 ## Tips & gotchas
 
 - Use this view to compare your specific harness against the standard layout if yours differs. [t273]
@@ -94,9 +135,29 @@ _Procedure reported by [t273]. Photos of this job are in the source: <https://ww
 - [Partial] Note that this wiring scheme is for a kit with six wires (running, brake, reverse) rather than four. [t273]
 - Align this view with your vehicle's wire colors to ensure correct matching. [t273]
 - [Partial] Soak in fluid to help identify where lines connect on the smaller unit if needed. [t78]
+- Use a specialized alignment tech method similar to what is found at local Goodyear tire stores. [t559]
+- Access these diagrams via a PDF file hosted on The New Xterra forum if direct links fail due to size limits. [t726]
+- Use images of specific areas like the radiator, gas tank, transfer case, and transmission for visual identification. [t726]
 
 ## Diagrams (links only)
 
+- http://i1313.photobucket.com/albums/t554/Mikeincalgary/6764028f4dfd4c7788b3d07a50078d09_zps0c58db2b.jpg [t443]
+- http://i90.photobucket.com/albums/k259/admrl20/Xterra%20photos/Engine_Skid_Plate-1.jpg [t726]
+- http://i90.photobucket.com/albums/k259/admrl20/Xterra%20photos/Gas_Tank_Skid-1.jpg [t726]
+- http://i90.photobucket.com/albums/k259/admrl20/Xterra%20photos/TransferCase_Skid.jpg [t726]
+- http://i90.photobucket.com/albums/k259/admrl20/Xterra%20photos/Transmisson_Skid.jpg [t726]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/265-70-r18front2.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/265-75-r16fenders.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/265-75-r16front.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/265-75-r16rear.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/285-65-r18fenders.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/285-65-r18front.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/285-65-r18front2.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/285-65-r18rear.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/285-65-r18rearlifted.jpg [t748]
+- http://i95.photobucket.com/albums/l150/deltaphi216/Xterra pics/Titan wheels on the Xterra/comparisonpic.jpg [t748]
+- http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
+- http://www.rockauto.com/catalog/moreinfo.php?pk=1057095&cc=1431467 [t1022]
 - https://www.xterranation.org/data/attachments/26/26418-e78cbdcf3f6c5aea3d98ea5692547e25.jpg [t273]
 - https://www.xterranation.org/data/attachments/26/26419-9d4c0e49da1e33ac04bd39cc22ce78ab.jpg [t273]
 - https://www.xterranation.org/data/attachments/37/37884-2f079fe82cc35b6e6c315128175a4563.jpg [t78]
@@ -106,4 +167,9 @@ _Procedure reported by [t273]. Photos of this job are in the source: <https://ww
 
 - **t78**: Xterizona, "Hit a deer, not sure what needs replacing!", 2025-11-12. https://www.xterranation.org/index.php?threads/hit-a-deer-not-sure-what-needs-replacing.11409/
 - **t273**: xyoverland, "How to: Install and Wire Diode Dynamics C1R Hitch Light", 2023-02-27. https://www.xterranation.org/index.php?threads/how-to-install-and-wire-diode-dynamics-c1r-hitch-light.10877/
+- **t443**: Mikeincalgary, "Scratched silver on dash", 2014-04-06. https://www.xterranation.org/index.php?threads/scratched-silver-on-dash.5117/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
+- **t726**: GPD605X, "2nd Gen Skid Plate Drawings/Files", 2012-06-13. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plate-drawings-files.1793/
+- **t748**: Deltaphi216, "titan 6 spoke 18" wheels on a 2nd gen Xterra", 2011-12-12. https://www.xterranation.org/index.php?threads/titan-6-spoke-18-wheels-on-a-2nd-gen-xterra.531/
+- **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
 

@@ -4,8 +4,10 @@ title: Lift kits and suspension lifts
 generation: second-gen
 category: reference
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2014
+  trims:
+  - PRO-2X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -21,20 +23,23 @@ parts:
   oem_part_no: ''
 sources:
 - t467
-confidence: '[Unverified]'
+- t962
+- t1020
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 7
-  partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 0
+  partial_items: 9
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 1
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Lift kits and suspension lifts
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -46,13 +51,31 @@ Consider that front suspension upgrades often require a chain reaction of parts.
 
 [Partial] Chop old lower control arms into pieces if necessary and check the $14 stock shackle. [t467]
 
+[Partial] Measure the vehicle's baseline height then add a bumper, sliders, or winch. [t962]
+
+Install a PRG PML 2-inch lift kit and keep the factory leaf springs. [t962]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. Measure the vehicle's baseline height before adding weight.
+2. [Partial] Add a bumper, sliders, or winch to increase front-end load.
+
+_Procedure reported by [t962]._
+
+<details><summary>Alternate procedure [t962] [Partial]</summary>
+
+1. [Partial] Install a PRG PML 2-inch lift kit.
+2. [Partial] Keep the factory leaf springs in place.
+
+</details>
+
+<details><summary>Alternate procedure [t467] [Partial]</summary>
+
 1. Install new Upper Control Arms (UCAs) to fix CBC issues.
 
-_Procedure reported by [t467]._
+</details>
 
 <details><summary>Alternate procedure [t467] [Partial]</summary>
 
@@ -66,6 +89,10 @@ _Procedure reported by [t467]._
 - [Partial] Bump stops: Required on the Lower Control Arm if using a UCA [t467]
 - [Partial] Lower control arms: Often needed when lifting without adjustable cams or if old ones need chopping [t467]
 
+## Specifications
+
+- **Lift height**: 2" [t962] ([Partial] [Unverified] single report)
+
 ## Tips & gotchas
 
 - [Partial] Consider that front suspension upgrades often require a chain reaction of parts. [t467]
@@ -74,7 +101,13 @@ _Procedure reported by [t467]._
 - Look up part numbers specifically for parts recommended to never be re-used. [t467]
 - Check the stock shackle price, which is noted as being very low ($14). [t467]
 
+## Diagrams (links only)
+
+- http://www.prgproducts.com/shop/product/prg-2xe31mk-x/ [t962]
+
 ## Source attributions
 
 - **t467**: xyoverland, "Idea for a "you may also need to consider..." by common upgrades", 2021-10-21. https://www.xterranation.org/index.php?threads/idea-for-a-you-may-also-need-to-consider-by-common-upgrades.10326/
+- **t962**: RioDeColumbia, "Best way to start lifting X?", 2015-05-02. https://www.xterranation.org/index.php?threads/best-way-to-start-lifting-x.6817/
+- **t1020**: Kyle, "Selecting a Lift?", 2014-08-10. https://www.xterranation.org/index.php?threads/selecting-a-lift.5775/
 

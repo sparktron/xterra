@@ -5,7 +5,8 @@ generation: second-gen
 category: reference
 applies_to:
   years: []
-  trims: []
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -21,6 +22,10 @@ parts:
   oem_part_no: KLH00-PAGR0
 - name: Genuine Nissan Matic D ATF
   oem_part_no: ''
+- name: Group Size 24F AGM Battery
+  oem_part_no: ''
+- name: Group Size 35 AGM Battery
+  oem_part_no: ''
 - name: MERCON ATF
   oem_part_no: ''
 - name: Royal Purple ATF
@@ -31,14 +36,18 @@ sources:
 - t20
 - t25
 - t395
+- t431
+- t507
+- t788
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 4
-  partial_items: 12
-  partial_fields: []
-  unconfirmed_safety_values: 2
-  withheld_items: 22
+  partial_items: 24
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 3
+  withheld_items: 24
   pending_safety_values: 0
 ---
 
@@ -62,6 +71,26 @@ Run an 8-gauge wire from the breaker box to individual lights or loads. [t11]
 
 Checking the oil level in each camshaft sensor housing. [t395]
 
+[Unverified value] Set tire pressure to 35 psi, increase it to 38 psi for long distances, or reduce it to 18 psi for off-road. [t431]
+
+[Partial] Mix the coolant in a 50/50 ratio. [t788]
+
+Lists Group Size 35 and 24F AGM Battery dimensions, amps, hours, and reserve capacity values. [t507]
+
+[Partial] Compare CCA, Cranking Amps, RC rating, and Ah to determine which group size offers better performance. [t507]
+
+[Partial] Select a battery with high CCA if the alternator struggles to supply correct voltage. [t507]
+
+[Partial] Choose a deep-cycle AGM battery designed for long service life if the stock alternator is adequate. [t507]
+
+[Partial] Verify the manufacturer's recommended size for your specific model year. [t507]
+
+Consider the weight increase of an AGM battery versus a standard unit. [t507]
+
+Check for alternative Group Size 34R if standard options are unavailable. [t507]
+
+Look for batteries manufactured by Johnson Controls or Interstate. [t507]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -82,28 +111,95 @@ _Procedure reported by [t11]._
 
 </details>
 
+<details><summary>Alternate procedure [t431] [Partial]</summary>
+
+1. [Partial] [Unverified value] Set tire pressure to 35 psi for mixed/around-town driving.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. [Partial] Compare the CCA, Cranking Amps, RC rating, and Ah to determine which group size offers better performance.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. [Partial] Choose a deep-cycle AGM designed for long service life if the stock alternator is adequate.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. [Partial] Verify the manufacturer's recommended size for your specific model year to ensure warranty coverage.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. [Partial] Consider the weight difference, as AGM batteries can weigh significantly more than standard flooded lead-acid units.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. Check for specific group sizes like the 34R if standard options are unavailable.
+
+</details>
+
+<details><summary>Alternate procedure [t507] [Partial]</summary>
+
+1. Look for batteries manufactured by Johnson Controls or Interstate, as they are common OEM sources.
+
+</details>
+
 ## Parts
 
 - Castrol ATF [t20]
 - [Partial] DEXRON III ATF [t20]
 - Genuine Nissan A/C System Lubricant (KLH00-PAGR0) [t16]
 - [Partial] Genuine Nissan Matic D ATF [t20]
+- [Partial] Group Size 24F AGM Battery: Larger capacity than 35, previously stock on Xterras, requires larger battery tray/hold-down. [t507]
+- [Partial] Group Size 35 AGM Battery: Standard OEM size, often found refurbished or with shorter warranty. [t507]
 - [Partial] MERCON ATF [t20]
 - Royal Purple ATF [t20]
 
 ## Specifications
 
+- **(RC) Min @ 25 Amp (Group 24F)**: 120 [t507] ([Unverified] single report)
+- **(RC) Min @ 25 Amp (Group 35 AGM)**: 100 [t507] ([Unverified] single report)
 - **Air density percentage at high altitude**: about 70% [t25] ([Partial] [Unverified] single report)
+- **Alternative Group Size**: 34R [t507] ([Partial] [Unverified] single report)
 - **Altitude for high ATF temp incidents**: over 12,000 feet [t25] ([Partial] [Unverified] single report)
 - **Ambient temperature range for specific data logs**: 50 - 60F [t25] ([Unverified] single report)
+- **Amp Hours @ 10 Hr (Group 24F)**: 70 [t507] ([Unverified] single report)
+- **Amp Hours @ 10 Hr (Group 35 AGM)**: 55 [t507] ([Unverified] single report)
+- **Cold Cranking Amps (Duralast Platinum 24F)**: 710 [t507] ([Unverified] single report)
+- **Cold Cranking Amps (Group 24F)**: 710 [t507] ([Unverified] single report)
+- **Cold Cranking Amps (Group 35 AGM)**: 650 [t507] ([Unverified] single report)
+- **Cold Cranking Amps (X2 Power 24F)**: 840 [t507] ([Unverified] single report)
+- **Coolant mixture ratio**: 50/50 [t788] ([Partial] [Unverified] single report)
+- **Cranking Amps (Duralast Platinum 24F)**: 885 [t507] ([Unverified] single report)
+- **Cranking Amps (Group 24F)**: 885 [t507] ([Unverified] single report)
+- **Cranking Amps (Group 35 AGM)**: 800 [t507] ([Unverified] single report)
+- **Height (Group 24F AGM)**: 9 [t507] ([Unverified] single report)
+- **Height (Group 35 AGM)**: 8 7/8 [t507] ([Unverified] single report)
+- **Length (Group 24F AGM)**: 10 15/16 [t507] ([Unverified] single report)
+- **Length (Group 35 AGM)**: 9 1/16 [t507] ([Unverified] single report)
 - **Light circuit gauge**: 8-gauge [t11] ([Partial] [Unverified] single report)
 - **Main power gauge**: 4-gauge [t11] ([Unverified] single report)
+- **OEM Recommended Size (2015 Xterra)**: 35 [t507] ([Unverified] single report)
 - **Radiator part number for brass cooler alternative**: KOYO A2807 [t25] ([Unverified] single report)
 - **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
 - **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Partial] [Unverified] single report)
 - **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
 - **Transfer case capacity (imperial)**: 2 1/8 qt [t20] ([Unverified] single report)
 - **Transfer case capacity (metric)**: 2.0L [t20] ([Unverified] single report)
+- **Warranty Duration (X2 Power 24F)**: 5 year full replacement [t507] ([Unverified] single report)
+- **Weight (Group 24F AGM)**: 45.2 [t507] ([Unverified] single report)
+- **Weight Increase (AGM vs OEM)**: ~2x [t507] ([Partial] [Unverified] single report)
+- **Width (Group 24F AGM)**: 6 3/4 [t507] ([Unverified] single report)
+- **Width (Group 35 AGM)**: 6 15/16 [t507] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -111,11 +207,19 @@ _Procedure reported by [t11]._
 - Ensure the refrigerant is HFC 134a. [t16]
 - Most DIY kits contain only 17oz, so expect to add an extra 5+ oz if the system is completely empty. [t16]
 - [Partial] Watch for a pressure variance of plus or minus .11 lbs. [t16]
+- [Unverified value] Increase pressure to 38 psi specifically for long-distance Interstate runs. [t431]
+- [Unverified value] Reduce pressure to 18 psi when tackling off-road terrain. [t431]
+- The larger Group 24F offers +60 CCA, +85 CA, +20 RC, and +15 Ah compared to the standard Group 35. [t507]
+- [Partial] Look for a battery with an extended warranty, such as 36 months or more. [t507]
+- [Partial] Ensure the battery tray or hold-down is large enough to accommodate the heavier AGM unit. [t507]
+- Note that using a larger battery (like the 24F) may technically void warranty clauses specifying 'corresponding to or smaller than' the recommended size. [t507]
 
 ## Diagrams (links only)
 
 - [image: https://www.xterranation.org/data/attachments/18/18920-dee10aa58994f9013c2e52362e2b8282.jpg] [t395]
+- http://www.peakauto.com/pdf/specs-peak_long_life.pdf [t788]
 - http://www.thenewx.org/forum/showpost.php?p=474945&postcount=35 [t25]
+- https://www.interstatebatteries.com/blog/what-is-an-agm-battery-and-whats-the-big-deal [t507]
 
 ## Source attributions
 
@@ -124,4 +228,7 @@ _Procedure reported by [t11]._
 - **t20**: Raymond06, "Recommended Fluids and Capacity", 2007-06-22. https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/
 - **t25**: jeff_redx, "Thoughts and Observations on Engine and Auto Trans Cooling", 2008-12-28. https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/
 - **t395**: Gen X, "Replace Battery Terminals, Battery & Alternator", 2021-10-08. https://www.xterranation.org/index.php?threads/replace-battery-terminals-battery-alternator.10299/
+- **t431**: Levi_Xterra, "Experience with Cooper Tires??", 2014-03-16. https://www.xterranation.org/index.php?threads/experience-with-cooper-tires.4977/
+- **t507**: xyoverland, "Agm Battery Shortages", 2020-10-30. https://www.xterranation.org/index.php?threads/agm-battery-shortages.9760/
+- **t788**: gorillamel, "Coolant leak", 2011-11-03. https://www.xterranation.org/index.php?threads/coolant-leak.222/
 

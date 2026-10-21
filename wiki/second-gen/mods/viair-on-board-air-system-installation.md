@@ -17,16 +17,25 @@ tools:
 - Metric wrenches
 - Screwdrivers
 - Extra wire
+- Hose clamps
 parts:
 - name: 3 FT of air pressure hose
   oem_part_no: ''
+- name: Air compressor (100% duty cycle recommended)
+  oem_part_no: ''
 - name: ARB CKMA12 On-Board Air Compressor
+  oem_part_no: ''
+- name: Braided air hose to cover original ARB line
+  oem_part_no: ''
+- name: CO2 or Compressed Air Tank
   oem_part_no: ''
 - name: Female Quick Connect Fitting
   oem_part_no: ''
 - name: Inline fuse (40 amp recommended)
   oem_part_no: ''
 - name: Male Quick Connect Fitting
+  oem_part_no: ''
+- name: Regulator with water separator
   oem_part_no: ''
 - name: Switch with 6 buttons or similar panel
   oem_part_no: ''
@@ -36,16 +45,17 @@ parts:
   oem_part_no: ''
 sources:
 - t272
+- t440
 - t991
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 12
+  partial_items: 17
   partial_fields:
   - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -58,6 +68,8 @@ verification:
 [Partial] Install a ViAir On Board Air System by mounting components, wiring them, and connecting hoses. [t991]
 
 [Partial] Mount an ARB CKMA12 compressor, run fused power from the battery to a switch with six buttons, then invert it near headlights. [t272]
+
+[Partial] Mount the air tank and connect custom-length 1/4-inch hoses with swivel fittings between the compressor and the tank. [t440]
 
 ## Procedure
 
@@ -90,6 +102,13 @@ _Procedure reported by [t991]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t440] [Partial]</summary>
+
+1. [Partial] Mount the air tank in a convenient location such as under the rear seat, on the driver's side plastic panel, or beneath where the spare tire used to sit.
+2. [Partial] Connect custom-length 1/4-inch hoses with swivel fittings between the compressor and the tank if standard barbed fittings leak.
+
+</details>
+
 ## Tools
 
 - Drill [t991]
@@ -97,14 +116,19 @@ _Procedure reported by [t991]. Photos of this job are in the source: <https://ww
 - Metric wrenches [t991]
 - Screwdrivers [t991]
 - Extra wire [t991]
+- [Partial] Hose clamps [t440]
 
 ## Parts
 
 - 3 FT of air pressure hose [t991]
+- [Partial] Air compressor, 100% duty cycle recommended [t440]
 - ARB CKMA12 On-Board Air Compressor: Or universal knockoff equivalent [t272]
+- [Partial] Braided air hose to cover original ARB line [t440]
+- CO2 or Compressed Air Tank [t440]
 - Female Quick Connect Fitting [t991]
 - [Partial] Inline fuse, 40 amp recommended [t272]
 - [Partial] Male Quick Connect Fitting [t991]
+- Regulator with water separator [t440]
 - [Partial] Switch with 6 buttons or similar panel: e.g., Voswitch UV120 circuit [t272]
 - [Partial] ViAir Air Compressor [t991]
 - [Partial] ViAir On Board Air Tank [t991]
@@ -115,6 +139,12 @@ _Procedure reported by [t991]. Photos of this job are in the source: <https://ww
 - Be careful when running the air line to the gauge as it kinks easily. [t991]
 - [Partial] Consider relocating the compressor to near the headlight for cooler temperatures if using a front bumper mount. [t272]
 - [Partial] Invert the unit so the air intake faces up to prevent mud and debris accumulation. [t272]
+- Use Loctite 545 over Teflon tape on fittings as suggested by Viair. [t440]
+- Order custom-fit hoses that have permanent, crimped-on swivel fittings for better sealing. [t440]
+
+## Common mistakes
+
+- [Partial] Using standard barbed hose clamps which may leak under pressure. [t440]
 
 ## Diagrams (links only)
 
@@ -129,5 +159,6 @@ _Procedure reported by [t991]. Photos of this job are in the source: <https://ww
 ## Source attributions
 
 - **t272**: outback97, "How To: ARB CKMA12 Install - On Board Air for 2nd Gen Xterras", 2019-09-10. https://www.xterranation.org/index.php?threads/how-to-arb-ckma12-install-on-board-air-for-2nd-gen-xterras.9074/
+- **t440**: civicjoe, "Got OBA? - On Board Air", 2012-01-27. https://www.xterranation.org/index.php?threads/got-oba-on-board-air.843/
 - **t991**: 11Pro4x, "How To: ViAir On Board Air System", 2012-12-31. https://www.xterranation.org/index.php?threads/how-to-viair-on-board-air-system.2717/
 

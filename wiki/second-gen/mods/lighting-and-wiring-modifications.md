@@ -42,6 +42,7 @@ parts:
 sources:
 - t4
 - t56
+- t476
 confidence: community-consensus
 verification:
   local_pass_required: true
@@ -64,6 +65,8 @@ Route wires and install seal-tight connectors with silicone to secure lighting m
 
 Cut wires in the middle of the stalk circuit board to allow easy reversion. [t56]
 
+Install a 6-pin momentary switch and connect its top two pins to activate the lights. [t476]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -81,6 +84,13 @@ Cut wires in the middle of the stalk circuit board to allow easy reversion. [t56
 11. [Partial] Connect the red 12V wire to the battery terminal.
 
 _Procedure reported by [t56]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/how-to-fog-lights-by-pass-without-giving-up-factory-switch.561/>_
+
+<details><summary>Alternate procedure [t476] [Partial]</summary>
+
+1. Install a 6-pin momentary switch into the blank next to the factory Off Road Lamps button.
+2. Connect the top two pins of the switch together to create a short that activates the lights.
+
+</details>
 
 ## Tools
 
@@ -122,8 +132,10 @@ _Procedure reported by [t56]. Photos of this job are in the source: <https://www
 
 - [image: https://i.imgur.com/0yEdZU8.png] [t56]
 - [image: https://i.imgur.com/7nPk2iK.jpg] [t56]
+- [image: https://i.imgur.com/AhkZDUa.jpg] [t476]
 - [image: https://i.imgur.com/Bzxi9gy.jpg] [t56]
 - [image: https://i.imgur.com/MOl726G.jpg] [t56]
+- [image: https://i.imgur.com/PGKcVk1.jpg] [t476]
 - [image: https://i.imgur.com/Xaa4Uev.jpg] [t56]
 - [image: https://i.imgur.com/aqXbJPd.jpg] [t56]
 - [image: https://i.imgur.com/sDoIiyf.jpg] [t56]
@@ -134,4 +146,5 @@ _Procedure reported by [t56]. Photos of this job are in the source: <https://www
 
 - **t4**: XJ-TERRA, "-How-to: From the Battery to the Roof Lights and In-between - PBR", 2010-12-26. https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/
 - **t56**: 2k11pro4x, "How-to: Fog lights by-pass without giving up factory switch", 2011-12-15. https://www.xterranation.org/index.php?threads/how-to-fog-lights-by-pass-without-giving-up-factory-switch.561/
+- **t476**: HanCholo, "Led Light Bar Using A 2nd Off Road Lamps Switch", 2020-04-07. https://www.xterranation.org/index.php?threads/led-light-bar-using-a-2nd-off-road-lamps-switch.9457/
 

@@ -5,9 +5,13 @@ generation: second-gen
 category: diagnostics
 applies_to:
   years:
+  - 2005
   - 2012
+  - 2013
   trims:
   - PRO-4X
+  - S
+  - SE
   - X
   engine: []
   drivetrain: []
@@ -21,17 +25,21 @@ parts: []
 sources:
 - t7
 - t66
+- t79
+- t104
+- t301
 - t632
+- t655
 - t840
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 8
+  partial_items: 10
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 5
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
@@ -48,6 +56,14 @@ Remove lower glove box, trim corner pieces, disconnect wiring harness, unbolt th
 Check AC or heater speeds and watch a video guide to replace the blower motor resistor card. [t632]
 
 [Partial] Verify fan speeds, confirm button operations, then focus diagnosis on the temperature gauge. [t840]
+
+Check engine temperature gauge while driving at highway speeds in cold weather to verify if the needle stays just above 'cold'. [t104]
+
+[Partial] Remove the heater core tee cap, pressurize with engine and heated coolant, then test system. [t301]
+
+Inspect the area around the heater tees for signs of weeping or green buildup. [t79]
+
+Inspect the hose near the firewall on the passenger side to look for a nipple that has broken away. [t655]
 
 ## Procedure
 
@@ -82,6 +98,33 @@ _Procedure reported by [t66]._
 
 </details>
 
+<details><summary>Alternate procedure [t104] [Partial]</summary>
+
+1. Check engine temperature gauge while driving at highway speeds in cold weather.
+2. [Partial] Verify if the needle stays just above 'cold' instead of reaching normal operating range.
+
+</details>
+
+<details><summary>Alternate procedure [t301] [Partial]</summary>
+
+1. [Partial] Remove the cap from the heater core tee located at the firewall.
+2. Start the engine with the heater turned on to pressurize the system.
+
+</details>
+
+<details><summary>Alternate procedure [t655] [Partial]</summary>
+
+1. Inspect the hose near the firewall on the passenger side.
+2. Look for a nipple that has broken away from its connection point.
+
+</details>
+
+<details><summary>Alternate procedure [t79] [Partial]</summary>
+
+1. Inspect the area around the heater tees for signs of weeping or green buildup.
+
+</details>
+
 ## Tools
 
 - [Partial] Socket set for 5.5mm or 7/32 inch bolts [t66]
@@ -95,13 +138,18 @@ _Procedure reported by [t66]._
 - [Partial] Note that replacing the card takes approximately 10 minutes. [t632]
 - [Partial] If the fan motor is dirty, the new card may pop out again. [t632]
 - [Partial] Focus diagnosis on the temperature gauge dial rather than other controls. [t840]
+- Use a rubber cap for the radiator and a spring-loaded cap for the degassing bottle if applicable. [t301]
+- Gently squeeze the upper radiator hose while running to burp trapped air. [t301]
+- Look for green fluid accumulation which indicates a leak before it completely snaps off. [t79]
 
 ## Common mistakes
 
 - Ordering the wrong resistor if equipped with 'climate control' instead of numbered fan settings. [t7]
+- [Partial] Using an incorrect type of pressure cap on either the radiator or expansion tank. [t301]
 
 ## Diagrams (links only)
 
+- https://thumbs2.sendvid.com/a0/f5/je1oslru.jpg [t301]
 - https://www.carparts.com/details/Nissan/Xterra/JC_Whitney/Blower_Motor_Resistor/2011/PRO-4X/6_Cyl_4-dot-0L/JRN19180003.html [t7]
 - https://www.xterranation.org/data/attachments/32/32259-5116f5761ff6aed846c5d4a82b009669.jpg [t66]
 - https://www.xterranation.org/data/attachments/32/32260-97251434da3b6a55016b545996776295.jpg [t66]
@@ -115,6 +163,10 @@ _Procedure reported by [t66]._
 
 - **t7**: jedge99, "How-to: Air Conditioner Fix - PBR", 2013-12-22. https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/
 - **t66**: Prime, "Evicting My Squirrels (Replacing the Blower Motor)", 2024-04-21. https://www.xterranation.org/index.php?threads/evicting-my-squirrels-replacing-the-blower-motor.11170/
+- **t79**: Brunnie, "Electric cooling fan", 2025-05-09. https://www.xterranation.org/index.php?threads/electric-cooling-fan.11346/
+- **t104**: Shane_Anigans, "Engine cooling system -  working too well?", 2022-12-27. https://www.xterranation.org/index.php?threads/engine-cooling-system-working-too-well.10809/
+- **t301**: MisterH, "Overheating long drive on highway not in town", 2022-12-23. https://www.xterranation.org/index.php?threads/overheating-long-drive-on-highway-not-in-town.10806/
 - **t632**: bigjim247365, "How To: Blower Motor Resistor", 2019-08-26. https://www.xterranation.org/index.php?threads/how-to-blower-motor-resistor.9022/
+- **t655**: Gavin Samson, "2005 Xterra SE Nipple Break in Hose", 2014-08-29. https://www.xterranation.org/index.php?threads/2005-xterra-se-nipple-break-in-hose.5856/
 - **t840**: Magger, "Climate Control Issue - A/C Spontaneously Changes to Heat", 2019-05-01. https://www.xterranation.org/index.php?threads/climate-control-issue-a-c-spontaneously-changes-to-heat.8750/
 

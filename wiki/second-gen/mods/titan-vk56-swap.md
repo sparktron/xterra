@@ -5,6 +5,7 @@ generation: second-gen
 category: mods
 applies_to:
   years:
+  - 2005
   - 2006
   - 2010
   trims:
@@ -32,12 +33,16 @@ parts:
   oem_part_no: ''
 - name: Driven Desire VK56 to Xterra 6-speed adapter kit
   oem_part_no: ''
+- name: Nissan Frontier Pro-4X Rear Differential
+  oem_part_no: ''
 - name: ProComp Tundra Shocks with 610lbs FJ Coils (Used)
   oem_part_no: ''
 - name: Rough Country Titan Upper Control Arms
   oem_part_no: 83401A
 - name: Rugged Rocks Extended Front Chromoly Axle Shafts
   oem_part_no: ''
+- name: Spicer E-Locker Harness Kit
+  oem_part_no: '#10021771'
 - name: Titan VK56 Engine
   oem_part_no: ''
 - name: Transfer Case
@@ -50,7 +55,9 @@ sources:
 - t112
 - t146
 - t246
+- t249
 - t286
+- t320
 - t328
 - t463
 - t639
@@ -59,13 +66,13 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 21
+  partial_items: 26
   partial_fields:
   - applies_to
   - est_time
   - shared_platform
   unconfirmed_safety_values: 1
-  withheld_items: 7
+  withheld_items: 11
   pending_safety_values: 0
 ---
 
@@ -118,6 +125,12 @@ Clean the oil cooler o-ring by dunking it in carb cleaner before reinstalling. [
 [Partial] Assemble extended chromoly axle shafts with factory-style CV boot retainers and install them onto existing stock or OEM front wheel hubs. [t885]
 
 Install a Titan VK56 engine into a 2006 Xterra chassis and address harness cable issues where plug shapes differ. [t328]
+
+[Partial] Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential with fresh bearings and seals if necessary. [t246]
+
+[Partial] Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential and rebuild it with fresh bearings. [t246]
+
+[Partial] Swap the V8 Titan engine and install a matching drivetrain. [t320]
 
 ## Procedure
 
@@ -182,6 +195,34 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 
 1. Install the Titan VK56 engine into the 2006 Xterra chassis.
 2. [Partial] Address harness cable issues where plug shapes differ in the black box beside the IPDM.
+
+</details>
+
+<details><summary>Alternate procedure [t246] [Partial]</summary>
+
+1. [Partial] Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential.
+2. Rebuild the new differential with fresh bearings and seals if necessary.
+
+</details>
+
+<details><summary>Alternate procedure [t246] [Partial]</summary>
+
+1. [Partial] Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential.
+2. Rebuild the new differential with fresh bearings and seals if necessary.
+
+</details>
+
+<details><summary>Alternate procedure [t246] [Partial]</summary>
+
+1. Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential.
+2. Rebuild the new differential with fresh bearings and seals if necessary.
+
+</details>
+
+<details><summary>Alternate procedure [t320] [Partial]</summary>
+
+1. Swap the V8 Titan engine into the Xterra.
+2. Install a matching drivetrain.
 
 </details>
 
@@ -281,9 +322,11 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 - [Partial] Automatic Transmission [t286]
 - CV Boot Retainers, Factory Style [t885]
 - Driven Desire VK56 to Xterra 6-speed adapter kit [t639]
+- [Partial] Nissan Frontier Pro-4X Rear Differential: M226, 3.5" axle [t246]
 - ProComp Tundra Shocks with 610lbs FJ Coils, Used: With Nissan top hats [t146]
 - Rough Country Titan Upper Control Arms (83401A) [t146]
 - Rugged Rocks Extended Front Chromoly Axle Shafts [t885]
+- Spicer E-Locker Harness Kit (#10021771) [t246]
 - [Partial] Titan VK56 Engine [t328]
 - Transfer Case [t286]
 - Up Rev data cable for ECU programming [t639]
@@ -291,6 +334,7 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 
 ## Specifications
 
+- **Serpentine belt ribs**: 3 rib [t249] ([Unverified] single report)
 - **Shock spring rate**: 610 lbs [t146] ([Unverified] single report)
 - **Sticker diameter size**: 3" " [t463] ([Unverified] single report)
 
@@ -303,6 +347,8 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 - [Partial] Use a Uprev laptop cable to disable VATS and program the Titan ECU using UpRev software. [t639]
 - Note that the front sway bar is removed rather than swapped for a Titan unit to save cost. [t146]
 - Check for plug shape differences in the black box beside the IPDM. [t328]
+- Use a Spicer E-Locker harness kit for rear ABS sensors. [t246]
+- [Partial] Ensure the new differential has an extended length to clear components. [t246]
 
 ## Diagrams (links only)
 
@@ -312,13 +358,17 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 - https://www.xterranation.org/data/attachments/31/31265-718d8dcdd3c55d2fbfe78a30e5b43b50.jpg [t146]
 - https://www.xterranation.org/data/attachments/36/36044-5c020327cedb6a342e378279626720b2.jpg [t246]
 - https://www.xterranation.org/data/attachments/36/36045-8487a4f179f33f4cee1b52d45370a125.jpg [t246]
+- https://www.xterranation.org/data/attachments/36/36095-8487a4f179f33f4cee1b52d45370a125.jpg [t249]
+- https://www.xterranation.org/data/attachments/36/36096-50e4cc9f35eaec06ee5ac92300de5e50.jpg [t249]
 
 ## Source attributions
 
 - **t112**: kking74110, "Engine swap", 2023-04-04. https://www.xterranation.org/index.php?threads/engine-swap.10909/
 - **t146**: ElGuevara, "Nemesis' Titan Swap Project", 2024-01-18. https://www.xterranation.org/index.php?threads/nemesis-titan-swap-project.11117/
 - **t246**: sleeper00, "Titan Swap Registry", 2011-12-20. https://www.xterranation.org/index.php?threads/titan-swap-registry.599/
+- **t249**: Beard, "Project Moanin' Rona", 2025-04-13. https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/
 - **t286**: josx2, "How-to: VK-swap with Auto Trans", 2019-08-04. https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/
+- **t320**: Maxxpags, "Super charged Xterra??", 2022-12-28. https://www.xterranation.org/index.php?threads/super-charged-xterra.10810/
 - **t328**: Akram Eshilli, "VK 56 swap for Xterra 2006 auto transmission.", 2022-03-14. https://www.xterranation.org/index.php?threads/vk-56-swap-for-xterra-2006-auto-transmission.10552/
 - **t463**: Oz_X, "Titan Swap Sticker", 2012-05-14. https://www.xterranation.org/index.php?threads/titan-swap-sticker.1585/
 - **t639**: XB3TERRA, "HOW TO: 6-SPEED W/ VK56", 2019-08-03. https://www.xterranation.org/index.php?threads/how-to-6-speed-w-vk56.8899/

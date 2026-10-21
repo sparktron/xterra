@@ -16,6 +16,22 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Full re-export after second-gen verification (2026-10-21, asked by the user).
+
+- **Verify:** `xw verify` finished: 918 facts. The verifier accepted 40 of 4,472 decoys (1%), and those calls were
+  discarded.
+- **Export and qa:** `xw export && xw qa` against the live database; qa passed, with 0 broken links.
+  - second-gen: 930 pages from 1,714 facts (was 475 from 797); 1,101 items withheld; 3,587 published `[Partial]`.
+  - Safety values: 116 published unconfirmed (marked), 1 withheld; 8 disputes.
+  - first-gen: still 0 pages, because its 240 crawled threads are not extracted yet.
+  - 1 fact in neither section: t442's "First-gen Xterra Corbeau bracket fitment notes", refused by the title rule.
+- **Review of the wiki diff:**
+  - 455 new and 58 updated generated pages, no hand-curated page touched. Every updated page grew; none lost content.
+  - 679 of 930 pages now have a procedure, and 186 have specifications. 31 pages publish nothing verified yet.
+  - Known weakness, not new: the 9B model spreads facts over many narrow topics ("Goodyear DuraTrac tire choice for
+    mixed conditions") and files some unrelated notes under catch-all topics such as "[reference] Parts diagrams".
+    Small formatting glitches remain, such as a stray quote in `6-8" "`.
+
 First-gen curated section (2026-10-21, asked by the user: "Start writing hand-curated first-gen guides and reference
 pages in wiki/first-gen/vehicle/ — oil change, timing belt on the VG33E, torsion bars — and ask me before downloading
 any 2000-2004 FSM sections"). Committed to PR #11.

@@ -4,7 +4,8 @@ title: Lighting, aux fuse blocks and dual batteries
 generation: second-gen
 category: mods
 applies_to:
-  years: []
+  years:
+  - 2007
   trims:
   - 2nd Gen
   - OR
@@ -45,6 +46,9 @@ tools:
 - Screwdriver or socket set
 - Harbor Freight belt/disk sander
 - Isopropyl alcohol
+- Various drill bits
+- Screwdriver or fingers for rotating rings
+- Bulb replacement tool
 parts:
 - name: 1-inch diameter thin-wall PVC pipe
   oem_part_no: ''
@@ -58,6 +62,8 @@ parts:
   oem_part_no: ''
 - name: Adapter plate
   oem_part_no: ''
+- name: Aluminum Sheet
+  oem_part_no: ''
 - name: Ballast
   oem_part_no: ''
 - name: Battery terminal upgrade set
@@ -67,6 +73,10 @@ parts:
 - name: Custom sheet metal adapter plate
   oem_part_no: ''
 - name: Diode Dynamics C1R Hitch Light
+  oem_part_no: ''
+- name: Ethernet Wires (soldered)
+  oem_part_no: ''
+- name: Extreme Led Lightbars 3-inch LED Pod
   oem_part_no: ''
 - name: Ground strap
   oem_part_no: ''
@@ -80,17 +90,29 @@ parts:
   oem_part_no: ''
 - name: LED headlight kit
   oem_part_no: ''
+- name: LED Light Bar
+  oem_part_no: ''
 - name: Longer bolt for fusible link module
+  oem_part_no: ''
+- name: Official Nexus 7 Dock (with POGO pins)
+  oem_part_no: ''
+- name: Pioneer DEH-P9400BH Stereo Deck
   oem_part_no: ''
 - name: Project box with fuse block
   oem_part_no: ''
 - name: Quick Charge 3.0 Dual USB Outlet
+  oem_part_no: ''
+- name: Ram Mount Diamond Base with Snap Link Ball
+  oem_part_no: ''
+- name: Ram Mount Flex Arm
   oem_part_no: ''
 - name: Relay(s) - 10 amp recommended for Duallys, 15 amps for pairs
   oem_part_no: ''
 - name: Roof mount (e.g., Xoskel)
   oem_part_no: ''
 - name: Roof rack bolt
+  oem_part_no: ''
+- name: Rough Country 2-inch LED Square Lights
   oem_part_no: ''
 - name: Square LED light bar (Rigid Duelers or similar)
   oem_part_no: ''
@@ -104,33 +126,45 @@ parts:
   oem_part_no: ''
 - name: White plastic clips (retainers)
   oem_part_no: ''
+- name: X-Grip Cell Phone Cradle
+  oem_part_no: ''
 sources:
 - t1
 - t6
 - t158
+- t174
+- t206
 - t273
 - t282
 - t399
+- t407
+- t662
 - t707
 - t723
 - t761
+- t833
 - t837
+- t864
+- t906
 - t911
+- t923
+- t929
 - t985
 - t986
 - t989
 - t991
+- t992
 - t1033
 - t1039
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 15
-  partial_items: 53
+  partial_items: 87
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 2
-  withheld_items: 12
+  withheld_items: 23
   pending_safety_values: 0
 ---
 
@@ -200,9 +234,56 @@ Follow the disassembly steps in reverse order to complete reassembly. [t282]
 
 [Partial] Remove upper dash blank panel and cut curved 1-inch diameter thin-wall PVC pipe spacer. [t399]
 
+[Partial] Select a cordless tire inflator matching home power tool voltages and buy an 18V lithium-ion battery. [t206]
+
+Jump all ground wires together and join dash illumination into a single circuit. [t864]
+
+[Partial] Mount a Pioneer DEH-P9400BH stereo deck in the dash and solder ethernet wires between it and its detached faceplate. [t929]
+
+[Partial] Install an official Nexus 7 dock using POGO pins and create a custom aluminum holder bent to the tablet's dimensions. [t929]
+
+Make the center top piece of the dash removable to allow tablet access. [t929]
+
+[Partial] Position the angled LED fog lights within the bumper. [t407]
+
+[Partial] Locate and drill holes at the left of the 4x4 switch to mount a Ram Mount with well nuts. [t992]
+
+[Partial] Install the specified LED bulb into the target socket location. [t174]
+
+[Partial] Install an LED 9007 bulb by rotating its black retaining ring 180 degrees. [t174]
+
+Install an LED fog light bulb into the H11 socket and verify its beam pattern. [t174]
+
+[Partial] Install a specified 31mm festoon bulb into the interior dome socket and confirm it shuts off completely when doors are closed. [t174]
+
+Install an LED bulb into the front signal/running light socket and check for hyperflashing. [t174]
+
+[Partial] Install a specified LED bulb into the reverse light socket and verify its brightness. [t174]
+
+[Partial] Install an LED bulb into the brake/turn signal socket and mount any necessary resistors away from body panels. [t174]
+
+[Partial] Install a specified LED bulb into the front round bumper light socket and verify its fit. [t174]
+
+[Partial] Install the specified LED bulb into the roof light socket and verify its fitment. [t174]
+
+[Partial] Select an LED Light Bar with an IP rating made in America. [t833]
+
+[Partial] Install the tuner unit in a location above the rearview mirror and secure it using an included blend mount. [t662]
+
+Install a second battery in the rear cargo area and connect an electrical isolator. [t906]
+
+[Partial] Select a 3-inch LED light pod from Extreme Led Lightbars and ensure the unit is sold as a pair. [t923]
+
+[Partial] Select a Rough Country 2-inch LED light pod sold as a pair with an IP67 rating. [t923]
+
 ## Procedure
 
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+1. Install the specified LED bulb into the front signal/running light socket.
+2. Check that no hyperflashing occurs during operation.
+
+_Procedure reported by [t174]._
+
+<details><summary>Alternate procedure [t6] [Partial]</summary>
 
 1. Remove the side strip from the passenger kick panel by pulling it with even pressure.
 2. Detach the two white pop clips holding the side strip in place.
@@ -231,7 +312,7 @@ Follow the disassembly steps in reverse order to complete reassembly. [t282]
 25. Bolt the receiver securely to the bumper through both drilled holes.
 26. Reconnect the wiring harness back onto the mounted receiver.
 
-_Procedure reported by [t6]. Photos of this job are in the source: <https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/>_
+</details>
 
 <details><summary>Alternate procedure [t761] [Partial]</summary>
 
@@ -403,6 +484,132 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 
 </details>
 
+<details><summary>Alternate procedure [t206] [Partial]</summary>
+
+1. Select a cordless tire inflator that matches the voltage of existing power tools in your home.
+2. Purchase an 18V lithium-ion battery if you do not already own one for this specific tool.
+
+</details>
+
+<details><summary>Alternate procedure [t864] [Partial]</summary>
+
+1. Jump all the ground wires together to consolidate connections.
+2. Join all the dash illumination wires into a single circuit.
+
+</details>
+
+<details><summary>Alternate procedure [t929] [Partial]</summary>
+
+1. Mount a Pioneer DEH-P9400BH stereo deck in the dash.
+2. Solder ethernet wires between the main deck and its detached faceplate to transfer functions.
+
+</details>
+
+<details><summary>Alternate procedure [t929] [Partial]</summary>
+
+1. [Partial] Install an official Nexus 7 dock using POGO pins to connect power and audio.
+2. Create a custom aluminum holder bent to the tablet's dimensions for stability.
+
+</details>
+
+<details><summary>Alternate procedure [t407] [Partial]</summary>
+
+1. Position the angled LED fog lights within the bumper.
+2. [Partial] Align the light beam to push most of the illumination left and right for peripheral visibility.
+
+</details>
+
+<details><summary>Alternate procedure [t992] [Partial]</summary>
+
+1. Locate the mounting spot to the left of the 4x4 switch.
+2. [Partial] Drill holes at the chosen location using various bit sizes as needed.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. Install the specified LED bulb into the target socket location.
+2. [Partial] Verify that the new unit turns off completely when doors are shut to prevent battery drain.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified LED headlight bulb into the 9007 socket.
+2. Rotate the black retaining ring 180 degrees to separate it from the light body.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified LED fog light bulb into the H11 socket.
+2. Verify that the beam pattern matches the original halogen output.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified 31mm festoon bulb into the interior dome socket.
+2. [Partial] Confirm that the light shuts off completely when doors are closed.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified LED bulb into the reverse light socket.
+2. [Partial] Verify brightness through tinted rear windows if applicable.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified LED bulb into the brake/turn signal socket.
+2. Mount any necessary resistors away from body panels to manage heat.
+
+</details>
+
+<details><summary>Alternate procedure [t174] [Partial]</summary>
+
+1. [Partial] Install the specified LED bulb into the roof light socket.
+2. [Partial] Verify fitment within tight roof housings.
+
+</details>
+
+<details><summary>Alternate procedure [t833] [Partial]</summary>
+
+1. Select a light bar with an IPX rating to ensure better weather resistance.
+2. Look for brands known for good machining tolerances and durable seals.
+
+</details>
+
+<details><summary>Alternate procedure [t662] [Partial]</summary>
+
+1. [Partial] Install the tuner unit in a location above the rearview mirror.
+2. [Partial] Secure it using an included blend mount.
+
+</details>
+
+<details><summary>Alternate procedure [t906] [Partial]</summary>
+
+1. Install a second battery in the rear cargo area.
+2. [Partial] Connect an electrical isolator between the main and auxiliary batteries.
+
+</details>
+
+<details><summary>Alternate procedure [t923] [Partial]</summary>
+
+1. Select a 3-inch LED light pod from Extreme Led Lightbars.
+2. Ensure the unit is sold as a pair or confirm quantity via email.
+
+</details>
+
+<details><summary>Alternate procedure [t923] [Partial]</summary>
+
+1. [Partial] Select a 2-inch LED light pod from Rough Country.
+2. [Partial] Verify the unit is sold as a pair.
+
+</details>
+
 <details><summary>Alternate procedure [t1033] [Partial]</summary>
 
 1. Mount the custom sheet metal adapter plate to the air dam using the original three screw attachment points from the stock light.
@@ -469,6 +676,9 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 - [Partial] Screwdriver or socket set [t282]
 - Harbor Freight belt/disk sander [t399]
 - [Partial] Isopropyl alcohol [t399]
+- [Partial] Various drill bits [t992]
+- [Partial] Screwdriver or fingers for rotating rings [t174]
+- [Partial] Bulb replacement tool [t174]
 
 ## Parts
 
@@ -478,29 +688,39 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 - 6-AWG ground wires, two [t761]
 - [Partial] 7-Pin Wiring Harness Kit: Bought from Nissan dealer, includes directions and foam tape [t6]
 - Adapter plate [t1033]
+- Aluminum Sheet [t929]
 - [Partial] Ballast [t1033]
 - Battery terminal upgrade set [t707]
 - Coaxial cable [t986]
 - Custom sheet metal adapter plate [t1033]
 - Diode Dynamics C1R Hitch Light [t273]
+- [Partial] Ethernet Wires, soldered [t929]
+- Extreme Led Lightbars 3-inch LED Pod: 1440 lumens, 6x 3-watt LEDs, IP67 rating [t923]
 - Ground strap [t158]
 - Ground wire jumper [t158]
 - Grounding strip with multiple relay mounts [t985]
 - [Partial] HID bulb kit [t1033]
 - [Partial] Large gauge wire: 12 AWG or larger [t158]
 - [Partial] LED headlight kit [t1033]
+- [Partial] LED Light Bar: Prefer 20-30 inch size; look for IPX rated models from brands like Rigid, Tuff Stuff LEDs, or Extreme LED. [t833]
 - Longer bolt for fusible link module [t707]
+- Official Nexus 7 Dock, with POGO pins [t929]
+- Pioneer DEH-P9400BH Stereo Deck [t929]
 - Project box with fuse block [t761]
 - Quick Charge 3.0 Dual USB Outlet [t399]
+- Ram Mount Diamond Base with Snap Link Ball [t992]
+- Ram Mount Flex Arm [t992]
 - Relay, s - 10 amp recommended for Duallys, 15 amps for pairs [t985]
 - [Partial] Roof mount, e.g., Xoskel: Contingent on having a CB antenna mounted somewhere on the roof [t986]
 - [Partial] Roof rack bolt: with exposed metal [t158]
+- [Partial] Rough Country 2-inch LED Square Lights: Spot beam pattern, IP67 rating [t923]
 - [Partial] Square LED light bar, Rigid Duelers or similar [t1033]
 - Stalk harness for light connection [t985]
 - [Partial] Stock off-road lights, 3 screws [t1033]
 - Switch, with separate power and ground wires [t985]
 - [Partial] Switch panel [t761]
 - White plastic clips, retainers: Held in place by 2 white pop things on side strip [t6]
+- X-Grip Cell Phone Cradle [t992]
 
 ## Specifications
 
@@ -508,8 +728,14 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 - **Bolt size (terminal)**: 10mm x 1.5 [t707] ([Unverified] single report)
 - **Head unit carrier screw count**: 4 [t282] ([Unverified] single report)
 - **Headlight bake temperature**: 215 degrees F [t723] ([Unverified] single report)
+- **Ingress protection rating**: IP67 [t923] ([Unverified] single report)
 - **Inverter capacity**: 750 peak 1500 watt [t989] ([Partial] [Unverified] single report)
+- **LED count per pod**: 6 [t923] ([Unverified] single report)
+- **Lumens output**: 1440 [t923] ([Unverified] single report)
+- **Screw Size**: 1/4"-20 x 1" [t992] ([Unverified] single report)
 - **Warranty cost**: $5.00 for two years free replacement [t989] ([Unverified] single report)
+- **Wattage per LED**: 3 watt [t923] ([Unverified] single report)
+- **Well Nut Size**: 1/4"-20 x 3/4" [t992] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -533,6 +759,26 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 - Bend back the top L-brackets on the project box to accommodate the slope of the window sill. [t761]
 - Use isopropyl alcohol to clean up sharpie marks on the dash. [t399]
 - Try Styrofoam first as a spacer before cutting custom pieces. [t399]
+- Save space behind the switch pod by consolidating multiple wire runs instead of spreading them out. [t864]
+- [Partial] Detach the stereo's faceplate to save space for a tablet. [t929]
+- Use liquid electrical tape on soldered connections. [t929]
+- Mount the custom holder onto vent tubes for support. [t929]
+- [Partial] Connect power via 12V USB adapter in the armrest. [t929]
+- Use an application called Tasker on the tablet to automate wake/sleep cycles based on power availability. [t929]
+- Control airplane mode via software for better functionality. [t929]
+- Use well nuts for a secure base. [t992]
+- [Partial] Mount the arm to the left of the 4x4 switch as an ideal spot. [t992]
+- [Partial] Look for bulbs with 'can bus ready' features if flickering is a concern. [t174]
+- [Partial] Ensure the bulb fits within tight headlight housings without requiring manual clocking. [t174]
+- [Partial] Look for bulbs where the white retaining ring is part of a two-piece assembly. [t174]
+- [Partial] Check that the fan enclosure diameter clears the headlight's original retainer. [t174]
+- Select yellow or white variants based on aesthetic preference versus functional visibility. [t174]
+- [Partial] Look for 'can bus' or specific part numbers to avoid battery drain on cheap units. [t174]
+- Use these bulbs to create a uniform white look when paired with LED headlights. [t174]
+- [Partial] Ensure the unit turns off completely to avoid draining the battery during long sits. [t174]
+- [Partial] Consider mounting resistors on a separate bracket if drilling holes in the rust-prone body is undesirable. [t174]
+- Check if the bar is 'Made in America' to avoid inconsistent manufacturing quality common with Chinese imports. [t833]
+- Be wary of cheap bars that fudge their IPX ratings or list specs that don't apply directly to the unit. [t833]
 
 ## Common mistakes
 
@@ -540,42 +786,67 @@ _Procedure reported by [t6]. Photos of this job are in the source: <https://www.
 - [Partial] Pulling the coaxial cable too tight after attaching it to the mount [t986]
 - [Partial] Forgetting to disconnect the 12V power plug before pulling the wall away, risking a short or blown fuse. [t761]
 - Using a low-quality fuse block that had hidden continuity issues rendering fuses useless until after installation. [t761]
+- Failing to account for future upgrades like a 4.3-inch mini Din stereo that might need extra clearance behind the switches. [t864]
+- [Partial] Using cheap units that leave dome lights dimly lit even when doors are closed. [t174]
+- [Partial] Choosing bulbs with external fans that struggle to clear retaining rings in stock headlights. [t174]
+- [Partial] Buying a light bar without verifying if it actually has internal potting and solder joints, leading to condensation issues. [t833]
 
 ## Diagrams (links only)
 
+- [image: http://i97.photobucket.com/albums/l202/wiseguy3501/2007 Nissan Xterra/IMAG0665_zps9dbc6d96.jpg] [t929]
+- [image: http://i97.photobucket.com/albums/l202/wiseguy3501/2007 Nissan Xterra/IMAG0685_zpsb2878d4b.jpg] [t929]
 - [image: http://tapatalk.com/mu/6b05d5e9-154d-49c9.jpg] [t989]
 - [image: http://tapatalk.com/mu/c6e4e3b8-b474-8330.jpg] [t989]
 - [image: https://i.imgur.com/84sNGgE.jpg] [t723]
 - [image: https://uploads.tapatalk-cdn.com/20170313/e9bf3dd1a7fe0bcd8d6b0072b7df0afd.jpg] [t723]
+- http://extremeledlightbars.com/3-inch-led-light-pod-1440-lumens-cree [t923]
 - http://i900.photobucket.com/albums/ac201/mudchet/xterranation photos/71G6yRHAQ3L_SL1500_v2_zpsfe509b59.jpg [t1039]
 - http://i900.photobucket.com/albums/ac201/mudchet/xterranation photos/71G6yRHAQ3L_SL1500_v3_zps0ddf6758.jpg [t1039]
+- http://www.amazon.com/gp/product/B00BU44TOI/ref=oh_details_o00_s00_i00?ie=UTF8&psc=1 [t662]
 - http://www.realultimatepower.net/ninja/ninja2.htm [t991]
+- http://www.roughcountry.com/2-inch-led-square-lights-70903.html [t923]
+- http://www.thenewx.org/forum/images/smilies/icon_bounce.gif [t662]
 - http://www.thenewx.org/forum/showthread.php?t=12860 [t1]
+- https://i.imgur.com/4wO5q9N.jpg [t992]
+- https://i.imgur.com/CAQg28o.jpg [t992]
 - https://turn5.scene7.com/is/image/Turn5/J176583?obj=car&wid=1200&hei=900&sharpen=1 [t273]
+- https://www.xterranation.org/data/attachments/0/912-169ea407fdee7aa9cb3c1e301fe47d21.jpg [t864]
 - https://www.xterranation.org/data/attachments/13/13534-9d56f6fa7609eccd889c909592cabc77.jpg [t707]
 - https://www.xterranation.org/data/attachments/13/13535-00ddd87d13103cf1aa58b791b9032efd.jpg [t707]
 - https://www.xterranation.org/data/attachments/13/13536-b196f4fbce37cb18b4a140b3859f5e2a.jpg [t707]
 - https://www.xterranation.org/data/attachments/18/18661-ccfd31ac4c3ab0de934482bb03909f7d.jpg [t399]
 - https://www.xterranation.org/data/attachments/18/18662-5cf48a7f190de40fb3f3274a21595b03.jpg [t399]
 - https://www.xterranation.org/data/attachments/18/18663-8b6ea65c82b09ded818c255f6eb9d424.jpg [t399]
+- https://www.xterranation.org/data/attachments/3/3051-9e0bf84be0ebebc01e89c457191a4c9d.jpg [t906]
+- https://www.xterranation.org/data/attachments/31/31457-626c4bd9e96f346e72b36ea89f848cd2.jpg [t206]
 
 ## Source attributions
 
 - **t1**: XterraS05, "One-Stop LED Conversion and Install How-to Shop", 2009-03-22. https://www.thenewx.org/threads/one-stop-led-conversion-and-install-how-to-shop.16260/
 - **t6**: brutus_skx, "How-to: Install 7-Pin Wiring Harness", 2007-06-17. https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/
 - **t158**: Macland, "CB and antenna setup on a budget", 2013-02-10. https://www.xterranation.org/index.php?threads/cb-and-antenna-setup-on-a-budget.2971/
+- **t174**: RM975, "LED refits", 2022-01-02. https://www.xterranation.org/index.php?threads/led-refits.10444/
+- **t206**: westslope, "Compact Rechargeable Cordless Tire Inflator", 2024-02-11. https://www.xterranation.org/index.php?threads/compact-rechargeable-cordless-tire-inflator.11130/
 - **t273**: xyoverland, "How to: Install and Wire Diode Dynamics C1R Hitch Light", 2023-02-27. https://www.xterranation.org/index.php?threads/how-to-install-and-wire-diode-dynamics-c1r-hitch-light.10877/
 - **t282**: meisanerd, "How To: Replace the 2015 Rockford Fosgate Nav unit", 2022-07-22. https://www.xterranation.org/index.php?threads/how-to-replace-the-2015-rockford-fosgate-nav-unit.10676/
 - **t399**: jgillaspy, "2 x Dual USB Port Installation", 2021-09-25. https://www.xterranation.org/index.php?threads/2-x-dual-usb-port-installation.10277/
+- **t407**: evilmonkey, "New P&P Engineering Front Tube Winch Bumper", 2015-05-25. https://www.xterranation.org/index.php?threads/new-p-p-engineering-front-tube-winch-bumper.6899/
+- **t662**: OffRdX, "Bully Dog GT 40415 $300", 2014-05-15. https://www.xterranation.org/index.php?threads/bully-dog-gt-40415-300.5349/
 - **t707**: RM975, "Battery Terminal Upgrade", 2020-06-15. https://www.xterranation.org/index.php?threads/battery-terminal-upgrade.9567/
 - **t723**: Prime, "Gen 2 DIY: Bake, Open, Paint, Install HID Projectors, Profit?", 2017-01-29. https://www.xterranation.org/index.php?threads/gen-2-diy-bake-open-paint-install-hid-projectors-profit.7993/
 - **t761**: Taylor Spaulding, "How To: Switches and Power; Cargo Passenger Wall", 2019-08-02. https://www.xterranation.org/index.php?threads/how-to-switches-and-power-cargo-passenger-wall.8879/
+- **t833**: RioDeColumbia, "LED Light bar recommendations?", 2015-02-05. https://www.xterranation.org/index.php?threads/led-light-bar-recommendations.6459/
 - **t837**: tommyboy, "CB Antenna Install", 2011-10-27. https://www.xterranation.org/index.php?threads/cb-antenna-install.31/
+- **t864**: smplone, "Never too many switches", 2013-09-05. https://www.xterranation.org/index.php?threads/never-too-many-switches.4036/
+- **t906**: leo, "the new wiring project", 2016-05-22. https://www.xterranation.org/index.php?threads/the-new-wiring-project.7656/
 - **t911**: HammermillX07, "Amp install locations", 2016-01-05. https://www.xterranation.org/index.php?threads/amp-install-locations.7429/
+- **t923**: RioDeColumbia, "LED cube light difference?", 2015-07-26. https://www.xterranation.org/index.php?threads/led-cube-light-difference.7070/
+- **t929**: wiseguy3501, "In-Dash Nexus 7 Tablet Project", 2013-06-17. https://www.xterranation.org/index.php?threads/in-dash-nexus-7-tablet-project.3605/
 - **t985**: metzican, "How To: Rigid Dualy Flush Mounted in rear corner panels.", 2013-03-30. https://www.xterranation.org/index.php?threads/how-to-rigid-dualy-flush-mounted-in-rear-corner-panels.3193/
 - **t986**: Macland, "Mini How To: Running coaxial cable from hatch to driver", 2013-03-16. https://www.xterranation.org/index.php?threads/mini-how-to-running-coaxial-cable-from-hatch-to-driver.3134/
 - **t989**: Macguyvermedic, "How To: Inverter Install with Tech package", 2012-12-31. https://www.xterranation.org/index.php?threads/how-to-inverter-install-with-tech-package.2712/
 - **t991**: 11Pro4x, "How To: ViAir On Board Air System", 2012-12-31. https://www.xterranation.org/index.php?threads/how-to-viair-on-board-air-system.2717/
+- **t992**: jconway23, "X-Ram Cell Phone Mount", 2013-01-24. https://www.xterranation.org/index.php?threads/x-ram-cell-phone-mount.2880/
 - **t1033**: maillet282, "OR/P4X light upgrade to LED?", 2013-10-30. https://www.xterranation.org/index.php?threads/or-p4x-light-upgrade-to-led.4296/
 - **t1039**: RioDeColumbia, "How to Install New Switch", 2014-09-05. https://www.xterranation.org/index.php?threads/how-to-install-new-switch.5888/
 

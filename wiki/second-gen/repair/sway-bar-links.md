@@ -5,12 +5,15 @@ generation: second-gen
 category: repair
 applies_to:
   years:
+  - 2005
   - 2015
   trims:
   - P4X
+  - S
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: < 2 hours per arm
 tools:
@@ -41,10 +44,18 @@ tools:
 - Synthetic grease
 - Channel locks
 - Angle grinder (optional, for cutting if needed)
+- Zip ties
+- Drill
 parts:
+- name: Custom Brake Line Bracket
+  oem_part_no: ''
 - name: Delrin LCA Bushings
   oem_part_no: ''
 - name: Delrin LCA Bushings (PRG brand)
+  oem_part_no: ''
+- name: Extended Brake Lines
+  oem_part_no: ''
+- name: Extended sway bar links
   oem_part_no: ''
 - name: Febest Camber Bolt
   oem_part_no: 0229-004
@@ -52,23 +63,30 @@ parts:
   oem_part_no: 545591Z600
 - name: Pinion Seal
   oem_part_no: 38189-ZJ00A
+- name: Zip Ties
+  oem_part_no: ''
 sources:
 - t119
 - t270
+- t553
+- t559
 - t642
 - t754
 - t768
 - t811
+- t828
 - t856
+- t959
+- t1022
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 49
+  partial_items: 61
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 3
+  unconfirmed_safety_values: 2
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -97,6 +115,18 @@ Grease the outside of the Delrin LCA bushing sleeves with a good quality synthet
 [Partial] Remove the front UCA bolt, then pull and twist the rear bolt to unthread it behind the boot. [t768]
 
 [Partial] Remove companion flange to access pinion seal, inspect for secondary dust shield or seal behind main. [t119]
+
+[Partial] Install a rear sway bar relocation kit to prevent the shock from rubbing against the bar. [t553]
+
+[Partial] Keep the sway bar installed to manage rear droop while noting potential brake line and nut shifts. [t559]
+
+[Partial] Install adjustable camper bolts and perform a wheel alignment. [t1022]
+
+Inspect the sway bar and check if extra wheel drop causes it to bottom out. [t828]
+
+[Partial] Extend front brake lines with zip ties for increased suspension travel. [t959]
+
+Fabricate a small custom bracket to lift the rear brake lines up. [t959]
 
 ## Procedure
 
@@ -191,6 +221,37 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t1022] [Partial]</summary>
+
+1. [Partial] Install adjustable camber bolts in place of the stock front control arm bolts.
+2. Perform a wheel alignment to adjust the new angles.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Install a rear sway bar relocation kit to prevent the shock from rubbing against the bar during full extension.
+
+</details>
+
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. [Partial] Keep the sway bar installed to manage rear droop.
+
+</details>
+
+<details><summary>Alternate procedure [t959] [Partial]</summary>
+
+1. [Partial] Extend the front brake lines to accommodate increased suspension travel.
+
+</details>
+
+<details><summary>Alternate procedure [t959] [Partial]</summary>
+
+1. Fabricate a small bracket to lift the rear brake lines up.
+
+</details>
+
 ## Tools
 
 - Stiff wire brush [t811]
@@ -220,18 +281,26 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - [Partial] Synthetic grease [t270]
 - Channel locks [t768]
 - [Partial] Angle grinder (optional, for cutting if needed) [t768]
+- [Partial] Zip ties [t959]
+- [Partial] Drill [t959]
 
 ## Parts
 
+- Custom Brake Line Bracket [t959]
 - Delrin LCA Bushings [t270]
 - [Partial] Delrin LCA Bushings, PRG brand: Features a loose-fitting sleeve that becomes snug after installation. [t270]
+- [Partial] Extended Brake Lines [t959]
+- [Partial] Extended sway bar links: To increase length and prevent bottoming [t828]
 - Febest Camber Bolt (0229-004) [t642]
 - [Partial] Nissan Cam Washer (545591Z600) [t642]
 - Pinion Seal (38189-ZJ00A) [t119]
+- Zip Ties [t959]
 
 ## Specifications
 
 - **Bolt Head Style**: 1/3-shaved [t642] ([Partial] [Unverified] single report)
+- **Bolt thread size (implied)**: 14mm [t1022] ([Partial] [Unverified] single report)
+- **Camber bolt adjustment range**: +/- 2° [t1022] ([Partial] [Unverified] single report)
 - **Febest Bolt Part Number**: 0229-004 [t642] ([Unverified] single report)
 - **Nissan Washer Part Number**: 545591Z600 [t642] ([Unverified] single report)
 - **Pinion preload torque spec**: 5 in-lbs. [t119] ([Unverified] single report)
@@ -263,6 +332,13 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - [Partial] Use an angle grinder to cut the bolt only if space is tight. [t768]
 - Ensure the rear bolt angles backward enough to clear the boot. [t768]
 - Expect inconsistent diagrams regarding the seal picture. [t119]
+- [Partial] Note that keeping the sway bar on prevents breaking brake lines, though it may require a bracket spacer mod if using extended shocks without one first. [t559]
+- Look for marker lines on UCA nuts/bolts to detect shifting or loosening. [t559]
+- [Partial] Look for extended links to accommodate extra travel. [t828]
+- Note that the issue may persist at absolute max compression but will be less frequent. [t828]
+- Unclip the brake lines to allow them a straighter, shorter route so they aren't stretched tight at full droop. [t959]
+- Use zip ties to hold the new positions in place. [t959]
+- Disconnect the E-Brake line to allow more clearance for the bracket installation. [t959]
 
 ## Common mistakes
 
@@ -279,6 +355,8 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 ## Diagrams (links only)
 
+- http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
+- http://www.rockauto.com/catalog/moreinfo.php?pk=1057095&cc=1431467 [t1022]
 - https://i.imgur.com/5IlSvjr.jpg [t270]
 - https://i.imgur.com/BZve0jP.jpg [t270]
 - https://i.imgur.com/EOuU2HV.jpg [t270]
@@ -297,9 +375,14 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 - **t119**: KC!, "2015 Xterra P4X M226 Pinion Seal Replacement", 2026-05-02. https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/
 - **t270**: JeffNJM3, "How To - Install Delrin Lca Bushings", 2020-02-16. https://www.xterranation.org/index.php?threads/how-to-install-delrin-lca-bushings.9384/
+- **t553**: scoyoc, "The Strengths (and Pitfalls) Of Bilstein 5100's", 2020-03-26. https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t642**: General_Tarfun, "How-to: OEM Nissan-Style Cam Bolts", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/
 - **t754**: westslope, "How not to remove and replace the front differential side seal", 2019-09-06. https://www.xterranation.org/index.php?threads/how-not-to-remove-and-replace-the-front-differential-side-seal.9061/
 - **t768**: ChillyX, "How to remove uca driver rear bolt without cutting", 2019-05-25. https://www.xterranation.org/index.php?threads/how-to-remove-uca-driver-rear-bolt-without-cutting.8768/
 - **t811**: outback97, "Remove Knuckle And Hub If Replacing Lca + Uca?  Lower Control Armageddon Complete", 2019-12-16. https://www.xterranation.org/index.php?threads/remove-knuckle-and-hub-if-replacing-lca-uca-lower-control-armageddon-complete.9265/
+- **t828**: jorge.alves.5015, "Clunk in front after lift?", 2016-04-19. https://www.xterranation.org/index.php?threads/clunk-in-front-after-lift.7624/
 - **t856**: Rook, "How-to: Siezed Cam Bolt (and LCA) Removal and Reinstallation", 2012-03-14. https://www.xterranation.org/index.php?threads/how-to-siezed-cam-bolt-and-lca-removal-and-reinstallation.1214/
+- **t959**: on_that_rayray, "Lifting Question!", 2015-05-07. https://www.xterranation.org/index.php?threads/lifting-question.6836/
+- **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
 

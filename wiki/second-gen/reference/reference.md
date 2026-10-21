@@ -7,6 +7,8 @@ applies_to:
   years: []
   trims:
   - PRO-4X
+  - S
+  - SE
   engine: []
   drivetrain: []
 shared_platform: []
@@ -26,18 +28,21 @@ parts:
 - name: 'Unsealed socket contacts (Part #58M-SKT2)'
   oem_part_no: ''
 sources:
+- t165
+- t166
 - t478
 - t492
+- t615
 - t719
 confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 17
+  partial_items: 34
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 7
+  withheld_items: 12
   pending_safety_values: 0
 ---
 
@@ -79,6 +84,36 @@ Note that the primary catalytic converter uses studs for installation. [t492]
 
 [Partial] Check if the secondary catalytic converter is necessary based on local emissions testing. [t492]
 
+[Partial] Select an AGM battery with sufficient cold cranking amps of 850 for deep cycling and reserve power. [t165]
+
+[Partial] Verify charging profile compatibility with AGM batteries and maintain voltages in the 13-14V range. [t165]
+
+[Partial] Identify the correct Battery Council International Group Size and consider a higher capacity unit for your specific Xterra model year. [t165]
+
+[Partial] Select a battery with multiple terminals and look for Performance or Extreme branding. [t165]
+
+Replace the single OEM negative cable with two separate 2-gauge cables, routing one through an existing sensor. [t166]
+
+[Partial] Cut the original OEM negative cable apart to access a new sensor. [t166]
+
+[Partial] Install brass terminals on the negative battery connection. [t166]
+
+[Partial] Replace the negative battery cable bolts, nuts, and washers with stainless steel parts. [t166]
+
+Apply Amsoil MP Metal protector to the negative terminal area. [t166]
+
+[Partial] Use a battery tender or trickle charger to supplement charging for an AGM battery. [t166]
+
+[Partial] Install a Group 24F battery. [t166]
+
+[Partial] File the plastic hole in a sensor with a round file to fit a large 2-gauge cable. [t166]
+
+[Partial] Connect the second cable from that chassis ground to the engine ground. [t166]
+
+[Partial] Set the charging ceiling on a new AGM battery to prevent overcharging. [t166]
+
+Use a marine-style terminal for easier accessory attachment. [t166]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -105,6 +140,34 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 
 1. [Partial] Remove the roof basket from the rack using a Torx wrench.
 2. Locate and remove four bolts on the leading edge of the air dam that attach directly to the roof.
+
+</details>
+
+<details><summary>Alternate procedure [t165] [Partial]</summary>
+
+1. [Partial] Select a battery with an Absorbent Glass Mat (AGM) internal construction to handle deep cycling and reserve power.
+2. Ensure the chosen unit has sufficient Cold Cranking Amps (CCA) for cold starts, typically looking for 850 CCA or higher.
+
+</details>
+
+<details><summary>Alternate procedure [t165] [Partial]</summary>
+
+1. [Partial] Verify the vehicle's charging profile is compatible with AGM batteries, as they charge at a lower voltage than standard lead-acid units.
+2. [Partial] Look for alternator output or battery charger settings that maintain voltages in the 13-14V range to prevent overcharging.
+
+</details>
+
+<details><summary>Alternate procedure [t165] [Partial]</summary>
+
+1. [Partial] Identify the correct Battery Council International (BCI) Group Size for your specific Xterra model year.
+2. Consider a higher capacity unit if you run accessories like winches or have long trips where deep discharge is common.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. Replace the single OEM negative cable with two separate 2-gauge cables.
+2. Route one cable through the existing sensor to connect to the chassis ground.
 
 </details>
 
@@ -186,6 +249,66 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Cut the original OEM negative cable apart to access a new sensor.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Install brass terminals on the negative battery connection.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Replace the negative battery cable bolts, nuts, and washers with stainless steel parts.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. Apply Amsoil MP Metal protector to the negative terminal area.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Use a battery tender or trickle charger to supplement charging for an AGM battery.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Install a Group 24F battery for increased capacity and CCA.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. File the plastic hole in a sensor with a round file to fit a large 2-gauge cable.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Connect one independent cable directly to the chassis ground.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. [Partial] Connect the second cable from that chassis ground to the engine ground.
+
+</details>
+
+<details><summary>Alternate procedure [t166] [Partial]</summary>
+
+1. Use a marine-style terminal for easier accessory attachment.
+
+</details>
+
 ## Tools
 
 - [Partial] 1995 Nissan Maxima (for donor sockets) [t478]
@@ -205,9 +328,17 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 
 - **Attachment point**: 4 bolts on the leading edge that attach directly to the roof [t719] ([Unverified] single report)
 - **Bolt count**: 1 each on either side at the back part where it attaches to the roof rack [t719] ([Unverified] single report)
+- **Brand Recommendation**: Odyssey 34R Performance or Extreme [t165] ([Unverified] single report)
 - **Brightness**: 20,000LM [t719] ([Partial] [Unverified] single report)
 - **Bulb brightness**: 20,000LM [t719] ([Unverified] single report)
 - **Bulb type**: DISPUTED, sources disagree: 9005 (HB3) [t719]; 9007 [t719]
+- **Cable gauge**: 2-gauge [t166] ([Unverified] single report)
+- **Charging Current (Peak)**: ~14 A [t165] ([Partial] [Unverified] single report)
+- **Cold Cranking Amps**: 850 CCA [t165] ([Partial] [Unverified] single report)
+- **Group Size**: 24F - 35 [t165] ([Partial] [Unverified] single report)
+- **OEM Cable gauge equivalent**: 8-gauge [t166] ([Unverified] single report)
+- **Resting Voltage**: 12.8 V - 13.5 V [t165] ([Partial] [Unverified] single report)
+- **Terminal Configuration**: 4-Terminal / Top-Front Setup [t165] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -222,14 +353,20 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 
 ## Diagrams (links only)
 
+- [image: http://www.jegs.com/images/photos/200/262/262-997511237.jpg] [t615]
+- [image: https://lh3.googleusercontent.com/pw/AP1GczMI5FZsNP_I7wUWTZXHvbPKf71mRwj5guRrxst3fRtltsYL_R39dsgRbbuXPb3kyojdefJEa_ofmMWBTSm0eoZmmpDROC8Yjuiir2SVXL2Q1vDWiA1jzGLAhe88aZ-czdNcKC11QmO58gkdJ9DEm4tu-w=w1196-h897-s-no-gm?authuser=0] [t165]
 - https://i.imgur.com/P1gFd6J.jpg [t719]
 - https://i.imgur.com/XucPRpT.jpg [t719]
 - https://i.imgur.com/his3Wv3.jpg [t719]
 - https://www.xterranation.org/data/attachments/10/10987-64284a39417b0e971d6ae382ca55469e.jpg [t719]
+- https://www.xterranation.org/data/attachments/33/33478-6647ee4983d20a2fd5d97646e78ca144.jpg [t166]
 
 ## Source attributions
 
+- **t165**: outback97, "Seeking AGM battery recommendations.  What's good in 2024? Edit - got another Odyssey", 2024-05-31. https://www.xterranation.org/index.php?threads/seeking-agm-battery-recommendations-whats-good-in-2024-edit-got-another-odyssey.11188/
+- **t166**: VanillaXT, "Negative Battery Terminal and Cable", 2022-12-21. https://www.xterranation.org/index.php?threads/negative-battery-terminal-and-cable.10804/
 - **t478**: XterraRising, "HOW TO: Crack Open the Relay Box and Replace Relay Sockets", 2021-03-27. https://www.xterranation.org/index.php?threads/how-to-crack-open-the-relay-box-and-replace-relay-sockets.9975/
 - **t492**: AlbatrossCafe, "Replacement Catalytic Converter Questions", 2020-11-15. https://www.xterranation.org/index.php?threads/replacement-catalytic-converter-questions.9778/
+- **t615**: YouWatchHockey, "Stock wheels or steel wheels?", 2014-03-26. https://www.xterranation.org/index.php?threads/stock-wheels-or-steel-wheels.5052/
 - **t719**: Xebra, "Pro-4X Off Road Lights Bulb Replacement", 2012-05-24. https://www.xterranation.org/index.php?threads/pro-4x-off-road-lights-bulb-replacement.1662/
 

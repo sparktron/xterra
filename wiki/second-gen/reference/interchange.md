@@ -12,6 +12,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
+- Titan
 difficulty: null
 est_time: null
 tools: []
@@ -21,6 +22,7 @@ parts:
 sources:
 - t180
 - t245
+- t263
 - t829
 confidence: community-consensus
 verification:
@@ -30,7 +32,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -85,9 +87,14 @@ _Procedure reported by [t180]._
 - [Partial] Modifications made to the Xterra's crossmember may be required for installation on the Frontier. [t829]
 - The SLR kit is designed to bolt right in without major fabrication issues. [t829]
 
+## Diagrams (links only)
+
+- https://www.xterranation.org/data/attachments/10/10999-d9bf6aefad80494eacc116adf20628b9.jpg [t263]
+
 ## Source attributions
 
 - **t180**: gorillamel, "Aftermarket Rear Bumpers for 2nd Gens", 2011-11-02. https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/
 - **t245**: maillet282, "raingler upper half devider install options", 2014-10-09. https://www.xterranation.org/index.php?threads/raingler-upper-half-devider-install-options.6014/
+- **t263**: obi_krash, "M205 Sourcing", 2016-06-10. https://www.xterranation.org/index.php?threads/m205-sourcing.7672/
 - **t829**: 9heavens, "SLR drop bracket installtion.", 2019-06-15. https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/
 

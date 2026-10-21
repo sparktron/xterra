@@ -15,20 +15,38 @@ tools:
 - Welder
 - Angle grinder
 - Thread tapping set
+- Drill or decent drill
+- Steel drill bits (various sizes)
+- Self-tapping screw
 parts:
+- name: ClosetMaid 40-inch Steel Hang Track
+  oem_part_no: ''
 - name: Flat bar steel
   oem_part_no: ''
 - name: Fork mount
   oem_part_no: ''
+- name: Large Flat Washers
+  oem_part_no: ''
+- name: Nylon Washers
+  oem_part_no: ''
+- name: Size 8 M Bolts (approx. 1 to 1-1/4 inches long, Grade 8)
+  oem_part_no: ''
 - name: Twisty knob (5/16 thread)
+  oem_part_no: ''
+- name: Universal Bolt Knobs
+  oem_part_no: ''
+- name: Utili-Track Tie Downs
+  oem_part_no: ''
+- name: Yakima Block Head Bike Fork Mounts (1 or 2)
   oem_part_no: ''
 sources:
 - t474
-confidence: '[Unverified]'
+- t942
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 15
+  partial_items: 19
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 1
@@ -37,13 +55,13 @@ verification:
 
 # Interior bike rack installation
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Install an interior bike rack by welding flat bar steel and mounting a twisty knob onto the cargo track. [t474]
+
+[Partial] Measure mounting locations 2-1/8 inches from the steel track edge and secure Yakima Block Head mounts with bolts. [t942]
 
 ## Procedure
 
@@ -65,22 +83,47 @@ verification:
 
 _Procedure reported by [t474]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/how-to-extra-simple-cheap-interior-bike-rack.10048/>_
 
+<details><summary>Alternate procedure [t942] [Partial]</summary>
+
+1. Measure and mark the mounting locations on the cargo bed, ideally 2-1/8 inches from each edge of a steel track.
+2. Drill holes using progressively larger bits or self-tapping screws to create clean openings for the hardware.
+3. Assemble the Yakima Block Head mounts onto the bolts with washers and knobs before securing them to the rack system.
+4. Secure the entire unit to the Xterra's cargo bed by tightening the bolt knobs through the drilled holes.
+
+</details>
+
 ## Tools
 
 - [Partial] Welder [t474]
 - [Partial] Angle grinder [t474]
 - [Partial] Thread tapping set [t474]
+- Drill or decent drill [t942]
+- Steel drill bits (various sizes) [t942]
+- Self-tapping screw [t942]
 
 ## Parts
 
+- ClosetMaid 40-inch Steel Hang Track [t942]
 - [Partial] Flat bar steel [t474]
 - [Partial] Fork mount [t474]
+- [Partial] Large Flat Washers [t942]
+- Nylon Washers [t942]
+- [Partial] Size 8 M Bolts, approx. 1 to 1-1/4 inches long, Grade 8 [t942]
 - Twisty knob, 5/16 thread [t474]
+- Universal Bolt Knobs [t942]
+- Utili-Track Tie Downs [t942]
+- Yakima Block Head Bike Fork Mounts, 1 or 2 [t942]
 
 ## Tips & gotchas
 
 - [Partial] Do mock-ups before cutting to determine exact placement. [t474]
 - [Partial] Ensure the parallel bar sits just past the raised sliders on the cargo floor. [t474]
+- Test fit the entire assembly before drilling to ensure alignment. [t942]
+- [Partial] Use epoxy on the bolt knobs and bolts if they do not naturally lock together, as silicone sealant may fail. [t942]
+
+## Common mistakes
+
+- Drilling holes that are too small or misaligned because a drill bit 'walked' without marking first. [t942]
 
 ## Diagrams (links only)
 
@@ -94,4 +137,5 @@ _Procedure reported by [t474]. Photos of this job are in the source: <https://ww
 ## Source attributions
 
 - **t474**: AlbatrossCafe, "How to: Extra simple & CHEAP interior bike rack", 2021-05-14. https://www.xterranation.org/index.php?threads/how-to-extra-simple-cheap-interior-bike-rack.10048/
+- **t942**: civicjoe, "Interior Bike Rack", 2011-10-30. https://www.xterranation.org/index.php?threads/interior-bike-rack.106/
 

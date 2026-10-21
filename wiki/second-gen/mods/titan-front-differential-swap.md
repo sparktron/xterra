@@ -15,28 +15,31 @@ tools: []
 parts:
 - name: Titan M205 Front Differential
   oem_part_no: ''
+- name: Titan rear differential
+  oem_part_no: ''
 sources:
+- t731
 - t900
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 2
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Titan front differential swap
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Install a stronger Titan M205 front differential after removing the weaker Xterra unit. [t900]
+
+Install the control arm skid to coordinate with the Titan rear differential. [t731]
 
 ## Procedure
 
@@ -47,13 +50,22 @@ verification:
 
 _Procedure reported by [t900]._
 
+<details><summary>Alternate procedure [t731] [Partial]</summary>
+
+1. [Partial] Install the control arm skid as part of a full suspension overhaul.
+2. Coordinate installation with other components like the Titan differential.
+
+</details>
+
 ## Parts
 
 - Titan M205 Front Differential [t900]
+- Titan rear differential: Part of a broader swap including control arm skid [t731]
 
 ## Tips & gotchas
 
 - Consider this upgrade if you want more flex and strength compared to the stock Xterra setup. [t900]
+- Perform the full suspension and Titan diff installation simultaneously for efficiency. [t731]
 
 ## Diagrams (links only)
 
@@ -61,5 +73,6 @@ _Procedure reported by [t900]._
 
 ## Source attributions
 
+- **t731**: BigMeanTam, "Control Arm Skids - are they Unobtanium for the X?", 2012-03-19. https://www.xterranation.org/index.php?threads/control-arm-skids-are-they-unobtanium-for-the-x.1249/
 - **t900**: Beefyneck, "Titan Swap?", 2015-10-17. https://www.xterranation.org/index.php?threads/titan-swap.7277/
 

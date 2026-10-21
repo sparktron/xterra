@@ -7,8 +7,11 @@ applies_to:
   years:
   - 2005
   - 2006
+  - 2009
+  - 2014
   trims:
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform:
@@ -16,18 +19,23 @@ shared_platform:
 difficulty: 1
 est_time: null
 tools: []
-parts: []
+parts:
+- name: 'Nissan Part # 01125-0047U'
+  oem_part_no: ''
 sources:
 - t21
+- t52
+- t945
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 0
+  partial_items: 1
   partial_fields:
+  - applies_to
   - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 3
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -41,7 +49,26 @@ verification:
 
 _No verified summary yet._
 
+## Parts
+
+- Nissan Part # 01125-0047U: Bolt with shoulder for bushing alignment [t945]
+
+## Specifications
+
+- **Lower strut bolt size/type**: Metric flange bolt (likely M12) [t945] ([Unverified] single report)
+
+## Tips & gotchas
+
+- The shoulder on the bolt is critical for the bushing to sit correctly. [t945]
+- [Partial] A flat or channel in the head allows an alignment washer to show offset. [t945]
+
+## Diagrams (links only)
+
+- http://i61.tinypic.com/2eov9n8.jpg [t945]
+
 ## Source attributions
 
 - **t21**: Muzikman, "*** PLEASE READ *** ~ Front Diff Failures", 2006-01-28. https://www.thenewx.org/threads/please-read-front-diff-failures.5479/
+- **t52**: maillet282, "List of How to  and DIY", 2014-12-18. https://www.xterranation.org/index.php?threads/list-of-how-to-and-diy.6263/
+- **t945**: Timrich, "Lower Strut Bolt and Nut Size", 2015-08-19. https://www.xterranation.org/index.php?threads/lower-strut-bolt-and-nut-size.7131/
 

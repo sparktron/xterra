@@ -12,16 +12,21 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
-parts: []
+tools:
+- Stethoscope
+parts:
+- name: Rear Timing Chain Cover Assembly
+  oem_part_no: ''
 sources:
+- t515
 - t871
+- t878
 - t990
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 6
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -39,6 +44,10 @@ verification:
 
 [Partial] Inspect timing chain guides for wear and note how much material has worn away. [t871]
 
+Listen for engine whining at 2,500 RPM and above when revving. [t515]
+
+[Partial] Inspect the rear timing chain cover for signs of a blown gasket or oil leakage. [t878]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -48,17 +57,46 @@ verification:
 
 _Procedure reported by [t990]._
 
+<details><summary>Alternate procedure [t515] [Partial]</summary>
+
+1. Listen to the engine cold immediately after starting.
+2. Check for a whining noise that becomes noticeable at 2,500 RPM and above when revving.
+
+</details>
+
+<details><summary>Alternate procedure [t878] [Partial]</summary>
+
+1. [Partial] Remove the timing belt to expose the engine internals.
+2. [Partial] Inspect the rear timing chain cover for signs of a blown gasket or oil leakage.
+
+</details>
+
+## Tools
+
+- [Partial] Stethoscope [t515]
+
+## Parts
+
+- Rear Timing Chain Cover Assembly: Ordered as a complete unit because Nissan does not always ship just the gasket separately. [t878]
+
 ## Tips & gotchas
 
 - Note that some vehicles with over 200,000 miles may have no issues while others fail early. [t871]
+- Note that metal-on-metal chain noise tends to get progressively louder over time. [t515]
+- [Partial] Expect a clatter during cold starts in winter conditions before the whine appears after warm-up. [t515]
+- Note that this issue can cause oil starvation, leading to engine whining noises even after swapping belts and tensioners. [t878]
 
 ## Diagrams (links only)
 
+- [image: http://i861.photobucket.com/albums/ab171/tommyboyxd/timing%20chain%20fix/IMG_0456.jpg] [t878]
+- [image: http://i861.photobucket.com/albums/ab171/tommyboyxd/timing%20chain%20fix/IMG_0462.jpg] [t878]
 - http://s551.beta.photobucket.com/us...001EA6FDE925D_zps13d3ebb8.jpg.html?sort=3&o=3 [t990]
 - http://s551.beta.photobucket.com/user/ragebomb99/media/Xterra/C5F356B5-4CA7-4AB7-8EDB-A7586C2566FB-1890-000001EA61B824D1_zps39cf72f1.jpg.html?sort=3&o=0 [t990]
 
 ## Source attributions
 
+- **t515**: k12pilot, "Cam/timing Chain Tensioner Advice", 2020-01-13. https://www.xterranation.org/index.php?threads/cam-timing-chain-tensioner-advice.9321/
 - **t871**: xterror04, "Timing chain guides", 2012-01-22. https://www.xterranation.org/index.php?threads/timing-chain-guides.808/
+- **t878**: tommyboy, "Timing chain", 2012-08-10. https://www.xterranation.org/index.php?threads/timing-chain.2102/
 - **t990**: Deadpilot, "2005-2012 Timing Chain Replacement", 2011-11-05. https://www.xterranation.org/index.php?threads/2005-2012-timing-chain-replacement.252/
 

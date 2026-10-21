@@ -5,30 +5,64 @@ generation: second-gen
 category: diagnostics
 applies_to:
   years:
+  - 2005
+  - 2006
   - 2010
-  trims: []
+  - 2011
+  - 2013
+  - 2015
+  trims:
+  - Frontier
+  - OR
+  - S
+  - X
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
-tools: []
-parts: []
+tools:
+- Superchip Cortex Programmer
+- Scanner
+- OBD Scanner
+parts:
+- name: Air filter
+  oem_part_no: ''
+- name: Cataclean
+  oem_part_no: ''
+- name: MAF Sensor
+  oem_part_no: ''
+- name: Oxygen sensor
+  oem_part_no: ''
 sources:
 - t12
 - t24
+- t69
+- t97
 - t101
 - t132
+- t292
+- t296
+- t327
+- t330
+- t333
 - t343
+- t534
+- t654
+- t661
+- t665
+- t781
+- t785
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 20
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 6
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -48,14 +82,44 @@ Check for a P011 code indicating timing issues. [t101]
 
 [Partial] Look for trouble code P1283, noting it indicates a Bank 2 lean condition and checking fuel pressure. [t132]
 
+Pour catalytic cleaner into a one-quarter full gas tank and drive at least 15 miles. [t97]
+
+[Partial] Swap the failing Bank 1 Sensor 1 with a known good sensor and verify if the trouble code moves. [t69]
+
+[Partial] Scan engine for misfire codes, identify specific cylinder numbers, and inspect spark plugs on that bank. [t327]
+
+[Partial] Replace the engine air filter and clean or replace the mass airflow sensor. [t330]
+
+Unhook the negative cable and wait approximately 30 minutes for codes to clear. [t534]
+
+[Partial] Check the computer for O2 sensor readings and verify other diagnostics were done elsewhere. [t781]
+
+[Partial] Connect a cheap OBDII reader and launch an app like Torque Pro. [t292]
+
+Connect an OBD Scanner to pull up and record the specific engine trouble code. [t296]
+
+[Partial] Connect a scanner and navigate to the emissions or catalyst test screen. [t333]
+
+Check the connection on the O2 sensor and inspect for moisture accumulation inside the connector. [t661]
+
+[Partial] Replace oxygen sensors and drive the vehicle to let it settle. [t785]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. Scan the engine for misfire codes when running rough.
+2. Identify specific cylinder numbers from the code (e.g., P0301 is Cylinder 1).
+3. Inspect spark plugs and ignition coils on that specific bank.
+
+_Procedure reported by [t327]._
+
+<details><summary>Alternate procedure [t12] [Partial]</summary>
+
 1. Connect the OBD-II reader to the vehicle's diagnostic jack.
 2. Turn the ignition key to the ON position without starting the engine.
 
-_Procedure reported by [t12]._
+</details>
 
 <details><summary>Alternate procedure [t343] [Partial]</summary>
 
@@ -71,6 +135,76 @@ _Procedure reported by [t12]._
 
 </details>
 
+<details><summary>Alternate procedure [t97] [Partial]</summary>
+
+1. Pour the catalytic cleaner into a gas tank that is approximately one-quarter full.
+2. [Partial] Drive for at least 15 miles to allow the solvents to circulate through the exhaust system.
+
+</details>
+
+<details><summary>Alternate procedure [t69] [Partial]</summary>
+
+1. [Partial] Swap the failing Bank 1 Sensor 1 with a known good sensor from another bank to isolate the issue.
+2. Verify if the trouble code moves to the other bank, confirming the original part was at fault.
+
+</details>
+
+<details><summary>Alternate procedure [t330] [Partial]</summary>
+
+1. Replace the engine air filter.
+2. Clean or replace the mass airflow sensor.
+
+</details>
+
+<details><summary>Alternate procedure [t534] [Partial]</summary>
+
+1. [Partial] Unhook the negative cable from the battery.
+2. [Partial] Wait approximately 30 minutes while disconnected to allow codes to clear.
+
+</details>
+
+<details><summary>Alternate procedure [t781] [Partial]</summary>
+
+1. Check the computer details to see if O2 sensors are reading off chart.
+2. Verify that other diagnostic tests have been performed at different locations.
+
+</details>
+
+<details><summary>Alternate procedure [t292] [Partial]</summary>
+
+1. [Partial] Connect a cheap OBDII reader to the vehicle.
+2. Launch an app like Torque Pro on your smartphone.
+
+</details>
+
+<details><summary>Alternate procedure [t296] [Partial]</summary>
+
+1. [Partial] Connect a scanner to the vehicle's OBD port.
+2. [Partial] Pull up and record the specific trouble code displayed.
+
+</details>
+
+<details><summary>Alternate procedure [t333] [Partial]</summary>
+
+1. [Partial] Connect a scanner to the vehicle.
+2. [Partial] Navigate to the emissions or catalyst test screen.
+
+</details>
+
+<details><summary>Alternate procedure [t661] [Partial]</summary>
+
+1. [Partial] Check the connection on the O2 sensor.
+2. [Partial] Inspect for moisture accumulation inside the connector.
+
+</details>
+
+<details><summary>Alternate procedure [t785] [Partial]</summary>
+
+1. Replace the oxygen sensors on the vehicle.
+2. [Partial] Drive the truck to allow it to settle.
+
+</details>
+
 <details><summary>Alternate procedure [t101] [Partial]</summary>
 
 1. [Partial] Check for a P011 code indicating timing issues.
@@ -83,6 +217,25 @@ _Procedure reported by [t12]._
 
 </details>
 
+<details><summary>Alternate procedure [t665] [Partial]</summary>
+
+1. [Partial] Connect a Superchip Cortex programmer to the vehicle.
+
+</details>
+
+## Tools
+
+- [Partial] Superchip Cortex Programmer [t665]
+- [Partial] Scanner [t330]
+- [Partial] OBD Scanner [t296]
+
+## Parts
+
+- Air filter [t330]
+- Cataclean: A blend of four solvents including hydrotreated light distillate, xylene, 1-propanol, and acetone. [t97]
+- [Partial] MAF Sensor: OEM or used [t330]
+- Oxygen sensor [t785]
+
 ## Tips & gotchas
 
 - Look out for symptoms like 'rumble strip' vibrations between 45 and 60 mph before full transmission failure. [t24]
@@ -93,18 +246,56 @@ _Procedure reported by [t12]._
 - Check voltages at the sensor and ECU after verifying grounds. [t132]
 - Note that this code points to a lean condition on Bank 2. [t132]
 - Check fuel pressure as another potential variable. [t132]
+- [Partial] Clear the code after driving to see if the warning light stays off immediately. [t97]
+- Standard code readers may miss specific communication line codes. [t665]
+- [Partial] Consult Nissan's Consult 2 system for deeper diagnostics if standard scanners fail. [t665]
+- Note that misfires may be intermittent, appearing mostly during cold starts. [t327]
+- Consider swapping components to the opposite (driver's) side for easier access if diagnosis is needed later. [t327]
+- [Partial] Note that a bad downstream O2 sensor often causes a lean condition rather than just indicating 'possible bad sensor' as seen on other vehicles. [t661]
+- Check if mileage improves after replacement before assuming other issues. [t785]
+
+## Common mistakes
+
+- [Partial] Replacing all plugs immediately without isolating the bad one first. [t327]
+- [Partial] Ignoring vacuum leaks at the intake plenum mating surface. [t327]
+- [Partial] Replacing the sensor without checking for vacuum leaks first. [t330]
 
 ## Diagrams (links only)
 
+- [image: https://www.xterranation.org/data/attachments/31/31634-c2237175ab64edd6b7d53ad12c529a48.jpg] [t69]
+- [image: https://www.xterranation.org/data/attachments/31/31635-0137df0cc22423a39d59d9b831a2d0ec.jpg] [t69]
+- http://cdn.memegenerator.net/instances/400x/34612217.jpg [t661]
 - http://jbeamphotos.com/users/jbeam/offroad/05Xterra/05Xterra_OBDII_Codes.htm [t12]
 - http://nissanhelp.com/diy/common/nissan_engine_codes_read_2.php [t12]
+- http://tapatalk.imageshack.com/v2/15/02/15/486ecab21e793e171d3bda2b167042a8.jpg [t296]
+- https://i.imgur.com/3O3AkEK.jpg?1 [t333]
+- https://i.imgur.com/Mqt9POQ.jpg [t97]
+- https://i.imgur.com/X4qso6f.jpg [t97]
+- https://seattleautomotive.com/files/SDS/12007 cataclean.pdf [t97]
 - https://www.nicoclub.com/service-manual?fsm=Xterra/2005/ec.pdf [t132]
+- https://www.rockauto.com/en/catalog...67,exhaust+&+emission,oxygen+(o2)+sensor,5132 [t534]
+- https://www.xterranation.org/data/attachments/18/18322-7f80f824891dd0c370a9f70daad9ca94.jpg [t333]
+- https://www.xterranation.org/data/attachments/21/21501-e5aba719b6561455ae01ded9c03999c4.jpg [t327]
+- https://www.xterranation.org/data/attachments/21/21502-64275370a12fd2fc281cf60eec1a51cd.jpg [t327]
 
 ## Source attributions
 
 - **t12**: Muzikman, "2005+ Xterra OBD-II Codes", 2006-01-28. https://www.thenewx.org/threads/2005-xterra-obd-ii-codes.2393/
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
+- **t69**: mantiss, "Annoying P0133 O2 Sensor (B1S1) Circuit Slow Response Code", 2024-02-23. https://www.xterranation.org/index.php?threads/annoying-p0133-o2-sensor-b1s1-circuit-slow-response-code.11136/
+- **t97**: AlbatrossCafe, "P0420 Cat Code vs. CATACLEAN - I think it worked...?", 2021-01-08. https://www.xterranation.org/index.php?threads/p0420-cat-code-vs-cataclean-i-think-it-worked.9865/
 - **t101**: Yoshi64, "Help: Timing issues after clutch replacement", 2025-10-27. https://www.xterranation.org/index.php?threads/help-timing-issues-after-clutch-replacement.11401/
 - **t132**: smokey_the_xterra, "Pinging Under load after Cold Air Intake install.", 2022-08-24. https://www.xterranation.org/index.php?threads/pinging-under-load-after-cold-air-intake-install.10707/
+- **t292**: Maxxpags, "Reset check engine light", 2019-11-11. https://www.xterranation.org/index.php?threads/reset-check-engine-light.9199/
+- **t296**: Trexterra, "Xterras Simultaneously Fail to Start and Get Codes", 2015-02-15. https://www.xterranation.org/index.php?threads/xterras-simultaneously-fail-to-start-and-get-codes.6501/
+- **t327**: outback97, "P0301 came back, could use some advice please", 2022-03-21. https://www.xterranation.org/index.php?threads/p0301-came-back-could-use-some-advice-please.10556/
+- **t330**: Brunnie, "P0101 Code", 2020-02-04. https://www.xterranation.org/index.php?threads/p0101-code.9367/
+- **t333**: General_Tarfun, "O2 Sensor reads incomplete?", 2021-08-24. https://www.xterranation.org/index.php?threads/o2-sensor-reads-incomplete.10227/
 - **t343**: gearyr, "Replaced 02 sensor,  now code P0171 is showing", 2021-11-19. https://www.xterranation.org/index.php?threads/replaced-02-sensor-now-code-p0171-is-showing.10378/
+- **t534**: nalley4, "Overdrive Question", 2019-12-14. https://www.xterranation.org/index.php?threads/overdrive-question.9260/
+- **t654**: TN4x4Xterra, "PRG Motor Mounts?", 2015-09-24. https://www.xterranation.org/index.php?threads/prg-motor-mounts.7210/
+- **t661**: J Everett, "PO171 (Lean condition, left cylinder bank)", 2013-03-21. https://www.xterranation.org/index.php?threads/po171-lean-condition-left-cylinder-bank.3160/
+- **t665**: maillet282, "ABS/ VDC Off/ Slip light on and loss of 4x4 after river crossing", 2014-07-13. https://www.xterranation.org/index.php?threads/abs-vdc-off-slip-light-on-and-loss-of-4x4-after-river-crossing.5655/
+- **t781**: Razzmaniac, "Low idle", 2013-11-16. https://www.xterranation.org/index.php?threads/low-idle.4382/
+- **t785**: Deadpilot, "Gas milage question", 2012-10-29. https://www.xterranation.org/index.php?threads/gas-milage-question.2396/
 

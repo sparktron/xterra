@@ -4,9 +4,12 @@ title: Fluids and capacities
 generation: second-gen
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
+  - 2008
   trims:
   - Off-Road
+  - S
   engine: []
   drivetrain: []
 shared_platform: []
@@ -19,15 +22,19 @@ sources:
 - t43
 - t75
 - t98
+- t289
+- t345
+- t559
+- t959
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 11
+  partial_items: 15
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 11
-  withheld_items: 8
+  unconfirmed_safety_values: 12
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -45,6 +52,12 @@ verification:
 
 [Partial] Fill the transmission with fluid to account for the increased capacity of the stacked plate cooler. [t98]
 
+[Partial] Ride with a half tank for level height, noting that three-quarters raises the rear. [t559]
+
+Aim for the 3-4 inch shock range with shackles and an AAL. [t959]
+
+[Unverified value] Fill the front differential until fluid runs freely to reach a capacity of approximately 1.6 liters. [t345]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -53,12 +66,25 @@ verification:
 
 _Procedure reported by [t43]._
 
+<details><summary>Alternate procedure [t289] [Partial]</summary>
+
+1. [Partial] Check the transmission fluid level with the engine warm.
+
+</details>
+
+<details><summary>Alternate procedure [t345] [Partial]</summary>
+
+1. Fill the differential until fluid runs freely from the fill port.
+
+</details>
+
 ## Specifications
 
 - **Automatic transmission capacity**: 10 7/8qt [t75] ([Partial] [Unverified] single report)
 - **Cooling system capacity**: 10 3/4qt [t75] ([Unverified] single report)
 - **Engine oil capacity with filter**: 5 3/8qt [t75] ([Unverified] single report)
 - **Engine oil capacity without filter**: 5 1/8qt [t75] ([Unverified] single report)
+- **Front diff capacity (run free)**: ~1.6L [t345] ([Unverified] single report)
 - **Front differential capacity (Xterra R180)**: 1 3/4pt [t75] ([Unverified] single report)
 - **Front differential type (Xterra R180) fluid spec**: API GL-5 SAE 80W-90 Gear Oil or Equivalent [t75] ([Unverified] single report)
 - **Manual transmission capacity (2WD)**: 4 1/4 qt [t75] ([Partial] [Unverified] single report)
@@ -70,12 +96,17 @@ _Procedure reported by [t43]._
 - **Rear differential C200 fluid spec**: API GL-5 Synthetic 75W-90 Gear Oil or Equivalent [t75] ([Unverified] single report)
 - **Rear differential M226 capacity**: 4 1/4pt [t75] ([Unverified] single report)
 - **Rear differential M226 fluid spec**: API GL-5 Synthetic 75W-140 Gear Oil or Equivalent [t75] ([Unverified] single report)
+- **Rear Shock Lift Range**: 0 to 1.5 inches [t959] ([Partial] [Unverified] single report)
+- **Rear Shock Travel Range**: 2 to 2.5 inches [t959] ([Partial] [Unverified] single report)
 - **Transfer case capacity**: 2 1/8qt [t75] ([Unverified] single report)
 
 ## Tips & gotchas
 
 - Consider installing a heat shield if exhaust pipe heat warms up the rubber end of the transfer case. [t43]
 - [Partial] Note that a 19-row stacked plate design may hold more fluid than stock, requiring an adjustment in fill level or volume. [t98]
+- Ride with a half tank of fuel at all times to achieve level height. [t559]
+- [Partial] Note that 3/4 tank raises the rear end significantly. [t559]
+- For a setup with shackles and an AAL, aim for the 3-4 inch shock range (Nisstec options) rather than just lift height. [t959]
 
 ## Source attributions
 
@@ -83,4 +114,8 @@ _Procedure reported by [t43]._
 - **t43**: Old Army, "How-to: Exhaust without the Drone", 2006-07-10. https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/
 - **t75**: JeffPro4x, "Fluids and Capacities", 2017-01-08. https://www.xterranation.org/index.php?threads/fluids-and-capacities.7952/
 - **t98**: Brunnie, "Z1 Transmission Cooler Upgrade", 2026-05-04. https://www.xterranation.org/index.php?threads/z1-transmission-cooler-upgrade.11535/
+- **t289**: Dylans33, "HELP!! Im completely lost with these issues.", 2024-06-09. https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/
+- **t345**: AlbatrossCafe, "Whining Front Diff - Next Steps?", 2020-10-26. https://www.xterranation.org/index.php?threads/whining-front-diff-next-steps.9752/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
+- **t959**: on_that_rayray, "Lifting Question!", 2015-05-07. https://www.xterranation.org/index.php?threads/lifting-question.6836/
 

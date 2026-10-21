@@ -29,12 +29,13 @@ sources:
 - t24
 - t34
 - t92
+- t183
 - t488
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 9
-  partial_items: 8
+  partial_items: 9
   partial_fields: []
   unconfirmed_safety_values: 2
   withheld_items: 7
@@ -54,6 +55,8 @@ verification:
 Drain the automatic transmission pan, refill with fresh fluid, and consider a poor man's flush. [t92]
 
 Locate the green knob dipstick, undo its securing bolt, pull it up, then rotate it to read the fluid level. [t488]
+
+[Partial] Drain the automatic transmission fluid completely, then fill it with fresh fluid. [t183]
 
 ## Procedure
 
@@ -94,6 +97,13 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 
 1. Locate the green knob dipstick on the left side of the engine.
 2. Undo the 10mm bolt securing the dipstick tube.
+
+</details>
+
+<details><summary>Alternate procedure [t183] [Partial]</summary>
+
+1. Drain the transmission fluid completely.
+2. Fill with fresh fluid to replace burnt black liquid.
 
 </details>
 
@@ -140,5 +150,6 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 - **t34**: Rook, "How-to: Transmission PMF (Poor Man's Flush) - PBR", 2009-07-07. https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/
 - **t92**: westslope, "Automatic Transmission plug drain and filler plugs ... replace?", 2024-03-05. https://www.xterranation.org/index.php?threads/automatic-transmission-plug-drain-and-filler-plugs-replace.11141/
+- **t183**: TerryD, "Shrockworks Skids and Cooling", 2023-06-20. https://www.xterranation.org/index.php?threads/shrockworks-skids-and-cooling.10970/
 - **t488**: Maxxpags, "Info help with ATF change", 2021-04-16. https://www.xterranation.org/index.php?threads/info-help-with-atf-change.10016/
 

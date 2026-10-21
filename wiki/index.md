@@ -6,6 +6,6 @@ The Xterra had two generations that share almost nothing: body, frame, engines, 
 | Generation | Section | Topic pages | Facts |
 |---|---|---|---|
 | First generation (WD22), 2000-2004 | [First generation (WD22), 2000-2004](first-gen/index.md) | 0 | 0 |
-| Second generation (N50), 2005-2015 | [Second generation (N50), 2005-2015](second-gen/index.md) | 475 | 797 |
+| Second generation (N50), 2005-2015 | [Second generation (N50), 2005-2015](second-gen/index.md) | 930 | 1714 |
 
 Facts that belong to no single generation are not published in either section: [open questions](open_questions.md).

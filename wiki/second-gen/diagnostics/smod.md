@@ -31,18 +31,22 @@ sources:
 - t23
 - t24
 - t27
+- t335
 - t501
 - t682
+- t787
+- t804
+- t883
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 9
+  partial_items: 15
   partial_fields:
   - applies_to
   - est_time
   unconfirmed_safety_values: 0
-  withheld_items: 9
+  withheld_items: 14
   pending_safety_values: 0
 ---
 
@@ -59,6 +63,14 @@ Send automatic transmission fluid to Blackstone Laboratories and check the lab r
 Replace the radiator if the vehicle has experienced an SMOD event. [t682]
 
 [Partial] Check Nissan part numbers and inspect components for frothy contamination resembling strawberry milkshake. [t501]
+
+[Partial] Inspect radiator for corrosion and check if coolant leaks into transmission. [t787]
+
+Check the fender's spring cap while verifying the lever-style radiator cap. [t335]
+
+Check transmission fluid level and inspect radiator for contamination or mixed fluids. [t804]
+
+[Partial] Listen for shuddering or jarring shifts that feel like Rumble strips on the road. [t804]
 
 ## Procedure
 
@@ -83,6 +95,33 @@ _Procedure reported by [t23]._
 
 </details>
 
+<details><summary>Alternate procedure [t787] [Partial]</summary>
+
+1. Inspect the radiator for signs of corrosion.
+2. Check if coolant is leaking into the transmission.
+
+</details>
+
+<details><summary>Alternate procedure [t335] [Partial]</summary>
+
+1. [Partial] Check the coolant tank on the fender to ensure it has a cap with a spring.
+2. Verify that the radiator itself uses a lever-style cap without a spring.
+
+</details>
+
+<details><summary>Alternate procedure [t804] [Partial]</summary>
+
+1. Check the transmission fluid level to see if it is low.
+2. Inspect the radiator for signs of contamination or mixed fluids.
+
+</details>
+
+<details><summary>Alternate procedure [t804] [Partial]</summary>
+
+1. [Partial] Listen for shuddering or jarring shifts while driving.
+
+</details>
+
 ## Parts
 
 - [Partial] Aftermarket radiator [t682]
@@ -97,13 +136,29 @@ _Procedure reported by [t23]._
 - [Partial] Perform a cooling line bypass before installing the new radiator. [t682]
 - If part number matches an SMOD model but no symptoms exist, consider swapping the radiator or re-routing lines as a preventive measure. [t501]
 - Note that bypassing the radiator may reduce cooling efficiency for those who tow or live in hot climates. [t501]
+- Consider bypassing the radiator as a common remedy when not under warranty. [t787]
+- [Partial] Look for temperature sensors in newer models (2012+) that address this issue. [t787]
+- Note that the plastic tees on the right side of the engine compartment are notorious for cracking and losing pressure due to age. [t335]
+- Look at coolant levels only when the actual radiator is cool, as the fender tank can be misleading. [t335]
+- Look in the reservoir; a failure often looks like 'Pepto Bismol' was dumped inside. [t804]
+- [Partial] Check the radiator cap for slightly foamy goo, which can be less than 1/16 inch in size. [t804]
+- Drivers may describe the sensation as feeling like 'Rumble strips on the road'. [t804]
+- [Partial] Perform this bypass if you want to prevent shifting issues caused by coolant mixing with transmission fluid. [t883]
+- Consider doing it before warranty expires or when mileage is low, as waiting too long might risk the transmission failing after coverage ends. [t883]
 
 ## Common mistakes
 
 - [Partial] Installing an 'old' style radiator during initial repairs which leads to premature failure shortly thereafter. [t24]
+- [Partial] Assuming corporate support will cover repairs beyond 80,000 or 100,000 miles without checking the specific warranty extension terms. [t787]
 
 ## Diagrams (links only)
 
+- [image: http://i1034.photobucket.com/albums/a424/dutch169/Xtrerra/IMG_20130708_211725_zpscaed073b.jpg] [t804]
+- [image: http://i1034.photobucket.com/albums/a424/dutch169/Xtrerra/IMG_20130708_211743_zps37eab9c7.jpg] [t804]
+- [image: https://www.xterranation.org/data/attachments/17/17790-89d8d962c24ccd98e30a8709dbd2707b.jpg] [t335]
+- [image: https://www.xterranation.org/data/attachments/17/17791-9446834584471bb234442e8c2a0dbdf8.jpg] [t335]
+- http://wot.motortrend.com/2005-10-nissan-truck-suv-owners-plagued-by-transmission-failures-111579.html [t787]
+- http://www.carcomplaints.com/Nissan/Xterra/2005/transmission/radiator_causes_transmission_failure.shtml [t787]
 - https://trade.mechanic.com.au/wsimages/icons/apple-icon-57x57.png [t27]
 - https://www.mechanic.com.au/images/dmImage/StandardImage/Nissan-trans-11.jpg [t27]
 
@@ -112,6 +167,10 @@ _Procedure reported by [t23]._
 - **t23**: xmedicG, "Radiator/Trans Issues ... Collection of Salient Threads", 2010-11-08. https://www.thenewx.org/threads/radiator-trans-issues-collection-of-salient-threads.36132/
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 - **t27**: GringoRubio, "List of Calsonic Radiator Part Numbers Associated with SMOD", 2021-03-06. https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/
+- **t335**: Ishmillion27, "Overheating", 2021-07-18. https://www.xterranation.org/index.php?threads/overheating.10179/
 - **t501**: Just a Hunter, "Radiators,  Antifreeze & Strawberry Milkshake Of Death (SMOD)", 2019-08-24. https://www.xterranation.org/index.php?threads/radiators-antifreeze-strawberry-milkshake-of-death-smod.9018/
 - **t682**: Off Trail, "2006 SE - Replace Auto or Convert to Manual?", 2014-10-15. https://www.xterranation.org/index.php?threads/2006-se-replace-auto-or-convert-to-manual.6031/
+- **t787**: kat_black181, "goodbye forever nissan. royally po'ed...", 2012-08-10. https://www.xterranation.org/index.php?threads/goodbye-forever-nissan-royally-poed.2101/
+- **t804**: Dutch169, "Latest Victim", 2013-07-08. https://www.xterranation.org/index.php?threads/latest-victim.3751/
+- **t883**: Xterradude05, "Possible Transmission problems...", 2011-10-30. https://www.xterranation.org/index.php?threads/possible-transmission-problems.104/
 

@@ -26,6 +26,7 @@ parts:
   oem_part_no: ''
 sources:
 - t154
+- t594
 - t631
 confidence: community-consensus
 verification:
@@ -52,6 +53,8 @@ Take the remote reservoir shocks to Jensen Bros. Off-Road in Salt Lake City for 
 [Partial] Identify the specific spherical bearing piece and expect to have it custom machined. [t154]
 
 [Partial] Visit NissanPartsDeal, Courtesy Nissan Parts, Boulder Nissan Online, RockAuto.com or PartSouq. [t631]
+
+Contract a vendor capable of using a heated press and budget approximately $1000. [t594]
 
 ## Procedure
 
@@ -82,6 +85,12 @@ _Procedure reported by [t631]._
 
 </details>
 
+<details><summary>Alternate procedure [t594] [Partial]</summary>
+
+1. Contract a vendor capable of using a heated press.
+
+</details>
+
 ## Parts
 
 - [Partial] Boulder Nissan Online [t631]
@@ -102,6 +111,8 @@ _Procedure reported by [t631]._
 - Expect to have a custom part machined in-house by Jensen Bros. if standard components are missing or mangled. [t154]
 - Contact the parts department at a local dealership for advice on difficult-to-find fittings. [t631]
 - Build a relationship with specific dealers to secure better prices and expert guidance. [t631]
+- Expect the manufacturing process to require a heated press, which is not an easy setup. [t594]
+- Budget approximately $1000 for raw materials with excess material available for other projects. [t594]
 
 ## Diagrams (links only)
 
@@ -110,5 +121,6 @@ _Procedure reported by [t631]._
 ## Source attributions
 
 - **t154**: IM1RU, "Shock Shop in Salt Lake City now Rebuilding Radflo's", 2023-05-20. https://www.xterranation.org/index.php?threads/shock-shop-in-salt-lake-city-now-rebuilding-radflos.10942/
+- **t594**: Zombieitch, "Carbonfiber skids", 2013-06-26. https://www.xterranation.org/index.php?threads/carbonfiber-skids.3665/
 - **t631**: westslope, "How To Find Original Equipment Part Numbers", 2020-05-03. https://www.xterranation.org/index.php?threads/how-to-find-original-equipment-part-numbers.9500/
 

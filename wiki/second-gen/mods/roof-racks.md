@@ -9,7 +9,7 @@ applies_to:
   engine: []
   drivetrain: []
 shared_platform: []
-difficulty: null
+difficulty: 1
 est_time: null
 tools:
 - Screwdriver or drill
@@ -17,10 +17,17 @@ tools:
 - Drill press (optional)
 - Ratchet wrench
 - Hose clamps
+- Drill
+- Bolts
+- Grade 8 bolt
 parts:
+- name: 1x4 wooden board (8 ft)
+  oem_part_no: ''
 - name: 2-inch nylon webbing straps
   oem_part_no: ''
 - name: ABS Pipe
+  oem_part_no: ''
+- name: Bike rack from REI ($20)
   oem_part_no: ''
 - name: Bungee cords
   oem_part_no: ''
@@ -48,32 +55,43 @@ parts:
   oem_part_no: ''
 - name: PVC pipe
   oem_part_no: ''
+- name: Retractable folding attic ladder
+  oem_part_no: ''
 - name: Sheet metal screws
   oem_part_no: ''
 - name: Stakes
+  oem_part_no: ''
+- name: Tie-down channel bolts
   oem_part_no: ''
 - name: Two-by-two wooden beams
   oem_part_no: ''
 - name: Wing nuts
   oem_part_no: ''
 sources:
+- t231
 - t245
 - t474
 - t600
+- t612
 - t635
 - t869
+- t941
+- t987
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 28
-  partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 2
+  partial_items: 39
+  partial_fields:
+  - difficulty
+  unconfirmed_safety_values: 1
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
 # Roof racks, snorkels and storage
+
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -98,6 +116,16 @@ Anchor the outer legs of the awning and attach stakes using hose clamps. [t635]
 [Partial] Install an awning loop at its base to make it bombproof. [t635]
 
 [Partial] Mount the fork mounts, trim excess material, and paint them. [t474]
+
+[Partial] Install CoverKing seat covers with integrated Molle webbing and mount a rear hatch or window panel featuring vertical and horizontal Molle strips. [t231]
+
+[Partial] Mount a roof rack system to the vehicle. [t612]
+
+Mount the retractable folding attic ladder rack against the side of the vehicle's jam area for support. [t987]
+
+[Partial] Measure side-to-side, cut an 8-foot long 1x4 board to fit width, and bolt a bike rack down. [t941]
+
+[Partial] Install 3/8 inch spring nuts for the uni-strut using grade 8 bolts to secure them into the tie-down channel. [t941]
 
 ## Procedure
 
@@ -131,6 +159,16 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 4. Wrap the other end's excess webbing over itself.
 5. Screw down the second pan head screw at the wrapped end.
 6. Add extra screws in the middle to support the strapping as necessary depending on its length.
+
+</details>
+
+<details><summary>Alternate procedure [t941] [Partial]</summary>
+
+1. Measure the side-to-side length of the cargo bay door.
+2. [Partial] Cut an 8-foot long 1x4 board to fit the measured width.
+3. Drill two holes on each end of the board and bolt it to the cargo door.
+4. Mark where the rack mount will sit on the board and drill those holes.
+5. Bolt the bike rack down through the drilled holes in the board.
 
 </details>
 
@@ -176,6 +214,20 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t231] [Partial]</summary>
+
+1. [Partial] Install CoverKing seat covers with integrated Molle webbing on the front seats.
+2. [Partial] Mount a rear hatch or window panel featuring vertical and horizontal Molle strips.
+
+</details>
+
+<details><summary>Alternate procedure [t941] [Partial]</summary>
+
+1. Install 3/8 inch spring nuts for the uni-strut.
+2. Use grade 8 bolts to secure them into the tie-down channel.
+
+</details>
+
 <details><summary>Alternate procedure [t600] [Partial]</summary>
 
 1. Identify the specific roof rack brand or custom build you want to replace your factory unit.
@@ -195,11 +247,16 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 - [Partial] Drill press (optional) [t635]
 - Ratchet wrench [t635]
 - Hose clamps [t635]
+- [Partial] Drill [t941]
+- [Partial] Bolts [t941]
+- [Partial] Grade 8 bolt [t941]
 
 ## Parts
 
+- 1x4 wooden board, 8 ft [t941]
 - [Partial] 2-inch nylon webbing straps [t869]
 - [Partial] ABS Pipe: 4" diameter, 10' long stock [t635]
+- Bike rack from REI, $20 [t941]
 - Bungee cords [t635]
 - Canvas Painter's Drop Cloth [t635]
 - EMT pipe: 1/2" x 10' [t635]
@@ -213,14 +270,20 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 - Nylon spacer: 2 1/4" ID, 1/2" OD, 1/4" height [t635]
 - Pan head screws, large rounded top [t869]
 - PVC pipe [t245]
+- Retractable folding attic ladder: Folds up compactly for storage [t987]
 - [Partial] Sheet metal screws: #6 oval headed, 5-7 inches long [t635]
 - Stakes [t635]
+- [Partial] Tie-down channel bolts [t941]
 - Two-by-two wooden beams [t635]
 - Wing nuts: For 5/16" bolts [t635]
 
 ## Specifications
 
+- **Board length**: 8 ft [t941] ([Unverified] single report)
+- **Bolt grade**: Grade 8 [t941] ([Unverified] single report)
+- **Roof Rack Capacity**: 40" [t612] ([Unverified] single report)
 - **Screw length**: 1/2 inch [t869] ([Partial] [Unverified] single report)
+- **Spring nut size**: 3/8 [t941] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -237,15 +300,24 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 - [Partial] Add flagging tape to anchor lines so they do not become tripping hazards. [t635]
 - Plan on using pins and drilling holes in the legs for permanent anchoring later. [t635]
 - [Partial] Paint the mount for a finished look. [t474]
+- [Partial] Consider a sliding setup where the lower portion drops to the ground like a fire escape. [t987]
+- Use a top rung at the end of the ladder rails to hold sliders in place. [t987]
+- Ensure bolts are long enough to pass through both the cargo door and the wooden board mount. [t941]
+- Consider using washers or track mounts for easier removal without permanent holes in the deck lid. [t941]
 
 ## Common mistakes
 
 - [Partial] Mounting directly to the plastic without reinforcement. [t245]
 - Leaving the C-pillar plastic deformed after installation. [t245]
 - [Partial] Drilling ABS pipe holes too small, which requires threading in afterward, [t635]
+- [Partial] Resting weight directly on sheetmetal fenders without support, potentially crushing them under 200lbs of body weight. [t987]
 
 ## Diagrams (links only)
 
+- [image: http://images.tapatalk-cdn.com/15/09/15/c81bd07a8a42cfef20eba5d3d0692932.jpg] [t231]
+- [image: http://images.tapatalk-cdn.com/15/09/15/ebeec29373b054666293088b3b9f3bf5.jpg] [t231]
+- [image: http://images.tapatalk-cdn.com/15/09/15/f883f290496e0e8dcba09a2d6fa95c4c.jpg] [t231]
+- http://img.archiexpo.com/images_ae/photo-mg/retractable-folding-attic-ladder-55867-1816211.jpg [t987]
 - https://i.imgur.com/CQ4Yc0B.jpg [t474]
 - https://i.imgur.com/E657kGy.jpg [t474]
 - https://i.imgur.com/IKNtTyD.jpg [t869]
@@ -253,9 +325,13 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 
 ## Source attributions
 
+- **t231**: emtmark, "Molle mania", 2015-09-15. https://www.xterranation.org/index.php?threads/molle-mania.7188/
 - **t245**: maillet282, "raingler upper half devider install options", 2014-10-09. https://www.xterranation.org/index.php?threads/raingler-upper-half-devider-install-options.6014/
 - **t474**: AlbatrossCafe, "How to: Extra simple & CHEAP interior bike rack", 2021-05-14. https://www.xterranation.org/index.php?threads/how-to-extra-simple-cheap-interior-bike-rack.10048/
 - **t600**: mudchet, "Replacement racks", 2012-06-26. https://www.xterranation.org/index.php?threads/replacement-racks.1864/
+- **t612**: NoahSki, "Firestone Destination MT", 2014-08-18. https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/
 - **t635**: Taylor Spaulding, "Diy Hybrid Folding And Rollout Awning", 2020-02-16. https://www.xterranation.org/index.php?threads/diy-hybrid-folding-and-rollout-awning.9383/
 - **t869**: Singularity, "HOW TO: Molle system for almost anywhere.", 2015-02-06. https://www.xterranation.org/index.php?threads/how-to-molle-system-for-almost-anywhere.6466/
+- **t941**: jdavis92, "Custom Mountain bike rack", 2013-07-30. https://www.xterranation.org/index.php?threads/custom-mountain-bike-rack.3861/
+- **t987**: Steeze, "New Ladder Concept", 2012-12-07. https://www.xterranation.org/index.php?threads/new-ladder-concept.2594/
 

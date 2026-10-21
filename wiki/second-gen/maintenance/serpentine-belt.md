@@ -5,7 +5,8 @@ generation: second-gen
 category: maintenance
 applies_to:
   years: []
-  trims: []
+  trims:
+  - OR
   engine: []
   drivetrain: []
 shared_platform: []
@@ -23,11 +24,12 @@ parts:
 sources:
 - t22
 - t303
+- t359
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 5
+  partial_items: 7
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 4
@@ -41,6 +43,17 @@ verification:
 ## Summary
 
 Consider Continental kits for value and note potential differences between aftermarket and OEM tensioner pulleys. [t303]
+
+[Partial] Remove the drive belt from the engine pulleys, then inspect each pulley for side-to-side play. [t359]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Remove the drive belt from the engine pulleys.
+2. [Partial] Inspect each pulley for any side-to-side play or wobble.
+
+_Procedure reported by [t359]._
 
 ## Tools
 
@@ -63,4 +76,5 @@ Consider Continental kits for value and note potential differences between after
 
 - **t22**: Shiny, "Throttle Bottle Idle Air Re-learn", 2009-01-01. https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/
 - **t303**: elcid79, "Tensioner and belt replacement parts?", 2021-01-13. https://www.xterranation.org/index.php?threads/tensioner-and-belt-replacement-parts.9872/
+- **t359**: KaBoom, "High Pitched Noise With Acceleration", 2020-07-10. https://www.xterranation.org/index.php?threads/high-pitched-noise-with-acceleration.9595/
 

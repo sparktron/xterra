@@ -21,17 +21,20 @@ tools:
 - Catch container
 - 8mm box end wrench
 parts:
+- name: Brake fluid
+  oem_part_no: ''
 - name: New DOT 3 brake fluid
   oem_part_no: ''
 - name: RTV Silicone Sealant
   oem_part_no: ''
 sources:
+- t76
 - t988
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 9
+  partial_items: 14
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -41,13 +44,24 @@ verification:
 
 # Brake fluid flush and bleeding
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 Locate the ABS connector, drain old fluid, fill with new DOT 3 brake fluid, bleed wheels until clear, then repeat for the clutch. [t988]
+
+[Partial] Bleed the brakes in a specific sequence starting with the right rear and ending at the front right. [t76]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Bleed the right rear brake caliper first.
+2. [Partial] Next, bleed the front left brake caliper.
+3. Then, bleed the rear left brake caliper.
+4. [Partial] Finally, bleed the front right brake caliper.
+
+_Procedure reported by [t76]._
 
 ## Tools
 
@@ -60,6 +74,7 @@ Locate the ABS connector, drain old fluid, fill with new DOT 3 brake fluid, blee
 
 ## Parts
 
+- [Partial] Brake fluid [t76]
 - [Partial] New DOT 3 brake fluid [t988]
 - [Partial] RTV Silicone Sealant [t988]
 
@@ -69,6 +84,8 @@ Locate the ABS connector, drain old fluid, fill with new DOT 3 brake fluid, blee
 - Keep an eye on the reservoir level throughout flushing so it does not completely empty and suck in air. [t988]
 - Watch for the clutch paddle to return when releasing the bleeder before locking it back on. [t988]
 - Continue until clean, clear fluid comes out of the line. [t988]
+- Follow this specific sequence to ensure air is purged effectively. [t76]
+- [Partial] Consult the Factory Service Manual for reference. [t76]
 
 ## Common mistakes
 
@@ -79,8 +96,10 @@ Locate the ABS connector, drain old fluid, fill with new DOT 3 brake fluid, blee
 
 - https://lh4.googleusercontent.com/-dqaQalgWZpM/UN5Y_XEoCfI/AAAAAAAABKQ/Hsl7EtNpe5U/s600/IMG_3351_450x600.JPG [t988]
 - https://lh6.googleusercontent.com/-oWlOD1dWv8o/UN5Y--G0v9I/AAAAAAAABKI/Cl8ZQxFCwp0/s800/IMG_3345_800x600.JPG [t988]
+- https://www.xterranation.org/data/attachments/38/38632-f5c9dd02027d79e060b5990135537c20.jpg [t76]
 
 ## Source attributions
 
+- **t76**: Lukas, "Squishy brakes", 2026-03-24. https://www.xterranation.org/index.php?threads/squishy-brakes.11521/
 - **t988**: Airmapper, "How To: Brake Fluid Flush (& Clutch if MT)", 2012-12-28. https://www.xterranation.org/index.php?threads/how-to-brake-fluid-flush-clutch-if-mt.2703/
 

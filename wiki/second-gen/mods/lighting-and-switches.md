@@ -15,29 +15,37 @@ tools:
 - Light gauge T-tap (18-22 gauge)
 - Wire connectors
 - Fuses
+- Terminal strips
+- Test light
 parts:
+- name: 6-space fuse block
+  oem_part_no: ''
 - name: Blue Sea Fuse Box
   oem_part_no: ''
 - name: Otrattw Switch
   oem_part_no: V1D1J66B-AFCN5-17U
+- name: OTRATTW VM6-01 switch panel
+  oem_part_no: ''
 - name: Piaa Relay (with internal fuse)
   oem_part_no: ''
 sources:
+- t864
+- t975
 - t993
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 5
+  partial_items: 12
   partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 1
+  unconfirmed_safety_values: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Lighting and Switches
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -45,17 +53,46 @@ verification:
 
 [Partial] Connect a switch output lead to position two on your blue sea fuse box. [t993]
 
+[Partial] Mount a 6-switch panel and run one main battery lead to a 6-space fuse block. [t864]
+
+[Partial] Install a commercial police or fire switch box and run power output wires to individual relays. [t975]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Mount a 6-switch panel into the lower console compartment or under the radio.
+2. Run one main battery lead to a 6-space fuse block for constant voltage.
+
+_Procedure reported by [t864]._
+
+<details><summary>Alternate procedure [t975] [Partial]</summary>
+
+1. [Partial] Install a commercial police or fire switch box into the vehicle cabin.
+2. Run power output wires from the switch box to individual relays.
+
+</details>
+
 ## Tools
 
 - Light gauge T-tap (18-22 gauge) [t993]
 - [Partial] Wire connectors [t993]
 - [Partial] Fuses [t993]
+- Terminal strips [t864]
+- Test light [t864]
 
 ## Parts
 
+- 6-space fuse block [t864]
 - Blue Sea Fuse Box [t993]
 - Otrattw Switch (V1D1J66B-AFCN5-17U) [t993]
+- OTRATTW VM6-01 switch panel [t864]
 - Piaa Relay, with internal fuse [t993]
+
+## Specifications
+
+- **Relay capacity (common)**: 20A [t975] ([Partial] [Unverified] single report)
+- **Switch rating**: 5A [t975] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -63,13 +100,21 @@ verification:
 - Ensure you have the correct size wire and connectors before beginning. [t993]
 - If lights are 85W, the original fuse handles them easily. [t993]
 - [Partial] At 135W, you will be right on the edge of the fuse limitation but safe enough to run. [t993]
+- [Partial] Use a tail light wire for illumination to make switches glow when lights are on. [t864]
+- [Partial] Run individual wires from the fuse block fuses to each switch rocker. [t864]
 
 ## Diagrams (links only)
 
+- [image: https://www.xterranation.org/data/attachments/0/900-f6b3d1789c87386ad5db2255d2e49bed.jpg] [t864]
+- [image: https://www.xterranation.org/data/attachments/0/901-d78dfb2db1862f3d58d144c8073f01ab.jpg] [t864]
+- http://i1278.photobucket.com/albums/y513/yorkdiver/Dash%202_zpsyjqfedcw.jpg [t975]
 - http://i785.photobucket.com/albums/yy131/treffley/Truck%20mods/DSCN1329.jpg [t993]
 - http://www.otrattw.com/J66B.jpg [t993]
+- http://www.whelen.com/auto/product.php?cat_id=66&prod_id=86 [t975]
 
 ## Source attributions
 
+- **t864**: smplone, "Never too many switches", 2013-09-05. https://www.xterranation.org/index.php?threads/never-too-many-switches.4036/
+- **t975**: Shadowdragon, "Switch Boxes", 2015-04-15. https://www.xterranation.org/index.php?threads/switch-boxes.6760/
 - **t993**: Trexx, "How to: Otrattw Switch with Piaa orginal Relay + Adding a third light", 2013-01-22. https://www.xterranation.org/index.php?threads/how-to-otrattw-switch-with-piaa-orginal-relay-adding-a-third-light.2868/
 

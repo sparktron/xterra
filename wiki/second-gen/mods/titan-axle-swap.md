@@ -6,6 +6,7 @@ category: mods
 applies_to:
   years:
   - 2011
+  - 2014
   trims:
   - X
   engine: []
@@ -61,17 +62,19 @@ parts:
 sources:
 - t247
 - t265
+- t266
 - t462
+- t797
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 38
+  partial_items: 40
   partial_fields:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 8
-  withheld_items: 11
+  withheld_items: 12
   pending_safety_values: 0
 ---
 
@@ -120,6 +123,10 @@ Verify the VDC system recalibrates or turns off after a brief test drive if the 
 [Partial] Install a Titan rear differential and mount rough country upper control arms to handle increased articulation. [t265]
 
 [Partial] Install new CV axles to replace extended options. [t265]
+
+[Partial] Install a used or rebuilt Titan front differential, then swap in CV axles from a Nissan Pathfinder. [t797]
+
+Consider buying used parts from individuals or a junkyard. [t266]
 
 ## Procedure
 
@@ -177,6 +184,13 @@ _Procedure reported by [t247]._
 
 1. [Partial] Install a M205 rear differential from the Titan or Frontier.
 2. Mount rough country upper control arms to handle increased articulation.
+
+</details>
+
+<details><summary>Alternate procedure [t797] [Partial]</summary>
+
+1. Install a used or rebuilt Titan front differential into the Xterra.
+2. Swap in CV axles from a Nissan Pathfinder to match the new setup.
 
 </details>
 
@@ -295,9 +309,12 @@ _Procedure reported by [t247]._
 - [Partial] A quick test drive usually resolves the VDC confusion without complex wiring. [t462]
 - [Partial] Consider parts brokers in Georgia for reasonably priced differentials. [t265]
 - [Partial] Select a differential over extended axles to allow for future upgrades. [t265]
+- [Partial] Consider buying from a junkyard as the cheapest option. [t266]
+- Look for parts sold by individuals who found them rather than new inventory. [t266]
 
 ## Diagrams (links only)
 
+- http://img.tapatalk.com/d/14/02/17/mydy3aqy.jpg [t797]
 - http://www.semperx.com/images/gallery/DSC_4438a.jpg [t462]
 - http://www.xterranation.org/attachment.php?attachmentid=2468&d=1406995713 [t265]
 - https://www.xterranation.org/data/attachments/1/1729-b008612439448468c4d785237a8541f4.jpg [t265]
@@ -306,5 +323,7 @@ _Procedure reported by [t247]._
 
 - **t247**: Prime, "Complete Front & Rear Titan Swap", 2021-03-01. https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/
 - **t265**: eddieb, "Another titan swap", 2014-08-02. https://www.xterranation.org/index.php?threads/another-titan-swap.5743/
+- **t266**: gardy, "TS parts", 2014-05-26. https://www.xterranation.org/index.php?threads/ts-parts.5405/
 - **t462**: Oz_X, "Pre Titan Swap Checklist", 2012-05-12. https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/
+- **t797**: 05x4x4, "Blew up my front end", 2014-02-16. https://www.xterranation.org/index.php?threads/blew-up-my-front-end.4828/
 

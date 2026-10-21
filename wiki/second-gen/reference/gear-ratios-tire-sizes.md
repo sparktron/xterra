@@ -6,8 +6,12 @@ category: reference
 applies_to:
   years:
   - 2005
+  - 2009
+  - 2013
+  - 2014
   - 2015
   trims:
+  - Gen 2
   - LE KC
   - NISMO KC
   - Offroad
@@ -28,17 +32,29 @@ tools: []
 parts: []
 sources:
 - t116
+- t214
+- t220
+- t222
+- t261
+- t431
 - t461
+- t623
+- t742
+- t744
+- t748
+- t879
+- t881
+- t932
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 18
+  partial_items: 38
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 9
-  withheld_items: 2
+  unconfirmed_safety_values: 10
+  withheld_items: 15
   pending_safety_values: 0
 ---
 
@@ -59,6 +75,32 @@ Locate the gear ratio code to determine if you need a C200 or M226 set. [t461]
 [Partial] Determine the ratio based on whether you have a 4x2 or 4x4 setup, as NISMO uses both C200 and M226 codes. [t461]
 
 [Partial] Select gear ratios based on axle type, noting that LE models feature lower numerical ratios compared to XE or SE. [t461]
+
+[Partial] Identify the stock tire size as 265/75R16 for reference when calculating speedometer accuracy. [t742]
+
+[Partial] Mount a set of 285/75R16 tires on the stock suspension. [t932]
+
+[Partial] Mount a set of 285/75R16 tires on the suspension with adjustable shocks providing 1.5 inches of lift. [t932]
+
+[Partial] Mount a set of 285/75R16 tires on the suspension with adjustable shocks providing up to 2 inches of lift. [t932]
+
+[Partial] Select the LT265/75R16 size for a 32.1-inch diameter. [t431]
+
+[Partial] A 5-inch Calmini suspension lift is used with no body lift to accommodate larger tires. [t623]
+
+The biggest difference between tire sizes is often due to tread depth rather than width. [t748]
+
+[Partial] Identify the current rear axle gear ratio on a manual transmission Xterra. [t879]
+
+[Partial] Widen the vehicle's stance by 2 to 4 inches total (using a combination of body lift and spacers) [t214]
+
+Verify the specific stock size dimensions, noting that tire tread depth is similar to a KO2 and sidewall thickness implications are mostly in the sidewall. [t220]
+
+[Partial] Choose 4.10 gears for 33-inch tires or 4.56 gears for 35-inch tires. [t261]
+
+[Partial] Note that increasing tire diameter causes the speedometer to read slower than actual ground speed. [t744]
+
+Consider tire diameter clearance, gear ratio differences between trims and sizes, and specific factory ratios. [t222]
 
 ## Procedure
 
@@ -86,6 +128,42 @@ _Procedure reported by [t461]._
 
 </details>
 
+<details><summary>Alternate procedure [t932] [Partial]</summary>
+
+1. Mount a set of 285/75R16 tires on the suspension with adjustable shocks providing 1.5 inches of lift.
+
+</details>
+
+<details><summary>Alternate procedure [t932] [Partial]</summary>
+
+1. [Partial] Mount a set of 285/75R16 tires on the suspension with adjustable shocks providing up to 2 inches of lift.
+
+</details>
+
+<details><summary>Alternate procedure [t431] [Partial]</summary>
+
+1. [Partial] Select the LT265/75R16 size for a 32.1-inch diameter.
+
+</details>
+
+<details><summary>Alternate procedure [t214] [Partial]</summary>
+
+1. [Partial] Widen the vehicle's stance by 2 to 4 inches total (using a combination of body lift and spacers) to compensate for added height.
+
+</details>
+
+<details><summary>Alternate procedure [t220] [Partial]</summary>
+
+1. [Partial] Verify the specific stock size dimensions for your vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t744] [Partial]</summary>
+
+1. [Partial] Note that increasing tire diameter causes the speedometer to read slower than actual ground speed.
+
+</details>
+
 ## Specifications
 
 - **5 Speed Automatic Transmission Fluid Capacity**: ~10.9 Qt [t116] ([Partial] [Unverified] single report)
@@ -103,6 +181,11 @@ _Procedure reported by [t461]._
 - **6 Speed Manual Transmission Ratios (5th)**: 1.000 [t116] ([Unverified] single report)
 - **6 Speed Manual Transmission Ratios (6th)**: 0.769 [t116] ([Unverified] single report)
 - **6 Speed Manual Transmission Ratios (Reverse)**: 3.966 [t116] ([Unverified] single report)
+- **Actual speed at 65 mph with larger tires**: ~70mph [t744] ([Unverified] single report)
+- **Automatic transmission stock gear ratio**: 3.36 [t261] ([Unverified] single report)
+- **Current rear tire size (Factory S wheels)**: 265/75/R16 [t748] ([Unverified] single report)
+- **Factory gear ratio for 3.13 setup**: 3.13 (ratio) [t222] ([Partial] [Unverified] single report)
+- **Factory gear ratio for standard Off-Road automatic**: 3.36 (ratio) [t222] ([Unverified] single report)
 - **Front Differential R180A Axle Shaft Spline Count**: 27 [t116] ([Unverified] single report)
 - **Front Differential R180A Fluid Capacity (OE cover)**: 1 3/4 US Pint [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 Offroad/Pro4X Auto)**: 3.36 [t116] ([Unverified] single report)
@@ -110,12 +193,30 @@ _Procedure reported by [t461]._
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Auto)**: 3.13 [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Manual)**: 3.54 [t116] ([Unverified] single report)
 - **Front Differential R180A Ring Gear Diameter**: 7.08" [t116] ([Unverified] single report)
+- **Front tire size (Current setup)**: 265/70/R18 [t748] ([Partial] [Unverified] single report)
+- **Lift Height**: 1.5" [t932] ([Unverified] single report)
+- **Manual transmission stock gear ratio**: 3.69 [t261] ([Unverified] single report)
 - **Rear Axle M226 Axle Shaft Diameter**: 1.366" [t116] ([Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Auto)**: 3.36 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Manual)**: 3.69 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 X/S/SE Manual)**: 3.54 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 Pinion Spline Count**: 24 [t116] ([Unverified] single report)
 - **Rear Axle M226 Ring Gear Diameter**: 8.9" [t116] ([Unverified] single report)
+- **Rear differential gear ratio**: 3.13 [t879] ([Unverified] single report)
+- **Rear tire size (Titan wheels)**: 285/65/R18 [t748] ([Unverified] single report)
+- **Rear tire size (Titan wheels, Lifted simulation)**: 285/65/R18 [t748] ([Partial] [Unverified] single report)
+- **Rear wheel width with current tires**: 36" [t748] ([Unverified] single report)
+- **Rear wheel width with Titan tires (Lifted)**: 39" [t748] ([Partial] [Unverified] single report)
+- **Rear wheel width with Titan tires (Unlifted)**: 37" [t748] ([Unverified] single report)
+- **Speedo error at 60 mph with larger tires**: ~5mph slow [t744] ([Unverified] single report)
+- **Tire Size**: 285 75 16 [t932] ([Unverified] single report)
+- **Tire size: Alternative narrow option for same diameter**: 33" (diameter) [t222] ([Unverified] single report)
+- **Tire size: Common current setup on S trim**: 265/75R16 [t222] ([Partial] [Unverified] single report)
+- **Tire size: Heavier Mudstar M/T alternative**: 285/65R16 [t222] ([Unverified] single report)
+- **Tire size: Narrower alternative to 285**: 255/85r16 [t222] ([Unverified] single report)
+- **Tire size: Previous Geolander setup**: 265/70r16 [t222] ([Unverified] single report)
+- **Tire size: Target upgrade for more mud clearance**: 285/75/16 [t222] ([Unverified] single report)
+- **Tire tread depth**: similar to KO2 [t220] ([Partial] [Unverified] single report)
 - **Transfercase TX15B Fluid Capacity (OE cover)**: ~2.1QT [t116] ([Partial] [Unverified] single report)
 - **Transfercase TX15B High Range Ratio**: 1:1 [t116] ([Unverified] single report)
 - **Transfercase TX15B Low Range Ratio**: 2.625:1 [t116] ([Unverified] single report)
@@ -132,9 +233,36 @@ _Procedure reported by [t461]._
 - [Partial] The list indicates that 4x4 NISMO units often favor the C200 gear set. [t461]
 - [Partial] LE KC 4x2 units typically run a C200 with a 3.133 ratio. [t461]
 - [Partial] [Unverified value] The lowest ratio listed in this chunk is found on the LE CC 4x2 at 3.133. [t461]
+- The factory tachometer is approximately 3% off from actual engine RPM, which may affect perceived tire performance calculations. [t742]
+- [Partial] Note that this tire is approximately 0.7 inches shorter than a typical 285/75R16 and offers about 0.35 inches of additional ground clearance compared to standard sizes. [t431]
+- A 5-inch Calmini suspension lift is used with no body lift to accommodate larger tires. [t623]
+- The biggest difference between tire sizes is often due to tread depth rather than width. [t748]
+- [Partial] Consider this a baseline if you plan to upgrade the rear axle with an M205 from an Off-Road model. [t879]
+- A wider stance may help stabilize the vehicle in extreme off-camber situations. [t214]
+- The rear live axle gains tire clearance when using a spacer, whereas the front independent suspension loses bump steer and swings through a wider arc. [t214]
+- Keep 3.36 gears if staying with stock tire size and not adding significant weight. [t261]
+- Consider that a 1-inch increase in tire diameter provides only about half an inch of additional clearance. [t222]
+- Note the difference between starting with a 265/70R16 versus a 265/75R16 when upgrading to a wider size. [t222]
+
+## Common mistakes
+
+- [Partial] Assuming all automatic Off-Road trims have the same gearing without verifying. [t222]
+- [Partial] Underestimating the RPM and MPG hit from moving from 3.36 gears to 3.13 with large tires. [t222]
 
 ## Source attributions
 
 - **t116**: TerryD, "Driveline Tech Info", 2019-08-12. https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/
+- **t214**: snoborderphx, "Wheel Spacers Overview: Hub/Lug/Wheel-Centric", 2015-04-07. https://www.xterranation.org/index.php?threads/wheel-spacers-overview-hub-lug-wheel-centric.6706/
+- **t220**: gta6198, "BFG KO2 T/A or Toyo Open Country AT3?", 2021-01-20. https://www.xterranation.org/index.php?threads/bfg-ko2-t-a-or-toyo-open-country-at3.9885/
+- **t222**: 5am, "3.13 Gear Ratio And 33" Tire", 2020-03-02. https://www.xterranation.org/index.php?threads/3-13-gear-ratio-and-33-tire.9412/
+- **t261**: Brunnie, "Can It Really Be This Simple?", 2020-01-30. https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/
+- **t431**: Levi_Xterra, "Experience with Cooper Tires??", 2014-03-16. https://www.xterranation.org/index.php?threads/experience-with-cooper-tires.4977/
 - **t461**: Trexx, "C200 Gear Info For Titan Swap", 2012-05-23. https://www.xterranation.org/index.php?threads/c200-gear-info-for-titan-swap.1657/
+- **t623**: sleeper00, "35's are a Go!", 2012-03-25. https://www.xterranation.org/index.php?threads/35s-are-a-go.1295/
+- **t742**: Airmapper, "Tire Time", 2013-01-05. https://www.xterranation.org/index.php?threads/tire-time.2742/
+- **t744**: gunna15, "Ordering new tires today.....", 2012-11-28. https://www.xterranation.org/index.php?threads/ordering-new-tires-today.2539/
+- **t748**: Deltaphi216, "titan 6 spoke 18" wheels on a 2nd gen Xterra", 2011-12-12. https://www.xterranation.org/index.php?threads/titan-6-spoke-18-wheels-on-a-2nd-gen-xterra.531/
+- **t879**: gorillamel, "Posi-traction", 2012-06-14. https://www.xterranation.org/index.php?threads/posi-traction.1798/
+- **t881**: Ron ap Rhys, "ARB Locker for the R180", 2012-02-01. https://www.xterranation.org/index.php?threads/arb-locker-for-the-r180.882/
+- **t932**: tommyboy, "2" Lift, (Spacers and AAL)", 2011-10-27. https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/
 

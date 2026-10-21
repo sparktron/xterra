@@ -7,6 +7,8 @@ applies_to:
   years: []
   trims:
   - OR
+  - Pro-4x
+  - X
   - Xterra
   engine: []
   drivetrain: []
@@ -16,26 +18,53 @@ est_time: null
 tools:
 - Digital MultiMeter
 - Tape measure
-parts: []
+- Stud mount
+- Sheet metal screw
+- Ring terminals
+- Hand
+parts:
+- name: 18 feet of coaxial cable with PL-259 connectors
+  oem_part_no: ''
+- name: Cobra DX-19 III or IV
+  oem_part_no: ''
+- name: Diamond KC400-3/8C
+  oem_part_no: ''
+- name: Firestik Fire Ring Cable
+  oem_part_no: ''
+- name: Heavy Duty Spring
+  oem_part_no: ''
+- name: Midland 1001LWX
+  oem_part_no: ''
+- name: Radiator cap assembly (standard)
+  oem_part_no: '21430'
+- name: Radiator cap assembly (with T)
+  oem_part_no: 21430A
+- name: Stud Mount with Nylon Insulation
+  oem_part_no: ''
 sources:
 - t2
 - t11
 - t179
 - t287
+- t788
+- t866
+- t964
 - t1033
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 9
+  partial_items: 28
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 0
-  withheld_items: 5
+  unconfirmed_safety_values: 2
+  withheld_items: 15
   pending_safety_values: 0
 ---
 
 # [reference] Parts diagrams
+
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -50,6 +79,24 @@ Use drawings and views to locate skid plate holes, verify flat stock placement, 
 Locate the code on the display and cross-reference it to find the full descriptive name. [t287]
 
 View the stock off-road light housing and use cardboard templates to map out the hole shape. [t1033]
+
+[Partial] Use a radiator cap with hose inner diameter of 5/16. [t788]
+
+Identify the specific mounting bracket needed for a no-drill rear hatch installation and verify if it includes an antenna base. [t964]
+
+[Partial] Select a heavy-duty spring to relieve tension on the antenna when it strikes obstacles. [t964]
+
+[Partial] Choose a stud mount featuring an electrically insulated top half and ensure the bracket grounds effectively. [t964]
+
+[Partial] Select a Midland 1001LWX, Cobra DX-19 III or IV, or consider a remote mount for 4-watt power. [t964]
+
+[Partial] Mount the antenna high on the hatch seam or roof line with a flat ground plane. [t964]
+
+[Partial] Purchase a Firestik Fire Ring Cable if standard connectors are not desired. [t964]
+
+[Partial] Install a dedicated ground wire running from the bottom of the mounting bracket to a sheet metal screw in the steel body. [t964]
+
+[Partial] Locate the factory wiring harness plug under the dash to the right of the steering column behind a small rubber pad. [t866]
 
 ## Procedure
 
@@ -67,6 +114,13 @@ _Procedure reported by [t179]._
 
 </details>
 
+<details><summary>Alternate procedure [t866] [Partial]</summary>
+
+1. [Partial] Locate the factory wiring harness plug situated under the dash.
+2. Position your hand just to the right of the steering column.
+
+</details>
+
 <details><summary>Alternate procedure [t11] [Partial]</summary>
 
 1. Identify the relay's internal electromagnet switch that handles high current.
@@ -79,10 +133,59 @@ _Procedure reported by [t179]._
 
 </details>
 
+<details><summary>Alternate procedure [t964] [Partial]</summary>
+
+1. [Partial] Choose a stud mount that features an electrically insulated top half to allow the bottom half to ground effectively.
+
+</details>
+
+<details><summary>Alternate procedure [t964] [Partial]</summary>
+
+1. Select a radio unit that fits the desired dashboard space, such as one fitting under the console in front of the shifter.
+
+</details>
+
+<details><summary>Alternate procedure [t964] [Partial]</summary>
+
+1. [Partial] Purchase a 'Fire Ring' style coaxial cable if standard connectors are not desired, though standard is acceptable.
+
+</details>
+
+<details><summary>Alternate procedure [t964] [Partial]</summary>
+
+1. [Partial] Install a dedicated ground wire running from the bottom of the mounting bracket to a sheet metal screw in the steel body.
+
+</details>
+
 ## Tools
 
 - [Partial] Digital MultiMeter [t2]
 - [Partial] Tape measure [t179]
+- [Partial] Stud mount [t964]
+- [Partial] Sheet metal screw [t964]
+- [Partial] Ring terminals [t964]
+- Hand [t866]
+
+## Parts
+
+- 18 feet of coaxial cable with PL-259 connectors [t964]
+- Cobra DX-19 III or IV [t964]
+- Diamond KC400-3/8C [t964]
+- [Partial] Firestik Fire Ring Cable [t964]
+- [Partial] Heavy Duty Spring [t964]
+- Midland 1001LWX [t964]
+- [Partial] Radiator cap assembly, standard (21430) [t788]
+- [Partial] Radiator cap assembly, with T (21430A) [t788]
+- [Partial] Stud Mount with Nylon Insulation [t964]
+
+## Specifications
+
+- **Antenna Height (Optimal)**: 4 feet [t964] ([Partial] [Unverified] single report)
+- **Antenna Size (Recommended)**: 2 to 4 feet [t964] ([Unverified] single report)
+- **Coaxial Cable Length**: 18 feet [t964] ([Partial] [Unverified] single report)
+- **Ground Wire Length (Custom)**: 6 inches [t964] ([Partial] [Unverified] single report)
+- **Hose inner diameter for bleeding**: 5/16 [t788] ([Unverified] single report)
+- **Radio Power Output (Standard)**: 4 watts [t964] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -92,6 +195,13 @@ _Procedure reported by [t179]._
 - Check if hole dimensions include a specific diameter or just an approximate size (~4"). [t179]
 - [Partial] Ignore page numbers in any accompanying Factory Service Manual if using these images instead, as they may not match your specific year's EC chapter exactly. [t287]
 - Use cardboard templates to map out the hole shape before cutting metal [t1033]
+- Use a heavy-duty spring if mounting a shorter (2ft) antenna to handle impact tension. [t964]
+- Ensure the mounting bracket connects to metal for grounding; use extra wire with ring terminals if the connection isn't clean. [t964]
+- Consider a remote mount radio if dashboard space is tight or clutter reduction is desired. [t964]
+- Use a flat surface underneath the mount to act as a 'ground plane' for signal reflection. [t964]
+- This ground wire connection is often cited as the single biggest improvement to reception and range. [t964]
+- Look behind a small rubber pad that prevents keys from scratching the dash plastic; this is where you will find the plug. [t866]
+- Note that the end of the harness plugs into a specific connector shape. [t866]
 
 ## Common mistakes
 
@@ -106,6 +216,11 @@ _Procedure reported by [t179]._
 - http://i275.photobucket.com/albums/jj299/cyclemut/07xcode2.jpg [t287]
 - http://i275.photobucket.com/albums/jj299/cyclemut/07xcode3.jpg [t287]
 - http://i275.photobucket.com/albums/jj299/cyclemut/07xcode4.jpg [t287]
+- http://i99.photobucket.com/albums/l311/evolucion7/Mobile%20Uploads/brake%20controller%20harness_zpscvt2dtme.png [t866]
+- http://img.photobucket.com/albums/v243/gorillamel/MELs%20Xterra/photo1-2.jpg [t788]
+- http://img.photobucket.com/albums/v243/gorillamel/MELs%20Xterra/photo3.jpg [t788]
+- http://www.universal-radio.com/catalog/hamantm/0978.html [t964]
+- http://www.walcottradio.com/images/K4A_1.jpg [t964]
 
 ## Source attributions
 
@@ -113,5 +228,8 @@ _Procedure reported by [t179]._
 - **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
 - **t287**: Cyclemut, "'05 CEL Codes w/titles", 2011-11-27. https://www.xterranation.org/index.php?threads/05-cel-codes-w-titles.434/
+- **t788**: gorillamel, "Coolant leak", 2011-11-03. https://www.xterranation.org/index.php?threads/coolant-leak.222/
+- **t866**: elcid79, "2014 Xterra Pro-4x Trailer wiring harness plug snapped.", 2015-04-01. https://www.xterranation.org/index.php?threads/2014-xterra-pro-4x-trailer-wiring-harness-plug-snapped.6687/
+- **t964**: Jay Arr Ell, "Overwhelmed with CB info", 2015-07-14. https://www.xterranation.org/index.php?threads/overwhelmed-with-cb-info.7033/
 - **t1033**: maillet282, "OR/P4X light upgrade to LED?", 2013-10-30. https://www.xterranation.org/index.php?threads/or-p4x-light-upgrade-to-led.4296/
 

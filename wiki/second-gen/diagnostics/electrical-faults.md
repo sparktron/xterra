@@ -6,10 +6,13 @@ category: diagnostics
 applies_to:
   years:
   - 2005
+  - 2008
   - 2011
+  - 2014
   trims:
   - PRO-4X
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -17,28 +20,45 @@ difficulty: null
 est_time: null
 tools:
 - Multimeter
+- Fuse
+- Volt meter
+- OBDII Scanner
+- OBDLink MX+ scan tool
+- Bluetooth-enabled smartphone or tablet
 parts:
 - name: 5-pin relay
   oem_part_no: ''
 - name: Rocker switch
+  oem_part_no: ''
+- name: Washer fluid
   oem_part_no: ''
 sources:
 - t7
 - t11
 - t18
 - t19
+- t77
+- t102
 - t269
+- t289
+- t300
 - t517
+- t665
+- t710
 - t753
+- t776
+- t793
+- t974
+- t1042
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 16
+  partial_items: 41
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 7
+  withheld_items: 15
   pending_safety_values: 0
 ---
 
@@ -62,6 +82,28 @@ Locate the fuse and relay box under the hood next to the windshield washer bottl
 
 Switch the vehicle into 4WD mode then drive forward. [t517]
 
+[Partial] Start the engine in Drive and turn on the headlights while driving at night. [t793]
+
+[Partial] Locate and pull the ABS/ECU fuse from the engine bay fuse panel. [t665]
+
+[Partial] Check for visible leaks, verify rear washer function, test pump activation, and inspect or replace fuses. [t77]
+
+[Partial] Identify the 7-pin trailer harness male connector and verify wire functions with lights active. [t1042]
+
+[Partial] Clean all chassis ground connections thoroughly and scrub the top of the battery terminals. [t289]
+
+[Partial] Inspect the left rear wheel speed sensor then trace its wire. [t289]
+
+[Partial] Fire up and rev the engine, then use a volt meter with headlights turned on. [t974]
+
+Unplug MAF wiring, start engine, shut off, clear code with scanner, then plug back in. [t102]
+
+Connect the OBDLink MX+ via Bluetooth with an app like ForScan. [t300]
+
+Check Open Circuit Voltage with a multimeter after waiting at least 8 hours for readings to stabilize. [t710]
+
+Inspect the ABS sensor wiring at the wheel hub plug connection for sheared wires. [t776]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -81,11 +123,38 @@ Switch the vehicle into 4WD mode then drive forward. [t517]
 
 _Procedure reported by [t753]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/how-to-abs-off-mod.9070/>_
 
+<details><summary>Alternate procedure [t102] [Partial]</summary>
+
+1. Unplug the wiring from the Mass Air Flow (MAF) sensor located at the air filter box outlet.
+2. Start the engine to trigger a MIL or 'Check Engine Light'.
+3. Shut off the engine completely.
+4. Clear the code stored in the ECM using a scanner.
+5. Plug the MAF sensor wiring back into its connector.
+
+</details>
+
+<details><summary>Alternate procedure [t77] [Partial]</summary>
+
+1. [Partial] Check for any visible leaks in the reservoir.
+2. [Partial] Verify if the rear washer system functions correctly.
+3. Test whether the pump runs when activated.
+4. [Partial] Inspect and replace fuses located inside the cab or under the hood.
+
+</details>
+
 <details><summary>Alternate procedure [t11] [Partial]</summary>
 
 1. Find a bolt or nut on the vehicle body to use as a ground point.
 2. Remove the fastener and sand down the area until bare metal is exposed.
 3. Attach the grounding wire securely, then replace the nut/bolt.
+
+</details>
+
+<details><summary>Alternate procedure [t665] [Partial]</summary>
+
+1. [Partial] Start the engine to ensure it is running.
+2. Shift the 4WD selector knob into High (4Hi).
+3. [Partial] Locate and pull the ABS/ECU fuse from the engine bay fuse panel.
 
 </details>
 
@@ -103,14 +172,62 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t793] [Partial]</summary>
+
+1. [Partial] Start the engine in Drive to replicate the issue.
+2. [Partial] Turn on the headlights while driving at night.
+
+</details>
+
+<details><summary>Alternate procedure [t1042] [Partial]</summary>
+
+1. Identify the 7-pin trailer harness male connector on the vehicle side.
+2. Verify wire functions by testing with ignition or running lights active.
+
+</details>
+
+<details><summary>Alternate procedure [t289] [Partial]</summary>
+
+1. [Partial] Clean all chassis ground connections thoroughly.
+2. [Partial] Scrub the top of the battery terminals to remove corrosion.
+
+</details>
+
+<details><summary>Alternate procedure [t289] [Partial]</summary>
+
+1. [Partial] Inspect the left rear wheel speed sensor for signs of failure.
+2. Trace the wire running to that specific speed sensor.
+
+</details>
+
+<details><summary>Alternate procedure [t710] [Partial]</summary>
+
+1. [Partial] Wait at least 8 hours after the engine stops or disconnecting it to allow voltage readings to stabilize.
+2. Check the Open Circuit Voltage (OCV) with a multimeter.
+
+</details>
+
+<details><summary>Alternate procedure [t776] [Partial]</summary>
+
+1. [Partial] Inspect the ABS sensor wiring at the wheel hub plug connection.
+2. Check if the wire has sheared off exactly where it plugs into the hub.
+
+</details>
+
 ## Tools
 
 - Multimeter [t269]
+- Fuse [t665]
+- [Partial] Volt meter [t974]
+- [Partial] OBDII Scanner [t102]
+- [Partial] OBDLink MX+ scan tool [t300]
+- [Partial] Bluetooth-enabled smartphone or tablet [t300]
 
 ## Parts
 
 - [Partial] 5-pin relay [t753]
 - [Partial] Rocker switch [t753]
+- [Partial] Washer fluid [t77]
 
 ## Tips & gotchas
 
@@ -125,14 +242,36 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - [Partial] The 30-87a connection is normally on, while the signal triggers the switch to move it to 30-87. [t753]
 - [Partial] Inspect relays located behind the passenger front kick panel, especially when using an OE-style 7-pin connector. [t269]
 - Ensure specific brown relays are functioning correctly as they may supply constant power. [t269]
+- [Partial] Test with a second person watching for electrical flickers or irregularities to spot ground faults easily. [t793]
+- [Partial] Use this method to trick the ECU when shifting between 2WD and 4Hi in wet or muddy conditions. [t665]
+- [Partial] This avoids disconnecting connectors under a heavy rig while driving. [t665]
+- Consider using a mixture of white cleaning vinegar (7%) and tap water to flush the system. [t77]
+- [Partial] Cycle the washer often to prevent thickened fluid from clogging nozzles. [t77]
+- Note that factory colors may vary and aftermarket plugs can differ from OEM layouts. [t1042]
+- [Partial] Check if specific wires are 'always hot' (ACC) versus ignition-powered for auxiliary applications like charging a trailer battery. [t1042]
+- [Partial] Turn on headlights while testing for a more accurate reading under load. [t974]
+- Perform this procedure to force a Long Term Fuel Trend reset and help the computer relearn new air/fuel trends. [t102]
+- [Partial] Consider doing a throttle body cleaning afterward since unfiltered air may have altered idle compensation. [t102]
+- The OBDLink MX+ includes firmware and vehicle data for many cars out of the box, reducing setup hassle compared to cheaper readers. [t300]
+- [Partial] A rest period of 24 hours is preferred for the most accurate reading. [t710]
+- [Partial] Ensure no electrical loads are connected during the measurement to prevent inflated readings from parasitic draws or alternators. [t710]
+- [Partial] If the harness is hard to reach, consider splicing a new sensor directly onto the existing wiring instead of replacing the whole assembly. [t776]
+- [Partial] Shrink wrap any exposed splice connections to protect them from road elements. [t776]
 
 ## Common mistakes
 
 - [Partial] Assuming all fuses under the hood are fine without checking for a dedicated constant power fuse specifically. [t269]
+- [Partial] Assuming standard 7-pin configurations without verifying the specific vehicle's harness layout first. [t1042]
+- Reading voltage immediately after use, which can be artificially high due to alternator output and lead to incorrect state-of-charge assumptions. [t710]
+- [Partial] Accepting that an entire ABS drivetrain assembly must be replaced when only the harness plug is damaged. [t776]
 
 ## Diagrams (links only)
 
 - [image: https://www.thenewx.org/cdn-cgi/image/format=auto,onerror=redirect,width=1920,height=1920,fit=scale-down/https://i.imgur.com/qfTPObn.jpg] [t753]
+- http://i1048.photobucket.com/albums/s372/ddmetz/7pintrailer_zpsce55287f.jpg [t1042]
+- http://img.tapatalk.com/d/14/07/06/atavygur.jpg [t1042]
+- http://www.thenewx.org/forum/15-how-tos/112170-how-test-abs-wires-sensors-pbr.html [t665]
+- https://www.obdlink.com/wp-content/uploads/2020/07/main_2024.jpg [t300]
 
 ## Source attributions
 
@@ -140,7 +279,17 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
 - **t18**: TeXas-Hooligan, "ABS BRAKE VDC SLIP Lights all 'ON'", 2019-04-16. https://www.thenewx.org/threads/abs-brake-vdc-slip-lights-all-on.283005/
 - **t19**: impeerical, "Electrical Issues, ECM or Bad Ground?", 2022-02-11. https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/
+- **t77**: westslope, "Windshield washer fluid level sensor", 2025-04-12. https://www.xterranation.org/index.php?threads/windshield-washer-fluid-level-sensor.11336/
+- **t102**: e207, "Air intake rubber thingies.....", 2022-07-06. https://www.xterranation.org/index.php?threads/air-intake-rubber-thingies.10663/
 - **t269**: oceanshrks, "7Pin towing install woes", 2023-05-25. https://www.xterranation.org/index.php?threads/7pin-towing-install-woes.10944/
+- **t289**: Dylans33, "HELP!! Im completely lost with these issues.", 2024-06-09. https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/
+- **t300**: bo911km, "Recommend a code reader", 2023-03-19. https://www.xterranation.org/index.php?threads/recommend-a-code-reader.10898/
 - **t517**: Bill C, "Changed battery - now 4WD light is on", 2019-10-25. https://www.xterranation.org/index.php?threads/changed-battery-now-4wd-light-is-on.9160/
+- **t665**: maillet282, "ABS/ VDC Off/ Slip light on and loss of 4x4 after river crossing", 2014-07-13. https://www.xterranation.org/index.php?threads/abs-vdc-off-slip-light-on-and-loss-of-4x4-after-river-crossing.5655/
+- **t710**: outback97, "Agm Battery / Charger Questions", 2020-04-15. https://www.xterranation.org/index.php?threads/agm-battery-charger-questions.9467/
 - **t753**: PhullD, "How-To: ABS Off Mod", 2019-09-08. https://www.xterranation.org/index.php?threads/how-to-abs-off-mod.9070/
+- **t776**: Razzmaniac, "ABS. VDO, SLIP lights on and NO 4WD", 2014-02-16. https://www.xterranation.org/index.php?threads/abs-vdo-slip-lights-on-and-no-4wd.4825/
+- **t793**: Trexterra, "Feels Like Limp Mode... No Codes... Pending SMOD?", 2014-04-20. https://www.xterranation.org/index.php?threads/feels-like-limp-mode-no-codes-pending-smod.5182/
+- **t974**: Macland, "Alternator issues 2nd Gen", 2014-10-01. https://www.xterranation.org/index.php?threads/alternator-issues-2nd-gen.5982/
+- **t1042**: metzican, "7 Pin Trailer wiring schematic", 2014-07-05. https://www.xterranation.org/index.php?threads/7-pin-trailer-wiring-schematic.5619/
 

@@ -6,6 +6,7 @@ category: reference
 applies_to:
   years: []
   trims:
+  - '2003'
   - PRO-4X
   - X
   engine: []
@@ -19,7 +20,19 @@ tools:
 - Small sewing pin
 - Paperclip
 parts:
+- name: 12/2 awg stranded cable
+  oem_part_no: ''
+- name: 80A circuit breaker
+  oem_part_no: ''
 - name: Auxiliary power box
+  oem_part_no: ''
+- name: Bussmann AMG-175 High Current Fuse
+  oem_part_no: ''
+- name: Mega/AMG 298 Series Bolt Down Holder
+  oem_part_no: ''
+- name: Rubber grommet or cable gland
+  oem_part_no: ''
+- name: Sealed fuse box with relay kit
   oem_part_no: ''
 sources:
 - t15
@@ -27,19 +40,23 @@ sources:
 - t157
 - t158
 - t282
+- t383
+- t923
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 22
+  partial_items: 33
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 0
+  unconfirmed_safety_values: 4
   withheld_items: 12
   pending_safety_values: 0
 ---
 
 # [mods] Lighting, aux fuse blocks and dual batteries
+
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -92,6 +109,18 @@ Connect the Axxess AX-NIS24SWC-6V adapter for Aux In and Rear Camera. [t282]
 [Partial] Mount the factory microphone on top of the A pillar near the sunshade. [t282]
 
 [Partial] Verify the airbag light remains connected during dash removal to avoid needing a system reset. [t282]
+
+Install an 80A circuit breaker on the positive wire before it passes through the firewall. [t383]
+
+[Partial] Run a 4awg positive and matching 12/2 awg stranded negative ground wire from the battery. [t383]
+
+Install a Maxi/Mega bolt-down style fuse holder near the battery with a Bussmann AMG-175 High Current Fuse. [t383]
+
+Run two large gauge wires through the firewall to a sealed fuse box mounted in the cab. [t383]
+
+[Partial] Tap into the dash light circuit and use a T-tap connector with a factory grommet. [t383]
+
+[Partial] Choose between a spot beam pattern or flood pattern based on preference. [t923]
 
 ## Procedure
 
@@ -165,6 +194,20 @@ _Procedure reported by [t157]._
 
 </details>
 
+<details><summary>Alternate procedure [t383] [Partial]</summary>
+
+1. Install a main breaker on the positive wire before it passes through the firewall.
+2. Connect this 80A breaker to trip if draw exceeds capacity, protecting the fuse block from overheating.
+
+</details>
+
+<details><summary>Alternate procedure [t383] [Partial]</summary>
+
+1. Run a 4awg positive wire from the battery to the main fuse block.
+2. [Partial] Route a matching negative ground wire alongside it.
+
+</details>
+
 <details><summary>Alternate procedure [t17] [Partial]</summary>
 
 1. Identify the 'Ign relay' source for 12v power available when ignition is on or starting.
@@ -231,6 +274,30 @@ _Procedure reported by [t157]._
 
 </details>
 
+<details><summary>Alternate procedure [t383] [Partial]</summary>
+
+1. Install a Maxi/Mega bolt-down style fuse holder near the battery.
+
+</details>
+
+<details><summary>Alternate procedure [t383] [Partial]</summary>
+
+1. Run two large gauge wires (positive and negative) through the firewall to a sealed fuse box mounted in the cab.
+
+</details>
+
+<details><summary>Alternate procedure [t383] [Partial]</summary>
+
+1. [Partial] Tap into the dash light circuit to illuminate switch lights only when running.
+
+</details>
+
+<details><summary>Alternate procedure [t923] [Partial]</summary>
+
+1. Choose between a Spot beam pattern or Flood pattern based on preference.
+
+</details>
+
 ## Tools
 
 - [Partial] Wire strippers [t282]
@@ -240,13 +307,23 @@ _Procedure reported by [t157]._
 
 ## Parts
 
+- [Partial] 12/2 awg stranded cable [t383]
+- [Partial] 80A circuit breaker [t383]
 - Auxiliary power box [t158]
+- Bussmann AMG-175 High Current Fuse [t383]
+- Mega/AMG 298 Series Bolt Down Holder [t383]
+- Rubber grommet or cable gland [t383]
+- Sealed fuse box with relay kit [t383]
 
 ## Specifications
 
+- **Breaker rating for main run protection**: 80A [t383] ([Unverified] single report)
 - **Factory mic voltage requirement**: 5V [t282] ([Partial] [Unverified] single report)
+- **Main fuse rating for inverter protection**: 175A [t383] ([Partial] [Unverified] single report)
 - **Pin slot locations on harness**: 6, 15, and 16 [t282] ([Unverified] single report)
 - **Steering control pins to extract**: 3 [t282] ([Unverified] single report)
+- **Wire gauge for accessory runs**: 4awg positive, 12/2 awg negative [t383] ([Partial] [Unverified] single report)
+- **Wire gauge for main run through firewall**: 4awg [t383] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -254,6 +331,13 @@ _Procedure reported by [t157]._
 - Note that this method may result in slight alternator hum if not squelched. [t158]
 - [Partial] This method is described as definitive with no further discussion needed compared to other options. [t158]
 - This setup is described as 'fine' until upgraded, but may transmit alternator noise if not squelched. [t158]
+- Use a separate relay box with its own fuses for individual lights and accessories. [t383]
+- Use stranded wire instead of solid wire to handle vibration. [t383]
+- [Partial] Choose a bolt-down style so you only replace the fuse itself if it blows. [t383]
+- [Partial] Mount the fuse box under the seat or outboard of the brake pedal if hood space is tight. [t383]
+- Use cable glands for waterproofing and strain relief. [t383]
+- [Partial] Use a T-tap connector rather than adding an extra fuse for signal wires. [t383]
+- Find a factory grommet near the passenger footwell wall to feed multiple 4 gauge wires through. [t383]
 
 ## Diagrams (links only)
 
@@ -275,4 +359,6 @@ _Procedure reported by [t157]._
 - **t157**: Oz_X, "Switches and You", 2012-03-20. https://www.xterranation.org/index.php?threads/switches-and-you.1269/
 - **t158**: Macland, "CB and antenna setup on a budget", 2013-02-10. https://www.xterranation.org/index.php?threads/cb-and-antenna-setup-on-a-budget.2971/
 - **t282**: meisanerd, "How To: Replace the 2015 Rockford Fosgate Nav unit", 2022-07-22. https://www.xterranation.org/index.php?threads/how-to-replace-the-2015-rockford-fosgate-nav-unit.10676/
+- **t383**: Sturmovik, "Need some tips and help with fuse/relay boxes", 2022-01-04. https://www.xterranation.org/index.php?threads/need-some-tips-and-help-with-fuse-relay-boxes.10449/
+- **t923**: RioDeColumbia, "LED cube light difference?", 2015-07-26. https://www.xterranation.org/index.php?threads/led-cube-light-difference.7070/
 

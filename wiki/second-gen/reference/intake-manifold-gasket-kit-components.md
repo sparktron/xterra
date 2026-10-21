@@ -6,12 +6,13 @@ category: reference
 applies_to:
   years:
   - 2005
-  trims: []
+  trims:
+  - OR
   engine: []
   drivetrain: []
 shared_platform:
 - Frontier
-difficulty: null
+difficulty: 1
 est_time: null
 tools: []
 parts:
@@ -19,27 +20,29 @@ parts:
   oem_part_no: ''
 sources:
 - t67
-confidence: '[Unverified]'
+- t327
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 1
+  partial_items: 3
   partial_fields:
   - applies_to
+  - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Intake manifold gasket kit components
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 The Fel-Pro kit includes an oblong gasket for the electric throttle control actuator. [t67]
+
+[Partial] Purchase a complete plenum gasket set featuring green rubber gaskets around the spark plug wells. [t327]
 
 ## Parts
 
@@ -48,8 +51,10 @@ The Fel-Pro kit includes an oblong gasket for the electric throttle control actu
 ## Tips & gotchas
 
 - [Partial] The Fel-Pro kit includes a single oblong gasket designed to fit the electric throttle control actuator. [t67]
+- [Partial] Look for green rubber gaskets specifically designed around the spark plug wells. [t327]
 
 ## Source attributions
 
 - **t67**: TheFauxFox, "How-to: DIY Spark Plug and Intake Plenum Gasket Replacement", 2017-08-12. https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/
+- **t327**: outback97, "P0301 came back, could use some advice please", 2022-03-21. https://www.xterranation.org/index.php?threads/p0301-came-back-could-use-some-advice-please.10556/
 
