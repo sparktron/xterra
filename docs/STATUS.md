@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-21 · **Branch:** `master` (`98f266a`, PR #9 merged), with uncommitted guides, parser, export and source changes (Active work, first item) · Earlier: guide-first extraction and reviewer corrections, each followed by its regenerated `wiki/` commit
+**Updated:** 2026-10-21 · **Branch:** `feat/guides-and-generation-split`, open as PR #11 against `master` (`98f266a`) · Earlier: guide-first extraction and reviewer corrections, each followed by its regenerated `wiki/` commit
 
 ## Objective
 
@@ -36,8 +36,15 @@ diff and push it").
   - The rule "stated years decide" sends them to the second-gen section. One of them is "Torsion bar vs Solid axle characteristics".
   - The verifier rated their `applies` claims partial for four and unsupported for one, so verdicts can't catch them either.
   - They are not committed. The committed wiki was exported from a database copy without them: second-gen is byte-identical to `ca75c52`, and qa passed on the copy and on the live database.
-  - **Open, for the user:** should a fact from a source of one generation that states only the other generation's years publish nowhere, like the title rule? That would change `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, which currently routes a `manual` (second-gen) fact stating 2001 to first-gen.
-  - Until decided, a plain `xw export` puts the 5 back on second-gen pages.
+  - **Decided by the user (2026-10-21):** a fact from one generation's source that states only the other generation's
+    years publishes nowhere. `generations.route` now applies this, and export and qa both use it.
+    `test_a_fact_publishes_only_in_the_generation_of_its_stated_years` now expects a `manual` (second-gen) fact stating
+    2001 to publish nowhere, and the same fact from `manual-gen1` to go to first-gen.
+    `test_a_source_without_a_generation_routes_by_stated_years` covers the remaining year-based routing. Both tests
+    fail on the old rule.
+  - A plain `xw export` of the live database now lists the 5 (t1278, t1477, t1858, t2165, t2183) in the top-level
+    `open_questions.md` and produces the committed pages unchanged: 7 facts in no section, first-gen 459 pages,
+    second-gen 930. `xw qa` passed; `pytest` 147 passed.
 - **Export:** first-gen has 459 pages from 872 facts (was 0), with 459 items withheld.
   - Pages by category: 197 reference, 121 mods, 89 repair, 32 diagnostics, 20 maintenance.
   - 328 pages have a procedure and 82 have specifications.

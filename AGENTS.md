@@ -107,14 +107,16 @@ The local model is not trusted. Each item names the guarding test, or says none 
 - **Wiki scope years (`scope.years: [2000, 2016]`) are `[Unverified]`.** Facts stating only years outside it are dropped
   (`test_out_of_scope_years_are_dropped`); do not tighten the range without a source.
 - **Each generation is a completely separate section** (decided 2026-10-20: the first-gen WD22 and second-gen N50 "are
-  nothing alike"). `generations.route` sends a fact to the generation of its stated years, else its source's
-  `generation` (sources.yaml); years in two generations, no generation at all, or a fact title naming another
-  generation publish nowhere (top-level `open_questions.md`). Export writes `wiki/<generation>/...` with its own index,
+  nothing alike"). `generations.route` sends a fact to its source's `generation` (sources.yaml), or, from a source
+  with none, to the generation of its stated years. Years in two generations, years only in a generation other than
+  the source's (decided 2026-10-21: in a first-gen forum a stated "2013" was a post date), no generation at all, or a
+  fact title naming another generation publish nowhere (top-level `open_questions.md`). Export writes `wiki/<generation>/...` with its own index,
   topic tree (`topics.yaml` `generations:`) and supporting files, and withholds any claim that names another generation
   (`config.DEFAULTS["generations"]` markers); corroboration and the review queue are per generation. `qa` re-derives the
   routing from the database and refuses a page in the wrong section, a cited thread with no fact in that generation,
   and a line (generated or curated) naming another generation. A new source needs a `generation`. Tests:
-  `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, `test_a_fact_without_years_takes_its_sources_generation`,
+  `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, `test_a_source_without_a_generation_routes_by_stated_years`,
+  `test_a_fact_without_years_takes_its_sources_generation`,
   `test_a_fact_whose_years_span_both_generations_publishes_in_neither`,
   `test_a_fact_whose_title_names_the_other_generation_publishes_in_neither`,
   `test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it`,

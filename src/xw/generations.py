@@ -3,10 +3,11 @@ Xterra and the second-generation N50 share almost nothing), so every fact is rou
 published in none.
 
 Routing is deterministic and does not trust the model:
-  * the model years a fact states (kept only when the source text names them, see extract.py) decide first;
-  * a fact that states none takes its source's `generation` (sources.yaml), e.g. a 2005-2015 subforum;
-  * years in two generations, or no years and no source generation: the fact publishes nowhere and is listed
-    in the top-level open questions.
+  * a fact goes to its source's `generation` (sources.yaml), e.g. a 2005-2015 subforum, or, from a source with
+    none, to the generation of the model years it states (kept only when the source text names them, see extract.py);
+  * years in two generations, years only in a generation other than the source's (decided 2026-10-21: in a
+    first-gen forum, "2013" was a post date, not the truck's year), or no years and no source generation: the
+    fact publishes nowhere and is listed in the top-level open questions.
 A claim that names another generation ("unlike the first gen ...", "VG33", "2nd gen") is withheld from a page
 by the exporter, and `qa` refuses it independently, so one generation's facts never appear in the other's section.
 """
@@ -64,7 +65,11 @@ def route(years: list[int], source_gen: str | None, gens: list[Generation], titl
     hit = {g.id for y in years for g in gens if g.covers(y)}
     if len(hit) > 1:
         return None, "its model years span " + " and ".join(g.title for g in gens if g.id in hit)
-    gid = hit.pop() if hit else (source_gen if source_gen and any(g.id == source_gen for g in gens) else None)
+    src = source_gen if source_gen and any(g.id == source_gen for g in gens) else None
+    if hit and src and hit != {src}:
+        return None, (f"its source is {next(g.title for g in gens if g.id == src)} "
+                      f"but its model years are only {next(g.title for g in gens if g.id in hit)}")
+    gid = hit.pop() if hit else src
     if gid is None:
         return None, "it states no model year and its source has no generation"
     gen = next(g for g in gens if g.id == gid)

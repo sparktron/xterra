@@ -405,17 +405,36 @@ GEN1_TEXT = "Lower control arm job on my 2001 Xterra with plenty of detail on th
 
 
 def test_a_fact_publishes_only_in_the_generation_of_its_stated_years(cfg, conn, tmp_path):
-    # the user (2026-10-20): first and second generation "are nothing alike"; each has its own separate section
+    # the user (2026-10-20): first and second generation "are nothing alike"; each has its own separate section.
+    # Decided 2026-10-21: stated years must agree with the source's generation. A first-gen forum fact stating "2013"
+    # (a post date) went to second-gen pages; a fact whose years are only the other generation's now publishes nowhere.
     pic = "https://img.invalid/albums/t999/arm.jpg"   # a thread-id-like path in a URL is not a citation (qa once read it as t999)
-    add_notes(cfg, conn, tmp_path, [("gen1", GEN1_TEXT + f" Diagram: {pic}", "dan")])   # `manual` is second-gen; the year decides
+    add_notes(cfg, conn, tmp_path, [("gen2src", GEN1_TEXT, "dan")])                    # `manual` is a second-gen source
+    f = tmp_path / "gen1.txt"
+    f.write_text(GEN1_TEXT + f" Diagram: {pic}")
+    ingest_file(cfg, conn, f, url="https://gen1.invalid/1", title="gen1", author="eve", source="manual-gen1")
     extract_and_verify(cfg, conn, [("2001", {"relevant": True, "facts": [arm_fact(years=[2001], parts=[], specs=[], diagram_links=[pic])]})])
     export(cfg, conn)
     page = (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").read_text()
     assert "generation: first-gen" in page and "Remove the pivot bolts" in page
+    assert "gen1.invalid" in page and "gen2src.invalid" not in page          # only the first-gen source's fact
     assert not (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+    assert ("its source is Second generation (N50), 2005-2015 but its model years are only First generation"
+            in (cfg.wiki_dir / "open_questions.md").read_text())
     assert "](../second-gen/index.md)" in (cfg.wiki_dir / "first-gen" / "index.md").read_text()
     assert "](first-gen/index.md)" in (cfg.wiki_dir / "index.md").read_text()
     assert check_wiki(cfg, conn) == []
+
+
+def test_a_source_without_a_generation_routes_by_stated_years():
+    from xw.config import DEFAULTS
+    from xw.generations import from_spec, route
+
+    gens = from_spec(DEFAULTS["generations"])
+    assert route([2001], None, gens) == ("first-gen", "")
+    assert route([2013], None, gens) == ("second-gen", "")
+    assert route([2013], "second-gen", gens) == ("second-gen", "")
+    assert route([2013], "first-gen", gens)[0] is None
 
 
 def test_a_fact_without_years_takes_its_sources_generation(cfg, conn, tmp_path):
