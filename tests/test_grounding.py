@@ -101,6 +101,19 @@ def test_units_attach_only_to_adjacent_numbers():
     assert numbers_grounded("Remove the 2 bolts", "remove the two bolts") and not numbers_grounded("Use a 21mm socket", "a 19mm socket")
 
 
+def test_a_swap_engine_name_or_a_part_called_bar_is_not_a_safety_value():
+    # live, first-gen export 2026-10-21: qa refused a page titled "Engine dimensions (Ford 4.6L)" as an unmarked 4.6 L
+    # capacity, and a bumper part "Main frame bar: 42" 3x2 steel" as a 42 bar pressure; neither is a fluid or a pressure
+    from xw.grounding import safety_values
+    for text in ("# Engine dimensions (Ford 4.6L)", "Chevy 6.0L V8, LS", "a 5.3L V8 swap", "Engine displacement: 2.8L",
+                 '- Main frame bar: 42" 3x2 steel, 1/4" wall',
+                 "https://www.xterranation.org/index.php?threads/how-to-reinstate-rear-sway-bar.11547/"):
+        assert safety_values(text) == set(), text
+    # a real volume or pressure stays one, whatever engine is near it
+    assert safety_values("Ford says drain and refill 4.6L of oil") == {("4.6", "L")}
+    assert safety_values("V8 engine oil: 5.7 L, tires at 2.1 bar") == {("5.7", "L"), ("2.1", "bar")}
+
+
 def test_dedupe_keeps_disagreeing_numbers_apart():
     from xw.export import _dedupe
     merged = _dedupe([("Replace the 15 amp fuse under the dash", "t1"), ("Replace the 20 amp fuse under the dash", "t2"),

@@ -64,8 +64,11 @@ The local model is not trusted. Each item names the guarding test, or says none 
   entry. `export.load_rows` recomputes grounding from chunk text on every export (`facts.grounding_json` is not read),
   so a tightened rule applies to old facts. Tests: `tests/test_grounding.py`.
 - **Safety classification is deterministic.** `export.is_safety` (torque, capacities, pressure, preload) never
-  relies on the model's `safety_critical` flag, which defaults to false.
-  Test: `test_non_torque_safety_values_are_classified_deterministically`.
+  relies on the model's `safety_critical` flag, which defaults to false. `grounding.safety_values` does not read an
+  engine's displacement ("VQ40DE 4.0L", "Ford 4.6L", "5.3L V8") as a fluid volume, or a part named "bar" before a
+  number ("frame bar: 42"") as a pressure; a volume or pressure next to an engine name still counts.
+  Tests: `test_non_torque_safety_values_are_classified_deterministically`,
+  `test_a_swap_engine_name_or_a_part_called_bar_is_not_a_safety_value`.
 - **An unconfirmed safety value publishes only marked, and keeps being re-checked.** Confirmed means
   `verify.safety_min_threads` (2) threads with as many distinct authors, a manufacturer source, or a reviewer's approval.
   Decided 2026-10-16 (`verify.publish_unverified_safety`, default on): an unconfirmed torque/capacity/pressure value
