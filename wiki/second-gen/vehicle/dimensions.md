@@ -17,8 +17,6 @@
 | Turning diameter, curb to curb | 37 ft 7 in (4x2), 37 ft 3 in (4x4) | 2012 | [S8] |
 | Turning diameter, curb to curb | 37 ft 3 in | 2015 | [S11] |
 
-Against the first generation, the 2005 wheelbase grew 2.0 in, length 0.2 in, width 2.4 in and height 0.5 in [S1].
-
 ## Ground clearance and off-road angles (2012-2015)
 
 | Model | Minimum ground clearance | Approach | Departure | Source |

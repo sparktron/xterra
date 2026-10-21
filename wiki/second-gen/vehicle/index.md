@@ -20,6 +20,7 @@ Hand-curated reference for the 2005-2015 Nissan Xterra [S1][S11][S20]: trims, co
 
 ## Reference pages
 
+- **[How-to guides](guides/index.md)**: step-by-step maintenance, repair and upgrade procedures from the factory service manual and owners' write-ups, with torque values and tools
 - [Trim levels by year](trims.md): what X, S, Off-Road, SE and PRO-4X meant each year [S1][S11]
 - [Paint codes](paint-codes.md): every factory color, its code and its years
 - [Dimensions, weights and towing](dimensions.md): exterior, interior, cargo, clearance, angles

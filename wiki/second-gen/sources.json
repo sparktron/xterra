@@ -1,0 +1,3872 @@
+[
+  {
+    "id": "t1",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/one-stop-led-conversion-and-install-how-to-shop.16260/",
+    "thread_title": "One-Stop LED Conversion and Install How-to Shop",
+    "author_handle": "XterraS05",
+    "date_posted": "2009-03-22T18:04:46-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/2005-2010-xterra-wiring-diagrams.36904/",
+    "thread_title": "2005-2010 Xterra Wiring Diagrams",
+    "author_handle": "Xterra1102",
+    "date_posted": "2009-04-03T18:23:14-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/airbag-reset-procedure.3820/",
+    "thread_title": "Airbag Reset Procedure",
+    "author_handle": "kokopop",
+    "date_posted": "2006-02-07T20:43:35-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Airbag Reset Procedure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t4",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-from-the-battery-to-the-roof-lights-and-in-between-pbr.37578/",
+    "thread_title": "-How-to: From the Battery to the Roof Lights and In-between - PBR",
+    "author_handle": "XJ-TERRA",
+    "date_posted": "2010-12-26",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Grounding system using a 19-inch negative battery cable",
+      "Lighting and Auxiliary Power Wiring",
+      "Lighting and Electrical Upgrades",
+      "Lighting and Wiring Modifications",
+      "Power distribution block mounting with aluminum rivets",
+      "Relay mounting using existing sheet metal screw holes",
+      "Wiring harness installation via firewall grommet",
+      "[reference] Electrical system wiring and fuse sizing"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t5",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/torn-oil-hose-during-timing-chain-guide-job.291789/",
+    "thread_title": "Torn Oil Hose during Timing Chain Guide Job",
+    "author_handle": "RamTest",
+    "date_posted": "2025-05-30T21:35:59-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Rear bypass coolant hose identification",
+      "Timing chain guide job complications",
+      "Valve cover removal for hose access"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t6",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-install-7-pin-wiring-harness.4849/",
+    "thread_title": "How-to: Install 7-Pin Wiring Harness",
+    "author_handle": "brutus_skx",
+    "date_posted": "2007-06-17",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain",
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t7",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/",
+    "thread_title": "How-to: Air Conditioner Fix - PBR",
+    "author_handle": "jedge99",
+    "date_posted": "2013-12-22",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Blower motor removal and inspection",
+      "Blower resistor operation and symptoms",
+      "Electrical faults, grounds and battery drain",
+      "Heater core and A/C problems",
+      "[reference] Part selection for climate control vs numbered fan settings",
+      "[reference] Torque specifications for blower motor resistor"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t8",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-pictorial-guide-for-the-fog-light-bypass-mod-pbr.41057/",
+    "thread_title": "How-to: Pictorial Guide for the Fog Light Bypass MOD - PBR",
+    "author_handle": "skibum315",
+    "date_posted": "2011-04-10T02:16:08-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Fog Light Bypass Mod"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t9",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-rear-hatch-strut-replacement-pbr.51485/",
+    "thread_title": "How-to: Rear Hatch Strut Replacement - PBR",
+    "author_handle": "dezurtrat",
+    "date_posted": "2007-12-23",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Rear Hatch Strut Replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t10",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-replace-neutral-position-sensor-in-a-6mt.234802/",
+    "thread_title": "How-to: Replace Neutral Position Sensor in a 6MT | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Neutral Position Sensor replacement for manual transmission"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t11",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/",
+    "thread_title": "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)",
+    "author_handle": "alkeli",
+    "date_posted": "2009-07-22T17:42:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain",
+      "Torque specifications",
+      "[diagnostics] Fuse and relay maps",
+      "[reference] Fluids and capacities",
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t12",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/2005-xterra-obd-ii-codes.2393/",
+    "thread_title": "2005+ Xterra OBD-II Codes",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Diagnostics Engine code P1615 for Park sensor issues",
+      "Diagnostics Evap canister location and fix",
+      "Diagnostics Evaporative emissions code P1446",
+      "Diagnostics Mystery code P1283 troubleshooting",
+      "Engine trouble codes (VQ40DE)",
+      "Reference OBD-II code list source"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t13",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/calculating-amperage.24648/",
+    "thread_title": "Calculating Amperage",
+    "author_handle": "Oz",
+    "date_posted": "2007-10-27T20:59:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Electrical amperage and wire gauge specs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t14",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/ecm-location.36129/",
+    "thread_title": "ECM Location",
+    "author_handle": "Muzikman",
+    "date_posted": "2010-11-08T16:35:59-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ECM Location and Identification"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t15",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/switches-and-you.43111/",
+    "thread_title": "Switches and You | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t16",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/air-conditoning-information.65352/",
+    "thread_title": "Air Conditoning Information",
+    "author_handle": "XterraPA",
+    "date_posted": "2007-03-02T14:51:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[diagnostics] Heater core and A/C problems",
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t17",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/ipdm-fuse-list.266890/",
+    "thread_title": "IPDM Fuse List",
+    "author_handle": "tnelson",
+    "date_posted": "2017-05-05T11:52:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[diagnostics] Fuse and relay maps",
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t18",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/abs-brake-vdc-slip-lights-all-on.283005/",
+    "thread_title": "ABS BRAKE VDC SLIP Lights all 'ON'",
+    "author_handle": "TeXas-Hooligan",
+    "date_posted": "2019-04-16T13:57:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t19",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/electrical-issues-ecm-or-bad-ground.284270/",
+    "thread_title": "Electrical Issues, ECM or Bad Ground?",
+    "author_handle": "impeerical",
+    "date_posted": "2022-02-11T09:13:28-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t20",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/",
+    "thread_title": "Recommended Fluids and Capacity",
+    "author_handle": "Raymond06",
+    "date_posted": "2007-06-22T00:10:15-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t21",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/please-read-front-diff-failures.5479/",
+    "thread_title": "*** PLEASE READ *** ~ Front Diff Failures",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28T19:39:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Specifications by model year"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t22",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/",
+    "thread_title": "Throttle Bottle Idle Air Re-learn",
+    "author_handle": "Shiny",
+    "date_posted": "2009-01-01T17:25:22-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Serpentine belt and tensioner",
+      "VVT and cam solenoid issues"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t23",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/radiator-trans-issues-collection-of-salient-threads.36132/",
+    "thread_title": "Radiator/Trans Issues ... Collection of Salient Threads",
+    "author_handle": "xmedicG",
+    "date_posted": "2010-11-08T17:25:49-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Aftermarket radiator and shroud options",
+      "Nissan Assist reimbursement for SMOD repairs",
+      "SMOD radiator transmission cooler failure",
+      "Transmission cooler bypass pros and cons",
+      "Transmission fluid change frequency and type",
+      "Transmission rebuild and replacement sources"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t24",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/",
+    "thread_title": "SMOD Hit List - Year, Mileage, User and Outcome",
+    "author_handle": "Killswitch",
+    "date_posted": "2013-03-14T16:37:03-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change",
+      "Engine trouble codes (VQ40DE)",
+      "SMOD radiator transmission cooler failure",
+      "Secondary transmission cooler bypass setup"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t25",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/",
+    "thread_title": "Thoughts and Observations on Engine and Auto Trans Cooling",
+    "author_handle": "jeff_redx",
+    "date_posted": "2008-12-28T12:17:00-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ATF Rad-Cooler and Air-Cooler Definitions",
+      "ATF Temperature Behavior During Warm-up",
+      "Air-Cooled ATF Cooler Performance Limits",
+      "Cooling upgrades",
+      "Engine Coolant Level Inspection Procedure",
+      "Engine and Auto Trans Cooling Observations",
+      "Fluids and capacities",
+      "Managing Trans Heat Under High Load",
+      "Torque specifications",
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t26",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/",
+    "thread_title": "Want a Little More Power from Your X? Start Here",
+    "author_handle": "N.Y.X.",
+    "date_posted": "2014-04-09T16:47:11-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Intake, exhaust, tune and forced induction",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t27",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/",
+    "thread_title": "List of Calsonic Radiator Part Numbers Associated with SMOD",
+    "author_handle": "GringoRubio",
+    "date_posted": "2021-03-06T10:11:22-0500",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "SMOD radiator transmission cooler failure",
+      "[reference] 21460 series radiator part numbers and variants",
+      "[reference] B1D60 Nissan Value Advantage radiator specs",
+      "[reference] Calsonic condenser part numbers for cross-reference",
+      "[reference] Calsonic radiator part numbers for SMOD",
+      "[reference] External cooler impact on torque converter lock-up",
+      "[reference] Factory label identification for faded radiators",
+      "[reference] Nissan Value Advantage vs Calsonic radiators",
+      "[reference] Radiator part number date codes and formats",
+      "[reference] Specific Calsonic radiator model number formats"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t28",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/torque-specs.1407/",
+    "thread_title": "Torque Specs | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Torque specifications",
+      "[reference] Driveshaft flange torque specs",
+      "[reference] Engine intake manifold bolt sequence and torque",
+      "[reference] Front brake caliper torque specs",
+      "[reference] Front differential torque specs (R180)",
+      "[reference] Front suspension torque specs",
+      "[reference] General maintenance fluid plug torques",
+      "[reference] Rear differential torque specs (M225/M226)",
+      "[reference] Wheel lug nut torque spec"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t29",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/",
+    "thread_title": "How-to: ShrockWorks Sliders Install - PBR",
+    "author_handle": "usmc xterra",
+    "date_posted": "2006-01-28",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t30",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-vias-rattle-fix.181130/",
+    "thread_title": "How-to: VIAS Rattle Fix",
+    "author_handle": "Fresh Prince",
+    "date_posted": "2015-02-15",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Nissan TSB for VIAS rattle fix",
+      "VIAS Valve Rattle Fix",
+      "VIAS rattle fix with screw method",
+      "VIAS valve movement characteristics",
+      "VVT and cam solenoid issues"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t31",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-replace-your-05-08-license-plate-light-housings-with-oem-parts.274716/",
+    "thread_title": "How-to: Replace your 05-08 License Plate Light Housings With OEM Parts",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2013-09-24",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "License plate light housing replacement",
+      "Trim guide (X, S, SE, Off-Road, PRO-4X)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t32",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-2005-xterra-alternator-rebuild-work-in-progress.3527/",
+    "thread_title": "How-to: 2005 Xterra Alternator Rebuild (Work In Progress)",
+    "author_handle": "Muzikman",
+    "date_posted": "2006-01-28",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Alternator bearing replacement",
+      "Alternator failure symptoms",
+      "Alternator part numbers for N50",
+      "Alternator rebuild and bearing service"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t33",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-upgrade-your-rear-wiper-to-14-or-16-pbr.24339/",
+    "thread_title": "How-to: Upgrade Your Rear Wiper to 14\" or 16\" - PBR",
+    "author_handle": "BORNGEARHEAD",
+    "date_posted": "2009-10-08",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Rear wiper blade upgrade",
+      "Stock rear wiper sweep dimensions",
+      "Vendor sources for rear wiper blades"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t34",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/",
+    "thread_title": "How-to: Transmission PMF (Poor Man's Flush) - PBR",
+    "author_handle": "Rook",
+    "date_posted": "2009-07-07",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t35",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/",
+    "thread_title": "How-to: Convert 2wd to 4x4",
+    "author_handle": "USMMA11NC",
+    "date_posted": "2012-01-31",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Transfer case conversion and shifting",
+      "Transmission and transfer case problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t36",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-stop-hood-squeak-pbr.63948/",
+    "thread_title": "How-to: Stop Hood Squeak - PBR",
+    "author_handle": "scorpio",
+    "date_posted": "2013-05-11T14:38:39-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Bug deflector tab rubbing fix",
+      "Dealer hood adjustment cost reference",
+      "Hood bump stop replacement and adjustment",
+      "Hood latch locking mechanism description",
+      "Hood latch squeak fix",
+      "Hood squeak sound characteristics",
+      "Lubrication frequency for hood squeaks"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t38",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-abs-off-version-3.231530/",
+    "thread_title": "How-to: ABS Off Version 3",
+    "author_handle": "PhullD",
+    "date_posted": "2015-08-10",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "ABS plug location and wiring details",
+      "ABS system disable switch",
+      "Diagnostics: ABS Off Version 3 Switch Mod",
+      "Reference: ABS Module Connector Pinout Variations"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t39",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-repair-master-power-window-switch-%E2%80%93-updated.233938/",
+    "thread_title": "How-to: Repair Master Power Window Switch \u2013 Updated | Second Generation Nissan Xterra Forums",
+    "author_handle": "",
+    "date_posted": "",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Master Power Window Switch Repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t40",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/diy-drop-in-cargo-roof-rack-%E2%80%9Cthe-golf-cart-roof-rack-hack%E2%80%9D.282013/",
+    "thread_title": "DIY: Drop in Cargo Roof Rack - \u201cThe Golf Cart Roof Rack Hack\u201d",
+    "author_handle": "CDL",
+    "date_posted": "2021-03-01",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks and crossbars",
+      "Roof racks and storage systems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t41",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-xterra-interior-buildout-drawer-and-kitchen-system.282917/",
+    "thread_title": "How-to: Xterra Interior Buildout Drawer and Kitchen System",
+    "author_handle": "Keevohh",
+    "date_posted": "2021-09-01T20:40:00-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Exterior DC port and switch installation",
+      "Interior drawer and kitchen system buildout",
+      "Lithium battery upgrade and cold weather setup"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t42",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/mode-door-actuator-replacement-on-a-2015-xterra.282964/",
+    "thread_title": "Mode Door Actuator Replacement on a 2015 Xterra",
+    "author_handle": "Tenlayer",
+    "date_posted": "2021-09-03T19:51:13-0400",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Mode door actuator part numbers",
+      "Mode door actuator replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t43",
+    "source_id": "manual",
+    "url": "https://www.thenewx.org/threads/how-to-exhaust-without-the-drone.285733/",
+    "thread_title": "How-to: Exhaust without the Drone",
+    "author_handle": "Old Army",
+    "date_posted": "2006-07-10",
+    "date_scraped": null,
+    "type": "manual",
+    "trust_score": 3,
+    "topics": [
+      "Fluids and capacities",
+      "Intake, exhaust, tune and forced induction",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t53",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-rebuild-cv-on-2nd-gen-driveshaft.9303/",
+    "thread_title": "How To: Rebuild Cv On 2nd Gen Driveshaft",
+    "author_handle": "JeffNJM3",
+    "date_posted": "2020-01-03T23:41:14-0500",
+    "date_scraped": "2026-10-20T13:52:49Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "CV Joint Rebuild and Replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t54",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/roof-lights-boob-lights-mods-upgrades.11683/",
+    "thread_title": "Roof lights/boob lights mods upgrades?",
+    "author_handle": "PNWPRO4X",
+    "date_posted": "2026-08-08T01:04:04-0400",
+    "date_scraped": "2026-10-20T14:02:00Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof lights and spot effect upgrades"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t55",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-reduce-interior-wind-and-road-noise-free.1545/",
+    "thread_title": "How To: reduce interior wind and road noise FREE",
+    "author_handle": "Macguyvermedic",
+    "date_posted": "2012-05-04T23:54:27-0400",
+    "date_scraped": "2026-10-20T13:50:41Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Interior wind and road noise reduction",
+      "Rear tailgate catch adjustment for noise reduction"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t56",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-fog-lights-by-pass-without-giving-up-factory-switch.561/",
+    "thread_title": "How-to: Fog lights by-pass without giving up factory switch",
+    "author_handle": "2k11pro4x",
+    "date_posted": "2011-12-15T04:51:13-0500",
+    "date_scraped": "2026-10-20T13:47:05Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Factory fog switch wiring location",
+      "Fog light wiring bypass",
+      "Lighting and Wiring Modifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t57",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-reinstate-rear-sway-bar.11547/",
+    "thread_title": "How-To: Reinstate Rear Sway Bar",
+    "author_handle": "PhullD",
+    "date_posted": "2026-05-10T09:13:12-0400",
+    "date_scraped": "2026-10-20T14:01:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar end link adjustment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t58",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-repair-master-power-window-switch.8919/",
+    "thread_title": "How-to: Repair Master Power Window Switch",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-05T17:17:08-0400",
+    "date_scraped": "2026-10-20T13:50:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door window and switch electrical faults",
+      "Master Power Window Switch Repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t60",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-change-engine-oil-2nd-gen.4954/",
+    "thread_title": "How to: Change engine oil 2nd GEN",
+    "author_handle": "gamecock257",
+    "date_posted": "2014-03-12T16:53:05-0400",
+    "date_scraped": "2026-10-20T13:45:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine oil and filter change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t66",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/evicting-my-squirrels-replacing-the-blower-motor.11170/",
+    "thread_title": "Evicting My Squirrels (Replacing the Blower Motor)",
+    "author_handle": "Prime",
+    "date_posted": "2024-04-21T15:44:02-0400",
+    "date_scraped": "2026-10-20T13:52:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t67",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/",
+    "thread_title": "How-to: DIY Spark Plug and Intake Plenum Gasket Replacement",
+    "author_handle": "TheFauxFox",
+    "date_posted": "2017-08-12T18:17:24-0400",
+    "date_scraped": "2026-10-20T13:46:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Intake manifold gasket kit components",
+      "Spark plug and intake gasket replacement",
+      "Spark plug part numbers and types"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t68",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-auxiliary-gas-tank.9069/",
+    "thread_title": "How-To: Auxiliary Gas Tank",
+    "author_handle": "PhullD",
+    "date_posted": "2019-09-08T18:16:25-0400",
+    "date_scraped": "2026-10-20T13:51:28Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Auxiliary gas tank installation",
+      "Auxiliary tank vent and filler specifications",
+      "Fuel module and strap set part numbers"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t70",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-oem-locker-bypass-and-install-custom-otrattw-switch.8000/",
+    "thread_title": "How-To: OEM Locker Bypass and install custom OTRATTW Switch",
+    "author_handle": "Prime",
+    "date_posted": "2017-02-06T22:30:22-0500",
+    "date_scraped": "2026-10-20T13:46:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bypass Locker Relay for Any-Speed Engagement",
+      "Clearing diff lock controller error codes after mod",
+      "Factory Locker Switch Pinout and Wire Functions",
+      "Factory locker trim requirements for bypass mod",
+      "Install Custom Carling Switch for Locker Control",
+      "Locker Control Module Pinout and Wire Functions",
+      "OEM Locker Bypass and Custom Switch Install",
+      "Rear differential locker bypass and switch install"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t73",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/torque-specs.8902/",
+    "thread_title": "TORQUE Specs",
+    "author_handle": "Just a Hunter",
+    "date_posted": "2019-08-03T23:12:06-0400",
+    "date_scraped": "2026-10-20T13:43:48Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Engine oil drain plug torque spec",
+      "Front brake slide pin and torque member bolt specs",
+      "Front differential fill and drain plug torque specs (R180)",
+      "Front differential pinion and ring gear torque specs (R180)",
+      "Front sway bar and link torque specs",
+      "Intake manifold bolt and stud torque specs",
+      "Lower control arm bolt torque specs",
+      "Manual and automatic transmission fill/drain plug torque specs",
+      "Rear differential pinion nut torque specs (C200)",
+      "Rear differential pinion nut torque specs (M225 w/o Locker)",
+      "Rear driveshaft flange nut torque specs (Model 2S1330)",
+      "Rear leaf spring and axle U-bolt torque specs",
+      "Rear suspension sway bar and shock torque specs",
+      "Shock absorber and spring seat torque specs",
+      "Torque specifications",
+      "Transfer case fill and drain plug torque specs",
+      "Upper control arm and shock mount torque specs",
+      "Wheel hub and center nut torque specs",
+      "[reference] Driveshaft flange torque specs",
+      "[reference] Wheel lug nut torque spec"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t74",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/factory-service-manuals.9308/",
+    "thread_title": "Factory Service Manuals",
+    "author_handle": "JeffPro4x",
+    "date_posted": "2020-01-04T13:42:58-0500",
+    "date_scraped": "2026-10-20T13:44:37Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Factory Service Manuals"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t75",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fluids-and-capacities.7952/",
+    "thread_title": "Fluids and Capacities",
+    "author_handle": "JeffPro4x",
+    "date_posted": "2017-01-08T01:03:04-0500",
+    "date_scraped": "2026-10-20T13:43:53Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t78",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/hit-a-deer-not-sure-what-needs-replacing.11409/",
+    "thread_title": "Hit a deer, not sure what needs replacing!",
+    "author_handle": "Xterizona",
+    "date_posted": "2025-11-12T11:31:37-0500",
+    "date_scraped": "2026-10-20T14:01:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t88",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/radiator-replacement.11186/",
+    "thread_title": "Radiator replacement",
+    "author_handle": "401Gremlin",
+    "date_posted": "2024-05-26T20:44:09-0400",
+    "date_scraped": "2026-10-20T13:55:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Radiator replacement and SMOD fix"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t91",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/stud-oil-cooler-replace-or-clean-up-the-thread-problem-solved.11145/",
+    "thread_title": "Stud oil cooler:  replace or clean up the thread?  PROBLEM SOLVED",
+    "author_handle": "westslope",
+    "date_posted": "2024-03-16T22:11:34-0400",
+    "date_scraped": "2026-10-20T14:01:02Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Oil filter mounting height specification",
+      "Recommended engine oil specification",
+      "Stud oil cooler and filter assembly",
+      "Stud oil cooler replacement cost estimate"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t92",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/automatic-transmission-plug-drain-and-filler-plugs-replace.11141/",
+    "thread_title": "Automatic Transmission plug drain and filler plugs ... replace?",
+    "author_handle": "westslope",
+    "date_posted": "2024-03-05T13:34:05-0500",
+    "date_scraped": "2026-10-20T13:58:40Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t98",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/z1-transmission-cooler-upgrade.11535/",
+    "thread_title": "Z1 Transmission Cooler Upgrade",
+    "author_handle": "Brunnie",
+    "date_posted": "2026-05-04T16:23:51-0400",
+    "date_scraped": "2026-10-20T13:58:46Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Cooling upgrades",
+      "Fluids and capacities",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t101",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/help-timing-issues-after-clutch-replacement.11401/",
+    "thread_title": "Help: Timing issues after clutch replacement",
+    "author_handle": "Yoshi64",
+    "date_posted": "2025-10-27T18:22:11-0400",
+    "date_scraped": "2026-10-20T13:58:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (VQ40DE)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t112",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/engine-swap.10909/",
+    "thread_title": "Engine swap",
+    "author_handle": "kking74110",
+    "date_posted": "2023-04-04T12:28:36-0400",
+    "date_scraped": "2026-10-20T13:55:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t116",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/",
+    "thread_title": "Driveline Tech Info",
+    "author_handle": "TerryD",
+    "date_posted": "2019-08-12T11:21:19-0400",
+    "date_scraped": "2026-10-20T13:45:04Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Gear ratios and tire sizes"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t117",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/m226-factory-e-locker-plug-n-play-mod.9513/",
+    "thread_title": "M226 Factory E-locker Plug N Play Mod",
+    "author_handle": "RM975",
+    "date_posted": "2020-05-09T20:36:02-0400",
+    "date_scraped": "2026-10-20T14:02:04Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "E-Locker Engagement Speed and Drive Mode Specs",
+      "Factory E-locker Plug N Play Mod",
+      "Rear Differential E-Locker Warning Light Fix",
+      "Rear differential locker bypass and switch install"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t119",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/",
+    "thread_title": "2015 Xterra P4X M226 Pinion Seal Replacement",
+    "author_handle": "KC!",
+    "date_posted": "2026-05-02T14:46:43-0400",
+    "date_scraped": "2026-10-20T14:01:50Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises",
+      "Sway bar links and bushings",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t123",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/m226-elocker-swap-installed-issue-discovered-wont-unlock-help.11239/",
+    "thread_title": "M226 ELocker Swap installed ... Issue discovered... won't unlock!  Help...",
+    "author_handle": "John2007Xterra",
+    "date_posted": "2024-08-04T22:42:49-0400",
+    "date_scraped": "2026-10-20T13:55:19Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Diagnostics: ELocker failure to unlock",
+      "Repair: ELocker internal mechanism stuck"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t126",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/noise-from-rear-after-installing-m226.11155/",
+    "thread_title": "Noise from rear after installing M226",
+    "author_handle": "xyoverland",
+    "date_posted": "2024-03-25T17:31:56-0400",
+    "date_scraped": "2026-10-20T13:58:59Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises",
+      "Transfer case fluid change and level check"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t132",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/pinging-under-load-after-cold-air-intake-install.10707/",
+    "thread_title": "Pinging Under load after Cold Air Intake install.",
+    "author_handle": "smokey_the_xterra",
+    "date_posted": "2022-08-24T09:47:58-0400",
+    "date_scraped": "2026-10-20T13:59:04Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (VQ40DE)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t140",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/",
+    "thread_title": "Ironman Leaf Springs",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-04-20T18:26:35-0400",
+    "date_scraped": "2026-10-20T14:02:43Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Ironman Full Suspension Kit Pricing and Contents",
+      "Ironman Leaf Spring Color Variations",
+      "Ironman leaf spring part numbers and pricing",
+      "Leaf spring capacity reduction by leaf count",
+      "Leaf spring overload removal strategy",
+      "Leaf spring relative stiffness by position",
+      "Rear Leaf Spring Overload Clamp Removal",
+      "Rear Leaf Spring and Lift Kit Upgrades",
+      "Rear shackle bolt torque adjustment",
+      "SuperPro Rear Leaf Spring Bushing Kit Specs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t146",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/nemesis-titan-swap-project.11117/",
+    "thread_title": "Nemesis' Titan Swap Project",
+    "author_handle": "ElGuevara",
+    "date_posted": "2024-01-18T16:27:48-0500",
+    "date_scraped": "2026-10-20T13:53:01Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Extended brake lines for Titan swap clearance",
+      "LCA bolt compatibility notes for Mevotech parts",
+      "Tie rod and control arm replacement for Titan swap",
+      "Titan VK56 engine swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t154",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/shock-shop-in-salt-lake-city-now-rebuilding-radflos.10942/",
+    "thread_title": "Shock Shop in Salt Lake City now Rebuilding Radflo's",
+    "author_handle": "IM1RU",
+    "date_posted": "2023-05-20T11:54:14-0400",
+    "date_scraped": "2026-10-20T14:00:36Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Part sources and vendors"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t157",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/switches-and-you.1269/",
+    "thread_title": "Switches and You",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-03-20T18:39:10-0400",
+    "date_scraped": "2026-10-20T13:44:08Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t158",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/cb-and-antenna-setup-on-a-budget.2971/",
+    "thread_title": "CB and antenna setup on a budget",
+    "author_handle": "Macland",
+    "date_posted": "2013-02-10T23:03:29-0500",
+    "date_scraped": "2026-10-20T13:44:13Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "CB and antenna setup on a budget",
+      "CB and antenna setup options",
+      "Lighting, aux fuse blocks and dual batteries",
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t179",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/",
+    "thread_title": "2nd Gen Skid Plans",
+    "author_handle": "GPD605X",
+    "date_posted": "2013-09-04T00:57:31-0400",
+    "date_scraped": "2026-10-20T13:44:28Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Fabricated skid plate bending angles",
+      "Skid plate coverage and clearance trade-offs",
+      "Skid plate material weight comparison",
+      "Skid plate mounting hole alignment issues",
+      "Skid plate selection and fabrication",
+      "[mods] Bumpers, sliders and skid plates",
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t180",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/",
+    "thread_title": "Aftermarket Rear Bumpers for 2nd Gens",
+    "author_handle": "gorillamel",
+    "date_posted": "2011-11-02T00:58:24-0400",
+    "date_scraped": "2026-10-20T13:43:59Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Aftermarket bumper vendors and part sources",
+      "Bumpers, sliders and skid plates",
+      "Tire carriers and recovery gear integration",
+      "Xterra, Frontier and Titan parts interchange"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t199",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fixing-swing-arm.8319/",
+    "thread_title": "fixing Swing arm",
+    "author_handle": "maillet282",
+    "date_posted": "2018-01-26T03:41:28-0500",
+    "date_scraped": "2026-10-20T13:49:22Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Rear bumper Destaco latch removal and finish prep",
+      "Rear swing arm hinge bushing lubrication fix",
+      "Rear swing arm hinge play and alignment correction",
+      "Rear swing arm hinge replacement and bushing service"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t203",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rating-tires-gen-2.36/",
+    "thread_title": "Rating tires - Gen 2",
+    "author_handle": "drbandkgb",
+    "date_posted": "2011-10-27T23:32:12-0400",
+    "date_scraped": "2026-10-20T13:45:00Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Tire ratings and performance guides"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t218",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-many-miles-on-a-set-of-tires-before-replacing-one-becomes-needing-to-replace-two-due-to-wear.10161/",
+    "thread_title": "How many miles on a set of tires before replacing one becomes needing to replace two due to wear?",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-07-12T14:30:41-0400",
+    "date_scraped": "2026-10-20T13:53:05Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Tire wear patterns and replacement logic"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t225",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rear-storage-area-tools-and-spares.10180/",
+    "thread_title": "Rear Storage Area, Tools and Spares",
+    "author_handle": "JeffPro4x",
+    "date_posted": "2021-07-21T07:52:02-0400",
+    "date_scraped": "2026-10-20T13:45:14Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Rear storage area organization and tools",
+      "Recommended battery charging solution for rear storage",
+      "Recommended consumables and cleaning supplies for rear storage",
+      "Recommended diagnostic and measurement tools for rear storage",
+      "Recommended electrical and wiring repair inventory for rear storage",
+      "Recommended fluid and lubricant inventory for rear storage",
+      "Recommended general hardware and fasteners for rear storage",
+      "Recommended hand and power tool inventory for rear storage",
+      "Recommended spare parts inventory for rear storage",
+      "Recommended suspension and drivetrain spares for rear storage",
+      "Recommended window and accessory storage for rear seats"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t227",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-ram-dash-mount-for-phone-or-small-tablet.10648/",
+    "thread_title": "How To: RAM dash mount for phone or small tablet",
+    "author_handle": "outback97",
+    "date_posted": "2022-06-21T13:39:15-0400",
+    "date_scraped": "2026-10-20T13:49:04Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Dash mount installation for phones and tablets",
+      "Mods: RAM dash mount installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t230",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-heps-designs-molle-hatch-panel.7330/",
+    "thread_title": "How To: Hep's Designs Molle Hatch Panel",
+    "author_handle": "GPD605X",
+    "date_posted": "2015-11-11T21:14:06-0500",
+    "date_scraped": "2026-10-20T13:51:33Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Molle Hatch Panel Installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t236",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/auto-dim-mirror-install.9008/",
+    "thread_title": "Auto-Dim Mirror Install",
+    "author_handle": "BrettX",
+    "date_posted": "2019-08-21T00:24:46-0400",
+    "date_scraped": "2026-10-20T13:51:38Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Auto-dimming rearview mirror install",
+      "Compass calibration procedure",
+      "Rearview mirror power source locations",
+      "Temperature sensor placement options",
+      "Wiring routing paths through interior"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t245",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/raingler-upper-half-devider-install-options.6014/",
+    "thread_title": "raingler upper half devider install options",
+    "author_handle": "maillet282",
+    "date_posted": "2014-10-09T12:26:26-0400",
+    "date_scraped": "2026-10-20T13:53:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks, snorkels and storage",
+      "Xterra, Frontier and Titan parts interchange"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t246",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/titan-swap-registry.599/",
+    "thread_title": "Titan Swap Registry",
+    "author_handle": "sleeper00",
+    "date_posted": "2011-12-20T10:46:07-0500",
+    "date_scraped": "2026-10-20T13:44:42Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap",
+      "Titan VK56 engine swap 17-inch aluminum wheels and mud tires",
+      "Titan VK56 engine swap adjustable shackles and leaf springs",
+      "Titan VK56 engine swap axle shims and leaf spring weight",
+      "Titan VK56 engine swap braking system upgrades",
+      "Titan VK56 engine swap cam bolts and lockout hardware",
+      "Titan VK56 engine swap cooling and air intake",
+      "Titan VK56 engine swap drivetrain parts",
+      "Titan VK56 engine swap extended brake lines and hardware",
+      "Titan VK56 engine swap extended rear wheel studs",
+      "Titan VK56 engine swap power stop front brake pads",
+      "Titan VK56 engine swap rear suspension and leaf springs",
+      "Titan VK56 engine swap suspension components",
+      "Titan VK56 engine swap suspension geometry and lift",
+      "Titan VK56 engine swap suspension lift and shackle mods",
+      "Titan VK56 engine swap tire size and fitment details",
+      "Titan VK56 engine swap upper control arms and lockouts",
+      "Titan VK56 engine swap wheel spacers and adapters"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t247",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/",
+    "thread_title": "Complete Front & Rear Titan Swap",
+    "author_handle": "Prime",
+    "date_posted": "2021-03-01T10:55:54-0500",
+    "date_scraped": "2026-10-20T13:45:52Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Rear Gear Ratio Requirements for Titan Axle Swap",
+      "Timbren Acti-Lift Bump Stop Installation on LCA",
+      "Titan Axle and Brake Differences from Xterra",
+      "Titan Brake Caliper Bore Size",
+      "Titan Front Brake Booster Gasket and Valve Fix",
+      "Titan Front Bump Stop Mounting on Bash Plate",
+      "Titan Front Sway Bar Link Mounting on LCA",
+      "Titan Parking Brake Cable Length Adjustment",
+      "Titan Rear Axle Installation and 2WD Transition",
+      "Titan Steering Rack Bellows Fitment on Xterra",
+      "Titan axle, differential and brake swaps",
+      "U-Bolt Flip Kit Compatibility",
+      "Xterra Master Cylinder Bore Size",
+      "Xterra Rear Axle Cable Length Issue"
+    ],
+    "status": "fetched"
+  },
+  {
+    "id": "t248",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/m205-rebuild-and-install.4197/",
+    "thread_title": "M205 Rebuild and Install",
+    "author_handle": "metzican",
+    "date_posted": "2013-10-10T06:18:48-0400",
+    "date_scraped": "2026-10-20T13:49:28Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Reference M205 differential rib designs and snap ring upgrades",
+      "Reference M205 snap ring sizing and axle retention tips",
+      "Reference M205 transfer case hardware list for swap projects",
+      "Reference Torque specifications and part numbers for M205 swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t257",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/almost-swapped.9826/",
+    "thread_title": "Almost Swapped...",
+    "author_handle": "Prawn",
+    "date_posted": "2020-12-15T03:25:05-0500",
+    "date_scraped": "2026-10-20T13:55:23Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Rear axle gear ratios and tire fitment",
+      "Rear wheel spacers for wider track",
+      "Titan rear axle swap and components"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t265",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/another-titan-swap.5743/",
+    "thread_title": "Another titan swap",
+    "author_handle": "eddieb",
+    "date_posted": "2014-08-02T12:08:41-0400",
+    "date_scraped": "2026-10-20T13:50:49Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan axle and differential swaps - Cooling upgrades",
+      "Titan axle and differential swaps - Fluid capacities",
+      "Titan axle and differential swaps - Suspension components",
+      "Titan axle, differential and brake swaps",
+      "Titan front differential swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t267",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-license-plate-light-housings-on-05-08-xterra.8848/",
+    "thread_title": "How to: Replace License Plate Light Housings On 05-08 Xterra",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-01T12:38:57-0400",
+    "date_scraped": "2026-10-20T13:51:44Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Painting chrome license plate housings to match body color"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t268",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/instructions-spc-ucas.10948/",
+    "thread_title": "Instructions: SPC UCAs",
+    "author_handle": "TerryD",
+    "date_posted": "2023-06-02T04:33:43-0400",
+    "date_scraped": "2026-10-20T14:01:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar link upgrades"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t269",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/7pin-towing-install-woes.10944/",
+    "thread_title": "7Pin towing install woes",
+    "author_handle": "oceanshrks",
+    "date_posted": "2023-05-25T16:35:46-0400",
+    "date_scraped": "2026-10-20T13:59:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain",
+      "Parts diagrams and wiring guides"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t270",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-install-delrin-lca-bushings.9384/",
+    "thread_title": "How To - Install Delrin Lca Bushings",
+    "author_handle": "JeffNJM3",
+    "date_posted": "2020-02-16T22:48:48-0500",
+    "date_scraped": "2026-10-20T13:55:33Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t271",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-strut-channel-cross-bars-roof-rack.9099/",
+    "thread_title": "How To - Strut Channel Cross Bars / Roof Rack",
+    "author_handle": "outback97",
+    "date_posted": "2019-09-25T14:23:16-0400",
+    "date_scraped": "2026-10-20T13:45:22Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "ARB awning bracket modification",
+      "Canoe rack uprights and paddle carrier",
+      "Roof rack cross bar clamps",
+      "Roof rack strut channel installation",
+      "Roof racks and crossbars",
+      "Rotopax fuel can mounts on roof rack"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t272",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-arb-ckma12-install-on-board-air-for-2nd-gen-xterras.9074/",
+    "thread_title": "How To: ARB CKMA12 Install - On Board Air for 2nd Gen Xterras",
+    "author_handle": "outback97",
+    "date_posted": "2019-09-10T18:29:40-0400",
+    "date_scraped": "2026-10-20T13:48:33Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "ARB CKMA12 On-Board Air Install",
+      "Mounting hardware modification for air compressor",
+      "On-board air compressor performance specs",
+      "ViAir On Board Air System Installation",
+      "Wiring configuration for on-board air"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t273",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-install-and-wire-diode-dynamics-c1r-hitch-light.10877/",
+    "thread_title": "How to: Install and Wire Diode Dynamics C1R Hitch Light",
+    "author_handle": "xyoverland",
+    "date_posted": "2023-02-27T23:21:36-0500",
+    "date_scraped": "2026-10-20T13:53:15Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries",
+      "Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t274",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-4x4-with-faulty-wheel-speed-sensor.9171/",
+    "thread_title": "How To: 4x4 with faulty Wheel speed sensor",
+    "author_handle": "maillet282",
+    "date_posted": "2019-10-28T16:42:40-0400",
+    "date_scraped": "2026-10-20T13:51:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Diagnostics: Wheel speed sensor failure in 4WD",
+      "Fuse and relay maps"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t276",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-front-sway-bar-center-disconnect-work-in-progress.10726/",
+    "thread_title": "DIY Front Sway Bar Center Disconnect - Work in Progress",
+    "author_handle": "rsaunders80",
+    "date_posted": "2022-09-14T14:44:19-0400",
+    "date_scraped": "2026-10-20T13:53:21Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Axle Shaft Spline Dimensions (GM)",
+      "Clamping Collar Selection Guide",
+      "Front Sway Bar Center Disconnect",
+      "Side Gear Clearance Check",
+      "Sway Bar Inside Diameter Check"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t278",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/roof-basket-diy-how-to-seal.10705/",
+    "thread_title": "Roof Basket -  DIY how to seal",
+    "author_handle": "rsaunders80",
+    "date_posted": "2022-08-20T14:22:02-0400",
+    "date_scraped": "2026-10-20T14:00:44Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks and baskets"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t280",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-audi-r8-coilpack-conversion.9654/",
+    "thread_title": "How-to: Audi R8 Coilpack Conversion",
+    "author_handle": "Zack.",
+    "date_posted": "2020-08-24T19:03:04-0400",
+    "date_scraped": "2026-10-20T13:49:43Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Intake, exhaust, tune and forced induction"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t282",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-the-2015-rockford-fosgate-nav-unit.10676/",
+    "thread_title": "How To: Replace the 2015 Rockford Fosgate Nav unit",
+    "author_handle": "meisanerd",
+    "date_posted": "2022-07-22T17:01:22-0400",
+    "date_scraped": "2026-10-20T14:00:09Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries",
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t283",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-rear-recovery-point.10655/",
+    "thread_title": "DIY Rear Recovery Point",
+    "author_handle": "Sturmovik",
+    "date_posted": "2022-06-29T06:34:03-0400",
+    "date_scraped": "2026-10-20T13:53:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t284",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-rear-cargo-shelf.10631/",
+    "thread_title": "DIY Rear Cargo Shelf",
+    "author_handle": "Sturmovik",
+    "date_posted": "2022-05-25T20:33:27-0400",
+    "date_scraped": "2026-10-20T13:55:39Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Rear cargo shelf fabrication"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t286",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/",
+    "thread_title": "How-to: VK-swap with Auto Trans",
+    "author_handle": "josx2",
+    "date_posted": "2019-08-04T17:51:24-0400",
+    "date_scraped": "2026-10-20T13:46:19Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Coolant capacity for VK swap",
+      "Cooling fan setup for VK swap with V8 shroud",
+      "Detroit Axle steering rack bushings for VK swap",
+      "Diagnostics",
+      "Donor Titan hidden surprise for VK swap",
+      "Engine removal with attached transmission and transfer case",
+      "Exhaust system components for VK swap",
+      "Gasket requirements for VK swap engine installation",
+      "Heater core fitting requirement for VK swap",
+      "Hood gas spring modification for engine clearance",
+      "NATS security light disable after UpRev flash",
+      "O2 sensor configuration for VK swap",
+      "Oil pan Fumoto valve clearance fix for engine removal",
+      "PCV valve requirement for VK swap",
+      "Power steering line modification for VK swap",
+      "Radiator shroud modification for 14-inch fan fitment",
+      "Serpentine belt requirement for VK swap",
+      "Steering rack replacement with Detroit Axle unit",
+      "Stock thermostat opening temperature comparison",
+      "Thermostat modification for 170-degree operation",
+      "Titan VK56 engine swap",
+      "Titan VK56 engine swap with auto trans",
+      "Tranny mount requirement for VK swap",
+      "Transmission fluid capacity for VK swap",
+      "UpRev tuning software for VK swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t287",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/05-cel-codes-w-titles.434/",
+    "thread_title": "'05 CEL Codes w/titles",
+    "author_handle": "Cyclemut",
+    "date_posted": "2011-11-27T14:58:40-0500",
+    "date_scraped": "2026-10-20T13:45:18Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t303",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/tensioner-and-belt-replacement-parts.9872/",
+    "thread_title": "Tensioner and belt replacement parts?",
+    "author_handle": "elcid79",
+    "date_posted": "2021-01-13T22:51:47-0500",
+    "date_scraped": "2026-10-20T13:55:43Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Serpentine belt and tensioner"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t317",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/clutch-fan-clutch-replacement.10346/",
+    "thread_title": "Clutch fan clutch replacement?",
+    "author_handle": "ScaryFatKidGT",
+    "date_posted": "2021-10-31T02:46:25-0400",
+    "date_scraped": "2026-10-20T14:00:30Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine noise diagnosis"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t328",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/vk-56-swap-for-xterra-2006-auto-transmission.10552/",
+    "thread_title": "VK 56 swap for Xterra 2006 auto transmission.",
+    "author_handle": "Akram Eshilli",
+    "date_posted": "2022-03-14T06:14:23-0400",
+    "date_scraped": "2026-10-20T14:00:05Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap",
+      "VQ40DE engine baseline specs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t337",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/oil-catch-can-install.9640/",
+    "thread_title": "Oil Catch Can Install!!",
+    "author_handle": "Drew",
+    "date_posted": "2020-08-10T18:46:09-0400",
+    "date_scraped": "2026-10-20T13:55:49Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Mitigating oil burning via PCV system",
+      "PCV system oil catch can install"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t343",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replaced-02-sensor-now-code-p0171-is-showing.10378/",
+    "thread_title": "Replaced 02 sensor,  now code P0171 is showing",
+    "author_handle": "gearyr",
+    "date_posted": "2021-11-19T18:55:54-0500",
+    "date_scraped": "2026-10-20T13:55:53Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (VQ40DE)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t347",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/would-you-guys-replace-this-cv-the-boot-or-let-it-die.10313/",
+    "thread_title": "Would you guys replace this CV, the boot, or let it die?",
+    "author_handle": "AlbatrossCafe",
+    "date_posted": "2021-10-14T16:11:26-0400",
+    "date_scraped": "2026-10-20T14:00:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "CV axle and boot part costs",
+      "CV axle and boot replacement options",
+      "CV boot and grease repair costs",
+      "CV boot exterior appearance check",
+      "Duralast CV axle deal value"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t357",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/cv-axle-repair-replacement-options.9753/",
+    "thread_title": "Cv Axle Repair / Replacement Options",
+    "author_handle": "outback97",
+    "date_posted": "2020-10-26T12:01:04-0400",
+    "date_scraped": "2026-10-20T13:53:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "CV Axles and Boot Replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t373",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/",
+    "thread_title": "Installed Ironman lift yesterday, got a vibration now",
+    "author_handle": "Maxxpags",
+    "date_posted": "2022-06-10T10:30:26-0400",
+    "date_scraped": "2026-10-20T13:49:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Control arms and bushings",
+      "Driveline and wheel bearing noises",
+      "Leaf spring caster wedge kits",
+      "Lift kits and suspension lifts",
+      "Parts diagrams and sources",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t395",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replace-battery-terminals-battery-alternator.10299/",
+    "thread_title": "Replace Battery Terminals, Battery & Alternator",
+    "author_handle": "Gen X",
+    "date_posted": "2021-10-08T13:19:42-0400",
+    "date_scraped": "2026-10-20T13:51:54Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Torque specifications",
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t396",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/winch-installation-battery-disconnect-or-direct-wire.10439/",
+    "thread_title": "Winch Installation - Battery Disconnect or Direct Wire?",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-12-28T19:54:59-0500",
+    "date_scraped": "2026-10-20T13:55:57Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Winch Installation and Battery Disconnects"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t399",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2-x-dual-usb-port-installation.10277/",
+    "thread_title": "2 x Dual USB Port Installation",
+    "author_handle": "jgillaspy",
+    "date_posted": "2021-09-25T21:42:10-0400",
+    "date_scraped": "2026-10-20T14:00:20Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t406",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/pp-engineering-slider-installation.7174/",
+    "thread_title": "PP Engineering Slider Installation",
+    "author_handle": "18elle81",
+    "date_posted": "2015-09-07T12:09:35-0400",
+    "date_scraped": "2026-10-20T13:56:02Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t433",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/tire-upgrade.7876/",
+    "thread_title": "Tire upgrade",
+    "author_handle": "Xterrian13",
+    "date_posted": "2016-12-17T10:43:54-0500",
+    "date_scraped": "2026-10-20T13:56:08Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Tires, wheels and fitment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t452",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/truck-bed-air-mattresses.2492/",
+    "thread_title": "Truck Bed Air mattresses",
+    "author_handle": "gorillamel",
+    "date_posted": "2012-11-19T00:39:06-0500",
+    "date_scraped": "2026-10-20T14:02:57Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Truck Bed Air Mattresses and Foam Toppers"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t454",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/help-need-rear-door-panel-off-to-fix-a-dent.1583/",
+    "thread_title": "HELP!!! (need rear door panel off to fix a dent)",
+    "author_handle": "dhyde79",
+    "date_posted": "2012-05-14T12:03:20-0400",
+    "date_scraped": "2026-10-20T13:53:39Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door panel removal for dent repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t461",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/c200-gear-info-for-titan-swap.1657/",
+    "thread_title": "C200 Gear Info For Titan Swap",
+    "author_handle": "Trexx",
+    "date_posted": "2012-05-23T01:18:53-0400",
+    "date_scraped": "2026-10-20T13:53:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Gear ratios and tire sizes"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t462",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/",
+    "thread_title": "Pre Titan Swap Checklist",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-05-12T14:18:59-0400",
+    "date_scraped": "2026-10-20T13:47:11Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan axle, differential and brake swaps"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t463",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/titan-swap-sticker.1585/",
+    "thread_title": "Titan Swap Sticker",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-05-14T12:51:03-0400",
+    "date_scraped": "2026-10-20T13:52:00Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap",
+      "Titan swap identification sticker",
+      "Titan swap sticker design variations"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t466",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rear-suspension-upgrades-extras-and-things-to-consider-2nd-gen.10351/",
+    "thread_title": "Rear Suspension Upgrades - Extras and Things to Consider (2nd Gen)",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-11-01T22:24:20-0400",
+    "date_scraped": "2026-10-20T13:53:49Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Leaf spring and shackle repair",
+      "Rear leaf spring and axle shim installation",
+      "Rear suspension parts diagram source",
+      "Rear sway bar relocation and brake line check"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t467",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/idea-for-a-you-may-also-need-to-consider-by-common-upgrades.10326/",
+    "thread_title": "Idea for a \"you may also need to consider...\" by common upgrades",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-10-21T10:03:15-0400",
+    "date_scraped": "2026-10-20T14:01:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t468",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-plastic-tees-in-heater-lines.8884/",
+    "thread_title": "How To: Replace Plastic Tees in Heater Lines",
+    "author_handle": "TerryD",
+    "date_posted": "2019-08-02T18:30:56-0400",
+    "date_scraped": "2026-10-20T13:52:06Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t469",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fold-flat-passenger-seat-latch-replacement.10103/",
+    "thread_title": "Fold flat passenger seat latch replacement",
+    "author_handle": "XTERRA2FISH",
+    "date_posted": "2021-06-13T11:28:35-0400",
+    "date_scraped": "2026-10-20T14:01:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Fold flat passenger seat latch replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t472",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-rotopax-rear-hatch-rear-gate-install.10105/",
+    "thread_title": "How to: Rotopax Rear Hatch/Rear Gate Install",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-06-14T13:40:53-0400",
+    "date_scraped": "2026-10-20T13:56:12Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Rear Hatch Rotopax Mounting"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t473",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-secure-stock-bumper-to-aftermarket-radiator-skid.10083/",
+    "thread_title": "How To: Secure Stock Bumper to Aftermarket Radiator Skid",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-05-27T23:11:44-0400",
+    "date_scraped": "2026-10-20T14:01:40Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers and skid plate modifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t474",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-extra-simple-cheap-interior-bike-rack.10048/",
+    "thread_title": "How to: Extra simple & CHEAP interior bike rack",
+    "author_handle": "AlbatrossCafe",
+    "date_posted": "2021-05-14T00:28:42-0400",
+    "date_scraped": "2026-10-20T13:56:18Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Interior bike rack installation",
+      "Roof racks, snorkels and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t475",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-u-joints-on-the-front-driveshaft.10003/",
+    "thread_title": "How to Replace U-Joints on the Front Driveshaft",
+    "author_handle": "blakens",
+    "date_posted": "2021-04-11T06:40:58-0400",
+    "date_scraped": "2026-10-20T14:00:40Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Parts diagrams for front driveshaft U-joints"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t477",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-heated-mirrors.9858/",
+    "thread_title": "How To: Heated Mirrors",
+    "author_handle": "XterraRising",
+    "date_posted": "2021-01-04T16:34:06-0500",
+    "date_scraped": "2026-10-20T13:53:53Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Part numbers for heated mirror conversion"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t478",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-crack-open-the-relay-box-and-replace-relay-sockets.9975/",
+    "thread_title": "HOW TO: Crack Open the Relay Box and Replace Relay Sockets",
+    "author_handle": "XterraRising",
+    "date_posted": "2021-03-27T23:41:37-0400",
+    "date_scraped": "2026-10-20T13:50:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Reference"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t479",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-rago-fab-ditch-light-bracket-install-2nd-gen-xterra.9917/",
+    "thread_title": "How To: Rago Fab Ditch Light Bracket Install - 2nd Gen Xterra",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-02-20T18:10:50-0500",
+    "date_scraped": "2026-10-20T13:53:59Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Lighting and ditch light brackets",
+      "Rago Fab Ditch Light Bracket installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t481",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-your-headlight-assemblies.9918/",
+    "thread_title": "How To:Replace Your Headlight Assemblies",
+    "author_handle": "XterraRising",
+    "date_posted": "2021-02-21T00:15:58-0500",
+    "date_scraped": "2026-10-20T13:48:53Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Headlight assembly replacement and alignment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t482",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/white-knuckle-offroad-sliders-instructions-annotated-improved-images.9869/",
+    "thread_title": "White Knuckle Offroad Sliders Instructions Annotated; Improved Images",
+    "author_handle": "xyoverland",
+    "date_posted": "2021-01-08T23:32:34-0500",
+    "date_scraped": "2026-10-20T13:56:23Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t483",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-touch-of-modern-wireless-charging.9810/",
+    "thread_title": "How To: Touch Of Modern - Wireless Charging",
+    "author_handle": "XterraRising",
+    "date_posted": "2020-12-06T20:40:49-0500",
+    "date_scraped": "2026-10-20T13:56:29Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Wireless charging pad installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t488",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/info-help-with-atf-change.10016/",
+    "thread_title": "Info help with ATF change",
+    "author_handle": "Maxxpags",
+    "date_posted": "2021-04-16T16:21:08-0400",
+    "date_scraped": "2026-10-20T14:00:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change",
+      "Transmission dipstick location"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t490",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/radiator-replacement-is-it-wise-to-add-additive-water-wetter.9848/",
+    "thread_title": "Radiator replacement, is it wise to add additive water wetter?",
+    "author_handle": "CocoLoco74",
+    "date_posted": "2020-12-31T17:21:24-0500",
+    "date_scraped": "2026-10-20T14:00:57Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Radiator replacement and seal testing"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t492",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replacement-catalytic-converter-questions.9778/",
+    "thread_title": "Replacement Catalytic Converter Questions",
+    "author_handle": "AlbatrossCafe",
+    "date_posted": "2020-11-15T13:58:00-0500",
+    "date_scraped": "2026-10-20T13:56:33Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Diagnostics",
+      "Reference"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t499",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/brake-upgrade.9435/",
+    "thread_title": "Brake Upgrade",
+    "author_handle": "Gen X",
+    "date_posted": "2020-03-29T20:25:16-0400",
+    "date_scraped": "2026-10-20T13:59:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Brake pads and rotors upgrade",
+      "Rim size requirements for big brakes",
+      "V8 Pathfinder brake swap option"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t501",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/radiators-antifreeze-strawberry-milkshake-of-death-smod.9018/",
+    "thread_title": "Radiators,  Antifreeze & Strawberry Milkshake Of Death (SMOD)",
+    "author_handle": "Just a Hunter",
+    "date_posted": "2019-08-24T09:39:02-0400",
+    "date_scraped": "2026-10-20T14:02:37Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Antifreeze types and specifications for Nissans",
+      "Idle cold air heater core issue fix",
+      "Morning gurgle cooling air trap noise",
+      "Nissan extended radiator warranty details",
+      "Radiator replacement and SMOD fix",
+      "Replacement aftermarket radiators for Xterra",
+      "SMOD radiator transmission cooler failure",
+      "[reference] Calsonic radiator part numbers for SMOD"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t517",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/changed-battery-now-4wd-light-is-on.9160/",
+    "thread_title": "Changed battery - now 4WD light is on",
+    "author_handle": "Bill C",
+    "date_posted": "2019-10-25T19:50:59-0400",
+    "date_scraped": "2026-10-20T14:01:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t526",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replace-axle-shaft-for-egged-out-wheel-studs.9609/",
+    "thread_title": "Replace Axle Shaft For Egged Out Wheel Studs?",
+    "author_handle": "Gen X",
+    "date_posted": "2020-07-25T09:44:16-0400",
+    "date_scraped": "2026-10-20T13:59:19Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Axle shaft replacement for broken studs",
+      "Lug bolt knurl sizes for auto vs manual"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t535",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/re-installing-the-front-cv-axle.9077/",
+    "thread_title": "Re-installing the front CV-axle",
+    "author_handle": "westslope",
+    "date_posted": "2019-09-11T22:15:09-0400",
+    "date_scraped": "2026-10-20T13:49:34Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Front CV axle C-clip specifications and fitment",
+      "Front CV-axle re-installation techniques",
+      "Front differential side seal maintenance during CV install",
+      "Lubrication and anti-seize application for front CVs",
+      "Removing stuck axle nuts without damaging threads",
+      "Seating inner C-clip into differential via leverage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t548",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/strut-and-shock-replacement.10551/",
+    "thread_title": "strut and shock replacement",
+    "author_handle": "osky1976",
+    "date_posted": "2022-03-14T04:33:48-0400",
+    "date_scraped": "2026-10-20T13:56:38Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t550",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/lca-replacement-for-14-x.10422/",
+    "thread_title": "LCA replacement for 14 x",
+    "author_handle": "kryter",
+    "date_posted": "2021-12-18T11:52:02-0500",
+    "date_scraped": "2026-10-20T13:56:44Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Control arms and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t558",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/proper-spec-for-ordering-titan-swap-alcan-springs.10064/",
+    "thread_title": "Proper spec for ordering Titan Swap Alcan springs?",
+    "author_handle": "Prime",
+    "date_posted": "2021-05-20T13:01:38-0400",
+    "date_scraped": "2026-10-20T13:54:04Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t581",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/factory-locker-bypass.9788/",
+    "thread_title": "Factory Locker Bypass",
+    "author_handle": "MealWheel",
+    "date_posted": "2020-11-19T21:12:54-0500",
+    "date_scraped": "2026-10-20T13:59:23Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Factory Locker Bypass Wiring"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t582",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rf-stereo-replacement-woes.9780/",
+    "thread_title": "Rf Stereo Replacement Woes...",
+    "author_handle": "Prawn",
+    "date_posted": "2020-11-17T02:58:51-0500",
+    "date_scraped": "2026-10-20T13:56:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Aftermarket radio installation with factory amp"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t584",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rad-skid-install-stuck.5479/",
+    "thread_title": "Rad Skid Install - stuck",
+    "author_handle": "obi_krash",
+    "date_posted": "2014-06-10T08:56:24-0400",
+    "date_scraped": "2026-10-20T13:56:52Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t586",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/hefty-gas-tank-skid-install-issue.5379/",
+    "thread_title": "hefty gas tank skid install issue",
+    "author_handle": "maillet282",
+    "date_posted": "2014-05-20T22:37:15-0400",
+    "date_scraped": "2026-10-20T13:56:57Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Hefty gas tank skid installation issues"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t600",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replacement-racks.1864/",
+    "thread_title": "Replacement racks",
+    "author_handle": "mudchet",
+    "date_posted": "2012-06-26T15:20:27-0400",
+    "date_scraped": "2026-10-20T13:49:57Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks, snorkels and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t608",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/bfgoodrich-31x10-5%C3%83%E2%80%9415-km2-how-to-choose-rims.6864/",
+    "thread_title": "BFGOODRICH 31x10,5\u00c3\u201415 KM2 - how to choose rims?",
+    "author_handle": "Manchi",
+    "date_posted": "2015-05-15T01:40:49-0400",
+    "date_scraped": "2026-10-20T13:52:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Tires, wheels and fitment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t625",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-gentex-mirror-install.1398/",
+    "thread_title": "How To: Gentex Mirror Install",
+    "author_handle": "ryandavenport",
+    "date_posted": "2012-04-09T19:35:00-0400",
+    "date_scraped": "2026-10-20T13:52:15Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Interior mirror upgrades and electronics"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t626",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-rear-diff-breather-extension-mod.9486/",
+    "thread_title": "How-to: Rear Diff Breather Extension Mod",
+    "author_handle": "TerryD",
+    "date_posted": "2020-04-28T08:28:00-0400",
+    "date_scraped": "2026-10-20T13:50:03Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Front differential venting location and style",
+      "Rear differential breather extension mod"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t629",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-disable-tpms-dash-light-for-1-five-minute-easy-mod.9682/",
+    "thread_title": "How-to: \"disable\" Tpms Dash Light For $1, Five Minute Easy Mod",
+    "author_handle": "outback97",
+    "date_posted": "2020-09-08T18:47:31-0400",
+    "date_scraped": "2026-10-20T13:57:02Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "TPMS light concealment mod"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t631",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-find-original-equipment-part-numbers.9500/",
+    "thread_title": "How To Find Original Equipment Part Numbers",
+    "author_handle": "westslope",
+    "date_posted": "2020-05-03T13:03:54-0400",
+    "date_scraped": "2026-10-20T14:00:53Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Part sources and vendors"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t632",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-blower-motor-resistor.9022/",
+    "thread_title": "How To: Blower Motor Resistor",
+    "author_handle": "bigjim247365",
+    "date_posted": "2019-08-26T01:56:35-0400",
+    "date_scraped": "2026-10-20T13:59:30Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t635",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-hybrid-folding-and-rollout-awning.9383/",
+    "thread_title": "Diy Hybrid Folding And Rollout Awning",
+    "author_handle": "Taylor Spaulding",
+    "date_posted": "2020-02-16T19:08:46-0500",
+    "date_scraped": "2026-10-20T13:54:08Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks, snorkels and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t639",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-6-speed-w-vk56.8899/",
+    "thread_title": "HOW TO: 6-SPEED W/ VK56",
+    "author_handle": "XB3TERRA",
+    "date_posted": "2019-08-03T17:41:32-0400",
+    "date_scraped": "2026-10-20T13:46:29Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap",
+      "Titan VK56 exhaust system installation",
+      "VK56 A/C and refrigeration integration",
+      "VK56 engine refresh and cooling upgrades",
+      "VK56 engine specifications and ratios",
+      "VK56 transmission and clutch assembly"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t642",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/",
+    "thread_title": "How-to: OEM Nissan-Style Cam Bolts",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-05T16:40:52-0400",
+    "date_scraped": "2026-10-20T13:54:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t682",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2006-se-replace-auto-or-convert-to-manual.6031/",
+    "thread_title": "2006 SE - Replace Auto or Convert to Manual?",
+    "author_handle": "Off Trail",
+    "date_posted": "2014-10-15T19:08:24-0400",
+    "date_scraped": "2026-10-20T13:57:07Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "SMOD radiator transmission cooler failure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t685",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-not-bind-my-cvs-with-spc-ucas.9887/",
+    "thread_title": "How to not bind my CVs with SPC UCAs",
+    "author_handle": "Taylor Spaulding",
+    "date_posted": "2021-01-21T14:56:55-0500",
+    "date_scraped": "2026-10-20T13:57:11Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Installing limit straps on SPC upper control arms",
+      "Lift kit geometry and droop calculations",
+      "Radflo shock spacer sizing guide",
+      "Recommended minimum droop for lifted trucks",
+      "Shock preload mechanics for lift kits",
+      "Shock spacer sizing for lift kits"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t698",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/hot-or-cold-how-to-bend-metal-without-too-much-distress.9560/",
+    "thread_title": "Hot Or Cold? How To Bend Metal Without Too Much Distress",
+    "author_handle": "Howard F",
+    "date_posted": "2020-06-12T10:07:55-0400",
+    "date_scraped": "2026-10-20T14:01:30Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Control arms and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t706",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/puddle-lights-rock-lights-install-locations.9619/",
+    "thread_title": "Puddle Lights/rock Lights Install Locations",
+    "author_handle": "xyoverland",
+    "date_posted": "2020-07-29T22:11:12-0400",
+    "date_scraped": "2026-10-20T13:59:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Front bumper light mounting location",
+      "Lighting and auxiliary lights",
+      "Magnetic front wheel well light mount",
+      "Tow hitch mounted rear light setup"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t707",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/battery-terminal-upgrade.9567/",
+    "thread_title": "Battery Terminal Upgrade",
+    "author_handle": "RM975",
+    "date_posted": "2020-06-15T19:00:16-0400",
+    "date_scraped": "2026-10-20T13:57:16Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t708",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/marker-parking-light-replacement-question.9509/",
+    "thread_title": "Marker/parking Light Replacement Question",
+    "author_handle": "Maxxpags",
+    "date_posted": "2020-05-09T12:26:10-0400",
+    "date_scraped": "2026-10-20T14:01:19Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door window and switch electrical faults"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t719",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/pro-4x-off-road-lights-bulb-replacement.1662/",
+    "thread_title": "Pro-4X Off Road Lights Bulb Replacement",
+    "author_handle": "Xebra",
+    "date_posted": "2012-05-24T00:23:39-0400",
+    "date_scraped": "2026-10-20T13:46:50Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Reference"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t723",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/gen-2-diy-bake-open-paint-install-hid-projectors-profit.7993/",
+    "thread_title": "Gen 2 DIY: Bake, Open, Paint, Install HID Projectors, Profit?",
+    "author_handle": "Prime",
+    "date_posted": "2017-01-29T23:56:49-0500",
+    "date_scraped": "2026-10-20T13:47:16Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t728",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/places-to-buy-and-have-rock-sliders-installed.1579/",
+    "thread_title": "Places to buy and have Rock Sliders installed",
+    "author_handle": "Le Loup",
+    "date_posted": "2012-05-13T21:53:42-0400",
+    "date_scraped": "2026-10-20T13:52:20Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t751",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-swap-stock-switches-to-otrattw-switches.5311/",
+    "thread_title": "How To: swap stock switches to OTRATTW switches",
+    "author_handle": "maillet282",
+    "date_posted": "2014-05-11T19:31:42-0400",
+    "date_scraped": "2026-10-20T13:50:08Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Diff lock switch installation using SPST",
+      "Electrical faults, grounds and battery drain",
+      "Hill Descent Control switch swap procedure",
+      "Interior switch upgrades and wiring",
+      "OTRATTW switch part numbers and types",
+      "VDC (Vehicle Dynamic Control) switch wiring and setup",
+      "VDC wiring pinout from 2007 manual"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t753",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-abs-off-mod.9070/",
+    "thread_title": "How-To: ABS Off Mod",
+    "author_handle": "PhullD",
+    "date_posted": "2019-09-08T18:44:28-0400",
+    "date_scraped": "2026-10-20T13:57:21Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t754",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-not-to-remove-and-replace-the-front-differential-side-seal.9061/",
+    "thread_title": "How not to remove and replace the front differential side seal",
+    "author_handle": "westslope",
+    "date_posted": "2019-09-06T21:24:35-0400",
+    "date_scraped": "2026-10-20T13:52:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t755",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-2nd-gen-ac-2-body-lift.1212/",
+    "thread_title": "How-To: 2nd Gen AC 2\" Body Lift!",
+    "author_handle": "Rook",
+    "date_posted": "2012-03-14T22:07:07-0400",
+    "date_scraped": "2026-10-20T13:48:58Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "2-Inch Body Lift Installation",
+      "Body lift installation tips and tricks",
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t758",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-change-gentex-mirror-color-to-blue.8971/",
+    "thread_title": "How-to: Change Gentex Mirror Color to Blue",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-11T13:32:31-0400",
+    "date_scraped": "2026-10-20T13:57:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Interior lighting and mirror color changes"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t759",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-change-oil-cooler-hose-coolant-return-to-engine.8851/",
+    "thread_title": "How to: Change Oil Cooler Hose (Coolant Return to Engine)",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-01T13:09:36-0400",
+    "date_scraped": "2026-10-20T13:59:41Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Oil cooler hose replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t760",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-build-relay-harness-for-100-watt-headlight-bulbs.8850/",
+    "thread_title": "How to: Build Relay Harness For 100 Watt Headlight Bulbs",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-01T12:45:17-0400",
+    "date_scraped": "2026-10-20T13:54:18Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting upgrades and relay harnesses"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t761",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-switches-and-power-cargo-passenger-wall.8879/",
+    "thread_title": "How To: Switches and Power; Cargo Passenger Wall",
+    "author_handle": "Taylor Spaulding",
+    "date_posted": "2019-08-02T16:35:04-0400",
+    "date_scraped": "2026-10-20T13:59:46Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t762",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-dual-battery-in-engine-bay-ala-geoxplorer.8881/",
+    "thread_title": "How To: Dual Battery in Engine Bay ala GeoXplorer",
+    "author_handle": "Taylor Spaulding",
+    "date_posted": "2019-08-02T16:41:41-0400",
+    "date_scraped": "2026-10-20T13:54:23Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Relocate power steering reservoir for dual battery fitment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t763",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-build-a-bilstein-5125-lower-mount-bushing.8916/",
+    "thread_title": "How-to: Build A Bilstein 5125 Lower Mount Bushing",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-05T16:30:18-0400",
+    "date_scraped": "2026-10-20T13:59:51Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t764",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-change-color-of-passenger-airbag-light-led-05-08.8918/",
+    "thread_title": "How-to: Change Color Of Passenger Airbag Light LED (05-08)",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-05T16:51:56-0400",
+    "date_scraped": "2026-10-20T13:57:30Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults",
+      "Interior LED lighting upgrades"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t765",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-change-gauge-cluster-led-color.8847/",
+    "thread_title": "How to: Change Gauge Cluster LED Color",
+    "author_handle": "General_Tarfun",
+    "date_posted": "2019-08-01T12:35:46-0400",
+    "date_scraped": "2026-10-20T13:54:29Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Gauge Cluster LED Color Change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t766",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-alternator-replacement-for-vk-swaps.8964/",
+    "thread_title": "How-to: Alternator Replacement for VK-swaps",
+    "author_handle": "josx2",
+    "date_posted": "2019-08-08T23:18:05-0400",
+    "date_scraped": "2026-10-20T13:59:57Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Alternator replacement for VK-swaps"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t768",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-remove-uca-driver-rear-bolt-without-cutting.8768/",
+    "thread_title": "How to remove uca driver rear bolt without cutting",
+    "author_handle": "ChillyX",
+    "date_posted": "2019-05-25T10:42:26-0400",
+    "date_scraped": "2026-10-20T14:00:15Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t769",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-for-2005-11-herculined-rocker-panels.387/",
+    "thread_title": "How-to for 2005-11: Herculined Rocker Panels",
+    "author_handle": "Deltaphi216",
+    "date_posted": "2011-11-18T17:55:54-0500",
+    "date_scraped": "2026-10-20T13:50:59Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Herculined Rocker Panels",
+      "Rocker panel protection and repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t770",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2nd-gen-ome-leaf-spring-install.2391/",
+    "thread_title": "2nd Gen OME Leaf Spring Install",
+    "author_handle": "civicjoe",
+    "date_posted": "2012-10-27T14:48:03-0400",
+    "date_scraped": "2026-10-20T13:50:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Leaf spring replacement and installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t772",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/lifter-replacemement.5021/",
+    "thread_title": "Lifter replacemement",
+    "author_handle": "Razzmaniac",
+    "date_posted": "2014-03-22T20:00:14-0400",
+    "date_scraped": "2026-10-20T13:57:34Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine noise diagnosis"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t782",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-get-colder-air-in-airbox.4070/",
+    "thread_title": "How to get colder air in airbox?",
+    "author_handle": "smplone",
+    "date_posted": "2013-09-12T19:31:56-0400",
+    "date_scraped": "2026-10-20T13:54:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Cooling upgrades for cold air intake systems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t786",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/transmission-cooler-and-the-bypass-question.1783/",
+    "thread_title": "Transmission cooler and the bypass...Question",
+    "author_handle": "Killswitch",
+    "date_posted": "2012-06-12T15:07:10-0400",
+    "date_scraped": "2026-10-20T13:49:38Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bypassing radiator to prevent overheating during heavy use",
+      "Cooling upgrades and bypass systems",
+      "Hi-Tek transmission cooler installation with fan",
+      "Hose length estimation for bypass setup",
+      "Transmission line dimensions and fittings",
+      "Transmission temperature monitoring via gauge"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t811",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/remove-knuckle-and-hub-if-replacing-lca-uca-lower-control-armageddon-complete.9265/",
+    "thread_title": "Remove Knuckle And Hub If Replacing Lca + Uca?  Lower Control Armageddon Complete",
+    "author_handle": "outback97",
+    "date_posted": "2019-12-16T15:01:35-0500",
+    "date_scraped": "2026-10-20T13:50:19Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lower control arm replacement procedure",
+      "Sway bar links and bushings",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t829",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/",
+    "thread_title": "SLR drop bracket installtion.",
+    "author_handle": "9heavens",
+    "date_posted": "2019-06-15T04:29:42-0400",
+    "date_scraped": "2026-10-20T13:54:40Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts",
+      "Titan axle and differential swaps - Fluid capacities",
+      "Xterra, Frontier and Titan parts interchange",
+      "[reference] Ground clearance measurements by vehicle area"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t837",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/cb-antenna-install.31/",
+    "thread_title": "CB Antenna Install",
+    "author_handle": "tommyboy",
+    "date_posted": "2011-10-27T21:59:25-0400",
+    "date_scraped": "2026-10-20T13:46:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "CB Antenna Install via Door Jam Mount",
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t840",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/climate-control-issue-a-c-spontaneously-changes-to-heat.8750/",
+    "thread_title": "Climate Control Issue - A/C Spontaneously Changes to Heat",
+    "author_handle": "Magger",
+    "date_posted": "2019-05-01T14:44:19-0400",
+    "date_scraped": "2026-10-20T14:01:06Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t848",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/swap-a-frontier-climate-controls-into-xterras.8001/",
+    "thread_title": "Swap a Frontier climate controls into Xterra's?",
+    "author_handle": "Rhaas",
+    "date_posted": "2017-02-07T04:14:51-0500",
+    "date_scraped": "2026-10-20T13:51:05Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults for swapped HVAC controls",
+      "Frontier climate control swap into Xterra",
+      "HVAC component differences between Xterra and Frontier"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t849",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/bullydog-which-you-have-earned-profits-and-features-after-installation.7887/",
+    "thread_title": "Bullydog - which you have earned profits and features after installation?",
+    "author_handle": "Manchi",
+    "date_posted": "2016-12-25T09:52:20-0500",
+    "date_scraped": "2026-10-20T13:57:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bullydog performance tuner features"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t851",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-paint-the-inside-of-youre-headlights-w-pics.3448/",
+    "thread_title": "DIY Paint the inside of you're Headlights w/pics",
+    "author_handle": "ISBoost300",
+    "date_posted": "2013-05-24T03:16:10-0400",
+    "date_scraped": "2026-10-20T13:49:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Headlight trim and lens tinting"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t852",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-drivers-side-window-regulator.8331/",
+    "thread_title": "How To: Replace Drivers Side Window Regulator",
+    "author_handle": "Prime",
+    "date_posted": "2018-02-03T14:21:14-0500",
+    "date_scraped": "2026-10-20T13:57:51Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door and window regulator replacement",
+      "Door panel removal and disassembly steps",
+      "Positioning and securing the window glass for access",
+      "Reassembling the door panel and sealing foam liner",
+      "Removing and installing the regulator assembly bolts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t856",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-siezed-cam-bolt-and-lca-removal-and-reinstallation.1214/",
+    "thread_title": "How-to: Siezed Cam Bolt (and LCA) Removal and Reinstallation",
+    "author_handle": "Rook",
+    "date_posted": "2012-03-14T22:25:28-0400",
+    "date_scraped": "2026-10-20T13:51:10Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Final assembly sequence after LCA swap",
+      "LCA ball joint reinstallation alignment",
+      "LCA ball joint removal from knuckle",
+      "LCA mount removal and reinstallation",
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t858",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-lower-uniball-on-nisstec-mk84.8163/",
+    "thread_title": "How-to: Replace lower uniball on Nisstec MK84",
+    "author_handle": "JeffPro4x",
+    "date_posted": "2017-07-02T13:13:40-0400",
+    "date_scraped": "2026-10-20T14:00:01Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lower shock mount uniball replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t862",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-the-melt-mod-33-tires-on-2nd-gen.2992/",
+    "thread_title": "How To: The Melt Mod--33\" tires on 2nd Gen",
+    "author_handle": "Macland",
+    "date_posted": "2013-02-16T19:54:29-0500",
+    "date_scraped": "2026-10-20T13:45:43Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Tires, wheels and fitment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t867",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-replace-a-cv-axle.6432/",
+    "thread_title": "How To: Replace a CV Axle",
+    "author_handle": "mudchet",
+    "date_posted": "2015-01-25T15:24:30-0500",
+    "date_scraped": "2026-10-20T13:49:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "CV Axle Replacement Procedure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t869",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-molle-system-for-almost-anywhere.6466/",
+    "thread_title": "HOW TO: Molle system for almost anywhere.",
+    "author_handle": "Singularity",
+    "date_posted": "2015-02-06T15:34:11-0500",
+    "date_scraped": "2026-10-20T13:52:29Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks, snorkels and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t871",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/timing-chain-guides.808/",
+    "thread_title": "Timing chain guides",
+    "author_handle": "xterror04",
+    "date_posted": "2012-01-22T21:56:31-0500",
+    "date_scraped": "2026-10-20T13:57:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Timing chain and guide wear"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t885",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rugged-rocks-r180-titan-swap-extended-front-chromoly-axle-shafts.8199/",
+    "thread_title": "Rugged Rocks R180 Titan Swap Extended Front Chromoly Axle Shafts",
+    "author_handle": "Trexterra",
+    "date_posted": "2017-08-09T20:27:35-0400",
+    "date_scraped": "2026-10-20T13:58:01Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan VK56 engine swap"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t898",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/pro4x-shock-replacement-non-bilstein.7243/",
+    "thread_title": "Pro4X Shock Replacement - Non Bilstein?",
+    "author_handle": "nottmbantam",
+    "date_posted": "2015-10-04T09:43:59-0400",
+    "date_scraped": "2026-10-20T13:58:06Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Trim guide (X, S, SE, Off-Road, PRO-4X)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t900",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/titan-swap.7277/",
+    "thread_title": "Titan Swap?",
+    "author_handle": "Beefyneck",
+    "date_posted": "2015-10-17T18:35:01-0400",
+    "date_scraped": "2026-10-20T13:54:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Titan front CV axle upgrade",
+      "Titan front control arm swap",
+      "Titan front differential part number",
+      "Titan front differential swap",
+      "Titan front differential swap with extended CVs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t911",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/amp-install-locations.7429/",
+    "thread_title": "Amp install locations",
+    "author_handle": "HammermillX07",
+    "date_posted": "2016-01-05T17:35:44-0500",
+    "date_scraped": "2026-10-20T13:58:11Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t924",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/anyone-had-to-replace-11060-water-outlet-coolant-leak.5780/",
+    "thread_title": "Anyone had to replace 11060 Water Outlet? Coolant Leak",
+    "author_handle": "hfunkhouser",
+    "date_posted": "2014-08-12T11:22:55-0400",
+    "date_scraped": "2026-10-20T13:58:15Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Water outlet replacement"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t926",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/mini-how-to-diy-raised-air-intake-snorkel.1267/",
+    "thread_title": "Mini How to: DIY Raised Air Intake (Snorkel)",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-03-20T18:32:50-0400",
+    "date_scraped": "2026-10-20T13:45:32Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "DIY Raised Air Intake Snorkel",
+      "Intake, exhaust, tune and forced induction"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t936",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-override-the-auto-lock-unlock-on-09-xterras.1976/",
+    "thread_title": "HOW TO: Override the auto lock/unlock on 09+ Xterras",
+    "author_handle": "J Everett",
+    "date_posted": "2012-07-13T13:24:36-0400",
+    "date_scraped": "2026-10-20T13:50:25Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t937",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-install-smittybilt-axe-with-first-aid-kit.2977/",
+    "thread_title": "How to install Smittybilt Axe with First Aid Kit",
+    "author_handle": "TN4x4Xterra",
+    "date_posted": "2013-02-12T20:45:53-0500",
+    "date_scraped": "2026-10-20T13:48:39Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t938",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/question-how-to-remove-headliner.4055/",
+    "thread_title": "Question: How to remove headliner?",
+    "author_handle": "mudchet",
+    "date_posted": "2013-09-10T00:08:51-0400",
+    "date_scraped": "2026-10-20T13:51:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Frontal wiring access points",
+      "Headliner attachment methods",
+      "Interior trim removal procedures",
+      "Wiring routing paths through interior"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t939",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-homebrew-x-awning.1611/",
+    "thread_title": "How To: Homebrew X-Awning",
+    "author_handle": "jmnielsen",
+    "date_posted": "2012-05-17T23:11:53-0400",
+    "date_scraped": "2026-10-20T13:48:48Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "DIY Awning conversion into a side tent",
+      "DIY Awning elbow and paracord tensioning",
+      "DIY Awning leg mounting reinforcement",
+      "DIY Awning leg rotation lock mechanism",
+      "DIY Tarp awning tensioning system",
+      "DIY awning leg mounting system",
+      "Roof racks and storage accessories"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t940",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/mini-how-to-quick-fists-on-roof-rack.3081/",
+    "thread_title": "Mini how to: Quick Fists on roof rack",
+    "author_handle": "Macland",
+    "date_posted": "2013-03-03T19:51:21-0500",
+    "date_scraped": "2026-10-20T13:51:20Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Muffler clamps for roof racks",
+      "Roof racks and storage accessories",
+      "Roof racks and storage systems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t943",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/simple-how-to-door-panel-removal.3693/",
+    "thread_title": "Simple How to Door panel removal",
+    "author_handle": "Xterra Performance",
+    "date_posted": "2013-07-02T22:00:29-0400",
+    "date_scraped": "2026-10-20T13:48:28Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Door panel removal for dent repair",
+      "Door panel removal for tinting or access"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t947",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/problem-installing-2-5-dual-aal.7112/",
+    "thread_title": "Problem installing 2.5 Dual AAL",
+    "author_handle": "on_that_rayray",
+    "date_posted": "2015-08-08T20:01:47-0400",
+    "date_scraped": "2026-10-20T13:58:27Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Leaf spring and shackle repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t984",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-ambient-light-macguyver-mod.2898/",
+    "thread_title": "HOW TO: Ambient Light \"Macguyver Mod\"",
+    "author_handle": "Macguyvermedic",
+    "date_posted": "2013-01-27T01:34:30-0500",
+    "date_scraped": "2026-10-20T13:52:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Ambient light installation via map lamp"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t985",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-rigid-dualy-flush-mounted-in-rear-corner-panels.3193/",
+    "thread_title": "How To: Rigid Dualy Flush Mounted in rear corner panels.",
+    "author_handle": "metzican",
+    "date_posted": "2013-03-30T00:21:14-0400",
+    "date_scraped": "2026-10-20T13:50:31Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t986",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/mini-how-to-running-coaxial-cable-from-hatch-to-driver.3134/",
+    "thread_title": "Mini How To: Running coaxial cable from hatch to driver",
+    "author_handle": "Macland",
+    "date_posted": "2013-03-16T23:22:50-0400",
+    "date_scraped": "2026-10-20T13:54:50Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t988",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-brake-fluid-flush-clutch-if-mt.2703/",
+    "thread_title": "How To: Brake Fluid Flush (& Clutch if MT)",
+    "author_handle": "Airmapper",
+    "date_posted": "2012-12-28T22:50:13-0500",
+    "date_scraped": "2026-10-20T13:49:18Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Brake fluid flush and bleeding",
+      "[reference] Brake bleeder wrench size and order"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t989",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-inverter-install-with-tech-package.2712/",
+    "thread_title": "How To: Inverter Install with Tech package",
+    "author_handle": "Macguyvermedic",
+    "date_posted": "2012-12-31T00:46:59-0500",
+    "date_scraped": "2026-10-20T13:52:40Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t990",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2005-2012-timing-chain-replacement.252/",
+    "thread_title": "2005-2012 Timing Chain Replacement",
+    "author_handle": "Deadpilot",
+    "date_posted": "2011-11-05T10:56:58-0400",
+    "date_scraped": "2026-10-20T13:46:06Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Timing chain and guide replacement",
+      "Timing chain and guide wear",
+      "Timing chain replacement costs by shop type",
+      "Timing chain replacement diagnostic tools",
+      "Timing chain replacement labor time estimates",
+      "Timing chain replacement procedure",
+      "Timing chain replacement tool requirements"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t991",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-viair-on-board-air-system.2717/",
+    "thread_title": "How To: ViAir On Board Air System",
+    "author_handle": "11Pro4x",
+    "date_posted": "2012-12-31T15:51:00-0500",
+    "date_scraped": "2026-10-20T13:46:56Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries",
+      "ViAir On Board Air System Installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t993",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-otrattw-switch-with-piaa-orginal-relay-adding-a-third-light.2868/",
+    "thread_title": "How to: Otrattw Switch with Piaa orginal Relay + Adding a third light",
+    "author_handle": "Trexx",
+    "date_posted": "2013-01-22T18:11:06-0500",
+    "date_scraped": "2026-10-20T13:52:45Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting and Switches"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t997",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/thoghts-on-diy-cai-utilizing-factory-air-box.2560/",
+    "thread_title": "Thoghts on DIY CAI utilizing factory air box",
+    "author_handle": "LLepp",
+    "date_posted": "2012-12-01T15:10:52-0500",
+    "date_scraped": "2026-10-20T13:54:55Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "DIY Cold Air Intake with Snorkel",
+      "Snorkel Modification Sources"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t998",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-bypass-radiator.1542/",
+    "thread_title": "How to bypass radiator",
+    "author_handle": "Logisense",
+    "date_posted": "2012-05-04T17:46:01-0400",
+    "date_scraped": "2026-10-20T13:46:14Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Adding an auxiliary transmission cooler",
+      "Aftermarket transmission cooler part number",
+      "Radiator and trans cooler layout",
+      "Radiator bypass and cooler mods"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1000",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/diy-how-to-modify-the-05-08-nissan-gps-dock-to-fit-a-14xx-series-n%C3%83%C2%BCvi.467/",
+    "thread_title": "DIY: HOW-TO modify the 05-08 Nissan GPS dock to fit a 14XX series N\u00c3\u00bcvi",
+    "author_handle": "J Everett",
+    "date_posted": "2011-12-01T11:33:59-0500",
+    "date_scraped": "2026-10-20T13:50:35Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "GPS Dock Modifications",
+      "Mods"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1001",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-diy-beadlocks.1261/",
+    "thread_title": "How-to: DIY Beadlocks",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-03-20T18:19:36-0400",
+    "date_scraped": "2026-10-20T13:48:23Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Tires, wheels and fitment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1002",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-bushings-shot-maybe-not.1395/",
+    "thread_title": "How-to: Bushings Shot? Maybe Not!",
+    "author_handle": "Oz_X",
+    "date_posted": "2012-04-09T14:39:40-0400",
+    "date_scraped": "2026-10-20T13:58:31Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1003",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-3rd-brake-light-overlay.1334/",
+    "thread_title": "How To: 3rd Brake Light Overlay",
+    "author_handle": "Macguyvermedic",
+    "date_posted": "2012-03-30T19:10:40-0400",
+    "date_scraped": "2026-10-20T13:51:24Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "3rd Brake Light Overlay Installation",
+      "Tailgater Hater overlay installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1033",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/or-p4x-light-upgrade-to-led.4296/",
+    "thread_title": "OR/P4X light upgrade to LED?",
+    "author_handle": "maillet282",
+    "date_posted": "2013-10-30T23:47:51-0400",
+    "date_scraped": "2026-10-20T13:55:00Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting, aux fuse blocks and dual batteries",
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1039",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/how-to-install-new-switch.5888/",
+    "thread_title": "How to Install New Switch",
+    "author_handle": "RioDeColumbia",
+    "date_posted": "2014-09-05T23:34:49-0400",
+    "date_scraped": "2026-10-20T13:58:36Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Lighting and Aux Fuse Blocks",
+      "Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  }
+]
