@@ -114,7 +114,9 @@ The local model is not trusted. Each item names the guarding test, or says none 
   `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, `test_a_fact_without_years_takes_its_sources_generation`,
   `test_a_fact_whose_years_span_both_generations_publishes_in_neither`,
   `test_a_fact_whose_title_names_the_other_generation_publishes_in_neither`,
-  `test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it`.
+  `test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it`,
+  `test_curated_and_generated_pages_must_sit_in_their_generations_section` (a curated page naming the other generation,
+  a leftover top-level `wiki/vehicle/`, and a generated page outside a generation's folder are all refused).
 - **A correction never bypasses grounding.** A reviewer's `correct` verdict (`corrections.py`) rewords one step, summary,
   tip, mistake or symptom; values, metadata, tools and `complete` are only judged, and steps cannot be added or reordered.
   The corrected text is re-checked against the chunk on every load (numbers in the source, no 12-word copy) and still

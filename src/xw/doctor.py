@@ -11,6 +11,7 @@ import httpx
 from .config import Config
 from .llm import LLM, LLMError
 from .schemas import extraction_schema
+from .topics import TopicIndex
 
 OK, WARN, FAIL = "ok  ", "warn", "FAIL"
 
@@ -27,7 +28,10 @@ def run(cfg: Config, *, smoke: bool = False, net: bool = False, out: Callable[[s
     line(OK if sys.version_info >= (3, 10) else FAIL, f"python {sys.version.split()[0]} (need >= 3.10)")
     line(OK if (cfg.root / "prompts" / "extract.md").exists() else FAIL, "prompts/extract.md present")
     line(OK if cfg.sources else FAIL, f"{len(cfg.sources)} sources configured, {sum(1 for s in cfg.sources if s.get('enabled', True))} enabled")
-    line(OK if cfg.topics else FAIL, f"{sum(len(c.get('topics', [])) for c in cfg.topics.values())} seed topics")
+    topics = TopicIndex(cfg.topics)
+    counts = {g: len(topics.topics_for(g)) for g in topics.generations}
+    line(OK if counts and all(counts.values()) else FAIL,
+         "seed topics: " + (", ".join(f"{g} {n}" for g, n in counts.items()) or "none"))
     if not cfg.crawl.contact:
         line(WARN, "crawl.contact is empty: set an email or URL in config/settings.local.yaml so site admins can reach you")
     else:
