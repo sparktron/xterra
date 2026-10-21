@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 import httpx
+import pytest
 
 from xw import db
 from xw.cli import main
@@ -444,6 +445,34 @@ def test_a_fact_whose_title_names_the_other_generation_publishes_in_neither(cfg,
     assert not list(cfg.wiki_dir.glob("*-gen/repair/control-arms-bushings.md"))
     assert "its title names the First generation" in (cfg.wiki_dir / "open_questions.md").read_text()
     assert check_wiki(cfg, conn) == []
+
+
+def test_other_generation_metadata_stays_out_of_the_front_matter(cfg, conn, tmp_path):
+    # Codex review of #11: the prose filters did not cover applies_to/shared_platform, and qa scanned only the body
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008 with the VQ40DE; the old VG33E truck and the D22 Frontier "
+                                          "differ. Separate the ball joint with a fork and drop the arm. " * 5, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        years=[2008], engines=["VQ40DE", "VG33E"], trims=["SE", "D22"], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    front = page.split("---")[1]
+    assert "VQ40DE" in front and "VG33E" not in front and "D22" not in front
+    assert "names the First generation" in (gen2(cfg) / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("- VQ40DE", "- VQ40DE\n  - VG33E", 1))
+    assert any("in the front matter" in v for v in check_wiki(cfg, conn))
+
+
+def test_reingesting_a_page_under_a_source_of_another_generation_is_refused(cfg, conn, tmp_path):
+    # Codex review of #11: INSERT OR IGNORE kept the old `manual` (second-gen) source and reported success
+    f = tmp_path / "saved.txt"
+    f.write_text(GEN1_TEXT)
+    tid = ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan")
+    with pytest.raises(ValueError, match="already ingested under source `manual`"):
+        ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan", source="manual-gen1")
+    assert conn.execute("SELECT source_id FROM threads WHERE id=?", (tid,)).fetchone()[0] == "manual"
+    assert ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan") == tid   # same source: fine
 
 
 def test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it(cfg, conn, tmp_path):

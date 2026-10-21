@@ -197,8 +197,12 @@ def cmd_ingest(args: argparse.Namespace) -> int:
     cfg, conn = _open(args)
     count = 0
     for p in args.paths:
-        tid = ingest_file(cfg, conn, Path(p), url=args.url, title=args.title, author=args.author, posted=args.date,
-                          source=args.source)
+        try:
+            tid = ingest_file(cfg, conn, Path(p), url=args.url, title=args.title, author=args.author, posted=args.date,
+                              source=args.source)
+        except ValueError as exc:
+            print(f"not ingested: {exc}")
+            continue
         print(f"{'ingested' if tid else 'nothing usable in'} {p}" + (f" (thread t{tid})" if tid else ""))
         count += 1 if tid else 0
     return 0 if count else 1

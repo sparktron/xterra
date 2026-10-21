@@ -536,14 +536,26 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
     if proc:
         page.partial_items += sum(proc[0][2]) + (proc[0][0].id in partial_ids and not any(proc[0][2]))
     conf = confidence_for(page, [r for r in rows if r.id in contrib])
+
+    def meta(src: list[FactRow], field: str) -> list[str]:
+        """Verified metadata values for the front matter, minus any that name another generation (dropped, listed)."""
+        out: set[str] = set()
+        for r in src:
+            for v in getattr(r.fact, field):
+                if why := other_gen(str(v)):
+                    drop(r, field, str(v), why)
+                else:
+                    out.add(v)
+        return sorted(out)
+
+    trims, engines, drivetrain = meta(applies, "trims"), meta(applies, "engines"), meta(applies, "drivetrain")
+    shared = meta(platform, "shared_platform")
     fm = {
         "title": page.topic.title,
         "generation": page.topic.generation,
         "category": page.topic.category,
-        "applies_to": {"years": years, "trims": sorted({t for r in applies for t in r.fact.trims}),
-                       "engine": sorted({e for r in applies for e in r.fact.engines}),
-                       "drivetrain": sorted({d for r in applies for d in r.fact.drivetrain})},
-        "shared_platform": sorted({s for r in platform for s in r.fact.shared_platform}),
+        "applies_to": {"years": years, "trims": trims, "engine": engines, "drivetrain": drivetrain},
+        "shared_platform": shared,
         "difficulty": diffs[len(diffs) // 2] if diffs else None,
         "est_time": est[0][0] if est else None,
         "tools": [t for t, _, _ in lists["tool"]],

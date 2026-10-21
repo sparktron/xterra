@@ -78,6 +78,9 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
         body = lines.index("---", 2) + 1 if lines[1:2] == ["---"] and "---" in lines[2:] else 1
         if f"generation: {gen.id}" not in lines[1:body]:
             violations.append(f"{rel}: page is in the {gen.id} section but its front matter does not say generation: {gen.id}")
+        for line in lines[1:body]:   # front matter metadata (engines, trims, shared platform) is published too
+            if o := other_marker(_URL.sub("", line), gen, gl):
+                violations.append(f"{rel}: names the {o.title} in the front matter of a {gen.title} page: {line[:100]}")
         for tid in sorted({int(s[1:]) for s in re.findall(r"\bt\d+\b", _URL.sub("", "\n".join(lines[body:])))}):   # not "albums/t503/"
             if gen.id not in thread_gens.get(tid, set()):
                 violations.append(f"{rel}: cites t{tid}, which has no fact in the {gen.title}")

@@ -13,6 +13,7 @@ from .config import Config
 from .crawl import store_thread
 from .parse import generic, xenforo
 from .parse.base import Post, ThreadPage
+from .generations import source_generation
 
 MANUAL_SOURCE = "manual"
 
@@ -44,7 +45,13 @@ def ingest_file(cfg: Config, conn: sqlite3.Connection, path: Path, *, url: str =
         "INSERT OR IGNORE INTO threads(source_id, url, title, author, kind, priority, status) VALUES(?,?,?,?,?,?, 'queued')",
         (source, key, ttl, author, kind, 1.0),
     )
-    row = conn.execute("SELECT id, status FROM threads WHERE url=?", (key,)).fetchone()
+    row = conn.execute("SELECT id, status, source_id FROM threads WHERE url=?", (key,)).fetchone()
+    old_gen, new_gen = source_generation(cfg, row["source_id"]), source_generation(cfg, source)
+    if row["source_id"] != source and old_gen != new_gen:
+        # the thread keeps its first source, so its facts would go to the old source's generation: refuse, don't hide it
+        raise ValueError(f"{key} is already ingested under source `{row['source_id']}` ({old_gen or 'no generation'}); "
+                         f"it cannot also be `{source}` ({new_gen or 'no generation'}). Use a different --url, or reset the "
+                         f"thread first.")
     if author or posted:
         posts[0].author = posts[0].author or author
         posts[0].posted = posts[0].posted or posted
