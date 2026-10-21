@@ -4,6 +4,7 @@
 Each section publishes only its own generation's facts. These state model years in more than one generation, or no model year and come from a source with no generation, so neither section publishes them.
 
 - t442 "2nd Gen seat brackets": First-gen Xterra Corbeau bracket fitment notes. Reason: it would go to the Second generation (N50), 2005-2015 but its title names the First generation (WD22), 2000-2004. (https://www.xterranation.org/index.php?threads/2nd-gen-seat-brackets.5299/)
+- t1222 "2nd Gen seat swap to Gen 1": Swapping 2nd gen seats onto 1st gen frames. Reason: it would go to the First generation (WD22), 2000-2004 but its title names the Second generation (N50), 2005-2015. (https://www.xterranation.org/index.php?threads/2nd-gen-seat-swap-to-gen-1.5171/)
 
 ## Blocked sources (all generations)
 

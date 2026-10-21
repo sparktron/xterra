@@ -16,6 +16,37 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+First-gen extraction, verification and export (2026-10-21, asked by the user: "Run xw extract --source
+xterranation-gen1 and xw verify on the 240 crawled first-gen threads, then xw export && xw qa, review the first-gen
+diff and push it").
+
+- **Extract:** 299 of 319 chunks done, 18 irrelevant.
+  - 2 are still `pending`: chunks 947 and 977 ("CBs & Antennas", "Multiple codes pulled tonight"). Their JSON ran away twice, with 2 of 3 attempts used.
+  - The first attempt died when LM Studio crashed. A resumed run did 304 chunks, and a retry recovered 5 of the 7 chunks with runaway JSON.
+  - 10 threads have no chunks: their fetch failed in the earlier crawl ("Server disconnected").
+- **Verify:** 878 first-gen facts.
+  - Over every verify run so far, the verifier accepted 55 of 6,499 decoys (1%); those calls were discarded.
+  - First-gen claim verdicts: 2,659 supported, 3,013 partial, 325 unsupported. That was counted before the retry added 60 facts.
+  - Steps are extracted: 749 of the first 818 facts have steps, 1,902 in all. The earlier worry about first-gen step output is resolved.
+- **Classifier fix:** qa first failed with 4 violations on first-gen pages.
+  - Three were pages titled "... (Ford 4.6L)", where the engine size was read as a 4.6 L capacity. The fourth was a bumper part, `Main frame bar: 42"`, read as 42 bar.
+  - `grounding.safety_values` now treats a litre figure next to an engine make or layout as a displacement, and ignores "bar" written before a number. Test: `test_a_swap_engine_name_or_a_part_called_bar_is_not_a_safety_value`.
+  - Compared over all 29,740 wiki lines, the old and new classifier differ on 37 lines, every one a false positive (engine names, "frame bar", and URLs like `sway-bar.11547`). No real volume, torque or pressure is lost.
+- **Misrouted facts:** 5 first-gen-forum facts (2191, 2423, 2645, 2745, 2843) state a second-gen model year, apparently a post date: 2010, 2012, 2013, 2015 and 2016.
+  - The rule "stated years decide" sends them to the second-gen section. One of them is "Torsion bar vs Solid axle characteristics".
+  - The verifier rated their `applies` claims partial for four and unsupported for one, so verdicts can't catch them either.
+  - They are not committed. The committed wiki was exported from a database copy without them: second-gen is byte-identical to `ca75c52`, and qa passed on the copy and on the live database.
+  - **Open, for the user:** should a fact from a source of one generation that states only the other generation's years publish nowhere, like the title rule? That would change `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, which currently routes a `manual` (second-gen) fact stating 2001 to first-gen.
+  - Until decided, a plain `xw export` puts the 5 back on second-gen pages.
+- **Export:** first-gen has 459 pages from 872 facts (was 0), with 459 items withheld.
+  - Pages by category: 197 reference, 121 mods, 89 repair, 32 diagnostics, 20 maintenance.
+  - 328 pages have a procedure and 82 have specifications.
+  - The first-gen index links all 9 hand-written guides.
+  - Top-level `open_questions.md` gained t1222, "Swapping 2nd gen seats onto 1st gen frames", refused by the title rule.
+- **Review:** I spot-checked pages by hand; nothing was reviewed by Claude's reviewer agent or `xw triage`.
+  - Same weakness as second-gen: topics are fragmented ("Hammering techniques for loose ball joints") and some notes are misfiled under catch-all topics.
+  - Known gap: export doesn't check a model-made topic title for safety values, but qa does. A title like "(2.8 L)" would fail qa again.
+
 First-gen brake, hub/bearing and drivetrain guides (2026-10-21, asked by the user). Three more guides in
 `wiki/first-gen/vehicle/guides/`, named after their first-gen `topics.yaml` slugs. The hub was regenerated
 (9 guides), and `check_curated` is clean. The new guides have 0 broken links or anchors and name no other generation.

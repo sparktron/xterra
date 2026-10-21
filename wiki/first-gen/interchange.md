@@ -3,3 +3,68 @@
 
 | Topic | Shared with | Years | Threads | Status |
 |---|---|---|---|---|
+| 2WD to 4WD Conversion Guide | Frontier | 2001 | 1 | unconfirmed |
+| 2WD to 4WD Conversion Wiring and Parts | Frontier | n/a | 1 | unconfirmed [Partial] |
+| 4WD Indicator Light Testing Procedure | Frontier | 2001 | 1 | unconfirmed [Partial] |
+| Automatic vs manual transfer case input | Frontier | 2000 | 1 | unconfirmed [Partial] |
+| Ball joints, tie rods and steering linkage | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Bumpers, sliders and skid plates | Frontier | n/a | 1 | unconfirmed [Partial] |
+| CV axles and U-joints | Frontier | n/a | 1 | unconfirmed |
+| Connector M59 and M58 Wiring Locations | Frontier | 2001 | 1 | unconfirmed |
+| Diagnostics: Ignition signal and coil issues (P1320) | Frontier | n/a | 1 | unconfirmed |
+| Donor Vehicle Requirements for Conversion | Frontier | 2001 | 1 | unconfirmed [Partial] |
+| Driveshaft U-joint removal and installation methods | Frontier | n/a | 1 | unconfirmed |
+| Electric Power Steering Pump Install | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Engine swap options for power gain | Titan | n/a | 1 | unconfirmed [Partial] |
+| Engine trouble codes (KA24DE and VG33E) | Frontier | n/a | 1 | unconfirmed |
+| Front steering bumper cap replacement | Frontier | n/a | 1 | unconfirmed |
+| Front sway bar link wear and bushings | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Frontier Transmission Crossmember Source | Frontier | 2001 | 1 | unconfirmed |
+| Fuel pump and sending unit issues | Frontier | 2003 | 1 | unconfirmed |
+| Identifying sliding rail differences between generations | Frontier | 2004 | 1 | unconfirmed |
+| Instrument Cluster 4WD Indicator Wiring Fix | Frontier | 2001 | 1 | unconfirmed |
+| JDM Engine Cooling System Service | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Gasket and Seal Prep | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Harmonic Balancer Check | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Spark Plug and Wire Service | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Starter Mounting Adjustment | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Thermostat Replacement | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Timing and Drive Train Service | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM Engine Valve Cover and Oil Pan Sealing | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM VG33E Engine Identification | Frontier | n/a | 1 | unconfirmed [Partial] |
+| JDM VG33E Engine Swap | Frontier | n/a | 1 | unconfirmed [Partial] |
+| List of states requiring specific fuel pump terminal remedies | Frontier | 2000, 2001, 2002 | 1 | unconfirmed [Partial] |
+| Lower steering column shaft replacement | Frontier | 2004 | 1 | unconfirmed [Partial] |
+| Nissan Front Crossmember Part Source | Frontier | 2001 | 1 | unconfirmed |
+| Rear axle water intrusion repair | Frontier | 2003 | 1 | unconfirmed [Partial] |
+| Recovering existing 1st gen leather with new foam | Frontier | 2004 | 1 | unconfirmed |
+| Reference | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Reference Gear ratios by tire size (General) | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Reference: Fuel sending unit swap from Frontier | Frontier | 2000 | 1 | unconfirmed |
+| Replace brittle automatic transmission shift cable lock plate | Frontier | 2000 | 1 | unconfirmed [Partial] |
+| Replace corroded lower steering column shaft and joint with new design | Frontier | 2002, 2003 | 1 | unconfirmed |
+| Replace fuel tank inlet shutter valve to stop filler leaks | Frontier | 2001 | 1 | unconfirmed |
+| Reprogram ECU to fix supercharger fail-safe mode and RPM limiter | Frontier | 2002 | 1 | unconfirmed |
+| Reseal rear ABS sensor to prevent water intrusion and bearing failure | Frontier | n/a | 1 | unconfirmed |
+| Seat swap from second to first generation | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Solid axle swap (SAS) | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Steering bump stop geometry and pairing | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Steering bump stops and clunks | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Steering wheel interchange options | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Testing fit seats at a local junkyard first | Frontier | 2004 | 1 | unconfirmed |
+| Tires, wheels and fitment | Frontier | n/a | 3 | community-consensus |
+| Torque specifications for driveshaft bolts | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Transfer Case Wiring Harness Details | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Transfer case models and spline counts | Frontier | n/a | 1 | unconfirmed |
+| Transfer case sensor and linkage differences | Frontier | 2000 | 1 | unconfirmed [Partial] |
+| Transfer case swap and linkage modification | Frontier | 2000 | 1 | unconfirmed [Partial] |
+| Using Maxima seats as alternative options | Frontier | 2004 | 1 | unconfirmed |
+| Using early and mid 2000s Altima seats as alternatives | Frontier | 2004 | 1 | unconfirmed |
+| Wider chain transfer case sourcing | Frontier | n/a | 1 | unconfirmed |
+| Xterra and Frontier parts interchange | Frontier | n/a | 2 | community-consensus |
+| [mods] Engine swap ideas and alternatives | Frontier | n/a | 1 | unconfirmed [Partial] |
+| [mods] Lockers for non-standard diffs | Frontier | n/a | 1 | unconfirmed |
+| [mods] Rear drum-to-disc brake swap | Frontier | n/a | 1 | unconfirmed [Partial] |
+| [mods] Transmission and transfer case problems | Frontier | n/a | 1 | unconfirmed [Partial] |
+| [reference] Leaf spring and shackle repair | Frontier | n/a | 1 | unconfirmed [Partial] |
+| [reference] Xterra and Frontier parts interchange | Frontier | n/a | 1 | unconfirmed |
