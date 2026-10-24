@@ -16,6 +16,24 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+First-gen retries (2026-10-22, asked by the user: "Retry the 2 pending first-gen chunks (947 and 977) and the 10
+xterranation-gen1 threads that failed to fetch, then run xw verify, xw export && xw qa"). Uncommitted.
+
+- **Fetch:** all 10 threads that had failed with `RemoteProtocolError: Server disconnected` (a network error, not a
+  block) fetched on retry: 28 pages, 20 chunks. They went through the normal `harvest` path, requeued at priority
+  -1000 so `--limit 10` took only them, and their priorities were restored afterwards. The 1,049 other queued
+  threads were not fetched.
+- **Extract:** 18 of the 20 new chunks extracted. Chunks 947 and 977 failed a third time, and new chunk 1015 three
+  times, all with the same runaway JSON: the reply is cut off mid-list after 26-29k characters. All three are now
+  `error`, with no attempts left. They look like a reply-length limit rather than bad luck; `llm.py` was not changed.
+  Log: `data/xterranation-gen1-retry-extract-2026-10-21.log`.
+- **Verify:** 84 new facts (`data/xterranation-gen1-retry-verify-2026-10-22.log`). Of this run's 82 decoy checks, 6
+  accepted a decoy (7%, against 2% over all earlier runs). The claims from those calls are stored `decoy_failed` and
+  withheld, so the gate held, but the rate is worth watching.
+- **Export:** first-gen 478 pages from 956 facts (was 459 from 872); second-gen unchanged (930 pages); 7 facts in
+  no section, unchanged. 37 first-gen files and `wiki/index.md` changed. `xw qa` passed.
+- **Not run:** no review of the new first-gen pages; nothing committed or pushed.
+
 First-gen extraction, verification and export (2026-10-21, asked by the user: "Run xw extract --source
 xterranation-gen1 and xw verify on the 240 crawled first-gen threads, then xw export && xw qa, review the first-gen
 diff and push it").
