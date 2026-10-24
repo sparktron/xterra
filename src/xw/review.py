@@ -29,7 +29,7 @@ from typing import Any
 from . import corrections
 from .config import Config
 from .db import now
-from .export import Policy, is_safety, load_rows, pending_spec_keys
+from .export import Policy, is_safety, load_rows, pending_spec_keys, route_rows
 from .grounding import safety_values
 from .topics import TopicIndex
 from .verify import DECOY_FAILED, claims_for_fact
@@ -108,14 +108,18 @@ def build_queue(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, *, tr
     policy = Policy.from_cfg(cfg)
     rows = load_rows(conn)
     chunk_text = {r["id"]: r["text"] for r in conn.execute("SELECT f.id, c.text FROM facts f JOIN chunks c ON c.id=f.chunk_id")}
-    pending = pending_spec_keys(rows, topics, policy, (cfg.scope.years[0], cfg.scope.years[1]))
+    pending = pending_spec_keys(rows, topics, policy, cfg)
+    by_gen, _ = route_rows(cfg, rows)   # a fact that publishes in no generation's section is not worth reviewing
+    gen_of = {r.id: gid for gid, rs in by_gen.items() for r in rs}
     claude_notes = {(v["fact_id"], v["claim_key"]): v["note"] for v in
                     conn.execute("SELECT fact_id, claim_key, note FROM verdicts WHERE by='claude'")} if triage else {}
     proposals = corrections.load_pending(conn) if triage else {}
 
     queue: list[dict[str, Any]] = []
     for r in rows:
-        topic = topics.resolve(r.fact.topic, r.fact.category)
+        if r.id not in gen_of:
+            continue
+        topic = topics.resolve(r.fact.topic, r.fact.category, gen_of[r.id])
         text = chunk_text[r.id]
         evidence = {f"spec:{i}": s.evidence for i, s in enumerate(r.fact.specs)} | {f"part:{i}": p.evidence for i, p in enumerate(r.fact.parts)}
         for key, claim in claims_for_fact(r.fact):

@@ -4,6 +4,9 @@
 #   Use `thread_urls` for any site you want to read thread-by-thread with the generic adapter.
 # type: forum | manufacturer | vendor | community | manual. `manufacturer` pages can raise a page to `confirmed`.
 # trust: 1-5 (your judgment; used to order merging and shown in the wiki).
+# generation: first-gen | second-gen. The wiki section a fact from this source goes to when the fact states no model
+#   year (a stated year decides first). Give each generation's subforums their own source; a source without a
+#   generation contributes only facts that state their years.
 #
 # Politeness is enforced in code: robots.txt, per-host delay, fetch budgets, and a hard stop on
 # 401/402/403. If a site blocks bots, the pipeline records that and moves on. Use `xw ingest` for
@@ -12,6 +15,7 @@
 sources:
   - id: thenewx
     rank: 1
+    generation: second-gen      # Second Generation Nissan Xterra Forums (2005+)
     name: The New X
     base_url: https://www.thenewx.org
     type: forum
@@ -29,6 +33,7 @@ sources:
 
   - id: nissan-frontier-forum
     rank: 2
+    generation: second-gen   # D40 Frontier, which shares the N50 Xterra's drivetrain
     name: Nissan Frontier Forum
     base_url: https://www.nissanfrontierforum.com
     type: forum
@@ -40,19 +45,80 @@ sources:
 
   - id: clubfrontier
     rank: 3
+    generation: second-gen
     name: ClubFrontier
     base_url: https://www.clubfrontier.org
     type: forum
     adapter: generic
     trust: 3
-    enabled: true         # [Unverified] URL not checked. The generic adapter does not discover threads: add thread URLs below.
+    enabled: false        # 2026-10-20: www.clubfrontier.org answers bots with a 307 to tollbit.clubfrontier.org (pay-per-crawl), i.e. no free automated access
     thread_urls: []
+
+  - id: xterranation
+    rank: 4
+    generation: second-gen
+    name: XterraNation
+    base_url: https://www.xterranation.org
+    type: forum
+    adapter: xenforo      # XenForo 2 with friendly URLs off ("index.php?threads/..."); checked 2026-10-20, no robots.txt (404)
+    trust: 3
+    enabled: true
+    seeds:                # the 2005-2015 (N50) subforums
+      - https://www.xterranation.org/index.php?forums/do-it-yourself-2005-2015.42/
+      - https://www.xterranation.org/index.php?forums/general-maintenance-specifications-2005-2015.44/
+      - https://www.xterranation.org/index.php?forums/under-the-hood-2005-2015.59/
+      - https://www.xterranation.org/index.php?forums/drivetrain-2005-2015.51/
+      - https://www.xterranation.org/index.php?forums/steering-and-suspension-2005-2015.48/
+      - https://www.xterranation.org/index.php?forums/lighting-electronics-2005-2015.35/
+      - https://www.xterranation.org/index.php?forums/body-armor-2005-2015.38/
+      - https://www.xterranation.org/index.php?forums/wheels-tires-2005-2015.53/
+      - https://www.xterranation.org/index.php?forums/interior-mods-2005-2015.77/
+      - https://www.xterranation.org/index.php?forums/titan-swap.93/
+    howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "guide", "tutorial", "install", "swap", "replace", "replacing", "fix", "rebuild", "change", "instructions", "bypass", "upgrade", "sticky"]
+    skip_forums: ["for sale", "classified", "marketplace", "off topic", "off-topic", "introduc", "event", "vendor", "giveaway", "photos", "video", "xn-army"]
+    notes: Second-gen subforums only; the 2000-2004 sections are a different truck.
+
+  - id: xterranation-gen1
+    rank: 5
+    name: XterraNation (2000-2004 sections)
+    base_url: https://www.xterranation.org
+    type: forum
+    adapter: xenforo
+    generation: first-gen
+    trust: 3
+    enabled: true
+    seeds:                # the 2000-2004 (WD22) subforums, listed on the forum index 2026-10-20
+      - https://www.xterranation.org/index.php?forums/do-it-yourself-2000-2004.41/
+      - https://www.xterranation.org/index.php?forums/general-maintenance-2000-2004.45/
+      - https://www.xterranation.org/index.php?forums/under-the-hood-2000-2004.58/
+      - https://www.xterranation.org/index.php?forums/drivetrain-2000-2004.50/
+      - https://www.xterranation.org/index.php?forums/steering-and-suspension-2000-2004.47/
+      - https://www.xterranation.org/index.php?forums/lighting-electronics-2000-2004.34/
+      - https://www.xterranation.org/index.php?forums/body-armor-2000-2004.36/
+      - https://www.xterranation.org/index.php?forums/wheels-tires-2000-2004.52/
+      - https://www.xterranation.org/index.php?forums/interior-mods-2000-2004.76/
+      - https://www.xterranation.org/index.php?forums/sas-solid-axle-swap-2000-2004.30/
+      - https://www.xterranation.org/index.php?forums/the-recall-list-2000-2004.24/
+    howto_hints: ["how to", "how-to", "diy", "write-up", "writeup", "guide", "tutorial", "install", "swap", "replace", "replacing", "fix", "rebuild", "change", "instructions", "upgrade", "sticky"]
+    skip_forums: ["for sale", "classified", "marketplace", "off topic", "off-topic", "introduc", "event", "vendor", "giveaway", "photos", "video", "xn-army"]
+    notes: First-gen subforums only; same site as `xterranation`, kept as its own source so its facts go to the first-gen section.
 
   - id: manual
     rank: 99
+    generation: second-gen      # the pages ingested so far are second-gen threads; ingest first-gen pages into manual-gen1
     name: Manually saved pages
     base_url: ""
     type: manual
     adapter: generic
     trust: 3
     enabled: true         # populated by `xw ingest`
+
+  - id: manual-gen1
+    rank: 100
+    name: Manually saved pages (first generation)
+    base_url: ""
+    type: manual
+    adapter: generic
+    generation: first-gen
+    trust: 3
+    enabled: true         # `xw ingest --source manual-gen1`

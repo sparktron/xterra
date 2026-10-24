@@ -1,6 +1,6 @@
 # xterra wiki pipeline
 
-Local-LLM pipeline (`xw`) that builds a wiki on 2nd-gen Nissan Xterra / Frontier / Titan work from forum threads.
+Local-LLM pipeline (`xw`) that builds a wiki on Nissan Xterra (first and second generation, in separate sections) / Frontier / Titan work from forum threads.
 
 - Setup: `scripts/bootstrap.sh`. Run: `scripts/run_all.sh`. Tests: `pytest -q`.
 - Published facts must be grounded in source text. Do not loosen `grounding.py`, `export.gate` or `qa.py` without a test showing why.
@@ -64,8 +64,11 @@ The local model is not trusted. Each item names the guarding test, or says none 
   entry. `export.load_rows` recomputes grounding from chunk text on every export (`facts.grounding_json` is not read),
   so a tightened rule applies to old facts. Tests: `tests/test_grounding.py`.
 - **Safety classification is deterministic.** `export.is_safety` (torque, capacities, pressure, preload) never
-  relies on the model's `safety_critical` flag, which defaults to false.
-  Test: `test_non_torque_safety_values_are_classified_deterministically`.
+  relies on the model's `safety_critical` flag, which defaults to false. `grounding.safety_values` does not read an
+  engine's displacement ("VQ40DE 4.0L", "Ford 4.6L", "5.3L V8") as a fluid volume, or a part named "bar" before a
+  number ("frame bar: 42"") as a pressure; a volume or pressure next to an engine name still counts.
+  Tests: `test_non_torque_safety_values_are_classified_deterministically`,
+  `test_a_swap_engine_name_or_a_part_called_bar_is_not_a_safety_value`.
 - **An unconfirmed safety value publishes only marked, and keeps being re-checked.** Confirmed means
   `verify.safety_min_threads` (2) threads with as many distinct authors, a manufacturer source, or a reviewer's approval.
   Decided 2026-10-16 (`verify.publish_unverified_safety`, default on): an unconfirmed torque/capacity/pressure value
@@ -101,8 +104,24 @@ The local model is not trusted. Each item names the guarding test, or says none 
   Removing it from a page hides that page from `qa`. No test covers hand-editing.
 - **Blocks are never worked around.** 401/402/403 (`crawl.stop_statuses`), repeated 429, off-site redirects and
   challenge pages mark the source blocked; no retry, header spoofing, proxy, mirror or cache. Tests: `tests/test_fetch.py`.
-- **Wiki scope years (`scope.years: [2005, 2016]`) are `[Unverified]`.** Out-of-scope years are dropped
+- **Wiki scope years (`scope.years: [2000, 2016]`) are `[Unverified]`.** Facts stating only years outside it are dropped
   (`test_out_of_scope_years_are_dropped`); do not tighten the range without a source.
+- **Each generation is a completely separate section** (decided 2026-10-20: the first-gen WD22 and second-gen N50 "are
+  nothing alike"). `generations.route` sends a fact to its source's `generation` (sources.yaml), or, from a source
+  with none, to the generation of its stated years. Years in two generations, years only in a generation other than
+  the source's (decided 2026-10-21: in a first-gen forum a stated "2013" was a post date), no generation at all, or a
+  fact title naming another generation publish nowhere (top-level `open_questions.md`). Export writes `wiki/<generation>/...` with its own index,
+  topic tree (`topics.yaml` `generations:`) and supporting files, and withholds any claim that names another generation
+  (`config.DEFAULTS["generations"]` markers); corroboration and the review queue are per generation. `qa` re-derives the
+  routing from the database and refuses a page in the wrong section, a cited thread with no fact in that generation,
+  and a line (generated or curated) naming another generation. A new source needs a `generation`. Tests:
+  `test_a_fact_publishes_only_in_the_generation_of_its_stated_years`, `test_a_source_without_a_generation_routes_by_stated_years`,
+  `test_a_fact_without_years_takes_its_sources_generation`,
+  `test_a_fact_whose_years_span_both_generations_publishes_in_neither`,
+  `test_a_fact_whose_title_names_the_other_generation_publishes_in_neither`,
+  `test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it`,
+  `test_curated_and_generated_pages_must_sit_in_their_generations_section` (a curated page naming the other generation,
+  a leftover top-level `wiki/vehicle/`, and a generated page outside a generation's folder are all refused).
 - **A correction never bypasses grounding.** A reviewer's `correct` verdict (`corrections.py`) rewords one step, summary,
   tip, mistake or symptom; values, metadata, tools and `complete` are only judged, and steps cannot be added or reordered.
   The corrected text is re-checked against the chunk on every load (numbers in the source, no 12-word copy) and still
@@ -117,7 +136,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
   and `.agents/skills/source-command-review-wiki/` (with `review.INSTRUCTIONS` in each batch). Edit them together.
   `test_every_copy_of_the_reviewer_instructions_describes_corrections` checks only the `correct` rules; nothing else
   covers drift.
-- **`wiki/vehicle/` is the wiki's hand-curated reference section, outside the pipeline.** The wiki is one product; this folder is the part nothing generates. Model-year, paint, dimension, fluid, maintenance,
+- **`wiki/<generation>/vehicle/` is each section's hand-curated reference section, outside the pipeline.** The wiki is one product; these folders are the part nothing generates. Model-year, paint, dimension, fluid, maintenance,
   part-number and recall pages from manufacturer, EPA, NHTSA and catalog sources. `export.CURATED_DIR` is not a topic
   category, so export never deletes or rewrites it (it only links the hub from `index.md`); do not add `vehicle`
   to `topics.yaml`. Its pages must not carry the `GENERATED` line. `qa.check_curated` requires every line that states a
@@ -133,7 +152,8 @@ The local model is not trusted. Each item names the guarding test, or says none 
 | `prompts/` | `extract.md` and `verify.md`, the LLM system prompts |
 | `tests/` | Offline suite with HTML fixtures; no network or LLM server needed |
 | `wiki/` | Generated output; pages with the `GENERATED` header are overwritten by `xw export`. Committed, so regenerate and review the diff before committing |
-| `wiki/vehicle/` | Reference section of the wiki: hand-curated pages (one per model year plus reference pages); edit by hand, cite every number |
+| `wiki/<generation>/vehicle/` | A generation's reference section: hand-curated pages (one per model year plus reference pages); edit by hand, cite every number, never name the other generation |
+| `wiki/<generation>/vehicle/guides/` | Hand-written how-to guides, same rules. Regenerate the second-gen hub with `scripts/guides_hub.py`. Name a guide after its `topics.yaml` slug and the index links it from that topic's row (`export.GUIDES_DIR`, `test_a_curated_guide_is_linked_from_its_topic_in_the_index`) |
 | `data/` | SQLite state and raw page cache. Gitignored; holds other people's posts |
 | `.claude/`, `.codex/`, `.agents/` | `/review-wiki` command and `wiki-reviewer` agent, per tool |
 
@@ -153,7 +173,7 @@ scripts/run_all.sh       # xw doctor, run, export, qa
 
 CI (`.github/workflows/ci.yml`, GitHub Actions) runs `pytest` on Python 3.10, 3.12 and 3.13 with current releases and on
 3.10 with every dependency at its declared floor (read from `pyproject.toml`), fails if anything under `data/`,
-`config/settings.local.yaml` or a `.env` is tracked, and runs `qa.check_curated` on `wiki/vehicle/`. It cannot run
+`config/settings.local.yaml` or a `.env` is tracked, and runs `qa.check_curated` on every `wiki/<generation>/vehicle/`. It cannot run
 `xw qa` on the generated pages (they are checked against `data/xw.sqlite`, which is never committed) or anything that
 needs the LLM server, so those stay local steps before a wiki commit.
 

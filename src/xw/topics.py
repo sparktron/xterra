@@ -1,10 +1,12 @@
-"""Topic registry: maps model-proposed topic titles onto stable wiki page slugs."""
+"""Topic registry: maps model-proposed topic titles onto stable wiki page slugs, one tree per model generation."""
 from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import Any
+
+DEFAULT_GENERATION = "second-gen"
 
 _STOP = {"how", "to", "a", "the", "of", "and", "for", "on", "in", "my", "your", "nissan", "xterra", "diy", "guide", "install",
          "installation", "replace", "replacement", "replacing", "change", "changing", "fix", "repair"}
@@ -38,27 +40,50 @@ class Topic:
     title: str
     aliases: list[str] = field(default_factory=list)
     seeded: bool = True
+    generation: str = DEFAULT_GENERATION
 
 
 class TopicIndex:
+    """`spec` is topics.yaml's `generations` mapping ({gen: {"categories": {...}}}), or a legacy single tree of
+    categories, which is the second generation's. Topics never match across generations."""
+
     THRESHOLD = 0.8
 
-    def __init__(self, categories: dict[str, Any]):
+    def __init__(self, spec: dict[str, Any]):
         self.topics: list[Topic] = []
-        self.category_titles: dict[str, str] = {}
-        for cat, body in (categories or {}).items():
-            self.category_titles[cat] = body.get("title", cat)
-            for t in body.get("topics", []):
-                self.topics.append(Topic(cat, t["slug"], t["title"], list(t.get("aliases", []))))
+        self._categories: dict[str, dict[str, str]] = {}
+        spec = spec or {}
+        trees = spec if any(isinstance(v, dict) and "categories" in v for v in spec.values()) else \
+            ({DEFAULT_GENERATION: {"categories": spec}} if spec else {})
+        for gen, body in trees.items():
+            cats = self._categories.setdefault(gen, {})
+            for cat, cbody in (body.get("categories") or {}).items():
+                cats[cat] = cbody.get("title", cat)
+                for t in cbody.get("topics", []):
+                    self.topics.append(Topic(cat, t["slug"], t["title"], list(t.get("aliases", [])), generation=gen))
 
-    def titles_for_prompt(self) -> str:
-        return "\n".join(f"- [{t.category}] {t.title}" for t in self.topics)
+    @property
+    def generations(self) -> list[str]:
+        return list(self._categories)
 
-    def resolve(self, suggested: str, category: str) -> Topic:
-        """Return the best matching topic (same category), or register and return a new one."""
+    def category_titles_for(self, generation: str = DEFAULT_GENERATION) -> dict[str, str]:
+        return self._categories.get(generation, {})
+
+    @property
+    def category_titles(self) -> dict[str, str]:
+        return self.category_titles_for(DEFAULT_GENERATION)
+
+    def topics_for(self, generation: str = DEFAULT_GENERATION) -> list[Topic]:
+        return [t for t in self.topics if t.generation == generation]
+
+    def titles_for_prompt(self, generation: str = DEFAULT_GENERATION) -> str:
+        return "\n".join(f"- [{t.category}] {t.title}" for t in self.topics_for(generation))
+
+    def resolve(self, suggested: str, category: str, generation: str = DEFAULT_GENERATION) -> Topic:
+        """Return the best matching topic (same generation and category), or register and return a new one."""
         best: tuple[float, Topic | None] = (0.0, None)
         for t in self.topics:
-            if t.category != category:
+            if t.category != category or t.generation != generation:
                 continue
             names = [t.title, t.slug.replace("-", " "), *t.aliases]
             exact = any(suggested.strip().lower() == n.lower() for n in names)
@@ -69,8 +94,8 @@ class TopicIndex:
             return best[1]
         slug = slugify(suggested)
         for t in self.topics:
-            if t.category == category and t.slug == slug:
+            if t.category == category and t.slug == slug and t.generation == generation:
                 return t
-        new = Topic(category, slug, suggested.strip() or slug, seeded=False)
+        new = Topic(category, slug, suggested.strip() or slug, seeded=False, generation=generation)
         self.topics.append(new)
         return new

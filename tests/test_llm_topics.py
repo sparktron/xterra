@@ -158,3 +158,16 @@ def test_api_key_is_read_from_env_and_sent_as_bearer(cfg, monkeypatch):
     seen.clear()
     _llm(cfg, handler, provider=None).list_models()
     assert seen == [None]
+
+
+def test_doctor_counts_seed_topics_in_every_generation(cfg, monkeypatch):
+    # topics.yaml nests a tree per generation; doctor once read only the legacy single tree and reported "0 seed topics"
+    from xw import doctor
+
+    monkeypatch.setattr(doctor.shutil, "which", lambda _: None)
+    monkeypatch.setattr(LLM, "list_models", lambda self: [cfg.llm.model])
+    lines = []
+    doctor.run(cfg, out=lines.append)
+    topic_line = next(l for l in lines if "seed topics" in l)
+    assert topic_line.startswith("[ok  ]") and "first-gen" in topic_line and "second-gen" in topic_line
+    assert " 0" not in topic_line.split(":", 1)[1]

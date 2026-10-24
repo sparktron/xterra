@@ -1,7 +1,16 @@
 from xw.parse import get_adapter, generic, xenforo
-from xw.parse.base import parse_count
+from xw.parse.base import absolute, parse_count
 
 BASE = "https://forum.example.invalid"
+
+
+def test_a_malformed_link_in_a_post_does_not_stop_the_harvest():
+    # a real xterranation post: an <img src> urllib rejects as "Invalid IPv6 URL" crashed `xw harvest`
+    assert absolute(f"{BASE}/threads/x.1/", "http://[broken/pic.jpg") == "http://[broken/pic.jpg"
+    html = (f'<article class="message--post" data-author="a"><div class="bbWrapper">Text before'
+            f'<img src="http://[broken/pic.jpg"> and after.</div></article>')
+    page = xenforo.parse_thread(html, f"{BASE}/threads/x.1/")
+    assert "Text before" in page.posts[0].text and "and after." in page.posts[0].text
 
 
 def test_parse_count():
@@ -22,6 +31,16 @@ def test_xenforo_forum_listing(fixtures):
     assert titles["How to replace lower control arms"].views == 9800
     assert page.next_url == f"{BASE}/forums/diy-how-to.12/page-2"
     assert ("For Sale", f"{BASE}/forums/for-sale.30/") in page.subforums
+
+
+def test_xenforo_forum_listing_without_friendly_urls(fixtures):
+    # XenForo with friendly URLs off (xterranation.org) links "index.php?threads/..." and "index.php?forums/..."
+    html = (fixtures / "xenforo_forum.html").read_text().replace('href="/threads/', 'href="/index.php?threads/') \
+        .replace('href="/forums/', 'href="/index.php?forums/')
+    page = xenforo.parse_forum(html, f"{BASE}/index.php?forums/diy-how-to.12/")
+    titles = {t.title: t for t in page.threads}
+    assert titles["READ FIRST: Engine code list"].url == f"{BASE}/index.php?threads/read-first-code-list.101/"
+    assert ("For Sale", f"{BASE}/index.php?forums/for-sale.30/") in page.subforums
 
 
 def test_xenforo_thread(fixtures):
@@ -83,3 +102,21 @@ def test_xenforo_post_date_comes_from_the_permalink_not_the_first_time_tag():
         <div class="bbWrapper">Reply text</div></div></article></body></html>"""
     page = xenforo.parse_thread(html, f"{BASE}/threads/x.1/")
     assert [p.posted[:10] for p in page.posts] == ["2011-04-10", "2011-04-12"]
+
+
+def test_xenforo_opening_post_in_a_messagecard_div_is_not_dropped():
+    """thenewx.org's later "california" markup (2025 captures) puts the opening post in <div class="MessageCard js-post">
+    with no data-author, its author in <meta itemprop="name"> and its date only as text on the permalink; the
+    replies stay <article class="js-post">. The opening post was dropped, i.e. every how-to lost its guide."""
+    html = """<html><body><h1>How-to: bypass</h1>
+      <div class="MessageCard js-messageCard js-post" id="js-post-1"><meta itemprop="name" content="JOSX2">
+        <span class="edited"><time class="u-dt" datetime="2023-08-09T17:00:52-0400">Aug 9, 2023</time></span>
+        <a class="MessageCard__date-created" href="/p/1">Jul 3, 2010(Edited)</a>
+        <article class="message-body"><div class="bbWrapper">Swap these two hoses.</div></article>
+        <div class="signature-content-wrapper"><div class="bbWrapper">my signature</div></div></div>
+      <article class="js-post" data-author="KAK"><a class="MessageCard__date-created" href="/p/2">
+        <time class="u-dt" datetime="2010-07-03T09:00:00-0400">Jul 3, 2010</time></a>
+        <div class="bbWrapper">I like this one</div></article></body></html>"""
+    page = xenforo.parse_thread(html, f"{BASE}/threads/x.1/")
+    assert [(p.author, p.posted[:10], p.text) for p in page.posts] == [
+        ("JOSX2", "2010-07-03", "Swap these two hoses."), ("KAK", "2010-07-03", "I like this one")]

@@ -6,7 +6,11 @@ paths:
 
 llm:
   provider: lmstudio             # lmstudio | openai (any OpenAI-compatible server) | ollama
-  endpoint: http://localhost:1234   # LM Studio server address; "/v1" is added automatically (confirmed against a local server on :1234)
+  endpoint: http://localhost:1235   # OpenAI-compatible API; "/v1" is added automatically
+  # To switch hosts, put this mapping in config/settings.local.yaml:
+  # llm:
+  #   endpoint: http://localhost:1234
+  #   model: "<model ID listed by that server>"
   model: "qwen3.8-27b"           # must match the id your server lists: curl <endpoint>/v1/models
   api_key_env: XW_LLM_API_KEY    # if the server needs a key: export XW_LLM_API_KEY=... in your shell (the key never goes in a file)
   reasoning_effort: "none"       # none | low | medium | high | "" (sent as `reasoning_effort`; dropped automatically if the server rejects it)
@@ -41,9 +45,13 @@ extract:
   max_consecutive_failures: 5   # stop extraction if the LLM keeps failing (server down, model not loaded)
 
 scope:
-  # [Unverified] I believe the N50 ran 2005-2015 (no 2016 model year). The range is kept permissive
-  # (2005-2016) so nothing the user cares about is dropped; tighten it once verified.
-  years: [2005, 2016]
+  # Model years kept at extraction: both generations. Facts stating only years outside this range are dropped.
+  # [Unverified] I believe the N50 ran 2005-2015 (no 2016 model year); the range stays permissive (to 2016).
+  years: [2000, 2016]
+
+# generations: one completely separate wiki section each (decided 2026-10-20: "They are nothing alike").
+# Defaults are in src/xw/config.py (titles, year ranges, the words that name each generation). [Unverified]:
+# the first generation's span 2000-2004 is from general knowledge, not yet from a cited source.
 
 verify:
   require_local_pass: true      # a claim is published only if the verifier said "supported" (or "partial", see below) or a reviewer approved it
