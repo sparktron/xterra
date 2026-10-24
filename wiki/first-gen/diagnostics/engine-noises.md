@@ -12,20 +12,22 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Assistant
 parts: []
 sources:
 - t1320
 - t2042
+- t2070
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 9
+  partial_items: 16
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -48,6 +50,18 @@ Inspect the exhaust manifold for cracks. [t1320]
 [Partial] Check for coolant in the oil to diagnose engine noise. [t1320]
 
 Monitor fuel gauge accuracy and ensure complete fills for accurate MPG calculations. [t1320]
+
+Crawl under the vehicle and have someone rev the engine from idle while watching for motion on the motor. [t2070]
+
+[Partial] Push the little lever on the throttle body to rev the engine from an idle. [t2070]
+
+Inspect the engine noise diagnosis to see if metal plates of the mount separate completely. [t2070]
+
+[Partial] Check the driver's side wheel well to spot a broken mount, have someone hit the gas, and look for coloration changes. [t2070]
+
+Rotate the engine manually to check for rotational play and listen for a clicking sound. [t2070]
+
+[Partial] Inspect the U-joint boot end cap for shiny metal around the shaft. [t2070]
 
 ## Procedure
 
@@ -96,6 +110,46 @@ _Procedure reported by [t2042]._
 
 </details>
 
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. Crawl under the vehicle to get a direct view of the engine.
+
+</details>
+
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. Push the little lever on the throttle body to rev the engine from an idle.
+
+</details>
+
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. Inspect the metal plates of the mount to see if they separate completely from each other.
+
+</details>
+
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. [Partial] Check the driver's side wheel well to see if you can spot a broken mount through it.
+
+</details>
+
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. Rotate the engine manually to check for rotational play.
+
+</details>
+
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. [Partial] Inspect the U-joint boot end cap for shiny metal around the shaft.
+
+</details>
+
+## Tools
+
+- Assistant [t2070]
+
 ## Tips & gotchas
 
 - [Partial] Use this method to determine if the noise persists without belt load or is isolated to an idler pulley bearing. [t2042]
@@ -110,6 +164,21 @@ _Procedure reported by [t2042]._
 - A head gasket leak can conveniently explain poor MPG if a radiator crack isn't found. [t1320]
 - [Partial] Ensure the tank is filled completely to the 'Full' mark before calculating MPG. [t1320]
 - Note that driving habits like stop-and-go city traffic yield lower numbers than highway cruising. [t1320]
+- Have someone rev the engine from idle while you watch. [t2070]
+- Look for movement in the engine, specifically checking if there is clear motion compared to normal operation. [t2070]
+- [Partial] Check both sides of the mount; the driver's side usually fails first but the passenger side rarely fails. [t2070]
+- Look for a rubber pad in the middle between two metal plates. [t2070]
+- Check if the top or bottom plate has separated entirely, indicating a broken mount. [t2070]
+- Have someone sit in the seat and hit the gas while watching from above. [t2070]
+- [Partial] Look for coloration changes on the rubber that may indicate breaking material. [t2070]
+- Listen for a clicking sound as you move it vertically, even if visual movement isn't obvious. [t2070]
+- Note that in Park, some rotational play is normal due to the transmission load. [t2070]
+- Shiny metal indicates play in the cap which translates to bad needle bearings. [t2070]
+- [Partial] Lift the rear of the car high in the air if you want a more thorough check than just jacking it up. [t2070]
+
+## Common mistakes
+
+- [Partial] Failing to look directly at the mounts when crawling under. [t2070]
 
 ## Diagrams (links only)
 
@@ -119,4 +188,5 @@ _Procedure reported by [t2042]._
 
 - **t1320**: AaronsX, "00-04 mpg", 2011-11-18. https://www.xterranation.org/index.php?threads/00-04-mpg.385/
 - **t2042**: Nissan3161, "need advice on possible engine rebuild", 2015-10-28. https://www.xterranation.org/index.php?threads/need-advice-on-possible-engine-rebuild.7301/
+- **t2070**: Cameron23, "Possible Motor Mount Issue", 2013-07-08. https://www.xterranation.org/index.php?threads/possible-motor-mount-issue.3752/
 

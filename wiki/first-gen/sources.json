@@ -239,6 +239,25 @@
     "status": "extracted"
   },
   {
+    "id": "t1089",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/",
+    "thread_title": "1st Gen. Exhaust options",
+    "author_handle": "KChurch86",
+    "date_posted": "2012-01-15T12:27:11-0500",
+    "date_scraped": "2026-10-21T00:45:55Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (KA24DE and VG33E)",
+      "Intake, exhaust and tuning",
+      "Torque specifications",
+      "[mods] Intake, exhaust and tuning",
+      "[reference] Parts diagrams"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1090",
     "source_id": "xterranation-gen1",
     "url": "https://www.xterranation.org/index.php?threads/1st-gen-cold-air-intakes-post-what-you-have.1243/",
@@ -777,6 +796,21 @@
       "Front suspension geometry and steering setup",
       "Solid axle swap (SAS)",
       "Transfer case to axle driveshaft connection"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1238",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/what-axle-for-sas.7848/",
+    "thread_title": "What axle for sas",
+    "author_handle": "mantree",
+    "date_posted": "2016-11-20T16:39:55-0500",
+    "date_scraped": "2026-10-22T02:52:19Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Solid axle swap (SAS)"
     ],
     "status": "extracted"
   },
@@ -1388,6 +1422,22 @@
     "status": "extracted"
   },
   {
+    "id": "t1458",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/roof-supports-attn-headliner-diyers.5123/",
+    "thread_title": "Roof supports? ATTN: HEADLINER DIY'ers",
+    "author_handle": "KChurch86",
+    "date_posted": "2014-04-07T15:43:17-0400",
+    "date_scraped": "2026-10-22T02:52:37Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Roof racks and storage",
+      "Roof supports and headliner repair"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1471",
     "source_id": "xterranation-gen1",
     "url": "https://www.xterranation.org/index.php?threads/why-so-much-lift-with-an-sas.1933/",
@@ -1402,6 +1452,42 @@
       "Front axle brake types and knuckle styles",
       "Rear axle width considerations for SAS builds",
       "Solid axle height variations and tire fitment",
+      "Solid axle swap (SAS)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1472",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/sas-builds.3808/",
+    "thread_title": "SAS builds",
+    "author_handle": "Xterrafauss",
+    "date_posted": "2013-07-19T18:55:52-0400",
+    "date_scraped": "2026-10-21T01:06:20Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Solid axle swap (SAS)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1474",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/gen-1-xterra-d22-rugged-rocks-diamond-sas.4808/",
+    "thread_title": "Gen 1 Xterra (D22) Rugged Rocks Diamond SAS",
+    "author_handle": "SteeevO",
+    "date_posted": "2014-02-12T23:09:17-0500",
+    "date_scraped": "2026-10-21T01:03:48Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Front bumper fitment and trimming",
+      "Gear ratios and tire sizes",
+      "Rear driveshaft clearance and binding fix",
+      "Rear leaf spring over axle conversion",
+      "Rear shock mounting locations for SAS",
+      "Rear suspension geometry notes for SAS builds",
       "Solid axle swap (SAS)"
     ],
     "status": "extracted"
@@ -1703,7 +1789,7 @@
       "Timing belt and water pump (VG33E)",
       "Timing belt replacement and coolant upgrade"
     ],
-    "status": "fetched"
+    "status": "error"
   },
   {
     "id": "t1517",
@@ -2010,6 +2096,27 @@
     "status": "extracted"
   },
   {
+    "id": "t1638",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/rear-bumpers.458/",
+    "thread_title": "Rear Bumpers",
+    "author_handle": "Lucky_lefty",
+    "date_posted": "2011-11-30T16:03:19-0500",
+    "date_scraped": "2026-10-22T02:51:25Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers and tire carriers",
+      "Bumpers, sliders and skid plates",
+      "Rear bumper hitch integration for spare tires",
+      "Rear bumper lighting options",
+      "Swing arm mounting for heavy-duty spindles",
+      "Tire carrier hinge placement and weight distribution",
+      "Tire carrier swing arm wall thickness specs"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1641",
     "source_id": "xterranation-gen1",
     "url": "https://www.xterranation.org/index.php?threads/tire-size-upgrade-on-stock-wheel.6451/",
@@ -2163,6 +2270,21 @@
     "trust_score": 3,
     "topics": [
       "Hood struts installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1687",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/header-install.8366/",
+    "thread_title": "Header install!!",
+    "author_handle": "1stGENXterra",
+    "date_posted": "2018-03-08T02:20:53-0500",
+    "date_scraped": "2026-10-22T02:52:32Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (KA24DE and VG33E)"
     ],
     "status": "extracted"
   },
@@ -2507,6 +2629,27 @@
     "trust_score": 3,
     "topics": [
       "Roof racks and storage"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1811",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/plasti-dip.1866/",
+    "thread_title": "Plasti Dip",
+    "author_handle": "xterror04",
+    "date_posted": "2012-06-26T19:33:41-0400",
+    "date_scraped": "2026-10-21T01:05:03Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Applying Plasti Dip to curved surfaces",
+      "Applying Plasti Dip with two cans simultaneously",
+      "Creating textured finishes with Plasti Dip",
+      "Plasti Dip application and repair",
+      "Sealing holes in Plasti Dip with paint",
+      "Spot patching damaged Plasti Dip",
+      "Trim guide (XE, SE and S/C)"
     ],
     "status": "extracted"
   },
@@ -3219,6 +3362,23 @@
     "status": "extracted"
   },
   {
+    "id": "t2070",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/possible-motor-mount-issue.3752/",
+    "thread_title": "Possible Motor Mount Issue",
+    "author_handle": "Cameron23",
+    "date_posted": "2013-07-08T22:22:37-0400",
+    "date_scraped": "2026-10-22T02:52:27Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises",
+      "Engine noise diagnosis",
+      "Torque specifications"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t2074",
     "source_id": "xterranation-gen1",
     "url": "https://www.xterranation.org/index.php?threads/does-anyone-know-how-to-fix-an-arb-air-line.3582/",
@@ -3665,6 +3825,22 @@
     "status": "extracted"
   },
   {
+    "id": "t2277",
+    "source_id": "xterranation-gen1",
+    "url": "https://www.xterranation.org/index.php?threads/avg-your-mpgs.498/",
+    "thread_title": "Avg your mpg's",
+    "author_handle": "drbandkgb",
+    "date_posted": "2011-12-05T23:03:02-0500",
+    "date_scraped": "2026-10-22T02:51:44Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Fluids and capacities",
+      "[reference] Fuel economy and tire fitment"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t2278",
     "source_id": "xterranation-gen1",
     "url": "https://www.xterranation.org/index.php?threads/v8-swap.6403/",
@@ -3763,7 +3939,7 @@
       "Torque specifications",
       "Torque specifications for antenna mounts"
     ],
-    "status": "fetched"
+    "status": "error"
   },
   {
     "id": "t2333",

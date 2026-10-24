@@ -14,15 +14,31 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- 12mm Allen wrench
 parts:
+- name: 18-inch cherrybomb glasspack muffler
+  oem_part_no: ''
+- name: 3x Magnaflow universal catalytic converters
+  oem_part_no: '53005'
+- name: Direct fit secondary catalytic converters
+  oem_part_no: ''
+- name: DT headers
+  oem_part_no: ''
 - name: K&N FIPK Cold Air Induction
   oem_part_no: ''
 - name: Longer bolts
   oem_part_no: ''
+- name: O2 sensors
+  oem_part_no: ''
+- name: OE 02 sensors
+  oem_part_no: ''
 - name: UHMWPE intake spacer
   oem_part_no: ''
+- name: Y-pipe with 2.25-inch ID pipe throughout
+  oem_part_no: ''
 sources:
+- t1089
 - t1090
 - t1102
 - t1109
@@ -34,11 +50,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 11
+  partial_items: 17
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -69,6 +85,12 @@ Install an exhaust cutout valve to bypass the muffler while retaining it in plac
 [Partial] Remove the front driveshaft and replace sharp 90-degree bends in the exhaust piping. [t1917]
 
 Install high-flow cats to maintain emissions legality while improving flow. [t1917]
+
+[Partial] Install DT headers with an EGR plug and direct-fit secondary cats, bypassing the driver's side manifold if present. [t1089]
+
+[Partial] Replace the restrictive stock muffler with an 18-inch cherrybomb glasspack and install new O2 sensors. [t1089]
+
+[Partial] Assemble a full pre-bent exhaust kit including DT headers, install three universal cats in the stock secondary location and behind the Y-pipe. [t1089]
 
 ## Procedure
 
@@ -121,6 +143,27 @@ _Procedure reported by [t2035]._
 
 </details>
 
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Install DT headers with the included EGR plug using a 12mm Allen wrench.
+2. [Partial] Remove or bypass the factory manifold bolt on the driver's side if present to clear space for direct-fit secondary cats.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. Replace the restrictive stock muffler with an 18-inch cherrybomb glasspack.
+2. [Partial] Install new O2 sensors, noting that passenger side upstream sensor may need to be moved down the line.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Assemble a full pre-bent exhaust kit including DT headers.
+2. Install three universal cats: two in the stock secondary location and one behind the Y-pipe.
+
+</details>
+
 <details><summary>Alternate procedure [t1326] [Partial]</summary>
 
 1. [Partial] Install a UHMWPE intake spacer on the NA motor if using an SC setup.
@@ -133,15 +176,28 @@ _Procedure reported by [t2035]._
 
 </details>
 
+## Tools
+
+- 12mm Allen wrench [t1089]
+
 ## Parts
 
+- 18-inch cherrybomb glasspack muffler [t1089]
+- 3x Magnaflow universal catalytic converters (53005) [t1089]
+- Direct fit secondary catalytic converters [t1089]
+- DT headers: Comes with EGR plug [t1089]
 - K&N FIPK Cold Air Induction [t1090]
 - [Partial] Longer bolts [t1326]
+- O2 sensors: May require wire extension for passenger side upstream sensor [t1089]
+- OE 02 sensors [t1089]
 - UHMWPE intake spacer [t1326]
+- [Partial] Y-pipe with 2.25-inch ID pipe throughout [t1089]
 
 ## Specifications
 
 - **Crossover pipe diameter**: 2" [t1917] ([Unverified] single report)
+- **Muffler size**: 2.25" inch [t1089] ([Partial] [Unverified] single report)
+- **Pipe diameter**: 2.25" inch (ID) [t1089] ([Partial] [Unverified] single report)
 - **Single outlet pipe diameter**: 2.5" [t1917] ([Unverified] single report)
 
 ## Tips & gotchas
@@ -151,20 +207,36 @@ _Procedure reported by [t2035]._
 - Consider a body lift or cutting a hole in the hood if clearance is tight. [t1326]
 - Use a 90-degree angled O2 sensor eliminator if space is tight between the body and exhaust. [t2035]
 - If using an angled eliminator, ensure it fits without rubbing against surrounding panels. [t2035]
+- Note that the factory manifold may have a hose or a giant bolt on top; having the bolt indicates no CA emissions package. [t1089]
+- Expect the new O2 sensor wires to look short; splice in extra length if needed. [t1089]
+- Use solder connections rather than crimped ones when extending wires. [t1089]
+- This setup works well for supercharged engines running smaller pulleys and larger intakes. [t1089]
 
 ## Diagrams (links only)
 
+- http://i164.photobucket.com/albums/u7/rattfink31/th_VIDEO0024.jpg [t1089]
+- http://i614.photobucket.com/albums/tt228/thanks28/IMG_23981.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/BlockToHeaderGasket4x4Parts_zps3f92388b.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/CELEliminator4x4Parts_zps91a265b7.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/CrushGaskets4x4Parts_zpsfd28211a.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/DougThorleyHeadersRuggedRocks_zpse2ac37f0.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/ExhaustStuds4x4Parts_zps507a59d4.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/HeaderNuts4x4Parts_zpsc3fc0c5f.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/UniversalHighFlowCat4x4Parts_zps39d899d1.jpg [t1089]
 - http://imagizer.imageshack.us/v2/640x480q90/690/2duv.jpg [t1917]
 - http://img.tapatalk.com/d/14/04/28/a2yjebab.jpg [t1917]
 - http://img.tapatalk.com/d/14/04/28/adusy3u3.jpg [t1917]
+- http://ruggedrocksoffroad.com/ [t1089]
 - http://www.exhaustvideos.com/faq/how-to-calculate-muffler-size-pipe-diameter/ [t1917]
 - http://www.installuniversity.com/in...haust_cutout_explanation/exhaust_cutout_1.jpg [t1917]
 - http://www.knfilters.com/images/m/RX-4750.jpg [t1090]
+- http://xterranation.org/images/smilies/biggrin.gif [t1089]
 - https://www.xterranation.org/data/attachments/32/32681-f365c5d1abeee30b8c74fa76cd0f4c47.jpg [t1102]
 - https://www.youtube.com/watch?v=TzJM-z0JGS4 [t1917]
 
 ## Source attributions
 
+- **t1089**: KChurch86, "1st Gen. Exhaust options", 2012-01-15. https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/
 - **t1090**: RATTFINK, "1st Gen. Cold Air Intakes.  Post what you have.", 2012-03-18. https://www.xterranation.org/index.php?threads/1st-gen-cold-air-intakes-post-what-you-have.1243/
 - **t1102**: clowngrl28, "Im new to owning a supercharge.  I just had and engine replacement.  Before it went to the shop the hose in the picture was there. Now its not.", 2024-05-31. https://www.xterranation.org/index.php?threads/im-new-to-owning-a-supercharge-i-just-had-and-engine-replacement-before-it-went-to-the-shop-the-hose-in-the-picture-was-there-now-its-not.11190/
 - **t1109**: XmarksTheSpot, "Radiator leak, time to change", 2022-04-13. https://www.xterranation.org/index.php?threads/radiator-leak-time-to-change.10586/

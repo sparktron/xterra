@@ -234,12 +234,23 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Intake, exhaust and tuning
 
+- http://i164.photobucket.com/albums/u7/rattfink31/th_VIDEO0024.jpg [t1089]
+- http://i614.photobucket.com/albums/tt228/thanks28/IMG_23981.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/BlockToHeaderGasket4x4Parts_zps3f92388b.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/CELEliminator4x4Parts_zps91a265b7.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/CrushGaskets4x4Parts_zpsfd28211a.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/DougThorleyHeadersRuggedRocks_zpse2ac37f0.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/ExhaustStuds4x4Parts_zps507a59d4.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/HeaderNuts4x4Parts_zpsc3fc0c5f.jpg [t1089]
+- http://i741.photobucket.com/albums/xx56/KChurch86/UniversalHighFlowCat4x4Parts_zps39d899d1.jpg [t1089]
 - http://imagizer.imageshack.us/v2/640x480q90/690/2duv.jpg [t1917]
 - http://img.tapatalk.com/d/14/04/28/a2yjebab.jpg [t1917]
 - http://img.tapatalk.com/d/14/04/28/adusy3u3.jpg [t1917]
+- http://ruggedrocksoffroad.com/ [t1089]
 - http://www.exhaustvideos.com/faq/how-to-calculate-muffler-size-pipe-diameter/ [t1917]
 - http://www.installuniversity.com/in...haust_cutout_explanation/exhaust_cutout_1.jpg [t1917]
 - http://www.knfilters.com/images/m/RX-4750.jpg [t1090]
+- http://xterranation.org/images/smilies/biggrin.gif [t1089]
 - https://www.xterranation.org/data/attachments/32/32681-f365c5d1abeee30b8c74fa76cd0f4c47.jpg [t1102]
 - https://www.youtube.com/watch?v=TzJM-z0JGS4 [t1917]
 
@@ -439,6 +450,13 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 ## Roof racks and storage
 
 - http://i1199.photobucket.com/albums/aa464/jmnielsen1/_DSC3150.jpg [t1692]
+- http://img.tapatalk.com/d/14/04/08/epy6uqyn.jpg [t1458]
+- http://img.tapatalk.com/d/14/04/08/pa6ypujy.jpg [t1458]
+
+## Roof supports and headliner repair
+
+- [image: http://i741.photobucket.com/albums/xx56/KChurch86/tootsie-roll-pop-owl_zpse35e4ccd.jpg] [t1458]
+- [image: http://img.tapatalk.com/d/14/04/08/bypuseja.jpg] [t1458]
 
 ## Shift boot replacement (manual)
 
@@ -458,12 +476,21 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Solid axle swap (SAS)
 
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=748;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=750;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=764;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=770;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=776;image] [t1474]
 - [image: http://i43.photobucket.com/albums/e360/_modified/100_0351.jpg] [t1471]
+- [image: http://i969.photobucket.com/albums/ae172/xterror04/IMG_3055_zpsusqeigjp.jpg] [t1238]
+- [image: http://imageshack.us/a/img692/4066/83139243.png] [t1474]
 - [image: https://imgur.com/9CkB2y2.jpg] [t1471]
 - http://completeoffroad.com/i-124127-tie-rod-and-drag-link-kit-dana-3044-and-60.html [t1476]
 - http://nissannut.com/projects/Driveshaft/ [t1237]
 - http://nissannut.com/projects/SAS_WD21/ [t1237]
 - http://www.autozone.com/brakes-and-.../8-cylinders-y-5-2l-mfi/348202_0_0/?counter=0 [t1242]
+- http://www.nissan4wheelers.com/topic/xterra-sas-etc [t1472]
+- http://www.pirate4x4.com/forum/nissan/865696-2001-monster-xterra.html [t1472]
 - http://xterranation.org/showthread.php?6661-2001-Xterra-Nxterra-cummins-4BT-and-SAS-build [t2165]
 
 ## Spark plugs and wires
@@ -532,6 +559,8 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Trim guide (XE, SE and S/C)
 
+- [image: http://ecx.images-amazon.com/images/I/21Jjzjx3mPL._SL500_AA300_.jpg] [t1811]
+- [image: http://i969.photobucket.com/albums/ae172/xterror04/iowa/2012-06-26_18-06-37_93.jpg] [t1811]
 - http://i745.photobucket.com/albums/xx98/drewbentz/by0e_zps550b513a.jpg [t1850]
 - http://www.ebay.com/itm/Nissan-4843...ash=item4ae8b14b5a:g:EyEAAOxygPtSvD2M&vxp=mtr [t1850]
 - http://www.vleds.com/bulb-type/instrument-gauge-cluster/t3-t4-t5-neo-wedge.html [t2233]
@@ -574,6 +603,11 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - http://i279.photobucket.com/albums/kk160/jdmser/pathfindertrans004.jpg [t1747]
 - http://www.thenewx.org/forum/showthread.php?t=160042 [t1747]
 - http://www.twinturbo.net/net/viewmsg.aspx?forum=technical&msg_id=1000850 [t1747]
+
+## [reference] Fluids and capacities
+
+- http://www.fuelly.com/driver/ahefner/xterra [t2277]
+- https://lh5.googleusercontent.com/-aqLKLr6i_Fg/UCj9n9mFuGI/AAAAAAAAA7M/DKvfoWg_nRE/s640/mpg.JPG [t2277]
 
 ## [reference] Fuel tank capacity and fuel economy
 

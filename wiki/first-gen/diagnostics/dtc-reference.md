@@ -26,9 +26,14 @@ tools:
 - Carb cleaner
 - Scan tool capable of reading readiness status
 parts:
+- name: Downstream O2 sensor
+  oem_part_no: ''
 - name: ECM
   oem_part_no: ''
+- name: Upstream O2 sensor
+  oem_part_no: ''
 sources:
+- t1089
 - t1281
 - t1289
 - t1298
@@ -38,17 +43,18 @@ sources:
 - t1503
 - t1533
 - t1594
+- t1687
 - t2016
 - t2017
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 21
+  partial_items: 24
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 4
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
@@ -83,6 +89,10 @@ Suck air from the radiator with a tester, wait two minutes for fluid reaction, t
 [Partial] Check spark plugs, inspect plug wires, spray carburetor cleaner at intake gaskets, and examine distributor rotor connections. [t1503]
 
 [Partial] Drive the vehicle approximately 50 miles on mixed terrain with a scan tool to activate engine readiness monitors. [t1503]
+
+[Partial] Scan for O2 sensor circuit faults after installing new headers or cats. [t1089]
+
+[Partial] Install upstream and downstream O2 sensors, extending wires or using eliminators as needed for custom setups. [t1687]
 
 ## Procedure
 
@@ -156,6 +166,20 @@ _Procedure reported by [t1316]._
 
 </details>
 
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Scan for O2 sensor circuit faults after installing new headers or cats.
+2. Look specifically for codes P160 and P161 related to Bank 2 Sensor 2.
+
+</details>
+
+<details><summary>Alternate procedure [t1687] [Partial]</summary>
+
+1. [Partial] Install upstream O2 sensors into the header just before the collector, placing one on each side.
+2. [Partial] If using a custom mid-pipe setup without primary cats, install downstream O2 sensors in the mid pipes further down.
+
+</details>
+
 <details><summary>Alternate procedure [t1326] [Partial]</summary>
 
 1. [Partial] Swap the ECM to match the supercharger setup for better fuel mapping.
@@ -171,7 +195,9 @@ _Procedure reported by [t1316]._
 
 ## Parts
 
+- [Partial] Downstream O2 sensor: For mid-pipe setup [t1687]
 - ECM [t1326]
+- Upstream O2 sensor: One per side [t1687]
 
 ## Specifications
 
@@ -191,6 +217,10 @@ _Procedure reported by [t1316]._
 - [Partial] Check distributor rotor connections and look for wobble. [t1503]
 - Note: The system has no dash indicators for this specific check; the scan tool is required to confirm when monitors are ready. [t1503]
 - [Partial] A total drive distance of around 50 miles seems sufficient, but a mix of highway and trail driving ensures coverage. [t1503]
+- P161 indicates a problem with the heater control circuit. [t1089]
+- P160 suggests no activity was detected by the sensor. [t1089]
+- Extend the wire on one of the upstream sensors if necessary to reach the bung hole. [t1687]
+- Use check engine light eliminators in mid-pipe setups to fool the computer into thinking primary cats are still working. [t1687]
 
 ## Common mistakes
 
@@ -215,6 +245,7 @@ _Procedure reported by [t1316]._
 
 ## Source attributions
 
+- **t1089**: KChurch86, "1st Gen. Exhaust options", 2012-01-15. https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/
 - **t1281**: Cyclemut, "'04 CEL Codes w/ titles KA and VG engines", 2011-11-18. https://www.xterranation.org/index.php?threads/04-cel-codes-w-titles-ka-and-vg-engines.388/
 - **t1289**: xbassman, "CPS code after install of new clutch????", 2015-09-25. https://www.xterranation.org/index.php?threads/cps-code-after-install-of-new-clutch.7214/
 - **t1298**: shyamrox, "CEL - misfire on Cylinder #3 - fixed, will it clear itself?", 2014-06-20. https://www.xterranation.org/index.php?threads/cel-misfire-on-cylinder-3-fixed-will-it-clear-itself.5540/
@@ -224,6 +255,7 @@ _Procedure reported by [t1316]._
 - **t1503**: KChurch86, "Multiple codes pulled tonight", 2013-08-07. https://www.xterranation.org/index.php?threads/multiple-codes-pulled-tonight.3897/
 - **t1533**: RoninSwanson, "p0505 - idle air control valve.   replace before shorts out your ecm", 2019-03-13. https://www.xterranation.org/index.php?threads/p0505-idle-air-control-valve-replace-before-shorts-out-your-ecm.8718/
 - **t1594**: Alien, "Now that I have replaced the steering gearbox...", 2018-10-08. https://www.xterranation.org/index.php?threads/now-that-i-have-replaced-the-steering-gearbox.8573/
+- **t1687**: 1stGENXterra, "Header install!!", 2018-03-08. https://www.xterranation.org/index.php?threads/header-install.8366/
 - **t2016**: Cameron23, "Low/rough idle needle doesn't jump truck doesn't die", 2015-05-03. https://www.xterranation.org/index.php?threads/low-rough-idle-needle-doesnt-jump-truck-doesnt-die.6822/
 - **t2017**: ddddddd, "Leaking Coolant, drips off bell housing", 2015-07-01. https://www.xterranation.org/index.php?threads/leaking-coolant-drips-off-bell-housing.7003/
 

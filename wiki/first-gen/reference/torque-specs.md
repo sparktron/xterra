@@ -23,6 +23,7 @@ tools:
 - 7mm allen wrench
 - torque wrench
 - 21mm socket
+- E10 / External Torx socket
 parts:
 - name: Intake bolts
   oem_part_no: ''
@@ -30,21 +31,23 @@ parts:
   oem_part_no: RX-4750
 sources:
 - t1045
+- t1089
 - t1090
 - t1316
 - t1326
 - t1917
 - t1941
+- t2070
 - t2332
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 19
+  partial_items: 22
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 13
+  withheld_items: 15
   pending_safety_values: 0
 ---
 
@@ -85,6 +88,10 @@ Expect 5+ inches of lift when combining new leaf springs with SOA and stock shac
 Note that the stock manifold often features an integral primary cat bolted directly to it. [t1917]
 
 [Partial] Consider a HFC if you need to keep the car legal for inspections without permanent welding. [t1917]
+
+[Partial] Secure the new exhaust studs and nuts using an E10 external Torx socket. [t1089]
+
+[Partial] Remove the four bolts holding the driveshaft to access it for bench testing. [t2070]
 
 ## Procedure
 
@@ -161,6 +168,12 @@ _Procedure reported by [t1045]._
 
 </details>
 
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. [Partial] Remove the 4 bolts holding the driveshaft to access it for bench testing.
+
+</details>
+
 ## Tools
 
 - 14mm socket [t1045]
@@ -170,6 +183,7 @@ _Procedure reported by [t1045]._
 - [Partial] 7mm allen wrench [t1045]
 - torque wrench [t1045]
 - 21mm socket [t1045]
+- [Partial] E10 / External Torx socket [t1089]
 
 ## Parts
 
@@ -192,6 +206,7 @@ _Procedure reported by [t1045]._
 - [Partial] Use a 6-rib balancer and AC pulley for optimal ratios, especially if upgrading to solid couplers. [t1326]
 - [Partial] Verify headers were torqued down correctly if misfires persist after other repairs. [t1316]
 - Note that improper head gasket repair can lead to minor coolant leaks before major failure. [t1316]
+- Use an E10 (external Torx) specifically for removing old studs and securing new ones. [t1089]
 
 ## Common mistakes
 
@@ -205,10 +220,12 @@ _Procedure reported by [t1045]._
 ## Source attributions
 
 - **t1045**: Hugetanker, "List of DIY's 2000-2004", 2011-11-08. https://www.xterranation.org/index.php?threads/list-of-diys-2000-2004.293/
+- **t1089**: KChurch86, "1st Gen. Exhaust options", 2012-01-15. https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/
 - **t1090**: RATTFINK, "1st Gen. Cold Air Intakes.  Post what you have.", 2012-03-18. https://www.xterranation.org/index.php?threads/1st-gen-cold-air-intakes-post-what-you-have.1243/
 - **t1316**: RoninSwanson, "P0304 after head gasket and DT header install", 2019-03-11. https://www.xterranation.org/index.php?threads/p0304-after-head-gasket-and-dt-header-install.8714/
 - **t1326**: xEndlessfight503x, "Vg33e to Vg33er swap. Who has done it?", 2019-10-12. https://www.xterranation.org/index.php?threads/vg33e-to-vg33er-swap-who-has-done-it.9119/
 - **t1917**: Cameron23, "Straight Pipe... What do people need to know?", 2014-04-05. https://www.xterranation.org/index.php?threads/straight-pipe-what-do-people-need-to-know.5109/
 - **t1941**: caseycamby, "Rear Spring Replacement Options...", 2016-02-25. https://www.xterranation.org/index.php?threads/rear-spring-replacement-options.7530/
+- **t2070**: Cameron23, "Possible Motor Mount Issue", 2013-07-08. https://www.xterranation.org/index.php?threads/possible-motor-mount-issue.3752/
 - **t2332**: NismoFire, "CBs & Antennas", 2011-11-16. https://www.xterranation.org/index.php?threads/cbs-antennas.368/
 

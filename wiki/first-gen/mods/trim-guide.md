@@ -20,6 +20,9 @@ tools:
 - Shop vac
 - Upholstery attachment (or regulator/wire brush)
 - Orbital Buffer
+- Spray cans
+- Painter's tape (optional)
+- Xacto knife
 parts:
 - name: Adjustable driver's seat
   oem_part_no: ''
@@ -31,6 +34,8 @@ parts:
   oem_part_no: ''
 - name: Mineral Spirits
   oem_part_no: ''
+- name: Plasti Dip spray paint
+  oem_part_no: ''
 - name: Spar Urethane
   oem_part_no: ''
 - name: Turtle Wax
@@ -41,6 +46,7 @@ sources:
 - t1313
 - t1457
 - t1482
+- t1811
 - t1850
 - t1852
 - t2233
@@ -48,7 +54,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 21
+  partial_items: 25
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -87,6 +93,8 @@ Apply an Armor All Restoration Kit to the headlight lens and buff it off. [t1482
 Leave the stock water temperature sensor in place and use its single wire for an aftermarket gauge. [t1852]
 
 [Partial] Remove the broken fender plastic doohickey from all four corners. [t1313]
+
+Apply light coats of Plasti Dip and allow the final coat to dry completely before removing tape or peeling off excess. [t1811]
 
 ## Procedure
 
@@ -167,6 +175,13 @@ _Procedure reported by [t1457]._
 
 </details>
 
+<details><summary>Alternate procedure [t1811] [Partial]</summary>
+
+1. [Partial] Apply 3 to 4 light coats of Plasti Dip for best results.
+2. Allow the final coat to dry completely before removing tape or peeling off excess.
+
+</details>
+
 <details><summary>Alternate procedure [t1482] [Partial]</summary>
 
 1. [Partial] Apply Turtle Wax Restoration to the headlight lens.
@@ -179,6 +194,9 @@ _Procedure reported by [t1457]._
 - Shop vac [t1457]
 - Upholstery attachment (or regulator/wire brush) [t1457]
 - [Partial] Orbital Buffer [t1482]
+- [Partial] Spray cans [t1811]
+- [Partial] Painter's tape (optional) [t1811]
+- Xacto knife [t1811]
 
 ## Parts
 
@@ -187,6 +205,7 @@ _Procedure reported by [t1457]._
 - [Partial] Boiled Linseed Oil [t1482]
 - Meguiar's G2980C [t1482]
 - [Partial] Mineral Spirits [t1482]
+- Plasti Dip spray paint [t1811]
 - [Partial] Spar Urethane [t1482]
 - [Partial] Turtle Wax [t1482]
 
@@ -206,15 +225,22 @@ _Procedure reported by [t1457]._
 - This option works well for matching a new factory-installed headlight to an older one. [t1482]
 - Consider removing these pieces when lifting the vehicle and installing bigger tires in the future, as this may become common practice. [t1313]
 - [Partial] Note that all four corners are typically broken simultaneously. [t1313]
+- Use a wider spray nozzle ($1.85) for more even coverage. [t1811]
+- [Partial] Rub lacquer thinner on scratched areas to smooth them out before adding another coat. [t1811]
 
 ## Common mistakes
 
 - [Partial] Forgetting to remove seat belts if necessary (though often not needed). [t1457]
 - Failing to account for fabric thickness when reinstalling sun visor screws. [t1457]
 - Using glue that isn't heat resistant causing it to fall down after a few days. [t1457]
+- Peeling tape off immediately after the last wet coat, which pulls away paint with it. [t1811]
+- Applying too thick of a single layer causing uneven drying (thick in one spot, thin in another). [t1811]
+- [Partial] Not waiting long enough between coats; 30 minutes is recommended though dry to touch in 10. [t1811]
 
 ## Diagrams (links only)
 
+- [image: http://ecx.images-amazon.com/images/I/21Jjzjx3mPL._SL500_AA300_.jpg] [t1811]
+- [image: http://i969.photobucket.com/albums/ae172/xterror04/iowa/2012-06-26_18-06-37_93.jpg] [t1811]
 - http://i745.photobucket.com/albums/xx98/drewbentz/by0e_zps550b513a.jpg [t1850]
 - http://www.ebay.com/itm/Nissan-4843...ash=item4ae8b14b5a:g:EyEAAOxygPtSvD2M&vxp=mtr [t1850]
 - http://www.vleds.com/bulb-type/instrument-gauge-cluster/t3-t4-t5-neo-wedge.html [t2233]
@@ -229,6 +255,7 @@ _Procedure reported by [t1457]._
 - **t1313**: cbrianroll, "replace fender plastic doohickey?", 2021-07-17. https://www.xterranation.org/index.php?threads/replace-fender-plastic-doohickey.10174/
 - **t1457**: robcarync, "How to physically get the headliner out of the truck...", 2014-05-17. https://www.xterranation.org/index.php?threads/how-to-physically-get-the-headliner-out-of-the-truck.5364/
 - **t1482**: Slapdash Racing, "Diy Headlight Restoration - No More Cataracts!", 2020-11-19. https://www.xterranation.org/index.php?threads/diy-headlight-restoration-no-more-cataracts.9787/
+- **t1811**: xterror04, "Plasti Dip", 2012-06-26. https://www.xterranation.org/index.php?threads/plasti-dip.1866/
 - **t1850**: Prime, "How to: Replace Gen 1.5 Steering Wheel w/ Leathery Goodness", 2014-01-04. https://www.xterranation.org/index.php?threads/how-to-replace-gen-1-5-steering-wheel-w-leathery-goodness.4590/
 - **t1852**: Joey, "gauge installation", 2017-01-08. https://www.xterranation.org/index.php?threads/gauge-installation.7957/
 - **t2233**: Scott Peele, "Replacement LED's for climate control panel", 2014-07-07. https://www.xterranation.org/index.php?threads/replacement-leds-for-climate-control-panel.5630/

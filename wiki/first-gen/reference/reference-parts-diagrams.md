@@ -15,27 +15,28 @@ est_time: null
 tools: []
 parts: []
 sources:
+- t1089
 - t1419
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 1
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # [reference] Parts diagrams
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 View photos of the RLC bumper mounted on a truck. [t1419]
+
+Refer to the visual guide for a 2004 Xterra with DT headers and custom dual straight pipes. [t1089]
 
 ## Procedure
 
@@ -45,7 +46,14 @@ View photos of the RLC bumper mounted on a truck. [t1419]
 
 _Procedure reported by [t1419]._
 
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. Refer to the visual guide for a 2004 Xterra with DT headers and custom dual straight pipes.
+
+</details>
+
 ## Source attributions
 
+- **t1089**: KChurch86, "1st Gen. Exhaust options", 2012-01-15. https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/
 - **t1419**: Pancake81, "RLC Bumper Questions", 2014-06-10. https://www.xterranation.org/index.php?threads/rlc-bumper-questions.5481/
 

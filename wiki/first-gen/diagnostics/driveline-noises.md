@@ -11,15 +11,17 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Wheel blocks
 parts: []
 sources:
 - t1702
-confidence: '[Unverified]'
+- t2070
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 4
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 1
@@ -28,13 +30,13 @@ verification:
 
 # Driveline and wheel bearing noises
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Perform a bounce test on the vehicle to check shock damping performance. [t1702]
+
+Block front wheels, put transmission in neutral, then turn driveshaft by hand. [t2070]
 
 ## Procedure
 
@@ -45,11 +47,24 @@ verification:
 
 _Procedure reported by [t1702]._
 
+<details><summary>Alternate procedure [t2070] [Partial]</summary>
+
+1. [Partial] Block the front wheels to take load off the drivetrain.
+2. [Partial] Put the transmission in neutral.
+
+</details>
+
+## Tools
+
+- [Partial] Wheel blocks [t2070]
+
 ## Tips & gotchas
 
 - Note that adjustable rear shocks can help manage body roll when running without a sway bar. [t1702]
+- Turn the driveshaft back and forth by hand to check for play in the joints (clunk-clunk sound). [t2070]
 
 ## Source attributions
 
 - **t1702**: Edwin562, "Side to side sway after shock replacement", 2018-07-22. https://www.xterranation.org/index.php?threads/side-to-side-sway-after-shock-replacement.8502/
+- **t2070**: Cameron23, "Possible Motor Mount Issue", 2013-07-08. https://www.xterranation.org/index.php?threads/possible-motor-mount-issue.3752/
 

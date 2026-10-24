@@ -17,28 +17,31 @@ shared_platform:
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Front limited slip differential
+  oem_part_no: ''
+- name: Rear gears (H233B)
+  oem_part_no: ''
 sources:
+- t1474
 - t1476
 - t1575
 - t1760
 - t2183
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 4
+  partial_items: 6
   partial_fields:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Gear ratios and tire sizes
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -47,6 +50,8 @@ verification:
 Multiply the new tire diameter by the old differential ratio and divide that result by the original factory tire diameter. [t2183]
 
 [Partial] Select gear ratio based on intended tire size. [t1476]
+
+[Partial] Select a 5.57 rear axle gear ratio for the front and rear differentials. [t1474]
 
 ## Procedure
 
@@ -63,6 +68,17 @@ _Procedure reported by [t2183]._
 
 </details>
 
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Select 5.57 gear ratio for the rear axle.
+
+</details>
+
+## Parts
+
+- Front limited slip differential [t1474]
+- Rear gears, H233B [t1474]
+
 ## Specifications
 
 - **Calculated ratio for 33-inch tires (mathematical)**: 5.16 [t2183] ([Unverified] single report)
@@ -77,6 +93,7 @@ _Procedure reported by [t2183]._
 - Note that 5.142 is often considered the lowest gearing available for stock front diffs. [t2183]
 - [Partial] Run 5.13 gears with 35-inch tires to maintain normal overdrive and cruise speeds. [t1476]
 - Consider 4.90 or 4.88 ratios if running slightly larger tires. [t1476]
+- [Partial] The 5.57 gear ratio is paired with large tires, such as Goodyear Wrangler Duratrac 37s. [t1474]
 
 ## Diagrams (links only)
 
@@ -88,6 +105,7 @@ _Procedure reported by [t2183]._
 
 ## Source attributions
 
+- **t1474**: SteeevO, "Gen 1 Xterra (D22) Rugged Rocks Diamond SAS", 2014-02-12. https://www.xterranation.org/index.php?threads/gen-1-xterra-d22-rugged-rocks-diamond-sas.4808/
 - **t1476**: ChiXterra, "SAS'ing", 2012-03-26. https://www.xterranation.org/index.php?threads/sasing.1307/
 - **t1575**: Silver dude, "Swapping a Pathfinder 5 speed transmission for lower gearing", 2016-03-06. https://www.xterranation.org/index.php?threads/swapping-a-pathfinder-5-speed-transmission-for-lower-gearing.7551/
 - **t1760**: 01XterraPhilly, "5.13 gears for H233b rear axle", 2014-02-14. https://www.xterranation.org/index.php?threads/5-13-gears-for-h233b-rear-axle.4818/

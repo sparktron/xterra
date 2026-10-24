@@ -50,6 +50,7 @@ parts:
 - name: Tarp
   oem_part_no: ''
 sources:
+- t1458
 - t1484
 - t1692
 - t1808
@@ -57,7 +58,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 19
+  partial_items: 15
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 3
@@ -78,9 +79,15 @@ Attach and tie off a tarp onto roof rack rails using grommets. [t1692]
 
 Identify the rubber trim piece attached to the front fairing, then remove the entire assembly as one single unit. [t1808]
 
+Inspect rear roof supports to see if they are still attached to the headliner. [t1458]
+
 ## Procedure
 
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+1. Inspect the rear roof supports to see if they are still attached to the headliner.
+
+_Procedure reported by [t1458]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/roof-supports-attn-headliner-diyers.5123/>_
+
+<details><summary>Alternate procedure [t1484] [Partial]</summary>
 
 1. Cut two pieces of 1-1/2 in. x 14-Gauge zinc-plated slotted angle to a length of 72 inches each.
 2. [Partial] Cut five pieces of 1/2 in. electric metallic tube conduit, with three cross bars cut from the first piece and one bar remaining on each of the other two pieces.
@@ -96,7 +103,7 @@ Identify the rubber trim piece attached to the front fairing, then remove the en
 12. [Partial] Rotate the passenger-side mounting brackets slightly inward until they sit at a 90-degree angle relative to the rack frame.
 13. Attach the passenger-side assembly to the vehicle using bolts through the adjusted brackets.
 
-_Procedure reported by [t1484]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/diy-roof-rack.9217/>_
+</details>
 
 <details><summary>Alternate procedure [t1692] [Partial]</summary>
 
@@ -173,6 +180,8 @@ _Procedure reported by [t1484]. Photos of this job are in the source: <https://w
 - Use fender washers as the rivets are not large enough for holes in slotted angle iron without them. [t1484]
 - Add #6 nickel-plated finishing washers to make the final look smoother and flush against the metal. [t1484]
 - [Partial] Note that the bottom seal is integrated into this removable cover rather than sitting directly on the roof rails, preventing damage during removal or painting prep. [t1808]
+- Note that these supports may have detached from the roof during previous removals or over time. [t1458]
+- [Partial] Check for similar loose support issues in other Xterra owners who have removed their headliners before. [t1458]
 
 ## Common mistakes
 
@@ -181,9 +190,12 @@ _Procedure reported by [t1484]. Photos of this job are in the source: <https://w
 ## Diagrams (links only)
 
 - http://i1199.photobucket.com/albums/aa464/jmnielsen1/_DSC3150.jpg [t1692]
+- http://img.tapatalk.com/d/14/04/08/epy6uqyn.jpg [t1458]
+- http://img.tapatalk.com/d/14/04/08/pa6ypujy.jpg [t1458]
 
 ## Source attributions
 
+- **t1458**: KChurch86, "Roof supports? ATTN: HEADLINER DIY'ers", 2014-04-07. https://www.xterranation.org/index.php?threads/roof-supports-attn-headliner-diyers.5123/
 - **t1484**: Gen X, "DIY Roof Rack", 2019-11-21. https://www.xterranation.org/index.php?threads/diy-roof-rack.9217/
 - **t1692**: jmnielsen, "How To: Homebrew X-Awning", 2012-05-17. https://www.xterranation.org/index.php?threads/how-to-homebrew-x-awning.1614/
 - **t1808**: Rocket, "How to remove Roof Rack Front Cover", 2013-07-17. https://www.xterranation.org/index.php?threads/how-to-remove-roof-rack-front-cover.3800/

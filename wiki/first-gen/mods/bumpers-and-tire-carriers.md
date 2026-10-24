@@ -34,26 +34,27 @@ parts:
   oem_part_no: ''
 sources:
 - t1487
-confidence: '[Unverified]'
+- t1638
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 19
+  partial_items: 21
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Bumpers and tire carriers
-
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Trace bumper contours, cut and weld structural pieces with C-channels, then attach a swing arm assembly featuring multiple steel bars. [t1487]
+
+[Partial] Mount the main bumper first, then install a separate tire carrier with a 3" x 5" tube. [t1638]
 
 ## Procedure
 
@@ -86,6 +87,13 @@ verification:
 
 _Procedure reported by [t1487]. Photos of this job are in the source: <https://www.xterranation.org/index.php?threads/how-to-diy-rear-bumper-and-tire-carrier.4139/>_
 
+<details><summary>Alternate procedure [t1638] [Partial]</summary>
+
+1. [Partial] Mount the main bumper first.
+2. Install the separate tire carrier afterward.
+
+</details>
+
 ## Tools
 
 - Grinder with cut-off wheels [t1487]
@@ -113,11 +121,13 @@ _Procedure reported by [t1487]. Photos of this job are in the source: <https://w
 - **Support bars size**: 16" [t1487] ([Partial] [Unverified] single report)
 - **Swing arm hoop height**: 18" [t1487] ([Unverified] single report)
 - **Swing arm hoop width**: 1 3/4" [t1487] ([Partial] [Unverified] single report)
+- **Tire carrier tube size**: 3" x 5" [t1638] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
 - Use a brake press to bend the main steel plate if not bending by hand. [t1487]
 - Tack weld swing arm pieces first before finishing welds to ensure correct angles. [t1487]
+- Consider building the bumper in pieces to manage complexity. [t1638]
 
 ## Diagrams (links only)
 
@@ -127,4 +137,5 @@ _Procedure reported by [t1487]. Photos of this job are in the source: <https://w
 ## Source attributions
 
 - **t1487**: yellowx16, "How to: DIY rear bumper and tire carrier", 2013-09-28. https://www.xterranation.org/index.php?threads/how-to-diy-rear-bumper-and-tire-carrier.4139/
+- **t1638**: Lucky_lefty, "Rear Bumpers", 2011-11-30. https://www.xterranation.org/index.php?threads/rear-bumpers.458/
 

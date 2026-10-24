@@ -38,13 +38,21 @@ parts:
   oem_part_no: ''
 - name: 2-inch Billet Lift (BL)
   oem_part_no: ''
+- name: Angle Iron
+  oem_part_no: ''
 - name: Bumper Cover
   oem_part_no: ''
+- name: C8x11.25 Channel Steel
+  oem_part_no: ''
 - name: Diamond plate
+  oem_part_no: ''
+- name: DOM Tubing
   oem_part_no: ''
 - name: Fog inserts
   oem_part_no: ''
 - name: Frame stiffener bar
+  oem_part_no: ''
+- name: Frame Stiffeners
   oem_part_no: ''
 - name: Front Bumper
   oem_part_no: ''
@@ -56,6 +64,8 @@ parts:
   oem_part_no: ''
 - name: Pre-runner Bumper
   oem_part_no: ''
+- name: Rear Bumper
+  oem_part_no: ''
 - name: Rebar
   oem_part_no: ''
 - name: Shrockworks Skids (Alternative)
@@ -66,9 +76,13 @@ parts:
   oem_part_no: ''
 - name: Spectre 3-inch black air ducting (or equivalent with rubber ends)
   oem_part_no: ''
+- name: Square Tubing
+  oem_part_no: ''
 - name: Three 1-inch self-tapping Phillips pan head screws
   oem_part_no: ''
 - name: Three 1/4-inch washers (or 3/16-inch)
+  oem_part_no: ''
+- name: Tire Carrier (Optional)
   oem_part_no: ''
 - name: Tuff LED Fog Lights
   oem_part_no: ''
@@ -84,6 +98,7 @@ sources:
 - t1488
 - t1619
 - t1632
+- t1638
 - t1757
 - t1802
 - t1803
@@ -92,12 +107,12 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 53
+  partial_items: 66
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 2
-  withheld_items: 31
+  unconfirmed_safety_values: 6
+  withheld_items: 33
   pending_safety_values: 0
 ---
 
@@ -180,6 +195,12 @@ Wire the new bumper lights to the original factory harness. [t1419]
 [Partial] Mount a rear tube tire carrier to a receiver and secure it with one pin. [t1416]
 
 [Partial] Remove stock bumper and lower cross piece, then have the fabricator take detailed measurements of the removed parts. [t1619]
+
+Select a base rear bumper design that fits the specific generation of Xterra. [t1638]
+
+Cut and weld angled channel steel to form a squared-off U shape bumper structure. [t1638]
+
+Select DOM tubing, cut an angle iron hole for the spindle hinge tube, and mount it on the bumper face. [t1638]
 
 ## Procedure
 
@@ -315,6 +336,20 @@ _Procedure reported by [t1063]._
 
 </details>
 
+<details><summary>Alternate procedure [t1638] [Partial]</summary>
+
+1. Select a base rear bumper design that fits the specific generation of Xterra.
+2. Decide between buying a pre-fab unit or having one custom fabricated by a local shop.
+
+</details>
+
+<details><summary>Alternate procedure [t1638] [Partial]</summary>
+
+1. Cut a 5-foot piece of C8x11.25 channel steel at 45 degrees on both ends.
+2. [Partial] Weld the angled pieces into place to form a squared-off 'U' shape for the main bumper structure.
+
+</details>
+
 <details><summary>Alternate procedure [t1487] [Partial]</summary>
 
 1. [Partial] Replace the factory plastic end bumpettes with metal C-channel for durability.
@@ -414,28 +449,39 @@ _Procedure reported by [t1063]._
 
 - [Partial] 2-inch Ball Hitch receiver [t1063]
 - [Partial] 2-inch Billet Lift, BL: Often required for custom fits [t1802]
+- Angle Iron [t1638]
 - Bumper Cover [t1412]
+- C8x11.25 Channel Steel [t1638]
 - [Partial] Diamond plate: Optional cut-to-size pieces to add texture or fill gaps [t1802]
+- [Partial] DOM Tubing [t1638]
 - Fog inserts [t1412]
 - [Partial] Frame stiffener bar [t1063]
+- [Partial] Frame Stiffeners [t1638]
 - Front Bumper: Options include full-plated designs from Shrockworks, ARB, Calmini, and RLC. [t1803]
 - [Partial] Lokka winch mount: Includes spacers [t1757]
 - Nissan Navara snorkel kit [t2131]
 - One 3-inch PVC DWV flexible cap PQC-103 [t2131]
 - [Partial] Pre-runner Bumper: A specific style offering a tube setup with character. [t1803]
+- [Partial] Rear Bumper: Often 1/4" steel face with stiffeners; may include swing-away feature. [t1638]
 - Rebar [t1412]
 - Shrockworks Skids, Alternative: Better t-bar coverage than Skid-Row [t1411]
 - Side markers [t1412]
 - [Partial] Skid Row Armor Skid Plates: Front and engine/tranny combo, powder coated [t1411]
 - Spectre 3-inch black air ducting, or equivalent with rubber ends [t2131]
+- [Partial] Square Tubing [t1638]
 - [Partial] Three 1-inch self-tapping Phillips pan head screws [t2131]
 - [Partial] Three 1/4-inch washers, or 3/16-inch [t2131]
+- [Partial] Tire Carrier, Optional: Hand-matched to bumper for alignment; adds depth but reduces departure angle. [t1638]
 - Tuff LED Fog Lights: ~$50 per pair [t1419]
 
 ## Specifications
 
+- **Angle Iron Size Options**: 3"x3" or 3.5"x3.5" [t1638] ([Unverified] single report)
+- **Channel Steel Size**: C8x11.25 [t1638] ([Unverified] single report)
+- **Cut Angle**: 45* [t1638] ([Unverified] single report)
 - **Engine/tranny skid price (Rocky Road)**: $356 [t1411] ([Unverified] single report)
 - **Front skid price (Rocky Road)**: $139 [t1411] ([Unverified] single report)
+- **Hinge Tube Outer Diameter**: 2.25" [t1638] ([Partial] [Unverified] single report)
 - **Material thickness**: 3/16" [t1488] ([Unverified] single report)
 - **Plate material thickness**: 3/16" [t1411] ([Partial] [Unverified] single report)
 - **Primary bend angle**: 90° [t1487] ([Unverified] single report)
@@ -443,6 +489,7 @@ _Procedure reported by [t1063]._
 - **Sheet dimensions**: 4x8 [t1488] ([Unverified] single report)
 - **Sheet metal thickness**: 3/16" [t1487] ([Unverified] single report)
 - **Sheet metal weight per foot**: 11.5 lbs. [t1487] ([Partial] [Unverified] single report)
+- **Square Tubing Dimensions**: 2"x2" [t1638] ([Partial] [Unverified] single report)
 - **Stock mounting bolt count per side**: 3 bolts on each side and one up front on each side (total 8) [t1419] ([Unverified] single report)
 - **Winch capacity fitment**: 8-10k pounds standard, up to 12k possible [t1419] ([Unverified] single report)
 
@@ -481,6 +528,13 @@ _Procedure reported by [t1063]._
 - Ideal if you do not need the hitch for frequent towing. [t1416]
 - Best suited as an occasional addition rather than permanent hardware. [t1416]
 - Allow at least two full days for the vehicle to be available while James builds it. [t1619]
+- [Partial] Consider a 'swing-away' design if you need extra storage space without permanently blocking the rear view. [t1638]
+- If buying from a middleman (like AC), verify shipping times as they may not keep stock in house. [t1638]
+- Look for shackle mounts that align directly with the frame to reduce stress points. [t1638]
+- Use this channel steel to replace plastic bumpettes and create a squared-off look. [t1638]
+- [Partial] Add side pieces of C8 cut at 45 degrees on one end for tire carrier support. [t1638]
+- [Partial] Mount the spindle on the face of the bumper rather than the top to prevent leverage issues when rear-ended. [t1638]
+- [Partial] Face mounting braces the swing arm better against impacts and keeps the center of gravity lower. [t1638]
 
 ## Common mistakes
 
@@ -488,6 +542,8 @@ _Procedure reported by [t1063]._
 - [Partial] Mounting cross pieces for tire carriers with limited room for error due to tight angles. [t1487]
 - [Partial] Using a sheet that is too small for the rocky terrain. [t1488]
 - [Partial] Using standard hex bolts which can tear out or wallow holes in the frame over time. [t1411]
+- [Partial] Waiting too long for factory-style bumpers and missing off-road opportunities due to delivery delays. [t1638]
+- [Partial] Buying a bumper with an offset tire carrier mount without considering how it affects departure angles in deep sand or rock crawling. [t1638]
 
 ## Diagrams (links only)
 
@@ -524,6 +580,7 @@ _Procedure reported by [t1063]._
 - **t1488**: JONATHAN MURPHREE, "Diy Skid Plates", 2020-08-26. https://www.xterranation.org/index.php?threads/diy-skid-plates.9660/
 - **t1619**: Xterraforce, "RLC Welding and Fabrication", 2011-10-31. https://www.xterranation.org/index.php?threads/rlc-welding-and-fabrication.140/
 - **t1632**: Clayboy, "rear bumper idea for RLC", 2012-10-28. https://www.xterranation.org/index.php?threads/rear-bumper-idea-for-rlc.2394/
+- **t1638**: Lucky_lefty, "Rear Bumpers", 2011-11-30. https://www.xterranation.org/index.php?threads/rear-bumpers.458/
 - **t1757**: OVRLNDR, "Lokka install help", 2015-03-31. https://www.xterranation.org/index.php?threads/lokka-install-help.6682/
 - **t1802**: RATTFINK, "Aftermarket Bumpers for 1st Gens", 2011-11-12. https://www.xterranation.org/index.php?threads/aftermarket-bumpers-for-1st-gens.332/
 - **t1803**: Vanguard, "Front bumper madness!", 2013-09-02. https://www.xterranation.org/index.php?threads/front-bumper-madness.4026/

@@ -20,19 +20,22 @@ sources:
 - t1132
 - t1326
 - t1917
+- t2277
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 8
+  partial_items: 9
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 0
-  withheld_items: 2
+  unconfirmed_safety_values: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # [reference] Fluids and capacities
+
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -49,6 +52,8 @@ Consider expanding the pipe diameter to fit over existing muffler inlets. [t1917
 Choose a pipe size one step up from stock with a recommended upgrade diameter of 2" and max single stream size of 2.5." [t1917]
 
 [Partial] Verify O2 sensor length compatibility if retaining sensors on a straight-piped setup. [t1917]
+
+Fuel tank capacity is approximately 280 to 317 miles of range per fill-up. [t2277]
 
 ## Procedure
 
@@ -85,6 +90,7 @@ _Procedure reported by [t1132]._
 ## Specifications
 
 - **Expanded inlet size**: 2" [t1917] ([Partial] [Unverified] single report)
+- **Fuel tank capacity (approximate)**: ~280-317 miles range miles per fill-up [t2277] ([Partial] [Unverified] single report)
 - **Max recommended single stream size**: 2.5" [t1917] ([Unverified] single report)
 - **Recommended upgrade diameter**: 2" [t1917] ([Partial] [Unverified] single report)
 - **Stock single pipe diameter (alternative)**: 2.25" [t1917] ([Unverified] single report)
@@ -95,9 +101,15 @@ _Procedure reported by [t1132]._
 - [Partial] Use UHMWPE intake spacers for NA motors, modifying them slightly and using longer bolts if necessary. [t1326]
 - [Partial] Ensure the 6-rib balancer is used to match pulley ratios correctly. [t1326]
 
+## Diagrams (links only)
+
+- http://www.fuelly.com/driver/ahefner/xterra [t2277]
+- https://lh5.googleusercontent.com/-aqLKLr6i_Fg/UCj9n9mFuGI/AAAAAAAAA7M/DKvfoWg_nRE/s640/mpg.JPG [t2277]
+
 ## Source attributions
 
 - **t1132**: Prime, "1st Gen Brake Upgrade Megathread", 2015-10-14. https://www.xterranation.org/index.php?threads/1st-gen-brake-upgrade-megathread.7270/
 - **t1326**: xEndlessfight503x, "Vg33e to Vg33er swap. Who has done it?", 2019-10-12. https://www.xterranation.org/index.php?threads/vg33e-to-vg33er-swap-who-has-done-it.9119/
 - **t1917**: Cameron23, "Straight Pipe... What do people need to know?", 2014-04-05. https://www.xterranation.org/index.php?threads/straight-pipe-what-do-people-need-to-know.5109/
+- **t2277**: drbandkgb, "Avg your mpg's", 2011-12-05. https://www.xterranation.org/index.php?threads/avg-your-mpgs.498/
 

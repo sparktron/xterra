@@ -6,6 +6,9 @@ category: mods
 applies_to:
   years: []
   trims:
+  - D30
+  - Diamond
+  - SE
   - X
   engine: []
   drivetrain: []
@@ -45,7 +48,11 @@ parts:
   oem_part_no: ''
 - name: Donor Axle Parts
   oem_part_no: ''
+- name: Fish plate
+  oem_part_no: ''
 - name: Ford High Pinion D44 Axle
+  oem_part_no: ''
+- name: Front 3rd member
   oem_part_no: ''
 - name: Front Axle
   oem_part_no: ''
@@ -63,6 +70,8 @@ parts:
   oem_part_no: ''
 - name: Longer Control Arms
   oem_part_no: ''
+- name: Non-ABS yoke
+  oem_part_no: ''
 - name: Precision 627 flange
   oem_part_no: ''
 - name: Radius Arm
@@ -75,9 +84,15 @@ parts:
   oem_part_no: ''
 - name: Rear Differential Housing
   oem_part_no: ''
+- name: Rear H233B 3rd member
+  oem_part_no: ''
 - name: Rear Leaf Springs
   oem_part_no: ''
 - name: Rear Sway Bar
+  oem_part_no: ''
+- name: Retubed rear driveshaft
+  oem_part_no: ''
+- name: Shock hoop
   oem_part_no: ''
 - name: Solid Axle (e.g., Dana 44, H233b)
   oem_part_no: ''
@@ -87,17 +102,26 @@ parts:
   oem_part_no: ''
 - name: Stabilizer Bar
   oem_part_no: ''
+- name: Steering knuckle
+  oem_part_no: ''
 - name: Suspension Mounts
   oem_part_no: ''
 - name: Torsion Bars
   oem_part_no: ''
+- name: Track bar bracket
+  oem_part_no: ''
 - name: Transfer Case
+  oem_part_no: ''
+- name: Yukon manual locking hubs
   oem_part_no: ''
 sources:
 - t1237
+- t1238
 - t1242
 - t1277
 - t1471
+- t1472
+- t1474
 - t1476
 - t1477
 - t1481
@@ -107,12 +131,12 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 60
+  partial_items: 88
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 20
+  unconfirmed_safety_values: 2
+  withheld_items: 52
   pending_safety_values: 0
 ---
 
@@ -170,14 +194,86 @@ Upgrade the front end steering linkage with beefed up parts and new upper contro
 
 [Partial] Install a rear leaf spring setup for more predictable trail performance. [t1477]
 
+[Partial] Install a H233B Diamond front axle featuring D60 Kingpin outer bearings and Reid Racing steering knuckles. [t1474]
+
+[Partial] Install J E Reel custom driveshafts to connect the front and rear, then fit 37-inch tires. [t1474]
+
+[Partial] Convert the rear suspension to a spring-over configuration and install a 3-link front suspension. [t1474]
+
+[Partial] Mount 14-inch travel remote reservoir coilovers and attach an ARB Air Locker to the rear axle. [t1474]
+
+Fabricate and weld frame side link brackets to support the new suspension geometry. [t1474]
+
+[Partial] Replace the stock pitman arm with a fabricated double shear design, then drill out and plate-reinforce the original mounting points. [t1474]
+
+Install a new TX-10 front output yoke to accept 1310 and 1350 series CV driveshafts. [t1474]
+
+Fit headers and verify clearances to ensure they do not interfere with the SAS components. [t1474]
+
+[Partial] Select 5.57 or 5.85 gear ratios to maximize power delivery with the larger tires. [t1474]
+
+[Partial] Install fish plates and shock hoops with a track bar bracket while notching the rear crossmember. [t1474]
+
+[Partial] Install a non-ABS front 3rd member and fit rear H233B members with ARBs. [t1474]
+
+[Partial] Install retubed rear driveshafts and mount steering knuckles, hubs, and spindles together. [t1474]
+
+[Partial] Install a solid axle swap with a front driveshaft, connected brakes, Yukon hubs, and trimmed fenders. [t1474]
+
+[Partial] Install a solid front or rear axle and relocate shock mounts. [t1474]
+
+[Partial] Remove the front frame section and cut off approximately 8 inches of the remaining front overhang. [t1472]
+
+Fit a 75hp nitrous express wet kit to the engine. [t1472]
+
+Tune the suspension system alongside three Ultra4 buggies. [t1472]
+
+[Partial] Design a custom suspension setup tailored for the solid rear end. [t1472]
+
+[Partial] Add carpet and a center console with cupholders to the interior. [t1472]
+
+[Partial] Achieve a top speed of 50 mph on whoops and rough dirt. [t1472]
+
+[Partial] Select a rear end that allows the wheels to turn independently. [t1472]
+
+Source a frame that extends from behind the seats to the front of the vehicle. [t1472]
+
+Mount the engine and transmission directly to the new solid frame structure. [t1472]
+
+[Partial] Install a front leaf spring setup and weld a new perch to the frame. [t1238]
+
+Decide whether to keep the original Nissan differential or replace it with a Wagoneer rear end. [t1238]
+
+Install a radius arm setup for easier alignment and minimal frame welding. [t1238]
+
+Use a Nisstec kit to mount leaf springs up front on the Xterra frame. [t1238]
+
+[Partial] Add a sleeve and bushing kit to the frame for proper leaf spring mounting. [t1238]
+
+Mount shocks using F-250 shock towers or custom-made hoops for clearance. [t1238]
+
+[Partial] Install a track bar mount and crossmember to complete the suspension geometry. [t1238]
+
+Consider a Boonymotorsports hanger kit for the front leaf spring application. [t1238]
+
+[Partial] Link the rear suspension instead of using radius arms for a different setup. [t1238]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. Install a H233B Diamond front axle featuring D60 Kingpin outer bearings.
+2. Fit Reid Racing steering knuckles to the new setup.
+3. Mount chromoly axle shafts with 5.57 or 5.85 gear ratios and 35-spline stub shafts.
+
+_Procedure reported by [t1474]._
+
+<details><summary>Alternate procedure [t1242] [Partial]</summary>
+
 1. Remove the ABS box to eliminate air trapping and free up engine bay space.
 2. [Partial] Hard tube directly from the master cylinder to the front brakes using 3/16-inch lines.
 
-_Procedure reported by [t1242]._
+</details>
 
 <details><summary>Alternate procedure [t2278] [Partial]</summary>
 
@@ -232,6 +328,90 @@ _Procedure reported by [t1242]._
 
 1. [Partial] Invert the rear differential housing to use on the front.
 2. Replace the front axle with parts from a donor vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install J E Reel custom driveshafts to connect the front and rear.
+2. [Partial] Fit 37-inch tires on both axles.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Convert the rear suspension to a spring-over configuration.
+2. [Partial] Install 3-link front suspension for better articulation.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Mount 14-inch travel remote reservoir coilovers.
+2. [Partial] Attach ARB Air Locker to the rear axle for traction.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Replace the stock pitman arm with a fabricated double sheer design to accommodate steering linkage.
+2. Drill out and plate-reinforce the original mounting points for extra strength.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install a new TX-10 front output yoke to accept 1310 and 1350 series CV driveshafts.
+2. [Partial] Ensure the yoke fits securely without needing cross-drilling due to limited flange material.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install fish plates, shock hoops, and a track bar bracket.
+2. Notch the rear crossmember with a plasma cutter to clear the driveshaft.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install the front 3rd member with a non-ABS yoke.
+2. [Partial] Fit rear H233B 3rd members equipped with ARBs and gears.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install retubed rear driveshafts.
+2. [Partial] Mount steering knuckles, hubs, and spindles together.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Install the front driveshaft.
+2. Connect and bleed brake lines.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Install a solid front or rear axle in place of the independent suspension.
+2. Relocate shock mounts from the frame to the new axle if using stock shocks.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. [Partial] Install a solid rear end assembly in place of the original independent suspension.
+2. [Partial] Ensure the motor and transmission remain Nissan components.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. [Partial] Install a front leaf spring setup instead of coil springs for simplicity.
+2. Weld a new perch to the frame if necessary, as the center section already has holes.
 
 </details>
 
@@ -301,6 +481,102 @@ _Procedure reported by [t1242]._
 
 </details>
 
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Fabricate and weld frame side link brackets to support the new suspension geometry.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. [Partial] Fit headers and verify clearances to ensure they do not interfere with the SAS components.
+
+</details>
+
+<details><summary>Alternate procedure [t1474] [Partial]</summary>
+
+1. Select 5.57 or 5.85 gear ratios to maximize power delivery with the larger tires.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. [Partial] Fit a 75hp nitrous express wet kit to the engine.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. Tune the suspension system alongside three Ultra4 buggies.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. [Partial] Add carpet and a center console with cupholders to the interior.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. [Partial] Achieve a top speed of 50 mph on whoops and rough dirt without excessive vibration.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. Select a rear end that allows the wheels to turn independently.
+
+</details>
+
+<details><summary>Alternate procedure [t1472] [Partial]</summary>
+
+1. Source a frame that extends from behind the seats to the front of the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Decide whether to keep the original Nissan differential or replace it with a Wagoneer rear end.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Install a radius arm setup for easier alignment and minimal frame welding.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Use a Nisstec kit to mount leaf springs up front on the Xterra frame.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Add a sleeve and bushing kit to the frame for proper leaf spring mounting.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Mount shocks using F-250 shock towers or custom-made hoops for clearance.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. [Partial] Install a track bar mount and crossmember to complete the suspension geometry.
+
+</details>
+
+<details><summary>Alternate procedure [t1238] [Partial]</summary>
+
+1. Consider a Boonymotorsports hanger kit for the front leaf spring application.
+
+</details>
+
 ## Parts
 
 - [Partial] '88 Grand Wagoneer D44 axle [t1237]
@@ -318,7 +594,9 @@ _Procedure reported by [t1242]._
 - [Partial] Custom Gearing [t1477]
 - [Partial] Dodge Ram 1500 Master Cylinder: Mid-90s preferred, e.g., '98 for correct port side and larger size; AutoZone part #348202. [t1242]
 - [Partial] Donor Axle Parts [t1477]
+- Fish plate [t1474]
 - [Partial] Ford High Pinion D44 Axle [t1476]
+- Front 3rd member [t1474]
 - Front Axle: e.g., Ford Dana 44 with Warn hub kit [t1476]
 - Front Driveshaft Adapter Plate: Adapts Nissan bolt pattern to standard Spicer [t1476]
 - Jeep XJ front double cardan driveshaft, optional [t1237]
@@ -327,26 +605,45 @@ _Procedure reported by [t1242]._
 - Leaf Springs, optional rear or front [t1471]
 - [Partial] Leaf Springs, Optional: Recommended for simpler installation over coilovers. [t1481]
 - Longer Control Arms [t1477]
+- [Partial] Non-ABS yoke [t1474]
 - Precision 627 flange [t1237]
 - [Partial] Radius Arm [t1477]
 - Radius Arms [t1471]
 - [Partial] Rancho RS44044 leaf springs [t1237]
 - [Partial] Rear Axle: e.g., Ford 9-inch or Wagoneer D44 [t1476]
 - [Partial] Rear Differential Housing: Used inverted as a cost-saving measure [t1477]
+- Rear H233B 3rd member [t1474]
 - [Partial] Rear Leaf Springs: e.g., 63-inch Chevy packs with 4-leaf setup or custom Alcan set [t1476]
 - Rear Sway Bar [t1477]
+- Retubed rear driveshaft [t1474]
+- Shock hoop [t1474]
 - [Partial] Solid Axle, e.g., Dana 44, H233b: Can be sourced from Isuzu Rodeo or late model F-250. [t1481]
 - [Partial] Solid Axle, Ford D44 common [t1471]
 - Solid Front Axle: Dana 44 is commonly used; Wagoneer axles offer driver-side drop for transfer case hook-up.; Options include Dana 44, Ford D60, or custom H233B conversion; Often requires matching rear gears [t2278, t1481, t1477]
 - [Partial] Stabilizer Bar [t1477]
+- Steering knuckle [t1474]
 - Suspension Mounts [t1477]
 - [Partial] Torsion Bars: Use commercially available 'upgraded' bars to handle extra engine weight, or custom springs if exceeding 650 lbs. [t2278]
+- Track bar bracket [t1474]
 - Transfer Case: Ensure compatibility with solid axle geometry, specifically looking at Wagoneer or late 70s F150 units for driver-side drop. [t2278]
+- Yukon manual locking hubs [t1474]
 
 ## Specifications
 
 - **1310 series yoke size**: 1310 [t1237] ([Unverified] single report)
+- **Axle Bearing Type**: D60 Kingpin outters [t1474] ([Partial] [Unverified] single report)
 - **Axle Width**: 65" [t1476] ([Partial] [Unverified] single report)
+- **Front Axle Model**: H233B Diamond [t1474] ([Unverified] single report)
+- **Front frame cut length**: 8" [t1472] ([Unverified] single report)
+- **Front Suspension Type**: 3-Link [t1474] ([Unverified] single report)
+- **Fuel tank capacity**: 12 gal [t1472] ([Unverified] single report)
+- **Gear Ratio Option 1**: 5.57 [t1474] ([Unverified] single report)
+- **Gear Ratio Option 2**: 5.85 [t1474] ([Unverified] single report)
+- **Nitrous horsepower**: 75 hp [t1472] ([Partial] [Unverified] single report)
+- **Shock Travel**: 14 inches [t1474] ([Partial] [Unverified] single report)
+- **Tire Size**: 37 inches [t1474] ([Unverified] single report)
+- **Top speed capability**: 50 mph [t1472] ([Unverified] single report)
+- **Total vehicle weight**: 3860 lbs [t1472] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -386,6 +683,12 @@ _Procedure reported by [t1242]._
 - Part of the complete SAS conversion for serious rock crawling. [t1477]
 - [Partial] Helps prevent excessive body roll when one end of the solid axle is in motion. [t1477]
 - Considered a necessary safety piece for highway use. [t1477]
+- [Partial] Use a D60 Kingpin setup for strength. [t1474]
+- Select chromoly shafts to handle the increased load. [t1474]
+- [Partial] The rear crossmember notch is necessary because increased lift causes the driveshaft to hit it, a common issue on WD21 Pathfinders as well. [t1474]
+- [Partial] The front 3rd member is approximately 1/2" longer than the aesthetic alternative but functions well without ABS. [t1474]
+- [Partial] The front axle sits on sway bar coilovers that carry the vehicle's weight until other components are fully integrated. [t1474]
+- Trim fenders to accommodate wider tires while retaining as much of the factory shape as possible. [t1474]
 
 ## Common mistakes
 
@@ -395,20 +698,32 @@ _Procedure reported by [t1242]._
 
 ## Diagrams (links only)
 
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=748;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=750;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=764;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=770;image] [t1474]
+- [image: http://forum.ruggedrocksoffroad.com/index.php?action=dlattach;topic=2323.0;attach=776;image] [t1474]
 - [image: http://i43.photobucket.com/albums/e360/_modified/100_0351.jpg] [t1471]
+- [image: http://i969.photobucket.com/albums/ae172/xterror04/IMG_3055_zpsusqeigjp.jpg] [t1238]
+- [image: http://imageshack.us/a/img692/4066/83139243.png] [t1474]
 - [image: https://imgur.com/9CkB2y2.jpg] [t1471]
 - http://completeoffroad.com/i-124127-tie-rod-and-drag-link-kit-dana-3044-and-60.html [t1476]
 - http://nissannut.com/projects/Driveshaft/ [t1237]
 - http://nissannut.com/projects/SAS_WD21/ [t1237]
 - http://www.autozone.com/brakes-and-.../8-cylinders-y-5-2l-mfi/348202_0_0/?counter=0 [t1242]
+- http://www.nissan4wheelers.com/topic/xterra-sas-etc [t1472]
+- http://www.pirate4x4.com/forum/nissan/865696-2001-monster-xterra.html [t1472]
 - http://xterranation.org/showthread.php?6661-2001-Xterra-Nxterra-cummins-4BT-and-SAS-build [t2165]
 
 ## Source attributions
 
 - **t1237**: ruination fan, "SAS SUA swap gathered info", 2019-02-16. https://www.xterranation.org/index.php?threads/sas-sua-swap-gathered-info.8688/
+- **t1238**: mantree, "What axle for sas", 2016-11-20. https://www.xterranation.org/index.php?threads/what-axle-for-sas.7848/
 - **t1242**: xterror04, "Bad Brake Fix after SAS", 2015-03-03. https://www.xterranation.org/index.php?threads/bad-brake-fix-after-sas.6563/
 - **t1277**: Jtryon01, "Solid axle swap.", 2021-06-18. https://www.xterranation.org/index.php?threads/solid-axle-swap.10110/
 - **t1471**: Roninjiro, "Why so much lift with an SAS", 2012-07-07. https://www.xterranation.org/index.php?threads/why-so-much-lift-with-an-sas.1933/
+- **t1472**: Xterrafauss, "SAS builds", 2013-07-19. https://www.xterranation.org/index.php?threads/sas-builds.3808/
+- **t1474**: SteeevO, "Gen 1 Xterra (D22) Rugged Rocks Diamond SAS", 2014-02-12. https://www.xterranation.org/index.php?threads/gen-1-xterra-d22-rugged-rocks-diamond-sas.4808/
 - **t1476**: ChiXterra, "SAS'ing", 2012-03-26. https://www.xterranation.org/index.php?threads/sasing.1307/
 - **t1477**: CrazySteve911, "Sas or locker?", 2013-06-02. https://www.xterranation.org/index.php?threads/sas-or-locker.3502/
 - **t1481**: Edodrian, "SAS Questions. Axles and SAS Kits", 2012-11-27. https://www.xterranation.org/index.php?threads/sas-questions-axles-and-sas-kits.2535/
