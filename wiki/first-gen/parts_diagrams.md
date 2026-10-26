@@ -348,8 +348,11 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - http://i.imgur.com/Hu706TL.jpg [t2097]
 - http://i.imgur.com/Mffdqn0.jpg [t2097]
 - http://i.imgur.com/lz4zL3O.jpg [t2097]
+- http://i1082.photobucket.com/albums/j362/TKDX00/IMGA0983_zps1916ab09.jpg [t2332]
+- http://i1082.photobucket.com/albums/j362/TKDX00/IMGA0987_zpsb0fc34f5.jpg [t2332]
 - http://www.superbrightleds.com/more...f13jl-02-led-bulb-electronic-flasher/783/837/ [t2114]
 - http://www.xterranation.org/showthread.php?194-Engine-bay-lighting [t1045]
+- https://sphotos-a.xx.fbcdn.net/hphotos-ash4/296983_10150981776406596_621050094_n.jpg [t2332]
 - https://www.bestbuy.com/site/cobra-...cam-with-iradar-black/6298090.p?skuId=6298090 [t1400]
 - https://www.xterranation.org/data/attachments/8/8269-8020d4fc4cd7571ae710836466a5f040.jpg [t1609]
 

@@ -1787,9 +1787,10 @@
       "Distributor cap cleaning for misfires",
       "Engine trouble codes (KA24DE and VG33E)",
       "Timing belt and water pump (VG33E)",
-      "Timing belt replacement and coolant upgrade"
+      "Timing belt replacement and coolant upgrade",
+      "[reference] Torque specifications"
     ],
-    "status": "error"
+    "status": "extracted"
   },
   {
     "id": "t1517",
@@ -3939,7 +3940,7 @@
       "Torque specifications",
       "Torque specifications for antenna mounts"
     ],
-    "status": "error"
+    "status": "extracted"
   },
   {
     "id": "t2333",

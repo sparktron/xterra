@@ -90,6 +90,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 |---|---|---|---|
 | [[mods] Intake, exhaust and tuning](repair/mods-intake-exhaust-and-tuning.md) |  | [Unverified] | 1 |
 | [[reference] Leaf spring and shackle repair](repair/reference-leaf-spring-and-shackle-repair.md) |  | [Unverified] | 1 |
+| [[reference] Torque specifications](repair/reference-torque-specifications.md) |  | [Unverified] | 1 |
 | [Ball joints and control arms](repair/ball-joints-and-control-arms.md) |  | [Unverified] | 1 |
 | [Ball joints, tie rods and steering linkage](repair/ball-joints-tie-rods.md) |  | community-consensus | 6 |
 | [Block removal for deep rebuilds](repair/block-removal-for-deep-rebuilds.md) |  | [Unverified] | 1 |
@@ -265,7 +266,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Leather treatment and repair options](mods/leather-treatment-and-repair-options.md) |  | [Unverified] | 1 |
 | [LED DRL Ring Headlights and Blinkers](mods/led-drl-ring-headlights-and-blinkers.md) |  | [Unverified] | 1 |
 | [Lift kits, torsion bar cranks and body lifts](mods/lift-kits.md) | [Guide](vehicle/guides/lift-kits.md) | community-consensus | 9 |
-| [Lighting and auxiliary wiring](mods/lighting-aux-power.md) |  | community-consensus | 14 |
+| [Lighting and auxiliary wiring](mods/lighting-aux-power.md) |  | disputed | 14 |
 | [Lockers and traction aids](mods/lockers-traction.md) |  | community-consensus | 5 |
 | [Lockers and traction aids (Independent Wiring)](mods/lockers-and-traction-aids-independent-wiring.md) |  | [Unverified] | 1 |
 | [LSD Super Pack Modification](mods/lsd-super-pack-modification.md) |  | [Unverified] | 1 |

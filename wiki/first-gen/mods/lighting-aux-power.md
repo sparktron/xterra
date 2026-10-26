@@ -130,15 +130,15 @@ sources:
 - t2327
 - t2332
 - t2333
-confidence: community-consensus
+confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 70
+  partial_items: 74
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 1
-  withheld_items: 24
+  withheld_items: 25
   pending_safety_values: 0
 ---
 
@@ -257,6 +257,22 @@ Tap into map or dome lights, then cut connectors for wiring. [t2332]
 Run 8-gauge wire from the battery block to frame and connect lights via a relay. [t1609]
 
 [Partial] Route a single harness through the firewall, connect it into a waterproof plug, then install a 6-way switching panel. [t1609]
+
+[Partial] Mount the CB radio in a storage box and run the antenna wire through the grommet. [t2332]
+
+Install a 3-foot FireStik antenna on an HD spring and secure it to the factory roof rack. [t2332]
+
+Use slightly larger stainless sheet metal screws to reuse existing stripped holes. [t2332]
+
+[Partial] Mount the CB radio on a stock bracket located below the stereo. [t2332]
+
+[Partial] Run the antenna wire through a grommet located behind the tail light. [t2332]
+
+Split the CB antenna signal to feed an FM radio using a FireStik AR-1A splitter. [t2332]
+
+Mount a 3-foot FireStik antenna on an HD spring held in place by a Xoskel stainless mount. [t2332]
+
+Mount the CB radio in a storage box located between the front seats. [t2332]
 
 ## Procedure
 
@@ -536,6 +552,20 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 
 </details>
 
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. [Partial] Mount the CB radio in a storage box located between the front seats.
+2. Run the antenna wire through the grommet behind the brake light to enter the cabin area.
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. Install a 3-foot FireStik antenna on an HD spring.
+2. [Partial] Secure the assembly with a Xoskel stainless mount onto the factory roof rack.
+
+</details>
+
 <details><summary>Alternate procedure [t2226] [Partial]</summary>
 
 1. Run a wire directly from the battery to power the radio.
@@ -620,6 +650,36 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 
 </details>
 
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. Use slightly larger stainless sheet metal screws to reuse existing stripped holes.
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. [Partial] Mount the CB radio on a stock bracket located below the stereo.
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. [Partial] Run the antenna wire through a grommet located behind the tail light.
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. Split the CB antenna signal to feed an FM radio using a FireStik AR-1A splitter.
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
+1. Mount the CB radio in a storage box located between the front seats.
+
+</details>
+
 ## Tools
 
 - Phillips head screwdriver [t1851]
@@ -691,7 +751,9 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 
 ## Specifications
 
+- **Antenna length**: DISPUTED, sources disagree: 4' [t2332]; 3' [t2332]
 - **Reflector hole size (target)**: 1.5 inches [t1851] ([Unverified] single report)
+- **Screw size increase**: 1/32"-1/16" [t2332] ([Partial] [Unverified] single report)
 - **Step drill capacity**: 1-3/8 inch [t1851] ([Unverified] single report)
 
 ## Tips & gotchas
@@ -772,8 +834,11 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 - http://i.imgur.com/Hu706TL.jpg [t2097]
 - http://i.imgur.com/Mffdqn0.jpg [t2097]
 - http://i.imgur.com/lz4zL3O.jpg [t2097]
+- http://i1082.photobucket.com/albums/j362/TKDX00/IMGA0983_zps1916ab09.jpg [t2332]
+- http://i1082.photobucket.com/albums/j362/TKDX00/IMGA0987_zpsb0fc34f5.jpg [t2332]
 - http://www.superbrightleds.com/more...f13jl-02-led-bulb-electronic-flasher/783/837/ [t2114]
 - http://www.xterranation.org/showthread.php?194-Engine-bay-lighting [t1045]
+- https://sphotos-a.xx.fbcdn.net/hphotos-ash4/296983_10150981776406596_621050094_n.jpg [t2332]
 - https://www.bestbuy.com/site/cobra-...cam-with-iradar-black/6298090.p?skuId=6298090 [t1400]
 - https://www.xterranation.org/data/attachments/8/8269-8020d4fc4cd7571ae710836466a5f040.jpg [t1609]
 

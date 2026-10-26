@@ -50,7 +50,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 17
+  partial_items: 20
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -91,6 +91,8 @@ Install high-flow cats to maintain emissions legality while improving flow. [t19
 [Partial] Replace the restrictive stock muffler with an 18-inch cherrybomb glasspack and install new O2 sensors. [t1089]
 
 [Partial] Assemble a full pre-bent exhaust kit including DT headers, install three universal cats in the stock secondary location and behind the Y-pipe. [t1089]
+
+[Partial] Replace the factory manifold, install a catback system, and consider adding a Y-pipe with 2.5-inch piping. [t1089]
 
 ## Procedure
 
@@ -164,6 +166,13 @@ _Procedure reported by [t2035]._
 
 </details>
 
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Replace the factory manifold with a set of long tube headers.
+2. Install a catback system to extend the exhaust run.
+
+</details>
+
 <details><summary>Alternate procedure [t1326] [Partial]</summary>
 
 1. [Partial] Install a UHMWPE intake spacer on the NA motor if using an SC setup.
@@ -196,6 +205,7 @@ _Procedure reported by [t2035]._
 ## Specifications
 
 - **Crossover pipe diameter**: 2" [t1917] ([Unverified] single report)
+- **Header pipe diameter**: 2.5 inch [t1089] ([Partial] [Unverified] single report)
 - **Muffler size**: 2.25" inch [t1089] ([Partial] [Unverified] single report)
 - **Pipe diameter**: 2.25" inch (ID) [t1089] ([Partial] [Unverified] single report)
 - **Single outlet pipe diameter**: 2.5" [t1917] ([Unverified] single report)
@@ -211,6 +221,8 @@ _Procedure reported by [t2035]._
 - Expect the new O2 sensor wires to look short; splice in extra length if needed. [t1089]
 - Use solder connections rather than crimped ones when extending wires. [t1089]
 - This setup works well for supercharged engines running smaller pulleys and larger intakes. [t1089]
+- Consider ordering or bolting on a Y-pipe with 2.5-inch piping if using long tubes. [t1089]
+- [Partial] Look for a Y-pipe that includes the flex joint located under the transmission. [t1089]
 
 ## Diagrams (links only)
 
