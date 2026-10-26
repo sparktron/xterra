@@ -40,11 +40,19 @@ Looping extraction replies (2026-10-25, raised by the user: chunks 947, 977 and 
   `xw verify` judged the 40 new facts; this run's verifier accepted a decoy in 4 of 40 checks (those calls are
   discarded). `xw export && xw qa` passed: first-gen 479 pages from 984 facts (was 478 from 956), second-gen unchanged.
   Logs: `data/xterranation-gen1-loopfix-*-2026-10-25.log`.
-- **Found, not fixed: post dates read as model years.** 11 of chunk 1015's 12 facts state 2013, and so publish nowhere
-  under the 2026-10-21 cross-generation rule (facts in no section: 7 to 19). "2013" appears in that chunk only in post
-  headers (`### Post N by name (2013-...)`), never in a post body. The year check accepts a year that appears
-  anywhere in the chunk, header included. This is the root cause of the cross-generation misroutes; ignoring header
-  dates when grounding years would let these facts publish on first-gen pages.
+- **Post dates read as model years** (fixed 2026-10-26, asked by the user). 11 of chunk 1015's 12 facts stated 2013,
+  and so published nowhere under the 2026-10-21 cross-generation rule (facts in no section: 7 to 19). "2013" appeared
+  in that chunk only in post headers (`### Post N by name (2013-...)`), never in a post body; the year check accepted
+  a year found anywhere in the chunk. This was the root cause of the cross-generation misroutes.
+  - **Fix:** `grounding.grounded_years` drops the post header lines (dates and author names) before looking for a
+    year; the thread title line still counts. Extract, `export.load_rows` and `qa._thread_generations` all use it, so
+    stored facts are corrected on export without re-extracting.
+  - **Tests:** `test_grounded_years_ignores_post_header_dates_and_author_names` and `test_a_post_date_is_not_a_model_year`
+    (which also covers a fact stored before the fix); both fail with the header counted. `pytest` 152 passed.
+  - **Result:** `xw export && xw qa` passed. Facts in no section: 19 to 3. First-gen 483 pages from 1,000 facts (was
+    479 from 984). Second-gen: still 930 pages from 1,714 facts; 39 pages changed, all in years: post-date years left
+    their `applies_to` front matter, and withheld applicability notes that held only those years went away.
+  - Still withheld: t1278 "ABS codes and how to pull 'em", whose post text itself states a second-gen year.
 - **Not done:** the 43 duplicate facts already in the database were left alone; whether export's near-duplicate
   merge folds them on the pages was not checked. Nothing was re-extracted besides the 3 chunks.
 

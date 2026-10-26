@@ -426,6 +426,31 @@ def test_a_fact_publishes_only_in_the_generation_of_its_stated_years(cfg, conn, 
     assert check_wiki(cfg, conn) == []
 
 
+def test_a_post_date_is_not_a_model_year(cfg, conn):
+    # live (2026-10-25): 11 facts from "1st Gen. Exhaust options" stated 2013, which the chunk held only in its
+    # "### Post N by name (2013-...)" headers; the cross-generation rule then published them nowhere
+    url = "https://gen1.invalid/threads/arms.7/"
+    conn.execute("INSERT INTO threads(source_id, url, title, kind, priority) VALUES('manual-gen1', ?, 'Lower control arm', 'manual', 1)", (url,))
+    tid = conn.execute("SELECT id FROM threads WHERE url=?", (url,)).fetchone()["id"]
+    body = GEN1_TEXT.replace("2001 ", "")
+    store_thread(cfg, conn, tid, "Lower control arm", [Post("rig2014", "2013-05-01", body), Post("b", "2013-05-02", body)], 1)
+    assert "(2013-05-01)" in conn.execute("SELECT text FROM chunks WHERE thread_id=?", (tid,)).fetchone()["text"]
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        years=[2013, 2014], parts=[], specs=[], diagram_links=[])]})])
+    assert json.loads(conn.execute("SELECT fact_json FROM facts").fetchone()["fact_json"])["years"] == []
+    export(cfg, conn)
+    assert (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").exists()
+    assert "its model years are only" not in (cfg.wiki_dir / "open_questions.md").read_text()
+
+    # a fact stored before the fix still carries the post date; export and qa re-check it from the chunk text
+    conn.execute("UPDATE facts SET fact_json=json_set(fact_json, '$.years', json('[2013]'))")
+    conn.commit()
+    export(cfg, conn)
+    assert (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").exists()
+    assert not (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+    assert check_wiki(cfg, conn) == []
+
+
 def test_a_source_without_a_generation_routes_by_stated_years():
     from xw.config import DEFAULTS
     from xw.generations import from_spec, route

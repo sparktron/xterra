@@ -174,6 +174,17 @@ def spec_value_grounded(spec, text: str) -> bool:
     return spec_grounded(spec.value, spec.unit, text) and unit_grounded(spec.value, spec.unit, text)
 
 
+# The per-post header crawl.build_chunks writes: "### Post 24 by name (2013-11-23)", or "... (part)".
+POST_HEADER = re.compile(r"^### Post \d+\b.*$", re.M)
+
+
+def grounded_years(years: list[int], text: str) -> list[int]:
+    """Keep only model years the source text states. A post header's date and its author's name are not the text:
+    decided 2026-10-26, after facts from a first-gen thread took a 2013 post date as their model year."""
+    body = POST_HEADER.sub("", text)
+    return [y for y in years if str(y) in body]
+
+
 def grounded_terms(terms: list[str], text: str) -> list[str]:
     """Keep only terms (trims, engines, platforms) that the source text actually mentions."""
     out = []

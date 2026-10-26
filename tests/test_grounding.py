@@ -119,3 +119,12 @@ def test_dedupe_keeps_disagreeing_numbers_apart():
     merged = _dedupe([("Replace the 15 amp fuse under the dash", "t1"), ("Replace the 20 amp fuse under the dash", "t2"),
                       ("Replace the 15 amp fuse under the dash.", "t3")])
     assert merged == [("Replace the 15 amp fuse under the dash", ["t1", "t3"]), ("Replace the 20 amp fuse under the dash", ["t2"])]
+
+
+def test_grounded_years_ignores_post_header_dates_and_author_names():
+    from xw.grounding import grounded_years
+
+    text = ("THREAD: 2003 Xterra lower arms\n\n### Post 1 by xterra2004 (2013-05-01)\nDid the arms on my truck last week.\n\n"
+            "### Post 2 by b (2013-05-02) (part)\nSame job on a 2002, the bolts were seized.")
+    assert grounded_years([2003, 2002, 2013, 2004], text) == [2003, 2002]   # title and body count; header dates and names do not
+    assert grounded_years([2013], "Bought it in 2013.") == [2013]          # a year in the post text is still a year

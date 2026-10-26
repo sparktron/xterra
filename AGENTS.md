@@ -63,6 +63,10 @@ The local model is not trusted. Each item names the guarding test, or says none 
   `ground_fact` returns lists index-aligned with the fact's lists; a new list field on `Fact` needs a matching
   entry. `export.load_rows` recomputes grounding from chunk text on every export (`facts.grounding_json` is not read),
   so a tightened rule applies to old facts. Tests: `tests/test_grounding.py`.
+  A model year counts only if the chunk states it outside the `### Post N by name (date)` headers (`grounding.grounded_years`,
+  decided 2026-10-26: facts took a 2013 post date as their model year). Extract, `export.load_rows` and `qa`'s routing all
+  apply it, so stored facts lose a post-date year on the next export. Tests:
+  `test_grounded_years_ignores_post_header_dates_and_author_names`, `test_a_post_date_is_not_a_model_year`.
 - **Safety classification is deterministic.** `export.is_safety` (torque, capacities, pressure, preload) never
   relies on the model's `safety_critical` flag, which defaults to false. `grounding.safety_values` does not read an
   engine's displacement ("VQ40DE 4.0L", "Ford 4.6L", "5.3L V8") as a fluid volume, or a part named "bar" before a

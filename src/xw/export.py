@@ -38,7 +38,7 @@ import yaml
 from . import corrections
 from .config import Config
 from .crawl import is_guide_chunk
-from .grounding import ground_fact, number_tokens, safety_values, unit_grounded
+from .grounding import ground_fact, grounded_years, number_tokens, safety_values, unit_grounded
 from .schemas import Fact
 from .topics import DEFAULT_GENERATION, Topic, TopicIndex
 from . import generations
@@ -220,6 +220,7 @@ def load_rows(conn: sqlite3.Connection) -> list[FactRow]:
     rows = []
     for r in conn.execute(q):
         fact, done = corrections.apply(Fact.model_validate_json(r["fact_json"]), r["thread_id"], r["chunk_text"], fixes)
+        fact.years = grounded_years(fact.years, r["chunk_text"])   # re-checked like grounding, so older facts lose post dates
         v = {k: dict(x) for k, x in verdicts.get(r["id"], {}).items()}
         for key, by in done.items():
             v[key] = {by: "corrected"}

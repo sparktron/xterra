@@ -13,7 +13,7 @@ from pydantic import ValidationError
 from .config import Config
 from .crawl import is_guide_chunk
 from .db import now
-from .grounding import grounded_terms, ground_fact, has_long_overlap, same_measures
+from .grounding import grounded_terms, grounded_years, ground_fact, has_long_overlap, same_measures
 from .llm import LLM, LLMError
 from .schemas import MAX_FACTS, Extraction, Fact, extraction_schema
 from .topics import DEFAULT_GENERATION, TopicIndex
@@ -282,7 +282,7 @@ def extract_pending(cfg: Config, conn: sqlite3.Connection, llm: LLM, topics: Top
             for fact in result.facts:
                 # Applicability metadata is only kept when the source text itself mentions it.
                 lo, hi = cfg.scope.years
-                stated = [y for y in fact.years if str(y) in row["text"]]
+                stated = grounded_years(fact.years, row["text"])
                 if stated and not any(lo <= y <= hi for y in stated):
                     continue  # only model years no generation of the wiki covers
                 fact.years = [y for y in stated if lo <= y <= hi]

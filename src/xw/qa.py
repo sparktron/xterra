@@ -27,7 +27,7 @@ import json
 from . import generations
 from .config import DEFAULTS, Config
 from .generations import Generation, other_marker
-from .grounding import part_grounded, safety_values, spec_grounded, unit_grounded
+from .grounding import grounded_years, part_grounded, safety_values, spec_grounded, unit_grounded
 from .export import CURATED_DIR, GENERATED, PARTIAL, SAFETY_NOTE, UNVERIFIED_VALUE, is_safety
 
 SPEC_LINE = re.compile(r"^- \*\*(?P<item>.+?)\*\*: (?P<value>.+?) \[(?P<sids>t\d+(?:, t\d+)*)\] \((?P<tag>[^)]*)\)\s*$")
@@ -51,9 +51,11 @@ def _thread_text(conn: sqlite3.Connection, sid: str) -> str | None:
 def _thread_generations(cfg: Config, conn: sqlite3.Connection, gl: list[Generation]) -> dict[int, set[str]]:
     """thread id -> generations its facts route to, recomputed from fact years and source generations."""
     out: dict[int, set[str]] = {}
-    for r in conn.execute("SELECT f.thread_id, f.fact_json, t.source_id FROM facts f JOIN threads t ON t.id=f.thread_id"):
+    for r in conn.execute("SELECT f.thread_id, f.fact_json, t.source_id, c.text FROM facts f JOIN threads t ON t.id=f.thread_id "
+                          "JOIN chunks c ON c.id=f.chunk_id"):
         fact = json.loads(r["fact_json"])
-        gid, _ = generations.route(fact.get("years") or [], generations.source_generation(cfg, r["source_id"]), gl,
+        years = grounded_years(fact.get("years") or [], r["text"])   # the exporter's rule: a post header's date is not a model year
+        gid, _ = generations.route(years, generations.source_generation(cfg, r["source_id"]), gl,
                                    f"{fact.get('title', '')} {fact.get('topic', '')}")
         if gid:
             out.setdefault(r["thread_id"], set()).add(gid)
