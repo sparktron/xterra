@@ -7,8 +7,6 @@ applies_to:
   years:
   - 2005
   - 2009
-  - 2013
-  - 2014
   - 2015
   trims:
   - Gen 2

@@ -253,6 +253,7 @@
       "Intake, exhaust and tuning",
       "Torque specifications",
       "[mods] Intake, exhaust and tuning",
+      "[reference] Fluids and capacities",
       "[reference] Parts diagrams"
     ],
     "status": "extracted"
@@ -1540,7 +1541,8 @@
       "[mods] Crawler gears for low-range torque",
       "[mods] Front vs Rear locker placement strategy",
       "[reference] Air locker actuation systems",
-      "[reference] Differential types and behavior"
+      "[reference] Differential types and behavior",
+      "[reference] Torsion bar vs Solid axle characteristics"
     ],
     "status": "extracted"
   },
@@ -2790,6 +2792,7 @@
     "trust_score": 3,
     "topics": [
       "Front door speaker size and type specs",
+      "Front door tweeter location by generation",
       "Front speaker mounting depth and clearance",
       "Front speaker replacement and fitment",
       "Front speaker wire polarity by side",
@@ -3628,6 +3631,7 @@
       "Diesel engine swap (TD27T)",
       "Solid axle swap (SAS)",
       "V8 engine swap (VK56)",
+      "V8 swap (Vendor Calmini)",
       "VQ35 swap from Pathfinder"
     ],
     "status": "extracted"
@@ -3645,6 +3649,7 @@
     "topics": [
       "Reference Axle types and gear compatibility",
       "Reference Cost of re-gearing components",
+      "Reference Engine noise diagnosis (V6 vs I4)",
       "Reference Gear ratios by tire size (General)",
       "Reference Speedometer correction for tire size changes",
       "Reference Stock gear ratios by model year/trim",

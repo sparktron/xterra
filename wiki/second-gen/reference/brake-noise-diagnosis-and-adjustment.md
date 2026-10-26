@@ -4,8 +4,7 @@ title: Brake noise diagnosis and adjustment
 generation: second-gen
 category: reference
 applies_to:
-  years:
-  - 2014
+  years: []
   trims:
   - Pro-4X
   engine: []

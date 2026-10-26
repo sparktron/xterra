@@ -4,8 +4,7 @@ title: Interior accessories and mounting
 generation: second-gen
 category: mods
 applies_to:
-  years:
-  - 2013
+  years: []
   trims:
   - Pre-'08
   engine: []

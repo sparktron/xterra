@@ -104,7 +104,7 @@
 | Titan axle and differential swaps - Fluid capacities | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan axle backing plate cost comparison | Titan | n/a | 1 | unconfirmed |
 | Titan axle gear ratio upgrade planning | Titan | n/a | 1 | unconfirmed |
-| Titan axle, differential and brake swaps | Titan | 2014 | 3 | community-consensus |
+| Titan axle, differential and brake swaps | Titan | n/a | 3 | community-consensus |
 | Titan length R180 axles for Xterra | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan rear axle swap and components | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan swap component cost breakdown | Titan | n/a | 1 | unconfirmed [Partial] |

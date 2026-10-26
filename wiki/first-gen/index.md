@@ -327,6 +327,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Trim guide (XE, SE and S/C)](mods/trim-guide.md) |  | community-consensus | 9 |
 | [Use Lucas Stop Leak additive for power steering](mods/use-lucas-stop-leak-additive-for-power-steering.md) |  | [Unverified] | 1 |
 | [V8 engine swap (VK56)](mods/v8-engine-swap-vk56.md) |  | [Unverified] | 1 |
+| [V8 swap (Vendor Calmini)](mods/v8-swap-vendor-calmini.md) |  | [Unverified] | 1 |
 | [VQ35 swap from Pathfinder](mods/vq35-swap-from-pathfinder.md) |  | [Unverified] | 1 |
 | [Wheel fitment and bolt pattern adaptation](mods/wheel-fitment-and-bolt-pattern-adaptation.md) |  | [Unverified] | 1 |
 | Winches and recovery gear |  | not-started | 0 |
@@ -357,7 +358,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[reference] Engine dimensions (Ford 4.6L)](reference/reference-engine-dimensions-ford-4-6l.md) |  | [Unverified] | 1 |
 | [[reference] Exterior light bulb inventory and sources](reference/reference-exterior-light-bulb-inventory-and-sources.md) |  | [Unverified] | 1 |
 | [[reference] Fluid capacities and specs (Ford 4.6L)](reference/reference-fluid-capacities-and-specs-ford-4-6l.md) |  | [Unverified] | 1 |
-| [[reference] Fluids and capacities](reference/reference-fluids-and-capacities.md) |  | community-consensus | 4 |
+| [[reference] Fluids and capacities](reference/reference-fluids-and-capacities.md) |  | community-consensus | 5 |
 | [[reference] Fuel economy and tire fitment](reference/reference-fuel-economy-and-tire-fitment.md) |  | [Unverified] | 1 |
 | [[reference] Fuel tank capacity and fuel economy](reference/reference-fuel-tank-capacity-and-fuel-economy.md) |  | [Unverified] | 1 |
 | [[reference] Headlight bulb fitment and depth considerations](reference/reference-headlight-bulb-fitment-and-depth-considerations.md) |  | [Unverified] | 1 |
@@ -374,6 +375,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[reference] Steering box modifications for SAS](reference/reference-steering-box-modifications-for-sas.md) |  | [Unverified] | 1 |
 | [[reference] Torque and Horsepower specs (Ford 4.6L)](reference/reference-torque-and-horsepower-specs-ford-4-6l.md) |  | [Unverified] | 1 |
 | [[reference] Torque specifications for lighting fasteners](reference/reference-torque-specifications-for-lighting-fasteners.md) |  | [Unverified] | 1 |
+| [[reference] Torsion bar vs Solid axle characteristics](reference/reference-torsion-bar-vs-solid-axle-characteristics.md) |  | [Unverified] | 1 |
 | [[reference] Turn signal and indicator bulb sizing](reference/reference-turn-signal-and-indicator-bulb-sizing.md) |  | [Unverified] | 1 |
 | [[reference] Weight specs (Nissan VG33E)](reference/reference-weight-specs-nissan-vg33e.md) |  | [Unverified] | 1 |
 | [Alternator physical differences and fitment notes](reference/alternator-physical-differences-and-fitment-notes.md) |  | [Unverified] | 1 |
@@ -420,6 +422,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Front differential cross-member bolt specs](reference/front-differential-cross-member-bolt-specs.md) |  | [Unverified] | 1 |
 | [Front differential fluid capacity and fill specs](reference/front-differential-fluid-capacity-and-fill-specs.md) |  | [Unverified] | 1 |
 | [Front door speaker size and type specs](reference/front-door-speaker-size-and-type-specs.md) |  | [Unverified] | 1 |
+| [Front door tweeter location by generation](reference/front-door-tweeter-location-by-generation.md) |  | [Unverified] | 1 |
 | [Front ride height adjustment after bumper install](reference/front-ride-height-adjustment-after-bumper-install.md) |  | [Unverified] | 1 |
 | [Front speaker mounting depth and clearance](reference/front-speaker-mounting-depth-and-clearance.md) |  | [Unverified] | 1 |
 | [Front speaker wire polarity by side](reference/front-speaker-wire-polarity-by-side.md) |  | [Unverified] | 1 |
@@ -467,6 +470,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Reference](reference/reference.md) |  | community-consensus | 10 |
 | [Reference Axle types and gear compatibility](reference/reference-axle-types-and-gear-compatibility.md) |  | community-consensus | 2 |
 | [Reference Cost of re-gearing components](reference/reference-cost-of-re-gearing-components.md) |  | [Unverified] | 1 |
+| [Reference Engine noise diagnosis (V6 vs I4)](reference/reference-engine-noise-diagnosis-v6-vs-i4.md) |  | [Unverified] | 1 |
 | [Reference Gear ratios by tire size (General)](reference/reference-gear-ratios-by-tire-size-general.md) |  | community-consensus | 2 |
 | [Reference Speedometer correction for tire size changes](reference/reference-speedometer-correction-for-tire-size-changes.md) |  | [Unverified] | 1 |
 | [Reference Stock gear ratios by model year/trim](reference/reference-stock-gear-ratios-by-model-year-trim.md) |  | [Unverified] | 1 |

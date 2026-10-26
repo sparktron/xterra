@@ -4,8 +4,7 @@ title: Roof light bar mounting options
 generation: second-gen
 category: mods
 applies_to:
-  years:
-  - 2014
+  years: []
   trims:
   - PRO-4X
   engine: []

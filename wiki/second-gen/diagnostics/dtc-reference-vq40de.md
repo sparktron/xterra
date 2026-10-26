@@ -9,8 +9,6 @@ applies_to:
   - 2006
   - 2010
   - 2011
-  - 2013
-  - 2015
   trims:
   - Frontier
   - OR

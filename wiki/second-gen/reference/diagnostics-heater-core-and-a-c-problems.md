@@ -6,8 +6,6 @@ category: reference
 applies_to:
   years:
   - 2005
-  - 2007
-  - 2013
   trims: []
   engine: []
   drivetrain: []
@@ -27,7 +25,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 10
+  withheld_items: 9
   pending_safety_values: 0
 ---
 

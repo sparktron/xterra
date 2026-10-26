@@ -6,7 +6,6 @@ category: reference
 applies_to:
   years:
   - 2005
-  - 2014
   - 2015
   trims:
   - P4X
@@ -58,8 +57,7 @@ verification:
   local_pass_required: true
   reviewed_items: 2
   partial_items: 20
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 2
   withheld_items: 20
   pending_safety_values: 0

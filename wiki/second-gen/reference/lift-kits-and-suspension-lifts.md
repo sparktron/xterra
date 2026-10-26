@@ -4,8 +4,7 @@ title: Lift kits and suspension lifts
 generation: second-gen
 category: reference
 applies_to:
-  years:
-  - 2014
+  years: []
   trims:
   - PRO-2X
   engine: []
@@ -33,7 +32,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 1
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 

@@ -6,7 +6,6 @@ category: mods
 applies_to:
   years:
   - 2011
-  - 2014
   trims:
   - X
   engine: []

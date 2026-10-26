@@ -9,6 +9,7 @@ applies_to:
   - 2004
   trims:
   - SE
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -17,6 +18,7 @@ est_time: null
 tools: []
 parts: []
 sources:
+- t1089
 - t1132
 - t1326
 - t1917
@@ -25,7 +27,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 9
+  partial_items: 12
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 1
@@ -54,6 +56,8 @@ Choose a pipe size one step up from stock with a recommended upgrade diameter of
 [Partial] Verify O2 sensor length compatibility if retaining sensors on a straight-piped setup. [t1917]
 
 Fuel tank capacity is approximately 280 to 317 miles of range per fill-up. [t2277]
+
+[Partial] Note that this size is considered a blessed large muffler for the 50 series. [t1089]
 
 ## Procedure
 
@@ -92,6 +96,7 @@ _Procedure reported by [t1132]._
 - **Expanded inlet size**: 2" [t1917] ([Partial] [Unverified] single report)
 - **Fuel tank capacity (approximate)**: ~280-317 miles range miles per fill-up [t2277] ([Partial] [Unverified] single report)
 - **Max recommended single stream size**: 2.5" [t1917] ([Unverified] single report)
+- **Muffler pipe diameter (50 Series)**: 2.25 inch [t1089] ([Partial] [Unverified] single report)
 - **Recommended upgrade diameter**: 2" [t1917] ([Partial] [Unverified] single report)
 - **Stock single pipe diameter (alternative)**: 2.25" [t1917] ([Unverified] single report)
 - **Stock single stream diameter**: 1.75" [t1917] ([Partial] [Unverified] single report)
@@ -100,6 +105,7 @@ _Procedure reported by [t1132]._
 
 - [Partial] Use UHMWPE intake spacers for NA motors, modifying them slightly and using longer bolts if necessary. [t1326]
 - [Partial] Ensure the 6-rib balancer is used to match pulley ratios correctly. [t1326]
+- [Partial] Note that this size is considered a 'blessed large muffler' for the 50 series. [t1089]
 
 ## Diagrams (links only)
 
@@ -108,6 +114,7 @@ _Procedure reported by [t1132]._
 
 ## Source attributions
 
+- **t1089**: KChurch86, "1st Gen. Exhaust options", 2012-01-15. https://www.xterranation.org/index.php?threads/1st-gen-exhaust-options.755/
 - **t1132**: Prime, "1st Gen Brake Upgrade Megathread", 2015-10-14. https://www.xterranation.org/index.php?threads/1st-gen-brake-upgrade-megathread.7270/
 - **t1326**: xEndlessfight503x, "Vg33e to Vg33er swap. Who has done it?", 2019-10-12. https://www.xterranation.org/index.php?threads/vg33e-to-vg33er-swap-who-has-done-it.9119/
 - **t1917**: Cameron23, "Straight Pipe... What do people need to know?", 2014-04-05. https://www.xterranation.org/index.php?threads/straight-pipe-what-do-people-need-to-know.5109/

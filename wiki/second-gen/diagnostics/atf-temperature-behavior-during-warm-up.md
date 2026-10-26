@@ -4,8 +4,7 @@ title: ATF Temperature Behavior During Warm-up
 generation: second-gen
 category: diagnostics
 applies_to:
-  years:
-  - 2008
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -21,8 +20,7 @@ verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 1
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 6
   pending_safety_values: 0

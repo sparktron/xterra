@@ -8,7 +8,6 @@ applies_to:
   - 2005
   - 2008
   - 2011
-  - 2014
   trims:
   - PRO-4X
   - S

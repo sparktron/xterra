@@ -4,8 +4,7 @@ title: ABS system disable switch
 generation: second-gen
 category: mods
 applies_to:
-  years:
-  - 2015
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -27,8 +26,7 @@ verification:
   local_pass_required: true
   reviewed_items: 2
   partial_items: 3
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 9
   pending_safety_values: 0

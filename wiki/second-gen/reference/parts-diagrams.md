@@ -6,7 +6,6 @@ category: reference
 applies_to:
   years:
   - 2005
-  - 2014
   trims:
   - S
   - X

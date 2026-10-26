@@ -50,11 +50,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 20
+  partial_items: 38
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 5
+  withheld_items: 13
   pending_safety_values: 0
 ---
 
@@ -93,6 +93,26 @@ Install high-flow cats to maintain emissions legality while improving flow. [t19
 [Partial] Assemble a full pre-bent exhaust kit including DT headers, install three universal cats in the stock secondary location and behind the Y-pipe. [t1089]
 
 [Partial] Replace the factory manifold, install a catback system, and consider adding a Y-pipe with 2.5-inch piping. [t1089]
+
+[Partial] Install a catback system that routes pipes straight out toward the rear. [t1089]
+
+Fit high-flow catalytic converters and install a flex pipe. [t1089]
+
+Install a Doug Thorley long tube header set and ensure it is 49 state acceptable. [t1089]
+
+[Partial] Replace stock piping starting from manifolds, cutting the rear pipe flush with the bumper end-cap. [t1089]
+
+[Partial] Install a Flowmaster Super 40 series muffler featuring two rear catalytic converters that have been hollowed out for sound. [t1089]
+
+Install a Flowmaster Super 44 muffler that sounds blessed large but may cause cabin drone. [t1089]
+
+Install a Nismo Catback Exhaust system, pair with AC headers for best results if air conditioning is installed, and add an aftermarket resonator or larger muffler to reduce buzzy tones between 2600 and 3000 rpm. [t1089]
+
+[Partial] Install a Flowmaster 50 Series muffler considered a blessed large unit. [t1089]
+
+[Partial] Install a Flowmaster 50 Series muffler with a turn-down valve. [t1089]
+
+[Partial] Install a Flowmaster 50 Series muffler with dual inlet/outlet configuration. [t1089]
 
 ## Procedure
 
@@ -173,6 +193,27 @@ _Procedure reported by [t2035]._
 
 </details>
 
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Install a catback system that routes the pipes straight out toward the rear.
+2. Push the muffler and tailpipe assembly upward to clear body lift components.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. Fit high-flow catalytic converters in place of the stock units.
+2. Install a flex pipe to replace or supplement the intermediate piping.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Install a Doug Thorley long tube header set.
+2. Ensure the headers are '49 state acceptable' to pass visual inspections outside of California.
+
+</details>
+
 <details><summary>Alternate procedure [t1326] [Partial]</summary>
 
 1. [Partial] Install a UHMWPE intake spacer on the NA motor if using an SC setup.
@@ -182,6 +223,24 @@ _Procedure reported by [t2035]._
 <details><summary>Alternate procedure [t1917] [Partial]</summary>
 
 1. [Partial] Install an exhaust cutout valve to bypass the muffler while retaining it in place.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. Install a Flowmaster Super 44 muffler.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Install a Nismo Catback Exhaust system.
+
+</details>
+
+<details><summary>Alternate procedure [t1089] [Partial]</summary>
+
+1. [Partial] Install a Flowmaster 50 Series muffler with dual inlet/outlet configuration.
 
 </details>
 
@@ -204,6 +263,7 @@ _Procedure reported by [t2035]._
 
 ## Specifications
 
+- **Catalytic converter cost**: $75 per unit [t1089] ([Partial] [Unverified] single report)
 - **Crossover pipe diameter**: 2" [t1917] ([Unverified] single report)
 - **Header pipe diameter**: 2.5 inch [t1089] ([Partial] [Unverified] single report)
 - **Muffler size**: 2.25" inch [t1089] ([Partial] [Unverified] single report)
@@ -223,6 +283,22 @@ _Procedure reported by [t2035]._
 - This setup works well for supercharged engines running smaller pulleys and larger intakes. [t1089]
 - Consider ordering or bolting on a Y-pipe with 2.5-inch piping if using long tubes. [t1089]
 - [Partial] Look for a Y-pipe that includes the flex joint located under the transmission. [t1089]
+- Raise the exhaust height so it picks up from the body lift rather than sitting low near the bumper. [t1089]
+- If passing inspection is required, look for short-tube versions if standard manifolds cause issues. [t1089]
+- Have an exhaust shop cut the rear pipe flush with the bumper end-cap for a clean look. [t1089]
+- [Partial] Use hi-flow cats and a flex joint to maintain flow while managing space under the transmission. [t1089]
+- [Partial] The unit features two rear catalytic converters that have been hollowed out for sound. [t1089]
+- [Partial] Expect a deep idle around 1800 rpm and good low-end tone, though it may buzz slightly above 3k. [t1089]
+- [Partial] This model is described as 'blessed large' and offers a throaty sound. [t1089]
+- [Partial] It may cause cabin drone at highway speeds around 3k rpm due to harmonics. [t1089]
+- [Partial] Pair with AC headers for best results if air conditioning is installed. [t1089]
+- [Partial] Add an aftermarket resonator or larger muffler to reduce buzzy tones between 2600 and 3000 rpm. [t1089]
+- Considered a 'blessed large' unit that handles harmonics well. [t1089]
+- [Partial] May produce significant cabin drone at highway speeds around 3k rpm. [t1089]
+- [Partial] The turn-down allows volume adjustment to manage cabin noise when passengers are present. [t1089]
+- [Partial] Provides a deep idle around 1800 rpm without being too loud for daily driving. [t1089]
+- This setup can be paired with two new tailpipes for a custom look. [t1089]
+- [Partial] Costs approximately $300 total including installation and piping work. [t1089]
 
 ## Diagrams (links only)
 

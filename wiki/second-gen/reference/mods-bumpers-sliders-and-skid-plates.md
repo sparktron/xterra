@@ -6,7 +6,6 @@ category: reference
 applies_to:
   years:
   - 2013
-  - 2015
   trims: []
   engine: []
   drivetrain: []
@@ -31,7 +30,7 @@ verification:
   partial_items: 11
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 4
+  withheld_items: 1
   pending_safety_values: 0
 ---
 

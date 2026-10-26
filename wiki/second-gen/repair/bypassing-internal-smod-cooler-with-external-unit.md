@@ -4,8 +4,7 @@ title: Bypassing internal SMOD cooler with external unit
 generation: second-gen
 category: repair
 applies_to:
-  years:
-  - 2016
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -21,8 +20,7 @@ verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 1
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0

@@ -4,8 +4,7 @@ title: Snow performance with Goodyear Duratrac tires
 generation: second-gen
 category: mods
 applies_to:
-  years:
-  - 2014
+  years: []
   trims:
   - X
   engine: []

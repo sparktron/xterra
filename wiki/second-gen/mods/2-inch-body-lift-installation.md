@@ -40,7 +40,7 @@ verification:
   partial_fields:
   - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 5
+  withheld_items: 4
   pending_safety_values: 0
 ---
 

@@ -4,9 +4,7 @@ title: Rear pinion seal replacement for threaded fitment issues
 generation: second-gen
 category: repair
 applies_to:
-  years:
-  - 2013
-  - 2014
+  years: []
   trims:
   - X
   engine: []

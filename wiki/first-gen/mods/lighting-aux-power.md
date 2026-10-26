@@ -134,7 +134,7 @@ confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 74
+  partial_items: 76
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 1
@@ -261,6 +261,8 @@ Run 8-gauge wire from the battery block to frame and connect lights via a relay.
 [Partial] Mount the CB radio in a storage box and run the antenna wire through the grommet. [t2332]
 
 Install a 3-foot FireStik antenna on an HD spring and secure it to the factory roof rack. [t2332]
+
+[Partial] Drill pilot holes at least 1/32 inch smaller than the screw diameter. [t2332]
 
 Use slightly larger stainless sheet metal screws to reuse existing stripped holes. [t2332]
 
@@ -652,6 +654,12 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 
 <details><summary>Alternate procedure [t2332] [Partial]</summary>
 
+1. [Partial] Drill pilot holes at least 1/32 inch smaller than the screw diameter (or use 1/16 inch).
+
+</details>
+
+<details><summary>Alternate procedure [t2332] [Partial]</summary>
+
 1. Use slightly larger stainless sheet metal screws to reuse existing stripped holes.
 
 </details>
@@ -752,6 +760,7 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 ## Specifications
 
 - **Antenna length**: DISPUTED, sources disagree: 4' [t2332]; 3' [t2332]
+- **Pilot hole size**: 1/32"-1/16" [t2332] ([Partial] [Unverified] single report)
 - **Reflector hole size (target)**: 1.5 inches [t1851] ([Unverified] single report)
 - **Screw size increase**: 1/32"-1/16" [t2332] ([Partial] [Unverified] single report)
 - **Step drill capacity**: 1-3/8 inch [t1851] ([Unverified] single report)

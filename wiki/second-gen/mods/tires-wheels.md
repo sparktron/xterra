@@ -129,7 +129,7 @@ verification:
   - difficulty
   - shared_platform
   unconfirmed_safety_values: 1
-  withheld_items: 34
+  withheld_items: 33
   pending_safety_values: 1
 ---
 

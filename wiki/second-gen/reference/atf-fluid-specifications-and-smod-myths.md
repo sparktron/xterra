@@ -4,8 +4,7 @@ title: ATF fluid specifications and SMOD myths
 generation: second-gen
 category: reference
 applies_to:
-  years:
-  - 2016
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -21,8 +20,7 @@ verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 0
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 2
   pending_safety_values: 0
@@ -31,8 +29,6 @@ verification:
 # ATF fluid specifications and SMOD myths
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
