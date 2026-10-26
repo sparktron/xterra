@@ -73,6 +73,10 @@ _UNIT_BEFORE = re.compile(_U + r"\.?\s*[:=]?\s*$")
 SAFETY_UNITS = frozenset({"ft-lb", "in-lb", "N·m", "kgf·m", "qt", "gal", "pt", "fl oz", "ml", "L", "psi", "kPa", "bar"})
 # Engine displacements on this platform (QR25DE 2.5L, VQ40DE 4.0L, VK56DE 5.6L) are engine names, not fluid volumes.
 _DISPLACEMENTS = frozenset({"2.5", "4.0", "5.6"})
+# So is a litre figure that names a swap engine by its make or layout: "Ford 4.6L", "5.3L V8", "6.0L LS", "3.3L SOHC".
+# "4.6L of oil" or "engine oil 4.6 L" stays a fluid volume.
+_ENGINE_BEFORE = re.compile(r"(?<![a-z])(?:ford|chevy|chevrolet|gm|dodge|jeep|toyota|cummins|hemi|displacement)\W{0,3}$")
+_ENGINE_AFTER = re.compile(r"\s*(?:l|lit(?:er|re)s?)\b\W{0,3}(?:v-?\d{1,2}|i-?[46]|inline|sohc|dohc|hemi|ls\d?|coyote|vortec|triton|cummins)\b")
 
 
 def _canon(m: re.Match) -> str:
@@ -84,7 +88,9 @@ def _unit_near(flat: str, start: int, end: int) -> str | None:
     if after:
         return _canon(after)
     before = _UNIT_BEFORE.search(flat[max(0, start - 25):start])
-    return _canon(before) if before else None
+    unit = _canon(before) if before else None
+    # A "bar" before a number names a part ("frame bar: 42\"", "sway bar: 2"); a pressure in bar follows its number.
+    return None if unit == "bar" else unit
 
 
 def numbers_with_units(text: str) -> list[tuple[str, str | None]]:
@@ -108,9 +114,19 @@ def unit_grounded(value: str, unit: str, text: str) -> bool:
     return all(u in have.get(num, set()) for num, u in numbers_with_units(f"{value} {unit}") if u is not None)
 
 
+def _engine_name(flat: str, start: int, end: int) -> bool:
+    return bool(_ENGINE_BEFORE.search(flat[max(0, start - 20):start]) or _ENGINE_AFTER.match(flat, end))
+
+
 def safety_values(text: str) -> set[tuple[str, str]]:
     """(number, unit) pairs in `text` whose unit is a torque, fluid-volume or pressure unit."""
-    return {(n, u) for n, u in numbers_with_units(text) if u in SAFETY_UNITS and not (u == "L" and n in _DISPLACEMENTS)}
+    flat = _flat(text)
+    out = set()
+    for m in _NUM.finditer(flat):
+        n, u = m.group(), _unit_near(flat, m.start(), m.end())
+        if u in SAFETY_UNITS and not (u == "L" and (n in _DISPLACEMENTS or _engine_name(flat, m.start(), m.end()))):
+            out.add((n, u))
+    return out
 
 
 _SMALL = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve")
@@ -156,6 +172,17 @@ def spec_value_grounded(spec, text: str) -> bool:
     value needs to be correct (a missing or paraphrased quote dropped 39 specs whose values were right). Whether the
     value belongs to that item is the verifier's and the reviewer's call; `evidence` only helps them find it."""
     return spec_grounded(spec.value, spec.unit, text) and unit_grounded(spec.value, spec.unit, text)
+
+
+# The per-post header crawl.build_chunks writes: "### Post 24 by name (2013-11-23)", or "... (part)".
+POST_HEADER = re.compile(r"^### Post \d+\b.*$", re.M)
+
+
+def grounded_years(years: list[int], text: str) -> list[int]:
+    """Keep only model years the source text states. A post header's date and its author's name are not the text:
+    decided 2026-10-26, after facts from a first-gen thread took a 2013 post date as their model year."""
+    body = POST_HEADER.sub("", text)
+    return [y for y in years if str(y) in body]
 
 
 def grounded_terms(terms: list[str], text: str) -> list[str]:

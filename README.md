@@ -1,6 +1,6 @@
 # xterra-wiki
 
-A markdown wiki that works as an encyclopedia of the 2nd-gen Xterra. It has two parts that share one index: reference pages written by hand from manufacturer and government sources, and how-to, diagnostic and spec pages built by a pipeline that crawls (politely) or ingests Xterra forum threads, extracts structured facts with a local LLM, and verifies them. Scope: 2nd-gen Xterra (N50) plus the shared Frontier/Titan drivetrain.
+A markdown wiki that works as an encyclopedia of the Nissan Xterra, with one completely separate section per generation (`wiki/first-gen/`, 2000-2004 WD22; `wiki/second-gen/`, 2005-2015 N50), because the two trucks share almost nothing. `wiki/index.md` only points at the two sections. Each section has two parts that share its index: reference pages written by hand from manufacturer and government sources, and how-to, diagnostic and spec pages built by a pipeline that crawls (politely) or ingests Xterra forum threads, extracts structured facts with a local LLM, and verifies them. Scope: 2nd-gen Xterra (N50) plus the shared Frontier/Titan drivetrain.
 
 ## Quick start
 ```
@@ -22,7 +22,7 @@ Sources are listed in `config/sources.yaml`; URLs and XenForo markup assumptions
 5. `xw qa` re-checks the published pages against raw source text; exit 1 on violation.
 
 ## Reference section (hand-curated)
-The reference section of the wiki, `wiki/vehicle/`, holds pages written by hand rather than extracted: one page per model year (2005-2015) plus trims, paint codes, dimensions, engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, part numbers, recalls and VIN decoding. Sources are Nissan press kits, owner's manuals and maintenance schedules, EPA, NHTSA, and paint and parts catalogs. `xw export` leaves these pages alone and links their hub from the top of `wiki/index.md`; `xw qa` fails if a line on them states a number without citing a source listed on that page or marking it `[Unverified]`.
+The second generation's reference section, `wiki/second-gen/vehicle/` (each generation has its own `vehicle/`), holds pages written by hand rather than extracted: one page per model year (2005-2015) plus trims, paint codes, dimensions, engine and drivetrain, fuel economy, fluids, oil change, maintenance schedule, part numbers, recalls and VIN decoding. Sources are Nissan press kits, owner's manuals and maintenance schedules, EPA, NHTSA, and paint and parts catalogs. `xw export` leaves these pages alone and links their hub from the top of the section's `index.md`; `xw qa` fails if a line on them states a number without citing a source listed on that page or marking it `[Unverified]`.
 
 ## Commands
 `init doctor status discover harvest extract ingest summarize verify export review-export review-apply triage qa run reset-source`

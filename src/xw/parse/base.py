@@ -41,7 +41,10 @@ class ThreadPage:
 
 
 def absolute(base: str, href: str) -> str:
-    return urldefrag(urljoin(base, href))[0]
+    try:
+        return urldefrag(urljoin(base, href))[0]
+    except ValueError:      # e.g. "http://[broken/pic.jpg" ("Invalid IPv6 URL") in a post: keep the text as written
+        return href
 
 
 def _host(url: str) -> str:

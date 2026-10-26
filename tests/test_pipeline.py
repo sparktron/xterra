@@ -7,6 +7,7 @@ import re
 from pathlib import Path
 
 import httpx
+import pytest
 
 from xw import db
 from xw.cli import main
@@ -135,8 +136,13 @@ def export(cfg, conn):
     return export_all(cfg, conn, TopicIndex(cfg.topics))
 
 
+def gen2(cfg):
+    """The second-generation section: the test sources (`manual`, `thenewx`) are second-gen."""
+    return cfg.wiki_dir / "second-gen"
+
+
 def page_text(cfg, cat="repair", slug="control-arms-bushings"):
-    return (cfg.wiki_dir / cat / f"{slug}.md").read_text()
+    return (gen2(cfg) / cat / f"{slug}.md").read_text()
 
 
 def fact_id(conn):
@@ -191,9 +197,9 @@ def test_single_source_safety_value_is_withheld_until_reviewed(cfg, conn):
     assert "83 ft-lb" not in page and "120" not in page and "11111-ZZ999" not in page              # nothing unverified in the body
     assert "https://example.invalid/diagrams/front-susp.png" in page
     assert "withheld until verified" in page
-    pv = (cfg.wiki_dir / "pending_verification.md").read_text()
+    pv = (gen2(cfg) / "pending_verification.md").read_text()
     assert "Inner pivot bolt torque" in pv and "83 ft-lb" in pv and "only 1 thread" in pv
-    oq = (cfg.wiki_dir / "open_questions.md").read_text()
+    oq = (gen2(cfg) / "open_questions.md").read_text()
     assert "11111-ZZ999" in oq and "120 ft-lb" in oq and "not found in source" in oq
     assert check_wiki(cfg, conn) == []
 
@@ -220,7 +226,7 @@ def test_fails_closed_when_verifier_has_not_run(cfg, conn, tmp_path):
     export(cfg, conn)
     page = page_text(cfg)
     assert "_No verified summary yet._" in page and "## Procedure" not in page and "Final-tighten" not in page
-    assert "local verifier: not run" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "local verifier: not run" in (gen2(cfg) / "open_questions.md").read_text()
 
     cfg.verify.as_dict()["require_local_pass"] = False        # explicit opt-out publishes prose again
     export(cfg, conn)
@@ -232,7 +238,7 @@ def test_verifier_disagreement_withholds_claims_and_whole_procedures(cfg, conn, 
     extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(parts=[], diagram_links=[], specs=[])]})],
                        verifier=FakeVerifier(cfg, bad=("lower ball joint",), partial=("weight on the suspension",)))
     export(cfg, conn)
-    page, oq = page_text(cfg), (cfg.wiki_dir / "open_questions.md").read_text()
+    page, oq = page_text(cfg), (gen2(cfg) / "open_questions.md").read_text()
     assert "## Procedure" not in page and "Remove the pivot bolts" not in page   # one unsupported step withholds the procedure
     assert "- [Partial] Final-tighten" in page                                  # 'partial' publishes, marked as needing work
     assert "local verifier: unsupported" in oq and "local verifier: partial" not in oq
@@ -253,7 +259,7 @@ def test_agreeing_threads_are_consensus_and_disputes_are_withheld(cfg, conn, tmp
     export(cfg, conn)
     page = page_text(cfg)
     assert "DISPUTED" not in page and "83 ft-lb" not in page and "90 ft-lb" not in page    # a dispute on a safety value is not published
-    assert "sources disagree" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "sources disagree" in (gen2(cfg) / "pending_verification.md").read_text()
     assert "disputed" in page
 
     # remove the dissenting thread: two agreeing threads are enough on their own
@@ -312,7 +318,7 @@ def test_qa_catches_tampering(cfg, conn, tmp_path):
                                    ("Write-up b", {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]})])
     export(cfg, conn)
     assert check_wiki(cfg, conn) == []
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     good = path.read_text()
 
     path.write_text(good.replace("83 ft-lb [t1, t2] (community-consensus, 2 threads)", "99 ft-lb [t1, t2] (community-consensus, 2 threads)"))
@@ -337,12 +343,27 @@ def test_part_name_in_parentheses_is_not_mistaken_for_a_part_number(cfg, conn, t
              {"name": "Arm (left)", "part_number": "54500-EA000", "evidence": "54500-EA000 is the arm"}]
     extract_and_verify(cfg, conn, [("Write-up a", {"relevant": True, "facts": [arm_fact(parts=parts, specs=[], diagram_links=[])]})])
     export(cfg, conn)
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     page = path.read_text()
     assert "- Rear Bearing, NSK [t1]" in page and "- Arm, left (54500-EA000) [t1]" in page
     assert check_wiki(cfg, conn) == []
     path.write_text(page.replace("(54500-EA000)", "(77777-AB123)"))
     assert any("part number not found" in v for v in check_wiki(cfg, conn))
+
+
+def test_a_numberless_part_whose_note_is_in_parentheses_is_not_mistaken_for_a_part_number(cfg, conn, tmp_path):
+    # A numberless part rendered "- Wire: (12 AWG or larger) [t1]" failed qa: PART_LINE took "12 AWG or larger" for its
+    # part number. The exporter now flattens parentheses in notes as well as names; qa is no looser.
+    add_notes(cfg, conn, tmp_path, [
+        ("a", "Write-up a on a 2008 lower arm: run new wire, 12 AWG or larger, to the lamp, and fit a shield (any brand). " * 5, "alice"),
+    ])
+    parts = [{"name": "Wire", "part_number": "", "notes": "(12 AWG or larger)", "evidence": "run new wire, 12 AWG or larger"},
+             {"name": "Shield", "part_number": "", "notes": "Any brand (aftermarket)", "evidence": "fit a shield (any brand)"}]
+    extract_and_verify(cfg, conn, [("Write-up a", {"relevant": True, "facts": [arm_fact(parts=parts, specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = (gen2(cfg) / "repair" / "control-arms-bushings.md").read_text()
+    assert "- Wire: 12 AWG or larger [t1]" in page and "- Shield: Any brand, aftermarket [t1]" in page
+    assert check_wiki(cfg, conn) == []
 
 
 def test_copied_text_and_unstated_metadata_are_not_published(cfg, conn, tmp_path):
@@ -354,7 +375,7 @@ def test_copied_text_and_unstated_metadata_are_not_published(cfg, conn, tmp_path
     export(cfg, conn)
     page = page_text(cfg)
     assert "Loosen the lug nuts, raise the front" not in page and "## Procedure" not in page    # verbatim -> withheld
-    assert "verbatim overlap" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "verbatim overlap" in (gen2(cfg) / "open_questions.md").read_text()
     assert "- 2008" in page and "2012" not in page                                             # year not in source text is dropped
     assert "- X" in page and "SE" not in page.split("---")[1] and "Off-Road" not in page.split("---")[1]
 
@@ -368,16 +389,156 @@ def test_dtc_table_and_interchange(cfg, conn, tmp_path):
                  {"code": "P0999", "description": "invented"}]}]})]
     extract_and_verify(cfg, conn, answers)
     export(cfg, conn)
-    rows = list(csv.reader((cfg.wiki_dir / "dtc_table.csv").open()))
+    rows = list(csv.reader((gen2(cfg) / "dtc_table.csv").open()))
     assert [r[0] for r in rows[1:]] == ["P0340"]                  # ungrounded P0999 excluded
-    ic = (cfg.wiki_dir / "interchange.md").read_text()
+    ic = (gen2(cfg) / "interchange.md").read_text()
     assert "Frontier" in ic and "| Titan" not in ic and "Frontier, Titan" not in ic                 # 'Titan' is not in the source text, so it is dropped
 
 
 def test_out_of_scope_years_are_dropped(cfg, conn, tmp_path):
-    add_notes(cfg, conn, tmp_path, [("gen1", "My 2001 Xterra first generation needs a new alternator belt and the procedure is simple enough. " * 6, "dan")])
-    extract_and_verify(cfg, conn, [("2001", {"relevant": True, "facts": [arm_fact(years=[2001], parts=[], specs=[], diagram_links=[])]})])
+    add_notes(cfg, conn, tmp_path, [("old", "My 1998 Pathfinder needs a new alternator belt and the procedure is simple enough. " * 6, "dan")])
+    extract_and_verify(cfg, conn, [("1998", {"relevant": True, "facts": [arm_fact(years=[1998], parts=[], specs=[], diagram_links=[])]})])
     assert conn.execute("SELECT COUNT(*) FROM facts").fetchone()[0] == 0
+
+
+GEN1_TEXT = "Lower control arm job on my 2001 Xterra with plenty of detail on the arm, the bolts and the ball joint here. " * 6
+
+
+def test_a_fact_publishes_only_in_the_generation_of_its_stated_years(cfg, conn, tmp_path):
+    # the user (2026-10-20): first and second generation "are nothing alike"; each has its own separate section.
+    # Decided 2026-10-21: stated years must agree with the source's generation. A first-gen forum fact stating "2013"
+    # (a post date) went to second-gen pages; a fact whose years are only the other generation's now publishes nowhere.
+    pic = "https://img.invalid/albums/t999/arm.jpg"   # a thread-id-like path in a URL is not a citation (qa once read it as t999)
+    add_notes(cfg, conn, tmp_path, [("gen2src", GEN1_TEXT, "dan")])                    # `manual` is a second-gen source
+    f = tmp_path / "gen1.txt"
+    f.write_text(GEN1_TEXT + f" Diagram: {pic}")
+    ingest_file(cfg, conn, f, url="https://gen1.invalid/1", title="gen1", author="eve", source="manual-gen1")
+    extract_and_verify(cfg, conn, [("2001", {"relevant": True, "facts": [arm_fact(years=[2001], parts=[], specs=[], diagram_links=[pic])]})])
+    export(cfg, conn)
+    page = (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").read_text()
+    assert "generation: first-gen" in page and "Remove the pivot bolts" in page
+    assert "gen1.invalid" in page and "gen2src.invalid" not in page          # only the first-gen source's fact
+    assert not (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+    assert ("its source is Second generation (N50), 2005-2015 but its model years are only First generation"
+            in (cfg.wiki_dir / "open_questions.md").read_text())
+    assert "](../second-gen/index.md)" in (cfg.wiki_dir / "first-gen" / "index.md").read_text()
+    assert "](first-gen/index.md)" in (cfg.wiki_dir / "index.md").read_text()
+    assert check_wiki(cfg, conn) == []
+
+
+def test_a_post_date_is_not_a_model_year(cfg, conn):
+    # live (2026-10-25): 11 facts from "1st Gen. Exhaust options" stated 2013, which the chunk held only in its
+    # "### Post N by name (2013-...)" headers; the cross-generation rule then published them nowhere
+    url = "https://gen1.invalid/threads/arms.7/"
+    conn.execute("INSERT INTO threads(source_id, url, title, kind, priority) VALUES('manual-gen1', ?, 'Lower control arm', 'manual', 1)", (url,))
+    tid = conn.execute("SELECT id FROM threads WHERE url=?", (url,)).fetchone()["id"]
+    body = GEN1_TEXT.replace("2001 ", "")
+    store_thread(cfg, conn, tid, "Lower control arm", [Post("rig2014", "2013-05-01", body), Post("b", "2013-05-02", body)], 1)
+    assert "(2013-05-01)" in conn.execute("SELECT text FROM chunks WHERE thread_id=?", (tid,)).fetchone()["text"]
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        years=[2013, 2014], parts=[], specs=[], diagram_links=[])]})])
+    assert json.loads(conn.execute("SELECT fact_json FROM facts").fetchone()["fact_json"])["years"] == []
+    export(cfg, conn)
+    assert (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").exists()
+    assert "its model years are only" not in (cfg.wiki_dir / "open_questions.md").read_text()
+
+    # a fact stored before the fix still carries the post date; export and qa re-check it from the chunk text
+    conn.execute("UPDATE facts SET fact_json=json_set(fact_json, '$.years', json('[2013]'))")
+    conn.commit()
+    export(cfg, conn)
+    assert (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").exists()
+    assert not (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+    assert check_wiki(cfg, conn) == []
+
+
+def test_a_source_without_a_generation_routes_by_stated_years():
+    from xw.config import DEFAULTS
+    from xw.generations import from_spec, route
+
+    gens = from_spec(DEFAULTS["generations"])
+    assert route([2001], None, gens) == ("first-gen", "")
+    assert route([2013], None, gens) == ("second-gen", "")
+    assert route([2013], "second-gen", gens) == ("second-gen", "")
+    assert route([2013], "first-gen", gens)[0] is None
+
+
+def test_a_fact_without_years_takes_its_sources_generation(cfg, conn, tmp_path):
+    f = tmp_path / "saved.txt"
+    f.write_text(GEN1_TEXT.replace("2001 ", ""))
+    ingest_file(cfg, conn, f, url="https://gen1.invalid/1", title="arms", author="dan", source="manual-gen1")
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(years=[], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    assert (cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md").exists()
+    assert not (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+
+
+def test_a_fact_whose_years_span_both_generations_publishes_in_neither(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("both", GEN1_TEXT.replace("2001", "2003 and 2008"), "dan")])
+    extract_and_verify(cfg, conn, [("2003", {"relevant": True, "facts": [arm_fact(years=[2003, 2008], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    assert not list(cfg.wiki_dir.glob("*-gen/repair/control-arms-bushings.md"))
+    assert "its model years span" in (cfg.wiki_dir / "open_questions.md").read_text()
+
+
+def test_a_fact_whose_title_names_the_other_generation_publishes_in_neither(cfg, conn, tmp_path):
+    # live: a first-gen note in a second-gen subforum came out as "First-gen Xterra Corbeau bracket fitment notes"
+    add_notes(cfg, conn, tmp_path, [("gen1", GEN1_TEXT.replace("2001 ", ""), "dan")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        years=[], title="First-gen lower arm notes", parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    assert not list(cfg.wiki_dir.glob("*-gen/repair/control-arms-bushings.md"))
+    assert "its title names the First generation" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+
+
+def test_other_generation_metadata_stays_out_of_the_front_matter(cfg, conn, tmp_path):
+    # Codex review of #11: the prose filters did not cover applies_to/shared_platform, and qa scanned only the body
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008 with the VQ40DE; the old VG33E truck and the D22 Frontier "
+                                          "differ. Separate the ball joint with a fork and drop the arm. " * 5, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        years=[2008], engines=["VQ40DE", "VG33E"], trims=["SE", "D22"], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    front = page.split("---")[1]
+    assert "VQ40DE" in front and "VG33E" not in front and "D22" not in front
+    assert "names the First generation" in (gen2(cfg) / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("- VQ40DE", "- VQ40DE\n  - VG33E", 1))
+    assert any("in the front matter" in v for v in check_wiki(cfg, conn))
+
+
+def test_reingesting_a_page_under_a_source_of_another_generation_is_refused(cfg, conn, tmp_path):
+    # Codex review of #11: INSERT OR IGNORE kept the old `manual` (second-gen) source and reported success
+    f = tmp_path / "saved.txt"
+    f.write_text(GEN1_TEXT)
+    tid = ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan")
+    with pytest.raises(ValueError, match="already ingested under source `manual`"):
+        ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan", source="manual-gen1")
+    assert conn.execute("SELECT source_id FROM threads WHERE id=?", (tid,)).fetchone()[0] == "manual"
+    assert ingest_file(cfg, conn, f, url="https://forum.invalid/t/1", title="arms", author="dan") == tid   # same source: fine
+
+
+def test_a_claim_naming_the_other_generation_is_withheld_and_qa_refuses_it(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008. Unlike a first gen truck, tighten the pivot bolts with "
+                                          "the weight on the wheels. Separate the ball joint with a fork. " * 5, "alice")])
+    tip = "Unlike a first gen truck, final-tighten the pivot bolts with the weight on the wheels"
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        tips=[tip], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "Remove the pivot bolts" in page and "first gen" not in page
+    assert "names the First generation" in (gen2(cfg) / "open_questions.md").read_text()
+    assert check_wiki(cfg, conn) == []
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("## Procedure", "## Procedure\n\nSame as the 1st gen. [t1]"))
+    assert any("names the First generation" in v for v in check_wiki(cfg, conn))
+    path.write_text(page)
+    moved = cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md"   # a page in the wrong section
+    moved.parent.mkdir(parents=True, exist_ok=True)
+    moved.write_text(page)
+    v = check_wiki(cfg, conn)
+    assert any("front matter does not say generation: first-gen" in x for x in v) and any("has no fact in the First" in x for x in v)
 
 
 def test_llm_failure_stops_cleanly_and_chunks_stay_pending(cfg, conn, tmp_path):
@@ -413,7 +574,7 @@ def test_blocked_source_does_not_stop_the_run(cfg, conn):
     row = conn.execute("SELECT status, reason FROM sources WHERE id='thenewx'").fetchone()
     assert row["status"] == "blocked" and "402" in row["reason"]
     export(cfg, conn)
-    assert "thenewx" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "thenewx" in (gen2(cfg) / "open_questions.md").read_text()
 
 
 def test_build_chunks_splits_and_skips_noise():
@@ -470,7 +631,7 @@ def test_guide_steps_publish_as_one_procedure_with_a_pointer_to_the_photos(cfg, 
     assert [f["steps"] for f in facts if f["steps"]] == [steps]
     verify_pending(cfg, conn, FakeVerifier(cfg), log=lambda m: None)
     export(cfg, conn)
-    page = next(p for p in cfg.wiki_dir.glob("*/*.md") if "Push the new strut" in p.read_text())
+    page = next(p for p in gen2(cfg).glob("*/*.md") if "Push the new strut" in p.read_text())
     text = page.read_text()
     assert "5. Shut and reopen the hatch" in text and f"Photos of this job are in the source: <{url}>" in text
     assert check_wiki(cfg, conn) == []
@@ -484,7 +645,9 @@ def test_cli_init_status_export_qa(root, capsys):
     assert main(["--root", str(root), "export"]) == 0
     assert main(["--root", str(root), "qa"]) == 0
     assert main(["--root", str(root), "review-export"]) == 0
-    assert (root / "wiki" / "index.md").exists() and (root / "wiki" / "pending_verification.md").exists()
+    assert (root / "wiki" / "index.md").exists()
+    for gen in ("first-gen", "second-gen"):   # one complete section per generation
+        assert (root / "wiki" / gen / "index.md").exists() and (root / "wiki" / gen / "pending_verification.md").exists()
 
 
 def test_ingest_html_via_cli(root, fixtures):
@@ -513,7 +676,7 @@ def test_unverified_dtc_advice_is_not_published(cfg, conn, tmp_path):
             "dtcs": [{"code": "P0340", "description": "Camshaft position sensor circuit", "causes": ["Sensor"], "fix": "Replace the ECU"}]}
     extract_and_verify(cfg, conn, [("P0340", {"relevant": True, "facts": [fact]})], verifier=FakeVerifier(cfg, bad=("Replace the ECU",)))
     export(cfg, conn)
-    assert "ECU" not in (cfg.wiki_dir / "dtc_table.csv").read_text()
+    assert "ECU" not in (gen2(cfg) / "dtc_table.csv").read_text()
 
 
 def test_non_torque_safety_values_are_classified_deterministically():
@@ -553,7 +716,7 @@ def test_terminal_chunk_failure_marks_thread_error(cfg, conn, tmp_path):
     assert conn.execute("SELECT status FROM chunks").fetchone()[0] == "error"
     assert conn.execute("SELECT status FROM threads").fetchone()[0] == "error"
     export(cfg, conn)
-    assert "extraction failed" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "extraction failed" in (gen2(cfg) / "open_questions.md").read_text()
 
 
 # ---- regressions from the approach review (2026-10-07) -----------------------------------------
@@ -573,7 +736,7 @@ def test_verifier_that_accepts_decoys_is_discarded(cfg, conn, tmp_path):
     export(cfg, conn)
     page = page_text(cfg)
     assert "_No verified summary yet._" in page and "## Procedure" not in page and "pickle fork" not in page
-    assert "local verifier: decoy_failed" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "local verifier: decoy_failed" in (gen2(cfg) / "open_questions.md").read_text()
     batch = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())
     assert any("planted false claim" in i["why_queued"] for i in batch["items"])   # a stronger reviewer can rescue them
 
@@ -617,7 +780,7 @@ def test_same_author_in_two_threads_is_not_consensus(cfg, conn, tmp_path):
     strict(cfg)
     export(cfg, conn)
     assert "83 ft-lb" not in page_text(cfg)
-    assert "1 distinct known author" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "1 distinct known author" in (gen2(cfg) / "pending_verification.md").read_text()
 
 
 def test_review_queue_counts_corroboration_like_the_exporter(cfg, conn, tmp_path):
@@ -639,7 +802,7 @@ def test_review_queue_counts_corroboration_like_the_exporter(cfg, conn, tmp_path
     extract_and_verify(cfg, conn, [(w, {"relevant": True, "facts": [arm_fact(specs=[s], parts=[], diagram_links=[])]}) for w in ("Write-up a", "Write-up b")],
                        verifier=RejectsB(cfg))
     export(cfg, conn)
-    assert "needs 2 independent reports" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert "needs 2 independent reports" in (gen2(cfg) / "pending_verification.md").read_text()
     batch = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())
     top = batch["items"][0]
     assert top["id"] == f"f{fact_id(conn)}:spec:0" and top["priority"] == 0 and "published marked" in top["why_queued"]
@@ -653,7 +816,7 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
         tips=["Top off the diff with 2.75 qt afterwards"], parts=[], diagram_links=[],
         specs=[spec("83", "Torque the inner pivot bolts to 83 ft-lb")])]})])
     export(cfg, conn)
-    page, oq = page_text(cfg), (cfg.wiki_dir / "open_questions.md").read_text()
+    page, oq = page_text(cfg), (gen2(cfg) / "open_questions.md").read_text()
     assert "## Procedure" not in page and "2.75" not in page and "83 ft-lb" not in page   # spec is single-source -> pending
     assert "not published as a corroborated spec: 83 ft-lb" in oq and "2.75 qt" in oq
     assert check_wiki(cfg, conn) == []
@@ -665,7 +828,7 @@ def test_safety_values_in_prose_need_a_published_spec(cfg, conn, tmp_path):
     assert "Torque the pivot bolts to 83 ft-lb" in page and "2.75" not in page
     assert check_wiki(cfg, conn) == []
 
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace("## Tools", "## Tips & gotchas\n\n- Fill it with 6 qt first [t1]\n\n## Tools"))
     assert any("outside the specifications: 6 qt" in v for v in check_wiki(cfg, conn))
     # a spec-shaped line outside Specifications must not count as a published spec (and exempt itself)
@@ -687,14 +850,14 @@ def test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked(cfg, conn
     assert "**Inner pivot bolt torque**: 83 ft-lb [t1] ([Unverified] single report)" in page and SAFETY_NOTE in page
     assert "2. [Unverified value] Torque the pivot bolts to 83 ft-lb with the arm loaded" in page
     assert "- [Unverified value] Top off the diff with 2.75 qt afterwards [t1]" in page   # no spec, but the source says 2.75 qt
-    pv = (cfg.wiki_dir / "pending_verification.md").read_text()
+    pv = (gen2(cfg) / "pending_verification.md").read_text()
     assert pv.index("Published marked") < pv.index("83 ft-lb")
     assert check_wiki(cfg, conn) == []
     fid = fact_id(conn)
     top = json.loads(export_review(cfg, conn, TopicIndex(cfg.topics))[0].read_text())["items"][0]
     assert top["id"] == f"f{fid}:spec:0" and top["priority"] == 0
 
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace(SAFETY_NOTE, ""))
     assert any("visible [Unverified]/[Partial] mark under the warning banner" in v for v in check_wiki(cfg, conn))
     path.write_text(page.replace("[Unverified value] ", ""))
@@ -716,7 +879,7 @@ def test_partial_procedure_publishes_marked_partial_until_upgraded(cfg, conn, tm
     export(cfg, conn)
     page = page_text(cfg)
     assert "## Procedure" in page and "[Partial]" in page and "Final-tighten" in page
-    assert "completeness (procedure withheld)" not in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "completeness (procedure withheld)" not in (gen2(cfg) / "open_questions.md").read_text()
     assert check_wiki(cfg, conn) == []
     # a later verify/review that confirms completeness removes the marker on the next export
     conn.execute("UPDATE verdicts SET verdict='supported' WHERE claim_key='complete'")
@@ -731,7 +894,7 @@ def test_unsupported_or_rejected_completeness_still_withholds_the_procedure(cfg,
                        verifier=FakeVerifier(cfg, bad=("whole procedure",)))
     export(cfg, conn)
     assert "## Procedure" not in page_text(cfg) and "Final-tighten" in page_text(cfg)       # steps supported, list not
-    assert "completeness (procedure withheld)" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "completeness (procedure withheld)" in (gen2(cfg) / "open_questions.md").read_text()
     # a partial local verdict does not survive a reviewer's reject ("a listed step is not in the source")
     conn.execute("UPDATE verdicts SET verdict='partial' WHERE claim_key='complete'")
     conn.execute("INSERT INTO verdicts(fact_id, claim_key, by, verdict, note, created_at) "
@@ -776,8 +939,8 @@ def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_pat
     page = page_text(cfg, "diagnostics", TopicIndex(cfg.topics).resolve("Engine trouble codes (VQ40DE)", "diagnostics").slug)
     front = page.split("---")[1]
     assert "2008" not in front and "Frontier" not in front and "Cam sensor fault." in page
-    assert "| Frontier" not in (cfg.wiki_dir / "interchange.md").read_text()
-    oq = (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "| Frontier" not in (gen2(cfg) / "interchange.md").read_text()
+    oq = (gen2(cfg) / "open_questions.md").read_text()
     assert "applicability" in oq and "shared platform" in oq
 
 
@@ -787,13 +950,13 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     good = ("# 2009 Nissan Xterra\n\n| Item | 2009 |\n|---|---|\n| Engine oil with filter | 5-3/8 qt [S13] |\n\n"
             "- Back to [2008](2008.md) and the [hub](../index.md)\n- Solar Yellow offered in 2009 [Unverified]\n\n"
             "## Sources\n\n- [S13] Nissan, 2009 Xterra Owner's Manual. https://owners.nissanusa.com/x.pdf\n")
-    page = cfg.wiki_dir / "vehicle" / "years" / "2009.md"
+    page = gen2(cfg) / "vehicle" / "years" / "2009.md"
     page.parent.mkdir(parents=True)
     page.write_text(good)
-    (cfg.wiki_dir / "vehicle" / "index.md").write_text("# Hub\n\n- [2009](years/2009.md)\n\n## Sources\n")
+    (gen2(cfg) / "vehicle" / "index.md").write_text("# Hub\n\n- [2009](years/2009.md)\n\n## Sources\n")
     export(cfg, conn)
     assert page.read_text() == good                       # not a topic category: export never deletes or rewrites it
-    assert "](vehicle/index.md)" in (cfg.wiki_dir / "index.md").read_text()
+    assert "](vehicle/index.md)" in (gen2(cfg) / "index.md").read_text()
     assert check_curated(cfg.wiki_dir) == [] and check_wiki(cfg, conn) == []
 
     page.write_text(good.replace(" [S13] |", " |"))
@@ -808,6 +971,51 @@ def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn)
     assert any("no '## Sources' section" in v for v in check_curated(cfg.wiki_dir))
     page.write_text(GENERATED + "\n" + good)
     assert any("generated header" in v for v in check_wiki(cfg, conn))
+
+
+def test_a_curated_guide_is_linked_from_its_topic_in_the_index(cfg, conn):
+    from xw.qa import check_curated
+
+    guides = gen2(cfg) / "vehicle" / "guides"
+    guides.mkdir(parents=True)
+    guide = "# Spark plugs\n\n1. Remove the coil [S1]\n\n## Sources\n\n- [S1] Nissan, 2013 Xterra Service Manual, EM. https://x.example/em.pdf\n"
+    (guides / "spark-plugs.md").write_text(guide)
+    (guides / "index.md").write_text("# Guides\n\n- [Spark plugs](spark-plugs.md)\n\n## Sources\n")
+    export(cfg, conn)
+    idx = (gen2(cfg) / "index.md").read_text()
+    assert "| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | not-started | 0 |" in idx
+    assert "| Engine oil and filter change |  | not-started | 0 |" in idx        # no guide, no link
+    assert "](vehicle/guides/index.md)" in idx
+    assert (guides / "spark-plugs.md").read_text() == guide                       # export never touches a guide
+    assert check_curated(cfg.wiki_dir) == []                                       # and qa holds guides to the curated rule
+
+
+def test_curated_and_generated_pages_must_sit_in_their_generations_section(cfg, conn):
+    from xw.qa import check_curated
+
+    src = "\n\n## Sources\n\n- [S1] Nissan, 2001 Xterra Owner's Manual. https://x.example/2001.pdf\n"
+    gen1 = cfg.wiki_dir / "first-gen" / "vehicle"
+    gen1.mkdir(parents=True)
+    (gen1 / "index.md").write_text("# First-gen reference\n\nOverall width 70.4 in [S1]" + src)
+    export(cfg, conn)
+    assert "](vehicle/index.md)" in (cfg.wiki_dir / "first-gen" / "index.md").read_text()   # export links each section's hub
+    assert check_curated(cfg.wiki_dir) == [] and check_wiki(cfg, conn) == []
+
+    (gen1 / "index.md").write_text("# First-gen reference\n\nNarrower than the 2nd gen [S1]" + src)   # names the other generation
+    assert any("names the Second generation" in v for v in check_curated(cfg.wiki_dir))
+    (gen1 / "index.md").write_text("# First-gen reference\n\nOverall width 70.4 in [S1]" + src)
+
+    old = cfg.wiki_dir / "vehicle"                       # the pre-split curated folder must not linger
+    old.mkdir()
+    (old / "index.md").write_text("# Hub\n\n## Sources\n")
+    assert any("curated pages outside a generation's section" in v for v in check_curated(cfg.wiki_dir))
+    (old / "index.md").unlink()
+    old.rmdir()
+
+    stray = cfg.wiki_dir / "repair" / "old.md"           # a generated page from the single-section layout
+    stray.parent.mkdir(exist_ok=True)
+    stray.write_text(GENERATED + "\n# Old page\n")
+    assert any("repair/old.md: generated page outside a generation's section" in v for v in check_wiki(cfg, conn))
 
 
 # --- verifier consensus: "supported" needs every pass to agree ------------------------------------------------
@@ -1339,7 +1547,7 @@ def test_a_partial_safety_value_publishes_marked_and_a_partial_never_beats_a_fir
     export(cfg, conn)
     page = page_text(cfg)
     assert "**Inner pivot bolt torque**: 83 ft-lb [t1, t2] ([Partial] community-consensus, 2 threads)" in page
-    assert SAFETY_NOTE in page and "83 ft-lb" in (cfg.wiki_dir / "pending_verification.md").read_text()
+    assert SAFETY_NOTE in page and "83 ft-lb" in (gen2(cfg) / "pending_verification.md").read_text()
     assert "- [Partial] Grease the bushings first" in page              # an ordinary partial tip publishes, marked
     assert "Final-tighten" not in page                                 # unsupported stays out
     assert check_wiki(cfg, conn) == []
@@ -1367,12 +1575,12 @@ def test_a_safety_value_in_prose_without_a_spec_needs_its_unit_in_the_source_and
     page = page_text(cfg)
     assert "- [Unverified value] Top off the diff with 2.75 qt afterwards [t1]" in page
     assert "2.75 L" not in page                                        # the source never says litres
-    assert "does not state with that unit: 2.75 L" in (cfg.wiki_dir / "open_questions.md").read_text()
+    assert "does not state with that unit: 2.75 L" in (gen2(cfg) / "open_questions.md").read_text()
     assert check_wiki(cfg, conn) == []
     fid = fact_id(conn)
     queued = {i["id"]: i for p in export_review(cfg, conn, TopicIndex(cfg.topics)) for i in json.loads(p.read_text())["items"]}
     assert queued[f"f{fid}:tip:0"]["priority"] == 0
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace("[Unverified value] Top off", "Top off"))
     assert any("outside the specifications: 2.75 qt" in v for v in check_wiki(cfg, conn))   # unmarked: refused
 
@@ -1400,7 +1608,7 @@ def test_consensus_below_a_raised_safety_threshold_is_marked_unverified(cfg, con
     page = page_text(cfg)
     assert "83 ft-lb [t1, t2] ([Unverified] community-consensus, 2 threads, needs 3)" in page and SAFETY_NOTE in page
     assert check_wiki(cfg, conn) == []
-    path = cfg.wiki_dir / "repair" / "control-arms-bushings.md"
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace("([Unverified] community-consensus, 2 threads, needs 3)", "(community-consensus, 2 threads)"))
     assert any("below verify.safety_min_threads" in v for v in check_wiki(cfg, conn))   # qa holds the threshold too
     cfg.verify.as_dict()["safety_min_threads"] = 2
