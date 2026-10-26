@@ -96,7 +96,8 @@ def test_every_chat_request_caps_the_output_length(cfg):
 
     llm = LLM(cfg, client=httpx.Client(transport=httpx.MockTransport(handler)))
     llm.chat_json("sys", "user", {"type": "object"})
-    assert seen and seen[0]["max_tokens"] == cfg.llm.max_output_tokens == 8192
+    # 12288 since 2026-10-25: schemas.MAX_FACTS now ends a looping fact list, and 30 real facts (~25k chars) barely fit 8192
+    assert seen and seen[0]["max_tokens"] == cfg.llm.max_output_tokens == 12288
 
 
 def test_resummarize_rewrites_summaries_and_drops_only_their_verdicts(cfg, conn):

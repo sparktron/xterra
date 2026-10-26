@@ -18,6 +18,36 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Looping extraction replies (2026-10-25, raised by the user: chunks 947, 977 and 1015 "keep getting cut off around
+26–29k characters"). Uncommitted.
+
+- **Cause:** not a reply too long for the cap. The model loops: a raw reply for chunk 947 had 16 distinct facts, then
+  the same fact 48 more times until `max_output_tokens` (8192) cut the JSON off. Raising the cap alone would only
+  lengthen the loop. Splitting doesn't fix it either: chunk 947's first half (6.9k chars) looped again; its second
+  half extracted cleanly. Chunk 944, the existing chunk with the most facts (28), was a loop that finished under the
+  cap: 15 of its 28 facts are exact copies. 15 chunks hold 43 duplicate facts in all.
+- **Fix:**
+  - `schemas.MAX_FACTS` (30) is sent as `maxItems` on the `facts` list. LM Studio enforces it while generating, so a
+    loop has to close the list; tested on chunk 947: valid JSON, 30 facts, 12 distinct.
+  - `extract._extract_once` drops exact duplicate facts and keeps at most 30, for servers that ignore `maxItems`.
+  - `llm.max_output_tokens` is 12288 (was 8192), because 30 full facts came to about 25k characters, just under the
+    old cut. `num_ctx` (Ollama only) is 24576 so the prompt, the chunk and the reply fit; LM Studio has the model
+    loaded with a 198k context.
+  - Test: `test_a_looping_fact_list_is_capped_and_its_repeats_dropped`. `test_every_chat_request_caps_the_output_length`
+    now pins 12288. `pytest` 150 passed.
+- **Validated live** (as `AGENTS.md` asks for an `llm.py`/schema change): `xw doctor --smoke` passed. Chunks 947, 977
+  and 1015 were reset to `pending` with 0 attempts and all extracted on the first try: 9, 19 and 12 facts in 67-98 s.
+  `xw verify` judged the 40 new facts; this run's verifier accepted a decoy in 4 of 40 checks (those calls are
+  discarded). `xw export && xw qa` passed: first-gen 479 pages from 984 facts (was 478 from 956), second-gen unchanged.
+  Logs: `data/xterranation-gen1-loopfix-*-2026-10-25.log`.
+- **Found, not fixed: post dates read as model years.** 11 of chunk 1015's 12 facts state 2013, and so publish nowhere
+  under the 2026-10-21 cross-generation rule (facts in no section: 7 to 19). "2013" appears in that chunk only in post
+  headers (`### Post N by name (2013-...)`), never in a post body. The year check accepts a year that appears
+  anywhere in the chunk, header included. This is the root cause of the cross-generation misroutes; ignoring header
+  dates when grounding years would let these facts publish on first-gen pages.
+- **Not done:** the 43 duplicate facts already in the database were left alone; whether export's near-duplicate
+  merge folds them on the pages was not checked. Nothing was re-extracted besides the 3 chunks.
+
 First-gen retries (2026-10-22, asked by the user: "Retry the 2 pending first-gen chunks (947 and 977) and the 10
 xterranation-gen1 threads that failed to fetch, then run xw verify, xw export && xw qa"). Uncommitted.
 

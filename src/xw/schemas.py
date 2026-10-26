@@ -10,6 +10,10 @@ from typing import Any, Literal
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 CATEGORIES = ("diagnostics", "maintenance", "repair", "mods", "reference")
+# Most facts one extraction may return. The 9B sometimes loops, repeating one fact until the reply hits
+# max_output_tokens and the JSON is cut off (chunks 947, 977 and 1015, 2026-10-25). Sent as `maxItems`, a server that
+# enforces the schema (LM Studio does) must close the list instead. The most real facts seen in one chunk was 27.
+MAX_FACTS = 30
 Category = Literal["diagnostics", "maintenance", "repair", "mods", "reference"]
 
 
@@ -120,4 +124,6 @@ def inline_refs(schema: dict[str, Any]) -> dict[str, Any]:
 
 
 def extraction_schema() -> dict[str, Any]:
-    return inline_refs(Extraction.model_json_schema())
+    schema = inline_refs(Extraction.model_json_schema())
+    schema["properties"]["facts"]["maxItems"] = MAX_FACTS
+    return schema

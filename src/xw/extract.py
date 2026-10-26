@@ -15,7 +15,7 @@ from .crawl import is_guide_chunk
 from .db import now
 from .grounding import grounded_terms, ground_fact, has_long_overlap, same_measures
 from .llm import LLM, LLMError
-from .schemas import Extraction, Fact, extraction_schema
+from .schemas import MAX_FACTS, Extraction, Fact, extraction_schema
 from .topics import DEFAULT_GENERATION, TopicIndex
 from . import generations
 
@@ -54,9 +54,19 @@ def _most_steps(result: Extraction) -> int:
 def _extract_once(llm: LLM, system: str, schema: dict, source_name: str, thread_title: str, text: str) -> Extraction:
     raw = llm.chat_json(system, _user_message(source_name, thread_title, text), schema)
     try:
-        return Extraction.model_validate(raw)
+        result = Extraction.model_validate(raw)
     except ValidationError as exc:
         raise LLMError(f"schema validation failed: {exc.errors()[:2]}") from exc
+    # A looping reply repeats whole facts; keep the first copy of each. Servers that ignore `maxItems` are cut here.
+    seen: set[str] = set()
+    unique: list[Fact] = []
+    for f in result.facts:
+        key = f.model_dump_json()
+        if key not in seen:
+            seen.add(key)
+            unique.append(f)
+    result.facts = unique[:MAX_FACTS]
+    return result
 
 
 def _longest(result: Extraction) -> Fact | None:

@@ -16,11 +16,11 @@ DEFAULTS: dict[str, Any] = {
         "model": "qwen3.8-27b",
         "api_key_env": "XW_LLM_API_KEY",        # NAME of the environment variable holding the server's API key (never the key itself)
         "reasoning_effort": "none",             # none | low | medium | high | "" (leave to the server)
-        "num_ctx": 16384,                       # ollama only; for LM Studio set the context length when loading the model
+        "num_ctx": 24576,                       # ollama only; for LM Studio set the context length when loading the model
         "temperature": 0.1,
         "timeout_s": 900,
         "max_retries": 2,
-        "max_output_tokens": 8192,
+        "max_output_tokens": 12288,
     },
     "crawl": {
         "user_agent": "xterra-wiki-research/0.1",

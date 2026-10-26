@@ -171,3 +171,28 @@ def test_doctor_counts_seed_topics_in_every_generation(cfg, monkeypatch):
     topic_line = next(l for l in lines if "seed topics" in l)
     assert topic_line.startswith("[ok  ]") and "first-gen" in topic_line and "second-gen" in topic_line
     assert " 0" not in topic_line.split(":", 1)[1]
+
+
+def test_a_looping_fact_list_is_capped_and_its_repeats_dropped(cfg):
+    # live (2026-10-25): the 9B repeated one fact 48 times until max_output_tokens cut the JSON off (chunk 947)
+    from xw.extract import _extract_once
+    from xw.schemas import MAX_FACTS
+
+    assert extraction_schema()["properties"]["facts"]["maxItems"] == MAX_FACTS   # LM Studio enforces it while generating
+
+    class Canned(LLM):
+        def __init__(self, cfg, facts):
+            super().__init__(cfg, client=httpx.Client())
+            self.facts = facts
+
+        def chat_json(self, system, user, schema=None):
+            return {"relevant": True, "facts": self.facts}
+
+    def fact(i):
+        return {"category": "mods", "topic": "Antennas", "title": f"Antenna {i}", "steps": [f"Mount antenna {i} on the roof"]}
+
+    looped = [fact(1), fact(2)] + [fact(3)] * 40
+    got = _extract_once(Canned(cfg, looped), "sys", {}, "src", "CBs", "text")
+    assert [f.title for f in got.facts] == ["Antenna 1", "Antenna 2", "Antenna 3"]
+    many = [fact(i) for i in range(MAX_FACTS + 10)]                                # a server that ignores maxItems
+    assert len(_extract_once(Canned(cfg, many), "sys", {}, "src", "CBs", "text").facts) == MAX_FACTS
