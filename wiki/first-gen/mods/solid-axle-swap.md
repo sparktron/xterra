@@ -136,7 +136,7 @@ verification:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 2
-  withheld_items: 52
+  withheld_items: 50
   pending_safety_values: 0
 ---
 
@@ -466,18 +466,6 @@ _Procedure reported by [t1474]._
 <details><summary>Alternate procedure [t1477] [Partial]</summary>
 
 1. [Partial] Install a rear leaf spring setup.
-
-</details>
-
-<details><summary>Alternate procedure [t1477] [Partial]</summary>
-
-1. [Partial] Install a rear 3-link or radius arm suspension.
-
-</details>
-
-<details><summary>Alternate procedure [t1477] [Partial]</summary>
-
-1. [Partial] Add a rear sway bar to balance the suspension.
 
 </details>
 

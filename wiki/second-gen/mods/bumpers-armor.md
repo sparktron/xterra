@@ -227,7 +227,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 11
-  partial_items: 144
+  partial_items: 143
   partial_fields:
   - applies_to
   - difficulty
@@ -333,8 +333,6 @@ Install a winch mount between the upright tubes of an existing tube bumper. [t58
 [Partial] Build a rear bumper to match the front design. [t588]
 
 [Partial] Mount a winch and fairlead via a frame plate rather than directly to the bumper. [t588]
-
-[Partial] Add a hoop to the top of the bumper. [t588]
 
 [Partial] Use 10 ga metal for the main plate and roll or form 12 ga metal for wing fillers. [t588]
 
@@ -954,12 +952,6 @@ _Procedure reported by [t612]._
 <details><summary>Alternate procedure [t588] [Partial]</summary>
 
 1. [Partial] Mount a winch to the frame via a plate rather than directly to the bumper.
-
-</details>
-
-<details><summary>Alternate procedure [t588] [Partial]</summary>
-
-1. [Partial] Add a hoop to the top of the bumper.
 
 </details>
 

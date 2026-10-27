@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 1
+  partial_items: 2
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -38,7 +38,7 @@ verification:
 
 ## Summary
 
-Run three or four start-stop cycles after draining twelve quarts via a poor man's flush. [t1303]
+[Partial] Run three or four start-stop cycles after draining twelve quarts via a poor man's flush. [t1303]
 
 ## Procedure
 

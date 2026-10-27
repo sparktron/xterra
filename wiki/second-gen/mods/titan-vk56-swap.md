@@ -72,7 +72,7 @@ verification:
   - est_time
   - shared_platform
   unconfirmed_safety_values: 1
-  withheld_items: 11
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -195,13 +195,6 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 
 1. Install the Titan VK56 engine into the 2006 Xterra chassis.
 2. [Partial] Address harness cable issues where plug shapes differ in the black box beside the IPDM.
-
-</details>
-
-<details><summary>Alternate procedure [t246] [Partial]</summary>
-
-1. [Partial] Install a 2014 or newer Nissan Frontier Pro-4X M226 rear differential.
-2. Rebuild the new differential with fresh bearings and seals if necessary.
 
 </details>
 

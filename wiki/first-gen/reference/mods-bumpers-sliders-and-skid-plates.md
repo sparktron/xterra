@@ -19,10 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 20
+  partial_items: 19
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 9
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -53,8 +53,6 @@ verification:
 Apply a bed liner coating to the bumper for protection. [t1619]
 
 [Partial] Install a front bumper with custom side touches and ensure it fits stock markers. [t1619]
-
-[Partial] Mount a front bumper with integrated light tabs for auxiliary lighting. [t1619]
 
 ## Procedure
 
@@ -97,12 +95,6 @@ _Procedure reported by [t1619]._
 <details><summary>Alternate procedure [t1619] [Partial]</summary>
 
 1. [Partial] Apply a bed liner coating to the bumper for protection.
-
-</details>
-
-<details><summary>Alternate procedure [t1619] [Partial]</summary>
-
-1. [Partial] Mount a front bumper with integrated light tabs for auxiliary lighting.
 
 </details>
 
