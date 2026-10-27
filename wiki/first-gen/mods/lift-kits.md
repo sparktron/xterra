@@ -83,7 +83,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 2
-  withheld_items: 23
+  withheld_items: 21
   pending_safety_values: 0
 ---
 
@@ -289,13 +289,6 @@ _Procedure reported by [t1698]. Photos of this job are in the source: <https://w
 
 1. [Partial] Mount a power inverter to the battery or fuse box.
 2. Connect it for running auxiliary electronics.
-
-</details>
-
-<details><summary>Alternate procedure [t1045] [Partial]</summary>
-
-1. [Partial] Install a custom garage door opener unit inside the cabin.
-2. [Partial] Wire it to control an external Homelink system.
 
 </details>
 

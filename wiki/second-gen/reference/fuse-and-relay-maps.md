@@ -83,13 +83,6 @@ _Procedure reported by [t274]._
 
 </details>
 
-<details><summary>Alternate procedure [t274] [Partial]</summary>
-
-1. Remove the wheel speed sensor fuse.
-2. Drive to observe cluster lighting changes.
-
-</details>
-
 ## Parts
 
 - Fuse [t274]

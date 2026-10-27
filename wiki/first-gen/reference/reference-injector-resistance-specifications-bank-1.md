@@ -20,7 +20,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 3
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -38,7 +38,7 @@ verification:
 
 [Partial] Test the three Bank 1 injectors with an auto-ohm meter, confirming readings of 11.4 and 11.5. [t1303]
 
-Measure the three injectors on Bank 1 to verify readings of approximately 11.4 and 11.5 ohms. [t1303]
+[Partial] Measure the three injectors on Bank 1 to verify readings of approximately 11.4 and 11.5 ohms. [t1303]
 
 ## Procedure
 
@@ -53,20 +53,6 @@ _Procedure reported by [t1303]._
 
 1. Measure the three injectors on Bank 1 with a multimeter.
 2. [Partial] Verify readings are approximately 11.4 and 11.5 ohms.
-
-</details>
-
-<details><summary>Alternate procedure [t1303] [Partial]</summary>
-
-1. Measure the three injectors on Bank 1 with a multimeter.
-2. [Partial] Verify readings are approximately 11.4 and 11.5 ohms.
-
-</details>
-
-<details><summary>Alternate procedure [t1303] [Partial]</summary>
-
-1. Measure the three injectors on Bank 1 with a multimeter.
-2. Verify readings are approximately 11.4 and 11.5 ohms.
 
 </details>
 

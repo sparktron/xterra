@@ -53,8 +53,19 @@ Looping extraction replies (2026-10-25, raised by the user: chunks 947, 977 and 
     479 from 984). Second-gen: still 930 pages from 1,714 facts; 39 pages changed, all in years: post-date years left
     their `applies_to` front matter, and withheld applicability notes that held only those years went away.
   - Still withheld: t1278 "ABS codes and how to pull 'em", whose post text itself states a second-gen year.
-- **Not done:** the 43 duplicate facts already in the database were left alone; whether export's near-duplicate
-  merge folds them on the pages was not checked. Nothing was re-extracted besides the 3 chunks.
+- **Duplicates removed (2026-10-26, asked by the user).** The "43 duplicates" above was a loose count (same topic,
+  steps, specs and tips). Only 23 facts, in 18 groups, were exact copies of another fact from the same chunk; the
+  other 20 differ in years, trims, diagram links, summaries or mistakes and were kept.
+  - The 23 were deleted from `data/xw.sqlite` with their 114 verdicts, 111 `verdict_runs` and 29 `decoy_checks` rows
+    (so `xw status`'s decoy totals drop slightly). Each group kept the copy referenced by a pending review batch, then
+    the one with most reviewer verdicts, then the lowest id. The one reviewed group (414-418, "Reference
+    Specifications by Model Year") had the same Claude `reject` on every copy; 414 keeps it. A backup is in the
+    session scratchpad, not in the repo.
+  - `xw export && xw qa` passed: 1,413 pages (unchanged) from 2,691 facts; withheld items 1,685 to 1,676. 13 pages
+    changed, losing repeated "Alternate procedure" blocks and withheld notes. One tip (t1303, transmission flush) is
+    now `[Partial]`: its two copies had different local verdicts (`supported`, `partial`) and the kept copy had
+    `partial`.
+- Nothing was re-extracted besides the 3 chunks.
 
 First-gen retries (2026-10-22, asked by the user: "Retry the 2 pending first-gen chunks (947 and 977) and the 10
 xterranation-gen1 threads that failed to fetch, then run xw verify, xw export && xw qa"). Uncommitted.

@@ -24,7 +24,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 3
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
