@@ -8,6 +8,8 @@ __pycache__/
 data/
 runner_logs/
 *.log
+# Staging directory of a running `xw export`; only a killed export leaves one behind.
+.wiki-export-*/
 
 # Secrets / local overrides
 .env

@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, on `origin/master` (`96f2b75`, merge of PR #12) plus the exporter fix and regenerated wiki below
+**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, on `origin/master` (`96f2b75`, merge of PR #12) plus the exporter fix and regenerated wiki below · `xw export` made safe to interrupt in its own pull request, stacked on this branch
 
 ## Objective
 
@@ -18,6 +18,26 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Interrupt-safe export (2026-11-04). Part of plan item 6 below; the first half of the 2026-11-03 open risk is closed.
+
+- **Export:** `export_all` renders every generation into a temporary `.wiki-export-*` directory beside `wiki/` (gitignored),
+  then `_publish` moves the files in with `os.replace` and removes stale pages last. A stop before the moves changes nothing.
+  A stop during them deletes nothing but leaves a mix of old and new pages until the next export; the moves took 0.07s for
+  1,429 files in the real run. `kill -9` leaves the staging directory behind; it is inert and gitignored, delete it by hand.
+- **`xw run`:** after an interrupt it no longer exports (3 minutes the user just asked to stop) and exits 130 instead of 0, so
+  `set -e` in `scripts/run_all.sh` stops before its own `xw export` and `xw qa` and does not print "Done". An uninterrupted
+  `xw run` still exports and `run_all.sh` then exports again; that double export is left for item 6's single orchestrator.
+- **Tests added:** `test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was`,
+  `test_an_export_stopped_while_moving_pages_into_place_deletes_nothing`, `test_two_exports_of_the_same_database_are_byte_identical`,
+  `test_an_interrupted_run_exports_nothing_and_does_not_report_success`. The first, second and fourth fail on the old code; the third passes on both.
+- **Validation:** `pytest` 155 passed. `xw export` 2m59s, 1,413 pages from 2,691 facts, 1,791 withheld (unchanged), then
+  `xw qa` passed and `git status wiki` showed no changes: output is byte-identical to the committed tree, curated pages included.
+  A real SIGINT 25s into `xw export` exited 130 with no wiki file touched and no staging directory left.
+- **How that was run:** this worktree has no `.venv` or `data/`, so it used the main checkout's `.venv` with `PYTHONPATH=src`
+  and a read-only `sqlite3` backup of `data/xw.sqlite` in a scratch directory. The main checkout's database and wiki were not touched.
+- **Not run:** dependency-floor tests (CI runs them on the pull request), `xw doctor`, `xw run` end to end (the interrupt path is only tested with
+  `discover` and `_extract` stubbed). No SIGINT was sent during the moves on real data; that case is covered only by the test.
+
 Interrupted run repaired (2026-11-04). Committed together with the 2026-10-27 review round below.
 
 - **What happened:** a `scripts/run_all.sh` run on 2026-11-03 stopped partway. Its only records are file times and the
@@ -34,7 +54,7 @@ Interrupted run repaired (2026-11-04). Committed together with the 2026-10-27 re
   3 with two), 73 threads `fetched`, 7 threads in `error` (all `RemoteProtocolError`). No extraction or verification has
   run since 2026-10-27, so none of the newly fetched text is in the wiki.
 - **Open risk:** an interrupted export can still empty a section, since pages are deleted before the new ones are
-  written and an export takes over 3 minutes. This is item 6 of the plan below; not fixed here.
+  written and an export takes over 3 minutes. This is item 6 of the plan below; not fixed here. (Fixed 2026-11-04, see above.)
 - **`docs/QUALITY_REVIEW_2026-11-03.md` and `QUALITY_REVIEW_EXECUTIVE_SUMMARY.md` (untracked, not written in this session):
   not reliable, and not committed.** They were written after the interrupted run and read its emptied tree: "77 second-gen
   files" and the "coverage disparity" finding are artifacts (1,007 on disk now). They report "executed successfully"; the
@@ -118,6 +138,10 @@ publication; no new crawling or model runs were started while preparing this pla
    independently check today; require regression tests for every added grounding rule. Keep model semantics
    evaluation separate from deterministic QA. Acceptance: injected bad content fails QA and leaves the previously
    published wiki intact; repeat exports are stable; all current safety, grounding and generation tests pass.
+   **Part done (2026-11-04):** the candidate is built beside `wiki/` and promoted only once fully rendered, curated pages
+   preserved, repeat exports stable, an interrupted `xw run` exits 130. **Still open:** QA does not check the candidate before
+   promotion, so bad content still publishes and fails QA afterwards; no database snapshot; no content-diff summary;
+   `xw run` and `run_all.sh` both export; QA coverage of prose and titles not extended.
 
 **First pilot after the reporting/retry work:** back up the database, run `xw doctor --smoke`, diagnose the 17
 pending chunks and six thread errors, process a small bounded second-gen batch, verify its claims, review its
