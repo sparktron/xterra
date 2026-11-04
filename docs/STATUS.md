@@ -18,6 +18,22 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
+Page metadata no longer shows as text (2026-11-04). On local branch `fix/page-metadata-comment` from `master` (`13ad97f`); not pushed.
+
+- **Problem:** GitHub takes YAML as front matter only when `---` is the file's first line, and `GENERATED` has to be
+  first, so all 1,413 generated pages printed their metadata above the heading (seen on a live page).
+- **Fix:** `render_page` writes the metadata inside an HTML comment under `GENERATED` (`export._metadata_comment`), and a
+  value that could close the comment loses a hyphen there; the body keeps the original. `qa._metadata_end` parses that
+  layout and refuses metadata outside a closed comment, including the old layout, an early close and no close. Test:
+  `test_page_metadata_is_hidden_in_a_comment_and_qa_refuses_it_visible` (failed before the fix).
+- **Consequence:** tools that read front matter, such as a future MkDocs build, won't see this block without a step that
+  extracts it.
+- **Validation, on top of the interrupt-safe export:** `pytest` 156 passed. `xw export && xw qa` passed: 1,413 pages from
+  2,691 facts, 1,791 withheld, unchanged. The wiki diff is 1,413 files, 2,826 insertions, no deletions: only the two comment
+  lines per page, and byte-identical to the export from before the rebase. GitHub's markdown API rendered
+  `second-gen/maintenance/engine-oil-change.md` with the heading first and no metadata; that render predates the rebase.
+  Not run: remote CI, the dependency-floor job, or any LLM stage (neither `llm.py`, a prompt nor a parser changed).
+
 Interrupt-safe export (2026-11-04). Part of plan item 6 below; the first half of the 2026-11-03 open risk is closed.
 
 - **Export:** `export_all` renders every generation into a temporary `.wiki-export-*` directory beside `wiki/` (gitignored),

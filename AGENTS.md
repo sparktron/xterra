@@ -106,6 +106,10 @@ The local model is not trusted. Each item names the guarding test, or says none 
   writes, and an unparseable line is a violation. Change one, change the other. Test: `test_qa_catches_tampering`.
 - **The `GENERATED` first line is load-bearing.** `export` overwrites pages that carry it and `qa` checks only those.
   Removing it from a page hides that page from `qa`. No test covers hand-editing.
+- **A page's metadata lives in an HTML comment under that line** (`export._metadata_comment`, `qa._metadata_end`). GitHub
+  reads YAML as front matter only when `---` is the file's first line, so uncommented it shows as text above the heading,
+  and tools that read front matter won't see this block. `qa` refuses metadata outside a closed comment. Test:
+  `test_page_metadata_is_hidden_in_a_comment_and_qa_refuses_it_visible`.
 - **Stopping `xw export` loses no published page.** It renders into a temporary `.wiki-export-*` directory beside `wiki/`, moves pages in only after
   every generation has rendered, and deletes stale pages last, so a stop leaves the old wiki or, during the moves, a mix the next export
   settles. An interrupted `xw run` exports nothing and exits 130. Tests: `test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was`,
