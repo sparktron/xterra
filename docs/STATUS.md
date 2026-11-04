@@ -18,7 +18,7 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Page metadata no longer shows as text (2026-11-04). On local branch `fix/page-metadata-comment` from `master` (`13ad97f`); not pushed.
+Page metadata no longer shows as text (2026-11-04). In a pull request from `fix/page-metadata-comment` against `master` (`13ad97f`).
 
 - **Problem:** GitHub takes YAML as front matter only when `---` is the file's first line, and `GENERATED` has to be
   first, so all 1,413 generated pages printed their metadata above the heading (seen on a live page).
