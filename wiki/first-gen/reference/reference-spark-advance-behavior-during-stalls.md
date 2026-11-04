@@ -4,8 +4,7 @@ title: 'Reference: Spark advance behavior during stalls'
 generation: first-gen
 category: reference
 applies_to:
-  years:
-  - 2000
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -19,12 +18,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 1
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -42,7 +40,7 @@ Use a scan tool with live view to note spark advance jumping during stalls. [t13
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
-1. [Partial] Use a scan tool with live view to observe spark advance values.
+1. Use a scan tool with live view to observe spark advance values.
 2. Note that the value jumps from 20 degrees up to 40, 60, or even 80 when stalling.
 
 _Procedure reported by [t1303]._

@@ -29,12 +29,12 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 15
+  reviewed_items: 11
+  partial_items: 11
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 12
-  withheld_items: 10
+  unconfirmed_safety_values: 0
+  withheld_items: 11
   pending_safety_values: 0
 ---
 
@@ -48,7 +48,7 @@ verification:
 
 [Partial] Identify the transfer case location, considering a heat shield for exhaust warmth. [t43]
 
-[Partial] [Unverified value] Engine oil, automatic and manual transmissions use specific fluids with capacities of 5 3/8qt to 10 7/8qt. [t75]
+[Partial] Engine oil, automatic and manual transmissions use specific fluids with capacities of 5 3/8qt to 10 7/8qt. [t75]
 
 [Partial] Fill the transmission with fluid to account for the increased capacity of the stacked plate cooler. [t98]
 
@@ -80,25 +80,24 @@ _Procedure reported by [t43]._
 
 ## Specifications
 
-- **Automatic transmission capacity**: 10 7/8qt [t75] ([Partial] [Unverified] single report)
-- **Cooling system capacity**: 10 3/4qt [t75] ([Unverified] single report)
-- **Engine oil capacity with filter**: 5 3/8qt [t75] ([Unverified] single report)
-- **Engine oil capacity without filter**: 5 1/8qt [t75] ([Unverified] single report)
-- **Front diff capacity (run free)**: ~1.6L [t345] ([Unverified] single report)
-- **Front differential capacity (Xterra R180)**: 1 3/4pt [t75] ([Unverified] single report)
+- **Automatic transmission capacity**: 10 7/8qt [t75] (Claude-reviewed)
+- **Cooling system capacity**: 10 3/4qt [t75] (Claude-reviewed)
+- **Engine oil capacity with filter**: 5 3/8qt [t75] (Claude-reviewed)
+- **Engine oil capacity without filter**: 5 1/8qt [t75] (Claude-reviewed)
+- **Front differential capacity (Xterra R180)**: 1 3/4pt [t75] (Claude-reviewed)
 - **Front differential type (Xterra R180) fluid spec**: API GL-5 SAE 80W-90 Gear Oil or Equivalent [t75] ([Unverified] single report)
-- **Manual transmission capacity (2WD)**: 4 1/4 qt [t75] ([Partial] [Unverified] single report)
-- **Manual transmission capacity (4WD)**: 4 3/8qt [t75] ([Partial] [Unverified] single report)
+- **Manual transmission capacity (2WD)**: 4 1/4 qt [t75] (Claude-reviewed)
+- **Manual transmission capacity (4WD)**: 4 3/8qt [t75] (Claude-reviewed)
 - **Manual transmission fluid type (2WD)**: Genuine Nissan Manual Transmission Fluid HQ Multi 75W-85 or API GL-4 [t75] ([Partial] [Unverified] single report)
 - **Manual transmission fluid type (4WD)**: Genuine Nissan Manual Transmission Fluid HQ Multi 75W-85 or API GL-4 [t75] ([Partial] [Unverified] single report)
-- **Power steering capacity**: 2 1/8pt [t75] ([Partial] [Unverified] single report)
-- **Rear differential C200 capacity**: 3 3/8pt [t75] ([Unverified] single report)
+- **Power steering capacity**: 2 1/8pt [t75] (Claude-reviewed)
+- **Rear differential C200 capacity**: 3 3/8pt [t75] (Claude-reviewed)
 - **Rear differential C200 fluid spec**: API GL-5 Synthetic 75W-90 Gear Oil or Equivalent [t75] ([Unverified] single report)
-- **Rear differential M226 capacity**: 4 1/4pt [t75] ([Unverified] single report)
+- **Rear differential M226 capacity**: 4 1/4pt [t75] (Claude-reviewed)
 - **Rear differential M226 fluid spec**: API GL-5 Synthetic 75W-140 Gear Oil or Equivalent [t75] ([Unverified] single report)
 - **Rear Shock Lift Range**: 0 to 1.5 inches [t959] ([Partial] [Unverified] single report)
 - **Rear Shock Travel Range**: 2 to 2.5 inches [t959] ([Partial] [Unverified] single report)
-- **Transfer case capacity**: 2 1/8qt [t75] ([Unverified] single report)
+- **Transfer case capacity**: 2 1/8qt [t75] (Claude-reviewed)
 
 ## Tips & gotchas
 

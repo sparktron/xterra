@@ -84,14 +84,12 @@ verification:
   partial_items: 39
   partial_fields:
   - difficulty
-  unconfirmed_safety_values: 1
-  withheld_items: 6
+  unconfirmed_safety_values: 0
+  withheld_items: 7
   pending_safety_values: 0
 ---
 
 # Roof racks, snorkels and storage
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -281,7 +279,6 @@ _Procedure reported by [t635]. Photos of this job are in the source: <https://ww
 
 - **Board length**: 8 ft [t941] ([Unverified] single report)
 - **Bolt grade**: Grade 8 [t941] ([Unverified] single report)
-- **Roof Rack Capacity**: 40" [t612] ([Unverified] single report)
 - **Screw length**: 1/2 inch [t869] ([Partial] [Unverified] single report)
 - **Spring nut size**: 3/8 [t941] ([Partial] [Unverified] single report)
 

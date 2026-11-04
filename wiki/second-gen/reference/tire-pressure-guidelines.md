@@ -18,11 +18,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 4
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -49,8 +49,7 @@ _Procedure reported by [t212]._
 
 ## Tips & gotchas
 
-- [Unverified value] Run Light Truck (LT) tires at 35 PSI for a balance of safety, braking ability, and even tread wear. [t212]
-- [Unverified value] Note that 'P' rated stock sizes typically operate best at 35 PSI to maximize the contact patch across the entire width. [t212]
+- [Unverified value] For the stock-size E load range tires, 35 PSI (the door sticker value) gives an even contact patch and is best for safety, braking and tire wear. [t212]
 
 ## Common mistakes
 

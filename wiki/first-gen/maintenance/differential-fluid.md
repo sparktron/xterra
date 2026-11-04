@@ -22,16 +22,14 @@ verification:
   reviewed_items: 0
   partial_items: 4
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 2
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # Front and rear differential fluid change
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -42,10 +40,6 @@ verification:
 ## Tools
 
 - [Partial] Drain plugs [t1077]
-
-## Specifications
-
-- **Gear Oil Viscosity**: 80W-90 or 75W-90 [t1077] ([Unverified] single report)
 
 ## Tips & gotchas
 

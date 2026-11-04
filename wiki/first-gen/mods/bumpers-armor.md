@@ -106,19 +106,17 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 66
+  reviewed_items: 5
+  partial_items: 63
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 6
-  withheld_items: 33
+  unconfirmed_safety_values: 0
+  withheld_items: 34
   pending_safety_values: 0
 ---
 
 # Bumpers, sliders and skid plates
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -476,22 +474,21 @@ _Procedure reported by [t1063]._
 
 ## Specifications
 
-- **Angle Iron Size Options**: 3"x3" or 3.5"x3.5" [t1638] ([Unverified] single report)
+- **Angle Iron Size Options**: 3"x3" or 3.5"x3.5" [t1638] (Claude-reviewed)
 - **Channel Steel Size**: C8x11.25 [t1638] ([Unverified] single report)
-- **Cut Angle**: 45* [t1638] ([Unverified] single report)
+- **Cut Angle**: 45* [t1638] (Claude-reviewed)
 - **Engine/tranny skid price (Rocky Road)**: $356 [t1411] ([Unverified] single report)
 - **Front skid price (Rocky Road)**: $139 [t1411] ([Unverified] single report)
-- **Hinge Tube Outer Diameter**: 2.25" [t1638] ([Partial] [Unverified] single report)
 - **Material thickness**: 3/16" [t1488] ([Unverified] single report)
-- **Plate material thickness**: 3/16" [t1411] ([Partial] [Unverified] single report)
+- **Plate material thickness**: 3/16" [t1411] (Claude-reviewed)
 - **Primary bend angle**: 90° [t1487] ([Unverified] single report)
 - **Secondary bend angle (suspected)**: 60° [t1487] ([Unverified] single report)
 - **Sheet dimensions**: 4x8 [t1488] ([Unverified] single report)
 - **Sheet metal thickness**: 3/16" [t1487] ([Unverified] single report)
 - **Sheet metal weight per foot**: 11.5 lbs. [t1487] ([Partial] [Unverified] single report)
-- **Square Tubing Dimensions**: 2"x2" [t1638] ([Partial] [Unverified] single report)
+- **Square Tubing Dimensions**: 2"x2" [t1638] (Claude-reviewed)
 - **Stock mounting bolt count per side**: 3 bolts on each side and one up front on each side (total 8) [t1419] ([Unverified] single report)
-- **Winch capacity fitment**: 8-10k pounds standard, up to 12k possible [t1419] ([Unverified] single report)
+- **Winch capacity fitment**: 8-10k pounds standard, up to 12k possible [t1419] (Claude-reviewed)
 
 ## Tips & gotchas
 

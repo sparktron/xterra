@@ -42,14 +42,12 @@ verification:
   partial_items: 18
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 5
+  unconfirmed_safety_values: 0
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
 # Driveline and wheel bearing noises
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -171,10 +169,6 @@ _Procedure reported by [t1018]._
 ## Tools
 
 - [Partial] Magnetic angle gauge [t373]
-
-## Specifications
-
-- **Front diff fluid capacity**: 1.6L [t345] ([Unverified] single report)
 
 ## Tips & gotchas
 

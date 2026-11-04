@@ -27,17 +27,15 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 12
+  partial_items: 11
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 3
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
 # [reference] Fluids and capacities
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -94,7 +92,6 @@ _Procedure reported by [t1132]._
 ## Specifications
 
 - **Expanded inlet size**: 2" [t1917] ([Partial] [Unverified] single report)
-- **Fuel tank capacity (approximate)**: ~280-317 miles range miles per fill-up [t2277] ([Partial] [Unverified] single report)
 - **Max recommended single stream size**: 2.5" [t1917] ([Unverified] single report)
 - **Muffler pipe diameter (50 Series)**: 2.25 inch [t1089] ([Partial] [Unverified] single report)
 - **Recommended upgrade diameter**: 2" [t1917] ([Partial] [Unverified] single report)

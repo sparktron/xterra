@@ -19,7 +19,7 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 3
   partial_fields: []
   unconfirmed_safety_values: 0

@@ -122,15 +122,15 @@ sources:
 confidence: disputed
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 4
   partial_items: 85
   partial_fields:
   - applies_to
   - difficulty
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 33
-  pending_safety_values: 1
+  unconfirmed_safety_values: 0
+  withheld_items: 42
+  pending_safety_values: 0
 ---
 
 # Tires, wheels and fitment
@@ -138,8 +138,6 @@ verification:
 > **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
-
-> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.
 
 ## Summary
 
@@ -656,13 +654,13 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - **Adapter thickness**: 1.25" [t748] ([Unverified] single report)
 - **Cooper Tire Size**: LT265/75R16 [t433] ([Unverified] single report)
 - **Recommended PSI range (comfort)**: 25 lbs [t613] ([Partial] [Unverified] single report)
-- **Recommended PSI range (general)**: 38-40 psi [t613] ([Unverified] single report)
 - **Spacer Requirement (Optional)**: ~1.5" Spacer [t202] ([Unverified] single report)
 - **Spacer Width**: 2" [t612] ([Partial] [Unverified] single report)
 - **Stock front tire width**: 265 [t429] ([Partial] [Unverified] single report)
 - **Stock tire size (approximate diameter)**: 30.6" " [t744] ([Unverified] single report)
 - **Target tire width for BFG AT KO2**: 285 [t429] ([Unverified] single report)
 - **Tire Diameter**: 32 inches [t433] ([Unverified] single report)
+- **Tire Size**: DISPUTED, sources disagree: 265/75R16 [t202]; 285/75R16 [t202]
 - **Tire size (factory stock)**: 265/75/16 [t613] ([Partial] [Unverified] single report)
 - **Tire Size (LT)**: LT285/75R16 [t202] ([Partial] [Unverified] single report)
 - **Tire size (standard)**: 285/75/16 [t613] ([Partial] [Unverified] single report)

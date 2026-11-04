@@ -42,12 +42,12 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 4
   partial_items: 22
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 15
+  withheld_items: 17
   pending_safety_values: 0
 ---
 
@@ -97,28 +97,9 @@ Note that the stock manifold often features an integral primary cat bolted direc
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
-1. [Unverified value] Torqued the front shock bottom bolts to 96 ft-lbs.
-2. [Unverified value] Torqued the rear shock top and bottom fittings to a range of 30-37 ft-lbs.
-
-_Procedure reported by [t1045]._
-
-<details><summary>Alternate procedure [t1045] [Partial]</summary>
-
-1. [Unverified value] Torqued the front shock top nut to a range of 12-16 ft-lbs.
-
-</details>
-
-<details><summary>Alternate procedure [t1045] [Partial]</summary>
-
 1. [Partial] [Unverified value] Torqued the rear shock bottom fitting to a range of 30-37 ft-lbs.
 
-</details>
-
-<details><summary>Alternate procedure [t1045] [Partial]</summary>
-
-1. [Unverified value] Torqued the rear shock top fitting to a range of 30-37 ft-lbs.
-
-</details>
+_Procedure reported by [t1045]._
 
 <details><summary>Alternate procedure [t1045] [Partial]</summary>
 

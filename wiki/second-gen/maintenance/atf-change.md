@@ -34,11 +34,11 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 9
+  reviewed_items: 10
   partial_items: 9
   partial_fields: []
-  unconfirmed_safety_values: 2
-  withheld_items: 7
+  unconfirmed_safety_values: 0
+  withheld_items: 8
   pending_safety_values: 0
 ---
 
@@ -66,7 +66,7 @@ Locate the green knob dipstick, undo its securing bolt, pull it up, then rotate 
 2. Loosen the bolt located on the bottom of the transmission pan.
 3. Allow the old fluid to drain out completely from the pan.
 4. [Unverified value] Reinstall and torque the pan bolt down to 25 ft-lbs.
-5. [Unverified value] Add 4 or 5 quarts of Matic-S through the dipstick fill tube in the engine bay; its cap comes off with a 10mm socket.
+5. Add 4 or 5 quarts of Matic-S through the dipstick fill tube in the engine bay; its cap comes off with a 10mm socket.
 6. Remove the hose from the supply transmission line and attach a longer extension hose to it.
 7. Submerge the end of that extended hose into a bucket to catch the fluid.
 8. Have a helper run the truck until the fluid coming out of the hose turns red.
@@ -124,8 +124,7 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 ## Specifications
 
 - **Dipstick tube bolt size**: 10mm [t488] ([Unverified] single report)
-- **Initial fill amount via dipstick tube**: 4 to 5 quarts [t34] ([Unverified] single report)
-- **Transmission pan bolt torque**: 25 ft-lbs [t34] ([Unverified] single report)
+- **Initial fill amount via dipstick tube**: 4 to 5 quarts [t34] (Claude-reviewed)
 
 ## Tips & gotchas
 

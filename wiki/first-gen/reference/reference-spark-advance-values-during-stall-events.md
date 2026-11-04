@@ -4,8 +4,7 @@ title: 'Reference: Spark advance values during stall events'
 generation: first-gen
 category: reference
 applies_to:
-  years:
-  - 2000
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -20,11 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
-  partial_fields:
-  - applies_to
+  partial_items: 1
+  partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
@@ -42,8 +40,8 @@ Observe spark advance spiking from 20 degrees up to 40, 60, or 80 degrees. [t130
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
-1. [Partial] Observe the spark advancing from a base of 20 degrees.
-2. [Partial] Watch for spikes reaching up to 40, 60, or even 80 degrees at stall.
+1. Observe the spark advancing from a base of 20 degrees.
+2. Watch for spikes reaching up to 40, 60, or even 80 degrees at stall.
 
 _Procedure reported by [t1303]._
 

@@ -25,12 +25,12 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 10
+  reviewed_items: 2
+  partial_items: 9
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 2
-  withheld_items: 1
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
@@ -91,8 +91,7 @@ _Procedure reported by [t60]. Photos of this job are in the source: <https://www
 
 ## Specifications
 
-- **Drain plug torque spec**: 22-29 ft-lbs [t60] ([Unverified] single report)
-- **Total oil capacity (with skid)**: 5 3/8 quarts [t60] ([Partial] [Unverified] single report)
+- **Drain plug torque spec**: 22-29 ft-lbs [t60] (Claude-reviewed)
 
 ## Tips & gotchas
 

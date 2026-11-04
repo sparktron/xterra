@@ -23,18 +23,16 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 2
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 1
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Front suspension geometry and steering setup
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -46,10 +44,6 @@ Install a high steer kit on the front axle to allow for flat draglink operation.
 
 - [Partial] DIY crossover steering kit from Complete Offroad [t1237]
 - [Partial] High steer kit [t1237]
-
-## Specifications
-
-- **Front axle bump travel clearance**: 4" [t1237] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 

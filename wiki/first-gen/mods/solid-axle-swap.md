@@ -135,14 +135,12 @@ verification:
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 2
-  withheld_items: 50
+  unconfirmed_safety_values: 0
+  withheld_items: 52
   pending_safety_values: 0
 ---
 
 # Solid axle swap (SAS)
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -618,13 +616,11 @@ _Procedure reported by [t1474]._
 
 ## Specifications
 
-- **1310 series yoke size**: 1310 [t1237] ([Unverified] single report)
 - **Axle Bearing Type**: D60 Kingpin outters [t1474] ([Partial] [Unverified] single report)
 - **Axle Width**: 65" [t1476] ([Partial] [Unverified] single report)
 - **Front Axle Model**: H233B Diamond [t1474] ([Unverified] single report)
 - **Front frame cut length**: 8" [t1472] ([Unverified] single report)
 - **Front Suspension Type**: 3-Link [t1474] ([Unverified] single report)
-- **Fuel tank capacity**: 12 gal [t1472] ([Unverified] single report)
 - **Gear Ratio Option 1**: 5.57 [t1474] ([Unverified] single report)
 - **Gear Ratio Option 2**: 5.85 [t1474] ([Unverified] single report)
 - **Nitrous horsepower**: 75 hp [t1472] ([Partial] [Unverified] single report)

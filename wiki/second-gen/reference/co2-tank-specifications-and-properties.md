@@ -22,7 +22,7 @@ verification:
   partial_items: 3
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -49,7 +49,6 @@ _Procedure reported by [t440]._
 ## Tips & gotchas
 
 - [Partial] [Unverified value] Note that CO2 at 70 degrees Fahrenheit provides roughly 700-800 PSI of pressure. [t440]
-- [Unverified value] Ensure the tank has a safety burst valve designed to release around 3000 PSI in extreme heat. [t440]
 
 ## Source attributions
 

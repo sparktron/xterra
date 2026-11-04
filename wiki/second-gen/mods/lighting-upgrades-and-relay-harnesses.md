@@ -18,19 +18,17 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 9
+  reviewed_items: 9
+  partial_items: 8
   partial_fields: []
-  unconfirmed_safety_values: 12
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # Lighting upgrades and relay harnesses
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -57,19 +55,16 @@ _Procedure reported by [t760]. Photos of this job are in the source: <https://ww
 
 ## Specifications
 
-- **Bulb type**: 9007 [t760] ([Unverified] single report)
-- **Factory High Beam amp load**: 7.08 amps [t760] ([Unverified] single report)
-- **Factory Low Beam amp load**: 4.58 amps [t760] ([Unverified] single report)
-- **Main power wire gauge**: 2-gauge [t760] ([Unverified] single report)
-- **Recommended wire for short runs**: 12 gauge [t760] ([Unverified] single report)
-- **Relay amp rating**: 40 Amp [t760] ([Unverified] single report)
+- **Bulb type**: 9007 [t760] (Claude-reviewed)
+- **Factory High Beam amp load**: 7.08 amps [t760] (Claude-reviewed)
+- **Factory Low Beam amp load**: 4.58 amps [t760] (Claude-reviewed)
+- **Main power wire gauge**: 2-gauge [t760] (Claude-reviewed)
+- **Relay amp rating**: 40 Amp [t760] (Claude-reviewed)
 - **Relay quantity needed**: 2 [t760] ([Unverified] single report)
-- **Splitter output wires**: 10-gauge [t760] ([Partial] [Unverified] single report)
-- **Stock wattage rating**: 55/65 watt [t760] ([Unverified] single report)
-- **Upgraded High Beam amp load (Hella)**: 8.33 amps [t760] ([Unverified] single report)
-- **Upgraded Low Beam amp load (Hella)**: 6.67 amps [t760] ([Unverified] single report)
-- **Upgraded wattage rating (Hella)**: 80/100 watt [t760] ([Unverified] single report)
-- **Wire length per pack**: 15 feet [t760] ([Unverified] single report)
+- **Splitter output wires**: 10-gauge [t760] (Claude-reviewed)
+- **Upgraded High Beam amp load (Hella)**: 8.33 amps [t760] (Claude-reviewed)
+- **Upgraded Low Beam amp load (Hella)**: 6.67 amps [t760] (Claude-reviewed)
+- **Wire length per pack**: 15 feet [t760] (Claude-reviewed)
 
 ## Diagrams (links only)
 

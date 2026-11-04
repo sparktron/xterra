@@ -20,8 +20,8 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 3
+  reviewed_items: 2
+  partial_items: 2
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 0
@@ -36,16 +36,16 @@ verification:
 
 ## Summary
 
-[Partial] Install either a spacer ring or a smaller hole shim under the new leaf pack's center pin. [t466]
+Axle shims come in two styles, one that sits around the center pin head with a spacer ring and one with a smaller hole that seats beneath the pin head, and either style requires removing the center pin to install. [t466]
 
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Remove the center pin from the new leaf pack.
-2. [Partial] Install either a spacer ring with an outer shimming washer or a smaller hole shim under the head of the center pin.
+2. Fit one of the two shim styles: either the kind that rides around the center pin head with a spacer ring, or the small-hole kind that seats beneath the pin head and does not shift.
 
-_Procedure reported by [t466]._
+_Procedure reported by [t466]; 1 step reworded by a reviewer._
 
 ## Parts
 

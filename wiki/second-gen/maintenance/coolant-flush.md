@@ -30,16 +30,14 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 10
+  partial_items: 8
   partial_fields: []
-  unconfirmed_safety_values: 3
-  withheld_items: 2
+  unconfirmed_safety_values: 0
+  withheld_items: 5
   pending_safety_values: 0
 ---
 
 # Coolant drain and refill
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -78,12 +76,6 @@ _Procedure reported by [t99]._
 
 - Drier/Desiccant Can: Included with the condenser unit [t784]
 - New AC Condenser: Must include a new drier, desiccant can [t784]
-
-## Specifications
-
-- **PAG Oil for Condenser Installation**: ~30 [unit missing] [t784] ([Partial] [Unverified] single report)
-- **PAG Oil for Drier Replacement**: ~5 mL [t784] ([Partial] [Unverified] single report)
-- **Total Refrigerant Charge**: ~30 ounces [t784] ([Unverified] single report)
 
 ## Tips & gotchas
 

@@ -71,12 +71,12 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 42
+  partial_items: 41
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 18
+  unconfirmed_safety_values: 0
+  withheld_items: 20
   pending_safety_values: 0
 ---
 
@@ -347,7 +347,6 @@ _Procedure reported by [t1210]._
 - **Alternative tire aspect ratio**: 70 [t1641] ([Unverified] single report)
 - **Pizza cutter tire aspect ratio**: 85 [t1641] ([Unverified] single report)
 - **Pizza cutter tire width**: 255 mm [t1641] ([Unverified] single report)
-- **Rear Bump Stop Addition**: 1/4" [t1424] ([Partial] [Unverified] single report)
 - **Stock 265/75R16 diameter**: 32 inches [t1641] ([Unverified] single report)
 - **Tire Width**: 265/75 r16 load E [t1194] ([Partial] [Unverified] single report)
 - **Wheel Size**: Stock 16" aluminum [t1194] ([Unverified] single report)
@@ -357,7 +356,6 @@ _Procedure reported by [t1210]._
 - [Partial] Extends ground clearance by moving weight lower or adds utility storage. [t1045]
 - Expect road noise to increase with aggressive off-road tires, but accept it for better performance. [t1195]
 - Note that Goodyear MT/R Kevlars can become hard to balance as they wear unevenly. [t1195]
-- [Unverified value] These tires perform well at low pressures (12-14 psi) for rock crawling. [t1195]
 - [Partial] They are heavy and generate noticeable highway noise, but offer superior traction over BFGoodrich or Duratracs. [t1195]
 - [Partial] They are light on the road with minimal noise compared to aggressive mud tires. [t1195]
 - These tires offer decent rain traction but may struggle in deep snow or mud without pressure reduction. [t1195]

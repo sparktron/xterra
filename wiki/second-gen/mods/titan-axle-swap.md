@@ -67,13 +67,13 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 40
+  reviewed_items: 4
+  partial_items: 38
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 8
-  withheld_items: 12
+  unconfirmed_safety_values: 0
+  withheld_items: 16
   pending_safety_values: 0
 ---
 
@@ -277,16 +277,12 @@ _Procedure reported by [t247]._
 
 ## Specifications
 
-- **ABS line extension length**: 12 inches [t462] ([Unverified] single report)
+- **ABS line extension length**: 12 inches [t462] (Claude-reviewed)
 - **Bearing replacement cost (approx)**: $23 per side set [t462] ([Partial] [Unverified] single report)
-- **Diff/frame bolt diameter**: 19mm [t462] ([Partial] [Unverified] single report)
-- **Differential fluid capacity (approx)**: 3 quarts [t462] ([Unverified] single report)
 - **Differential Type**: M205 [t265] ([Unverified] single report)
-- **Front DS bolt diameter**: 14mm [t462] ([Unverified] single report)
-- **Halfaxle/hub nut size**: 32mm [t462] ([Unverified] single report)
-- **Halfshaft flange bolt size**: M205 [t462] ([Partial] [Unverified] single report)
-- **Recommended fluid viscosity**: 80W-90 or 75W-90 Synthetic [t462] ([Unverified] single report)
-- **Spacer thickness**: 1 inch [t462] ([Unverified] single report)
+- **Halfaxle/hub nut size**: 32mm [t462] (Claude-reviewed)
+- **Recommended fluid viscosity**: 80W-90 or 75W-90 Synthetic [t462] (Claude-reviewed)
+- **Spacer thickness**: 1 inch [t462] (Claude-reviewed)
 
 ## Tips & gotchas
 

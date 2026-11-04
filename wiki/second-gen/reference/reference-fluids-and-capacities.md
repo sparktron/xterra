@@ -42,12 +42,12 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 4
-  partial_items: 24
+  reviewed_items: 7
+  partial_items: 23
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 3
-  withheld_items: 24
+  unconfirmed_safety_values: 0
+  withheld_items: 26
   pending_safety_values: 0
 ---
 
@@ -178,7 +178,7 @@ _Procedure reported by [t11]._
 - **Cold Cranking Amps (Group 24F)**: 710 [t507] ([Unverified] single report)
 - **Cold Cranking Amps (Group 35 AGM)**: 650 [t507] ([Unverified] single report)
 - **Cold Cranking Amps (X2 Power 24F)**: 840 [t507] ([Unverified] single report)
-- **Coolant mixture ratio**: 50/50 [t788] ([Partial] [Unverified] single report)
+- **Coolant mixture ratio**: 50/50 [t788] (Claude-reviewed)
 - **Cranking Amps (Duralast Platinum 24F)**: 885 [t507] ([Unverified] single report)
 - **Cranking Amps (Group 24F)**: 885 [t507] ([Unverified] single report)
 - **Cranking Amps (Group 35 AGM)**: 800 [t507] ([Unverified] single report)
@@ -193,8 +193,6 @@ _Procedure reported by [t11]._
 - **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
 - **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Partial] [Unverified] single report)
 - **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
-- **Transfer case capacity (imperial)**: 2 1/8 qt [t20] ([Unverified] single report)
-- **Transfer case capacity (metric)**: 2.0L [t20] ([Unverified] single report)
 - **Warranty Duration (X2 Power 24F)**: 5 year full replacement [t507] ([Unverified] single report)
 - **Weight (Group 24F AGM)**: 45.2 [t507] ([Unverified] single report)
 - **Weight Increase (AGM vs OEM)**: ~2x [t507] ([Partial] [Unverified] single report)

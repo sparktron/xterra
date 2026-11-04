@@ -4,8 +4,7 @@ title: 'Reference: O2 sensor codes for Bank 1 and Bank 2'
 generation: first-gen
 category: reference
 applies_to:
-  years:
-  - 2000
+  years: []
   trims: []
   engine: []
   drivetrain: []
@@ -21,10 +20,9 @@ verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 1
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 

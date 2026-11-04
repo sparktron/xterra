@@ -19,10 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 1
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 2
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
@@ -37,14 +37,6 @@ verification:
 ## Summary
 
 [Partial] [Unverified value] Torque the rear diff pinion nut to 220-500 ft-lbs and replace it. [t73]
-
-## Procedure
-
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
-
-1. [Unverified value] Torque the rear diff pinion nut to 220-500 ft-lbs.
-
-_Procedure reported by [t73]._
 
 ## Source attributions
 

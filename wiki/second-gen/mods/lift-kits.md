@@ -123,20 +123,18 @@ sources:
 confidence: disputed
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 81
+  reviewed_items: 3
+  partial_items: 80
   partial_fields:
   - applies_to
   - difficulty
   - shared_platform
-  unconfirmed_safety_values: 2
-  withheld_items: 37
+  unconfirmed_safety_values: 0
+  withheld_items: 38
   pending_safety_values: 0
 ---
 
 # Lift kits and suspension lifts
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -594,7 +592,7 @@ _Procedure reported by [t559]._
 
 ## Specifications
 
-- **Block bolt torque spec**: 45 ft/lb [t755] ([Unverified] single report)
+- **Block bolt torque spec**: 45 ft/lb [t755] (Claude-reviewed)
 - **Body lift height per side**: 2 inches [t755] ([Partial] [Unverified] single report)
 - **Coil spring type**: 5100s Heavy Duty [t545] ([Unverified] single report)
 - **Front lift threshold**: < 2 inches [t895] ([Partial] [Unverified] single report)
@@ -608,7 +606,7 @@ _Procedure reported by [t559]._
 - **Rear shackle lift amount**: 2 inches to 2.5 inches [t553] ([Partial] [Unverified] single report)
 - **Rear shackle spacer size**: 1.5" [t1022] ([Unverified] single report)
 - **Rear spring length**: 2 inches [t895] ([Partial] [Unverified] single report)
-- **Shock spring rate**: 650# [t962] ([Partial] [Unverified] single report)
+- **Shock spring rate**: 650# [t962] (Claude-reviewed)
 - **Spacer size**: 0.5 inch [t545] ([Unverified] single report)
 
 ## Tips & gotchas

@@ -19,12 +19,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 2
   partial_items: 1
-  partial_fields:
-  - applies_to
+  partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -42,7 +41,7 @@ Spray WD-40 four times on the Bank 3 injector connector clasp, then use screwdri
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
-1. [Partial] Use WD-40 sprayed four times on the clasp mechanism to loosen the connector.
+1. Use WD-40 sprayed four times on the clasp mechanism to loosen the connector.
 2. Employ screwdrivers and a 27-inch prybar for careful leverage.
 
 _Procedure reported by [t1303]._

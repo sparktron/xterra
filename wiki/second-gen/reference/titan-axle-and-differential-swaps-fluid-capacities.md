@@ -23,17 +23,15 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 6
+  partial_items: 5
   partial_fields:
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 1
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Titan axle and differential swaps - Fluid capacities
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -68,10 +66,6 @@ _Procedure reported by [t265]._
 ## Parts
 
 - Brake Lines [t265]
-
-## Specifications
-
-- **Differential Capacity**: M205 spec [t265] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 

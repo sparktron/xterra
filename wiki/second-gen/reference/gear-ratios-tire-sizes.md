@@ -46,13 +46,13 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 38
+  reviewed_items: 7
+  partial_items: 35
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 10
-  withheld_items: 15
+  unconfirmed_safety_values: 0
+  withheld_items: 18
   pending_safety_values: 0
 ---
 
@@ -164,14 +164,14 @@ _Procedure reported by [t461]._
 
 ## Specifications
 
-- **5 Speed Automatic Transmission Fluid Capacity**: ~10.9 Qt [t116] ([Partial] [Unverified] single report)
+- **5 Speed Automatic Transmission Fluid Capacity**: ~10.9 Qt [t116] (Claude-reviewed)
 - **5 Speed Automatic Transmission Ratios (1st)**: 3.842 [t116] ([Unverified] single report)
 - **5 Speed Automatic Transmission Ratios (2nd)**: 2.353 [t116] ([Unverified] single report)
 - **5 Speed Automatic Transmission Ratios (3rd)**: 1.529 [t116] ([Unverified] single report)
 - **5 Speed Automatic Transmission Ratios (4th)**: 1.0 [t116] ([Unverified] single report)
 - **5 Speed Automatic Transmission Ratios (5th)**: 0.839 [t116] ([Unverified] single report)
 - **5 Speed Automatic Transmission Ratios (Reverse)**: 2.765 [t116] ([Unverified] single report)
-- **6 Speed Manual Transmission Fluid Capacity**: ~4.4QT [t116] ([Partial] [Unverified] single report)
+- **6 Speed Manual Transmission Fluid Capacity**: ~4.4QT [t116] (Claude-reviewed)
 - **6 Speed Manual Transmission Ratios (1st)**: 4.368 [t116] ([Unverified] single report)
 - **6 Speed Manual Transmission Ratios (2nd)**: 2.518 [t116] ([Unverified] single report)
 - **6 Speed Manual Transmission Ratios (3rd)**: 1.743 [t116] ([Unverified] single report)
@@ -184,22 +184,21 @@ _Procedure reported by [t461]._
 - **Current rear tire size (Factory S wheels)**: 265/75/R16 [t748] ([Unverified] single report)
 - **Factory gear ratio for 3.13 setup**: 3.13 (ratio) [t222] ([Partial] [Unverified] single report)
 - **Factory gear ratio for standard Off-Road automatic**: 3.36 (ratio) [t222] ([Unverified] single report)
-- **Front Differential R180A Axle Shaft Spline Count**: 27 [t116] ([Unverified] single report)
-- **Front Differential R180A Fluid Capacity (OE cover)**: 1 3/4 US Pint [t116] ([Unverified] single report)
+- **Front Differential R180A Axle Shaft Spline Count**: 27 [t116] (Claude-reviewed)
 - **Front Differential R180A OE Ratio (05-15 Offroad/Pro4X Auto)**: 3.36 [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 Offroad/Pro4X Manual)**: 3.69 [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Auto)**: 3.13 [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Manual)**: 3.54 [t116] ([Unverified] single report)
-- **Front Differential R180A Ring Gear Diameter**: 7.08" [t116] ([Unverified] single report)
+- **Front Differential R180A Ring Gear Diameter**: 7.08" [t116] (Claude-reviewed)
 - **Front tire size (Current setup)**: 265/70/R18 [t748] ([Partial] [Unverified] single report)
 - **Lift Height**: 1.5" [t932] ([Unverified] single report)
 - **Manual transmission stock gear ratio**: 3.69 [t261] ([Unverified] single report)
-- **Rear Axle M226 Axle Shaft Diameter**: 1.366" [t116] ([Unverified] single report)
+- **Rear Axle M226 Axle Shaft Diameter**: 1.366" [t116] (Claude-reviewed)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Auto)**: 3.36 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Manual)**: 3.69 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 X/S/SE Manual)**: 3.54 [t116] ([Partial] [Unverified] single report)
-- **Rear Axle M226 Pinion Spline Count**: 24 [t116] ([Unverified] single report)
-- **Rear Axle M226 Ring Gear Diameter**: 8.9" [t116] ([Unverified] single report)
+- **Rear Axle M226 Pinion Spline Count**: 24 [t116] (Claude-reviewed)
+- **Rear Axle M226 Ring Gear Diameter**: 8.9" [t116] (Claude-reviewed)
 - **Rear differential gear ratio**: 3.13 [t879] ([Unverified] single report)
 - **Rear tire size (Titan wheels)**: 285/65/R18 [t748] ([Unverified] single report)
 - **Rear tire size (Titan wheels, Lifted simulation)**: 285/65/R18 [t748] ([Partial] [Unverified] single report)
@@ -213,9 +212,7 @@ _Procedure reported by [t461]._
 - **Tire size: Heavier Mudstar M/T alternative**: 285/65R16 [t222] ([Unverified] single report)
 - **Tire size: Narrower alternative to 285**: 255/85r16 [t222] ([Unverified] single report)
 - **Tire size: Previous Geolander setup**: 265/70r16 [t222] ([Unverified] single report)
-- **Tire size: Target upgrade for more mud clearance**: 285/75/16 [t222] ([Unverified] single report)
 - **Tire tread depth**: similar to KO2 [t220] ([Partial] [Unverified] single report)
-- **Transfercase TX15B Fluid Capacity (OE cover)**: ~2.1QT [t116] ([Partial] [Unverified] single report)
 - **Transfercase TX15B High Range Ratio**: 1:1 [t116] ([Unverified] single report)
 - **Transfercase TX15B Low Range Ratio**: 2.625:1 [t116] ([Unverified] single report)
 

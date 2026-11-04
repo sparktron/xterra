@@ -27,10 +27,10 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 12
   partial_fields: []
-  unconfirmed_safety_values: 1
+  unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0
 ---
@@ -93,7 +93,7 @@ _Procedure reported by [t2125]. Photos of this job are in the source: <https://w
 
 ## Specifications
 
-- **Cross Shaft to Spacer Clearance**: 0.006-0.020 inches [t2125] ([Unverified] single report)
+- **Cross Shaft to Spacer Clearance**: 0.006-0.020 inches [t2125] (Claude-reviewed)
 - **Inter-Cam Spacing Gap**: 0.145-0.165 inches [t2125] ([Partial] [Unverified] single report)
 - **Max Left/Right Difference**: 0.010 inch [t2125] ([Unverified] single report)
 

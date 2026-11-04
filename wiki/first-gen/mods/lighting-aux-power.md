@@ -137,14 +137,12 @@ verification:
   partial_items: 76
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 25
+  unconfirmed_safety_values: 0
+  withheld_items: 26
   pending_safety_values: 0
 ---
 
 # Lighting and auxiliary wiring
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -763,7 +761,6 @@ _Procedure reported by [t1497]. Photos of this job are in the source: <https://w
 - **Pilot hole size**: 1/32"-1/16" [t2332] ([Partial] [Unverified] single report)
 - **Reflector hole size (target)**: 1.5 inches [t1851] ([Unverified] single report)
 - **Screw size increase**: 1/32"-1/16" [t2332] ([Partial] [Unverified] single report)
-- **Step drill capacity**: 1-3/8 inch [t1851] ([Unverified] single report)
 
 ## Tips & gotchas
 

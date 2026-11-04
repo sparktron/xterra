@@ -24,16 +24,14 @@ verification:
   partial_items: 4
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Rear Leaf Spring and Lift Kit Upgrades
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -52,7 +50,6 @@ _Procedure reported by [t140]._
 
 ## Specifications
 
-- **Gross Vehicle Weight Capacity**: 660 lbs [t140] ([Unverified] single report)
 - **Lift Height (approximate)**: 1.5 to 2 inches [t140] ([Unverified] single report)
 
 ## Tips & gotchas
