@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-10-24 · **Branch:** `feat/guides-and-generation-split`, open as PR #11 against `master` (`98f266a`) · Earlier: guide-first extraction and reviewer corrections, each followed by its regenerated `wiki/` commit
+**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, rebased onto fetched `origin/master` (`96f2b75`, merge of PR #12) · Existing uncommitted exporter/test/wiki changes preserved
 
 ## Objective
 
@@ -17,6 +17,151 @@ using a local LLM, where every published fact is grounded in source text and ver
 - Per `xw status` on 2026-10-07: the `manual` source has 43 threads and 229 facts (from pages ingested by hand); `thenewx` is `blocked` (HTTP 409, 2 fetches, 0 threads); `nissan-frontier-forum` and `clubfrontier` are `queued` and have never fetched anything.
 
 ## Active work
+
+Interrupted run repaired (2026-11-04). Uncommitted, together with the 2026-10-27 review round below.
+
+- **What happened:** a `scripts/run_all.sh` run on 2026-11-03 stopped partway. Its only records are file times and the
+  database; there is no log, so the cause is inferred. It fetched 59 `xterranation` pages (all HTTP 200, 12:27-12:32Z) and
+  left that source `in-progress`, which `cmd_run` overwrites unless it is interrupted. `cmd_run` then exports even after an
+  interrupt. `export_all` calls `_remove_stale` before writing anything; first-gen was rewritten (07:33-07:34 local) and
+  export stopped before writing second-gen, leaving 930 second-gen pages deleted from the working tree.
+- **Repair:** database backed up to `data/xw.sqlite.bak-pre-export-2026-11-03`, then `xw export`. Nothing was hand-edited or
+  restored from git. Result: 1,413 pages from 2,691 facts, 1,791 withheld, the same figures as the 2026-10-27 round; the
+  worktree is back to 108 changed wiki files with none deleted, and no curated `vehicle/` page changed.
+- **Validation:** `pytest` exit 0, `xw export` exit 0 (3m28s), `xw qa` passed, `git diff --check` clean.
+  `test_a_part_name_is_judged_as_rendered` fails against `HEAD`'s `export.py` and passes with `_flat`.
+- **Left by that run, not processed:** 73 pending `xterranation` chunks (56 never attempted, 14 with one failed attempt,
+  3 with two), 73 threads `fetched`, 7 threads in `error` (all `RemoteProtocolError`). No extraction or verification has
+  run since 2026-10-27, so none of the newly fetched text is in the wiki.
+- **Open risk:** an interrupted export can still empty a section, since pages are deleted before the new ones are
+  written and an export takes over 3 minutes. This is item 6 of the plan below; not fixed here.
+- **`docs/QUALITY_REVIEW_2026-11-03.md` and `QUALITY_REVIEW_EXECUTIVE_SUMMARY.md` (untracked, not written in this session):
+  not reliable, and not committed.** They were written after the interrupted run and read its emptied tree: "77 second-gen
+  files" and the "coverage disparity" finding are artifacts (1,007 on disk now). They report "executed successfully"; the
+  run did not finish. "265+ withheld" is 1,791 per export. They name three forum sections of The New X as the source; that
+  site is `blocked` (HTTP 409, 0 threads) and the forum content comes from XterraNation and pages saved by hand. Several
+  recommendations conflict with the invariants in `AGENTS.md`: lowering evidence requirements for some content types, promoting a
+  topic to `community-consensus` at 5+ threads, discovering more threads on the blocked site, and recording decisions in the
+  generated `open_questions.md` (decisions go through `xw triage`).
+- **Not run:** `xw doctor`, `xw run`, extract, verify, any crawling, dependency-floor tests, remote CI. No commits or pushes.
+
+Workflow improvement plan (2026-10-28; proposed, implementation not started).
+
+**Question:** how can the pipeline turn more of the available source material into useful, correctly grounded
+wiki content without weakening its publication rules? Scope: acquisition, resumability, verification, review and
+publication; no new crawling or model runs were started while preparing this plan.
+
+**Observed baseline:** `xw status` and read-only database/review-file queries on 2026-10-28:
+
+- 2,694 stored facts: 1,547 xterranation, 988 xterranation-gen1, 159 manual.
+- 1,539 queued threads: 490 second-gen and 1,049 first-gen. Six second-gen threads are in `error`.
+- 17 second-gen chunks await extraction; 14 have one failed attempt and 3 have two. No chunks are currently in
+  `error`; 925 are `done` and 65 `irrelevant`. Pending therefore does not mean never attempted.
+- 400 review batches lack a verdict file, containing 9,968 batch items. This is a file backlog, not a count of
+  current actionable claims: batches can be stale or partly superseded. Another 43 batches have verdict files;
+  file presence alone does not establish that every item has a valid, applied verdict.
+- Local verdicts: 8,929 supported, 10,153 partial, 1,111 unsupported, 6 decoy_failed. Reviewer verdicts: 223 approve,
+  234 reject, 128 needs_human. `human_decisions` has no rows. Decoy acceptance is 65/6,720 over 5,900 calls.
+- The 2026-10-27 review recorded 90 rejected out of 218 reviewed locally-supported claims (41%). It deliberately
+  selected safety/partial claims; this is evidence of errors, not a population error estimate. A low numeric-decoy
+  acceptance rate does not establish that vehicle applicability, conditions or procedural meaning are correct.
+- `cmd_run` processes each source sequentially, verifies globally, then exports; it does not call QA, and returns
+  success after an interruption. `scripts/run_all.sh` calls export again, then QA. Stage completion and publication
+  success need a clearer contract.
+
+**Recommended implementation order** (each item should be a separately reviewable change):
+
+1. **Make progress and failure visible.** Extend `xw status` with a machine-readable report: stage queues, attempt
+   counts, error reasons, missing verifier passes, current review backlog, publication/withholding reasons and
+   coverage per generation/topic. Record run/model/prompt/config versions and elapsed stage time. Distinguish
+   complete, budget-exhausted, blocked, interrupted and failed runs; use meaningful exit codes. Measure useful
+   confirmed claims and complete procedures added per run/hour, alongside marked partials and review findings.
+   Acceptance: report totals reconcile with SQLite and interrupted/error runs cannot appear fully successful.
+
+2. **Process bounded batches before discovering more.** Add source/generation/run selection through verification
+   and review, thread/chunk/time limits to orchestration, and explicit resume points. `verify` currently has no
+   source selector. Prioritize already-fetched chunks, then queued how-to threads and missing-topic coverage.
+   Add a supported retry command for transient fetch failures and selected failed chunks, with bounded attempts,
+   backoff and error classification; stop on an unhealthy model server. Do not reset budgets or unblock refused
+   sites automatically. Acceptance: resume does not duplicate facts, skipped work is explained, and every batch
+   reaches verification and a checked export even when a different source still has work outstanding.
+
+3. **Spend review effort where it can improve pages.** Reconcile existing batches against current claim text and
+   applied verdicts before creating more. Offer bounded review selections: unresolved safety claims first,
+   actionable corrections/needs_human next, then procedures blocked by one claim; keep a separate random audit
+   of published claims. Rank by expected useful page recovery as well as risk. Do not auto-approve; numeric
+   corrections still need a person, and changed step lists need a fresh completeness review. Acceptance: stale
+   items are identified, successful verdicts apply once, and reports show actual pages/claims recovered.
+
+4. **Improve extraction/verifier accuracy with a fixed benchmark.** Assemble a versioned, generation-balanced
+   corpus from already captured material, with independently adjudicated labels for values, units, applicability,
+   contradictory replies, missing context and procedure completeness. Separate tuning examples from a held-out
+   evaluation set. Compare current prompts/model with alternatives on copies of the database; record exact model,
+   prompt, settings and source hashes. Measure false accepts, false rejects, completeness and throughput by claim
+   kind; include random published-claim audits. Do not assume a larger model or extra agreeing passes are better:
+   the recorded 27B trial was more lenient and inconclusive. Acceptance: predeclare acceptable error bounds and
+   yield goals, then adopt only a configuration that meets both on held-out material. No threshold relaxation.
+
+5. **Improve capture provenance and topic coverage.** Add a bulk-ingest manifest with per-item original URL,
+   generation, author, source type and capture completeness. Preserve raw captures/hashes and explicit missing
+   first-post/pagination warnings; quarantine ambiguous captures. Distinguish an unchanged re-ingest from an
+   intentional refresh, and preserve content-matched human/reviewer decisions while invalidating stale ones.
+   Acquire targeted, accessible manufacturer references and independent forum corroboration for identified gaps;
+   keep manufacturer trust explicit and preserve the curated reference section. Canonical topic aliases and an
+   explicit review path for new topics should reduce tiny fragmented pages. Different numbers, vehicles or
+   generations must stay distinct. Acceptance: a manifest is idempotent, incomplete captures are visible, and
+   every new source has provenance and generation routing. Blocked sources remain blocked.
+
+6. **Publish only after a checked candidate export.** Give one orchestrator ownership of export and QA. Build
+   candidate output from a consistent database snapshot, validate it, summarize the content diff, and promote it
+   only on success while preserving curated pages. Extend QA/source mapping to the prose and titles it does not
+   independently check today; require regression tests for every added grounding rule. Keep model semantics
+   evaluation separate from deterministic QA. Acceptance: injected bad content fails QA and leaves the previously
+   published wiki intact; repeat exports are stable; all current safety, grounding and generation tests pass.
+
+**First pilot after the reporting/retry work:** back up the database, run `xw doctor --smoke`, diagnose the 17
+pending chunks and six thread errors, process a small bounded second-gen batch, verify its claims, review its
+highest-impact blockers plus a random audit, then export and QA. Compare added confirmed claims, usable procedures,
+marked partials, review error findings and elapsed time with the baseline before scaling into the 1,539-thread
+queue. Set the next batch size from measured model capacity and available review time.
+
+**Unresolved:** no unbiased current semantic-error estimate; no measured batch throughput or review capacity;
+the file backlog needs reconciliation; the specific pending-chunk and fetch-error causes were not diagnosed in
+this planning session. These uncertainties could change batching priorities and model choices. If an audit shows
+capture corruption dominates, prioritize capture repair before processing more of that source.
+
+**Validation this session:** `git rebase origin/master` succeeded without conflicts; all 111 pre-existing modified
+files were restored from a temporary stash. `git merge-base --is-ancestor origin/master HEAD`, `git diff --check`,
+`.venv/bin/pytest -q` and `.venv/bin/xw qa` passed after the rebase. This session changes only this status file.
+Not run: export (no output/gate change was made in this session), live doctor/ingest/extract/verify, new crawling,
+dependency-floor tests or remote CI. No commits or pushes. Plan evidence: `src/xw/cli.py`, `crawl.py`, `ingest.py`,
+`extract.py`, `verify.py`, `review.py`, `topics.py`, `scripts/run_all.sh`, and the dated status entries below.
+
+Claude review round (2026-10-27, `/review-wiki`, scoped by the user to the safety values plus the t1303 transmission
+flush claims). Uncommitted.
+
+- **Queue:** `xw review-export` wrote 431 new batches (`batch-012` to `batch-442`, about 10,700 claims: 222 at
+  priority 0, 9,914 local `partial`, 853 audit samples). Reviewed: the 9 batches with priority-0 safety values
+  (012-020) and 267-268 (t1303), 275 claims, one `wiki-reviewer` agent each. The other 420 batches stay queued.
+- **Verdicts (from the files):** 125 approve, 72 reject, 27 correct, 51 needs_human.
+- **`xw review-apply`:** 384 verdicts applied, which includes re-reading the 11 older verdict files. Its 75 "invalid"
+  entries all come from those older files (001-011); none from this round. 18 stale verdicts are re-queued, 3 of them
+  from batch 268, whose claims a correction from batch 267 had changed earlier in the same run. Corrections: 11
+  accepted, 1 refused; 12 wait for a person in `xw triage` because they change a number.
+- **Rates:** `review-apply` reports a local verifier false-accept rate of 41% (90 of 218 reviewed `supported` claims
+  rejected). These claims were chosen as safety values and partials, not as a random sample, so 41% is not a clean
+  estimate; the 853 audit-sample claims would give one. Decoys: 65 of 6,720 accepted (1%).
+- **Safety values:** every one that was published unconfirmed now has a reviewer verdict; export reports 0 published
+  unconfirmed (was 151).
+- **t1303:** the step "disconnect the passenger-side radiator line" was approved. Both copies of the summary tip got
+  a `correct` verdict that changes "twelve quarts" to "12 quarts", so they wait in `xw triage`; the tip stays
+  `[Partial]` until a person decides.
+- **Bug found and fixed:** qa then failed on `second-gen/mods/titan-axle-swap.md`: the part "(3) Quarts Gear Oil"
+  printed as "3 Quarts Gear Oil" with no mark. Export judged the raw name, where "(3)" is no quantity, but the page
+  prints it with the parentheses removed, which qa reads as 3 qt. Until the reviewer rejected the "3 quarts" spec,
+  that spec had kept 3 qt marked. Export now judges part names and notes as rendered (`export._flat`). Test:
+  `test_a_part_name_is_judged_as_rendered` (fails without the fix). `pytest` passed; `xw export && xw qa` passed:
+  1,413 pages from 2,691 facts, 1,791 items withheld (was 1,676); 108 pages changed.
 
 Looping extraction replies (2026-10-25, raised by the user: chunks 947, 977 and 1015 "keep getting cut off around
 26–29k characters"). Uncommitted.

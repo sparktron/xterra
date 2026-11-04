@@ -1597,6 +1597,19 @@ def test_a_part_note_with_an_unconfirmed_volume_is_marked(cfg, conn, tmp_path):
     assert check_wiki(cfg, conn) == []
 
 
+def test_a_part_name_is_judged_as_rendered(cfg, conn, tmp_path):
+    """Found after the 2026-10-27 review: "(3) Quarts Gear Oil" states no volume until its parentheses are removed for
+    the page; once a reviewer rejected the spec that had kept 3 qt marked, it printed "3 Quarts Gear Oil" unmarked."""
+    add_notes(cfg, conn, tmp_path, [("a", NOTE_A + "Buy 12 quarts of Matic S ATF for the flush. " * 3, "alice")])
+    extract_and_verify(cfg, conn, [("83 ft-lb", {"relevant": True, "facts": [arm_fact(
+        parts=[{"name": "(12) Quarts Matic S ATF", "part_number": "", "notes": "", "evidence": ""}],
+        diagram_links=[], specs=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "- [Unverified value] 12 Quarts Matic S ATF [t1]" in page and SAFETY_NOTE in page
+    assert check_wiki(cfg, conn) == []
+
+
 def test_consensus_below_a_raised_safety_threshold_is_marked_unverified(cfg, conn, tmp_path):
     """Codex review of #9 (P1): with safety_min_threads 3, two independent reports took the community-consensus tag
     unmarked although the value was not confirmed, and qa took that tag as confirmed."""

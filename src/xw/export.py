@@ -274,6 +274,12 @@ def _fmt_src(sids: list[str]) -> str:
     return f" [{', '.join(sids)}]" if sids else ""
 
 
+def _flat(s: str) -> str:
+    """A part name or note as rendered. qa.PART_LINE reads a trailing "(...)" as the part number, so parentheses must
+    not survive (a numberless part "Wire: (12 AWG or larger)" once failed qa that way)."""
+    return re.sub(r"\s*\(([^)]*)\)", r", \1", s).lstrip(", ").replace("(", "").replace(")", "")
+
+
 def _tagged(text: str, tag: str) -> str:
     return f"{text} ({tag})" if tag else text
 
@@ -430,7 +436,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
 
     for r, i, tag in part_rows:
         p = r.fact.parts[i]
-        why = loose(p.name, r.text)
+        # judge the name and note as rendered: "(3) Quarts Gear Oil" prints as "3 Quarts Gear Oil", which states 3 qt
+        why = loose(_flat(p.name), r.text)
         if why:
             drop(r, "part", f"{p.name} {p.part_number}", why)
             continue
@@ -439,8 +446,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
         key = _norm(p.part_number) or _norm(p.name)
         slot = parts.setdefault(key, {"name": p.name, "part_number": p.part_number, "notes": [], "sids": [], "partial": True})
         slot["partial"] = slot["partial"] and tag == PARTIAL
-        if p.notes and loose(p.notes, r.text):
-            drop(r, "part note", p.notes, loose(p.notes, r.text))
+        if p.notes and loose(_flat(p.notes), r.text):
+            drop(r, "part note", p.notes, loose(_flat(p.notes), r.text))
         elif p.notes and p.notes not in slot["notes"]:
             slot["notes"].append(p.notes)
         if r.sid not in slot["sids"]:
@@ -609,12 +616,8 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
         out += ["## Parts", ""]
         for p in sorted(parts.values(), key=lambda p: p["name"].lower()):
             pn = f" ({p['part_number']})" if p["part_number"] else ""
-            # qa.PART_LINE reads a trailing "(...)" as the part number, so parentheses in a name or a note must not survive
-            # (a numberless part "Wire: (12 AWG or larger)" once failed qa that way)
-            def flat(s: str) -> str:
-                return re.sub(r"\s*\(([^)]*)\)", r", \1", s).lstrip(", ").replace("(", "").replace(")", "")
-            note = f": {'; '.join(flat(n) for n in p['notes'])}" if p["notes"] else ""
-            name = flat(p["name"])
+            note = f": {'; '.join(_flat(n) for n in p['notes'])}" if p["notes"] else ""
+            name = _flat(p["name"])
             out.append(f"- {mark(f'{name}{pn}{note}', p['partial'])}{_fmt_src(p['sids'])}")
         out.append("")
     if spec_lines:
