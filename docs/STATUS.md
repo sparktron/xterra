@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, rebased onto fetched `origin/master` (`96f2b75`, merge of PR #12) · Existing uncommitted exporter/test/wiki changes preserved
+**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, on `origin/master` (`96f2b75`, merge of PR #12) plus the exporter fix and regenerated wiki below
 
 ## Objective
 
@@ -18,7 +18,7 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Interrupted run repaired (2026-11-04). Uncommitted, together with the 2026-10-27 review round below.
+Interrupted run repaired (2026-11-04). Committed together with the 2026-10-27 review round below.
 
 - **What happened:** a `scripts/run_all.sh` run on 2026-11-03 stopped partway. Its only records are file times and the
   database; there is no log, so the cause is inferred. It fetched 59 `xterranation` pages (all HTTP 200, 12:27-12:32Z) and
@@ -43,7 +43,7 @@ Interrupted run repaired (2026-11-04). Uncommitted, together with the 2026-10-27
   recommendations conflict with the invariants in `AGENTS.md`: lowering evidence requirements for some content types, promoting a
   topic to `community-consensus` at 5+ threads, discovering more threads on the blocked site, and recording decisions in the
   generated `open_questions.md` (decisions go through `xw triage`).
-- **Not run:** `xw doctor`, `xw run`, extract, verify, any crawling, dependency-floor tests, remote CI. No commits or pushes.
+- **Not run:** `xw doctor`, `xw run`, extract, verify, any crawling, dependency-floor tests. Remote CI runs on the pull request.
 
 Workflow improvement plan (2026-10-28; proposed, implementation not started).
 
@@ -138,7 +138,7 @@ dependency-floor tests or remote CI. No commits or pushes. Plan evidence: `src/x
 `extract.py`, `verify.py`, `review.py`, `topics.py`, `scripts/run_all.sh`, and the dated status entries below.
 
 Claude review round (2026-10-27, `/review-wiki`, scoped by the user to the safety values plus the t1303 transmission
-flush claims). Uncommitted.
+flush claims).
 
 - **Queue:** `xw review-export` wrote 431 new batches (`batch-012` to `batch-442`, about 10,700 claims: 222 at
   priority 0, 9,914 local `partial`, 853 audit samples). Reviewed: the 9 batches with priority-0 safety values
