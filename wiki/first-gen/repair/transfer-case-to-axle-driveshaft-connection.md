@@ -25,16 +25,14 @@ verification:
   reviewed_items: 0
   partial_items: 3
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Transfer case to axle driveshaft connection
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -55,10 +53,6 @@ _Procedure reported by [t1237]._
 
 - 1/2" Aluminum adapter [t1237]
 - [Partial] Precision 627 flange, tapped [t1237]
-
-## Specifications
-
-- **Adapter size**: 1/2" [t1237] ([Unverified] single report)
 
 ## Tips & gotchas
 

@@ -24,16 +24,14 @@ verification:
   partial_fields:
   - difficulty
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 2
+  unconfirmed_safety_values: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
 # Lift and travel definitions
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -86,7 +84,6 @@ _Procedure reported by [t553]._
 - **Front suspension travel limit**: 9 inches [t553] ([Partial] [Unverified] single report)
 - **Minimum recommended droop**: 2 to 2.5 inches [t553] ([Unverified] single report)
 - **Single wheel articulation lift**: 22 inches [t553] ([Unverified] single report)
-- **Tire size for increased clearance**: 33s or 35s [t553] ([Unverified] single report)
 
 ## Tips & gotchas
 

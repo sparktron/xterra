@@ -18,10 +18,10 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 2
   partial_fields: []
-  unconfirmed_safety_values: 1
+  unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0
 ---
@@ -30,13 +30,11 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
-[Partial] [Unverified value] Clean the damaged threads, scrape away debris, then torque the stud to 35 ft. lb. [t91]
+[Partial] Clean the damaged threads, scrape away debris, then torque the stud to 35 ft. lb. [t91]
 
 ## Procedure
 
@@ -49,7 +47,7 @@ _Procedure reported by [t91]._
 
 ## Specifications
 
-- **Stud torque**: 35 ft. lb [t91] ([Unverified] single report)
+- **Stud torque**: 35 ft. lb [t91] (Claude-reviewed)
 
 ## Source attributions
 

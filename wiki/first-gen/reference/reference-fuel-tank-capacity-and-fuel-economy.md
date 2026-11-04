@@ -18,10 +18,10 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 3
+  reviewed_items: 3
+  partial_items: 2
   partial_fields: []
-  unconfirmed_safety_values: 3
+  unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0
 ---
@@ -30,20 +30,18 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
-[Partial] [Unverified value] Fuel tank manual capacity is 19 gallons with a typical full-to-full fill-up of 16.5 or 17 gallons and stock gear ratio of 4.9. [t1320]
+[Partial] Fuel tank manual capacity is 19 gallons with a typical full-to-full fill-up of 16.5 or 17 gallons and stock gear ratio of 4.9. [t1320]
 
 ## Specifications
 
-- **Fuel tank manual capacity**: 19 gallons [t1320] ([Unverified] single report)
+- **Fuel tank manual capacity**: 19 gallons [t1320] (Claude-reviewed)
 - **Gear ratio (stock)**: 4.9 [t1320] ([Partial] [Unverified] single report)
-- **Typical full-to-full fill-up volume**: 16.5 gallons [t1320] ([Unverified] single report)
-- **Typical full-to-full fill-up volume (empty start)**: 17 gallons [t1320] ([Partial] [Unverified] single report)
+- **Typical full-to-full fill-up volume**: 16.5 gallons [t1320] (Claude-reviewed)
+- **Typical full-to-full fill-up volume (empty start)**: 17 gallons [t1320] (Claude-reviewed)
 
 ## Diagrams (links only)
 

@@ -20,12 +20,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 2
-  partial_fields:
-  - applies_to
+  reviewed_items: 4
+  partial_items: 0
+  partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
@@ -33,20 +32,9 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
-
 ## Summary
 
-[Partial] Remove the old fuel sender and install a replacement unit with the low gas sensor. [t1303]
-
-## Procedure
-
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
-
-1. Remove the old fuel sender to inspect for copper corrosion on the neck.
-2. [Partial] Install a replacement unit that includes the low gas sensor.
-
-_Procedure reported by [t1303]._
+The owner swapped out the old fuel sender after noticing copper corrosion on its neck, and was surprised to find the sender unit had a low gas sensor, suggesting it came from a Frontier. [t1303]
 
 ## Diagrams (links only)
 

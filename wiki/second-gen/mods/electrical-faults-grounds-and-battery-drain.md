@@ -29,14 +29,12 @@ verification:
   partial_items: 11
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 1
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
 # Electrical faults, grounds and battery drain
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -96,7 +94,6 @@ _Procedure reported by [t6]._
 
 ## Specifications
 
-- **Ground connection point**: Pin 8 (jumped to Pin 7) [t751] ([Unverified] single report)
 - **Switch pin configuration**: 2, 3, 6, 7, 8 [t751] ([Unverified] single report)
 
 ## Tips & gotchas

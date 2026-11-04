@@ -59,16 +59,14 @@ verification:
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 1
-  withheld_items: 3
+  unconfirmed_safety_values: 0
+  withheld_items: 4
   pending_safety_values: 0
 ---
 
 # Titan VK56 engine swap with auto trans
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -192,7 +190,6 @@ _Procedure reported by [t286]. Photos of this job are in the source: <https://ww
 - **Muffler part number (Magnaflo)**: 12580 [t286] ([Partial] [Unverified] single report)
 - **Rack cost estimate**: $280 [t286] ([Unverified] single report)
 - **Thermostat temperature rating**: 170* [t286] ([Partial] [Unverified] single report)
-- **Tranny fluid capacity**: 16qts [t286] ([Unverified] single report)
 
 ## Tips & gotchas
 

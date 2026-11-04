@@ -159,18 +159,16 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 15
-  partial_items: 87
+  reviewed_items: 17
+  partial_items: 86
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 2
+  unconfirmed_safety_values: 0
   withheld_items: 23
   pending_safety_values: 0
 ---
 
 # Lighting, aux fuse blocks and dual batteries
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -725,11 +723,11 @@ _Procedure reported by [t174]._
 ## Specifications
 
 - **Blade connector gauge**: 14 gauge [t1039] ([Unverified] single report)
-- **Bolt size (terminal)**: 10mm x 1.5 [t707] ([Unverified] single report)
+- **Bolt size (terminal)**: 10mm x 1.5 [t707] (Claude-reviewed)
 - **Head unit carrier screw count**: 4 [t282] ([Unverified] single report)
 - **Headlight bake temperature**: 215 degrees F [t723] ([Unverified] single report)
 - **Ingress protection rating**: IP67 [t923] ([Unverified] single report)
-- **Inverter capacity**: 750 peak 1500 watt [t989] ([Partial] [Unverified] single report)
+- **Inverter capacity**: 750 peak 1500 watt [t989] (Claude-reviewed)
 - **LED count per pod**: 6 [t923] ([Unverified] single report)
 - **Lumens output**: 1440 [t923] ([Unverified] single report)
 - **Screw Size**: 1/4"-20 x 1" [t992] ([Unverified] single report)

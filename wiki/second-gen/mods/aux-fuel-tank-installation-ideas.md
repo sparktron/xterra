@@ -22,10 +22,10 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 1
   partial_items: 3
   partial_fields: []
-  unconfirmed_safety_values: 1
+  unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0
 ---
@@ -33,8 +33,6 @@ verification:
 # Aux fuel tank installation ideas
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -53,12 +51,12 @@ _Procedure reported by [t870]._
 
 ## Parts
 
-- [Unverified value] Auxiliary fuel tank: Preferably 15 gallons, lower profile around 10 inches high [t870]
+- Auxiliary fuel tank: Preferably 15 gallons, lower profile around 10 inches high [t870]
 - [Partial] Fuel cell or rectangular/square tank: With side fill-up capability preferred [t870]
 
 ## Specifications
 
-- **Tank capacity (Four door Tracker)**: 15 gal [t870] ([Unverified] single report)
+- **Tank capacity (Four door Tracker)**: 15 gal [t870] (Claude-reviewed)
 - **Tank height (Two/Four door Tracker)**: 10" high [t870] ([Unverified] single report)
 
 ## Tips & gotchas

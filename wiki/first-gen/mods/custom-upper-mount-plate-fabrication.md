@@ -27,11 +27,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
+  reviewed_items: 2
   partial_items: 6
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 2
+  unconfirmed_safety_values: 0
   withheld_items: 0
   pending_safety_values: 0
 ---
@@ -39,8 +39,6 @@ verification:
 # Custom Upper Mount Plate Fabrication
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -78,8 +76,8 @@ _Procedure reported by [t1492]._
 - **Plate Rear Width**: 26" [t1492] ([Unverified] single report)
 - **Plate Sheet Size (Start)**: 28" x 6" [t1492] ([Unverified] single report)
 - **Radiator Port Size**: 34mm [t1492] ([Unverified] single report)
-- **Rubber Washer Diameter**: 1.25" [t1492] ([Unverified] single report)
-- **Upper Pin Thread Size**: 3/8" NF [t1492] ([Unverified] single report)
+- **Rubber Washer Diameter**: 1.25" [t1492] (Claude-reviewed)
+- **Upper Pin Thread Size**: 3/8" NF [t1492] (Claude-reviewed)
 
 ## Tips & gotchas
 

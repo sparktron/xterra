@@ -79,11 +79,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 64
+  partial_items: 62
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 2
-  withheld_items: 21
+  unconfirmed_safety_values: 0
+  withheld_items: 23
   pending_safety_values: 0
 ---
 
@@ -466,12 +466,10 @@ _Procedure reported by [t1698]. Photos of this job are in the source: <https://w
 - **Adjustable shackle max height**: 2 1/8" [t1046] ([Unverified] single report)
 - **Bottom leaf thickness (overload)**: 1.5 inch [t1922] ([Unverified] single report)
 - **Bump stop gap target**: 0.5-0.75 inches [t1046] ([Unverified] single report)
-- **First and last mount torque**: 23-32 ft.lbs. [t1698] ([Partial] [Unverified] single report)
 - **Front lift estimate**: ~1.5 inches [t1046] ([Unverified] single report)
 - **Rear AAL Lift Height**: 2.5 inches [t1922] ([Unverified] single report)
 - **Rear leaf spring lift (AAL)**: 2.5 inches [t1922] ([Unverified] single report)
 - **Rear shackle length (typical)**: ~1.5 inches [t1046] ([Unverified] single report)
-- **Second and third mount torque**: 22-31 ft.lbs. [t1698] ([Partial] [Unverified] single report)
 - **Total rear lift potential (AAL + Shackle)**: 2.25 to 2.50 inches [t1922] ([Unverified] single report)
 
 ## Tips & gotchas

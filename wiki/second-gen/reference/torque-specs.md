@@ -55,11 +55,11 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 2
-  partial_items: 20
+  reviewed_items: 3
+  partial_items: 18
   partial_fields: []
-  unconfirmed_safety_values: 2
-  withheld_items: 20
+  unconfirmed_safety_values: 0
+  withheld_items: 22
   pending_safety_values: 0
 ---
 
@@ -200,12 +200,10 @@ _Procedure reported by [t25]._
 
 ## Specifications
 
-- **Camber bolt grade**: Grade 8 or Class 12.9 [t1022] ([Partial] [Unverified] single report)
 - **Nissan OEM Cam Bolt Price (per unit)**: $5.19 [t642] ([Unverified] single report)
 - **OE Disk Eccentric Washer Price**: $3.59 [t642] ([Unverified] single report)
 - **OE Nut-Slock Price (per unit)**: $0.59 [t642] ([Unverified] single report)
 - **Pin-transverse link (Camber bolt) Price at NissansPartsDeal.com**: $18.69 [t642] ([Unverified] single report)
-- **Pinion nut torque (to increase preload)**: 5 in-lbs. [t119] ([Partial] [Unverified] single report)
 - **Recommended relay rating**: 30-AMP [t11] ([Unverified] single report)
 
 ## Tips & gotchas

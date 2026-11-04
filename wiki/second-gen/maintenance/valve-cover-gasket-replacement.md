@@ -21,8 +21,8 @@ verification:
   reviewed_items: 0
   partial_items: 5
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -46,10 +46,6 @@ verification:
 2. [Partial] Install new gaskets onto the cylinder head or cover as required.
 
 _Procedure reported by [t313]._
-
-## Specifications
-
-- **Valve cover bolt torque**: 74 in-lb [t313] ([Unverified] single report)
 
 ## Tips & gotchas
 

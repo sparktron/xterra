@@ -31,13 +31,13 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 19
-  partial_items: 5
+  reviewed_items: 22
+  partial_items: 3
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 5
-  withheld_items: 7
+  unconfirmed_safety_values: 0
+  withheld_items: 10
   pending_safety_values: 0
 ---
 
@@ -68,13 +68,10 @@ _No verified summary yet._
 
 ## Specifications
 
-- **Band servo anchor end pin final torque**: 44IN*LB [t35] ([Unverified] single report)
-- **Converter housing bolt torque**: 38ft*lb [t35] ([Partial] [Unverified] single report)
-- **Lock nut for band servo anchor**: 34ft-lb [t35] ([Partial] [Unverified] single report)
-- **Oil pump bolt torque (with RTV)**: 35ft*lb [t35] ([Unverified] single report)
+- **Lock nut for band servo anchor**: 34ft-lb [t35] (Claude-reviewed)
+- **Oil pump bolt torque (with RTV)**: 35ft*lb [t35] (Claude-reviewed)
 - **Original 2WD gear ratio**: 2.93 [t35] ([Partial] [Unverified] single report)
 - **Rear extension assembly bolt count**: 10 [t35] ([Unverified] single report)
-- **Self-sealing converter housing bolt torque**: 45ft*lb [t35] ([Unverified] single report)
 - **Target 4WD gear ratio (Frontier source)**: 3.36 [t35] ([Unverified] single report)
 
 ## Tips & gotchas

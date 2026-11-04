@@ -57,18 +57,16 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 17
+  partial_items: 16
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 1
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Rear Hatch Rotopax Mounting
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -138,10 +136,6 @@ _Procedure reported by [t472]. Photos of this job are in the source: <https://ww
 - [Partial] Rotopax Rear Hatch/Gate: Includes galvanized bonded sealing washers [t472]
 - [Partial] Rotopax single mounting plate with holder [t472]
 - Scrap rubber sheets or new plumbing department sheets in 6" squares [t472]
-
-## Specifications
-
-- **Strut load capacity**: 175# to 200# [t472] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 

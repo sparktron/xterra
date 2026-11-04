@@ -18,11 +18,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 3
+  reviewed_items: 2
+  partial_items: 2
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -37,15 +37,6 @@ verification:
 ## Summary
 
 [Partial] [Unverified value] Torque the front swaybar mounting brackets to 96 ft-lbs, then remove and torque the connecting rod to 62 ft-lbs. [t73]
-
-## Procedure
-
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
-
-1. [Unverified value] Torque the front swaybar mounting brackets to 96 ft-lbs.
-2. [Unverified value] Remove the connecting rod and torque both ends of it to 62 ft-lbs.
-
-_Procedure reported by [t73]._
 
 ## Tips & gotchas
 

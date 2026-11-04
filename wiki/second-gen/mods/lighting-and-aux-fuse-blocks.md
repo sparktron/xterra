@@ -23,17 +23,15 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 9
+  reviewed_items: 2
+  partial_items: 8
   partial_fields: []
-  unconfirmed_safety_values: 2
+  unconfirmed_safety_values: 0
   withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Lighting and Aux Fuse Blocks
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -72,8 +70,8 @@ _Procedure reported by [t1039]._
 
 ## Specifications
 
-- **Main Fuse Size**: 80A (approximate) [t977] ([Partial] [Unverified] single report)
-- **Relay Size**: 2 x 30A relays [t977] ([Unverified] single report)
+- **Main Fuse Size**: 80A (approximate) [t977] (Claude-reviewed)
+- **Relay Size**: 2 x 30A relays [t977] (Claude-reviewed)
 
 ## Tips & gotchas
 

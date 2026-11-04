@@ -227,12 +227,12 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 11
-  partial_items: 143
+  partial_items: 142
   partial_fields:
   - applies_to
   - difficulty
-  unconfirmed_safety_values: 1
-  withheld_items: 47
+  unconfirmed_safety_values: 0
+  withheld_items: 48
   pending_safety_values: 0
 ---
 
@@ -1098,7 +1098,6 @@ _Procedure reported by [t612]._
 
 ## Specifications
 
-- **Bumper Capacity**: 20" [t612] ([Partial] [Unverified] single report)
 - **Bumper mounting bolt size**: M14x1.5 [t180] ([Unverified] single report)
 - **Front Bumper Weight**: ~105 lbs [t185] ([Unverified] single report)
 

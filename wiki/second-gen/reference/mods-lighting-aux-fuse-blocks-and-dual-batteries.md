@@ -45,18 +45,16 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 33
+  reviewed_items: 2
+  partial_items: 30
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 4
-  withheld_items: 12
+  unconfirmed_safety_values: 0
+  withheld_items: 14
   pending_safety_values: 0
 ---
 
 # [mods] Lighting, aux fuse blocks and dual batteries
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -317,13 +315,11 @@ _Procedure reported by [t157]._
 
 ## Specifications
 
-- **Breaker rating for main run protection**: 80A [t383] ([Unverified] single report)
 - **Factory mic voltage requirement**: 5V [t282] ([Partial] [Unverified] single report)
-- **Main fuse rating for inverter protection**: 175A [t383] ([Partial] [Unverified] single report)
+- **Main fuse rating for inverter protection**: 175A [t383] (Claude-reviewed)
 - **Pin slot locations on harness**: 6, 15, and 16 [t282] ([Unverified] single report)
 - **Steering control pins to extract**: 3 [t282] ([Unverified] single report)
-- **Wire gauge for accessory runs**: 4awg positive, 12/2 awg negative [t383] ([Partial] [Unverified] single report)
-- **Wire gauge for main run through firewall**: 4awg [t383] ([Partial] [Unverified] single report)
+- **Wire gauge for main run through firewall**: 4awg [t383] (Claude-reviewed)
 
 ## Tips & gotchas
 

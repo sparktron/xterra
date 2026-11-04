@@ -19,11 +19,11 @@ sources:
 confidence: '[Unverified]'
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 1
+  reviewed_items: 1
+  partial_items: 0
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -31,11 +31,9 @@ verification:
 
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
-> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
-
 ## Summary
 
-[Partial] Check crank position sensor, verify spark advance readings, and optionally swap the fuel pump relay. [t1303]
+The owner replaced the crank position sensor after the scanner showed spark advance climbing before each stall, but the truck stalled again and he then suspected the fuel pump relay. [t1303]
 
 ## Tips & gotchas
 

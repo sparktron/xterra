@@ -7,7 +7,7 @@
 
 ## Threads skipped or failed
 
-- xterranation: 6 thread(s) error (RemoteProtocolError: Server disconnected without sending a response.)
+- xterranation: 7 thread(s) error (RemoteProtocolError: Server disconnected without sending a response.)
 
 ## Disputed values
 
@@ -22,122 +22,7 @@
 
 ## Safety-critical values published from one source (verify against the factory service manual)
 
-- Driveline and wheel bearing noises: Front diff fluid capacity: 1.6L
-- Automatic transmission fluid change: Initial fill amount via dipstick tube: 4 to 5 quarts
-- Automatic transmission fluid change: Transmission pan bolt torque: 25 ft-lbs
-- Coolant drain and refill: PAG Oil for Condenser Installation: ~30 [unit missing]
-- Coolant drain and refill: PAG Oil for Drier Replacement: ~5 mL
-- Coolant drain and refill: Total Refrigerant Charge: ~30 ounces
-- Front and rear differential fluid change: Drain plug torque spec: 27 lb.
-- Front and rear differential fluid change: Fill plug torque spec: 35 lb.
-- Front and rear differential fluid change: Front diff fill volume: 1.6L
-- Engine oil and filter change: Drain plug torque spec: 22-29 ft-lbs
-- Engine oil and filter change: Total oil capacity (with skid): 5 3/8 quarts
-- Power steering fluid service: Reservoir capacity (approximate): 58,000 miles
-- Spark plug and intake gasket replacement: Ignition coil bolt torque: 4-5 ft-lb (62 in-lb)
-- Spark plug and intake gasket replacement: Spark plug torque: 18 ft-lb
-- Valve cover gasket replacement: Valve cover bolt torque: 74 in-lb
-- Aux fuel tank installation ideas: Tank capacity (Four door Tracker): 15 gal
-- Bumpers, sliders and skid plates: Bumper Capacity: 20"
-- Electrical faults, grounds and battery drain: Ground connection point: Pin 8 (jumped to Pin 7)
-- Leaf spring overload removal strategy: Stock capacity: 2100 lbs
-- Lift kits and suspension lifts: Block bolt torque spec: 45 ft/lb
-- Lift kits and suspension lifts: Shock spring rate: 650#
-- Lighting and Aux Fuse Blocks: Main Fuse Size: 80A (approximate)
-- Lighting and Aux Fuse Blocks: Relay Size: 2 x 30A relays
-- Lighting and Switches: Relay capacity (common): 20A
-- Lighting, aux fuse blocks and dual batteries: Bolt size (terminal): 10mm x 1.5
-- Lighting, aux fuse blocks and dual batteries: Inverter capacity: 750 peak 1500 watt
-- Lighting upgrades and relay harnesses: Bulb type: 9007
-- Lighting upgrades and relay harnesses: Factory High Beam amp load: 7.08 amps
-- Lighting upgrades and relay harnesses: Factory Low Beam amp load: 4.58 amps
-- Lighting upgrades and relay harnesses: Main power wire gauge: 2-gauge
-- Lighting upgrades and relay harnesses: Recommended wire for short runs: 12 gauge
-- Lighting upgrades and relay harnesses: Relay amp rating: 40 Amp
-- Lighting upgrades and relay harnesses: Splitter output wires: 10-gauge
-- Lighting upgrades and relay harnesses: Stock wattage rating: 55/65 watt
-- Lighting upgrades and relay harnesses: Upgraded High Beam amp load (Hella): 8.33 amps
-- Lighting upgrades and relay harnesses: Upgraded Low Beam amp load (Hella): 6.67 amps
-- Lighting upgrades and relay harnesses: Upgraded wattage rating (Hella): 80/100 watt
-- Lighting upgrades and relay harnesses: Wire length per pack: 15 feet
-- Rear Hatch Rotopax Mounting: Strut load capacity: 175# to 200#
-- Rear Leaf Spring and Lift Kit Upgrades: Gross Vehicle Weight Capacity: 660 lbs
-- Rear swing-out tire carrier installation: Tow capacity (GTW): 7501 lbs
-- [reference] Gobi Ladder Specifications: Alternative Strut Rating: 150#
-- [reference] Gobi Ladder Specifications: Strut Rating: 175#
-- Roof racks, snorkels and storage: Roof Rack Capacity: 40"
-- Suspension lifts and coilovers: Stock shock arm hole size: 14mm
-- Tires, wheels and fitment: Recommended PSI range (general): 38-40 psi
-- Titan axle, differential and brake swaps: ABS line extension length: 12 inches
-- Titan axle, differential and brake swaps: Diff/frame bolt diameter: 19mm
-- Titan axle, differential and brake swaps: Differential fluid capacity (approx): 3 quarts
-- Titan axle, differential and brake swaps: Front DS bolt diameter: 14mm
-- Titan axle, differential and brake swaps: Halfaxle/hub nut size: 32mm
-- Titan axle, differential and brake swaps: Halfshaft flange bolt size: M205
-- Titan axle, differential and brake swaps: Recommended fluid viscosity: 80W-90 or 75W-90 Synthetic
-- Titan axle, differential and brake swaps: Spacer thickness: 1 inch
-- Titan VK56 engine swap with auto trans: Tranny fluid capacity: 16qts
-- Titan VK56 engine swap: Shock spring rate: 610 lbs
-- Winch Installation and Battery Disconnects: Switch continuous amperage (single switch): 140a
-- [diagnostics] Fuse and relay maps: Fuse block capacity: 100A
-- [diagnostics] Fuse and relay maps: Wire gauge for main run: 4awg
-- Fluids and capacities: Automatic transmission capacity: 10 7/8qt
-- Fluids and capacities: Cooling system capacity: 10 3/4qt
-- Fluids and capacities: Engine oil capacity with filter: 5 3/8qt
-- Fluids and capacities: Engine oil capacity without filter: 5 1/8qt
-- Fluids and capacities: Front diff capacity (run free): ~1.6L
-- Fluids and capacities: Front differential capacity (Xterra R180): 1 3/4pt
-- Fluids and capacities: Manual transmission capacity (2WD): 4 1/4 qt
-- Fluids and capacities: Manual transmission capacity (4WD): 4 3/8qt
-- Fluids and capacities: Power steering capacity: 2 1/8pt
-- Fluids and capacities: Rear differential C200 capacity: 3 3/8pt
-- Fluids and capacities: Rear differential M226 capacity: 4 1/4pt
-- Fluids and capacities: Transfer case capacity: 2 1/8qt
-- Fuel weight calculations per gallon: Fuel density: ~ 6 lb/gal
-- Gear ratios and tire sizes: 5 Speed Automatic Transmission Fluid Capacity: ~10.9 Qt
-- Gear ratios and tire sizes: 6 Speed Manual Transmission Fluid Capacity: ~4.4QT
-- Gear ratios and tire sizes: Front Differential R180A Axle Shaft Spline Count: 27
-- Gear ratios and tire sizes: Front Differential R180A Fluid Capacity (OE cover): 1 3/4 US Pint
-- Gear ratios and tire sizes: Front Differential R180A Ring Gear Diameter: 7.08"
-- Gear ratios and tire sizes: Rear Axle M226 Axle Shaft Diameter: 1.366"
-- Gear ratios and tire sizes: Rear Axle M226 Pinion Spline Count: 24
-- Gear ratios and tire sizes: Rear Axle M226 Ring Gear Diameter: 8.9"
-- Gear ratios and tire sizes: Tire size: Target upgrade for more mud clearance: 285/75/16
-- Gear ratios and tire sizes: Transfercase TX15B Fluid Capacity (OE cover): ~2.1QT
-- Ironman rear shackle torque specifications: Shackle torque: 70 ft lbs
-- Leaf spring and shackle repair: Thread exposure: 1/8-1/4" "
-- Leaf spring capacity reduction by leaf count: Capacity reduction per leaf: ~15%
-- Lift and travel definitions: Tire size for increased clearance: 33s or 35s
-- Lift kits and suspension lifts: Lift height: 2"
-- [mods] Gobi Ladder Hatch Support Requirements: Stock Strut Capacity: 145 lbs.
-- [mods] Lighting, aux fuse blocks and dual batteries: Breaker rating for main run protection: 80A
-- [mods] Lighting, aux fuse blocks and dual batteries: Main fuse rating for inverter protection: 175A
-- [mods] Lighting, aux fuse blocks and dual batteries: Wire gauge for accessory runs: 4awg positive, 12/2 awg negative
-- [mods] Lighting, aux fuse blocks and dual batteries: Wire gauge for main run through firewall: 4awg
-- Reference: Battery specifications and fitment: Base Width Difference: ~1/4 wider at base
-- Reference: Battery specifications and fitment: Battery Group Size: Group 34
-- Reference: Battery specifications and fitment: Cold Cranking Amps (CCA): ~100 CCA extra
-- [reference] Fluids and capacities: Coolant mixture ratio: 50/50
-- [reference] Fluids and capacities: Transfer case capacity (imperial): 2 1/8 qt
-- [reference] Fluids and capacities: Transfer case capacity (metric): 2.0L
-- [reference] Gobi Ladder Strut Part Numbers: Strut Quantity: 2 ea.
-- [reference] Gobi Ladder Strut Vendor Pricing: Industrial Vendor Price (per strut): $18
-- [reference] Gobi Ladder Strut Vendor Pricing: Specialty Vendor Price: $109.00
-- [reference] Ground clearance measurements by vehicle area: Drop bracket center clearance (Xterra): 13 inch
-- [reference] Ground clearance measurements by vehicle area: Rear crossmember clearance (Xterra): 13 inch
-- [reference] Parts diagrams: Ground Wire Length (Custom): 6 inches
-- [reference] Parts diagrams: Hose inner diameter for bleeding: 5/16
-- Titan axle and differential swaps - Fluid capacities: Differential Capacity: M205 spec
-- Torque specifications: Camber bolt grade: Grade 8 or Class 12.9
-- Torque specifications: Pinion nut torque (to increase preload): 5 in-lbs.
-- Stud oil cooler and filter assembly: Stud torque: 35 ft. lb
-- Sway bar links and bushings: Camber bolt adjustment range: +/- 2°
-- Sway bar links and bushings: Pinion preload torque spec: 5 in-lbs.
-- Transmission and transfer case problems: Band servo anchor end pin final torque: 44IN*LB
-- Transmission and transfer case problems: Converter housing bolt torque: 38ft*lb
-- Transmission and transfer case problems: Lock nut for band servo anchor: 34ft-lb
-- Transmission and transfer case problems: Oil pump bolt torque (with RTV): 35ft*lb
-- Transmission and transfer case problems: Self-sealing converter housing bolt torque: 45ft*lb
+_None._
 
 ## Items withheld from publication
 
@@ -175,6 +60,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Door, window and lock electrical faults: part: `Door lock/unlock switch assembly `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-override-the-auto-lock-unlock-on-09-xterras.1976/)
 - Door, window and lock electrical faults: tip: `Check a loose grey connector as a potential cause for intermittent issues before buying new parts.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/thought-my-clock-spring-was-bad-but-maybe-not.11092/)
 - Door, window and lock electrical faults: tool: `Steering wheel removal tools`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/thought-my-clock-spring-was-bad-but-maybe-not.11092/)
+- Driveline and wheel bearing noises: spec: `Front diff fluid capacity: 1.6L`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/whining-front-diff-next-steps.9752/)
 - Driveline and wheel bearing noises: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/)
 - Driveline and wheel bearing noises: mistake: `Testing the driveline without accounting for the weight of an aftermarket lift's heavy spring pack.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/)
 - Driveline and wheel bearing noises: completeness (procedure withheld): `Check for play in the pinion up, down, and side to side.; Note that lack of in-and-out movement suggests backlash between the pinion and main ring gear rather t`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/)
@@ -252,6 +138,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - VVT and cam solenoid issues: applicability: `X`. Reason: claude review: reject. (https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/)
 - VVT and cam solenoid issues: applicability: `X`. Reason: local verifier: unsupported. (https://www.thenewx.org/threads/how-to-vias-rattle-fix.181130/)
 - Automatic transmission fluid change: part: `Matic S Automatic Transmission Fluid `. Reason: claude review: reject. (https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/)
+- Automatic transmission fluid change: spec: `Transmission pan bolt torque: 25 ft-lbs`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/)
 - Automatic transmission fluid change: summary: `Drain the entire volume of ATF and refill with Matic S, then run until it turns black.`. Reason: claude review: reject. (https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/)
 - Automatic transmission fluid change: completeness (procedure withheld): `Drain the entire volume of ATF from the system.; Refill with Matic S automatic transmission fluid.`. Reason: claude review: reject. (https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/)
 - Automatic transmission fluid change: tip: `Run the vehicle until the fluid turns black to maximize interval length.`. Reason: claude review: reject. (https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/)
@@ -259,6 +146,9 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Automatic transmission fluid change: summary: `Switch a bypass valve hose, loosen and reinstall a transmission pan bolt torqued to 25 ft-lbs, then drain old fluid before refilling with Matic-S ATF.`. Reason: claude review: reject. (https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/)
 - Automatic transmission fluid change: applicability: `X`. Reason: local verifier: unsupported. (https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/)
 - Brake fluid flush and bleeding: completeness (procedure withheld): `Locate the electrical connector attached to the ABS actuator unit.; Press down on the tab of the green switch/lock.; Slide the switch up until it locks in posit`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-brake-fluid-flush-clutch-if-mt.2703/)
+- Coolant drain and refill: spec: `PAG Oil for Drier Replacement: ~5 mL`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/)
+- Coolant drain and refill: spec: `PAG Oil for Condenser Installation: ~30 [unit missing]`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/)
+- Coolant drain and refill: spec: `Total Refrigerant Charge: ~30 ounces`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/)
 - Coolant drain and refill: step 2 (procedure withheld): `Flush the system to remove debris from the puncture.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/)
 - Coolant drain and refill: mistake: `Opening the system to air without replacing the drier, which ruins the desiccant.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/)
 - [diagnostics] Heater core and A/C problems: summary: `Check the high-side pressure gauge reading and verify that the safety relief valve opens at approximately 433.6 psi.`. Reason: claude review: reject. (https://www.thenewx.org/threads/air-conditoning-information.65352/)
@@ -267,11 +157,15 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - [diagnostics] Heater core and A/C problems: completeness (procedure withheld): `Check the high-side pressure gauge reading.; Verify that the safety relief valve opens at approximately 433.6 psi to vent excess refrigerant.`. Reason: claude review: reject. (https://www.thenewx.org/threads/air-conditoning-information.65352/)
 - [diagnostics] Heater core and A/C problems: tip: `Note that a compressor cut-off around 398 psi is considered normal operation, not necessarily a fault.`. Reason: claude review: reject. (https://www.thenewx.org/threads/air-conditoning-information.65352/)
 - [diagnostics] Heater core and A/C problems: applicability: `2005`. Reason: claude review: reject. (https://www.thenewx.org/threads/air-conditoning-information.65352/)
+- Front and rear differential fluid change: spec: `Fill plug torque spec: 35 lb.`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/rear-differential-drain-and-fill-plugs-removal.9253/)
+- Front and rear differential fluid change: spec: `Drain plug torque spec: 27 lb.`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/rear-differential-drain-and-fill-plugs-removal.9253/)
 - Engine Coolant Level Inspection Procedure: step 1 (procedure withheld): `Start the engine while it is still cold.`. Reason: claude review: reject. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
+- Engine oil and filter change: spec: `Total oil capacity (with skid): 5 3/8 quarts`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-change-engine-oil-2nd-gen.4954/)
 - Engine oil and filter change: tip: `Note that the first generation required only 3.5 quarts, making this amount seem large by comparison.`. Reason: names the First generation (WD22), 2000-2004; this page is the Second generation (N50), 2005-2015. (https://www.xterranation.org/index.php?threads/how-to-change-engine-oil-2nd-gen.4954/)
 - [maintenance] Brake pad and rotor replacement tips: spec: `Caliper soak duration:`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/disc-rotor-shopping.9436/)
 - [maintenance] Wheel bearing service: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/wheel-spacers-overview-hub-lug-wheel-centric.6706/)
 - PCV valve and hose service: step 1 (procedure withheld): `Locate the PCV valve on the engine.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/p0301-came-back-could-use-some-advice-please.10556/)
+- Power steering fluid service: spec: `Reservoir capacity (approximate): 58,000 miles`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/power-steering-maintenance.9080/)
 - Rear differential fluid service and seal repair: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-differential-whine.3806/)
 - Reset MAF sensor fuel trim tables: tool: `OBDII Scanner`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/sensors.10051/)
 - Serpentine belt and tensioner: summary: `Check accelerator pedal release, turn ignition ON then wait at least 10 seconds listening for throttle valve movement.`. Reason: claude review: reject. (https://www.thenewx.org/threads/throttle-bottle-idle-air-re-learn.14334/)
@@ -282,6 +176,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Spark plug and intake gasket replacement: step 14 (procedure withheld): `Slide needle-nose pliers under each pop-rivet clamp holding the conduit wires to the thick line of wiring on the intake.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/)
 - Spark plug and intake gasket replacement: step 24 (procedure withheld): `Pull out each spark plug wire boot connected to the coils and hang them neatly aside.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/)
 - Spark plug and intake gasket replacement: completeness (procedure withheld): `Remove the two 12mm bolts securing the 'V6 4.0' engine cover.; Remove the two bolts connecting the intake tube to the air cleaner box on the passenger side of t`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/)
+- Valve cover gasket replacement: spec: `Valve cover bolt torque: 74 in-lb`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/spark-plug-seals.10499/)
 - 2-Inch Body Lift Installation: step 42 (procedure withheld): `Squeeze off both hoses so they hang loosely with slack for the upcoming lift.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-2nd-gen-ac-2-body-lift.1212/)
 - 2-Inch Body Lift Installation: step 51 (procedure withheld): `Pry up the wire harness cover located just behind the passenger side tire well.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-2nd-gen-ac-2-body-lift.1212/)
 - 2-Inch Body Lift Installation: step 56 (procedure withheld): `Lift away the entire lower steering shaft assembly from underneath the vehicle.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-2nd-gen-ac-2-body-lift.1212/)
@@ -315,6 +210,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - BullyDog tuner installation planning: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/blew-up-my-front-end.4828/)
 - Bumpers and skid plate modifications: tool: `Cutting tool`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-secure-stock-bumper-to-aftermarket-radiator-skid.10083/)
 - Bumpers, sliders and skid plates: spec: `Rear Bumper Purpose: Lights and recovery points`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/nismo-releasing-front-and-rear-bumpers-for-the-xterra.10278/)
+- Bumpers, sliders and skid plates: spec: `Bumper Capacity: 20"`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/)
 - Bumpers, sliders and skid plates: applicability: `X`. Reason: local verifier: unsupported. (https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/)
 - Bumpers, sliders and skid plates: mistake: `Assuming first-generation sliders will bolt on without modification due to different bolt placement.`. Reason: names the First generation (WD22), 2000-2004; this page is the Second generation (N50), 2005-2015. (https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/)
 - Bumpers, sliders and skid plates: completeness (procedure withheld): `Install a rear winch with an external connection.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/)
@@ -377,6 +273,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Diff lock switch installation using SPST: spec: `Pin 7 wire color: Brown`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-swap-stock-switches-to-otrattw-switches.5311/)
 - DIY awning leg mounting system: mistake: `Using short screws that don't bite into the PVC sleeve.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-homebrew-x-awning.1611/)
 - DIY Raised Air Intake Snorkel: spec: `Exhaust Flange Size: 3" ID`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/mini-how-to-diy-raised-air-intake-snorkel.1267/)
+- Electrical faults, grounds and battery drain: spec: `Ground connection point: Pin 8 (jumped to Pin 7)`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-swap-stock-switches-to-otrattw-switches.5311/)
 - Exhaust system components for VK swap: summary: `Install JBA long tube headers.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
 - Extended brake lines and wheel studs: completeness (procedure withheld): `Install extended front and rear brake lines.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/)
 - Extended brake lines for Titan swap clearance: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/nemesis-titan-swap-project.11117/)
@@ -439,7 +336,8 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Lift kits and suspension lifts: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/)
 - Lift kits and suspension lifts: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Lift kits and suspension lifts: completeness (procedure withheld): `Select the 5100 shock model that matches your specific lift height requirements.; Install shocks in front and rear, noting that extended versions (like 5125) ar`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
-- Lift kits and suspension lifts: step 12 (procedure withheld): `Tighten the three top strut mount bolts to 30 ft-lbs.`. Reason: safety-critical value the source does not state with that unit: 30 ft-lb. (https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/)
+- Lift kits and suspension lifts: step 12 (procedure withheld): `Tighten the three top strut mount bolts to 30 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/)
+- Lift kits and suspension lifts: step 14 (procedure withheld): `Install the bumper stop nut on the lower control arm and tighten with a deep socket at 10 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/)
 - Lift kits and suspension lifts: tip: `Remove rear strut mount bolts before front ones for easier access and alignment.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/)
 - Lift kits and suspension lifts: tip: `Use anti-seize on new bolts to prevent seizing.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/)
 - Lift kits and suspension lifts: tip: `Inspect the rear bumper area before installing an Air Lift (AAL) if using extended shocks.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/)
@@ -515,6 +413,9 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Lighting, aux fuse blocks and dual batteries: tool: `Bulb replacement tool`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/led-refits.10444/)
 - Lighting upgrades and auxiliary switches: spec: `Switch type: Double pole double throw`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/the-big-light-up.7187/)
 - Lighting upgrades and auxiliary switches: mistake: `Using halogen bulbs in reflector housings designed for different orientations without adjusting the emitter position.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-big-light-up.7187/)
+- Lighting upgrades and relay harnesses: spec: `Recommended wire for short runs: 12 gauge`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/how-to-build-relay-harness-for-100-watt-headlight-bulbs.8850/)
+- Lighting upgrades and relay harnesses: spec: `Stock wattage rating: 55/65 watt`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-build-relay-harness-for-100-watt-headlight-bulbs.8850/)
+- Lighting upgrades and relay harnesses: spec: `Upgraded wattage rating (Hella): 80/100 watt`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/how-to-build-relay-harness-for-100-watt-headlight-bulbs.8850/)
 - Lighting upgrades for off-road visibility: part: `Eyourlife 135W LED Light Bar `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/off-road-lights.6202/)
 - Lithium battery upgrade and cold weather setup: tip: `Look for prismatic lithium cells from reputable sources or use Daly BMS.`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/how-to-xterra-interior-buildout-drawer-and-kitchen-system.282917/)
 - Lockers and traction control: applicability: `OR`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/arb-locker-for-the-r180.882/)
@@ -545,16 +446,20 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Rear differential breather extension mod: tip: `Leave plenty of slack between the frame and axle to allow for articulation.`. Reason: verbatim overlap with source. (https://www.xterranation.org/index.php?threads/how-to-rear-diff-breather-extension-mod.9486/)
 - Rear differential locker bypass and switch install: step 2 (procedure withheld): `Disconnect the existing wiring harness from the diff lock sensor.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/m226-factory-e-locker-plug-n-play-mod.9513/)
 - Rear differential pinion seal replacement: completeness (procedure withheld): `Replace the rear axle's factory pinion bearing seal.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/)
+- Rear Hatch Rotopax Mounting: spec: `Strut load capacity: 175# to 200#`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-rotopax-rear-hatch-rear-gate-install.10105/)
 - Rear Hatch Rotopax Mounting: mistake: `Tightening shims in place too early, which creates gaps that pull the bar off its washers and causes buckling.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-rotopax-rear-hatch-rear-gate-install.10105/)
+- Rear Leaf Spring and Lift Kit Upgrades: spec: `Gross Vehicle Weight Capacity: 660 lbs`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Rear locker engagement and testing: tip: ``. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/)
 - Rear scene light control via diamond switch cluster: spec: `Switch arrangement: Diamond pattern`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/the-big-light-up.7187/)
 - Rear scene light control via diamond switch cluster: spec: `Rear switch function: Manual on for rear scene lights`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/the-big-light-up.7187/)
+- Rear swing-out tire carrier installation: spec: `Tow capacity (GTW): 7501 lbs`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/swing-out-tire-carrier.10844/)
 - Rear swing-out tire carrier installation: spec: `Hitch Class rating: Class IV`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/swing-out-tire-carrier.10844/)
 - Rear swing-out tire carrier installation: tool: `Hitch mount`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/swing-out-tire-carrier.10844/)
 - Rear view camera mounting angles and positions: summary: `Mount the rear view camera with a downward angle or on the back of the tire.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-view-camera-suggestions.2425/)
 - Rear window Molle panel installation: applicability: `2014, X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/molle-panel-inteior.4927/)
 - Rear wiper blade upgrade: step 1 (procedure withheld): `Locate the existing rear wiper assembly.`. Reason: local verifier: unsupported. (https://www.thenewx.org/threads/how-to-upgrade-your-rear-wiper-to-14-or-16-pbr.24339/)
 - Rearview camera installation and wiring: part: `Rearview camera `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rearview-camera-questions.7375/)
+- [reference] Gobi Ladder Specifications: spec: `Alternative Strut Rating: 150#`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
 - [reference] Gobi Ladder Specifications: completeness (procedure withheld): `Mount the ladder to the rear hatch or body support structure.; Attach new gas struts if required by weight capacity.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
 - [reference] Torque specifications: spec: `Oil Change Hatch Bolt Type: Stock Allen Head vs Regular Hex Head`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/nismo-releasing-front-and-rear-bumpers-for-the-xterra.10278/)
 - [reference] Torque specifications: tool: `Allen wrench (for removal)`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/nismo-releasing-front-and-rear-bumpers-for-the-xterra.10278/)
@@ -572,6 +477,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Roof rack finishes and durability: mistake: `Using a cheap paint that lacks UV resistance on exposed parts like rear bumpers without a top coat.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/black-powder-coating.5434/)
 - Roof rack finishes and durability: tool: `Sanding equipment`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/black-powder-coating.5434/)
 - Roof rack strut channel installation: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-strut-channel-cross-bars-roof-rack.9099/)
+- Roof racks, snorkels and storage: spec: `Roof Rack Capacity: 40"`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/)
 - Roof racks, snorkels and storage: part: `1/2-3/4 inch spring nut `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/custom-mountain-bike-rack.3861/)
 - Roof racks, snorkels and storage: tool: `Screwdriver`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-molle-system-for-almost-anywhere.6466/)
 - Roof racks, snorkels and storage: tool: `Screwdriver or removal tool`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/raingler-upper-half-devider-install-options.6014/)
@@ -609,10 +515,19 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Sway bar links and bushings: step 2 (procedure withheld): `Buy an eleven-inch piece of three-quarter inch by .095 wall 4130 alloy steel tube.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/how-to-build-a-bilstein-5125-lower-mount-bushing.8916/)
 - Tire fitment and suspension geometry: applicability: `2nd Gen`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/help-me-understand.1032/)
 - Tire fitment for 35-inch all-terrains: tip: ``. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/)
+- Tires, wheels and fitment: spec: `Tire Size: 285/75R16`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: 285/70R17`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: 285/70R16`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: ~315/70R17`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
 - Tires, wheels and fitment: spec: `Wheel Width (Titan): ~16x8.5" MB TKO Wheel`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: ~315/75R16`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: ~315/70R16`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
 - Tires, wheels and fitment: spec: `Tire Size: ~315/70R16`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
+- Tires, wheels and fitment: spec: `Tire Size: ~315/70R16`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
 - Tires, wheels and fitment: part: `Cooper Discoverer STT Maxx `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/tire-time.2742/)
+- Tires, wheels and fitment: spec: `Recommended PSI range (general): 38-40 psi`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
 - Tires, wheels and fitment: spec: `Tire Rating (Stock): E-rated`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/help-with-tires-for-normal-driving.11070/)
+- Tires, wheels and fitment: spec: `Tire size: 33"`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/rockstar-wheels-and-17in-tires.3948/)
 - Tires, wheels and fitment: summary: `Heat a fender bulge inside corner then wedge it between heated sections using a 2x4.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-the-melt-mod-33-tires-on-2nd-gen.2992/)
 - Tires, wheels and fitment: completeness (procedure withheld): `Verify the tire size matches a 15-inch rim diameter.; Check if the brake caliper fits within that 15-inch opening.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/bfgoodrich-31x10-5%C3%83%E2%80%9415-km2-how-to-choose-rims.6864/)
 - Tires, wheels and fitment: applicability: `O/R`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/)
@@ -628,7 +543,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Tires, wheels and fitment: summary: `Mount new Duratracs tires on wheel rims and install the assembly onto vehicle wheels.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
 - Tires, wheels and fitment: step 1 (procedure withheld): `Mount the new tires on the wheel rims.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
 - Tires, wheels and fitment: step 2 (procedure withheld): `Install the tire assembly onto the vehicle wheels.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
-- Tires, wheels and fitment: tip: `Lowering pressure to 40 psi improves grip but tightens the ride; dropping to 20 psi feels like marshmallows but risks bulging long term.`. Reason: safety-critical value the source does not state with that unit: 20 psi. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
+- Tires, wheels and fitment: tip: `Lowering pressure to 40 psi improves grip but tightens the ride; dropping to 20 psi feels like marshmallows but risks bulging long term.`. Reason: safety-critical value the source does not state with that unit: 20 psi, 40 psi. (https://www.xterranation.org/index.php?threads/new-duratracs.5668/)
 - Tires, wheels and fitment: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/titan-6-spoke-18-wheels-on-a-2nd-gen-xterra.531/)
 - Tires, wheels and fitment: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/titan-6-spoke-18-wheels-on-a-2nd-gen-xterra.531/)
 - Tires, wheels and fitment: summary: `Select an E-load rated tire for off-road protection, then run it at 35 to 36 psi on paved streets.`. Reason: safety-critical value the source does not state with that unit: 35 psi, 36 psi. (https://www.xterranation.org/index.php?threads/cooper-discoverer-at3-4s.11050/)
@@ -647,6 +562,10 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Titan 17-inch aluminum wheels and spacers: completeness (procedure withheld): `Mount Titan/Armada style 17-inch aluminum wheels.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/project-moanin-rona.11338/)
 - Titan axle gear ratio upgrade planning: completeness (procedure withheld): `Remove the existing 3.36 gears from a Titan M205 differential.; Install new 4.10 gear ratios for improved low-end torque.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/blew-up-my-front-end.4828/)
 - Titan axle, differential and brake swaps: spec: `Differential size comparison (visual): Considerably larger than stock`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/)
+- Titan axle, differential and brake swaps: spec: `Halfshaft flange bolt size: M205`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/)
+- Titan axle, differential and brake swaps: spec: `Diff/frame bolt diameter: 19mm`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/)
+- Titan axle, differential and brake swaps: spec: `Front DS bolt diameter: 14mm`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/)
+- Titan axle, differential and brake swaps: spec: `Differential fluid capacity (approx): 3 quarts`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/pre-titan-swap-checklist.1571/)
 - Titan axle, differential and brake swaps: shared platform: `Frontier, Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
 - Titan axle, differential and brake swaps: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
 - Titan axle, differential and brake swaps: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
@@ -674,6 +593,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Titan VK56 engine swap extended rear wheel studs: completeness (procedure withheld): `Install extended rear wheel studs to clear the wider tire fitment.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/titan-swap-registry.599/)
 - Titan VK56 engine swap suspension components: step 1 (procedure withheld): `Install the M205 engine from a 2004-2014 Armada, 2004-2010 Titan, or 2006-2012 Pathfinder.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/)
 - Titan VK56 engine swap suspension geometry and lift: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/titan-swap-registry.599/)
+- Titan VK56 engine swap with auto trans: spec: `Tranny fluid capacity: 16qts`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
 - Titan VK56 engine swap with auto trans: spec: `Bolt C designation: "Alignment bolt"`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
 - Titan VK56 engine swap with auto trans: summary: `Remove front end assembly and crossmember to extract Titan VK56 engine with auto trans.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
 - Titan VK56 engine swap with auto trans: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
@@ -724,13 +644,15 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Bumper and winch mounting specs: part: `Winch plate adapter `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/custom-front-bumper-for-my-05.8938/)
 - CB antenna coax storage technique: tool: `Hands`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/overwhelmed-with-cb-info.7033/)
 - CB antenna power connection specs: completeness (procedure withheld): `Connect the positive wire directly to the battery with an inline fuse.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/overwhelmed-with-cb-info.7033/)
+- CO2 Tank Specifications and Properties: tip: `Ensure the tank has a safety burst valve designed to release around 3000 PSI in extreme heat.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/got-oba-on-board-air.843/)
 - Complete suspension lift options and vendors: tip: `Nisstec offers a full OME kit for under $1,000.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/ebay-uca-lift-kit.7505/)
 - Control arm skid availability notes: summary: `Aftermarket control arm skid options for the 2008 model year were scarce.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/control-arm-skids-are-they-unobtanium-for-the-x.1249/)
 - Coolant capacity for VK swap: summary: `Fill the cooling system with 1 gallon of OEM coolant.`. Reason: safety-critical value the source does not state with that unit: 1 gal. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
-- Coolant capacity for VK swap: step 1 (procedure withheld): `Fill the cooling system with 1 gallon of OEM coolant.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
+- Coolant capacity for VK swap: step 1 (procedure withheld): `Fill the cooling system with 1 gallon of OEM coolant.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/how-to-vk-swap-with-auto-trans.8909/)
 - Dana Super44/M226 & M205 Axle Information: completeness (procedure withheld): `Identify if your vehicle has the 3.36 gear ratio, common on models with big tow packages.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/dana-super44-m226-m205-axle-information.7246/)
 - Dealer hood adjustment cost reference: summary: `Visit a dealer to watch the mechanic perform the fix for labor costing 60.`. Reason: claude review: reject. (https://www.thenewx.org/threads/how-to-stop-hood-squeak-pbr.63948/)
 - [diagnostics] Fuse and relay maps: spec: `Size: various`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/ipdm-fuse-list.266890/)
+- [diagnostics] Fuse and relay maps: spec: `Wire gauge for main run: 4awg`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/need-some-tips-and-help-with-fuse-relay-boxes.10449/)
 - [diagnostics] Fuse and relay maps: step 1 (procedure withheld): `Locate the IPDM fuse box to identify specific circuit assignments.`. Reason: claude review: reject. (https://www.thenewx.org/threads/ipdm-fuse-list.266890/)
 - [diagnostics] Fuse and relay maps: step 2 (procedure withheld): `Match the physical fuse number on the component with the electrical schematic.`. Reason: claude review: reject. (https://www.thenewx.org/threads/ipdm-fuse-list.266890/)
 - [diagnostics] Fuse and relay maps: completeness (procedure withheld): `Locate the IPDM fuse box to identify specific circuit assignments.; Match the physical fuse number on the component with the electrical schematic.`. Reason: claude review: reject. (https://www.thenewx.org/threads/ipdm-fuse-list.266890/)
@@ -773,6 +695,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Fluids and capacities: spec: `Cooling system fluid type: Genuine Nissan Long Lift Anti-freeze or equivalent`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/fluids-and-capacities.7952/)
 - Fluids and capacities: spec: `Power steering fluid type: Genuine NISSAN PSF or equivalent`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/fluids-and-capacities.7952/)
 - Fluids and capacities: spec: `Automatic Transmission Fluid Capacity: 10.5 quarts`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/)
+- Fluids and capacities: spec: `Front diff capacity (run free): ~1.6L`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/whining-front-diff-next-steps.9752/)
 - Fluids and capacities: summary: `Engine coolant capacity is 10.5 quarts while automatic transmission fluid ranges from 9 to 12 quarts.`. Reason: number not found in source. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
 - Fluids and capacities: completeness (procedure withheld): `Fill the transmission with fluid to account for the increased capacity of the stacked plate cooler.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/z1-transmission-cooler-upgrade.11535/)
 - Fluids and capacities: summary: `Check automatic transmission fluid level when warm for a capacity of 10.5 quarts.`. Reason: number not found in source. (https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/)
@@ -781,11 +704,18 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Front and rear U-bolt torque specs: completeness (procedure withheld): `Torque the front U-joints after a few hundred miles.; Retorque again at the next oil change with vehicle weight on the axle.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/)
 - Front brake slide pin and torque member bolt specs: tip: `Replace after removal`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Front CV axle C-clip specifications and fitment: summary: `Ensure the C-clip is centered before placing it into the differential hole.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/re-installing-the-front-cv-axle.9077/)
+- Front differential fill and drain plug torque specs (R180): step 1 (procedure withheld): `Torque the front diff fill plug to 25 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
+- Front differential fill and drain plug torque specs (R180): step 1 (procedure withheld): `Torque the rear diff fill plug to 36 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
+- Front differential fill and drain plug torque specs (R180): step 1 (procedure withheld): `Torque the rear diff fill plug to 25 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Front locker impact on CV axles: completeness (procedure withheld): `Install a front locker to transfer stress and provide a locked feel.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/)
+- Front sway bar and link torque specs: completeness (procedure withheld): `Torque the front swaybar mounting brackets to 96 ft-lbs.; Tighten both ends of the front swaybar connecting rod to 62 ft-lbs; the list says to replace it once i`. Reason: local verifier: not run. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Front UCA and coil bucket clearance: completeness (procedure withheld): `Check that upper control arms do not contact the coil bucket.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-end-sag.10241/)
 - Fuel weight calculations per gallon: completeness (procedure withheld): `Multiply the tank's gallon capacity by 6 to estimate total fuel weight.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/aux-fuel-tank.6436/)
+- Gear ratios and tire sizes: spec: `Transfercase TX15B Fluid Capacity (OE cover): ~2.1QT`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/)
+- Gear ratios and tire sizes: spec: `Front Differential R180A Fluid Capacity (OE cover): 1 3/4 US Pint`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/)
 - Gear ratios and tire sizes: spec: `Lift Height: .5 - 2"`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/)
 - Gear ratios and tire sizes: spec: `Sidewall thickness implication: mostly in the sidewall`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/bfg-ko2-t-a-or-toyo-open-country-at3.9885/)
+- Gear ratios and tire sizes: spec: `Tire size: Target upgrade for more mud clearance: 285/75/16`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/3-13-gear-ratio-and-33-tire.9412/)
 - Gear ratios and tire sizes: summary: `Reference Gear ratios and tire sizes`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/)
 - Gear ratios and tire sizes: completeness (procedure withheld): `Select the gear ratio based on axle type, noting that LE models feature lower numerical ratios compared to XE or SE.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/c200-gear-info-for-titan-swap.1657/)
 - Gear ratios and tire sizes: completeness (procedure withheld): `Identify the stock tire size as 265/75R16 for reference when calculating speedometer accuracy.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/tire-time.2742/)
@@ -811,16 +741,20 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Ironman Leaf Spring Color Variations: spec: `Bushings Color: Neon Green`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Ironman Leaf Spring Color Variations: completeness (procedure withheld): `Inspect the bushings for color matching if aesthetics are a priority.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Ironman leaf spring configurations and capacities: completeness (procedure withheld): `Select the 'Heavy Load' pack for up to 660 lbs GVM capacity.; Choose a 'Medium Load' or custom setup if removing leaves, noting descriptions may vary by vendor.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
+- Ironman rear shackle torque specifications: spec: `Shackle torque: 70 ft lbs`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Krylon Fusion paint for plastic trim: completeness (procedure withheld): `Clean the plastic pieces thoroughly with Dawn soap to remove road oils.; Rough up the surface using a fine grit sandpaper, sanding block, or red sanding pad.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/side-plastic-pieces.3617/)
 - LCA bolt compatibility notes for Mevotech parts: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/nemesis-titan-swap-project.11117/)
 - Leaf spring and shackle repair: completeness (procedure withheld): `Check that the U-bolt threads are thick enough to handle higher torque than stock.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ado-launches-recessed-u-bolt-plates-for-2nd-gen-x.9657/)
 - Leaf spring bushing part sources: completeness (procedure withheld): `Check eBay for complete kits containing front eye, rear eye, and upper shackle bushings.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ome-old-man-emu-leaf-spring-bushings-questions.10055/)
 - Leaf spring bushing torque procedure: completeness (procedure withheld): `Torque the new leaf spring bushings to specification.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ome-old-man-emu-leaf-spring-bushings-questions.10055/)
+- Leaf spring capacity reduction by leaf count: spec: `Capacity reduction per leaf: ~15%`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Leaf spring capacity reduction by leaf count: completeness (procedure withheld): `Calculate the 15% capacity loss when removing longer leaves.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Leaf spring caster wedge kits: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/)
 - Leaf spring relative stiffness by position: completeness (procedure withheld): `Identify leaf positions based on length, as longer leaves support more weight.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
+- Lift and travel definitions: spec: `Tire size for increased clearance: 33s or 35s`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Lift and travel definitions: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Lift and travel definitions: shared platform: `Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
+- Lift kits and suspension lifts: spec: `Lift height: 2"`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/best-way-to-start-lifting-x.6817/)
 - Locker Control Module Pinout and Wire Functions: spec: `Pin 1 Function: Green/White - Keyed Power`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-oem-locker-bypass-and-install-custom-otrattw-switch.8000/)
 - Locker Control Module Pinout and Wire Functions: spec: `Pin 3 Function: Black - Ground`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-oem-locker-bypass-and-install-custom-otrattw-switch.8000/)
 - Locker Control Module Pinout and Wire Functions: spec: `Pin 9 Function: Yellow - Power from locker switch ON`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-oem-locker-bypass-and-install-custom-otrattw-switch.8000/)
@@ -838,10 +772,13 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - M205 engine swap cost estimates: completeness (procedure withheld): `Budget between $600 and $900 for the M205 engine unit.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/)
 - Maintenance schedule sources and intervals: tool: `Computer or device with internet access`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/maintenance-schedules.11213/)
 - Maintenance schedule sources and intervals: tool: `PDF reader`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/maintenance-schedules.11213/)
+- Manual and automatic transmission fill/drain plug torque specs: step 2 (procedure withheld): `Remove and torque the drain plug to 25 ft-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Manual and automatic transmission fill/drain plug torque specs: completeness (procedure withheld): `Torque the manual trans fill plug to 25 ft-lbs.; Remove and torque the drain plug to 25 ft-lbs.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - [mods] Bumpers, sliders and skid plates: tool: `Wrench set`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/)
 - [mods] Gobi Ladder Hatch Support Requirements: summary: `Evaluate the Gobi ladder's ability to hold weight with or without struts.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
 - [mods] Lighting, aux fuse blocks and dual batteries: spec: `Source: Battery`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/ipdm-fuse-list.266890/)
+- [mods] Lighting, aux fuse blocks and dual batteries: spec: `Breaker rating for main run protection: 80A`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/need-some-tips-and-help-with-fuse-relay-boxes.10449/)
+- [mods] Lighting, aux fuse blocks and dual batteries: spec: `Wire gauge for accessory runs: 4awg positive, 12/2 awg negative`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/need-some-tips-and-help-with-fuse-relay-boxes.10449/)
 - [mods] Lighting, aux fuse blocks and dual batteries: summary: `Identify the location for an auxiliary switch and select a momentary style switch.`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/switches-and-you.43111/)
 - [mods] Lighting, aux fuse blocks and dual batteries: step 1 (procedure withheld): `Identify the location for an auxiliary switch near the front roof light switch on the left of the steering wheel.`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/switches-and-you.43111/)
 - [mods] Lighting, aux fuse blocks and dual batteries: completeness (procedure withheld): `Identify the location for an auxiliary switch near the front roof light switch on the left of the steering wheel.; Select a momentary (push-to-make or push-to-b`. Reason: claude review: reject. (https://www.thenewx.org/threads/switches-and-you.43111/)
@@ -892,7 +829,9 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Rear axle seal and bearing service procedure: completeness (procedure withheld): `Remove the rear wheel.; Pull out the entire axle shaft from the differential housing.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/backing-plate-parking-brakes.9382/)
 - Rear Axle Specifications (M226 vs 8.8): completeness (procedure withheld): `Compare the outer diameter of your current axle to ensure compatibility.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/)
 - Rear differential options and strength: completeness (procedure withheld): `Select a Pro-4 or Off-Road rear differential for increased durability.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/)
+- Rear differential pinion nut torque specs (M225 w/o Locker): step 1 (procedure withheld): `Torque the rear diff pinion nut to 220-500 ft-lbs.`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Rear differential pinion nut torque specs (M225 w/o Locker): tip: `Replace after removal`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
+- Rear differential pinion nut torque specs (M225 w/o Locker): step 1 (procedure withheld): `Torque the rear diff pinion nut to 220-500 ft-lbs.`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Rear differential pinion nut torque specs (M225 w/o Locker): tip: `Replace after removal`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Rear Differential Types and Gear Ratios: completeness (procedure withheld): `Match the gear ratio to your current setup or desired tire size.; Verify if you need a locker, as non-Pro-4X/Off-Road models often lack one.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/)
 - Rear Differential Types and Gear Ratios: shared platform: `Frontier, Titan`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/)
@@ -902,6 +841,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Rear leaf spring shim angles for lift and vibration control: summary: `Install a wedge-shaped shim between the shackle and frame using common angles from 2 to 4 degrees.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/ironman-leaf-springs.10023/)
 - Rear shock absorber lift characteristics: completeness (procedure withheld): `Identify if the rear shocks are Bilstein 5100s.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-suspension.8111/)
 - Rear shock upper bushing lubrication points: tool: `Grease gun`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/this-problem-is-making-me-crazy.11249/)
+- Rear suspension sway bar and shock torque specs: completeness (procedure withheld): `Torque the rear bump stop to 14 ft-lbs.; Tighten the rear suspension swaybar mount to 36 ft-lbs.`. Reason: local verifier: not run. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Recommended diagnostic and measurement tools for rear storage: completeness (procedure withheld): `Mount a scanner in the cargo area.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-storage-area-tools-and-spares.10180/)
 - Recommended electrical and wiring repair inventory for rear storage: tip: `Keep solder and wire strippers handy for quick electrical fixes.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-storage-area-tools-and-spares.10180/)
 - Recommended fluid and lubricant inventory for rear storage: completeness (procedure withheld): `Fill 8-gallon Action Packer #1 with engine oil (2qt capacity).`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-storage-area-tools-and-spares.10180/)
@@ -931,6 +871,8 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - [reference] B1D60 Nissan Value Advantage radiator specs: step 1 (procedure withheld): `Verify if the 'B1D60-EA21JNW' part number matches a Nissan Value Advantage unit.`. Reason: claude review: reject. (https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/)
 - [reference] B1D60 Nissan Value Advantage radiator specs: completeness (procedure withheld): `Verify if the 'B1D60-EA21JNW' part number matches a Nissan Value Advantage unit.; Confirm this specific variant is sufficient to eliminate SMOD symptoms.`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/)
 - [reference] B1D60 Nissan Value Advantage radiator specs: applicability: `S`. Reason: claude review: reject. (https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/)
+- Reference: Battery specifications and fitment: spec: `Battery Group Size: Group 34`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/seeking-agm-battery-recommendations-whats-good-in-2024-edit-got-another-odyssey.11188/)
+- Reference: Battery specifications and fitment: spec: `Cold Cranking Amps (CCA): ~100 CCA extra`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/seeking-agm-battery-recommendations-whats-good-in-2024-edit-got-another-odyssey.11188/)
 - Reference: Battery specifications and fitment: spec: `Amp Hours (aH): ~extra`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/seeking-agm-battery-recommendations-whats-good-in-2024-edit-got-another-odyssey.11188/)
 - [reference] Calsonic condenser part numbers for cross-reference: summary: `Search the condenser unit and look for part numbers beginning with '921'.`. Reason: number not found in source. (https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/)
 - [reference] Calsonic condenser part numbers for cross-reference: step 2 (procedure withheld): `Look for part numbers beginning with '921' to confirm OEM assembly.`. Reason: number not found in source. (https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/)
@@ -956,6 +898,8 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - [reference] Fluids and capacities: spec: `Radiator material for Calsonic unit: aluminum`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
 - [reference] Fluids and capacities: spec: `Radiator cooler material for alternative unit: brass`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
 - [reference] Fluids and capacities: spec: `Engine type associated with strong low-end torque: VQ40 engine`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
+- [reference] Fluids and capacities: spec: `Transfer case capacity (imperial): 2 1/8 qt`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/)
+- [reference] Fluids and capacities: spec: `Transfer case capacity (metric): 2.0L`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/)
 - [reference] Fluids and capacities: spec: `Transfer case fluid specification (Nissan): Matic D`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/)
 - [reference] Fluids and capacities: spec: `Transfer case fluid spec name: J`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/)
 - [reference] Fluids and capacities: spec: `Transfer case fluid specification (Nissan): Matic D`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/recommended-fluids-and-capacity.3912/)
@@ -982,6 +926,8 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - [reference] Gobi Ladder Installation Hardware Notes: completeness (procedure withheld): `Check if factory ball sockets can be reused without damage.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
 - [reference] Gobi Ladder Strut Vendor Pricing: summary: `Compare prices between specialty off-road vendors and industrial suppliers.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
 - [reference] Gobi Ladder Strut Vendor Pricing: step 1 (procedure withheld): `Compare prices between specialty off-road vendors and industrial suppliers.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/gobi-ladder-or-no-gobi-ladder.6236/)
+- [reference] Ground clearance measurements by vehicle area: spec: `Drop bracket center clearance (Xterra): 13 inch`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/)
+- [reference] Ground clearance measurements by vehicle area: spec: `Rear crossmember clearance (Xterra): 13 inch`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/)
 - Reference M205 differential rib designs and snap ring upgrades: completeness (procedure withheld): `Determine if the transfer case has a 3-rib (upgraded) or 2-rib design.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/m205-rebuild-and-install.4197/)
 - Reference OBD-II code list source: applicability: `X`. Reason: claude review: reject. (https://www.thenewx.org/threads/2005-xterra-obd-ii-codes.2393/)
 - Reference Part sources and vendors: completeness (procedure withheld): `Compare warranty terms between brands, noting Rough Country offers a 3-year guarantee.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/led-cube-light-difference.7070/)
@@ -1018,6 +964,7 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - [reference] Wheel lug nut torque spec: summary: `Torque the wheel lug nuts to 98 ft-lbs, ensuring proper sequence.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - [reference] Wheel lug nut torque spec: tip: `Ensure proper sequence`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Rough Country cam bolt set value: completeness (procedure withheld): `Purchase the specific cam bolt set for a cost-effective upgrade.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rough-country-basic-2-5-lift-thoughts.4658/)
+- Shock absorber and spring seat torque specs: completeness (procedure withheld): `Tighten the front suspension's lower shock mount to 155 ft-lbs.; Remove and torque the upper shock mounting nuts (3 total) to 22 ft-lbs each.`. Reason: local verifier: not run. (https://www.xterranation.org/index.php?threads/torque-specs.8902/)
 - Shock model numbers and lengths: completeness (procedure withheld): `Identify the 5100 as a standard length shock suitable for lifts up to roughly one inch.; Select the 5125 model if planning a lift into the three-to-four-inch ra`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Shock model selection for travel gain: summary: `Choose extended Radflo shocks if maximum suspension droop and compression travel are the primary goals.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Shock model selection for travel gain: completeness (procedure withheld): `Choose extended Radflo shocks if maximum suspension droop and compression travel are the primary goals.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
@@ -1069,8 +1016,10 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Tire and wheel fitment combinations: summary: `Pair 285/75R16 tires with DX4 or Black Rhino wheels.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/rear-end-sag.10241/)
 - Tire Pressure Adjustments with OBA: summary: `Run tires at 28-35 PSI and expect them to balloon to 33-34 PSI.`. Reason: safety-critical value the source does not state with that unit: 28 psi, 33 psi, 34 psi, 35 psi. (https://www.xterranation.org/index.php?threads/got-oba-on-board-air.843/)
 - Tire Pressure Adjustments with OBA: tip: `Run tires around 28-35 PSI on the street instead of max load ratings.`. Reason: safety-critical value the source does not state with that unit: 28 psi, 35 psi. (https://www.xterranation.org/index.php?threads/got-oba-on-board-air.843/)
+- Tire Pressure Guidelines: tip: `Note that 'P' rated stock sizes typically operate best at 35 PSI to maximize the contact patch across the entire width.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/tire-pressure-patagonia-mt-02-in-lt265-75r16.10930/)
 - Titan Axle and Brake Differences from Xterra: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
 - Titan axle and differential swaps - Cooling upgrades: completeness (procedure withheld): `Ensure the cooling system handles the extra heat from a Titan engine.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/another-titan-swap.5743/)
+- Titan axle and differential swaps - Fluid capacities: spec: `Differential Capacity: M205 spec`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/another-titan-swap.5743/)
 - Titan axle and differential swaps - Fluid capacities: applicability: `NISMO`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/)
 - Titan axle backing plate cost comparison: part: `Rear axle shaft `. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/backing-plate-parking-brakes.9382/)
 - Titan front differential part number: completeness (procedure withheld): `Identify the specific Titan M205 code for your swap.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/titan-swap.7277/)
@@ -1085,7 +1034,9 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Torque specifications: spec: `Spacer bolt torque: 15 ft-lbs`. Reason: value/unit/evidence not found in source. (https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/)
 - Torque specifications: spec: `U-bolt torque: Spec (varies by diameter)`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/)
 - Torque specifications: spec: `Febest Camber Bolt Kit Cost Estimate (4x):`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/)
+- Torque specifications: spec: `Pinion nut torque (to increase preload): 5 in-lbs.`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/)
 - Torque specifications: spec: `Front Lower Control Arm Bushing Bolt Torque: 35 ft-lbs`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/)
+- Torque specifications: spec: `Camber bolt grade: Grade 8 or Class 12.9`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/)
 - Torque specifications: applicability: `2nd Gen`. Reason: claude review: reject. (https://www.thenewx.org/threads/thoughts-and-observations-on-engine-and-auto-trans-cooling.65980/)
 - Torque specifications: summary: `Tighten the Intake Manifold Spacer bolts to a torque of 15 ft-lbs.`. Reason: safety-critical value the source does not state with that unit: 15 ft-lb. (https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/)
 - Torque specifications: applicability: `PRO-4X`. Reason: claude review: reject. (https://www.thenewx.org/threads/want-a-little-more-power-from-your-x-start-here.98161/)
@@ -1197,6 +1148,8 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Shocks, springs and bump stops: completeness (procedure withheld): `Install front upper control arm (UCA) bushings or bump stops to cushion coil bucket contact.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/)
 - Snap ring replacement to prevent harsh ride: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/)
 - Sway bar links and bushings: spec: `New seal inner diameter difference: .100"`. Reason: value/unit/evidence not found in source. (https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/)
+- Sway bar links and bushings: spec: `Pinion preload torque spec: 5 in-lbs.`. Reason: claude review: needs_human. (https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/)
+- Sway bar links and bushings: spec: `Camber bolt adjustment range: +/- 2°`. Reason: claude review: reject. (https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/)
 - Sway bar links and bushings: tip: `Note that these are often seized, requiring significant force or heat before final tightening.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-siezed-cam-bolt-and-lca-removal-and-reinstallation.1214/)
 - Sway bar links and bushings: step 2 (procedure withheld): `Insert the greased bushings into their respective locations.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/how-to-install-delrin-lca-bushings.9384/)
 - Sway bar links and bushings: completeness (procedure withheld): `Inspect the sway bar for movement during suspension travel.; Check if the extra wheel drop causes the sway bar to bottom out on down-travel.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/clunk-in-front-after-lift.7624/)
@@ -1215,6 +1168,9 @@ Claims the pipeline refused to publish, with the reason (evidence missing, verif
 - Titan Front Bump Stop Mounting on Bash Plate: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
 - Titan Front Sway Bar Link Mounting on LCA: summary: `Mark and drill a new hole on the Titan front sway bar link mount for PRG uppers.`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
 - Titan Front Sway Bar Link Mounting on LCA: applicability: `X`. Reason: local verifier: unsupported. (https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/)
+- Transmission and transfer case problems: spec: `Converter housing bolt torque: 38ft*lb`. Reason: claude review: reject. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)
+- Transmission and transfer case problems: spec: `Self-sealing converter housing bolt torque: 45ft*lb`. Reason: claude review: reject. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)
+- Transmission and transfer case problems: spec: `Band servo anchor end pin final torque: 44IN*LB`. Reason: claude review: reject. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)
 - Transmission and transfer case problems: summary: `Remove the transmission and transfer case components to replace internal gears, bearings, and the torque converter.`. Reason: local verifier: unsupported. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)
 - Transmission and transfer case problems: step 32 (procedure withheld): `Loosen the ten bolts holding the rear extension assembly to the transmission case`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)
 - Transmission and transfer case problems: step 37 (procedure withheld): `Install the needle bearing, parking pawl spring, pawl, shaft, and actuator support onto the adapter assembly`. Reason: claude review: needs_human. (https://www.thenewx.org/threads/how-to-convert-2wd-to-4x4.50752/)

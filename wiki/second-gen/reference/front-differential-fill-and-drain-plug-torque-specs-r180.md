@@ -19,10 +19,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 5
+  partial_items: 4
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 3
   pending_safety_values: 0
 ---
 
@@ -41,29 +41,6 @@ verification:
 [Partial] [Unverified value] Torque the rear diff fill plug, then remove and torque the drain plug to 36 ft-lbs. [t73]
 
 [Unverified value] Torque the rear diff fill plug to 25 ft-lbs, then remove and torque the drain plug to 20 ft-lbs. [t73]
-
-## Procedure
-
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
-
-1. [Unverified value] Torque the front diff fill plug to 25 ft-lbs.
-2. [Partial] [Unverified value] Remove and torque the drain plug to 25 ft-lbs.
-
-_Procedure reported by [t73]._
-
-<details><summary>Alternate procedure [t73] [Partial]</summary>
-
-1. [Unverified value] Torque the rear diff fill plug to 36 ft-lbs.
-2. [Partial] [Unverified value] Remove and torque the drain plug to 36 ft-lbs.
-
-</details>
-
-<details><summary>Alternate procedure [t73] [Partial]</summary>
-
-1. [Unverified value] Torque the rear diff fill plug to 25 ft-lbs.
-2. [Partial] [Unverified value] Remove and torque the drain plug to 20 ft-lbs.
-
-</details>
 
 ## Tips & gotchas
 

@@ -82,17 +82,15 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 61
+  partial_items: 60
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 2
-  withheld_items: 7
+  unconfirmed_safety_values: 0
+  withheld_items: 9
   pending_safety_values: 0
 ---
 
 # Sway bar links and bushings
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -300,10 +298,8 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 - **Bolt Head Style**: 1/3-shaved [t642] ([Partial] [Unverified] single report)
 - **Bolt thread size (implied)**: 14mm [t1022] ([Partial] [Unverified] single report)
-- **Camber bolt adjustment range**: +/- 2° [t1022] ([Partial] [Unverified] single report)
 - **Febest Bolt Part Number**: 0229-004 [t642] ([Unverified] single report)
 - **Nissan Washer Part Number**: 545591Z600 [t642] ([Unverified] single report)
-- **Pinion preload torque spec**: 5 in-lbs. [t119] ([Unverified] single report)
 - **Set Total Cost**: $13.10 [t642] ([Partial] [Unverified] single report)
 - **Total Cost per Bolt**: $6.95 [t642] ([Partial] [Unverified] single report)
 

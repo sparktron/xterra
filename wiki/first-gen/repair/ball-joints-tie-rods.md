@@ -45,14 +45,12 @@ verification:
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 3
-  withheld_items: 3
+  unconfirmed_safety_values: 0
+  withheld_items: 6
   pending_safety_values: 0
 ---
 
 # Ball joints, tie rods and steering linkage
-
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -137,12 +135,6 @@ _Procedure reported by [t2130]._
 - Center Link: OEM style, stock center link [t2303]
 - [Partial] Manual hub assembly: Often referred to as 'Hardbody' style, requiring fewer splines than auto hubs. [t2130]
 - [Partial] Tie Rod Ends, TRA: Heavy Duty Trail Rated or upgraded steel version [t2303]
-
-## Specifications
-
-- **Lower ball joint nut torque**: 118-191 [t1763] ([Unverified] single report)
-- **Upper ball joint nut torque**: 78-147 [t1763] ([Unverified] single report)
-- **Wheel lug torque**: 80-100 [t1763] ([Unverified] single report)
 
 ## Tips & gotchas
 

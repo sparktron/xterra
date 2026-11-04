@@ -21,8 +21,8 @@ verification:
   reviewed_items: 0
   partial_items: 3
   partial_fields: []
-  unconfirmed_safety_values: 1
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 
@@ -45,10 +45,6 @@ verification:
 1. [Partial] Torque the shackles to factory specification.
 
 _Procedure reported by [t140]._
-
-## Specifications
-
-- **Shackle torque**: 70 ft lbs [t140] ([Unverified] single report)
 
 ## Tips & gotchas
 

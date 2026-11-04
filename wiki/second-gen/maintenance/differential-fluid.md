@@ -21,23 +21,21 @@ sources:
 confidence: community-consensus
 verification:
   local_pass_required: true
-  reviewed_items: 0
-  partial_items: 4
+  reviewed_items: 1
+  partial_items: 3
   partial_fields: []
-  unconfirmed_safety_values: 3
-  withheld_items: 0
+  unconfirmed_safety_values: 0
+  withheld_items: 2
   pending_safety_values: 0
 ---
 
 # Front and rear differential fluid change
 
-> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
-[Partial] [Unverified value] Drain the front differential and refill with exactly 1.6L of specified fluid. [t345]
+[Partial] Drain the front differential and refill with exactly 1.6L of specified fluid. [t345]
 
 Remove the rear differential fill plug to drain fluid completely. [t528]
 
@@ -46,7 +44,7 @@ Remove the rear differential fill plug to drain fluid completely. [t528]
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
 1. Drain the front differential until it is empty.
-2. [Partial] [Unverified value] Refill with exactly 1.6L of specified fluid.
+2. [Partial] Refill with exactly 1.6L of specified fluid.
 
 _Procedure reported by [t345]._
 
@@ -64,9 +62,7 @@ _Procedure reported by [t345]._
 
 ## Specifications
 
-- **Drain plug torque spec**: 27 lb. [t528] ([Partial] [Unverified] single report)
-- **Fill plug torque spec**: 35 lb. [t528] ([Unverified] single report)
-- **Front diff fill volume**: 1.6L [t345] ([Unverified] single report)
+- **Front diff fill volume**: 1.6L [t345] (Claude-reviewed)
 
 ## Tips & gotchas
 
