@@ -106,6 +106,10 @@ The local model is not trusted. Each item names the guarding test, or says none 
   writes, and an unparseable line is a violation. Change one, change the other. Test: `test_qa_catches_tampering`.
 - **The `GENERATED` first line is load-bearing.** `export` overwrites pages that carry it and `qa` checks only those.
   Removing it from a page hides that page from `qa`. No test covers hand-editing.
+- **Stopping `xw export` loses no published page.** It renders into a temporary `.wiki-export-*` directory beside `wiki/`, moves pages in only after
+  every generation has rendered, and deletes stale pages last, so a stop leaves the old wiki or, during the moves, a mix the next export
+  settles. An interrupted `xw run` exports nothing and exits 130. Tests: `test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was`,
+  `test_an_export_stopped_while_moving_pages_into_place_deletes_nothing`, `test_an_interrupted_run_exports_nothing_and_does_not_report_success`.
 - **Blocks are never worked around.** 401/402/403 (`crawl.stop_statuses`), repeated 429, off-site redirects and
   challenge pages mark the source blocked; no retry, header spoofing, proxy, mirror or cache. Tests: `tests/test_fetch.py`.
 - **Wiki scope years (`scope.years: [2000, 2016]`) are `[Unverified]`.** Facts stating only years outside it are dropped

@@ -25,8 +25,10 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import re
 import sqlite3
+import tempfile
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
@@ -708,17 +710,18 @@ def _dtc_table(rows: list[FactRow], policy: Policy, keep: Any = None) -> list[li
 LEGACY_FILES = ("dtc_table.csv", "sources.json", "parts_diagrams.md", "interchange.md", "pending_verification.md")
 
 
-def _remove_stale(wiki: Path, gl: list[Generation], topics: TopicIndex) -> None:
-    """Delete generated pages from an earlier export: in each generation's section, and the single-section layout
-    used before the split (top-level category folders and files). Only files carrying the GENERATED header, plus the
-    two generated data files, are touched; hand-curated pages never are."""
+def _remove_stale(wiki: Path, gl: list[Generation], topics: TopicIndex, new: set[Path]) -> None:
+    """Delete generated pages from an earlier export that this one (`new`, paths relative to wiki/) did not write: in
+    each generation's section, and the single-section layout used before the split (top-level category folders and
+    files). Only files carrying the GENERATED header, plus the two generated data files, are touched; hand-curated
+    pages never are."""
     gen_ids = {g.id for g in gl}
     dirs = [d for g in gl if (wiki / g.id).is_dir() for d in (wiki / g.id).iterdir() if d.is_dir() and d.name != CURATED_DIR]
     legacy_cats = {c for gid in topics.generations for c in topics.category_titles_for(gid)}
     dirs += [wiki / c for c in legacy_cats if c not in gen_ids and c != CURATED_DIR]
     for d in dirs:
         for old in d.glob("*.md"):
-            if old.read_text(encoding="utf-8", errors="ignore").startswith(GENERATED):
+            if old.relative_to(wiki) not in new and old.read_text(encoding="utf-8", errors="ignore").startswith(GENERATED):
                 old.unlink()
     for name in LEGACY_FILES:
         f = wiki / name
@@ -726,10 +729,23 @@ def _remove_stale(wiki: Path, gl: list[Generation], topics: TopicIndex) -> None:
             f.unlink()
 
 
+def _publish(staged: Path, wiki: Path, gl: list[Generation], topics: TopicIndex) -> None:
+    """Move a finished export into wiki/, then delete what it no longer produces. A stop at any point loses no page:
+    each move replaces its target atomically and nothing is deleted until every new page is in place. A stop during
+    the moves leaves a mix of old and new pages, which the next export settles."""
+    new = {p.relative_to(staged) for p in staged.rglob("*") if p.is_file()}
+    for rel in sorted(new):
+        (wiki / rel).parent.mkdir(parents=True, exist_ok=True)
+        os.replace(staged / rel, wiki / rel)
+    _remove_stale(wiki, gl, topics, new)
+
+
 def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, g: Generation, gl: list[Generation],
-                       rows: list[FactRow], policy: Policy) -> dict[str, Any]:
-    """Write one generation's complete section under wiki/<generation>/."""
-    out_dir = cfg.wiki_dir / g.id
+                       rows: list[FactRow], policy: Policy, staged: Path) -> dict[str, Any]:
+    """Write one generation's complete section under `staged`/<generation>/. Curated pages are looked up in wiki/, since
+    they are not part of an export."""
+    out_dir = staged / g.id
+    live_dir = cfg.wiki_dir / g.id
     pages = build_pages(rows, topics, g.id)
     others = [o for o in gl if o.id != g.id]
     keep = lambda text: other_marker(text, g, gl) is None  # noqa: E731
@@ -757,10 +773,10 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
            + " ".join(f"The {o.title} is a different truck with its own section: [{o.title}](../{o.id}/index.md)." for o in others)
            + " Nothing here applies to the other generation unless a page says so.", "",
            "Status: `not-started` means no verified source has contributed yet.", ""]
-    if (out_dir / CURATED_DIR / "index.md").exists():
+    if (live_dir / CURATED_DIR / "index.md").exists():
         idx += [f"Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference]({CURATED_DIR}/index.md) "
                 "(hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).", ""]
-    if (out_dir / GUIDES_DIR / "index.md").exists():
+    if (live_dir / GUIDES_DIR / "index.md").exists():
         idx += [f"Step-by-step maintenance, repair and upgrade guides: [Guides]({GUIDES_DIR}/index.md) (hand-written from the "
                 "factory service manual and forum write-ups; every step and number cites its source). The Guide column "
                 "below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.", ""]
@@ -769,7 +785,7 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
         idx += [f"## {title}", "", "| Topic | Guide | Status | Threads |", "|---|---|---|---|"]
         for t in sorted((t for t in gen_topics if t.category == cat), key=lambda t: t.title.lower()):
             m = summary.get(f"{cat}/{t.slug}")
-            guide = f"[Guide]({GUIDES_DIR}/{t.slug}.md)" if (out_dir / GUIDES_DIR / f"{t.slug}.md").exists() else ""
+            guide = f"[Guide]({GUIDES_DIR}/{t.slug}.md)" if (live_dir / GUIDES_DIR / f"{t.slug}.md").exists() else ""
             idx.append(f"| [{t.title}]({cat}/{t.slug}.md) | {guide} | {m['confidence']} | {m['n_threads']} |" if m
                        else f"| {t.title} | {guide} | not-started | 0 |")
         idx.append("")
@@ -875,30 +891,32 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     rows = load_rows(conn)
     gl = generations.load(cfg)
     by_gen, unrouted = route_rows(cfg, rows)
-    _remove_stale(wiki, gl, topics)
+    # Build everything beside wiki/ (same filesystem, so the moves are atomic); wiki/ is untouched until it is all rendered.
+    with tempfile.TemporaryDirectory(prefix=".wiki-export-", dir=wiki.parent) as tmp:
+        staged = Path(tmp)
+        totals: Counter[str] = Counter()
+        per_gen: dict[str, dict[str, Any]] = {}
+        for g in gl:
+            per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy, staged)
+            totals.update(per_gen[g.id])
 
-    totals: Counter[str] = Counter()
-    per_gen: dict[str, dict[str, Any]] = {}
-    for g in gl:
-        per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy)
-        totals.update(per_gen[g.id])
+        idx = [GENERATED, "# Nissan Xterra wiki", "",
+               "The Xterra had two generations that share almost nothing: body, frame, engines, transmissions, suspension and "
+               "most parts differ. Each has its own completely separate section. A page in one section never covers the "
+               "other generation; pick yours first.", "",
+               "| Generation | Section | Topic pages | Facts |", "|---|---|---|---|"]
+        idx += [f"| {g.title} | [{g.title}]({g.id}/index.md) | {per_gen[g.id]['pages']} | {per_gen[g.id]['facts']} |" for g in gl]
+        idx += ["", f"Facts that belong to no single generation are not published in either section: [open questions](open_questions.md).", ""]
+        _write(staged / "index.md", "\n".join(idx))
 
-    idx = [GENERATED, "# Nissan Xterra wiki", "",
-           "The Xterra had two generations that share almost nothing: body, frame, engines, transmissions, suspension and "
-           "most parts differ. Each has its own completely separate section. A page in one section never covers the "
-           "other generation; pick yours first.", "",
-           "| Generation | Section | Topic pages | Facts |", "|---|---|---|---|"]
-    idx += [f"| {g.title} | [{g.title}]({g.id}/index.md) | {per_gen[g.id]['pages']} | {per_gen[g.id]['facts']} |" for g in gl]
-    idx += ["", f"Facts that belong to no single generation are not published in either section: [open questions](open_questions.md).", ""]
-    _write(wiki / "index.md", "\n".join(idx))
-
-    oq = [GENERATED, "# Open questions: facts in no generation's section", "",
-          "Each section publishes only its own generation's facts. These state model years in more than one generation, "
-          "or no model year and come from a source with no generation, so neither section publishes them.", ""]
-    oq += [f"- t{r.thread_id} \"{r.thread_title}\": {r.fact.title or r.fact.topic}. Reason: {why}. ({r.url})" for r, why in unrouted] or ["_None._"]
-    blocked = conn.execute("SELECT id, name, reason FROM sources WHERE status='blocked'").fetchall()
-    oq += ["", "## Blocked sources (all generations)", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in blocked] or ["_None._"])
-    _write(wiki / "open_questions.md", "\n".join(oq) + "\n")
+        oq = [GENERATED, "# Open questions: facts in no generation's section", "",
+              "Each section publishes only its own generation's facts. These state model years in more than one generation, "
+              "or no model year and come from a source with no generation, so neither section publishes them.", ""]
+        oq += [f"- t{r.thread_id} \"{r.thread_title}\": {r.fact.title or r.fact.topic}. Reason: {why}. ({r.url})" for r, why in unrouted] or ["_None._"]
+        blocked = conn.execute("SELECT id, name, reason FROM sources WHERE status='blocked'").fetchall()
+        oq += ["", "## Blocked sources (all generations)", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in blocked] or ["_None._"])
+        _write(staged / "open_questions.md", "\n".join(oq) + "\n")
+        _publish(staged, wiki, gl, topics)
 
     return {**{k: totals[k] for k in ("pages", "facts", "dtc_codes", "dropped", "pending", "unconfirmed", "partial",
                                       "disputes", "missing_topics")},

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import re
 from pathlib import Path
 
@@ -10,6 +11,7 @@ import httpx
 import pytest
 
 from xw import db
+from xw import export as export_module
 from xw.cli import main
 from xw.crawl import build_chunks, discover, harvest, is_guide_chunk, is_guide_title, store_thread
 from xw.export import GENERATED, SAFETY_NOTE, export_all
@@ -1627,3 +1629,100 @@ def test_consensus_below_a_raised_safety_threshold_is_marked_unverified(cfg, con
     cfg.verify.as_dict()["safety_min_threads"] = 2
     export(cfg, conn)
     assert "83 ft-lb [t1, t2] (community-consensus, 2 threads)" in page_text(cfg) and SAFETY_NOTE not in page_text(cfg)
+
+
+# ---- an interrupted export or run (2026-11-03: a stop mid-export deleted 930 published pages) --------------------------
+def _published(cfg):
+    return {p.relative_to(cfg.wiki_dir): p.read_bytes() for p in cfg.wiki_dir.rglob("*") if p.is_file()}
+
+
+def _wiki_about_to_be_replaced(cfg, conn, tmp_path):
+    """A published page in each section and a curated hub, then what the next export must change: a page with older
+    text and a generated page it no longer produces. Returns (the older page, the stale page, the curated hub)."""
+    add_notes(cfg, conn, tmp_path, [("gen2src", GEN1_TEXT.replace("2001", "2008"), "dan")])
+    f = tmp_path / "gen1.txt"
+    f.write_text(GEN1_TEXT)
+    ingest_file(cfg, conn, f, url="https://gen1.invalid/1", title="gen1", author="eve", source="manual-gen1")
+    bare = {"parts": [], "specs": [], "diagram_links": []}
+    extract_and_verify(cfg, conn, [("2001", {"relevant": True, "facts": [arm_fact(years=[2001], **bare)]}),
+                                   ("2008", {"relevant": True, "facts": [arm_fact(years=[2008], **bare)]})])
+    hub = cfg.wiki_dir / "second-gen" / "vehicle" / "index.md"
+    hub.parent.mkdir(parents=True)
+    hub.write_text("# Reference\n\nOverall width 72.8 in [S1]\n\n## Sources\n\n- [S1] Nissan brochure. https://x.example/b.pdf\n")
+    export(cfg, conn)
+    older = cfg.wiki_dir / "first-gen" / "repair" / "control-arms-bushings.md"
+    assert older.exists() and (gen2(cfg) / "repair" / "control-arms-bushings.md").exists()
+    older.write_text(GENERATED + "\n# The previous export's text\n")
+    stale = gen2(cfg) / "repair" / "no-longer-produced.md"
+    stale.write_text(GENERATED + "\n# Stale\n")
+    return older, stale, hub
+
+
+def test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was(cfg, conn, tmp_path, monkeypatch):
+    older, stale, hub = _wiki_about_to_be_replaced(cfg, conn, tmp_path)
+    before = _published(cfg)
+    real, calls = export_module._export_generation, []
+
+    def stopped(*args, **kw):
+        calls.append(1)
+        if len(calls) == 2:
+            raise KeyboardInterrupt
+        return real(*args, **kw)
+
+    monkeypatch.setattr(export_module, "_export_generation", stopped)
+    with pytest.raises(KeyboardInterrupt):
+        export(cfg, conn)
+    assert len(calls) == 2 and _published(cfg) == before     # nothing deleted, and the first section not half replaced
+    assert not list(cfg.root.glob(".wiki-export-*"))         # and no staging directory left behind
+
+    monkeypatch.undo()
+    export(cfg, conn)
+    assert GENERATED + "\n# The previous" not in older.read_text() and "Remove the pivot bolts" in older.read_text()
+    assert not stale.exists() and hub.read_bytes() == before[hub.relative_to(cfg.wiki_dir)]
+    assert "](vehicle/index.md)" in (gen2(cfg) / "index.md").read_text()   # the hub is found in wiki/, not in the staging copy
+    assert not list(cfg.root.glob(".wiki-export-*")) and check_wiki(cfg, conn) == []
+
+
+def test_an_export_stopped_while_moving_pages_into_place_deletes_nothing(cfg, conn, tmp_path, monkeypatch):
+    older, stale, hub = _wiki_about_to_be_replaced(cfg, conn, tmp_path)
+    before = _published(cfg)
+    real, calls = os.replace, []
+
+    def stopped(*args):
+        calls.append(1)
+        if len(calls) == 3:
+            raise KeyboardInterrupt
+        real(*args)
+
+    monkeypatch.setattr(export_module.os, "replace", stopped)
+    with pytest.raises(KeyboardInterrupt):
+        export(cfg, conn)
+    assert before.keys() <= _published(cfg).keys() and stale.exists()   # some pages may be new, but every old one is there
+    assert not list(cfg.root.glob(".wiki-export-*"))
+
+    monkeypatch.undo()
+    export(cfg, conn)                                                   # the next export settles it
+    assert not stale.exists() and "Remove the pivot bolts" in older.read_text() and check_wiki(cfg, conn) == []
+
+
+def test_two_exports_of_the_same_database_are_byte_identical(cfg, conn, tmp_path):
+    _, stale, _ = _wiki_about_to_be_replaced(cfg, conn, tmp_path)
+    export(cfg, conn)
+    first = _published(cfg)
+    export(cfg, conn)
+    assert _published(cfg) == first and not stale.exists()
+
+
+def test_an_interrupted_run_exports_nothing_and_does_not_report_success(root, monkeypatch, capsys):
+    def stop(*args, **kw):
+        raise KeyboardInterrupt
+
+    def no_export(*args, **kw):
+        raise AssertionError("an interrupted run must not start an export")
+
+    assert main(["--root", str(root), "init"]) == 0
+    monkeypatch.setattr("xw.cli.discover", stop)
+    monkeypatch.setattr("xw.cli._extract", stop)
+    monkeypatch.setattr("xw.cli.export_all", no_export)
+    assert main(["--root", str(root), "run"]) == 130
+    assert "nothing exported" in capsys.readouterr().out

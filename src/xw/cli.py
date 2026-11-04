@@ -251,7 +251,9 @@ def cmd_run(args: argparse.Namespace) -> int:
             db.set_source_status(conn, sid, "done" if finished else "queued",
                                  f"{failed} chunk(s) failed extraction; see wiki/open_questions.md" if failed and not args.crawl_only else "")
     except KeyboardInterrupt:
-        print("\ninterrupted; state is saved, rerun `xw run` to resume")
+        # stop now: an export takes minutes, and the exit code must not read as a finished run
+        print("\ninterrupted; state is saved, nothing exported. Rerun `xw run` to resume, or `xw export && xw qa` to publish what is verified so far")
+        return 130
     if not args.crawl_only:
         cmd_export(args)
     return 0
