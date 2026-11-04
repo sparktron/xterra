@@ -32,7 +32,7 @@ Page metadata no longer shows as text (2026-11-04). In a pull request from `fix/
   2,691 facts, 1,791 withheld, unchanged. The wiki diff is 1,413 files, 2,826 insertions, no deletions: only the two comment
   lines per page, and byte-identical to the export from before the rebase. GitHub's markdown API rendered
   `second-gen/maintenance/engine-oil-change.md` with the heading first and no metadata; that render predates the rebase.
-  Not run: remote CI, the dependency-floor job, or any LLM stage (neither `llm.py`, a prompt nor a parser changed).
+  Remote CI and the dependency-floor job run on the pull request. Not run: any LLM stage (neither `llm.py`, a prompt nor a parser changed).
 
 Interrupt-safe export (2026-11-04). Part of plan item 6 below; the first half of the 2026-11-03 open risk is closed.
 
