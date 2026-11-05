@@ -7,7 +7,8 @@ category: reference
 applies_to:
   years:
   - 2013
-  trims: []
+  trims:
+  - PRO-4X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -23,15 +24,17 @@ tools:
 parts: []
 sources:
 - t179
+- t181
 - t195
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 11
-  partial_fields: []
+  partial_items: 20
+  partial_fields:
+  - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 8
   pending_safety_values: 0
 ---
 -->
@@ -51,6 +54,32 @@ verification:
 [Partial] Cut the plate to size using a fine-tooth carbide plywood Skilsaw blade, then glue sections with spoolgun MIG welding. [t179]
 
 [Partial] Factory skid plates are adequate for intermediate trails but may require upgrading. [t195]
+
+[Partial] Install a 2-inch body lift to accommodate the slider angles. [t181]
+
+[Partial] Reduce the angles of specific tubing sections to allow for a proper step function. [t181]
+
+[Partial] Install a 10-degree angled step tube on the slider assembly for better roof rack access. [t181]
+
+[Partial] Apply a DIY bedliner finish to the slider surface for added protection. [t181]
+
+Mount a 2-bar support structure to the vehicle body. [t181]
+
+Construct custom sliders from drill steel tubing. [t181]
+
+[Partial] Install a 3-tube tie-in configuration with a forward brace. [t181]
+
+Line the slider surface with Rhino-Liner for improved grip when wet. [t181]
+
+[Partial] Install a kickout style extension at the rear tire area. [t181]
+
+[Partial] Mount a 1.5-inch section at the rear of the slider for full coverage. [t181]
+
+[Partial] Install a flattened circle shaped kickout step for improved geometry. [t181]
+
+Mount a 2-inch body lift to clear the slider angles. [t181]
+
+[Partial] Install a 25-degree angled step tube on the slider assembly. [t181]
 
 ## Procedure
 
@@ -81,6 +110,54 @@ _Procedure reported by [t179]._
 
 </details>
 
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Install a 2-inch body lift to accommodate the slider angles.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Reduce the angles of specific tubing sections to allow for a proper step function.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Install a 10-degree angled step tube on the slider assembly for better roof rack access.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. Construct custom sliders from drill steel tubing.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. Line the slider surface with Rhino-Liner for improved grip when wet.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. Install a 'kickout' style extension at the rear tire area for easier access.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Install a 'flattened circle' shaped kickout step for improved geometry.
+
+</details>
+
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Mount a 10-degree angled step tube on the slider assembly for better roof rack access.
+
+</details>
+
 ## Tools
 
 - [Partial] Brake press [t179]
@@ -106,5 +183,6 @@ _Procedure reported by [t179]._
 ## Source attributions
 
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
+- **t181**: civicjoe, "Sliders Styles for 2nd Gens", 2011-11-03. https://www.xterranation.org/index.php?threads/sliders-styles-for-2nd-gens.229/
 - **t195**: Henry, "2013 Pro 4x Question", 2020-04-20. https://www.xterranation.org/index.php?threads/2013-pro-4x-question.9474/
 

@@ -25,6 +25,7 @@ tools:
 - OBDII Scanner
 - OBDLink MX+ scan tool
 - Bluetooth-enabled smartphone or tablet
+- Phone (for taking pictures)
 parts:
 - name: 5-pin relay
   oem_part_no: ''
@@ -49,16 +50,18 @@ sources:
 - t776
 - t793
 - t974
+- t1040
 - t1042
+- t3085
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 41
+  partial_items: 45
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 15
+  withheld_items: 16
   pending_safety_values: 0
 ---
 -->
@@ -104,6 +107,10 @@ Connect the OBDLink MX+ via Bluetooth with an app like ForScan. [t300]
 Check Open Circuit Voltage with a multimeter after waiting at least 8 hours for readings to stabilize. [t710]
 
 Inspect the ABS sensor wiring at the wheel hub plug connection for sheared wires. [t776]
+
+[Partial] Disconnect the battery, leave it disconnected to reset, then cycle the key. [t3085]
+
+Check engine bay wiring, inspect fuses and relays, then look at the radiator and air intake. [t1040]
 
 ## Procedure
 
@@ -215,6 +222,20 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t3085] [Partial]</summary>
+
+1. Disconnect the negative side of the battery.
+2. Leave it disconnected for 10 minutes to reset the system.
+
+</details>
+
+<details><summary>Alternate procedure [t1040] [Partial]</summary>
+
+1. [Partial] Check all wiring in the engine bay to ensure nothing is loose.
+2. [Partial] Inspect fuses and relays for continuity issues.
+
+</details>
+
 ## Tools
 
 - Multimeter [t269]
@@ -223,6 +244,7 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - [Partial] OBDII Scanner [t102]
 - [Partial] OBDLink MX+ scan tool [t300]
 - [Partial] Bluetooth-enabled smartphone or tablet [t300]
+- [Partial] Phone (for taking pictures) [t3085]
 
 ## Parts
 
@@ -258,6 +280,9 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - [Partial] Ensure no electrical loads are connected during the measurement to prevent inflated readings from parasitic draws or alternators. [t710]
 - [Partial] If the harness is hard to reach, consider splicing a new sensor directly onto the existing wiring instead of replacing the whole assembly. [t776]
 - [Partial] Shrink wrap any exposed splice connections to protect them from road elements. [t776]
+- Cycle the key from off to on several times after reconnecting. [t3085]
+- [Partial] Check for a loose connection at the positive terminal while the negative is off. [t3085]
+- Look at the radiator and air intake for damage caused by rolling. [t1040]
 
 ## Common mistakes
 
@@ -265,6 +290,7 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - [Partial] Assuming standard 7-pin configurations without verifying the specific vehicle's harness layout first. [t1042]
 - Reading voltage immediately after use, which can be artificially high due to alternator output and lead to incorrect state-of-charge assumptions. [t710]
 - [Partial] Accepting that an entire ABS drivetrain assembly must be replaced when only the harness plug is damaged. [t776]
+- [Partial] Dunking relays or fuses into cleaning solution instead of just the main unit metal and plastic. [t3085]
 
 ## Diagrams (links only)
 
@@ -292,5 +318,7 @@ _Procedure reported by [t753]. Photos of this job are in the source: <https://ww
 - **t776**: Razzmaniac, "ABS. VDO, SLIP lights on and NO 4WD", 2014-02-16. https://www.xterranation.org/index.php?threads/abs-vdo-slip-lights-on-and-no-4wd.4825/
 - **t793**: Trexterra, "Feels Like Limp Mode... No Codes... Pending SMOD?", 2014-04-20. https://www.xterranation.org/index.php?threads/feels-like-limp-mode-no-codes-pending-smod.5182/
 - **t974**: Macland, "Alternator issues 2nd Gen", 2014-10-01. https://www.xterranation.org/index.php?threads/alternator-issues-2nd-gen.5982/
+- **t1040**: xterraminator, "Starting engine after airbags deploy", 2014-08-31. https://www.xterranation.org/index.php?threads/starting-engine-after-airbags-deploy.5864/
 - **t1042**: metzican, "7 Pin Trailer wiring schematic", 2014-07-05. https://www.xterranation.org/index.php?threads/7-pin-trailer-wiring-schematic.5619/
+- **t3085**: Back2Baja, "Air Conditioning Stuck on in the Iowa Winter!!", 2014-12-19. https://www.xterranation.org/index.php?threads/air-conditioning-stuck-on-in-the-iowa-winter.6269/
 

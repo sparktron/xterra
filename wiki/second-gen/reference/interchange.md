@@ -9,6 +9,7 @@ applies_to:
   - 2014
   trims:
   - NISMO
+  - PRO-4X
   engine: []
   drivetrain: []
 shared_platform:
@@ -22,18 +23,20 @@ parts:
   oem_part_no: ''
 sources:
 - t180
+- t181
 - t245
 - t263
+- t411
 - t829
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 5
+  partial_items: 7
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 -->
@@ -51,6 +54,10 @@ Identify the upper half divider net as a cargo area separator. [t245]
 [Partial] Mount the net to the side roof tied downs. [t245]
 
 [Partial] Bolt a drop bracket kit directly into a 2006+ Frontier front suspension. [t829]
+
+[Partial] Check if the slider style bolt fits the frame without requiring a drill. [t181]
+
+[Partial] Identify specific axle type to ensure cover compatibility. [t411]
 
 ## Procedure
 
@@ -82,12 +89,18 @@ _Procedure reported by [t180]._
 
 - Upper half divider net [t245]
 
+## Specifications
+
+- **C200k Bolt Count**: 8 bolts [t411] ([Unverified] single report)
+- **M226 Bolt Count**: 12 bolts [t411] ([Unverified] single report)
+
 ## Tips & gotchas
 
 - [Partial] Note that this is the smaller of the two nets available. [t245]
 - This is an alternative mounting method that angles the net back toward the side. [t245]
 - [Partial] Modifications made to the Xterra's crossmember may be required for installation on the Frontier. [t829]
 - The SLR kit is designed to bolt right in without major fabrication issues. [t829]
+- Note that the M226 cover has 12 bolts while the C200k variant typically has 8. [t411]
 
 ## Diagrams (links only)
 
@@ -96,7 +109,9 @@ _Procedure reported by [t180]._
 ## Source attributions
 
 - **t180**: gorillamel, "Aftermarket Rear Bumpers for 2nd Gens", 2011-11-02. https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/
+- **t181**: civicjoe, "Sliders Styles for 2nd Gens", 2011-11-03. https://www.xterranation.org/index.php?threads/sliders-styles-for-2nd-gens.229/
 - **t245**: maillet282, "raingler upper half devider install options", 2014-10-09. https://www.xterranation.org/index.php?threads/raingler-upper-half-devider-install-options.6014/
 - **t263**: obi_krash, "M205 Sourcing", 2016-06-10. https://www.xterranation.org/index.php?threads/m205-sourcing.7672/
+- **t411**: Macland, "Rear Diff Covers", 2014-05-14. https://www.xterranation.org/index.php?threads/rear-diff-covers.5338/
 - **t829**: 9heavens, "SLR drop bracket installtion.", 2019-06-15. https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/
 

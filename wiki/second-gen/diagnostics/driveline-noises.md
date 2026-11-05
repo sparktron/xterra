@@ -10,11 +10,13 @@ applies_to:
   - 2010
   - 2015
   trims:
+  - 2nd Gen
   - Nismo
   - Off-Road
   - P4X
   - Pro-4X
   - S
+  - SE
   - X
   engine: []
   drivetrain: []
@@ -23,9 +25,11 @@ difficulty: null
 est_time: null
 tools:
 - Magnetic angle gauge
+- Jack stands
 parts: []
 sources:
 - t119
+- t125
 - t126
 - t345
 - t373
@@ -35,16 +39,19 @@ sources:
 - t801
 - t874
 - t879
+- t958
+- t1006
 - t1018
+- t3088
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 18
+  partial_items: 25
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 6
+  withheld_items: 8
   pending_safety_values: 0
 ---
 -->
@@ -81,6 +88,14 @@ Listen for a whine occurring between 53mph and 59mph. [t345]
 
 [Partial] Listen for strange popping sounds coming from the rear end while cornering. [t801]
 
+[Partial] Pull the rear tire off the hub and place the truck on jack stands. [t958]
+
+Inspect tie rods, check the drag link if equipped, examine the idler arm, look at tire wear patterns for scallops or unevenness, and determine if steering darts left/right when suspension moves up and down. [t1006]
+
+[Partial] Put the vehicle in 4-LO and listen for a winding sound followed by a clanking noise. [t3088]
+
+[Partial] Check the front passenger hub assembly for play and spin the tire by hand to listen. [t125]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -91,6 +106,14 @@ Listen for a whine occurring between 53mph and 59mph. [t345]
 4. Drive around normally until shifting into reverse causes one final pop.
 
 _Procedure reported by [t1018]._
+
+<details><summary>Alternate procedure [t1006] [Partial]</summary>
+
+1. Inspect the tie rods for bends or wear.
+2. Check if the drag link is bent (if equipped).
+3. Examine the idler arm to see if it has become bent.
+
+</details>
 
 <details><summary>Alternate procedure [t373] [Partial]</summary>
 
@@ -162,6 +185,27 @@ _Procedure reported by [t1018]._
 
 </details>
 
+<details><summary>Alternate procedure [t958] [Partial]</summary>
+
+1. Pull the rear tire off the hub.
+2. [Partial] Place the truck on jack stands to support the axle weight.
+
+</details>
+
+<details><summary>Alternate procedure [t3088] [Partial]</summary>
+
+1. [Partial] Put the vehicle in 4-LO.
+2. Listen for a winding sound followed by a clanking noise.
+
+</details>
+
+<details><summary>Alternate procedure [t125] [Partial]</summary>
+
+1. Check the front passenger hub assembly for play.
+2. [Partial] Spin the tire by hand to listen for odd noises.
+
+</details>
+
 <details><summary>Alternate procedure [t345] [Partial]</summary>
 
 1. Listen for a whine occurring between 53mph and 59mph.
@@ -171,6 +215,7 @@ _Procedure reported by [t1018]._
 ## Tools
 
 - [Partial] Magnetic angle gauge [t373]
+- [Partial] Jack stands [t958]
 
 ## Tips & gotchas
 
@@ -189,14 +234,26 @@ _Procedure reported by [t1018]._
 - [Partial] Jack the vehicle up on four stands and have someone shift into drive to examine components with weight off. [t495]
 - [Partial] Inspect CV boot boots for damage, as a tear can cause clicking noises when turning. [t495]
 - Note that this issue often requires dealership expertise to diagnose correctly. [t874]
+- [Partial] Put the transmission in gear while turning the wheel to get a good look at internal components. [t958]
+- Use a video camera with sound recording capability if possible. [t958]
+- Look at tire wear patterns for scallops or unevenness. [t1006]
+- Determine if steering darts left/right when suspension moves up and down, rather than just feeling jarring on impacts. [t1006]
+- Check underneath the vehicle to locate leaks or damage after hearing unusual noises. [t3088]
+- Note that noise may be more pronounced during acceleration and braking than when coasting in neutral. [t125]
 
 ## Common mistakes
 
 - [Partial] Assuming the problem is solved just because fluids look clear, as contamination can be subtle. [t874]
 - [Partial] Ignoring U-joints and wheel weights before checking fluid levels. [t874]
+- [Partial] Assuming the rear differential is the culprit without checking the front hubs first. [t125]
+- [Partial] Relying solely on a shake test if play has already developed silently. [t125]
 
 ## Diagrams (links only)
 
+- [image: https://www.xterranation.org/data/attachments/1/1769-9da2b86fb83f02526018885395525963.jpg] [t3088]
+- [image: https://www.xterranation.org/data/attachments/1/1770-0f4a979653874d8b91104f59d0f3f858.jpg] [t3088]
+- http://www.baja101.com/4x4abc/4WD101/img/diff.jpg [t958]
+- http://www.oemnissanparts.com/media/images/oe/mechanical/F599070.gif [t958]
 - http://www.thenewx.org/forum/showthread.php?t=57971&page=2 [t794]
 - https://i.imgur.com/H1A34hX.jpg?1 [t345]
 - https://youtu.be/UmiML8LMfK8?si=avDlTDwd6l4R-gr_ [t126]
@@ -205,6 +262,7 @@ _Procedure reported by [t1018]._
 ## Source attributions
 
 - **t119**: KC!, "2015 Xterra P4X M226 Pinion Seal Replacement", 2026-05-02. https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/
+- **t125**: Donnie_DeLo_Pro4x, "Humming with very slight vibration at Highway speeds", 2024-04-19. https://www.xterranation.org/index.php?threads/humming-with-very-slight-vibration-at-highway-speeds.11167/
 - **t126**: xyoverland, "Noise from rear after installing M226", 2024-03-25. https://www.xterranation.org/index.php?threads/noise-from-rear-after-installing-m226.11155/
 - **t345**: AlbatrossCafe, "Whining Front Diff - Next Steps?", 2020-10-26. https://www.xterranation.org/index.php?threads/whining-front-diff-next-steps.9752/
 - **t373**: Maxxpags, "Installed Ironman lift yesterday, got a vibration now", 2022-06-10. https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/
@@ -214,5 +272,8 @@ _Procedure reported by [t1018]._
 - **t801**: hoplesshumansrus, "Exploded rear dif/ axle on 09' S", 2013-12-09. https://www.xterranation.org/index.php?threads/exploded-rear-dif-axle-on-09-s.4492/
 - **t874**: Xybergeek, "Unknown Rumble", 2012-04-30. https://www.xterranation.org/index.php?threads/unknown-rumble.1520/
 - **t879**: gorillamel, "Posi-traction", 2012-06-14. https://www.xterranation.org/index.php?threads/posi-traction.1798/
+- **t958**: jasandunlop, "Clicking from left rear, sounds like bearings to me, what do you think?", 2015-05-06. https://www.xterranation.org/index.php?threads/clicking-from-left-rear-sounds-like-bearings-to-me-what-do-you-think.6831/
+- **t1006**: Prime, "Bumpsteer", 2015-03-29. https://www.xterranation.org/index.php?threads/bumpsteer.6669/
 - **t1018**: JeffPro4x, "Clunk/Click from front suspension", 2014-08-12. https://www.xterranation.org/index.php?threads/clunk-click-from-front-suspension.5782/
+- **t3088**: Levi_Xterra, "Help! 4x4 system warning", 2014-08-24. https://www.xterranation.org/index.php?threads/help-4x4-system-warning.5831/
 

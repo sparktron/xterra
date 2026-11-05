@@ -842,6 +842,36 @@
     "status": "extracted"
   },
   {
+    "id": "t62",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/first-time-atf-pmf-have-a-question.11273/",
+    "thread_title": "First time ATF PMF, have a question",
+    "author_handle": "outback97",
+    "date_posted": "2024-10-25T15:16:03-0400",
+    "date_scraped": "2026-10-20T19:42:21Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t63",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/advice-on-repladcing-smod-transmission-with-used-junkyard-tranny.10885/",
+    "thread_title": "Advice on repladcing SMOD  transmission with Used Junkyard Tranny",
+    "author_handle": "huntxterra",
+    "date_posted": "2023-03-08T15:58:50-0500",
+    "date_scraped": "2026-11-03T12:31:57Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "SMOD radiator transmission cooler failure"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t66",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/evicting-my-squirrels-replacing-the-blower-motor.11170/",
@@ -1057,6 +1087,43 @@
     "status": "extracted"
   },
   {
+    "id": "t80",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/07-x-fuel-pump-relay-location.11300/",
+    "thread_title": "07 X Fuel pump relay location.",
+    "author_handle": "k12pilot",
+    "date_posted": "2025-01-31T14:17:02-0500",
+    "date_scraped": "2026-11-03T12:32:03Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Exploded view of 2007 Xterra fuel tank assembly",
+      "Fuel level sender replacement via under-seat access",
+      "Fuel pump and level sender issues"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t83",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/is-there-a-bearing-maker-recommended-for-axle-seal-rplmt.9883/",
+    "thread_title": "Is there a bearing maker recommended for axle seal rplmt",
+    "author_handle": "CocoLoco74",
+    "date_posted": "2021-01-19T22:01:01-0500",
+    "date_scraped": "2026-11-03T12:32:07Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Axle shaft removal techniques without a slide hammer",
+      "Bearing retainer installation technique using pipe driver",
+      "Installing new axle seals and bearings via press method",
+      "Rear axle seal replacement procedures",
+      "Recommended bearing manufacturers for rear axles",
+      "Replacing rear differential bearing retainer bolts"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t84",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/maintenance-schedules.11213/",
@@ -1116,6 +1183,36 @@
     "trust_score": 3,
     "topics": [
       "Automatic transmission fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t93",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/coolant-leak.11037/",
+    "thread_title": "coolant leak.",
+    "author_handle": "MisterH",
+    "date_posted": "2023-10-02T22:30:03-0400",
+    "date_scraped": "2026-11-03T12:32:13Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t95",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rear-differential-plugs-and-rtv-gasket-maker.10963/",
+    "thread_title": "Rear differential plugs and RTV gasket maker",
+    "author_handle": "westslope",
+    "date_posted": "2023-06-16T16:11:22-0400",
+    "date_scraped": "2026-11-03T12:32:17Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Rear differential fluid service and seal repair"
     ],
     "status": "extracted"
   },
@@ -1243,6 +1340,36 @@
     "status": "extracted"
   },
   {
+    "id": "t106",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/stock-exhaust-pipe-size.11083/",
+    "thread_title": "Stock exhaust pipe size?",
+    "author_handle": "Maxxpags",
+    "date_posted": "2023-12-08T15:30:34-0500",
+    "date_scraped": "2026-11-03T12:32:21Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Reference"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t107",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/a-c-compresssor-cutting-in-and-out.10635/",
+    "thread_title": "A/C compresssor cutting in and out...",
+    "author_handle": "truckmen",
+    "date_posted": "2022-05-31T20:31:54-0400",
+    "date_scraped": "2026-11-03T12:32:26Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Heater core and A/C problems"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t110",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/premium-gas-makes-it-work-better.10878/",
@@ -1323,6 +1450,21 @@
     "status": "extracted"
   },
   {
+    "id": "t121",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/lokka-for-2010-r180-front-diff.10553/",
+    "thread_title": "LOKKA for 2010 R180 Front Diff",
+    "author_handle": "Gen X",
+    "date_posted": "2022-03-16T17:17:11-0400",
+    "date_scraped": "2026-11-03T12:32:30Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Front differential locker options"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t122",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/anyone-set-up-an-arb-air-locker-themselves-i-think-i-broke-mine.10328/",
@@ -1355,6 +1497,36 @@
     "topics": [
       "Diagnostics: ELocker failure to unlock",
       "Repair: ELocker internal mechanism stuck"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t124",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/loss-of-gears%E2%80%A6.11216/",
+    "thread_title": "Loss of Gears\u2026",
+    "author_handle": "The1Kraken",
+    "date_posted": "2024-06-28T22:35:34-0400",
+    "date_scraped": "2026-11-03T12:32:36Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "SMOD radiator transmission cooler failure"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t125",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/humming-with-very-slight-vibration-at-highway-speeds.11167/",
+    "thread_title": "Humming with very slight vibration at Highway speeds",
+    "author_handle": "Donnie_DeLo_Pro4x",
+    "date_posted": "2024-04-19T12:08:52-0400",
+    "date_scraped": "2026-11-03T12:32:42Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises"
     ],
     "status": "extracted"
   },
@@ -1667,6 +1839,23 @@
     "status": "extracted"
   },
   {
+    "id": "t181",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/sliders-styles-for-2nd-gens.229/",
+    "thread_title": "Sliders Styles for 2nd Gens",
+    "author_handle": "civicjoe",
+    "date_posted": "2011-11-03T23:39:02-0400",
+    "date_scraped": "2026-10-20T13:44:46Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Xterra, Frontier and Titan parts interchange",
+      "[mods] Bumpers, sliders and skid plates"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t182",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/will-it-fit.11174/",
@@ -1817,6 +2006,22 @@
     "status": "extracted"
   },
   {
+    "id": "t201",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/black-widow-rear-bumper.8008/",
+    "thread_title": "Black widow rear bumper",
+    "author_handle": "njnewb",
+    "date_posted": "2017-02-10T20:41:07-0500",
+    "date_scraped": "2026-10-20T19:43:02Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Part sources and vendors"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t202",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/",
@@ -1843,6 +2048,21 @@
     "trust_score": 3,
     "topics": [
       "Tire ratings and performance guides"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t204",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/stock-tires-to-33s-everything-you-need-to-know.2980/",
+    "thread_title": "Stock tires to 33s, everything you need to know",
+    "author_handle": "Macland",
+    "date_posted": "2013-02-13T10:46:32-0500",
+    "date_scraped": "2026-10-20T13:43:39Z",
+    "type": "pinned",
+    "trust_score": 3,
+    "topics": [
+      "Tires, wheels and fitment"
     ],
     "status": "extracted"
   },
@@ -1968,6 +2188,26 @@
       "Brake caliper slide pin lubrication",
       "Brake pad core charge policy",
       "Brake pads and rotors"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t217",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/members-running-35-tires.8966/",
+    "thread_title": "Members running 35\" tires",
+    "author_handle": "AdventureRider81",
+    "date_posted": "2019-08-09T16:03:56-0400",
+    "date_scraped": "2026-10-20T19:24:59Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Fender trimming for 35-inch tires",
+      "Front differential carrier upgrade sources",
+      "Gear ratios and tire sizes",
+      "Lift kits and suspension lifts",
+      "Titan front differential swap",
+      "Wheel spacers for track width conversion"
     ],
     "status": "extracted"
   },
@@ -2295,22 +2535,49 @@
     "type": "howto",
     "trust_score": 3,
     "topics": [
+      "Gear ratios and tire sizes",
       "Rear Gear Ratio Requirements for Titan Axle Swap",
+      "Specifications by model year",
       "Timbren Acti-Lift Bump Stop Installation on LCA",
       "Titan Axle and Brake Differences from Xterra",
       "Titan Brake Caliper Bore Size",
+      "Titan Front Axle Diff Mounting Bolts",
+      "Titan Front Axle Fasteners List",
+      "Titan Front Axle Lower Ball Joint Hardware",
+      "Titan Front Axle Lower Control Arm Nuts",
+      "Titan Front Axle Lower Shock Bolts",
+      "Titan Front Axle Shock Mounting Points",
+      "Titan Front Axle Tie Rod Adjustment Nuts",
+      "Titan Front Axle Upper Control Arm Bolts",
+      "Titan Front Brake Assembly Details",
+      "Titan Front Brake Booster Gasket Setup",
       "Titan Front Brake Booster Gasket and Valve Fix",
+      "Titan Front Brake Caliper Bracket Bolts",
       "Titan Front Bump Stop Mounting on Bash Plate",
+      "Titan Front Hub Assembly Options",
+      "Titan Front Hub and Knuckle Fitment",
+      "Titan Front Shock and Arm Configuration",
+      "Titan Front Steering and Tie Rods",
+      "Titan Front Suspension Parts List",
       "Titan Front Sway Bar Link Mounting on LCA",
+      "Titan Front Tie Rod Bellows Fitment",
       "Titan Parking Brake Cable Length Adjustment",
+      "Titan Rear Axle Brake Caliper Hardware",
+      "Titan Rear Axle Brake Line Setup",
       "Titan Rear Axle Installation and 2WD Transition",
+      "Titan Rear Axle Locker and Gearing Parts",
+      "Titan Rear Axle Parking Brake Adjustment",
+      "Titan Rear Axle Spring Perch Compatibility",
+      "Titan Rear Suspension Components",
       "Titan Steering Rack Bellows Fitment on Xterra",
       "Titan axle, differential and brake swaps",
+      "Titan rear axle swap and components",
       "U-Bolt Flip Kit Compatibility",
+      "Xterra Front Axle Mounting Hardware",
       "Xterra Master Cylinder Bore Size",
       "Xterra Rear Axle Cable Length Issue"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t248",
@@ -3358,7 +3625,25 @@
       "Leaf spring caster wedge kits",
       "Lift kits and suspension lifts",
       "Parts diagrams and sources",
-      "UCA installation torque and bolt specifics"
+      "U-bolt torque specifications by size"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t374",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/nisstec-lift-kit.10622/",
+    "thread_title": "Nisstec lift kit",
+    "author_handle": "Maxxpags",
+    "date_posted": "2022-05-15T08:44:38-0400",
+    "date_scraped": "2026-10-20T19:35:05Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts",
+      "Mods: Suspension lift and brake line extension",
+      "Shock absorber length differences with lift kits",
+      "Tire sizes and fitment limits"
     ],
     "status": "extracted"
   },
@@ -3511,12 +3796,17 @@
     "type": "discussion",
     "trust_score": 3,
     "topics": [
+      "Bumpers, sliders and skid plates",
+      "Sway bar links and bushings",
+      "Torque specifications",
+      "Xterra, Frontier and Titan parts interchange",
       "[mods] Boulder Ironworx shock mount skids",
       "[mods] Rocky Road Outfitters shock skids for Xterra",
       "[reference] Part sources for rear diff covers",
+      "[reference] Parts diagrams",
       "[reference] Rear differential bolt counts by model"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t412",
@@ -3935,6 +4225,21 @@
     "status": "extracted"
   },
   {
+    "id": "t459",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/working-on-a-ts-parts-list.4391/",
+    "thread_title": "Working on a TS parts list",
+    "author_handle": "lyons05X",
+    "date_posted": "2013-11-18T20:14:30-0500",
+    "date_scraped": "2026-10-20T19:35:25Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t461",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/c200-gear-info-for-titan-swap.1657/",
@@ -4239,6 +4544,22 @@
     "trust_score": 3,
     "topics": [
       "Wireless charging pad installation"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t485",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/vibration-when-idling.6230/",
+    "thread_title": "Vibration when idling",
+    "author_handle": "Xterrian13",
+    "date_posted": "2014-12-09T13:21:44-0500",
+    "date_scraped": "2026-10-20T19:39:17Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Engine trouble codes (VQ40DE)",
+      "Torque specifications"
     ],
     "status": "extracted"
   },
@@ -4670,6 +4991,7 @@
       "Bilstein shock model recommendations by lift height",
       "Bump stop length for extended travel",
       "Control arms and bushings",
+      "Fluids and capacities",
       "Leaf spring and shackle repair",
       "Lift and travel definitions",
       "Lift kits and suspension lifts",
@@ -4685,7 +5007,7 @@
       "Top strut mount replacement for bouncing ride",
       "UCA installation torque and bolt specifics"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t558",
@@ -4721,12 +5043,15 @@
       "Parts diagrams",
       "Rear differential breather extension",
       "Rear leaf spring and shackle setup",
+      "Shocks, springs and bump stops",
       "Suspension lift height measurements",
       "Sway bar links and bushings",
       "Torque specifications",
-      "[mods] Tires, wheels and fitment"
+      "[mods] Tires, wheels and fitment",
+      "[reference] Fluids and capacities",
+      "[reference] Parts diagrams"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t560",
@@ -5504,6 +5829,38 @@
     "status": "extracted"
   },
   {
+    "id": "t669",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rear-diff-question.7116/",
+    "thread_title": "Rear diff question",
+    "author_handle": "jhill15",
+    "date_posted": "2015-08-11T16:25:36-0400",
+    "date_scraped": "2026-10-20T19:40:22Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Front vs Rear differential reliability comparison",
+      "Rear Differential Types and Gear Ratios",
+      "Rear axle strength comparison with other models",
+      "Rear differential e-locker evolution timeline",
+      "Rear differential e-locker failure history",
+      "Rear differential e-locker specifications",
+      "Rear differential failure frequency context",
+      "Rear differential failure patterns",
+      "Rear differential model years and trims",
+      "Rear differential seal leakage tendencies",
+      "Rear differential spider gear configuration details",
+      "Rear differential spider gear count evolution",
+      "Rear differential spider gear count specifics",
+      "Rear differential spider gear failure mechanics",
+      "Rear differential strength classification details",
+      "Rear differential strength comparison summary",
+      "Rear differential strength hierarchy context (M226)",
+      "Rear differential strength hierarchy overview"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t672",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/4lo-light-blinking.6776/",
@@ -6075,9 +6432,10 @@
     "type": "discussion",
     "trust_score": 3,
     "topics": [
+      "Lift kits and suspension lifts",
       "Tire fitment and suspension geometry"
     ],
-    "status": "fetched"
+    "status": "extracted"
   },
   {
     "id": "t748",
@@ -7548,6 +7906,26 @@
     "status": "extracted"
   },
   {
+    "id": "t925",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/",
+    "thread_title": "lots of New Parts",
+    "author_handle": "HAIRY_XTERRY",
+    "date_posted": "2014-07-08T09:25:17-0400",
+    "date_scraped": "2026-10-20T19:49:55Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Bumpers, sliders and skid plates",
+      "Intake, exhaust, tune and forced induction",
+      "Lift kits and suspension lifts",
+      "Lighting, aux fuse blocks and dual batteries",
+      "Tires, wheels and fitment",
+      "Winches and recovery gear"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t926",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/mini-how-to-diy-raised-air-intake-snorkel.1267/",
@@ -7609,6 +7987,22 @@
       "Lift kits and suspension lifts",
       "Torque specifications",
       "[repair] Leaf spring and shackle repair"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t933",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/purpose-for-a-gen2-bl.4784/",
+    "thread_title": "Purpose for a GEN2 BL",
+    "author_handle": "TKDx00",
+    "date_posted": "2014-02-09T09:49:26-0500",
+    "date_scraped": "2026-11-03T12:29:34Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts",
+      "[reference] Xterra, Frontier and Titan parts interchange"
     ],
     "status": "extracted"
   },
@@ -7790,6 +8184,45 @@
     "status": "extracted"
   },
   {
+    "id": "t951",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/another-suspension-lift-question.6882/",
+    "thread_title": "another suspension lift question",
+    "author_handle": "BjFife",
+    "date_posted": "2015-05-20T17:08:32-0400",
+    "date_scraped": "2026-11-03T12:29:38Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts",
+      "Torque specifications and suspension limits"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t958",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/clicking-from-left-rear-sounds-like-bearings-to-me-what-do-you-think.6831/",
+    "thread_title": "Clicking from left rear, sounds like bearings to me, what do you think?",
+    "author_handle": "jasandunlop",
+    "date_posted": "2015-05-06T19:16:24-0400",
+    "date_scraped": "2026-11-03T12:29:44Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "ABS sensor ring seal inspection",
+      "Axle shaft assembly components and sourcing",
+      "Axle shaft removal and bearing check",
+      "Differential function and torque distribution",
+      "Differential internal component identification",
+      "Differential internal inspection procedure",
+      "Driveline and wheel bearing noises",
+      "Rear differential fluid analysis",
+      "Rear differential gear ratio and type verification"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t959",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/lifting-question.6836/",
@@ -7888,6 +8321,21 @@
     "status": "extracted"
   },
   {
+    "id": "t976",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/which-lights-are-in-the-roof-rack.6624/",
+    "thread_title": "Which lights are in the roof rack?",
+    "author_handle": "Sixety8",
+    "date_posted": "2015-03-19T19:24:28-0400",
+    "date_scraped": "2026-11-03T12:29:49Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Roof rack lighting options"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t977",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/roof-light-wiring.6226/",
@@ -7899,6 +8347,21 @@
     "trust_score": 3,
     "topics": [
       "Lighting and Aux Fuse Blocks"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t982",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/keyless-entry.4392/",
+    "thread_title": "Keyless entry ?",
+    "author_handle": "MTboy",
+    "date_posted": "2013-11-19T07:48:14-0500",
+    "date_scraped": "2026-11-03T12:29:55Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults"
     ],
     "status": "extracted"
   },
@@ -8062,6 +8525,36 @@
     "status": "extracted"
   },
   {
+    "id": "t994",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/trouble-with-rear-bumper-bolts.2684/",
+    "thread_title": "Trouble with Rear Bumper Bolts",
+    "author_handle": "darkknight",
+    "date_posted": "2012-12-26T14:42:08-0500",
+    "date_scraped": "2026-11-03T12:29:59Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Rear bumper bolt removal and torque specs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t996",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/gen-2-build-your-own-endlinks.2605/",
+    "thread_title": "Gen 2: Build your own endlinks",
+    "author_handle": "gorillamel",
+    "date_posted": "2012-12-10T00:31:50-0500",
+    "date_scraped": "2026-11-03T12:30:05Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar links and bushings"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t997",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/thoghts-on-diy-cai-utilizing-factory-air-box.2560/",
@@ -8188,6 +8681,36 @@
     "status": "extracted"
   },
   {
+    "id": "t1006",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/bumpsteer.6669/",
+    "thread_title": "Bumpsteer",
+    "author_handle": "Prime",
+    "date_posted": "2015-03-29T07:33:11-0400",
+    "date_scraped": "2026-11-03T12:30:09Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1007",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/hybrid-front-suspension.3942/",
+    "thread_title": "Hybrid front suspension:",
+    "author_handle": "05x4x4",
+    "date_posted": "2013-08-18T11:33:22-0400",
+    "date_scraped": "2026-10-20T19:34:20Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1008",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/rough-country-basic-2-5-lift-thoughts.4658/",
@@ -8204,6 +8727,36 @@
       "Lift kits and suspension lifts",
       "Rough Country cam bolt set value",
       "Rough Country lift shackle quality assessment"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1011",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2nd-gen-lift.6122/",
+    "thread_title": "2nd gen lift",
+    "author_handle": "trav007",
+    "date_posted": "2014-11-11T18:58:24-0500",
+    "date_scraped": "2026-10-20T19:37:38Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1014",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/question-about-adding-ome-dakar-leaf-springs.5919/",
+    "thread_title": "Question about adding OME Dakar Leaf Springs",
+    "author_handle": "MissFire",
+    "date_posted": "2014-09-12T21:11:23-0400",
+    "date_scraped": "2026-11-03T12:30:15Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
     ],
     "status": "extracted"
   },
@@ -8259,6 +8812,21 @@
     "status": "extracted"
   },
   {
+    "id": "t1023",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/1-spacer-w-radflos.5713/",
+    "thread_title": "1\" spacer w/ radflos",
+    "author_handle": "Fromfrontier2Xterra",
+    "date_posted": "2014-07-25T10:23:45-0400",
+    "date_scraped": "2026-11-03T12:30:20Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1024",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/rear-view-camera-suggestions.2425/",
@@ -8274,6 +8842,36 @@
       "Rear view camera price range and warranty",
       "Rear view camera systems and mounting",
       "Wired rear view camera installation tips"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1027",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fog-light-wiring.6297/",
+    "thread_title": "Fog Light Wiring...",
+    "author_handle": "BillCosby",
+    "date_posted": "2014-12-26T12:00:54-0500",
+    "date_scraped": "2026-11-03T12:30:25Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t1028",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/cb-radio-antenna-mounting.6261/",
+    "thread_title": "CB Radio Antenna Mounting?",
+    "author_handle": "RioDeColumbia",
+    "date_posted": "2014-12-18T12:36:14-0500",
+    "date_scraped": "2026-11-03T12:30:29Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "CB Radio Antenna Mounting"
     ],
     "status": "extracted"
   },
@@ -8357,6 +8955,21 @@
     "status": "extracted"
   },
   {
+    "id": "t1036",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/halo-headlights.6026/",
+    "thread_title": "Halo headlights",
+    "author_handle": "RioDeColumbia",
+    "date_posted": "2014-10-14T19:35:57-0400",
+    "date_scraped": "2026-11-03T12:30:36Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Halo headlight retrofit kits"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1037",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/a-pillar-lights.3771/",
@@ -8388,6 +9001,21 @@
     "status": "extracted"
   },
   {
+    "id": "t1040",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/starting-engine-after-airbags-deploy.5864/",
+    "thread_title": "Starting engine after airbags deploy",
+    "author_handle": "xterraminator",
+    "date_posted": "2014-08-31T22:40:46-0400",
+    "date_scraped": "2026-11-03T12:30:40Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
     "id": "t1042",
     "source_id": "xterranation",
     "url": "https://www.xterranation.org/index.php?threads/7-pin-trailer-wiring-schematic.5619/",
@@ -8399,6 +9027,518 @@
     "trust_score": 3,
     "topics": [
       "Electrical faults, grounds and battery drain"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2939",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/rubber-seal-strip-at-the-bottom-of-the-roof-rack-wind-fairing-air-dam.8038/",
+    "thread_title": "Rubber seal strip at the bottom of the roof rack wind fairing/air dam",
+    "author_handle": "J Everett",
+    "date_posted": "2017-03-01T21:20:07-0500",
+    "date_scraped": "2026-11-03T12:29:01Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Roof rack accessories and fairings"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2940",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/axe-and-shovel-mount-inside-tailgate.8034/",
+    "thread_title": "Axe and shovel mount inside tailgate",
+    "author_handle": "njnewb",
+    "date_posted": "2017-02-27T23:49:15-0500",
+    "date_scraped": "2026-11-03T12:29:05Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Tailgate interior tool mounts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2941",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/mpg-dropped-dramatically.8002/",
+    "thread_title": "Mpg dropped dramatically",
+    "author_handle": "njnewb",
+    "date_posted": "2017-02-07T21:19:08-0500",
+    "date_scraped": "2026-11-03T12:28:31Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Gear ratios and tire sizes"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2943",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/anyone-recommend-a-dealership-in-suffolk-long-island-area-story-in-description.7734/",
+    "thread_title": "Anyone recommend a dealership in Suffolk,  Long Island area? Story in description.",
+    "author_handle": "jorge.alves.5015",
+    "date_posted": "2016-07-26T22:03:59-0400",
+    "date_scraped": "2026-11-03T12:30:46Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Sway bar bushings and links"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2947",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/battery-recommendations.2925/",
+    "thread_title": "Battery recommendations",
+    "author_handle": "mudchet",
+    "date_posted": "2013-02-02T10:13:53-0500",
+    "date_scraped": "2026-11-03T12:28:36Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "[mods] Lighting, aux fuse blocks and dual batteries"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2949",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fuel-system-cleaning.7201/",
+    "thread_title": "Fuel System Cleaning",
+    "author_handle": "Macland",
+    "date_posted": "2015-09-21T18:17:20-0400",
+    "date_scraped": "2026-11-03T12:30:51Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Fuel System Cleaning Kits and Products"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t2954",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/squeaky-leaf-spring.7015/",
+    "thread_title": "Squeaky Leaf Spring",
+    "author_handle": "jconway23",
+    "date_posted": "2015-07-06T07:53:55-0400",
+    "date_scraped": "2026-11-03T12:29:09Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Leaf spring squeak and noise reduction",
+      "U-bolt torque specifications by size"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3083",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/brakes.131/",
+    "thread_title": "Brakes",
+    "author_handle": "Xterradude05",
+    "date_posted": "2011-10-31T10:12:15-0400",
+    "date_scraped": "2026-11-03T12:28:42Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Brake Pad Brand Recommendations",
+      "Brake Upgrade for 35-Inch Tires",
+      "Brake pads and rotors upgrade",
+      "Duralast Gold Cmax Brake Pads",
+      "Green Stuff Brake Pads Review",
+      "Powerstop Non-Drilled Rotor Option"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3085",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/air-conditioning-stuck-on-in-the-iowa-winter.6269/",
+    "thread_title": "Air Conditioning Stuck on in the Iowa Winter!!",
+    "author_handle": "Back2Baja",
+    "date_posted": "2014-12-19T19:53:58-0500",
+    "date_scraped": "2026-11-03T12:29:15Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Alternator voltage output check",
+      "Electrical faults, grounds and battery drain",
+      "Heater core air bubble removal",
+      "IPDM internal corrosion repair",
+      "IPDM location and fuse inspection",
+      "IPDM relay replacement strategy"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3086",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/battery-shopping-for-my-2nd-gen-ahem-frontier.6139/",
+    "thread_title": "Battery shopping for my 2nd gen (ahem...Frontier)",
+    "author_handle": "JayAre",
+    "date_posted": "2014-11-15T19:50:06-0500",
+    "date_scraped": "2026-11-03T12:31:02Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3088",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/help-4x4-system-warning.5831/",
+    "thread_title": "Help! 4x4 system warning",
+    "author_handle": "Levi_Xterra",
+    "date_posted": "2014-08-24T16:20:14-0400",
+    "date_scraped": "2026-11-03T12:31:06Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Driveline and wheel bearing noises"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3090",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/automatic-transmision-service.5528/",
+    "thread_title": "Automatic Transmision service",
+    "author_handle": "maillet282",
+    "date_posted": "2014-06-17T15:59:54-0400",
+    "date_scraped": "2026-11-03T12:31:12Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Automatic transmission fluid change"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3091",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/threw-a-code-fuel-guage-slow.5612/",
+    "thread_title": "Threw a code, fuel guage slow?",
+    "author_handle": "hutchings216",
+    "date_posted": "2014-07-04T00:20:07-0400",
+    "date_scraped": "2026-11-03T12:31:18Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Fuel pump and sending unit",
+      "Fuel sending unit TSB details"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3092",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/need-help-with-brakes.5178/",
+    "thread_title": "Need help with brakes!",
+    "author_handle": "coatimundi01",
+    "date_posted": "2014-04-19T13:17:25-0400",
+    "date_scraped": "2026-11-03T12:31:22Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Brake fluid flush and bleeding"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3095",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/what-oil-do-you-use.3177/",
+    "thread_title": "What oil do you use?",
+    "author_handle": "xterror04",
+    "date_posted": "2013-03-26T09:09:26-0400",
+    "date_scraped": "2026-11-03T12:28:22Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3096",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/change-intervals.4956/",
+    "thread_title": "change intervals",
+    "author_handle": "rolling rock",
+    "date_posted": "2014-03-13T08:09:52-0400",
+    "date_scraped": "2026-11-03T12:28:06Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Maintenance schedule (normal and severe use)"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3097",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/suggestions-for-new-rear-brake-lines.4936/",
+    "thread_title": "Suggestions for new rear brake lines",
+    "author_handle": "coatimundi01",
+    "date_posted": "2014-03-10T12:23:07-0400",
+    "date_scraped": "2026-11-03T12:31:27Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Custom braided rear caliper hose costs",
+      "Custom braided stainless brake line costs",
+      "Custom braided stainless material benefits",
+      "Nisstec rear brake line availability note",
+      "Nisstec rear brake line pricing",
+      "PRG front vs rear availability note",
+      "Rear brake line extensions and brackets",
+      "Rear lift bracket application for 3-inch lifts",
+      "RockAuto stock line pricing source",
+      "Stock rear brake line price comparison",
+      "Titan rear brake line length comparison",
+      "Titan rear brake line length specs"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3098",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/anti-freeze.4866/",
+    "thread_title": "anti freeze",
+    "author_handle": "maillet282",
+    "date_posted": "2014-02-24T18:55:39-0500",
+    "date_scraped": "2026-11-03T12:31:33Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Coolant drain and refill",
+      "Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3099",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/o2-sensor-or-catalytic-converter.4318/",
+    "thread_title": "O2 sensor or catalytic converter?",
+    "author_handle": "Damon831",
+    "date_posted": "2013-11-01T19:49:55-0400",
+    "date_scraped": "2026-11-03T12:29:19Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Catalytic converter replacement nightmare",
+      "Engine trouble codes (VQ40DE)",
+      "Exhaust system upgrades for power"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3100",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/gas-mileage-tips.4620/",
+    "thread_title": "gas mileage tips",
+    "author_handle": "rolling rock",
+    "date_posted": "2014-01-11T06:21:02-0500",
+    "date_scraped": "2026-11-03T12:28:51Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Driving style adjustments for fuel economy",
+      "Fuel octane and ethanol content strategy",
+      "Intake manifold spacer for better MPG",
+      "Parking strategy for maximum MPG",
+      "Skid plates as an unexpected MPG booster",
+      "Snorkel head orientation for airflow balance",
+      "Tire air pressure importance for mileage",
+      "Tire selection for highway fuel economy"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3205",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/door-wont-open.2483/",
+    "thread_title": "Door wont open",
+    "author_handle": "Bubba",
+    "date_posted": "2012-11-16T22:36:37-0500",
+    "date_scraped": "2026-11-03T12:31:37Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Door, window and lock electrical faults"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3206",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/gear-oil.3785/",
+    "thread_title": "Gear Oil",
+    "author_handle": "Pro-2X",
+    "date_posted": "2013-07-15T06:52:38-0400",
+    "date_scraped": "2026-11-03T12:31:43Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Diff cover installation and sealing tips",
+      "Front and rear differential fluid change",
+      "Maintenance schedule (Oil Change Limits)",
+      "Rear differential e-locker specifications",
+      "Transfer case fluid service"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3208",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/got-a-gas-mileage-question-for-everyone.3036/",
+    "thread_title": "Got a gas mileage Question for Everyone.",
+    "author_handle": "Kevin Roberts",
+    "date_posted": "2013-02-24T18:42:18-0500",
+    "date_scraped": "2026-11-03T12:28:26Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Lift kits and suspension lifts"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3212",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/2nd-gen-spark-plug-change.1220/",
+    "thread_title": "2nd Gen Spark plug change",
+    "author_handle": "Bluegrassen",
+    "date_posted": "2012-03-15T11:05:03-0400",
+    "date_scraped": "2026-11-03T12:28:00Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Spark plug brand recommendations",
+      "Spark plug part numbers and types",
+      "Spark plug replacement",
+      "Spark plug socket setup for tight spaces",
+      "Spark plug torque and washer details"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3213",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/front-sway-bar-endlinks.2544/",
+    "thread_title": "Front Sway Bar Endlinks",
+    "author_handle": "gorillamel",
+    "date_posted": "2012-11-29T11:39:13-0500",
+    "date_scraped": "2026-11-03T12:28:56Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Front sway bar endlink angle variations",
+      "Front sway bar endlink geometry specs",
+      "Front sway bar endlink lubrication methods",
+      "Front sway bar endlink material comparison",
+      "Front sway bar endlink replacement",
+      "Front sway bar length requirements for lifts",
+      "Front sway bar necessity for lifted vehicles"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3214",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/cold-start-knock-oem-oil-filters-the-fix.1612/",
+    "thread_title": "Cold start knock? OEM oil filters the fix",
+    "author_handle": "ISBoost300",
+    "date_posted": "2012-05-18T01:10:20-0400",
+    "date_scraped": "2026-11-03T12:28:12Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Engine noise diagnosis"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3215",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/blue-smoke-at-a-cold-start.988/",
+    "thread_title": "Blue smoke at a cold start????",
+    "author_handle": "Matt2558",
+    "date_posted": "2012-02-13T07:53:04-0500",
+    "date_scraped": "2026-11-03T12:31:48Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Engine noise diagnosis"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3217",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/hood-squeak-cures.216/",
+    "thread_title": "Hood Squeak Cures?",
+    "author_handle": "civicjoe",
+    "date_posted": "2011-11-03T00:56:13-0400",
+    "date_scraped": "2026-11-03T12:29:25Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Hood squeak and rattle cures"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3218",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/fuel-mielage-on-the-pro-4x-vs-2nd-gen-2wd.566/",
+    "thread_title": "Fuel Mielage on the Pro-4X vs. 2nd Gen 2WD",
+    "author_handle": "Matt2558",
+    "date_posted": "2011-12-16T07:40:12-0500",
+    "date_scraped": "2026-11-03T12:29:30Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "[reference] Fluids and capacities"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3219",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/replacing-timing-chain.1037/",
+    "thread_title": "Replacing timing chain",
+    "author_handle": "Xterradude05",
+    "date_posted": "2012-02-19T16:43:35-0500",
+    "date_scraped": "2026-11-03T12:28:16Z",
+    "type": "howto",
+    "trust_score": 3,
+    "topics": [
+      "Timing chain and guide wear"
+    ],
+    "status": "extracted"
+  },
+  {
+    "id": "t3220",
+    "source_id": "xterranation",
+    "url": "https://www.xterranation.org/index.php?threads/aftermarket-parts.885/",
+    "thread_title": "Aftermarket Parts",
+    "author_handle": "Diadaga",
+    "date_posted": "2012-02-01T22:13:49-0500",
+    "date_scraped": "2026-11-03T12:31:53Z",
+    "type": "discussion",
+    "trust_score": 3,
+    "topics": [
+      "Part sources and vendors"
     ],
     "status": "extracted"
   }

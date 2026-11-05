@@ -13,7 +13,8 @@ applies_to:
   - Xterra
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools:
@@ -23,6 +24,7 @@ tools:
 - Sheet metal screw
 - Ring terminals
 - Hand
+- Cross member lift point
 parts:
 - name: 18 feet of coaxial cable with PL-259 connectors
   oem_part_no: ''
@@ -47,6 +49,8 @@ sources:
 - t11
 - t179
 - t287
+- t411
+- t559
 - t788
 - t866
 - t964
@@ -55,11 +59,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 27
+  partial_items: 32
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 15
+  withheld_items: 18
   pending_safety_values: 0
 ---
 -->
@@ -97,6 +101,18 @@ Identify the specific mounting bracket needed for a no-drill rear hatch installa
 [Partial] Install a dedicated ground wire running from the bottom of the mounting bracket to a sheet metal screw in the steel body. [t964]
 
 [Partial] Locate the factory wiring harness plug under the dash to the right of the steering column behind a small rubber pad. [t866]
+
+View the Ballistic Fabrication Nissan C200 diff cover page for visual reference. [t411]
+
+Access the 4x4Parts search results for Nissan differential skids. [t411]
+
+Visit the Rocky Road Outfitters page for Titan diff guard details. [t411]
+
+[Partial] Check the PRG Products shop for M226 specific diff covers. [t411]
+
+Explore the Magtec rear differential cover options on 4x4Parts. [t411]
+
+Lift the front of the truck by the cross member to check for coil bucket interference. [t559]
 
 ## Procedure
 
@@ -157,6 +173,42 @@ _Procedure reported by [t179]._
 
 </details>
 
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. View the Ballistic Fabrication Nissan C200 diff cover page for visual reference.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Access the 4x4Parts search results for Nissan differential skids.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Visit the Rocky Road Outfitters page for Titan diff guard details.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. [Partial] Check the PRG Products shop for M226 specific diff covers.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Explore the Magtec rear differential cover options on 4x4Parts.
+
+</details>
+
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. Lift the front of the truck by the cross member to check for coil bucket interference.
+
+</details>
+
 ## Tools
 
 - [Partial] Digital MultiMeter [t2]
@@ -165,6 +217,7 @@ _Procedure reported by [t179]._
 - [Partial] Sheet metal screw [t964]
 - [Partial] Ring terminals [t964]
 - Hand [t866]
+- [Partial] Cross member lift point [t559]
 
 ## Parts
 
@@ -202,6 +255,11 @@ _Procedure reported by [t179]._
 - This ground wire connection is often cited as the single biggest improvement to reception and range. [t964]
 - Look behind a small rubber pad that prevents keys from scratching the dash plastic; this is where you will find the plug. [t866]
 - Note that the end of the harness plugs into a specific connector shape. [t866]
+- Use this link to compare skull positions and bolt patterns on different covers. [t411]
+- This resource lists various diff skid options suitable for C200 axles. [t411]
+- [Partial] This specific guard is recommended as the best option for bottom protection on M226 axles. [t411]
+- [Partial] PRG offers a version specifically designed for the M226 differential size. [t411]
+- [Partial] Magtec covers are noted for cooling efficiency but may require careful installation to handle impacts. [t411]
 
 ## Common mistakes
 
@@ -228,6 +286,8 @@ _Procedure reported by [t179]._
 - **t11**: alkeli, "Wiring Explained: Relays, Fuses, Breakers and Lights (PIC HEAVY)", 2009-07-22. https://www.thenewx.org/threads/wiring-explained-relays-fuses-breakers-and-lights-pic-heavy.28282/
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
 - **t287**: Cyclemut, "'05 CEL Codes w/titles", 2011-11-27. https://www.xterranation.org/index.php?threads/05-cel-codes-w-titles.434/
+- **t411**: Macland, "Rear Diff Covers", 2014-05-14. https://www.xterranation.org/index.php?threads/rear-diff-covers.5338/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t788**: gorillamel, "Coolant leak", 2011-11-03. https://www.xterranation.org/index.php?threads/coolant-leak.222/
 - **t866**: elcid79, "2014 Xterra Pro-4x Trailer wiring harness plug snapped.", 2015-04-01. https://www.xterranation.org/index.php?threads/2014-xterra-pro-4x-trailer-wiring-harness-plug-snapped.6687/
 - **t964**: Jay Arr Ell, "Overwhelmed with CB info", 2015-07-14. https://www.xterranation.org/index.php?threads/overwhelmed-with-cb-info.7033/

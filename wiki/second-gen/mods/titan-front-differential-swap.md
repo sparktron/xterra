@@ -9,7 +9,8 @@ applies_to:
   trims: []
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Titan
 difficulty: null
 est_time: null
 tools: []
@@ -19,6 +20,7 @@ parts:
 - name: Titan rear differential
   oem_part_no: ''
 sources:
+- t217
 - t731
 - t900
 confidence: community-consensus
@@ -26,7 +28,8 @@ verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 2
-  partial_fields: []
+  partial_fields:
+  - shared_platform
   unconfirmed_safety_values: 0
   withheld_items: 1
   pending_safety_values: 0
@@ -42,6 +45,8 @@ verification:
 [Partial] Install a stronger Titan M205 front differential after removing the weaker Xterra unit. [t900]
 
 Install the control arm skid to coordinate with the Titan rear differential. [t731]
+
+Swap the Titan's stock front differential carrier for an Armada unit and install a 4.56 gear set. [t217]
 
 ## Procedure
 
@@ -59,6 +64,13 @@ _Procedure reported by [t900]._
 
 </details>
 
+<details><summary>Alternate procedure [t217] [Partial]</summary>
+
+1. Swap the stock front differential carrier with a 2011 Armada (M205) unit.
+2. Install Rugged Rocks 4.56 gear set into the new M205 carrier.
+
+</details>
+
 ## Parts
 
 - Titan M205 Front Differential [t900]
@@ -72,9 +84,11 @@ _Procedure reported by [t900]._
 ## Diagrams (links only)
 
 - http://i57.photobucket.com/albums/g206/chrscott_01/Dolores%20pt1/20150319_113001_zpsuprbe96c.jpg [t900]
+- https://www.xterranation.org/data/attachments/18/18432-d36e5323187a9ab2725746f68edc1e86.jpg [t217]
 
 ## Source attributions
 
+- **t217**: AdventureRider81, "Members running 35" tires", 2019-08-09. https://www.xterranation.org/index.php?threads/members-running-35-tires.8966/
 - **t731**: BigMeanTam, "Control Arm Skids - are they Unobtanium for the X?", 2012-03-19. https://www.xterranation.org/index.php?threads/control-arm-skids-are-they-unobtanium-for-the-x.1249/
 - **t900**: Beefyneck, "Titan Swap?", 2015-10-17. https://www.xterranation.org/index.php?threads/titan-swap.7277/
 

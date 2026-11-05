@@ -6,10 +6,12 @@ generation: second-gen
 category: diagnostics
 applies_to:
   years:
+  - 2006
   - 2009
   trims:
   - 09+
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -18,20 +20,24 @@ est_time: null
 tools:
 - Philips screwdriver
 - Wire cutters or similar tool
+- Physical key
 parts: []
 sources:
 - t168
 - t764
 - t936
+- t982
+- t1027
+- t3205
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 13
+  partial_items: 18
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 3
+  withheld_items: 5
   pending_safety_values: 0
 ---
 -->
@@ -49,6 +55,12 @@ verification:
 [Partial] Replace the airbag light's old LED with a new 3mm unit and reset the electrical faults. [t764]
 
 Remove steering wheel to access clock spring part number and check connectors. [t168]
+
+[Partial] Lock all vehicle doors with a physical key inserted into the driver's door lock cylinder. [t982]
+
+[Partial] Identify the factory fog light wiring harness and determine if a new headlight stalk with an integrated switch is needed. [t1027]
+
+[Partial] Inspect the rear door latch and apply grease, then try shooting lube into the lock. [t3205]
 
 ## Procedure
 
@@ -99,10 +111,25 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t982] [Partial]</summary>
+
+1. Lock all the vehicle doors using a physical key.
+2. [Partial] Insert the same key into the driver's door lock cylinder.
+
+</details>
+
+<details><summary>Alternate procedure [t3205] [Partial]</summary>
+
+1. [Partial] Inspect the rear door latch mechanism for proper engagement.
+2. [Partial] Apply grease to the latch components if movement is stiff.
+
+</details>
+
 ## Tools
 
 - Philips screwdriver [t764]
 - Wire cutters or similar tool [t764]
+- [Partial] Physical key [t982]
 
 ## Specifications
 
@@ -117,6 +144,9 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 - Use a small flathead screwdriver if the specific Torx bit is unavailable. [t764]
 - Apply super glue at the edge of the circuit board where plastic tabs were snipped to secure it. [t764]
 - Look at the actual stamped part number on the component rather than guessing from dealer sites. [t168]
+- Perform this test to verify if the hidden keyless entry system is present without finding the FCC sticker under the dash. [t982]
+- [Partial] If successful, you can purchase a compatible remote fob and program it using an online guide. [t982]
+- Try shooting lube directly into the lock cylinder itself. [t3205]
 
 ## Common mistakes
 
@@ -126,6 +156,7 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 
 ## Diagrams (links only)
 
+- http://www.amazon.com/Nissan-Xterra...F8&refRID=1G0479S74MYJHHRG2CGF#productDetails [t1027]
 - https://i.imgur.com/N4WFvtL.png?1 [t764]
 - https://i.imgur.com/qdS50o8.png [t764]
 - https://www.xterranation.org/data/attachments/30/30623-bacf71948d883209afc95b4c90b84d49.jpg [t168]
@@ -135,4 +166,7 @@ _Procedure reported by [t764]. Photos of this job are in the source: <https://ww
 - **t168**: xyoverland, "Thought my clock spring was bad, but maybe not?", 2023-12-30. https://www.xterranation.org/index.php?threads/thought-my-clock-spring-was-bad-but-maybe-not.11092/
 - **t764**: General_Tarfun, "How-to: Change Color Of Passenger Airbag Light LED (05-08)", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-change-color-of-passenger-airbag-light-led-05-08.8918/
 - **t936**: J Everett, "HOW TO: Override the auto lock/unlock on 09+ Xterras", 2012-07-13. https://www.xterranation.org/index.php?threads/how-to-override-the-auto-lock-unlock-on-09-xterras.1976/
+- **t982**: MTboy, "Keyless entry ?", 2013-11-19. https://www.xterranation.org/index.php?threads/keyless-entry.4392/
+- **t1027**: BillCosby, "Fog Light Wiring...", 2014-12-26. https://www.xterranation.org/index.php?threads/fog-light-wiring.6297/
+- **t3205**: Bubba, "Door wont open", 2012-11-16. https://www.xterranation.org/index.php?threads/door-wont-open.2483/
 

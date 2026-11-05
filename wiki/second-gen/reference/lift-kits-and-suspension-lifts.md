@@ -10,7 +10,8 @@ applies_to:
   - PRO-2X
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Titan
 difficulty: null
 est_time: null
 tools: []
@@ -23,17 +24,19 @@ parts:
   oem_part_no: ''
 sources:
 - t467
+- t553
 - t962
 - t1020
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 8
+  partial_items: 15
   partial_fields:
   - applies_to
+  - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
@@ -54,6 +57,46 @@ Consider that front suspension upgrades often require a chain reaction of parts.
 
 Install a PRG PML 2-inch lift kit and keep the factory leaf springs. [t962]
 
+[Partial] Install extended brake hoses to accommodate the increased front travel. [t553]
+
+[Partial] Install QX56 CV axles if running a Titan swap setup. [t553]
+
+[Partial] Set the front ride height about one inch lower than the rear initially, then allow time for the rear suspension to settle. [t553]
+
+[Partial] Remove the front sway bar to maximize droop and flex. [t553]
+
+Ensure the rear leaf springs retain stock pinion angle alignment. [t553]
+
+[Partial] Verify that the rear leaf springs do not require shimming. [t553]
+
+[Partial] Use a 600 lb/in spring rate for lighter setups or bumpers. [t553]
+
+[Partial] Use a 650 lb/in spring rate for heavier setups with steel bumpers or winches. [t553]
+
+Aim for a minimum of 2 inches of front droop to prevent binding ball joints. [t553]
+
+Target a total front lift of 2.5 to 2.75 inches for balanced performance. [t553]
+
+Expect the rear to settle over time, requiring initial front leveling adjustments. [t553]
+
+Ensure the rear remains level while towing, even if it sags under normal load. [t553]
+
+Consider using a 1-inch spacer on top of the front coil overs to increase lift. [t553]
+
+Use a 0.5-inch thick spacer on top of the front coil overs to gain approximately one inch of lift. [t553]
+
+Select a 600 lb/in spring option if available for specific applications. [t553]
+
+Consider a 650 lb/in spring option for setups with heavier components. [t553]
+
+Use a 2.5-inch extended length coil over for the front Radflo setup. [t553]
+
+Use a 2-inch to 2.5-inch lift range for the rear Alcan leaf springs. [t553]
+
+Use a 2-inch to 4-inch lift range for the rear Radflo shock setup. [t553]
+
+Use a 600 lb/in spring rate for setups with lighter bumpers or winches. [t553]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -70,6 +113,20 @@ _Procedure reported by [t962]._
 
 </details>
 
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Set the front ride height about one inch lower than the rear initially.
+2. Allow time for the rear suspension to settle under load before leveling.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Remove the front sway bar to maximize droop and flex.
+2. [Partial] Reinstall it later if desired, or discard entirely for maximum off-road capability.
+
+</details>
+
 <details><summary>Alternate procedure [t467] [Partial]</summary>
 
 1. Install new Upper Control Arms (UCAs) to fix CBC issues.
@@ -79,6 +136,108 @@ _Procedure reported by [t962]._
 <details><summary>Alternate procedure [t467] [Partial]</summary>
 
 1. Chop old lower control arms into pieces if necessary for fitment.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Install QX56 CV axles if running a Titan swap setup.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Ensure the rear leaf springs retain stock pinion angle alignment.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Verify that the rear leaf springs do not require shimming, though this is not guaranteed.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Use a 600 lb/in spring rate for lighter setups or bumpers.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Use a 650 lb/in spring rate for heavier setups with steel bumpers or winches.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Aim for a minimum of 2 inches of front droop to prevent binding ball joints.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Target a total front lift of 2.5 to 2.75 inches for balanced performance.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Expect the rear to settle over time, requiring initial front leveling adjustments.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Ensure the rear remains level while towing, even if it sags under normal load.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Consider using a 1-inch spacer on top of the front coil overs to increase lift.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Use a 0.5-inch thick spacer on top of the front coil overs to gain approximately one inch of lift.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Consider a 650 lb/in spring option for setups with heavier components.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Use a 2.5-inch extended length coil over for the front Radflo setup.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Use a 2-inch to 2.5-inch lift range for the rear Alcan leaf springs.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Use a 2-inch to 4-inch lift range for the rear Radflo shock setup.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Use a 600 lb/in spring rate for setups with lighter bumpers or winches.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Use a 650 lb/in spring rate for setups with heavier bumpers or winches.
 
 </details>
 
@@ -103,6 +262,7 @@ _Procedure reported by [t962]._
 ## Source attributions
 
 - **t467**: xyoverland, "Idea for a "you may also need to consider..." by common upgrades", 2021-10-21. https://www.xterranation.org/index.php?threads/idea-for-a-you-may-also-need-to-consider-by-common-upgrades.10326/
+- **t553**: scoyoc, "The Strengths (and Pitfalls) Of Bilstein 5100's", 2020-03-26. https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/
 - **t962**: RioDeColumbia, "Best way to start lifting X?", 2015-05-02. https://www.xterranation.org/index.php?threads/best-way-to-start-lifting-x.6817/
 - **t1020**: Kyle, "Selecting a Lift?", 2014-08-10. https://www.xterranation.org/index.php?threads/selecting-a-lift.5775/
 

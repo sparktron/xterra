@@ -87,6 +87,8 @@ parts:
   oem_part_no: ''
 - name: HID bulb kit
   oem_part_no: ''
+- name: Hood Blackout
+  oem_part_no: ''
 - name: Large gauge wire
   oem_part_no: ''
 - name: LED headlight kit
@@ -149,6 +151,7 @@ sources:
 - t906
 - t911
 - t923
+- t925
 - t929
 - t985
 - t986
@@ -161,11 +164,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 17
-  partial_items: 86
+  partial_items: 89
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 23
+  withheld_items: 24
   pending_safety_values: 0
 ---
 -->
@@ -275,6 +278,8 @@ Install a second battery in the rear cargo area and connect an electrical isolat
 [Partial] Select a 3-inch LED light pod from Extreme Led Lightbars and ensure the unit is sold as a pair. [t923]
 
 [Partial] Select a Rough Country 2-inch LED light pod sold as a pair with an IP67 rating. [t923]
+
+[Partial] Install a Vigg hood blackout to the vehicle. [t925]
 
 ## Procedure
 
@@ -646,6 +651,12 @@ _Procedure reported by [t174]._
 
 </details>
 
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Vigg hood blackout to the vehicle.
+
+</details>
+
 ## Tools
 
 - 7-pin wiring harness kit [t6]
@@ -700,6 +711,7 @@ _Procedure reported by [t174]._
 - Ground wire jumper [t158]
 - Grounding strip with multiple relay mounts [t985]
 - [Partial] HID bulb kit [t1033]
+- [Partial] Hood Blackout [t925]
 - [Partial] Large gauge wire: 12 AWG or larger [t158]
 - [Partial] LED headlight kit [t1033]
 - [Partial] LED Light Bar: Prefer 20-30 inch size; look for IPX rated models from brands like Rigid, Tuff Stuff LEDs, or Extreme LED. [t833]
@@ -779,6 +791,7 @@ _Procedure reported by [t174]._
 - [Partial] Consider mounting resistors on a separate bracket if drilling holes in the rust-prone body is undesirable. [t174]
 - Check if the bar is 'Made in America' to avoid inconsistent manufacturing quality common with Chinese imports. [t833]
 - Be wary of cheap bars that fudge their IPX ratings or list specs that don't apply directly to the unit. [t833]
+- [Partial] Use for aesthetic lighting enhancement [t925]
 
 ## Common mistakes
 
@@ -841,6 +854,7 @@ _Procedure reported by [t174]._
 - **t906**: leo, "the new wiring project", 2016-05-22. https://www.xterranation.org/index.php?threads/the-new-wiring-project.7656/
 - **t911**: HammermillX07, "Amp install locations", 2016-01-05. https://www.xterranation.org/index.php?threads/amp-install-locations.7429/
 - **t923**: RioDeColumbia, "LED cube light difference?", 2015-07-26. https://www.xterranation.org/index.php?threads/led-cube-light-difference.7070/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 - **t929**: wiseguy3501, "In-Dash Nexus 7 Tablet Project", 2013-06-17. https://www.xterranation.org/index.php?threads/in-dash-nexus-7-tablet-project.3605/
 - **t985**: metzican, "How To: Rigid Dualy Flush Mounted in rear corner panels.", 2013-03-30. https://www.xterranation.org/index.php?threads/how-to-rigid-dualy-flush-mounted-in-rear-corner-panels.3193/
 - **t986**: Macland, "Mini How To: Running coaxial cable from hatch to driver", 2013-03-16. https://www.xterranation.org/index.php?threads/mini-how-to-running-coaxial-cable-from-hatch-to-driver.3134/

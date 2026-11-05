@@ -15,31 +15,49 @@ shared_platform:
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: NGK PLFR5A-11
+  oem_part_no: ''
+- name: 'Rock Auto Part #93759 (05-08)'
+  oem_part_no: ''
 sources:
 - t67
-confidence: '[Unverified]'
+- t3212
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 4
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
 
 # Spark plug part numbers and types
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Iridium plugs are estimated to last one-third longer than the more expensive OEM Platinum ones. [t67]
+
+[Partial] Check the owner's manual or Factory Service Manual for specific year recommendations. [t3212]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Check the owner's manual or Factory Service Manual for specific year recommendations.
+
+_Procedure reported by [t3212]._
+
+## Parts
+
+- NGK PLFR5A-11 [t3212]
+- Rock Auto Part #93759, 05-08 [t3212]
 
 ## Tips & gotchas
 
@@ -48,4 +66,5 @@ verification:
 ## Source attributions
 
 - **t67**: TheFauxFox, "How-to: DIY Spark Plug and Intake Plenum Gasket Replacement", 2017-08-12. https://www.xterranation.org/index.php?threads/how-to-diy-spark-plug-and-intake-plenum-gasket-replacement.8203/
+- **t3212**: Bluegrassen, "2nd Gen Spark plug change", 2012-03-15. https://www.xterranation.org/index.php?threads/2nd-gen-spark-plug-change.1220/
 

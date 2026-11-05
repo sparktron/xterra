@@ -6,7 +6,8 @@ generation: second-gen
 category: mods
 applies_to:
   years: []
-  trims: []
+  trims:
+  - X
   engine: []
   drivetrain: []
 shared_platform:
@@ -17,24 +18,30 @@ tools: []
 parts:
 - name: Axle Shaft (if needed)
   oem_part_no: ''
+- name: Front Axle
+  oem_part_no: 3-Rib Titan M205
 - name: M226 Axle Assembly
   oem_part_no: ''
+- name: Rear Axle
+  oem_part_no: 2012 Titan Pro4X M226
 - name: Titan front spindles
   oem_part_no: ''
 - name: Titan rear axle assembly
   oem_part_no: ''
 sources:
+- t247
 - t257
 - t353
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 6
+  partial_items: 13
   partial_fields:
+  - applies_to
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 2
   pending_safety_values: 0
 ---
 -->
@@ -49,14 +56,25 @@ verification:
 
 Select a PRO-4X M226 axle assembly for the best balance of price and features. [t353]
 
+Swap the entire front axle assembly from a Titan to the Xterra and install the complete rear axle assembly, including housing and shafts. [t247]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. [Partial] Swap the entire front axle assembly from a Titan to the Xterra.
+2. [Partial] Install the complete rear axle assembly, including housing and shafts, into the Xterra frame.
+3. [Partial] Cut off existing stock spring perches on the rear tube that are in the wrong location for the new axles.
+4. [Partial] Weld new mounting points onto the rear axle tubes to match the Titan geometry.
+
+_Procedure reported by [t247]._
+
+<details><summary>Alternate procedure [t257] [Partial]</summary>
+
 1. [Partial] Swap the entire Titan rear axle assembly into the Xterra.
 2. [Partial] Install Titan front spindles to match the new width.
 
-_Procedure reported by [t257]._
+</details>
 
 <details><summary>Alternate procedure [t353] [Partial]</summary>
 
@@ -68,23 +86,36 @@ _Procedure reported by [t257]._
 ## Parts
 
 - Axle Shaft, if needed: May be required if the donor axle has bent flanges or unequal lengths. [t353]
+- Front Axle (3-Rib Titan M205) [t247]
 - [Partial] M226 Axle Assembly: Specifically a PRO-4X version preferred for value and features [t353]
+- Rear Axle (2012 Titan Pro4X M226) [t247]
 - Titan front spindles [t257]
 - Titan rear axle assembly [t257]
+
+## Specifications
+
+- **Front Differential Type**: 3-Rib Titan M205 [t247] ([Unverified] single report)
+- **Front Gear Ratio**: 4.56 [t247] ([Partial] [Unverified] single report)
+- **Rear Axle Housing Code**: M226 [t247] ([Partial] [Unverified] single report)
+- **Rear Gear Ratio**: 4.56 [t247] ([Unverified] single report)
 
 ## Tips & gotchas
 
 - Consider swapping Titan brakes into the front to match the axle width. [t257]
 - Consider 3.69 gearing from a manual transmission version for lower stock ratios. [t353]
 - Note that M226 axles have an outer diameter of 1.366 inches compared to the 8.8's 1.32 inches. [t353]
+- [Partial] Note that stock Xterra spring perches and shock mounts are often in the wrong location for a Titan axle, requiring cutting off old brackets and welding new ones. [t247]
+- [Partial] Ensure rear brake lines have custom fittings if using standard Titan tubes. [t247]
 
 ## Common mistakes
 
 - [Partial] Ignoring wheel pattern width differences between the M226 and standard 8.8s. [t353]
 - [Partial] Failing to match front differential ratios, leading to uneven axle shaft lengths. [t353]
+- [Partial] Using stock spring perches that were in the wrong location for the new axle tubes. [t247]
 
 ## Source attributions
 
+- **t247**: Prime, "Complete Front & Rear Titan Swap", 2021-03-01. https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/
 - **t257**: Prawn, "Almost Swapped...", 2020-12-15. https://www.xterranation.org/index.php?threads/almost-swapped.9826/
 - **t353**: Stingingfork, "Need Advice on Next Mod - Switching Out a C200K with a M226 Axle Assy.", 2021-02-26. https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/
 

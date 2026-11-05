@@ -13,31 +13,78 @@ applies_to:
 shared_platform: []
 difficulty: null
 est_time: null
-tools: []
+tools:
+- Internet
 parts:
+- name: Advanced Auto Parts
+  oem_part_no: ''
+- name: ARB lockers and front bumpers
+  oem_part_no: ''
+- name: AutomotiveCustomizers parts
+  oem_part_no: ''
+- name: B & M Lightbars
+  oem_part_no: ''
+- name: Bandit 4x4 bushings and idler arms
+  oem_part_no: ''
+- name: Black Widow Gear website
+  oem_part_no: ''
+- name: Black Widow Gear website (Frontier/Titan compatible)
+  oem_part_no: ''
+- name: Black Widow Gear website (Titan compatible)
+  oem_part_no: ''
+- name: Black Widow Gear website (Xterra compatible)
+  oem_part_no: ''
 - name: Boulder Nissan Online
   oem_part_no: ''
 - name: Courtesy Nissan Parts
   oem_part_no: ''
+- name: Courtesyparts.com (replacement)
+  oem_part_no: ''
+- name: Garvin parts
+  oem_part_no: ''
+- name: Gobi parts
+  oem_part_no: ''
+- name: HeftyFabworks armor
+  oem_part_no: ''
+- name: NissanOnlineParts (genuine Nissan parts)
+  oem_part_no: ''
 - name: NissanPartsDeal
+  oem_part_no: ''
+- name: Nisstec Lifts
   oem_part_no: ''
 - name: Offset spacers
   oem_part_no: ''
+- name: OTRATTW rocker switches (factory knockouts)
+  oem_part_no: ''
+- name: Prerunner Parts (general)
+  oem_part_no: ''
+- name: PRG Products (short shifters)
+  oem_part_no: ''
+- name: Rockauto.com (general replacement)
+  oem_part_no: ''
+- name: Shrockworks armor
+  oem_part_no: ''
 - name: Spherical bearings
+  oem_part_no: ''
+- name: Volant CAI intake
+  oem_part_no: ''
+- name: Xoskel parts
   oem_part_no: ''
 sources:
 - t154
+- t201
 - t594
 - t631
+- t3220
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 8
+  partial_items: 16
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
@@ -57,6 +104,16 @@ Take the remote reservoir shocks to Jensen Bros. Off-Road in Salt Lake City for 
 [Partial] Visit NissanPartsDeal, Courtesy Nissan Parts, Boulder Nissan Online, RockAuto.com or PartSouq. [t631]
 
 Contract a vendor capable of using a heated press and budget approximately $1000. [t594]
+
+Part sources include the Black Widow Gear website via the Internet. [t201]
+
+[Partial] Part sources include the Black Widow Gear website for Frontier or Titan compatibility. [t201]
+
+Part sources include the Black Widow Gear website for Titan-compatible parts. [t201]
+
+[Partial] Part sources include the internet, specifically the Black Widow Gear website for Xterra compatibility. [t201]
+
+[Partial] Part sources include Nisstec Lifts, B & M Lightbars, PRG Products, HeftyFabworks armor, Shrockworks armor, ARB lockers and front bumpers, OTRATTW rocker switches, and Volant CAI intake. [t3220]
 
 ## Procedure
 
@@ -93,13 +150,39 @@ _Procedure reported by [t631]._
 
 </details>
 
+## Tools
+
+- Internet [t201]
+
 ## Parts
 
+- [Partial] Advanced Auto Parts [t3220]
+- ARB lockers and front bumpers [t3220]
+- AutomotiveCustomizers parts [t3220]
+- B & M Lightbars [t3220]
+- Bandit 4x4 bushings and idler arms [t3220]
+- [Partial] Black Widow Gear website [t201]
+- [Partial] Black Widow Gear website, Frontier/Titan compatible [t201]
+- [Partial] Black Widow Gear website, Titan compatible [t201]
+- Black Widow Gear website, Xterra compatible [t201]
 - [Partial] Boulder Nissan Online [t631]
 - [Partial] Courtesy Nissan Parts [t631]
+- Courtesyparts.com, replacement [t3220]
+- Garvin parts [t3220]
+- Gobi parts [t3220]
+- HeftyFabworks armor [t3220]
+- NissanOnlineParts, genuine Nissan parts [t3220]
 - [Partial] NissanPartsDeal [t631]
+- Nisstec Lifts [t3220]
 - Offset spacers: New ones required for the rebuild setup [t154]
+- OTRATTW rocker switches, factory knockouts [t3220]
+- Prerunner Parts, general [t3220]
+- [Partial] PRG Products, short shifters [t3220]
+- Rockauto.com, general replacement [t3220]
+- Shrockworks armor [t3220]
 - Spherical bearings: All four included if ordered with total package [t154]
+- Volant CAI intake [t3220]
+- Xoskel parts [t3220]
 
 ## Specifications
 
@@ -123,6 +206,8 @@ _Procedure reported by [t631]._
 ## Source attributions
 
 - **t154**: IM1RU, "Shock Shop in Salt Lake City now Rebuilding Radflo's", 2023-05-20. https://www.xterranation.org/index.php?threads/shock-shop-in-salt-lake-city-now-rebuilding-radflos.10942/
+- **t201**: njnewb, "Black widow rear bumper", 2017-02-10. https://www.xterranation.org/index.php?threads/black-widow-rear-bumper.8008/
 - **t594**: Zombieitch, "Carbonfiber skids", 2013-06-26. https://www.xterranation.org/index.php?threads/carbonfiber-skids.3665/
 - **t631**: westslope, "How To Find Original Equipment Part Numbers", 2020-05-03. https://www.xterranation.org/index.php?threads/how-to-find-original-equipment-part-numbers.9500/
+- **t3220**: Diadaga, "Aftermarket Parts", 2012-02-01. https://www.xterranation.org/index.php?threads/aftermarket-parts.885/
 

@@ -6,7 +6,7 @@
 | Alternative Rear Axle Swaps | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Alternator failure symptoms | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Ball joints and tie rods | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
-| Bumpers, sliders and skid plates | Frontier | n/a | 1 | unconfirmed |
+| Bumpers, sliders and skid plates | Frontier, Titan | n/a | 2 | community-consensus |
 | CV Axle Replacement Procedure | Titan | n/a | 1 | unconfirmed |
 | CV Axles and Boot Replacement | Titan | 2005 | 1 | unconfirmed |
 | CV axle and boot part costs | Titan | n/a | 1 | unconfirmed |
@@ -16,6 +16,7 @@
 | Chromoly Axle Shafts for M226 | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Control arms and bushings | Frontier | n/a | 1 | unconfirmed |
 | Cooling fan setup for VK swap with V8 shroud | Titan | n/a | 1 | unconfirmed |
+| Custom braided stainless material benefits | Titan | n/a | 1 | unconfirmed |
 | Dana Super44/M226 & M205 Axle Information | Titan | n/a | 1 | unconfirmed |
 | Differential Identification Codes | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Donor Titan hidden surprise for VK swap | Titan | n/a | 1 | unconfirmed [Partial] |
@@ -34,14 +35,17 @@
 | Factory E-locker Plug N Play Mod | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Front CV axle C-clip specifications and fitment | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Front differential side seal maintenance during CV install | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Front sway bar endlink angle variations | Titan | n/a | 1 | unconfirmed |
+| Front sway bar endlink geometry specs | Titan | n/a | 1 | unconfirmed |
+| Front sway bar length requirements for lifts | Titan | n/a | 1 | unconfirmed [Partial] |
 | Frontier climate control swap into Xterra | Frontier | n/a | 1 | unconfirmed |
-| Gear ratios and tire sizes | Frontier | n/a | 1 | unconfirmed |
+| Gear ratios and tire sizes | Frontier, Titan | n/a | 2 | community-consensus |
 | Inner tie rod length measurements | Frontier, Titan | n/a | 1 | unconfirmed |
 | Inner tie rod part numbers and specs | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Intake manifold gasket kit components | Frontier | 2005 | 1 | unconfirmed |
 | Intake, exhaust, tune and forced induction | Frontier | n/a | 1 | unconfirmed |
 | Lift and travel definitions | Titan | n/a | 1 | unconfirmed |
-| Lift kits and suspension lifts | Frontier, Titan | 2005, 2012 | 6 | community-consensus |
+| Lift kits and suspension lifts | Frontier, Titan | 2005, 2012 | 11 | community-consensus |
 | Lighting and ditch light brackets | Frontier | n/a | 1 | unconfirmed |
 | Lighting upgrades and auxiliary switches | Frontier | n/a | 1 | unconfirmed [Partial] |
 | M205 transfer case gear ratios by year and vehicle | Titan | 2007, 2012 | 1 | unconfirmed |
@@ -49,7 +53,10 @@
 | Mods: Alternative front axle swap for cost savings | Titan | n/a | 1 | unconfirmed |
 | Mods: Front differential swap and re-gearing | Titan | n/a | 1 | unconfirmed [Partial] |
 | Mods: Suspension lift and brake line extension | Titan | n/a | 1 | unconfirmed [Partial] |
+| Nisstec rear brake line availability note | Titan | n/a | 1 | unconfirmed [Partial] |
+| Nisstec rear brake line pricing | Titan | n/a | 1 | unconfirmed |
 | O2 sensor configuration for VK swap | Titan | n/a | 1 | unconfirmed [Partial] |
+| PRG front vs rear availability note | Titan | n/a | 1 | unconfirmed [Partial] |
 | Parts diagrams and wiring guides | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Rago Fab Ditch Light Bracket installation | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Rear Axle Specifications (M226 vs 8.8) | Titan | n/a | 1 | unconfirmed [Partial] |
@@ -60,6 +67,7 @@
 | Rear differential breather extension mod | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Rear differential locker bypass and switch install | Frontier, Titan | n/a | 1 | unconfirmed |
 | Rear leaf spring upgrades and swaps | Frontier | n/a | 1 | unconfirmed |
+| Rear lift bracket application for 3-inch lifts | Titan | n/a | 1 | unconfirmed |
 | Rear view camera systems and mounting | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Reference M205 differential rib designs and snap ring upgrades | Titan | n/a | 1 | unconfirmed [Partial] |
 | Reference M205 snap ring sizing and axle retention tips | Titan | n/a | 1 | unconfirmed [Partial] |
@@ -68,21 +76,51 @@
 | Reference Torque specifications and part numbers for M205 swap | Titan | n/a | 1 | unconfirmed [Partial] |
 | Reference: Drivetrain axle types by model year | Titan | n/a | 1 | unconfirmed [Partial] |
 | Repair | Titan | n/a | 1 | unconfirmed |
+| Replacing rear differential bearing retainer bolts | Titan | n/a | 1 | unconfirmed |
+| RockAuto stock line pricing source | Titan | n/a | 1 | unconfirmed |
 | Seating inner C-clip into differential via leverage | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Shock absorber length differences with lift kits | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Shock length for Titan swaps | Titan | n/a | 1 | unconfirmed [Partial] |
 | Shock model numbers and lengths | Frontier | n/a | 1 | unconfirmed [Partial] |
+| Shocks, springs and bump stops | Frontier | n/a | 1 | unconfirmed |
 | Slip Yoke Eliminator (SYE) conversion setup | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Spark plug and intake gasket replacement | Frontier | 2005 | 1 | unconfirmed |
 | Spark plug part numbers and types | Frontier | 2005 | 1 | unconfirmed |
+| Specifications by model year | Titan | n/a | 1 | unconfirmed |
 | Spring rates and coil types | Titan | n/a | 1 | unconfirmed [Partial] |
+| Stock rear brake line price comparison | Titan | n/a | 1 | unconfirmed [Partial] |
 | SuperPro Rear Leaf Spring Bushing Kit Specs | Frontier | n/a | 1 | unconfirmed [Partial] |
-| Sway bar links and bushings | Frontier | n/a | 1 | unconfirmed |
+| Sway bar links and bushings | Frontier | n/a | 2 | community-consensus |
 | T-case output spline variations (32 vs 34) | Frontier, Titan | n/a | 1 | unconfirmed |
 | Tie rod and control arm replacement for Titan swap | Titan | n/a | 1 | unconfirmed [Partial] |
+| Tire sizes and fitment limits | Frontier | n/a | 1 | unconfirmed |
 | Tires, wheels and fitment | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan Brake Caliper Bore Size | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Axle Diff Mounting Bolts | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Axle Fasteners List | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Axle Lower Ball Joint Hardware | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Axle Lower Control Arm Nuts | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Axle Lower Shock Bolts | Titan | n/a | 1 | unconfirmed |
+| Titan Front Axle Shock Mounting Points | Titan | n/a | 1 | unconfirmed |
+| Titan Front Axle Tie Rod Adjustment Nuts | Titan | n/a | 1 | unconfirmed |
+| Titan Front Axle Upper Control Arm Bolts | Titan | n/a | 1 | unconfirmed |
+| Titan Front Brake Assembly Details | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Brake Booster Gasket Setup | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Brake Caliper Bracket Bolts | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Hub Assembly Options | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Hub and Knuckle Fitment | Titan | n/a | 1 | unconfirmed |
+| Titan Front Shock and Arm Configuration | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Steering and Tie Rods | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Suspension Parts List | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Front Tie Rod Bellows Fitment | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan M205 differential gear ratios | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Rear Axle Brake Caliper Hardware | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Rear Axle Brake Line Setup | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan Rear Axle Installation and 2WD Transition | Frontier, Titan | n/a | 1 | unconfirmed |
+| Titan Rear Axle Locker and Gearing Parts | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Rear Axle Parking Brake Adjustment | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Rear Axle Spring Perch Compatibility | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan Rear Suspension Components | Titan | n/a | 1 | unconfirmed |
 | Titan VK56 engine swap | Frontier, Titan | 2010 | 8 | community-consensus |
 | Titan VK56 engine swap 17-inch aluminum wheels and mud tires | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan VK56 engine swap adjustable shackles and leaf springs | Titan | n/a | 1 | unconfirmed [Partial] |
@@ -105,15 +143,23 @@
 | Titan axle backing plate cost comparison | Titan | n/a | 1 | unconfirmed |
 | Titan axle gear ratio upgrade planning | Titan | n/a | 1 | unconfirmed |
 | Titan axle, differential and brake swaps | Titan | n/a | 3 | community-consensus |
+| Titan front differential swap | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan length R180 axles for Xterra | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan rear axle swap and components | Titan | n/a | 1 | unconfirmed [Partial] |
+| Titan rear brake line length comparison | Titan | n/a | 1 | unconfirmed |
+| Titan rear brake line length specs | Titan | n/a | 1 | unconfirmed [Partial] |
 | Titan swap component cost breakdown | Titan | n/a | 1 | unconfirmed [Partial] |
+| Torque specifications | Frontier | n/a | 1 | unconfirmed |
 | Transfer case conversion and shifting | Frontier | n/a | 1 | unconfirmed |
 | Transfer case output splines and yoke compatibility | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
 | Transmission and transfer case problems | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Trim guide (X, S, SE, Off-Road, PRO-4X) | Frontier | n/a | 1 | unconfirmed [Partial] |
 | Truck Bed Air Mattresses and Foam Toppers | Frontier | n/a | 1 | unconfirmed |
+| Wheel spacers for track width conversion | Titan | n/a | 1 | unconfirmed |
+| Xterra Front Axle Mounting Hardware | Titan | n/a | 1 | unconfirmed [Partial] |
 | Xterra, Frontier and Titan parts interchange | Frontier, Titan | n/a | 2 | community-consensus |
 | [diagnostics] Patrol transfer case model variations | Frontier, Titan | n/a | 1 | unconfirmed [Partial] |
+| [reference] Fluids and capacities | Frontier | n/a | 2 | community-consensus |
 | [reference] Part sources for rear diff covers | Frontier | n/a | 1 | unconfirmed [Partial] |
+| [reference] Parts diagrams | Frontier | n/a | 1 | unconfirmed |
 | [reference] Transfer case models and ratios | Frontier, Titan | n/a | 1 | unconfirmed |

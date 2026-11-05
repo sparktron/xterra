@@ -9,18 +9,22 @@ applies_to:
   trims: []
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Adjustable Shackle
+  oem_part_no: ''
 sources:
+- t559
 - t1022
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 0
+  partial_items: 2
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 1
@@ -30,13 +34,28 @@ verification:
 
 # Shocks, springs and bump stops
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 Install front upper control arm bushings or bump stops to cushion coil bucket contact. [t1022]
 
+[Partial] Install adjustable shackles to level the rear suspension. [t559]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. [Partial] Install adjustable shackles to level the rear suspension.
+
+_Procedure reported by [t559]._
+
+## Parts
+
+- Adjustable Shackle: PRG or Nisstec brand recommended [t559]
+
 ## Source attributions
 
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
 

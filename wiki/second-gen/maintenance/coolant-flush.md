@@ -9,6 +9,7 @@ applies_to:
   - 2013
   trims:
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -27,12 +28,14 @@ sources:
 - t99
 - t301
 - t784
+- t3098
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 8
-  partial_fields: []
+  partial_items: 11
+  partial_fields:
+  - applies_to
   unconfirmed_safety_values: 0
   withheld_items: 5
   pending_safety_values: 0
@@ -51,6 +54,8 @@ Fill the radiator and overflow reservoir with 50/50 long life blue coolant. [t99
 
 [Partial] Remove damaged AC condenser, flush system with dry refrigerant and drier to fix the puncture. [t784]
 
+[Partial] Mix 100% antifreeze with water in a separate container inside the house at a 50/50 ratio. [t3098]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
@@ -68,6 +73,13 @@ _Procedure reported by [t99]._
 
 </details>
 
+<details><summary>Alternate procedure [t3098] [Partial]</summary>
+
+1. [Partial] Mix 100% antifreeze with water in a separate container inside the house.
+2. Use old milk jugs or similar containers for mixing.
+
+</details>
+
 ## Tools
 
 - [Partial] Husky picks [t99]
@@ -79,6 +91,11 @@ _Procedure reported by [t99]._
 - Drier/Desiccant Can: Included with the condenser unit [t784]
 - New AC Condenser: Must include a new drier, desiccant can [t784]
 
+## Specifications
+
+- **Antifreeze to water ratio**: 50/50 [t3098] ([Partial] [Unverified] single report)
+- **Concentrated antifreeze option**: 70% antifreeze / 30% water [t3098] ([Partial] [Unverified] single report)
+
 ## Tips & gotchas
 
 - Overfilling the expansion tank slightly can help displace air bubbles during operation. [t301]
@@ -88,6 +105,8 @@ _Procedure reported by [t99]._
 - Use dry refrigerant that has no oil or sealants already mixed in it. [t784]
 - Watch carefully where seals go on the pipes during installation. [t784]
 - Hold off opening up the drier until you are ready to pull a vacuum. [t784]
+- Mark the mixed container to avoid accidental use by others. [t3098]
+- Keep the mixture away from food storage areas. [t3098]
 
 ## Common mistakes
 
@@ -98,4 +117,5 @@ _Procedure reported by [t99]._
 - **t99**: KC!, "Radiator Drain & Fill", 2026-02-10. https://www.xterranation.org/index.php?threads/radiator-drain-fill.11494/
 - **t301**: MisterH, "Overheating long drive on highway not in town", 2022-12-23. https://www.xterranation.org/index.php?threads/overheating-long-drive-on-highway-not-in-town.10806/
 - **t784**: Trexx, "Changing my Ac Condensor", 2013-01-23. https://www.xterranation.org/index.php?threads/changing-my-ac-condensor.2874/
+- **t3098**: maillet282, "anti freeze", 2014-02-24. https://www.xterranation.org/index.php?threads/anti-freeze.4866/
 

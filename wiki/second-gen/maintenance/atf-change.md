@@ -7,7 +7,9 @@ category: maintenance
 applies_to:
   years:
   - 2011
-  trims: []
+  trims:
+  - Matic S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -19,6 +21,8 @@ tools:
 - 5-gallon plastic jugs
 - Bright light
 - 10mm socket or wrench
+- Two clean 5-gallon buckets
+- Inlet hose/line
 parts:
 - name: Crush washer
   oem_part_no: ''
@@ -29,17 +33,20 @@ parts:
 sources:
 - t24
 - t34
+- t62
 - t92
 - t183
 - t488
-confidence: community-consensus
+- t3090
+confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 10
-  partial_items: 9
-  partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 8
+  partial_items: 29
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 1
+  withheld_items: 11
   pending_safety_values: 0
 ---
 -->
@@ -59,6 +66,68 @@ Drain the automatic transmission pan, refill with fresh fluid, and consider a po
 Locate the green knob dipstick, undo its securing bolt, pull it up, then rotate it to read the fluid level. [t488]
 
 [Partial] Drain the automatic transmission fluid completely, then fill it with fresh fluid. [t183]
+
+[Partial] Jack up the rear end, then hook two hoses and a measured receptacle to the lower 5/16" ATF radiator hose. [t62]
+
+[Partial] Start the engine, put it in gear, then let the transmission run for 5 to 10 seconds. [t62]
+
+[Partial] Stop the engine, drain the automatic transmission fluid into a 5/16" tube, then measure the amount. [t62]
+
+Pour the measured amount of new fluid back into the system using 5/16" tubing. [t62]
+
+[Partial] Repeat the cycle by shifting through every gear a couple of times using 5/16" tubing. [t62]
+
+Continue draining automatic transmission fluid until it matches the incoming tubing's color. [t62]
+
+[Partial] Check the automatic transmission fluid level using a 5/16" tubing. [t62]
+
+[Partial] Drive the vehicle until the transmission temperature reaches about 120 degrees. [t62]
+
+Check the automatic transmission fluid level again and add a little if needed. [t62]
+
+[Partial] Drain a little automatic transmission fluid if the level gets too high using 5/16" tubing. [t62]
+
+Perform the automatic transmission fluid service every two years. [t62]
+
+[Partial] Do the power steering service at the same time. [t62]
+
+[Partial] Use 5/16 inch clear tubing for the best results. [t62]
+
+[Partial] Ensure the lower ATF radiator hose of a 5/16" tubing size is accessible. [t62]
+
+[Partial] Use a measured receptacle to track the exact amount of 5/16" tubing. [t62]
+
+[Partial] Write down the amount of fluid in and out on each cycle. [t62]
+
+[Partial] Start with a partial container of ATF using 5/16" tubing. [t62]
+
+[Partial] Verify that shifting feels smooth after completing an automatic transmission fluid change using a 5/16" tubing. [t62]
+
+[Partial] Take the vehicle on a desert day trip with 5/16" tubing for an automatic transmission fluid change. [t62]
+
+Look for old automatic transmission fluid that is noticeably browner and dirtier than bright red. [t62]
+
+Check for any slippage when offroading uphill using a 5/16" tubing. [t62]
+
+Ensure the pump is not running dry to prevent bearing damage. [t62]
+
+[Partial] Avoid introducing air pockets using 5/16" tubing. [t62]
+
+Use long 90-degree needle nose pliers with a 5/16" tubing for an automatic transmission fluid change. [t62]
+
+[Partial] Grind down the hose mender to make it easier to remove barbed ends using 5/16" tubing. [t62]
+
+Work the lower ATF rad hose loose from under the right side of the fan. [t62]
+
+Accept that there is very little room for hands in the engine bay. [t62]
+
+[Partial] Consider removing the auxiliary fan for easier access and use a 5/16" tubing. [t62]
+
+Use 3/8 inch tubing as an alternative to the 5/16 size. [t62]
+
+Plan for the mender to be a pain in the ass using 5/16" tubing. [t62]
+
+Attach inlet and outlet lines from two clean buckets to the vehicle's cooler. [t3090]
 
 ## Procedure
 
@@ -109,6 +178,177 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 
 </details>
 
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Jack up the rear end of the vehicle.
+2. [Partial] Hook up two hoses and one measured receptacle to the lower ATF radiator hose.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Start the engine and put it in gear.
+2. Let the transmission run for 5 to 10 seconds.
+
+</details>
+
+<details><summary>Alternate procedure [t3090] [Partial]</summary>
+
+1. Attach an inlet line from a bucket of new ATF to the vehicle's cooler.
+2. Connect an outlet line from that same setup to an empty second bucket.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Pour the measured amount of new fluid back into the system.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Repeat the cycle, shifting through every gear a couple of times.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Continue until the fluid coming out matches the color of the fluid going in.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Check the level on the dipstick.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Drive the vehicle until the transmission temperature reaches about 120 degrees.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Check the level again and add a little if needed.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Perform the service every two years regardless of mileage.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Do the power steering service at the same time.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Use 5/16 inch clear tubing for the best results.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Ensure the lower ATF radiator hose is accessible.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Use a measured receptacle to track the exact amount of fluid.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Write down the amount of fluid in and out on each cycle to avoid losing track.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Start with a partial container of ATF if necessary.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Verify the shifting feels smooth after completion.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Take the vehicle on a desert day trip to test performance.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Look for old fluid that is noticeably browner and dirtier than bright red.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Check for any slippage when offroading uphill.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Ensure the pump is not running dry to prevent bearing damage.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Use long 90-degree needle nose pliers if the auxiliary fan blocks access.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Grind down the hose mender to make it easier to remove barbed ends.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Work the lower ATF rad hose loose from under the right side of the fan.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Accept that there is very little room for hands in the engine bay.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Consider removing the auxiliary fan if easier access is desired.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. [Partial] Use 3/8 inch tubing as an alternative to the 5/16 size.
+
+</details>
+
+<details><summary>Alternate procedure [t62] [Partial]</summary>
+
+1. Plan for the mender to be a pain in the ass to remove.
+
+</details>
+
 ## Tools
 
 - Clear hose [t34]
@@ -116,6 +356,8 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 - 5-gallon plastic jugs [t34]
 - [Partial] Bright light [t34]
 - [Partial] 10mm socket or wrench [t488]
+- Two clean 5-gallon buckets [t3090]
+- Inlet hose/line [t3090]
 
 ## Parts
 
@@ -127,6 +369,11 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 
 - **Dipstick tube bolt size**: 10mm [t488] ([Unverified] single report)
 - **Initial fill amount via dipstick tube**: 4 to 5 quarts [t34] (Claude-reviewed)
+- **New fluid capacity per bucket**: 12 qts [t3090] ([Partial] [Unverified] single report)
+- **Run time per cycle**: 5-10 seconds [t62] ([Unverified] single report)
+- **Service interval**: Every 2 years [t62] ([Unverified] single report)
+- **Target temp**: ~120° [t62] ([Partial] [Unverified] single report)
+- **Tubing size**: DISPUTED, sources disagree: 5/16" [t62]; 3/8" [t62]
 
 ## Tips & gotchas
 
@@ -135,6 +382,8 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 - [Partial] [Unverified value] Ensure you fill exactly half of a standard 5-gallon jug (approx. 12 quarts) for proper measurement. [t34]
 - Consider a 'poor man's flush' to extract fluid from the torque converter and valved-off portions of the body for better results than a simple drain. [t92]
 - Pull up the dipstick and rotate it 90 degrees to read the fluid level. [t488]
+- Ask the shop if they use reverse flow or forward flow; prefer forward flow to avoid sucking sediment into valves. [t3090]
+- Use a 5-gallon bucket for new fluid and an empty one for drainage. [t3090]
 
 ## Common mistakes
 
@@ -143,6 +392,7 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 
 ## Diagrams (links only)
 
+- [image: https://lh3.googleusercontent.com/pw/AP1GczNna0_M7w85H4LS-HByYGQd12yW_8NDSxy086nldBt9qqyAscS8s3h2OmEhTESyhPww0lQzqLJxsgIirr_WO9nYn36k0O8HhpUpw5Vp3XJfZkAGA0Y0=w2400] [t62]
 - http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9921 [t34]
 - http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9929 [t34]
 
@@ -150,7 +400,9 @@ _Procedure reported by [t34]; 5 steps reworded by a reviewer. Photos of this job
 
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 - **t34**: Rook, "How-to: Transmission PMF (Poor Man's Flush) - PBR", 2009-07-07. https://www.thenewx.org/threads/how-to-transmission-pmf-poor-mans-flush-pbr.30213/
+- **t62**: outback97, "First time ATF PMF, have a question", 2024-10-25. https://www.xterranation.org/index.php?threads/first-time-atf-pmf-have-a-question.11273/
 - **t92**: westslope, "Automatic Transmission plug drain and filler plugs ... replace?", 2024-03-05. https://www.xterranation.org/index.php?threads/automatic-transmission-plug-drain-and-filler-plugs-replace.11141/
 - **t183**: TerryD, "Shrockworks Skids and Cooling", 2023-06-20. https://www.xterranation.org/index.php?threads/shrockworks-skids-and-cooling.10970/
 - **t488**: Maxxpags, "Info help with ATF change", 2021-04-16. https://www.xterranation.org/index.php?threads/info-help-with-atf-change.10016/
+- **t3090**: maillet282, "Automatic Transmision service", 2014-06-17. https://www.xterranation.org/index.php?threads/automatic-transmision-service.5528/
 

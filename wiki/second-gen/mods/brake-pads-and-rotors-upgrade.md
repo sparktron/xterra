@@ -14,17 +14,22 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: Ceramic Brake Pads (Full Set)
+  oem_part_no: ''
+- name: Powerstop Drilled and Slotted Rotors
+  oem_part_no: ''
 - name: Raybestos EHT Brake Pads
   oem_part_no: ''
 - name: Slotted Rotors
   oem_part_no: ''
 sources:
 - t499
-confidence: '[Unverified]'
+- t3083
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 4
+  partial_items: 7
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 0
@@ -34,13 +39,13 @@ verification:
 
 # Brake pads and rotors upgrade
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Install Raybestos EHT brake pads and replace the existing slotted rotors. [t499]
+
+[Partial] Select ceramic brake pads for reduced dust and choose drilled, slotted rotors to aid heat dissipation. [t3083]
 
 ## Procedure
 
@@ -51,16 +56,31 @@ verification:
 
 _Procedure reported by [t499]._
 
+<details><summary>Alternate procedure [t3083] [Partial]</summary>
+
+1. [Partial] Select ceramic brake pads for reduced dust.
+2. [Partial] Choose drilled, slotted rotors to aid heat dissipation.
+
+</details>
+
 ## Parts
 
+- [Partial] Ceramic Brake Pads, Full Set [t3083]
+- [Partial] Powerstop Drilled and Slotted Rotors [t3083]
 - Raybestos EHT Brake Pads [t499]
 - Slotted Rotors [t499]
 
 ## Tips & gotchas
 
 - [Partial] Get the upgrade on all wheels to maximize stopping power. [t499]
+- Consider non-drilled, slotted rotors if wheeling in heavy mud to prevent debris buildup. [t3083]
+
+## Diagrams (links only)
+
+- http://www.xterraperformance.com/BRAKES_c_53.html [t3083]
 
 ## Source attributions
 
 - **t499**: Gen X, "Brake Upgrade", 2020-03-29. https://www.xterranation.org/index.php?threads/brake-upgrade.9435/
+- **t3083**: Xterradude05, "Brakes", 2011-10-31. https://www.xterranation.org/index.php?threads/brakes.131/
 

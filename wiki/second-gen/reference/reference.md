@@ -5,7 +5,8 @@ title: Reference
 generation: second-gen
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2011
   trims:
   - PRO-4X
   - S
@@ -29,6 +30,7 @@ parts:
 - name: 'Unsealed socket contacts (Part #58M-SKT2)'
   oem_part_no: ''
 sources:
+- t106
 - t165
 - t166
 - t478
@@ -39,11 +41,11 @@ confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 34
+  partial_items: 36
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 12
+  withheld_items: 15
   pending_safety_values: 0
 ---
 -->
@@ -115,6 +117,12 @@ Apply Amsoil MP Metal protector to the negative terminal area. [t166]
 [Partial] Set the charging ceiling on a new AGM battery to prevent overcharging. [t166]
 
 Use a marine-style terminal for easier accessory attachment. [t166]
+
+[Partial] Stock exhaust pipe outer diameter is 2 inches. [t106]
+
+Possible stock exhaust pipe outer diameter range is 2 1/4" [t106]
+
+[Partial] Possible stock exhaust pipe outer diameter range is 2 1/2 inches. [t106]
 
 ## Procedure
 
@@ -339,7 +347,9 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 - **Cold Cranking Amps**: 850 CCA [t165] ([Partial] [Unverified] single report)
 - **Group Size**: 24F - 35 [t165] ([Partial] [Unverified] single report)
 - **OEM Cable gauge equivalent**: 8-gauge [t166] ([Unverified] single report)
+- **Possible stock exhaust pipe outer diameter range**: DISPUTED, sources disagree: 2 1/4" " (inches) [t106]; 2 1/2" " (inches) [t106]
 - **Resting Voltage**: 12.8 V - 13.5 V [t165] ([Partial] [Unverified] single report)
+- **Stock exhaust pipe outer diameter**: 2" " (inches) [t106] ([Unverified] single report)
 - **Terminal Configuration**: 4-Terminal / Top-Front Setup [t165] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
@@ -365,6 +375,7 @@ _Procedure reported by [t478]. Photos of this job are in the source: <https://ww
 
 ## Source attributions
 
+- **t106**: Maxxpags, "Stock exhaust pipe size?", 2023-12-08. https://www.xterranation.org/index.php?threads/stock-exhaust-pipe-size.11083/
 - **t165**: outback97, "Seeking AGM battery recommendations.  What's good in 2024? Edit - got another Odyssey", 2024-05-31. https://www.xterranation.org/index.php?threads/seeking-agm-battery-recommendations-whats-good-in-2024-edit-got-another-odyssey.11188/
 - **t166**: VanillaXT, "Negative Battery Terminal and Cable", 2022-12-21. https://www.xterranation.org/index.php?threads/negative-battery-terminal-and-cable.10804/
 - **t478**: XterraRising, "HOW TO: Crack Open the Relay Box and Replace Relay Sockets", 2021-03-27. https://www.xterranation.org/index.php?threads/how-to-crack-open-the-relay-box-and-replace-relay-sockets.9975/

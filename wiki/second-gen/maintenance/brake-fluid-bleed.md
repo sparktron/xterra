@@ -28,18 +28,21 @@ parts:
   oem_part_no: ''
 - name: RTV Silicone Sealant
   oem_part_no: ''
+- name: Vacuum bleed kit
+  oem_part_no: ''
 sources:
 - t76
 - t988
+- t3092
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 14
+  partial_items: 16
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
@@ -53,6 +56,8 @@ verification:
 Locate the ABS connector, drain old fluid, fill with new DOT 3 brake fluid, bleed wheels until clear, then repeat for the clutch. [t988]
 
 [Partial] Bleed the brakes in a specific sequence starting with the right rear and ending at the front right. [t76]
+
+[Partial] Bleed all four wheels starting with the highest point after installing new hard lines if necessary. [t3092]
 
 ## Procedure
 
@@ -79,6 +84,7 @@ _Procedure reported by [t76]._
 - [Partial] Brake fluid [t76]
 - [Partial] New DOT 3 brake fluid [t988]
 - [Partial] RTV Silicone Sealant [t988]
+- Vacuum bleed kit [t3092]
 
 ## Tips & gotchas
 
@@ -88,11 +94,15 @@ _Procedure reported by [t76]._
 - Continue until clean, clear fluid comes out of the line. [t988]
 - Follow this specific sequence to ensure air is purged effectively. [t76]
 - [Partial] Consult the Factory Service Manual for reference. [t76]
+- Refill the reservoir after bleeding each wheel to prevent running dry. [t3092]
+- Bleed out more fluid than you think is necessary. [t3092]
 
 ## Common mistakes
 
 - [Partial] Allowing the reservoir to run dry and sucking in air during the flush. [t988]
 - [Partial] Breaking a seized bleeder by rushing without cleaning or penetrating oil first. [t988]
+- Not closing the bleeder valve between pump strokes, leaving air in rear lines. [t3092]
+- [Partial] Using a vacuum kit without realizing it requires solo effort and extra patience. [t3092]
 
 ## Diagrams (links only)
 
@@ -104,4 +114,5 @@ _Procedure reported by [t76]._
 
 - **t76**: Lukas, "Squishy brakes", 2026-03-24. https://www.xterranation.org/index.php?threads/squishy-brakes.11521/
 - **t988**: Airmapper, "How To: Brake Fluid Flush (& Clutch if MT)", 2012-12-28. https://www.xterranation.org/index.php?threads/how-to-brake-fluid-flush-clutch-if-mt.2703/
+- **t3092**: coatimundi01, "Need help with brakes!", 2014-04-19. https://www.xterranation.org/index.php?threads/need-help-with-brakes.5178/
 

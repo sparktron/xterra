@@ -7,6 +7,7 @@ category: reference
 applies_to:
   years:
   - 2005
+  - 2013
   - 2015
   trims:
   - P4X
@@ -15,12 +16,16 @@ applies_to:
   - X
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools:
 - Torch wrench or torque wrench
+- 14mm hex socket
 parts:
+- name: Adjustable Cam Bolts
+  oem_part_no: ''
 - name: Nissan OEM Cam Bolt
   oem_part_no: 545807S000
 - name: Nissan OEM Cam Bolt
@@ -44,6 +49,8 @@ sources:
 - t289
 - t373
 - t395
+- t411
+- t485
 - t559
 - t612
 - t642
@@ -57,10 +64,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 3
-  partial_items: 18
-  partial_fields: []
-  unconfirmed_safety_values: 0
-  withheld_items: 22
+  partial_items: 26
+  partial_fields:
+  - applies_to
+  unconfirmed_safety_values: 1
+  withheld_items: 23
   pending_safety_values: 0
 ---
 -->
@@ -107,14 +115,33 @@ Install new Mitzone red aluminum rocker covers and gaskets to seal the cylinder 
 
 [Partial] Tighten the front camber bolts to secure the adjustable control arms using Grade 8 or Class 12.9 bolts. [t1022]
 
+[Partial] Locate and use a 14mm hex socket to remove or tighten the BTF rear differential fill plug. [t411]
+
+[Partial] Install adjustable cam bolts to guarantee proper alignment after suspension work. [t559]
+
+[Partial] Raise the idle speed by 75 rpm using a tuner. [t485]
+
+[Partial] Lower the idle speed by 50 rpm to resolve a Check Engine Light. [t485]
+
 ## Procedure
 
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+1. Lower the idle speed by 50 rpm to resolve a Check Engine Light triggered during hot idling with maximum A/C.
+
+_Procedure reported by [t485]._
+
+<details><summary>Alternate procedure [t25] [Partial]</summary>
 
 1. Monitor the ATF temperature to assess cooling needs.
 2. [Partial] Add a fan to the OEM air-cooler if bypassing the rad-cooler.
 
-_Procedure reported by [t25]._
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Locate the BTF rear differential fill plug.
+2. [Partial] Use a 14mm hex socket to remove or tighten the plug.
+
+</details>
 
 <details><summary>Alternate procedure [t26] [Partial]</summary>
 
@@ -188,12 +215,32 @@ _Procedure reported by [t25]._
 
 </details>
 
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. Install cam bolts to guarantee proper alignment after suspension work.
+
+</details>
+
+<details><summary>Alternate procedure [t485] [Partial]</summary>
+
+1. Raise the idle speed by 75 rpm using a tuner to mitigate vibration.
+
+</details>
+
+<details><summary>Alternate procedure [t485] [Partial]</summary>
+
+1. [Partial] Raise the idle speed by 75 rpm using a tuner to solve rough idling issues.
+
+</details>
+
 ## Tools
 
 - [Partial] Torch wrench or torque wrench [t811]
+- [Partial] 14mm hex socket [t411]
 
 ## Parts
 
+- [Partial] Adjustable Cam Bolts: Optional but recommended for alignment [t559]
 - Nissan OEM Cam Bolt (545807S000) [t642]
 - Nissan OEM Cam Bolt [t642]
 - OE Disk Eccentric Washer [t642]
@@ -202,6 +249,9 @@ _Procedure reported by [t25]._
 
 ## Specifications
 
+- **BTF Fill Plug Size**: 14mm [t411] ([Partial] [Unverified] single report)
+- **Idle lower amount**: +50 rpm [t485] ([Partial] [Unverified] single report)
+- **Idle raise amount**: +75 rpm [t485] ([Partial] [Unverified] single report)
 - **Nissan OEM Cam Bolt Price (per unit)**: $5.19 [t642] ([Unverified] single report)
 - **OE Disk Eccentric Washer Price**: $3.59 [t642] ([Unverified] single report)
 - **OE Nut-Slock Price (per unit)**: $0.59 [t642] ([Unverified] single report)
@@ -241,6 +291,8 @@ _Procedure reported by [t25]._
 - **t289**: Dylans33, "HELP!! Im completely lost with these issues.", 2024-06-09. https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/
 - **t373**: Maxxpags, "Installed Ironman lift yesterday, got a vibration now", 2022-06-10. https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/
 - **t395**: Gen X, "Replace Battery Terminals, Battery & Alternator", 2021-10-08. https://www.xterranation.org/index.php?threads/replace-battery-terminals-battery-alternator.10299/
+- **t411**: Macland, "Rear Diff Covers", 2014-05-14. https://www.xterranation.org/index.php?threads/rear-diff-covers.5338/
+- **t485**: Xterrian13, "Vibration when idling", 2014-12-09. https://www.xterranation.org/index.php?threads/vibration-when-idling.6230/
 - **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t612**: NoahSki, "Firestone Destination MT", 2014-08-18. https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/
 - **t642**: General_Tarfun, "How-to: OEM Nissan-Style Cam Bolts", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/

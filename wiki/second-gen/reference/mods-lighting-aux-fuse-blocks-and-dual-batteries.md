@@ -31,9 +31,17 @@ parts:
   oem_part_no: ''
 - name: Mega/AMG 298 Series Bolt Down Holder
   oem_part_no: ''
+- name: Odyssey PC-1750
+  oem_part_no: ''
+- name: Odyssey Yellow Top
+  oem_part_no: ''
+- name: Optima Yellow Top
+  oem_part_no: ''
 - name: Rubber grommet or cable gland
   oem_part_no: ''
 - name: Sealed fuse box with relay kit
+  oem_part_no: ''
+- name: Sears Die Hard Platinum (Group 65)
   oem_part_no: ''
 sources:
 - t15
@@ -43,11 +51,12 @@ sources:
 - t282
 - t383
 - t923
+- t2947
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 30
+  partial_items: 34
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -121,6 +130,12 @@ Run two large gauge wires through the firewall to a sealed fuse box mounted in t
 [Partial] Tap into the dash light circuit and use a T-tap connector with a factory grommet. [t383]
 
 [Partial] Choose between a spot beam pattern or flood pattern based on preference. [t923]
+
+[Partial] Ensure engine bay room for large batteries and consider side/top posts if adding a dual system. [t2947]
+
+[Partial] Look for a side terminal on the main battery if powering just a winch with an Optima Yellow Top. [t2947]
+
+[Partial] Select an Odyssey PC-1750 or Sears Die Hard Platinum Group 65 to fit the engine bay. [t2947]
 
 ## Procedure
 
@@ -205,6 +220,13 @@ _Procedure reported by [t157]._
 
 1. Run a 4awg positive wire from the battery to the main fuse block.
 2. [Partial] Route a matching negative ground wire alongside it.
+
+</details>
+
+<details><summary>Alternate procedure [t2947] [Partial]</summary>
+
+1. [Partial] Ensure the engine bay has enough room for a large battery if planning to add a second unit.
+2. [Partial] Consider that adding a dual system may require side and top posts on both batteries.
 
 </details>
 
@@ -298,6 +320,18 @@ _Procedure reported by [t157]._
 
 </details>
 
+<details><summary>Alternate procedure [t2947] [Partial]</summary>
+
+1. Look for a side terminal on the main battery if powering just a winch.
+
+</details>
+
+<details><summary>Alternate procedure [t2947] [Partial]</summary>
+
+1. [Partial] Select a battery size that fits the engine bay constraints.
+
+</details>
+
 ## Tools
 
 - [Partial] Wire strippers [t282]
@@ -312,8 +346,12 @@ _Procedure reported by [t157]._
 - Auxiliary power box [t158]
 - Bussmann AMG-175 High Current Fuse [t383]
 - Mega/AMG 298 Series Bolt Down Holder [t383]
+- Odyssey PC-1750: Unusual AGM sizes, military application standards [t2947]
+- [Partial] Odyssey Yellow Top: AGM deep discharge, military/commercial standards, 2-year warranty [t2947]
+- Optima Yellow Top: AGM deep discharge, good for winches; Best choice for winches alone [t2947]
 - Rubber grommet or cable gland [t383]
 - Sealed fuse box with relay kit [t383]
+- Sears Die Hard Platinum, Group 65: Same as Odyssey PC-1750 repackaged, gray case, ~$100 less than Odyssey; Repackaged Odyssey with gray case and ~4/8 year warranty [t2947]
 
 ## Specifications
 
@@ -336,6 +374,8 @@ _Procedure reported by [t157]._
 - Use cable glands for waterproofing and strain relief. [t383]
 - [Partial] Use a T-tap connector rather than adding an extra fuse for signal wires. [t383]
 - Find a factory grommet near the passenger footwell wall to feed multiple 4 gauge wires through. [t383]
+- Optima has a dual post version but it is larger. [t2947]
+- Sears Platinum (Die Hard) offers a dual post version that appears larger than the Odyssey's. [t2947]
 
 ## Diagrams (links only)
 
@@ -359,4 +399,5 @@ _Procedure reported by [t157]._
 - **t282**: meisanerd, "How To: Replace the 2015 Rockford Fosgate Nav unit", 2022-07-22. https://www.xterranation.org/index.php?threads/how-to-replace-the-2015-rockford-fosgate-nav-unit.10676/
 - **t383**: Sturmovik, "Need some tips and help with fuse/relay boxes", 2022-01-04. https://www.xterranation.org/index.php?threads/need-some-tips-and-help-with-fuse-relay-boxes.10449/
 - **t923**: RioDeColumbia, "LED cube light difference?", 2015-07-26. https://www.xterranation.org/index.php?threads/led-cube-light-difference.7070/
+- **t2947**: mudchet, "Battery recommendations", 2013-02-02. https://www.xterranation.org/index.php?threads/battery-recommendations.2925/
 

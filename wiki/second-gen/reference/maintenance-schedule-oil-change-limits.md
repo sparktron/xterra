@@ -17,11 +17,12 @@ tools:
 parts: []
 sources:
 - t874
-confidence: '[Unverified]'
+- t3206
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 4
+  partial_items: 5
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 0
@@ -31,13 +32,13 @@ verification:
 
 # Maintenance schedule (Oil Change Limits)
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Review current oil change interval and observe for a specific rumble after exceeding the recommended mileage. [t874]
+
+Change the differential fluid at regular intervals to maintain performance. [t3206]
 
 ## Procedure
 
@@ -47,16 +48,28 @@ verification:
 
 _Procedure reported by [t874]._
 
+<details><summary>Alternate procedure [t3206] [Partial]</summary>
+
+1. Change the differential fluid at regular intervals.
+
+</details>
+
 ## Tools
 
 - [Partial] Owner's Manual [t874]
+
+## Specifications
+
+- **Recommended Interval**: ~30,000 miles [t3206] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
 - [Partial] Observe if the rumble appears specifically when driving over the recommended mileage limit. [t874]
 - This suggests running slightly 'over' the scheduled service window triggers the symptom. [t874]
+- Change oil regularly to maintain performance. [t3206]
 
 ## Source attributions
 
 - **t874**: Xybergeek, "Unknown Rumble", 2012-04-30. https://www.xterranation.org/index.php?threads/unknown-rumble.1520/
+- **t3206**: Pro-2X, "Gear Oil", 2013-07-15. https://www.xterranation.org/index.php?threads/gear-oil.3785/
 

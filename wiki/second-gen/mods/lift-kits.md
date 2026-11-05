@@ -9,13 +9,19 @@ applies_to:
   - 2005
   - 2012
   - 2013
+  - 2014
   trims:
   - D40
+  - Gen2
   - OR
+  - Off-Road
   - PRO-2X
   - PRO-4X
   - S
+  - SE
+  - Titan
   - X
+  - Xterra
   engine: []
   drivetrain: []
 shared_platform:
@@ -43,6 +49,11 @@ tools:
 - '#8 hardened bolts with nuts and washers (from Ace Hardware)'
 - Wire brush/hammer/maul
 - Wrench
+- Jack
+- Measuring tool
+- Welder
+- Saw
+- Wrench or pliers (implied for undoing and spacing)
 parts:
 - name: 1.5-inch Spring Spacer
   oem_part_no: ''
@@ -56,6 +67,10 @@ parts:
   oem_part_no: ''
 - name: Adjustable Rear Shackles
   oem_part_no: ''
+- name: Adjustable shackle
+  oem_part_no: ''
+- name: Adjustable spring seat top hats
+  oem_part_no: ''
 - name: Alcan custom leaf springs
   oem_part_no: ''
 - name: Bilstein 5100 adjustable shocks
@@ -66,17 +81,49 @@ parts:
   oem_part_no: ''
 - name: Camber bolts and washers
   oem_part_no: ''
+- name: Coil spacers
+  oem_part_no: ''
+- name: Coil-over shock
+  oem_part_no: ''
+- name: Custom leaf pack
+  oem_part_no: ''
 - name: Custom rear springs
+  oem_part_no: ''
+- name: Dakar Leaf Packs (2 new spring packs)
+  oem_part_no: ''
+- name: Extended axle
+  oem_part_no: ''
+- name: Extended brake line
+  oem_part_no: ''
+- name: Front Axle/Differential
+  oem_part_no: ''
+- name: Front differential
+  oem_part_no: ''
+- name: Leaf spring
   oem_part_no: ''
 - name: Leaf spring shims
   oem_part_no: ''
 - name: Leaf springs and shackles
   oem_part_no: ''
+- name: Lift Kit
+  oem_part_no: ''
+- name: Longer coil overs or shocks
+  oem_part_no: ''
+- name: Longer U-Bolts
+  oem_part_no: ''
 - name: M12x120mm bolt
   oem_part_no: 5-M12x120mm
+- name: M205 Locker
+  oem_part_no: ''
 - name: New cotter pins
   oem_part_no: ''
 - name: New U-bolts
+  oem_part_no: ''
+- name: Nisstec Complete OME Kit
+  oem_part_no: ''
+- name: OME CS061R Dakar Rear Leaf Springs
+  oem_part_no: ''
+- name: OME Front Coil Spring Kit
   oem_part_no: ''
 - name: OME Front Shocks
   oem_part_no: ''
@@ -88,18 +135,43 @@ parts:
   oem_part_no: ''
 - name: PRG Upper Control Arms
   oem_part_no: ''
+- name: Radflo TS Kit
+  oem_part_no: ''
+- name: Rear lift kit
+  oem_part_no: ''
+- name: Rear Tire Carrier
+  oem_part_no: ''
+- name: Roof Rack
+  oem_part_no: ''
+- name: Skid Plates
+  oem_part_no: ''
+- name: Sliders
+  oem_part_no: ''
+- name: Spacer
+  oem_part_no: ''
 - name: Spacer plates (Nisstec)
+  oem_part_no: ''
+- name: Swing arm
   oem_part_no: ''
 - name: Titan Upper Control Arms
   oem_part_no: ''
 - name: Upper control arms (UCA)
   oem_part_no: ''
+- name: Wheel spacer
+  oem_part_no: ''
+- name: Wheel Spacers
+  oem_part_no: ''
+- name: Winch
+  oem_part_no: ''
 sources:
 - t148
+- t217
 - t253
 - t373
+- t374
 - t423
 - t458
+- t459
 - t544
 - t545
 - t548
@@ -108,30 +180,39 @@ sources:
 - t559
 - t612
 - t693
+- t747
 - t755
 - t817
 - t829
 - t881
 - t888
 - t895
+- t925
 - t932
+- t933
+- t951
 - t959
 - t962
 - t1004
+- t1007
 - t1008
+- t1011
+- t1014
 - t1020
 - t1022
+- t1023
+- t3208
 confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 3
-  partial_items: 80
+  partial_items: 167
   partial_fields:
   - applies_to
   - difficulty
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 38
+  withheld_items: 92
   pending_safety_values: 0
 ---
 -->
@@ -245,6 +326,160 @@ Install a Dobinsons lift kit sourced from Z1 Offroad. [t545]
 [Partial] Install an Old Man Emu kit and add a 0.5-inch lift spacer to the front. [t545]
 
 Install a recessed U-bolt plate and torque all nuts evenly with weight on the axle. [t693]
+
+[Partial] Install Radflo 2.5-inch extended length coil overs with springs rated between 600 and 650 lb/in. [t553]
+
+Install SPC upper control arms to replace stock units and ensure their ball joints are greasable. [t553]
+
+Install adjustable cam bolts to fine-tune alignment and replace stock lower control arms. [t553]
+
+Install Alcan leaf springs with a selection of 400 to 500 lbs over stock. [t553]
+
+[Partial] Install PRG adjustable shackles in the rear, then set shackle adjustment to the lowest setting. [t553]
+
+Install a Radflo emulsion or remote reservoir shock in the rear and aim for 2 to 4 inches of total lift height. [t553]
+
+[Partial] Install Timbren bump stops in the rear to manage bottoming out. [t553]
+
+Jack the vehicle high enough to set it on jackstands, then detach the coilover and sway bar completely from the assembly. [t747]
+
+[Partial] Turn wheels while fully stuffed to check for clearance and mark contact points. [t747]
+
+[Partial] Cut the fender to match measurements taken from a straight outer ridge. [t747]
+
+Weld square tubing onto the fender edge to seal it. [t747]
+
+[Partial] Run a 1x2 piece of square tubing vertically up the inside wall of the fender. [t747]
+
+Install thick-walled 1.5" DOM tubing horizontally for added strength. [t747]
+
+[Partial] Cut the fender to fit wider tires, specifically 35-inch sizes. [t747]
+
+Trim the back of the front fenders about an inch to clear tires at full lock. [t747]
+
+[Partial] Combine a 3-inch front sway bar lift with a 2-inch body lift. [t747]
+
+Install revolver shackles in the rear for additional lift. [t747]
+
+Run 35-inch tires on a setup with a 3-inch front sway bar lift. [t747]
+
+[Partial] Attach pucks to create a 2-inch body lift. [t747]
+
+Cut the pucks in half to create two 1-inch body lift sections. [t747]
+
+Buy double the hardware to accommodate cut pucks. [t747]
+
+[Partial] Install an aftermarket body lift that reads up to 40 degrees of roll or pitch. [t747]
+
+Install a 3-inch front sway bar lift. [t747]
+
+[Partial] Install a 2-inch body lift. [t747]
+
+Install a 2-inch body lift kit and mount a roof rack with an integrated light bar. [t217]
+
+[Partial] Install the OME front coil spring kit and add a spacer to achieve approximately one inch of lift. [t559]
+
+Install a Calmini 5-inch lift kit and perform an engine swap. [t1007]
+
+[Partial] Install 10-inch travel Fox 2.5-inch coilovers on the front and add a dual-rate spring kit. [t1007]
+
+[Partial] Install an OME leaf pack and fit 1.5-inch lift shackles for a rear height of 8-8.5 inches. [t1007]
+
+Install a weld-on universal shock hoop on the front frame. [t1007]
+
+[Partial] Swap the front end with a Titan engine to utilize specific mounting points. [t1007]
+
+[Partial] Install a Calmini 5-inch lift kit specifically designed for the Xterra R180. [t1007]
+
+Fit 10-inch travel Fox coilovers to achieve a total of about 16 inches of wheel travel. [t1007]
+
+[Partial] Install an OME leaf pack and fit shackle lifts for a total of 8-8.5 inches. [t1007]
+
+[Partial] Install a complete 2-inch OME suspension lift kit and observe a significant drop in fuel mileage. [t3208]
+
+[Partial] Install a 2-inch lift kit and expect fuel mileage to drop to around 220 miles. [t3208]
+
+[Partial] Install a 2-inch lift kit to alter the vehicle's aerodynamics and anticipate an average fuel economy loss. [t3208]
+
+[Partial] Install a 2-inch lift kit along with heavy aftermarket accessories. [t3208]
+
+Install a 2-inch lift kit and observe steady fuel mileage. [t3208]
+
+Install a 2-inch lift kit to modify the vehicle's stance. [t3208]
+
+[Partial] Install a 2-inch lift kit to raise the chassis. [t3208]
+
+[Partial] Install a 2-inch lift kit to alter the vehicle's aerodynamics. [t3208]
+
+[Partial] Install a 2-inch lift kit to raise the vehicle and notice decreased fuel mileage. [t3208]
+
+[Partial] Install a 2-inch lift kit and expect fuel mileage to drop by roughly fifty miles. [t3208]
+
+[Partial] Install a 2-inch lift kit to raise the chassis and experience a drop in fuel economy. [t3208]
+
+[Partial] Install the complete Nisstec OME kit with Dakar leaf packs and add extended rear shackles. [t374]
+
+[Partial] Install a leaf spring and add adjustable shackles to connect it. [t459]
+
+[Partial] Remove the rear sway bar and test drive to ensure handling is acceptable without it. [t459]
+
+[Partial] Install 2-inch spacers on the rear wheels to check alignment. [t459]
+
+[Partial] Install extended front axles while selecting matching coil-overs to keep a stock front differential. [t459]
+
+[Partial] Mount the CV joints onto the extended axles. [t459]
+
+[Partial] Install coil-overs on the front ensuring measurements are correct for the chosen coils. [t459]
+
+[Partial] Install a Titan front differential and swap to an M205 locker. [t459]
+
+[Partial] Extend the front brake lines and fabricate a rear bracket if needed. [t459]
+
+[Partial] Remove the swing arm to check fitment for stock suspension or an installed lift. [t459]
+
+[Partial] Install a Radflo TS kit and pair it with a rear lift kit. [t459]
+
+Install a custom leaf pack for maximum lift. [t459]
+
+[Partial] Install 2-inch spacers on the rear wheels and verify if this matches the front track width. [t459]
+
+[Partial] Install coil-overs on the front, selecting brands like Bilstein or ProComp for value. [t459]
+
+[Partial] Install a rear lift kit and ensure coil-overs are long enough. [t459]
+
+[Partial] Install 2.5-inch strut spacers to raise the front ride height, then add adjustable rear shackles to lift and adjust the rear suspension. [t1011]
+
+[Partial] Install a 2-inch lift kit to the vehicle. [t925]
+
+[Partial] Install a Titan front axle or differential swap to the vehicle. [t925]
+
+[Partial] Install a full rear tire carrier bumper to the vehicle. [t925]
+
+[Partial] Install a Shrockworks full skid plate set to the vehicle. [t925]
+
+[Partial] Install a Shrockworks slider set to the vehicle. [t925]
+
+Install a Hepdep drop-in roof rack to the vehicle. [t925]
+
+[Partial] Install a Nisstec 1.5-inch wheel spacer set to the vehicle. [t925]
+
+Install a Badlands 9500lb winch to the vehicle. [t925]
+
+[Partial] Install a 2-inch body lift kit and relocate the front bumper with brackets. [t933]
+
+Trim the front fenders to accommodate wider tires. [t933]
+
+[Partial] Perform a melt mod to clear tire clearance. [t933]
+
+[Partial] Undo rear brake lines and create a small spacer for longer coil overs. [t951]
+
+[Partial] Install OME Dakar rear leaf springs with longer U-bolts. [t1014]
+
+[Partial] Install a 1-inch spacer between the coilover body and the shock mount. [t1023]
+
+[Partial] Install a 1-inch spacer, adjust the Radflo coilovers, then set the spacer height to 3/4". [t1023]
+
+[Partial] Install a 1-inch spacer, adjust the Radflo coilovers, then set the spacer height to 3". [t1023]
 
 ## Procedure
 
@@ -484,6 +719,370 @@ _Procedure reported by [t559]._
 
 <details><summary>Alternate procedure [t553] [Partial]</summary>
 
+1. Install Radflo 2.5-inch extended length coil overs.
+2. [Partial] Select springs rated between 600 and 650 lb/in based on bumper weight and winch load.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Install SPC upper control arms (UCAs) to replace stock units.
+2. [Partial] Ensure the UCA ball joints are greasable for easier maintenance.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Install adjustable cam bolts to fine-tune alignment.
+2. Replace stock lower control arms (LCAs) with new ones, as they often require cutting for clearance.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Install Alcan leaf springs in the rear.
+2. [Partial] Select spring weight between 400 and 500 lbs over stock rating.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. [Partial] Install PRG adjustable shackles in the rear.
+2. Set shackle adjustment to the lowest setting for initial lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Jack the vehicle up high enough to set it on jackstands.
+2. Detach the coilover and sway bar completely from the assembly.
+
+</details>
+
+<details><summary>Alternate procedure [t217] [Partial]</summary>
+
+1. [Partial] Install a 2-inch body lift kit.
+2. [Partial] Mount a roof rack with an integrated light bar.
+
+</details>
+
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. Install the OME front coil spring kit.
+2. [Partial] Add a 1-inch spacer (0.5 inch thick) to achieve approximately one inch of lift.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. [Partial] Install a Calmini 5-inch lift kit on the front.
+2. Perform an engine swap from a Titan to increase power.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. [Partial] Install an OME 1.5 to 2-inch leaf pack on the rear.
+2. Fit 1.5-inch lift shackles to the rear suspension.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. [Partial] Install a Calmini 5-inch lift kit on the front.
+2. [Partial] Perform an engine swap from a Titan to increase power.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. Install 10-inch travel Fox 2.5-inch coilovers on the front.
+2. Add a dual-rate spring kit to the coilovers.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a complete 2-inch OME suspension lift kit.
+2. Observe a significant drop in fuel mileage due to increased aerodynamic drag from the raised chassis.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit combined with 285-width tires.
+2. [Partial] Expect fuel mileage to drop drastically, potentially yielding only around 220 miles per tank.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit along with heavy aftermarket accessories like bumpers, sliders, and skids.
+2. [Partial] Expect highway fuel economy to settle around 15-17 MPG despite the added weight.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to raise the vehicle's center of gravity.
+2. [Partial] Observe that fuel mileage remains steady at approximately 15.3-15.4 MPG regardless of driving conditions.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. Install a 2-inch lift kit to modify the vehicle's stance.
+2. [Partial] Experience a general drop in fuel efficiency that is typical for any aftermarket bolt-on modification.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to raise the chassis.
+2. [Partial] Realize that while power may compensate for weight, fuel consumption increases noticeably.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to alter the vehicle's aerodynamics.
+2. Observe that fuel mileage drops significantly, requiring more frequent refueling.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to raise the vehicle.
+2. [Partial] Notice that fuel mileage decreases, with estimates suggesting a loss of about 1.5 MPG.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. Install a 2-inch lift kit to change the vehicle's profile.
+2. Expect fuel mileage to drop, with some owners seeing a reduction of roughly fifty miles per tank.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to raise the chassis.
+2. Experience a drop in fuel economy that is attributed primarily to increased air flow underneath the truck.
+
+</details>
+
+<details><summary>Alternate procedure [t3208] [Partial]</summary>
+
+1. Install a 2-inch lift kit to modify the vehicle's stance.
+2. [Partial] Observe that fuel mileage drops, with estimates suggesting a loss of about 1.5 MPG.
+
+</details>
+
+<details><summary>Alternate procedure [t374] [Partial]</summary>
+
+1. Install the complete lift kit with Dakar leaf packs.
+2. Add extended rear shackles if aiming for a full 2-inch lift to prevent shackle binding.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Remove the rear sway bar.
+2. Test drive to ensure handling is acceptable without it.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Install 2-inch spacers on the rear wheels.
+2. Check alignment to see if front and rear track widths match.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. Install extended front axles while keeping the stock front differential.
+2. [Partial] Select coil-overs that match the desired ride height.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Mount the CV joints onto the extended axles.
+2. [Partial] Have a local shop perform this task if mounting is difficult.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Install a rear lift kit to level the vehicle.
+2. [Partial] Consider adding an air auxiliary line (AAL) for fine-tuning.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Install coil-overs on the front.
+2. [Partial] Ensure measurements are correct for the chosen coils.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. Install a front differential from the Titan swap.
+2. [Partial] Swap to an M205 locker if budget allows.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Extend the front brake lines to accommodate wider wheels.
+2. [Partial] Fabricate a bracket for rear brake line extension if needed.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Remove the swing arm to check fitment.
+2. [Partial] Perform this step either with stock suspension or after installing a lift.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Install a Radflo TS kit for cooling.
+2. [Partial] Pair it with a rear lift kit.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. Install a custom leaf pack for maximum lift.
+2. [Partial] This is the most expensive route but offers precision.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. [Partial] Install 2-inch spacers on the rear wheels.
+2. [Partial] Verify if this matches the front track width.
+
+</details>
+
+<details><summary>Alternate procedure [t459] [Partial]</summary>
+
+1. Install a front differential from the Titan.
+2. [Partial] Swap to an M205 locker if budget allows.
+
+</details>
+
+<details><summary>Alternate procedure [t1011] [Partial]</summary>
+
+1. [Partial] Install 2.5-inch strut spacers to raise the front ride height.
+2. [Partial] Add adjustable rear shackles to lift and adjust the rear suspension.
+
+</details>
+
+<details><summary>Alternate procedure [t933] [Partial]</summary>
+
+1. [Partial] Install a 2-inch body lift kit to raise the vehicle height.
+2. Relocate the front bumper by fabricating or purchasing specific brackets.
+
+</details>
+
+<details><summary>Alternate procedure [t951] [Partial]</summary>
+
+1. Undo the rear brake lines from their bracket on the axle.
+2. Create a small spacer to hold the brake line further away from the axle.
+
+</details>
+
+<details><summary>Alternate procedure [t1014] [Partial]</summary>
+
+1. Install the OME Dakar rear leaf springs in place of broken stock units.
+2. Fit longer U-bolts to secure the new spring pack, as factory bolts are often too short.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. [Partial] Install a 1-inch spacer between the coilover body and the shock mount.
+2. [Partial] Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. [Partial] Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. [Partial] Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. [Partial] Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1023] [Partial]</summary>
+
+1. Install a 1-inch spacer between the coilover body and the shock mount.
+2. Adjust the Radflo coilovers to compensate for reduced down-travel.
+
+</details>
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
 1. Select a spring rate that matches the desired lift height (e.g., 500-550 lb/in for near-stock settings).
 
 </details>
@@ -542,13 +1141,169 @@ _Procedure reported by [t559]._
 
 </details>
 
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Turn the wheels while fully stuffed to check for clearance.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Cut the fender to match measurements taken from a straight outer ridge.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Weld square tubing onto the fender edge to seal it.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. [Partial] Run a 1x2 piece of square tubing vertically up the inside wall of the fender.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. [Partial] Install thick-walled 1.5" DOM tubing horizontally for added strength.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Trim the back of the front fenders about an inch to clear tires at full lock.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Combine a 3-inch front sway bar lift with a 2-inch body lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Install revolver shackles in the rear for additional lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Run 35-inch tires on a setup with a 3-inch front sway bar lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Attach pucks to create a 2-inch body lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. [Partial] Cut the pucks in half to create two 1-inch body lift sections.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. [Partial] Buy double the hardware to accommodate cut pucks.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Install a 3-inch front sway bar lift.
+
+</details>
+
+<details><summary>Alternate procedure [t747] [Partial]</summary>
+
+1. Install a 2-inch body lift.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. Install a shock hoop on the front frame to replace the stock coil bucket.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. Install a Calmini 5-inch lift kit specifically designed for the Xterra R180.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. Fit 10-inch travel Fox coilovers to achieve a total of about 16 inches of wheel travel.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. [Partial] Install a shock hoop on the front frame to replace the stock coil bucket.
+
+</details>
+
+<details><summary>Alternate procedure [t1007] [Partial]</summary>
+
+1. Install 10-inch travel Fox coilovers to achieve a total of about 16 inches of wheel travel.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a 2-inch lift kit to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Titan front axle or differential swap to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Shrockworks full skid plate set to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Shrockworks slider set to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Hepdep drop-in roof rack to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. Install a Nisstec 1.5-inch wheel spacer set to the vehicle.
+
+</details>
+
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. Install a Badlands 9500lb winch to the vehicle.
+
+</details>
+
 ## Tools
 
 - Hydraulic jack [t755]
 - Wood blocks [t755]
 - Vice or similar clamping device [t755]
 - [Partial] Grinder [t755]
-- [Partial] Jack stands [t373, t932]
+- Jack stands [t373, t932, t747]
 - [Partial] Tire removal tools [t373]
 - Breaker bar or cheater bar [t932]
 - [Partial] Wrenches and sockets (17mm, 19mm, 22mm) [t932]
@@ -563,6 +1318,11 @@ _Procedure reported by [t559]._
 - [Partial] #8 hardened bolts with nuts and washers (from Ace Hardware) [t559]
 - [Partial] Wire brush/hammer/maul [t559]
 - [Partial] Wrench [t959]
+- Jack [t747]
+- [Partial] Measuring tool [t747]
+- Welder [t747]
+- [Partial] Saw [t747]
+- [Partial] Wrench or pliers (implied for undoing and spacing) [t951]
 
 ## Parts
 
@@ -572,44 +1332,82 @@ _Procedure reported by [t559]._
 - 2-inch body lift block, 5 per side [t755]
 - [Partial] 6 Inch Lift Kit: For 2WD/4WD applications [t253]
 - Adjustable Rear Shackles [t959]
+- [Partial] Adjustable shackle [t459]
+- [Partial] Adjustable spring seat top hats: Required for silver 5100s to run lift spacers. [t559]
 - Alcan custom leaf springs: Custom made to fit specific lift height and weight needs [t888]
 - [Partial] Bilstein 5100 adjustable shocks: Front units are typically set to 0-2 inches; rear units accommodate leaf spring lift. [t817]
 - [Partial] Bilstein 6112 Assembled Coilover [t148]
 - [Partial] Bump stop stud [t932]
 - Camber bolts and washers [t932]
+- Coil spacers: e.g., 2" NissteC [t951]
+- Coil-over shock [t459]
+- Custom leaf pack [t459]
 - [Partial] Custom rear springs: Specifically 'spring over' type for the Xterra [t253]
+- [Partial] Dakar Leaf Packs, 2 new spring packs [t374]
+- [Partial] Extended axle [t459]
+- [Partial] Extended brake line [t459]
+- Front Axle/Differential [t925]
+- Front differential [t459]
+- [Partial] Leaf spring [t459]
 - Leaf spring shims [t373]
 - [Partial] Leaf springs and shackles: Rear shocks provide no lift; rear shackle length determines how much leaf spring travel is utilized. [t817]
+- [Partial] Lift Kit [t925]
+- Longer coil overs or shocks: Adjustable ones recommended for front. [t951]
+- Longer U-Bolts [t1014]
 - M12x120mm bolt (5-M12x120mm) [t755]
+- [Partial] M205 Locker [t459]
 - New cotter pins [t932]
 - New U-bolts [t373]
+- Nisstec Complete OME Kit [t374]
+- OME CS061R Dakar Rear Leaf Springs [t1014]
+- OME Front Coil Spring Kit: Silver 5100s or yellow/blue 4600s [t559]
 - OME Front Shocks [t559]
 - OME half-rate leaf springs, alternative: Cheaper option but may flatten under heavy armor or load within 1-2 years [t888]
 - OME leaf springs: Ensure plastic black liners are intact to prevent shifting noise [t559]
 - PRG 2-inch spacers, Aluminum: Requires careful torque to prevent stripping [t932]
 - PRG Upper Control Arms [t959]
+- Radflo TS Kit [t459]
+- Rear lift kit [t459]
+- Rear Tire Carrier [t925]
+- Roof Rack [t925]
+- Skid Plates [t925]
+- Sliders [t925]
+- Spacer: 1-inch spacer, 0.5 inch thick [t559]
 - [Partial] Spacer plates, Nisstec: Mounted above the coil spring, effectively doubling their physical thickness in total lift calculation. [t817]
+- [Partial] Swing arm [t459]
 - [Partial] Titan Upper Control Arms: Stock units available, often from PRG or JY Auto Parts. [t881]
 - Upper control arms, UCA: Recommended if lifting more than 2 inches to prevent the upper arm from hitting the bucket. [t817]
+- Wheel spacer [t459]
+- Wheel Spacers [t925]
+- Winch [t925]
 
 ## Specifications
 
 - **Block bolt torque spec**: 45 ft/lb [t755] (Claude-reviewed)
 - **Body lift height per side**: 2 inches [t755] ([Partial] [Unverified] single report)
 - **Coil spring type**: 5100s Heavy Duty [t545] ([Unverified] single report)
+- **Coilover Diameter**: 2.5 inches [t1007] ([Unverified] single report)
+- **Coilover Travel**: 10 inches [t1007] ([Partial] [Unverified] single report)
+- **Front lift (with spacer)**: 0.5" [t374] ([Partial] [Unverified] single report)
+- **Front Lift Height**: 5 inches [t1007] ([Partial] [Unverified] single report)
 - **Front lift threshold**: < 2 inches [t895] ([Partial] [Unverified] single report)
 - **Front shock spring rate**: 500-550 lb/in [t553] ([Unverified] single report)
 - **Front strut spacer size**: 2" [t1022] ([Unverified] single report)
 - **Kit model**: Ironman4x4 Nitro Gas Stage 1 [t545] ([Unverified] single report)
 - **Kit origin**: Dobinsons via Z1 Offroad [t545] ([Unverified] single report)
-- **Lift height**: DISPUTED, sources disagree: 5 inch [t829]; 2" [t612]; 2 inches [t545]
+- **Leaf Pack Size**: 1.5 to 2 inches [t1007] ([Unverified] single report)
+- **Lift height**: DISPUTED, sources disagree: 5 inch [t829]; 2" [t612]; 2 inches [t545]; 2 inch [t933]
 - **Lift range**: 1 inch - 1.5 inches [t545] ([Unverified] single report)
-- **Rear lift height**: DISPUTED, sources disagree: 2 inches [t895]; ~1.5 inches [t895]
+- **Rear lift height**: DISPUTED, sources disagree: 2 inches [t895]; ~1.5 inches [t895]; 8-8.5 inches [t1007]; ~1.5" to 2" [t374]
 - **Rear shackle lift amount**: 2 inches to 2.5 inches [t553] ([Partial] [Unverified] single report)
 - **Rear shackle spacer size**: 1.5" [t1022] ([Unverified] single report)
 - **Rear spring length**: 2 inches [t895] ([Partial] [Unverified] single report)
 - **Shock spring rate**: 650# [t962] (Claude-reviewed)
+- **Spacer height**: DISPUTED, sources disagree: 1" [t1023]; 3/4" [t1023]; 2" [t1023]; 3" [t1023]; 1/2" [t1023]
 - **Spacer size**: 0.5 inch [t545] ([Unverified] single report)
+- **Spacer thickness**: 0.5" [t559] ([Unverified] single report)
+- **Total expected lift with OME setup**: 1-2 inches [t559] ([Partial] [Unverified] single report)
+- **Total Wheel Travel**: ~16 inches [t1007] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -654,6 +1452,46 @@ _Procedure reported by [t559]._
 - Consider this setup for a balance between on-road and off-road ride quality. [t545]
 - [Partial] Note that the leaf pack may sag quickly, though this can be mitigated by removing one or two leaves to soften the ride. [t545]
 - Pair with SPC Upper Control Arms (UCAs) if the lift allows the UCA to contact the coil bucket, preventing upper ball joints from pulling apart under down-travel. [t545]
+- Use a separate jack to force the tire all the way up while detached components are removed. [t747]
+- [Partial] Start the engine and rotate the wheel fully to mark contact points for trimming. [t747]
+- Focus on marking contact points by rotating the tire all the way up. [t747]
+- Consider trimming fenders symmetrically using a straight ridge as a reference line. [t747]
+- Measure points downward at set distances along the outermost face of the fender. [t747]
+- Connect matching dots with a clean line for symmetrical cuts. [t747]
+- Run greasable shackles for better adjustability. [t374]
+- Use a front spacer to level out rake if running extended rear shackles. [t374]
+- [Partial] Use adjustable shackles to fine-tune the ride height. [t459]
+- Consider a custom leaf pack for the most expensive but precise fit. [t459]
+- [Partial] Rear sway bars are optional for road driving if using coil-overs or a leaf spring lift. [t459]
+- Front sway bars should generally be kept unless the suspension is fully upgraded. [t459]
+- [Partial] A 2-inch spacer on the rear can level a vehicle with stock front axles and extended rears. [t459]
+- [Partial] Note that this may leave the front slightly wider than the back. [t459]
+- [Partial] Ensure coil-overs are the correct length for the specific suspension setup. [t459]
+- Extended axles allow keeping a stock front differential. [t459]
+- Mounting CV joints on extended axles can be a 'pain in the ass' with stock diffs. [t459]
+- Adjustable shackles and an AAL can get the ride height close to even. [t459]
+- Cheaper brands like Bilstein, ProComp, and S-A-W-S offer good value. [t459]
+- Long travel desert-style coils are easier to tune but cost more. [t459]
+- [Partial] Be prepared to re-gear if switching from stock ratios. [t459]
+- Rear lines can often be extended with a simple bracket. [t459]
+- [Partial] Decide whether to remove the swing arm before or after lifting based on clearance needs. [t459]
+- [Partial] Best for those wanting a specific, high-level look without spacers. [t459]
+- A 2-inch rear spacer is a common compromise for leveling. [t459]
+- This setup often leaves the front about 1-2 inches wider than the back. [t459]
+- [Partial] FOA (Front of Axle) is recommended as a good bang-for-buck option. [t459]
+- Bilstein and ProComp are other reliable 'cheaper' options. [t459]
+- Longer travel coils make tuning easier but cost more. [t459]
+- Shorter, cheaper coils work fine for trail riding. [t459]
+- [Partial] Consider this as part of future suspension upgrades [t925]
+- Use for carrying additional tires [t925]
+- [Partial] Provides underbody protection [t925]
+- [Partial] Open for suggestions on specific style [t925]
+- Drop-in style for easy installation [t925]
+- [Partial] Use with stock tires or trim fenders for 33s [t925]
+- Use adjustable coil overs to fine-tune height. [t951]
+- [Partial] Expect the rear brake lines on 3-5" lifts to need this spacer mod. [t951]
+- [Partial] Consider using adjustable shackles in the rear to manage lift angles and diff alignment. [t1014]
+- [Partial] Add a 3-degree shim under the leaf springs if additional height is desired, though it may not always be strictly necessary. [t1014]
 
 ## Common mistakes
 
@@ -690,6 +1528,12 @@ _Procedure reported by [t559]._
 - http://i1048.photobucket.com/albums/s372/ddmetz/2012-10-25190226.jpg [t959]
 - http://i242.photobucket.com/albums/ff217/drbandkgb/2009 Xterra KGB/DSC_2034-1_zps89263031.jpg [t932]
 - http://i242.photobucket.com/albums/ff217/drbandkgb/2009 Xterra KGB/IMG_4770_zpse34ea4c9.jpg [t932]
+- http://i87.photobucket.com/albums/k155/dsmboy1991/97ACB7B7-0787-4810-A7B6-1F5F6C5DC87E.jpg [t951]
+- http://i87.photobucket.com/albums/k155/dsmboy1991/F067B297-9C5A-4B6B-901A-A40167CCD468.jpg [t951]
+- http://wizzard005.smugmug.com/Unfil...llaneous-Pictures/calni/882007023_Yicay-L.jpg [t1007]
+- http://www.ezaccessory.com [t459]
+- http://www.hannemannfiberglass.com/custom.asp?id=457567&page=3 [t747]
+- http://www.nissteclifts.com/index.p...rt&page=shop.browse&category_id=173&Itemid=72 [t459]
 - http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
 - http://www.prgproducts.com/shop/product/prg-2xe31mk-x/ [t962]
 - http://www.purenissan.com/np17905.jpg [t458]
@@ -699,12 +1543,23 @@ _Procedure reported by [t559]._
 - http://www.xterraperformance.com/2-Xterra-Body-Lift_p_174.html [t1020]
 - https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn1/t1/942180_10151396768956596_1802991352_n.jpg [t932]
 - https://i.postimg.cc/wv9nPDxK/SLR-kit.jpg [t829]
+- https://nissteclifts-com.3dcartstores.com/assets/images/N-TOP1.jpg [t374]
 - https://sphotos-b.xx.fbcdn.net/hphotos-prn1/885112_10151298182181596_1867123950_o.jpg [t932]
 - https://www.alldogsoffroad.com/images/thumbs/0001386_alldogs-offroad-recessed-ubolt-plates-for-2nd-gen-nissan-xterra_550.png [t693]
 - https://www.bilsteinlifts.com/shop/...-relocation-kit-fk42-nissan-xterra-2005-2018/ [t553]
 - https://www.kyb.com/save/ [t548]
 - https://www.suspensionlifts.com/wp-content/uploads/sl-normalized/2026/03/bilstein-6112-assembled-1-2-inch-front-lift-coilovers-for-2005-2015-nissan-xterra-4wd-v6-only-793405-normalized-3jw7BT.jpg [t148]
+- https://www.xterranation.org/data/attachments/0/862-9897ce9e31829dd9a7a027c1fa6bf74f.jpg [t1007]
 - https://www.xterranation.org/data/attachments/12/12545-4121ffc3d9d82c8f8f64b6a33a34c080.jpg [t553]
+- https://www.xterranation.org/data/attachments/18/18432-d36e5323187a9ab2725746f68edc1e86.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18854-0cc7195a55dab5edb5db6cb2c0b977da.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18855-b3f9b63af2b22cf6bb99cb421ee4c1bc.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18868-b6c20f6c7a8747f6e7bef1c442c9e1a8.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18869-46a0848b7aaa57d96f5d0da737b748e2.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18870-8209ab1d7259b0158dda342c56d21dab.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21440-a5149318f3322e583df5a8966141699f.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21441-0b255e8c4ff915396489d3ed4f2d35e0.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21443-c1d09e8e550207221a1c0587b0c9f0ef.jpg [t217]
 - https://www.xterranation.org/data/attachments/21/21641-7c77d7dab0776a87a527aeef74b92a55.jpg [t544]
 - https://www.xterranation.org/data/attachments/7/7175-5779c8cea35c40729e12ad67f7cd0a5a.jpg [t423]
 - https://www.xterranation.org/data/attachments/9/9667-f1032d3e60d68f5748514e968b19c120.jpg [t817]
@@ -713,10 +1568,13 @@ _Procedure reported by [t559]._
 ## Source attributions
 
 - **t148**: Plucky, "Front shocks", 2023-12-04. https://www.xterranation.org/index.php?threads/front-shocks.11078/
+- **t217**: AdventureRider81, "Members running 35" tires", 2019-08-09. https://www.xterranation.org/index.php?threads/members-running-35-tires.8966/
 - **t253**: mariodrb27, "Nissan Xterra and Nissan Frontier", 2021-09-30. https://www.xterranation.org/index.php?threads/nissan-xterra-and-nissan-frontier.10285/
 - **t373**: Maxxpags, "Installed Ironman lift yesterday, got a vibration now", 2022-06-10. https://www.xterranation.org/index.php?threads/installed-ironman-lift-yesterday-got-a-vibration-now.10642/
+- **t374**: Maxxpags, "Nisstec lift kit", 2022-05-15. https://www.xterranation.org/index.php?threads/nisstec-lift-kit.10622/
 - **t423**: Southpaw, "Very early take on my new setup", 2017-09-28. https://www.xterranation.org/index.php?threads/very-early-take-on-my-new-setup.8231/
 - **t458**: CALMINI Products, "New Product Release! Wheel Travel Correction Bracket", 2012-10-05. https://www.xterranation.org/index.php?threads/new-product-release-wheel-travel-correction-bracket.2305/
+- **t459**: lyons05X, "Working on a TS parts list", 2013-11-18. https://www.xterranation.org/index.php?threads/working-on-a-ts-parts-list.4391/
 - **t544**: XTERRA2FISH, "Rear end sag", 2021-09-04. https://www.xterranation.org/index.php?threads/rear-end-sag.10241/
 - **t545**: silverX, "Bilstein vs Robinsons vs Ironman4x4 ?", 2022-03-29. https://www.xterranation.org/index.php?threads/bilstein-vs-robinsons-vs-ironman4x4.10563/
 - **t548**: osky1976, "strut and shock replacement", 2022-03-14. https://www.xterranation.org/index.php?threads/strut-and-shock-replacement.10551/
@@ -725,17 +1583,26 @@ _Procedure reported by [t559]._
 - **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t612**: NoahSki, "Firestone Destination MT", 2014-08-18. https://www.xterranation.org/index.php?threads/firestone-destination-mt.5807/
 - **t693**: xyoverland, "Ado Launches Recessed U-bolt Plates For 2nd Gen X", 2020-08-25. https://www.xterranation.org/index.php?threads/ado-launches-recessed-u-bolt-plates-for-2nd-gen-x.9657/
+- **t747**: dhyde79, "help me understand.....", 2012-02-19. https://www.xterranation.org/index.php?threads/help-me-understand.1032/
 - **t755**: Rook, "How-To: 2nd Gen AC 2" Body Lift!", 2012-03-14. https://www.xterranation.org/index.php?threads/how-to-2nd-gen-ac-2-body-lift.1212/
 - **t817**: X4Life, "Adjustable bilstien 5100s", 2015-12-02. https://www.xterranation.org/index.php?threads/adjustable-bilstien-5100s.7364/
 - **t829**: 9heavens, "SLR drop bracket installtion.", 2019-06-15. https://www.xterranation.org/index.php?threads/slr-drop-bracket-installtion.8781/
 - **t881**: Ron ap Rhys, "ARB Locker for the R180", 2012-02-01. https://www.xterranation.org/index.php?threads/arb-locker-for-the-r180.882/
 - **t888**: njnewb, "Good leaf springs?", 2016-10-26. https://www.xterranation.org/index.php?threads/good-leaf-springs.7819/
 - **t895**: RioDeColumbia, "Suspension lift question", 2015-07-27. https://www.xterranation.org/index.php?threads/suspension-lift-question.7074/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 - **t932**: tommyboy, "2" Lift, (Spacers and AAL)", 2011-10-27. https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/
+- **t933**: TKDx00, "Purpose for a GEN2 BL", 2014-02-09. https://www.xterranation.org/index.php?threads/purpose-for-a-gen2-bl.4784/
+- **t951**: BjFife, "another suspension lift question", 2015-05-20. https://www.xterranation.org/index.php?threads/another-suspension-lift-question.6882/
 - **t959**: on_that_rayray, "Lifting Question!", 2015-05-07. https://www.xterranation.org/index.php?threads/lifting-question.6836/
 - **t962**: RioDeColumbia, "Best way to start lifting X?", 2015-05-02. https://www.xterranation.org/index.php?threads/best-way-to-start-lifting-x.6817/
 - **t1004**: on_that_rayray, "Upper Control Arm Question!", 2015-04-19. https://www.xterranation.org/index.php?threads/upper-control-arm-question.6771/
+- **t1007**: 05x4x4, "Hybrid front suspension:", 2013-08-18. https://www.xterranation.org/index.php?threads/hybrid-front-suspension.3942/
 - **t1008**: rolling rock, "Rough country basic 2.5" lift, thoughts?", 2014-01-19. https://www.xterranation.org/index.php?threads/rough-country-basic-2-5-lift-thoughts.4658/
+- **t1011**: trav007, "2nd gen lift", 2014-11-11. https://www.xterranation.org/index.php?threads/2nd-gen-lift.6122/
+- **t1014**: MissFire, "Question about adding OME Dakar Leaf Springs", 2014-09-12. https://www.xterranation.org/index.php?threads/question-about-adding-ome-dakar-leaf-springs.5919/
 - **t1020**: Kyle, "Selecting a Lift?", 2014-08-10. https://www.xterranation.org/index.php?threads/selecting-a-lift.5775/
 - **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
+- **t1023**: Fromfrontier2Xterra, "1" spacer w/ radflos", 2014-07-25. https://www.xterranation.org/index.php?threads/1-spacer-w-radflos.5713/
+- **t3208**: Kevin Roberts, "Got a gas mileage Question for Everyone.", 2013-02-24. https://www.xterranation.org/index.php?threads/got-a-gas-mileage-question-for-everyone.3036/
 

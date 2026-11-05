@@ -26,29 +26,32 @@ parts:
   oem_part_no: ''
 - name: WARN VR8000-s
   oem_part_no: ''
+- name: Winch
+  oem_part_no: ''
 sources:
 - t403
-confidence: '[Unverified]'
+- t925
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
   partial_items: 3
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 -->
 
 # Winches and recovery gear
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Select a winch based on intended use frequency and choose between synthetic rope or cable construction. [t403]
+
+Install a Badlands 9500lb winch to the vehicle. [t925]
 
 ## Procedure
 
@@ -59,6 +62,12 @@ verification:
 
 _Procedure reported by [t403]._
 
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. Install a Badlands 9500lb winch to the vehicle.
+
+</details>
+
 ## Parts
 
 - Badlands 12k [t403]
@@ -67,6 +76,7 @@ _Procedure reported by [t403]._
 - Smittybilt XRC 9500 Synthetic [t403]
 - Superwinch Tiger Shark 9500 Synthetic [t403]
 - WARN VR8000-s [t403]
+- Winch [t925]
 
 ## Tips & gotchas
 
@@ -80,4 +90,5 @@ _Procedure reported by [t403]._
 ## Source attributions
 
 - **t403**: Beefyneck, "Winches, Need to pick one! Give your thoughts please", 2016-02-02. https://www.xterranation.org/index.php?threads/winches-need-to-pick-one-give-your-thoughts-please.7486/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 
