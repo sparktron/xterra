@@ -7,12 +7,14 @@ category: mods
 applies_to:
   years:
   - 2006
+  - 2012
   - 2013
   trims:
   - O/R
   - PRO-4X
   - Pro-4X
   - S
+  - SE
   - Stock
   - X
   engine: []
@@ -31,6 +33,9 @@ tools:
 - Ball Peen Hammer (BFH)
 - Sponge
 - Tire gauge
+- heat gun
+- wood block
+- large hammer
 parts:
 - name: BFGoodrich All-Terrain
   oem_part_no: ''
@@ -90,8 +95,11 @@ parts:
   oem_part_no: ''
 - name: Wheel spacers
   oem_part_no: ''
+- name: Wheels
+  oem_part_no: ''
 sources:
 - t202
+- t204
 - t207
 - t208
 - t209
@@ -119,18 +127,19 @@ sources:
 - t745
 - t748
 - t862
+- t925
 - t1001
 confidence: disputed
 verification:
   local_pass_required: true
   reviewed_items: 4
-  partial_items: 85
+  partial_items: 89
   partial_fields:
   - applies_to
   - difficulty
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 42
+  withheld_items: 43
   pending_safety_values: 0
 ---
 -->
@@ -250,6 +259,16 @@ Install Firestone Destination A/T tires on blackwall rims for a distinct look. [
 Turn the front wheels to full lock position then observe how much clearance remains. [t616]
 
 [Partial] Select 18-inch Rockstar black alloy wheels and mount a 33-inch tire. [t738]
+
+Heat and press the front plastic wheel liner inward to shrink back a specific bulge. [t204]
+
+[Partial] Install 285/75R16 tires on stock wheels and perform a 'melt mod' to clear the front wheel well. [t204]
+
+Install 285/70R17 tires on stock wheels, then apply a melt mod to the front plastic wheel liner. [t204]
+
+[Partial] Install 285/70R17 tires on stock wheels with no lift, then perform a melt mod to the front plastic liner. [t204]
+
+[Partial] Mount BFGoodrich All-Terrain or Ko 33-inch tires onto XD wheels and trim fenders. [t925]
 
 ## Procedure
 
@@ -547,6 +566,69 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. Heat the plastic wheel liner behind the front tire with a heat gun.
+2. Press the heated plastic inward using a piece of wood or large hammer to reshape it.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. [Partial] Install 285/75R16 tires on stock wheels.
+2. Perform a 'melt mod' to clear the front wheel well.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. [Partial] Install 285/70R17 tires on stock 17-inch wheels.
+2. [Partial] Apply a 'melt mod' to the front plastic wheel liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. Install 285/70R17 tires on stock wheels with no lift.
+2. [Partial] Perform a 'melt mod' to the front plastic liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. [Partial] Install 285/70R17 tires on stock wheels.
+2. [Partial] Apply a 'melt mod' to the front plastic liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. Install 285/70R17 tires on stock wheels.
+2. Apply a 'melt mod' to the front plastic liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. [Partial] Install 285/70R17 tires on stock wheels.
+2. [Partial] Apply a 'melt mod' to the front plastic liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. Install 285/70R17 tires on stock wheels.
+2. [Partial] Apply a 'melt mod' to the front plastic liner.
+
+</details>
+
+<details><summary>Alternate procedure [t204] [Partial]</summary>
+
+1. Install 285/70R17 tires on stock wheels.
+2. [Partial] Apply a 'melt mod' to the front plastic liner.
+
+</details>
+
 <details><summary>Alternate procedure [t612] [Partial]</summary>
 
 1. Mount the new tires on all four corners.
@@ -607,6 +689,12 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Mount BFGoodrich All-Terrain/Ko 33-inch tires onto XD wheels.
+
+</details>
+
 ## Tools
 
 - Hair dryer [t862]
@@ -618,6 +706,9 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - Ball Peen Hammer (BFH) [t623]
 - Sponge [t623]
 - [Partial] Tire gauge [t209]
+- heat gun [t204]
+- wood block [t204]
+- large hammer [t204]
 
 ## Parts
 
@@ -641,7 +732,7 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - Level 8 MK6 wheel [t439]
 - P-Series Tire: Preferred over LT for normal driving [t208]
 - [Partial] Skinny, longer lug bolts [t743]
-- [Partial] Tires: 285 width or wider, such as BFG KO's, Duratracs, Cooper AT3, Nitto Terra Grappler, or Toyo Open Country. [t745]
+- Tires: 285 width or wider, such as BFG KO's, Duratracs, Cooper AT3, Nitto Terra Grappler, or Toyo Open Country.; BFGoodrich All-Terrain/Ko [t745, t925]
 - Titan/Pathfinder Half-Shafts [t743]
 - Touch up paint or bedliner [t623]
 - Toyo Open Country AT3 [t220]
@@ -650,6 +741,7 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - Weld-on Beadlock Kit [t1001]
 - [Partial] Wheel Adapters [t743]
 - Wheel spacers: Types include Lug/Lug, Hub/Lug, most common, and Hub/Wheel centric [t214]
+- Wheels [t925]
 
 ## Specifications
 
@@ -736,6 +828,17 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - Note that 305/70/16 is an alternative size that fits well. [t429]
 - [Partial] Aim for a tire diameter between 34 and 37 inches if off-pavement driving is the primary goal. [t439]
 - [Partial] Expect to need at least a 35-inch tire on an 18-inch rim to air down effectively due to reduced sidewall. [t439]
+- This modification is specifically for shrinking back a bulge in the front plastic wheel liner. [t204]
+- It works best when running wheels with stock backspacing to avoid metal trimming. [t204]
+- [Partial] A lift of approximately 2 inches is recommended alongside the melt mod for best results. [t204]
+- The melt mod allows for full suspension articulation and lock-to-lock steering without rubbing metal. [t204]
+- Tire width is often more of a factor than diameter increase when fitting 285s. [t204]
+- This setup allows for full travel and lock-to-lock steering without rubbing after modification. [t204]
+- Some owners report no rubbing at all with this setup, even during full articulation. [t204]
+- This modification is described as very easy and effective for fitting 33-inch tires without lift. [t204]
+- The bulge altered by this mod only makes contact while turning the wheel. [t204]
+- Tire width is often more to blame for rubbing than the increase in diameter. [t204]
+- [Partial] Trim fenders if running 33-inch tires with wheel spacers [t925]
 
 ## Common mistakes
 
@@ -780,6 +883,7 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 ## Source attributions
 
 - **t202**: Prime, "Ultimate Tire Fitment Guide", 2017-01-07. https://www.xterranation.org/index.php?threads/ultimate-tire-fitment-guide.7950/
+- **t204**: Macland, "Stock tires to 33s, everything you need to know", 2013-02-13. https://www.xterranation.org/index.php?threads/stock-tires-to-33s-everything-you-need-to-know.2980/
 - **t207**: kking74110, "Tire size", 2023-11-27. https://www.xterranation.org/index.php?threads/tire-size.11071/
 - **t208**: dogsRkids2, "Help with Tires for normal driving", 2023-11-21. https://www.xterranation.org/index.php?threads/help-with-tires-for-normal-driving.11070/
 - **t209**: Twisties, "Cooper Discoverer AT3 4S?", 2023-10-20. https://www.xterranation.org/index.php?threads/cooper-discoverer-at3-4s.11050/
@@ -807,5 +911,6 @@ _Procedure reported by [t862]. Photos of this job are in the source: <https://ww
 - **t745**: drbandkgb, "Looking for Tires", 2012-09-29. https://www.xterranation.org/index.php?threads/looking-for-tires.2281/
 - **t748**: Deltaphi216, "titan 6 spoke 18" wheels on a 2nd gen Xterra", 2011-12-12. https://www.xterranation.org/index.php?threads/titan-6-spoke-18-wheels-on-a-2nd-gen-xterra.531/
 - **t862**: Macland, "How To: The Melt Mod--33" tires on 2nd Gen", 2013-02-16. https://www.xterranation.org/index.php?threads/how-to-the-melt-mod-33-tires-on-2nd-gen.2992/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 - **t1001**: Oz_X, "How-to: DIY Beadlocks", 2012-03-20. https://www.xterranation.org/index.php?threads/how-to-diy-beadlocks.1261/
 

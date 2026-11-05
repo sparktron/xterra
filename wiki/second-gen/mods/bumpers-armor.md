@@ -15,6 +15,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
+- Titan
 difficulty: 3
 est_time: null
 tools:
@@ -61,6 +62,7 @@ tools:
 - Grinder
 - Pipe bender
 - Angle grinder with 4.5 inch cut-off wheel
+- Welding equipment
 parts:
 - name: .120 x 1.75 tubing
   oem_part_no: ''
@@ -79,6 +81,8 @@ parts:
 - name: 3/8-inch x 1-inch thread-cutting bolts
   oem_part_no: ''
 - name: Angle iron
+  oem_part_no: ''
+- name: Black Widow Rear Bumper Kit (DIY)
   oem_part_no: ''
 - name: Calmini Tube Bumper
   oem_part_no: ''
@@ -130,6 +134,8 @@ parts:
   oem_part_no: ''
 - name: Magnet Paints Chassis Saver (UPC99)
   oem_part_no: ''
+- name: Magtec Rear Differential Cover
+  oem_part_no: ''
 - name: Nismo Front Bumper
   oem_part_no: ''
 - name: Nismo Rear Bumper
@@ -139,6 +145,8 @@ parts:
 - name: Plating
   oem_part_no: ''
 - name: PP Engineering Sliders
+  oem_part_no: ''
+- name: PRG M226 Diff Cover
   oem_part_no: ''
 - name: Quick-release pin
   oem_part_no: ''
@@ -170,6 +178,8 @@ parts:
   oem_part_no: ''
 - name: Tire Carrier (Optional)
   oem_part_no: ''
+- name: Titan M226 Rear Axle Rock Guard
+  oem_part_no: ''
 - name: Tube
   oem_part_no: ''
 - name: Tube (e.g., 2x4 box)
@@ -190,16 +200,19 @@ sources:
 - t29
 - t179
 - t180
+- t181
 - t182
 - t184
 - t185
 - t192
 - t200
+- t201
 - t283
 - t406
 - t407
 - t409
 - t410
+- t411
 - t412
 - t414
 - t418
@@ -222,18 +235,20 @@ sources:
 - t734
 - t735
 - t737
+- t925
 - t937
 - t985
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 11
-  partial_items: 142
+  partial_items: 148
   partial_fields:
   - applies_to
   - difficulty
+  - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 48
+  withheld_items: 50
   pending_safety_values: 0
 ---
 -->
@@ -423,6 +438,16 @@ Apply a coating to the rock sliders before installation. [t423]
 [Partial] Replace the stock rear bumper with a custom tube-style unit featuring welded 2x4 box sections. [t724]
 
 [Partial] Install a Calmini tube bumper on a second-generation Xterra, optionally painting it black. [t737]
+
+[Partial] Mount the slider assembly to the vehicle frame after drilling holes into it. [t181]
+
+Install the Titan M226 rear axle rock guard to protect the bottom of the differential housing from dragging. [t411]
+
+[Partial] Install a PRG or Magtec rear differential cover to handle impacts from backing up into rocks. [t411]
+
+[Partial] Install a Black Widow Rear Bumper Kit using welding equipment. [t201]
+
+[Partial] Install a Shrockworks front bumper to the vehicle. [t925]
 
 ## Procedure
 
@@ -801,6 +826,27 @@ _Procedure reported by [t612]._
 
 </details>
 
+<details><summary>Alternate procedure [t181] [Partial]</summary>
+
+1. [Partial] Mount the slider assembly to the vehicle frame.
+2. [Partial] Drill holes into the frame if necessary for specific mounting points.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Install the Titan M226 rear axle rock guard.
+2. Position it to protect the bottom of the differential housing from dragging over rocks.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. [Partial] Install the PRG or Magtec rear differential cover for cooling.
+2. [Partial] Ensure it is seated correctly to handle impacts from backing up into rocks.
+
+</details>
+
 <details><summary>Alternate procedure [t180] [Partial]</summary>
 
 1. [Partial] Select a rear bumper brand such as MAXterra, Shrockworks, or TAG (Tactical Armor Group).
@@ -987,6 +1033,12 @@ _Procedure reported by [t612]._
 
 </details>
 
+<details><summary>Alternate procedure [t925] [Partial]</summary>
+
+1. [Partial] Install a Shrockworks front bumper to the vehicle.
+
+</details>
+
 ## Tools
 
 - [Partial] Step drill bit [t29]
@@ -1032,6 +1084,7 @@ _Procedure reported by [t612]._
 - [Partial] Grinder [t192]
 - [Partial] Pipe bender [t192]
 - Angle grinder with 4.5 inch cut-off wheel [t409]
+- [Partial] Welding equipment [t201]
 
 ## Parts
 
@@ -1044,6 +1097,7 @@ _Procedure reported by [t612]._
 - 12 ga sheet metal [t588]
 - 3/8-inch x 1-inch thread-cutting bolts [t482]
 - Angle iron [t588]
+- [Partial] Black Widow Rear Bumper Kit, DIY: Includes raw metal bumper and jerry can holder [t201]
 - [Partial] Calmini Tube Bumper: 1.75 inch DOM tubing construction [t737]
 - Carbon Fiber: For total structural strength [t594]
 - Chrome Front Bumper: Brands include Shrock/Hefty/RLC/ARB [t410]
@@ -1057,7 +1111,7 @@ _Procedure reported by [t612]._
 - [Partial] Fairlead assembly: Attached directly to bumper tube [t588]
 - [Partial] First Aid Kit, original [t937]
 - [Partial] Flush-mounted Dually light, or SR series [t985]
-- Front Bumper: Options include ARB, lighter, Hefty, or Shrockworks, heavier/stronger.; Provides approach angle improvement and winch mounting capability; may require stronger front coils due to added weight. [t585, t412]
+- Front Bumper: Options include ARB, lighter, Hefty, or Shrockworks, heavier/stronger.; Provides approach angle improvement and winch mounting capability; may require stronger front coils due to added weight. [t585, t412, t925]
 - Gasket [t985]
 - Gussets [t588]
 - Hardcore Offroad Front Bumper Kit: Includes skid, scorpion liner, winch mount, and light guards [t418]
@@ -1069,11 +1123,13 @@ _Procedure reported by [t612]._
 - Long thread bolt for front frame mount [t29]
 - M12 x 30mm Grade 10.9 bolt and washer [t482]
 - Magnet Paints Chassis Saver, UPC99 [t406]
+- Magtec Rear Differential Cover [t411]
 - Nismo Front Bumper: Approximately 105 lbs; weight falls between Hefty aluminum and steel options. [t185]
 - Nismo Rear Bumper: Designed mainly for mounting lights and recovery points with the hitch hanging underneath. [t185]
 - [Partial] Plate: welded to frame for winch support [t588]
 - Plating: .090 wall thickness, 10 gauge [t588]
 - PP Engineering Sliders [t406]
+- PRG M226 Diff Cover [t411]
 - Quick-release pin [t725]
 - [Partial] Radiator skid plate: Must have 4 bolt holes at the top and 2 at the bottom [t599]
 - Rear Bumper: Brands include MAXterra, Shrockworks, TAG/KMA, Hefty Fabworks, GetSome Fabrication, or custom builds. [t180]
@@ -1089,6 +1145,7 @@ _Procedure reported by [t612]._
 - [Partial] Steel plate: 1/2" thick for center and bottom support [t724]
 - Synthetic rope [t588]
 - Tire Carrier, Optional: Often integrated; note that some designs lean back toward the hatch while others extend forward. Can be a standalone unit like from a Hummer H2. [t180]
+- Titan M226 Rear Axle Rock Guard [t411]
 - Tube [t588]
 - Tube, e.g., 2x4 box [t724]
 - [Partial] Tubing: 2" x .250 wall [t588]
@@ -1174,6 +1231,9 @@ _Procedure reported by [t612]._
 - Bend tubing ends with a hammer until they follow the body line. [t724]
 - The bumper features vertical supports that cover the sides of the radiator and AC condenser. [t737]
 - An aluminum skid plate covers the face of the core support to protect against intrusion. [t737]
+- Use this guard to prevent deep gashes in the lower housing that cause leaks over time. [t411]
+- These covers are stronger than stock and help keep the rear diff cool. [t411]
+- Pair with PIA 750 headlights [t925]
 
 ## Common mistakes
 
@@ -1256,6 +1316,7 @@ _Procedure reported by [t612]._
 - http://purenissan.com/Image 0006.jpg [t737]
 - http://purenissan.com/Image 0007.jpg [t737]
 - http://scoop.diamondgalleries.com/Image/NewsImage/4/68835/160085/1 [t937]
+- http://shop.blackwidowgear.com/Nissan-Xterra-Sec-Gen-Rear-Bumper-XterraRear.htm [t201]
 - http://www.julianwinter.com/xterra/BareSteel.jpg [t406]
 - http://www.julianwinter.com/xterra/Monstaliner.jpg [t406]
 - http://www.julianwinter.com/xterra/MonstalinerCloseUp.jpg [t406]
@@ -1274,6 +1335,7 @@ _Procedure reported by [t612]._
 - https://www.nilight.com/products/2007-2018-jeep-wrangler-jk-jku-front-bumper-rock-crawler-winch-plate/ [t182]
 - https://www.xterranation.org/data/attachments/0/256-3ddd6ae551ceb8d6e6595537711ff935.jpg [t724]
 - https://www.xterranation.org/data/attachments/4/4049-72432e329c29c63bf3210a9e417eda98.jpg [t184]
+- https://www.xterranation.org/index.php?threads/building-rock-sliders.9372/ [t181]
 - https://www.youtube.com/watch?v=58K4qDzAIYk [t283]
 
 ## Source attributions
@@ -1281,16 +1343,19 @@ _Procedure reported by [t612]._
 - **t29**: usmc xterra, "How-to: ShrockWorks Sliders Install - PBR", 2006-01-28. https://www.thenewx.org/threads/how-to-shrockworks-sliders-install-pbr.2743/
 - **t179**: GPD605X, "2nd Gen Skid Plans", 2013-09-04. https://www.xterranation.org/index.php?threads/2nd-gen-skid-plans.4029/
 - **t180**: gorillamel, "Aftermarket Rear Bumpers for 2nd Gens", 2011-11-02. https://www.xterranation.org/index.php?threads/aftermarket-rear-bumpers-for-2nd-gens.187/
+- **t181**: civicjoe, "Sliders Styles for 2nd Gens", 2011-11-03. https://www.xterranation.org/index.php?threads/sliders-styles-for-2nd-gens.229/
 - **t182**: leclerc16, "Will it fit?", 2024-05-01. https://www.xterranation.org/index.php?threads/will-it-fit.11174/
 - **t184**: JeffPro4x, "hardcore offroad", 2017-07-24. https://www.xterranation.org/index.php?threads/hardcore-offroad.8179/
 - **t185**: xyoverland, "Nismo releasing front and rear bumpers for the Xterra", 2021-09-25. https://www.xterranation.org/index.php?threads/nismo-releasing-front-and-rear-bumpers-for-the-xterra.10278/
 - **t192**: blakens, "Custom Front Bumper for my '05", 2019-08-06. https://www.xterranation.org/index.php?threads/custom-front-bumper-for-my-05.8938/
 - **t200**: Red River, "Front/rear bumpers", 2018-06-11. https://www.xterranation.org/index.php?threads/front-rear-bumpers.8453/
+- **t201**: njnewb, "Black widow rear bumper", 2017-02-10. https://www.xterranation.org/index.php?threads/black-widow-rear-bumper.8008/
 - **t283**: Sturmovik, "DIY Rear Recovery Point", 2022-06-29. https://www.xterranation.org/index.php?threads/diy-rear-recovery-point.10655/
 - **t406**: 18elle81, "PP Engineering Slider Installation", 2015-09-07. https://www.xterranation.org/index.php?threads/pp-engineering-slider-installation.7174/
 - **t407**: evilmonkey, "New P&P Engineering Front Tube Winch Bumper", 2015-05-25. https://www.xterranation.org/index.php?threads/new-p-p-engineering-front-tube-winch-bumper.6899/
 - **t409**: jorge.alves.5015, "What's the rear bumper center piece made of?", 2015-04-21. https://www.xterranation.org/index.php?threads/whats-the-rear-bumper-center-piece-made-of.6781/
 - **t410**: J Everett, "A terrible idea!", 2012-03-12. https://www.xterranation.org/index.php?threads/a-terrible-idea.1199/
+- **t411**: Macland, "Rear Diff Covers", 2014-05-14. https://www.xterranation.org/index.php?threads/rear-diff-covers.5338/
 - **t412**: TheFauxFox, "Priority: Front vs. Rear Bumper?", 2015-02-18. https://www.xterranation.org/index.php?threads/priority-front-vs-rear-bumper.6509/
 - **t414**: RioDeColumbia, "Shrockworks vs. Hefty Fabworks Front Bumper", 2015-02-12. https://www.xterranation.org/index.php?threads/shrockworks-vs-hefty-fabworks-front-bumper.6490/
 - **t418**: 2011XTERROR, "Hardcore Offroad bumpers", 2014-06-12. https://www.xterranation.org/index.php?threads/hardcore-offroad-bumpers.5500/
@@ -1313,6 +1378,7 @@ _Procedure reported by [t612]._
 - **t734**: civicjoe, "Hefty FabWorks Skids", 2011-10-31. https://www.xterranation.org/index.php?threads/hefty-fabworks-skids.132/
 - **t735**: hoplesshumansrus, "ASFIR Aluminum Skids", 2011-11-18. https://www.xterranation.org/index.php?threads/asfir-aluminum-skids.383/
 - **t737**: civicjoe, "New Tube Bumper for 2nd Gens", 2012-01-07. https://www.xterranation.org/index.php?threads/new-tube-bumper-for-2nd-gens.712/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 - **t937**: TN4x4Xterra, "How to install Smittybilt Axe with First Aid Kit", 2013-02-12. https://www.xterranation.org/index.php?threads/how-to-install-smittybilt-axe-with-first-aid-kit.2977/
 - **t985**: metzican, "How To: Rigid Dualy Flush Mounted in rear corner panels.", 2013-03-30. https://www.xterranation.org/index.php?threads/how-to-rigid-dualy-flush-mounted-in-rear-corner-panels.3193/
 

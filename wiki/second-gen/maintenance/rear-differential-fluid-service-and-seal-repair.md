@@ -5,24 +5,31 @@ title: Rear differential fluid service and seal repair
 generation: second-gen
 category: maintenance
 applies_to:
-  years: []
-  trims: []
+  years:
+  - 2006
+  trims:
+  - OR
   engine: []
   drivetrain: []
 shared_platform: []
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: Rear diff drain plug
+  oem_part_no: ''
+- name: Refill plug (optional)
+  oem_part_no: ''
 sources:
+- t95
 - t794
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 5
   partial_fields: []
-  unconfirmed_safety_values: 0
+  unconfirmed_safety_values: 1
   withheld_items: 1
   pending_safety_values: 0
 ---
@@ -30,13 +37,15 @@ verification:
 
 # Rear differential fluid service and seal repair
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Pull the vent tube, fill with gear oil specified as 75/90 viscosity. [t794]
+
+[Unverified value] Drain the rear differential fluid, clean or replace plugs, then hand tighten before final torquing to 32 ft-lb. [t95]
 
 ## Procedure
 
@@ -47,11 +56,31 @@ verification:
 
 _Procedure reported by [t794]._
 
+<details><summary>Alternate procedure [t95] [Partial]</summary>
+
+1. Drain the rear differential fluid.
+2. [Partial] Clean or replace the drain plug and refill hole plugs.
+
+</details>
+
+## Parts
+
+- [Partial] Rear diff drain plug [t95]
+- [Partial] Refill plug, optional [t95]
+
 ## Specifications
 
+- **Drain and refill torque**: 32 ft-lb [t95] ([Unverified] single report)
+- **Fluid type**: 75W-140 gear oil/diff lube [t95] ([Unverified] single report)
 - **Gear oil viscosity**: 75/90 [t794] ([Unverified] single report)
+
+## Tips & gotchas
+
+- Hand tighten the plugs first, then let them sit for an hour before final torquing. [t95]
+- [Partial] Consider using Permatex RTV Gasket Maker on plug threads if replacing old crush washers. [t95]
 
 ## Source attributions
 
+- **t95**: westslope, "Rear differential plugs and RTV gasket maker", 2023-06-16. https://www.xterranation.org/index.php?threads/rear-differential-plugs-and-rtv-gasket-maker.10963/
 - **t794**: Razzmaniac, "Rear Differential Whine", 2013-07-19. https://www.xterranation.org/index.php?threads/rear-differential-whine.3806/
 

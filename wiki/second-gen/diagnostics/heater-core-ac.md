@@ -22,12 +22,15 @@ est_time: null
 tools:
 - Socket set for 5.5mm or 7/32 inch bolts
 - Video player
+- Hood
 parts: []
 sources:
 - t7
 - t66
 - t79
+- t93
 - t104
+- t107
 - t301
 - t632
 - t655
@@ -36,7 +39,7 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 10
+  partial_items: 13
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -66,6 +69,10 @@ Check engine temperature gauge while driving at highway speeds in cold weather t
 Inspect the area around the heater tees for signs of weeping or green buildup. [t79]
 
 Inspect the hose near the firewall on the passenger side to look for a nipple that has broken away. [t655]
+
+Warm up the engine, raise the hood while someone else raises RPM to around 2000, then check for issues. [t93]
+
+Check the resistor located under the dash if the compressor cuts in and out intermittently. [t107]
 
 ## Procedure
 
@@ -121,6 +128,13 @@ _Procedure reported by [t66]._
 
 </details>
 
+<details><summary>Alternate procedure [t93] [Partial]</summary>
+
+1. [Partial] Warm up the engine to operating temperature.
+2. [Partial] Raise the hood while someone else raises the RPM to around 2000.
+
+</details>
+
 <details><summary>Alternate procedure [t79] [Partial]</summary>
 
 1. Inspect the area around the heater tees for signs of weeping or green buildup.
@@ -131,6 +145,7 @@ _Procedure reported by [t66]._
 
 - [Partial] Socket set for 5.5mm or 7/32 inch bolts [t66]
 - Video player [t632]
+- [Partial] Hood [t93]
 
 ## Tips & gotchas
 
@@ -143,6 +158,9 @@ _Procedure reported by [t66]._
 - Use a rubber cap for the radiator and a spring-loaded cap for the degassing bottle if applicable. [t301]
 - Gently squeeze the upper radiator hose while running to burp trapped air. [t301]
 - Look for green fluid accumulation which indicates a leak before it completely snaps off. [t79]
+- [Partial] Check if hoses are sucking shut when speed increases. [t93]
+- [Partial] Verify if previous owner used a stop leak additive. [t93]
+- Check the resistor located under the dash if the compressor cuts in and out intermittently. [t107]
 
 ## Common mistakes
 
@@ -166,7 +184,9 @@ _Procedure reported by [t66]._
 - **t7**: jedge99, "How-to: Air Conditioner Fix - PBR", 2013-12-22. https://www.thenewx.org/threads/how-to-air-conditioner-fix-pbr.30207/
 - **t66**: Prime, "Evicting My Squirrels (Replacing the Blower Motor)", 2024-04-21. https://www.xterranation.org/index.php?threads/evicting-my-squirrels-replacing-the-blower-motor.11170/
 - **t79**: Brunnie, "Electric cooling fan", 2025-05-09. https://www.xterranation.org/index.php?threads/electric-cooling-fan.11346/
+- **t93**: MisterH, "coolant leak.", 2023-10-02. https://www.xterranation.org/index.php?threads/coolant-leak.11037/
 - **t104**: Shane_Anigans, "Engine cooling system -  working too well?", 2022-12-27. https://www.xterranation.org/index.php?threads/engine-cooling-system-working-too-well.10809/
+- **t107**: truckmen, "A/C compresssor cutting in and out...", 2022-05-31. https://www.xterranation.org/index.php?threads/a-c-compresssor-cutting-in-and-out.10635/
 - **t301**: MisterH, "Overheating long drive on highway not in town", 2022-12-23. https://www.xterranation.org/index.php?threads/overheating-long-drive-on-highway-not-in-town.10806/
 - **t632**: bigjim247365, "How To: Blower Motor Resistor", 2019-08-26. https://www.xterranation.org/index.php?threads/how-to-blower-motor-resistor.9022/
 - **t655**: Gavin Samson, "2005 Xterra SE Nipple Break in Hose", 2014-08-29. https://www.xterranation.org/index.php?threads/2005-xterra-se-nipple-break-in-hose.5856/

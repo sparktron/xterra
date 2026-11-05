@@ -11,6 +11,7 @@ applies_to:
   trims:
   - Off-Road
   - S
+  - X
   engine: []
   drivetrain: []
 shared_platform: []
@@ -25,17 +26,19 @@ sources:
 - t98
 - t289
 - t345
+- t553
 - t559
 - t959
+- t3098
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 11
-  partial_items: 11
+  partial_items: 24
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 11
+  withheld_items: 20
   pending_safety_values: 0
 ---
 -->
@@ -60,13 +63,49 @@ Aim for the 3-4 inch shock range with shackles and an AAL. [t959]
 
 [Unverified value] Fill the front differential until fluid runs freely to reach a capacity of approximately 1.6 liters. [t345]
 
+[Partial] Weigh the vehicle loaded with all regular gear, then perform simultaneous front and rear axle weigh-ins. [t553]
+
+[Partial] Compare loaded weight against FSM stock weights, then calculate added tongue weight for total over-stock load. [t553]
+
+[Partial] Test the freezing point with a hydrometer and use Nissan's blue antifreeze. [t3098]
+
+Run 100% undiluted antifreeze if desired. [t3098]
+
+Switch coolant color from green to blue. [t3098]
+
+[Partial] Check fluid levels frequently for the 4.0L V6 which uses a little extra water. [t3098]
+
+[Partial] Use a pre-mixed all-purpose green coolant with the brand preference of Prestone. [t3098]
+
+[Partial] Note that 50/50 is often better for achieving the lowest freezing point. [t3098]
+
+[Partial] Test the freezing point with a hydrometer to check recommended blue Nissan antifreeze. [t3098]
+
+[Partial] Mix 100% antifreeze with water at an antifreeze to water ratio of 50/50. [t3098]
+
+[Partial] Use a concentrated antifreeze option of 70 percent antifreeze mixed with 30 percent water. [t3098]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. Weigh the vehicle loaded with all regular gear at a CAT scale.
+2. Perform front and rear axle weigh-ins simultaneously on different pads.
+
+_Procedure reported by [t553]._
+
+<details><summary>Alternate procedure [t553] [Partial]</summary>
+
+1. Compare the loaded weight against stock weights listed in the Factory Service Manual (FSM).
+2. [Partial] Calculate and add tongue weight from any trailer to determine total 'over-stock' load.
+
+</details>
+
+<details><summary>Alternate procedure [t43] [Partial]</summary>
+
 1. [Partial] Identify the transfer case location.
 
-_Procedure reported by [t43]._
+</details>
 
 <details><summary>Alternate procedure [t289] [Partial]</summary>
 
@@ -80,9 +119,29 @@ _Procedure reported by [t43]._
 
 </details>
 
+<details><summary>Alternate procedure [t3098] [Partial]</summary>
+
+1. Run 100% undiluted antifreeze if desired.
+
+</details>
+
+<details><summary>Alternate procedure [t3098] [Partial]</summary>
+
+1. [Partial] Use a pre-mixed all-purpose green coolant.
+
+</details>
+
+<details><summary>Alternate procedure [t3098] [Partial]</summary>
+
+1. Mix 100% antifreeze with water in a separate container inside the house.
+
+</details>
+
 ## Specifications
 
+- **Antifreeze to water ratio**: 50/50 [t3098] ([Partial] [Unverified] single report)
 - **Automatic transmission capacity**: 10 7/8qt [t75] (Claude-reviewed)
+- **Concentrated antifreeze option**: 70% antifreeze / 30% water [t3098] ([Partial] [Unverified] single report)
 - **Cooling system capacity**: 10 3/4qt [t75] (Claude-reviewed)
 - **Engine oil capacity with filter**: 5 3/8qt [t75] (Claude-reviewed)
 - **Engine oil capacity without filter**: 5 1/8qt [t75] (Claude-reviewed)
@@ -100,6 +159,7 @@ _Procedure reported by [t43]._
 - **Rear Shock Lift Range**: 0 to 1.5 inches [t959] ([Partial] [Unverified] single report)
 - **Rear Shock Travel Range**: 2 to 2.5 inches [t959] ([Partial] [Unverified] single report)
 - **Transfer case capacity**: 2 1/8qt [t75] (Claude-reviewed)
+- **Undiluted coolant option**: 100% pure antifreeze [t3098] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -108,6 +168,10 @@ _Procedure reported by [t43]._
 - Ride with a half tank of fuel at all times to achieve level height. [t559]
 - [Partial] Note that 3/4 tank raises the rear end significantly. [t559]
 - For a setup with shackles and an AAL, aim for the 3-4 inch shock range (Nisstec options) rather than just lift height. [t959]
+- [Partial] Test the freezing point with a hydrometer for accuracy. [t3098]
+- Note that 50/50 is often better for achieving the lowest freezing point. [t3098]
+- [Partial] The switch was made for peace of mind and potential performance gains. [t3098]
+- Check levels frequently as this engine tends to lose heat. [t3098]
 
 ## Source attributions
 
@@ -117,6 +181,8 @@ _Procedure reported by [t43]._
 - **t98**: Brunnie, "Z1 Transmission Cooler Upgrade", 2026-05-04. https://www.xterranation.org/index.php?threads/z1-transmission-cooler-upgrade.11535/
 - **t289**: Dylans33, "HELP!! Im completely lost with these issues.", 2024-06-09. https://www.xterranation.org/index.php?threads/help-im-completely-lost-with-these-issues.11192/
 - **t345**: AlbatrossCafe, "Whining Front Diff - Next Steps?", 2020-10-26. https://www.xterranation.org/index.php?threads/whining-front-diff-next-steps.9752/
+- **t553**: scoyoc, "The Strengths (and Pitfalls) Of Bilstein 5100's", 2020-03-26. https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/
 - **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t959**: on_that_rayray, "Lifting Question!", 2015-05-07. https://www.xterranation.org/index.php?threads/lifting-question.6836/
+- **t3098**: maillet282, "anti freeze", 2014-02-24. https://www.xterranation.org/index.php?threads/anti-freeze.4866/
 

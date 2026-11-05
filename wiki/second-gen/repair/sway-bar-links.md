@@ -47,6 +47,9 @@ tools:
 - Angle grinder (optional, for cutting if needed)
 - Zip ties
 - Drill
+- Brake cleaner
+- Drill (1/2"-20 size implied)
+- Loctite or Locking nuts (optional)
 parts:
 - name: Custom Brake Line Bracket
   oem_part_no: ''
@@ -64,11 +67,18 @@ parts:
   oem_part_no: 545591Z600
 - name: Pinion Seal
   oem_part_no: 38189-ZJ00A
+- name: Self-Lube Bronze Race Ball Joint Linkage (Male Shank)
+  oem_part_no: 6072K14/2
+- name: Self-Lube Bronze Race Ball Joint Rod End
+  oem_part_no: 6072K34/2
+- name: SPC Upper Control Arm
+  oem_part_no: ''
 - name: Zip Ties
   oem_part_no: ''
 sources:
 - t119
 - t270
+- t411
 - t553
 - t559
 - t642
@@ -78,16 +88,17 @@ sources:
 - t828
 - t856
 - t959
+- t996
 - t1022
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 60
+  partial_items: 68
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 9
+  withheld_items: 15
   pending_safety_values: 0
 ---
 -->
@@ -127,6 +138,14 @@ Inspect the sway bar and check if extra wheel drop causes it to bottom out. [t82
 [Partial] Extend front brake lines with zip ties for increased suspension travel. [t959]
 
 Fabricate a small custom bracket to lift the rear brake lines up. [t959]
+
+Remove the factory rear differential cover and clean the internal welds thoroughly using brake cleaner. [t411]
+
+Grind down, re-weld with full penetration, then grind again for a flush surface. [t411]
+
+[Partial] Swap the upper control arm to an aftermarket unit with a ball joint instead of a uniball. [t559]
+
+[Partial] Replace sway bar links and bushings with Self-Lube Bronze Race Ball Joint Rod End and Linkage. [t996]
 
 ## Procedure
 
@@ -228,6 +247,20 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 </details>
 
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. [Partial] Remove the factory rear differential cover.
+2. Clean the internal welds thoroughly using brake cleaner.
+
+</details>
+
+<details><summary>Alternate procedure [t411] [Partial]</summary>
+
+1. Grind down the outside of a leaking factory diff cover weld.
+2. Re-weld the area with full penetration to expose unmelted parts.
+
+</details>
+
 <details><summary>Alternate procedure [t553] [Partial]</summary>
 
 1. [Partial] Install a rear sway bar relocation kit to prevent the shock from rubbing against the bar during full extension.
@@ -283,6 +316,9 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - [Partial] Angle grinder (optional, for cutting if needed) [t768]
 - [Partial] Zip ties [t959]
 - [Partial] Drill [t959]
+- Brake cleaner [t411]
+- [Partial] Drill (1/2"-20 size implied) [t996]
+- Loctite or Locking nuts (optional) [t996]
 
 ## Parts
 
@@ -294,6 +330,9 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - Febest Camber Bolt (0229-004) [t642]
 - [Partial] Nissan Cam Washer (545591Z600) [t642]
 - Pinion Seal (38189-ZJ00A) [t119]
+- Self-Lube Bronze Race Ball Joint Linkage, Male Shank (6072K14/2) [t996]
+- Self-Lube Bronze Race Ball Joint Rod End (6072K34/2) [t996]
+- SPC Upper Control Arm: Features sealed ball joints for better alignment dialing [t559]
 - Zip Ties [t959]
 
 ## Specifications
@@ -301,7 +340,9 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - **Bolt Head Style**: 1/3-shaved [t642] ([Partial] [Unverified] single report)
 - **Bolt thread size (implied)**: 14mm [t1022] ([Partial] [Unverified] single report)
 - **Febest Bolt Part Number**: 0229-004 [t642] ([Unverified] single report)
+- **Linkage Stud Thread Size**: 1/2"-20 RH Thrd Male Shank [t996] ([Partial] [Unverified] single report)
 - **Nissan Washer Part Number**: 545591Z600 [t642] ([Unverified] single report)
+- **Rod End Thread Size**: 1/2"-20 RH Thrd Female Shank [t996] ([Partial] [Unverified] single report)
 - **Set Total Cost**: $13.10 [t642] ([Partial] [Unverified] single report)
 - **Total Cost per Bolt**: $6.95 [t642] ([Partial] [Unverified] single report)
 
@@ -337,6 +378,10 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - Unclip the brake lines to allow them a straighter, shorter route so they aren't stretched tight at full droop. [t959]
 - Use zip ties to hold the new positions in place. [t959]
 - Disconnect the E-Brake line to allow more clearance for the bracket installation. [t959]
+- [Partial] Inspect the internal welds for quality after cleaning. [t411]
+- [Partial] Ensure good penetration on any re-welded areas to prevent future leaks. [t411]
+- Grind down again after welding to remove stress risers and create a flush surface. [t411]
+- [Partial] Ensure the substrate is clean before applying new welds. [t411]
 
 ## Common mistakes
 
@@ -353,6 +398,8 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 ## Diagrams (links only)
 
+- http://i977.photobucket.com/albums/ae253/mfredieu/05%20Xterra%20SE/Misc/IMG_20101002_190704.jpg [t996]
+- http://img.tapatalk.com/d/12/12/09/pu3ubaha.jpg [t996]
 - http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
 - http://www.rockauto.com/catalog/moreinfo.php?pk=1057095&cc=1431467 [t1022]
 - https://i.imgur.com/5IlSvjr.jpg [t270]
@@ -373,6 +420,7 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 
 - **t119**: KC!, "2015 Xterra P4X M226 Pinion Seal Replacement", 2026-05-02. https://www.xterranation.org/index.php?threads/2015-xterra-p4x-m226-pinion-seal-replacement.11532/
 - **t270**: JeffNJM3, "How To - Install Delrin Lca Bushings", 2020-02-16. https://www.xterranation.org/index.php?threads/how-to-install-delrin-lca-bushings.9384/
+- **t411**: Macland, "Rear Diff Covers", 2014-05-14. https://www.xterranation.org/index.php?threads/rear-diff-covers.5338/
 - **t553**: scoyoc, "The Strengths (and Pitfalls) Of Bilstein 5100's", 2020-03-26. https://www.xterranation.org/index.php?threads/the-strengths-and-pitfalls-of-bilstein-5100s.9427/
 - **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t642**: General_Tarfun, "How-to: OEM Nissan-Style Cam Bolts", 2019-08-05. https://www.xterranation.org/index.php?threads/how-to-oem-nissan-style-cam-bolts.8917/
@@ -382,5 +430,6 @@ _Procedure reported by [t856]. Photos of this job are in the source: <https://ww
 - **t828**: jorge.alves.5015, "Clunk in front after lift?", 2016-04-19. https://www.xterranation.org/index.php?threads/clunk-in-front-after-lift.7624/
 - **t856**: Rook, "How-to: Siezed Cam Bolt (and LCA) Removal and Reinstallation", 2012-03-14. https://www.xterranation.org/index.php?threads/how-to-siezed-cam-bolt-and-lca-removal-and-reinstallation.1214/
 - **t959**: on_that_rayray, "Lifting Question!", 2015-05-07. https://www.xterranation.org/index.php?threads/lifting-question.6836/
+- **t996**: gorillamel, "Gen 2: Build your own endlinks", 2012-12-10. https://www.xterranation.org/index.php?threads/gen-2-build-your-own-endlinks.2605/
 - **t1022**: 2011XTERROR, "2" spacer lift", 2014-07-25. https://www.xterranation.org/index.php?threads/2-spacer-lift.5711/
 

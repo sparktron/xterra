@@ -15,7 +15,9 @@ shared_platform:
 difficulty: null
 est_time: null
 tools: []
-parts: []
+parts:
+- name: OEM Oil Filter
+  oem_part_no: ''
 sources:
 - t317
 - t327
@@ -24,16 +26,18 @@ sources:
 - t772
 - t773
 - t790
+- t3214
+- t3215
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 7
+  partial_items: 8
   partial_fields:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
@@ -57,6 +61,8 @@ Turn on and off the A/C while idling in gear to isolate a clicking sound from th
 Start the engine, then drive for several miles to hear if it knocks. [t773]
 
 Locate the hose running from the transmission and inspect its connection method. [t790]
+
+[Partial] Check if blue smoke appears only during cold starts and verify the exhaust emits a fog-like cloud. [t3215]
 
 ## Procedure
 
@@ -104,6 +110,24 @@ _Procedure reported by [t772]._
 
 </details>
 
+<details><summary>Alternate procedure [t3214] [Partial]</summary>
+
+1. Listen for a loud tick or high rev when first cranking the engine in the morning.
+2. [Partial] Check if the noise persists until oil pressure builds up.
+
+</details>
+
+<details><summary>Alternate procedure [t3215] [Partial]</summary>
+
+1. Check if blue smoke appears only during cold starts after the engine has sat for a day or more.
+2. Verify that the exhaust emits a fog-like cloud rather than dripping water.
+
+</details>
+
+## Parts
+
+- OEM Oil Filter: Must have an anti-drain back feature to prevent reverse flow [t3214]
+
 ## Tips & gotchas
 
 - [Partial] Note that 2nd Gen water pumps are driven by the timing belt or chain, so they do not need replacement unless there is an issue. [t317]
@@ -111,6 +135,8 @@ _Procedure reported by [t772]._
 - Look specifically at the mating surface between the lower intake plenum and the head. [t327]
 - [Partial] Use a screwdriver as a stethoscope to pinpoint internal noise sources. [t514]
 - Check for loose engine mounts that may amplify vibration at stop lights. [t514]
+- Look for filters that do not allow oil to drain off when the engine is cold. [t3214]
+- Note that some aftermarket brands like Fram and Purolator may lack this feature, while MANN filters sold by Amsoil also have it. [t3214]
 
 ## Common mistakes
 
@@ -120,9 +146,11 @@ _Procedure reported by [t772]._
 
 - http://imgur.com/gallery/nUrLtrz [t514]
 - http://www.courtesyparts.com/images/n50/n50_330-2.gif [t790]
+- http://www.xterranation.org/showthread.php?1260-Bittersweet-goodbye..... [t3215]
 - http://www.youtube.com/watch?v=8yGcN4n3Pwc [t773]
 - https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/417050_3415161056572_1196430024_3493845_1655141167_n.jpg [t790]
 - https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/420221_3415161976595_1196430024_3493846_1704289023_n.jpg [t790]
+- https://www.mann-hummel.com/mfus/index.html?iKeys=30.1.755.2.1 [t3214]
 
 ## Source attributions
 
@@ -133,4 +161,6 @@ _Procedure reported by [t772]._
 - **t772**: Razzmaniac, "Lifter replacemement", 2014-03-22. https://www.xterranation.org/index.php?threads/lifter-replacemement.5021/
 - **t773**: Xterradude05, "Engine Knock", 2012-02-12. https://www.xterranation.org/index.php?threads/engine-knock.984/
 - **t790**: Xterradude05, "Help! (Hose issue)", 2012-02-22. https://www.xterranation.org/index.php?threads/help-hose-issue.1065/
+- **t3214**: ISBoost300, "Cold start knock? OEM oil filters the fix", 2012-05-18. https://www.xterranation.org/index.php?threads/cold-start-knock-oem-oil-filters-the-fix.1612/
+- **t3215**: Matt2558, "Blue smoke at a cold start????", 2012-02-13. https://www.xterranation.org/index.php?threads/blue-smoke-at-a-cold-start.988/
 

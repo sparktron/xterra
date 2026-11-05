@@ -23,15 +23,16 @@ sources:
 - t871
 - t878
 - t990
+- t3219
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 6
+  partial_items: 7
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 2
+  withheld_items: 3
   pending_safety_values: 0
 ---
 -->
@@ -49,6 +50,8 @@ verification:
 Listen for engine whining at 2,500 RPM and above when revving. [t515]
 
 [Partial] Inspect the rear timing chain cover for signs of a blown gasket or oil leakage. [t878]
+
+[Partial] Listen for a whining noise and verify its volume rises with increasing RPMs. [t3219]
 
 ## Procedure
 
@@ -73,6 +76,13 @@ _Procedure reported by [t990]._
 
 </details>
 
+<details><summary>Alternate procedure [t3219] [Partial]</summary>
+
+1. [Partial] Listen for a whining noise coming from the engine.
+2. Verify that the volume of the sound increases as RPMs rise.
+
+</details>
+
 ## Tools
 
 - [Partial] Stethoscope [t515]
@@ -87,6 +97,7 @@ _Procedure reported by [t990]._
 - Note that metal-on-metal chain noise tends to get progressively louder over time. [t515]
 - [Partial] Expect a clatter during cold starts in winter conditions before the whine appears after warm-up. [t515]
 - Note that this issue can cause oil starvation, leading to engine whining noises even after swapping belts and tensioners. [t878]
+- If this specific noise is absent, assume the timing components are functioning correctly. [t3219]
 
 ## Diagrams (links only)
 
@@ -101,4 +112,5 @@ _Procedure reported by [t990]._
 - **t871**: xterror04, "Timing chain guides", 2012-01-22. https://www.xterranation.org/index.php?threads/timing-chain-guides.808/
 - **t878**: tommyboy, "Timing chain", 2012-08-10. https://www.xterranation.org/index.php?threads/timing-chain.2102/
 - **t990**: Deadpilot, "2005-2012 Timing Chain Replacement", 2011-11-05. https://www.xterranation.org/index.php?threads/2005-2012-timing-chain-replacement.252/
+- **t3219**: Xterradude05, "Replacing timing chain", 2012-02-19. https://www.xterranation.org/index.php?threads/replacing-timing-chain.1037/
 

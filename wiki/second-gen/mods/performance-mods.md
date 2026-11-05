@@ -30,6 +30,8 @@ parts:
   oem_part_no: ''
 - name: Dynomax VT Muffler
   oem_part_no: ''
+- name: Exhaust
+  oem_part_no: ''
 - name: Exhaust flange
   oem_part_no: ''
 - name: Gasket set for spacer
@@ -63,16 +65,17 @@ sources:
 - t783
 - t789
 - t796
+- t925
 - t926
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 1
-  partial_items: 25
+  partial_items: 27
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 11
+  withheld_items: 13
   pending_safety_values: 0
 ---
 -->
@@ -112,6 +115,8 @@ Install and position a single-inlet, single-outlet MagnaFlow XL muffler. [t789]
 Add 4 ounces of acetone to the gas tank and drive gently. [t778]
 
 Replace the stock air filter with a drop-in dry-flow style filter. [t778]
+
+[Partial] Install a Flowmaster 40 exhaust system to the vehicle. [t925]
 
 ## Procedure
 
@@ -206,6 +211,7 @@ _Procedure reported by [t280]. Photos of this job are in the source: <https://ww
 - Audi/VW style female connector [t280]
 - [Partial] Dynomax Cat-Back System, Optional [t43]
 - Dynomax VT Muffler [t26]
+- Exhaust [t925]
 - [Partial] Exhaust flange [t926]
 - [Partial] Gasket set for spacer [t26]
 - Intake Manifold Spacer: CNC machined from 6061 Billet Aluminum; available in Blue, Black, Silver, Gold, or Red [t26]
@@ -244,6 +250,7 @@ _Procedure reported by [t280]. Photos of this job are in the source: <https://ww
 - [Partial] Consider mandrel-bent tubing for smoother airflow if standard bends are too tight. [t926]
 - Consider that NISMO parts may complicate warranty claims if a third-party part is blamed for an issue. [t783]
 - Note that oiled filters clogging the MAF sensor was historically considered 'BS' by some owners. [t783]
+- [Partial] Provides improved sound and flow [t925]
 
 ## Diagrams (links only)
 
@@ -266,5 +273,6 @@ _Procedure reported by [t280]. Photos of this job are in the source: <https://ww
 - **t783**: Xterradude05, "CAI Ideas", 2012-02-07. https://www.xterranation.org/index.php?threads/cai-ideas.935/
 - **t789**: dhyde79, "Magnaflow or Flowmaster?", 2012-03-12. https://www.xterranation.org/index.php?threads/magnaflow-or-flowmaster.1195/
 - **t796**: ISBoost300, "!!! Gen 2 Exhaust Thread !!!", 2012-05-14. https://www.xterranation.org/index.php?threads/gen-2-exhaust-thread.1581/
+- **t925**: HAIRY_XTERRY, "lots of New Parts", 2014-07-08. https://www.xterranation.org/index.php?threads/lots-of-new-parts.5636/
 - **t926**: Oz_X, "Mini How to: DIY Raised Air Intake (Snorkel)", 2012-03-20. https://www.xterranation.org/index.php?threads/mini-how-to-diy-raised-air-intake-snorkel.1267/
 

@@ -16,12 +16,15 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[diagnostics] EVAP system faults](diagnostics/diagnostics-evap-system-faults.md) |  | [Unverified] | 1 |
 | [[diagnostics] Fuse and relay maps](diagnostics/diagnostics-fuse-and-relay-maps.md) |  | [Unverified] | 1 |
 | [ABS and VDC light troubleshooting sequence](diagnostics/abs-and-vdc-light-troubleshooting-sequence.md) |  | [Unverified] | 1 |
+| [ABS sensor ring seal inspection](diagnostics/abs-sensor-ring-seal-inspection.md) |  | [Unverified] | 1 |
 | [Air-Cooled ATF Cooler Performance Limits](diagnostics/air-cooled-atf-cooler-performance-limits.md) |  | [Unverified] | 1 |
 | [Airbag Reset Procedure](diagnostics/airbag-reset-procedure.md) |  | [Unverified] | 1 |
 | [Airbag warning light reset procedure](diagnostics/airbag-warning-light-reset-procedure.md) |  | [Unverified] | 1 |
 | [Alternator failure symptoms](diagnostics/alternator-failure-symptoms.md) |  | [Unverified] | 1 |
+| [Alternator voltage output check](diagnostics/alternator-voltage-output-check.md) |  | [Unverified] | 1 |
 | [ARB Air Locker Leaks and Cycling](diagnostics/arb-air-locker-leaks-and-cycling.md) |  | [Unverified] | 1 |
 | [ATF Temperature Behavior During Warm-up](diagnostics/atf-temperature-behavior-during-warm-up.md) |  | [Unverified] | 1 |
+| [Axle shaft removal and bearing check](diagnostics/axle-shaft-removal-and-bearing-check.md) |  | [Unverified] | 1 |
 | [Battery cable connection affecting VDC](diagnostics/battery-cable-connection-affecting-vdc.md) |  | [Unverified] | 1 |
 | [Bypassing radiator to prevent overheating during heavy use](diagnostics/bypassing-radiator-to-prevent-overheating-during-heavy-use.md) |  | [Unverified] | 1 |
 | [Clearing diff lock controller error codes after mod](diagnostics/clearing-diff-lock-controller-error-codes-after-mod.md) |  | [Unverified] | 1 |
@@ -38,20 +41,24 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Diagnostics: Engine idle and relearn procedures](diagnostics/diagnostics-engine-idle-and-relearn-procedures.md) |  | [Unverified] | 1 |
 | [Diagnostics: Idle problem and air leaks](diagnostics/diagnostics-idle-problem-and-air-leaks.md) |  | [Unverified] | 1 |
 | [Diagnostics: Wheel speed sensor failure in 4WD](diagnostics/diagnostics-wheel-speed-sensor-failure-in-4wd.md) |  | [Unverified] | 1 |
-| [Door, window and lock electrical faults](diagnostics/door-window-electrical.md) | [Guide](vehicle/guides/door-window-electrical.md) | community-consensus | 3 |
-| [Driveline and wheel bearing noises](diagnostics/driveline-noises.md) | [Guide](vehicle/guides/driveline-noises.md) | community-consensus | 11 |
+| [Differential internal inspection procedure](diagnostics/differential-internal-inspection-procedure.md) |  | [Unverified] | 1 |
+| [Door, window and lock electrical faults](diagnostics/door-window-electrical.md) | [Guide](vehicle/guides/door-window-electrical.md) | community-consensus | 6 |
+| [Driveline and wheel bearing noises](diagnostics/driveline-noises.md) | [Guide](vehicle/guides/driveline-noises.md) | community-consensus | 15 |
 | [Electrical faults for swapped HVAC controls](diagnostics/electrical-faults-for-swapped-hvac-controls.md) |  | [Unverified] | 1 |
-| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | [Guide](vehicle/guides/electrical-faults.md) | community-consensus | 17 |
+| [Electrical faults, grounds and battery drain](diagnostics/electrical-faults.md) | [Guide](vehicle/guides/electrical-faults.md) | community-consensus | 19 |
 | [Engine and Auto Trans Cooling Observations](diagnostics/engine-and-auto-trans-cooling-observations.md) |  | [Unverified] | 1 |
-| [Engine noise diagnosis](diagnostics/engine-noises.md) | [Guide](vehicle/guides/engine-noises.md) | community-consensus | 7 |
-| [Engine trouble codes (VQ40DE)](diagnostics/dtc-reference-vq40de.md) | [Guide](vehicle/guides/dtc-reference-vq40de.md) | community-consensus | 18 |
+| [Engine noise diagnosis](diagnostics/engine-noises.md) | [Guide](vehicle/guides/engine-noises.md) | community-consensus | 9 |
+| [Engine trouble codes (VQ40DE)](diagnostics/dtc-reference-vq40de.md) | [Guide](vehicle/guides/dtc-reference-vq40de.md) | community-consensus | 20 |
 | [EVAP system faults](diagnostics/evap-system.md) | [Guide](vehicle/guides/evap-system.md) | [Unverified] | 1 |
 | [Fan clutch operation at idle and low speed](diagnostics/fan-clutch-operation-at-idle-and-low-speed.md) |  | [Unverified] | 1 |
 | [Frame and leaf spring bracket rust](diagnostics/frame-rust.md) |  | [Unverified] | 1 |
+| [Fuel pump and level sender issues](diagnostics/fuel-pump-and-level-sender-issues.md) |  | [Unverified] | 1 |
+| [Fuel pump and sending unit](diagnostics/fuel-pump-and-sending-unit.md) |  | [Unverified] | 1 |
 | [Fuse and relay maps](diagnostics/fuse-relay-map.md) | [Guide](vehicle/guides/fuse-relay-map.md) | [Unverified] | 1 |
-| [Heater core and A/C problems](diagnostics/heater-core-ac.md) | [Guide](vehicle/guides/heater-core-ac.md) | community-consensus | 8 |
+| [Heater core and A/C problems](diagnostics/heater-core-ac.md) | [Guide](vehicle/guides/heater-core-ac.md) | community-consensus | 10 |
 | [Hood squeak sound characteristics](diagnostics/hood-squeak-sound-characteristics.md) |  | [Unverified] | 1 |
 | [Idle cold air heater core issue fix](diagnostics/idle-cold-air-heater-core-issue-fix.md) |  | [Unverified] | 1 |
+| [IPDM location and fuse inspection](diagnostics/ipdm-location-and-fuse-inspection.md) |  | [Unverified] | 1 |
 | [Managing Trans Heat Under High Load](diagnostics/managing-trans-heat-under-high-load.md) |  | [Unverified] | 1 |
 | [Mitigating oil burning via PCV system](diagnostics/mitigating-oil-burning-via-pcv-system.md) |  | [Unverified] | 1 |
 | [Morning gurgle cooling air trap noise](diagnostics/morning-gurgle-cooling-air-trap-noise.md) |  | [Unverified] | 1 |
@@ -59,15 +66,19 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Radiator cap placement and pressure issues](diagnostics/radiator-cap-placement-and-pressure-issues.md) |  | [Unverified] | 1 |
 | [Rear ABS sensor failure diagnosis](diagnostics/rear-abs-sensor-failure-diagnosis.md) |  | [Unverified] | 1 |
 | [Rear Differential E-Locker Warning Light Fix](diagnostics/rear-differential-e-locker-warning-light-fix.md) |  | [Unverified] | 1 |
+| [Rear differential failure patterns](diagnostics/rear-differential-failure-patterns.md) |  | [Unverified] | 1 |
+| [Rear differential fluid analysis](diagnostics/rear-differential-fluid-analysis.md) |  | [Unverified] | 1 |
+| [Rear differential gear ratio and type verification](diagnostics/rear-differential-gear-ratio-and-type-verification.md) |  | [Unverified] | 1 |
 | [Reference Heated O2 Sensor codes and part sources](diagnostics/reference-heated-o2-sensor-codes-and-part-sources.md) |  | [Unverified] | 1 |
 | [Secondary electric fan failure under load](diagnostics/secondary-electric-fan-failure-under-load.md) |  | [Unverified] | 1 |
 | [Sensor replacement (cam, crank, MAF)](diagnostics/sensor-replacement-cam-crank-maf.md) |  | [Unverified] | 1 |
 | [SMOD fluid contamination check method](diagnostics/smod-fluid-contamination-check-method.md) |  | [Unverified] | 1 |
-| [SMOD radiator transmission cooler failure](diagnostics/smod.md) | [Guide](vehicle/guides/smod.md) | community-consensus | 9 |
+| [SMOD radiator transmission cooler failure](diagnostics/smod.md) | [Guide](vehicle/guides/smod.md) | community-consensus | 11 |
 | [SMOD Transmission Fluid Change History](diagnostics/smod-transmission-fluid-change-history.md) |  | [Unverified] | 1 |
 | [Steering alignment sensor issue](diagnostics/steering-alignment-sensor-issue.md) |  | [Unverified] | 1 |
 | [Steering angle sensor reset](diagnostics/steering-angle-sensor-reset.md) |  | [Unverified] | 1 |
-| [Timing chain and guide wear](diagnostics/timing-chain-noise.md) | [Guide](vehicle/guides/timing-chain-noise.md) | community-consensus | 4 |
+| [Sway bar bushings and links](diagnostics/sway-bar-bushings-and-links.md) |  | [Unverified] | 1 |
+| [Timing chain and guide wear](diagnostics/timing-chain-noise.md) | [Guide](vehicle/guides/timing-chain-noise.md) | community-consensus | 5 |
 | Torque converter shudder |  | not-started | 0 |
 | [Transmission and transfer case problems](diagnostics/transmission-transfer-case-issues.md) | [Guide](vehicle/guides/transmission-transfer-case-issues.md) | [Unverified] | 1 |
 | [Transmission cooler line connections at the radiator](diagnostics/transmission-cooler-line-connections-at-the-radiator.md) |  | [Unverified] | 1 |
@@ -86,29 +97,30 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[maintenance] Brake pad and rotor replacement tips](maintenance/maintenance-brake-pad-and-rotor-replacement-tips.md) |  | [Unverified] | 1 |
 | [[maintenance] Wheel bearing service](maintenance/maintenance-wheel-bearing-service.md) |  | [Unverified] | 1 |
 | [[reference] Brake bleeder wrench size and order](maintenance/reference-brake-bleeder-wrench-size-and-order.md) |  | [Unverified] | 1 |
+| [[reference] Fluids and capacities](maintenance/reference-fluids-and-capacities.md) |  | [Unverified] | 1 |
 | Air, cabin and fuel filters | [Guide](vehicle/guides/air-fuel-filters.md) | not-started | 0 |
-| [Automatic transmission fluid change](maintenance/atf-change.md) | [Guide](vehicle/guides/atf-change.md) | community-consensus | 5 |
+| [Automatic transmission fluid change](maintenance/atf-change.md) | [Guide](vehicle/guides/atf-change.md) | disputed | 7 |
 | [Brake caliper slide pin lubrication](maintenance/brake-caliper-slide-pin-lubrication.md) |  | [Unverified] | 1 |
-| [Brake fluid flush and bleeding](maintenance/brake-fluid-bleed.md) | [Guide](vehicle/guides/brake-fluid-bleed.md) | community-consensus | 2 |
+| [Brake fluid flush and bleeding](maintenance/brake-fluid-bleed.md) | [Guide](vehicle/guides/brake-fluid-bleed.md) | community-consensus | 3 |
 | [Brake pads and rotors](maintenance/brake-service.md) | [Guide](vehicle/guides/brake-service.md) | [Unverified] | 1 |
-| [Coolant drain and refill](maintenance/coolant-flush.md) | [Guide](vehicle/guides/coolant-flush.md) | community-consensus | 3 |
+| [Coolant drain and refill](maintenance/coolant-flush.md) | [Guide](vehicle/guides/coolant-flush.md) | community-consensus | 4 |
 | [Engine Coolant Level Inspection Procedure](maintenance/engine-coolant-level-inspection-procedure.md) |  | [Unverified] | 1 |
 | [Engine noise diagnosis](maintenance/engine-noise-diagnosis.md) |  | disputed | 1 |
 | [Engine oil and filter change](maintenance/engine-oil-change.md) | [Guide](vehicle/guides/engine-oil-change.md) | [Unverified] | 1 |
 | [Front and rear differential fluid change](maintenance/differential-fluid.md) | [Guide](vehicle/guides/differential-fluid.md) | community-consensus | 2 |
 | [Intake system cleaning for rough idle](maintenance/intake-system-cleaning-for-rough-idle.md) |  | [Unverified] | 1 |
-| Maintenance schedule (normal and severe use) |  | not-started | 0 |
+| [Maintenance schedule (normal and severe use)](maintenance/maintenance-schedule.md) |  | [Unverified] | 1 |
 | [Maintenance: Rear differential fluid flush for debris removal](maintenance/maintenance-rear-differential-fluid-flush-for-debris-removal.md) |  | [Unverified] | 1 |
 | Manual transmission fluid change | [Guide](vehicle/guides/manual-trans-fluid.md) | not-started | 0 |
 | [Painting chrome license plate housings to match body color](maintenance/painting-chrome-license-plate-housings-to-match-body-color.md) |  | [Unverified] | 1 |
 | [PCV valve and hose service](maintenance/pcv-valve-and-hose-service.md) |  | [Unverified] | 1 |
 | [Power steering fluid service](maintenance/power-steering-fluid.md) | [Guide](vehicle/guides/power-steering-fluid.md) | [Unverified] | 1 |
 | [Power steering reservoir removal and cleaning](maintenance/power-steering-reservoir-removal-and-cleaning.md) |  | [Unverified] | 1 |
-| [Rear differential fluid service and seal repair](maintenance/rear-differential-fluid-service-and-seal-repair.md) |  | [Unverified] | 1 |
+| [Rear differential fluid service and seal repair](maintenance/rear-differential-fluid-service-and-seal-repair.md) |  | community-consensus | 2 |
 | [Reset MAF sensor fuel trim tables](maintenance/reset-maf-sensor-fuel-trim-tables.md) |  | [Unverified] | 1 |
 | [Serpentine belt and tensioner](maintenance/serpentine-belt.md) | [Guide](vehicle/guides/serpentine-belt.md) | community-consensus | 3 |
 | [Spark plug and intake gasket replacement](maintenance/spark-plug-and-intake-gasket-replacement.md) |  | [Unverified] | 1 |
-| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | not-started | 0 |
+| [Spark plug replacement](maintenance/spark-plugs.md) | [Guide](vehicle/guides/spark-plugs.md) | [Unverified] | 1 |
 | Transfer case fluid change | [Guide](vehicle/guides/transfer-case-fluid.md) | not-started | 0 |
 | [Transfer case fluid change and level check](maintenance/transfer-case-fluid-change-and-level-check.md) |  | [Unverified] | 1 |
 | [Transmission Skid Removal for Access](maintenance/transmission-skid-removal-for-access.md) |  | [Unverified] | 1 |
@@ -128,6 +140,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Bug deflector tab rubbing fix](repair/bug-deflector-tab-rubbing-fix.md) |  | [Unverified] | 1 |
 | [Bypass Locker Relay for Any-Speed Engagement](repair/bypass-locker-relay-for-any-speed-engagement.md) |  | [Unverified] | 1 |
 | [Bypassing internal SMOD cooler with external unit](repair/bypassing-internal-smod-cooler-with-external-unit.md) |  | [Unverified] | 1 |
+| [Catalytic converter replacement nightmare](repair/catalytic-converter-replacement-nightmare.md) |  | [Unverified] | 1 |
 | [Center pin and U-bolt modifications after leaf removal](repair/center-pin-and-u-bolt-modifications-after-leaf-removal.md) |  | [Unverified] | 1 |
 | Clutch and transmission replacement | [Guide](vehicle/guides/clutch-transmission-swap.md) | not-started | 0 |
 | [Coil spring bucket contact and damage](repair/coil-spring-bucket-contact-and-damage.md) |  | [Unverified] | 1 |
@@ -144,14 +157,17 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Door panel removal for tinting or access](repair/door-panel-removal-for-tinting-or-access.md) |  | [Unverified] | 1 |
 | [Door window and switch electrical faults](repair/door-window-and-switch-electrical-faults.md) |  | community-consensus | 2 |
 | [Engine mount replacement and selection](repair/engine-mount-replacement-and-selection.md) |  | [Unverified] | 1 |
+| [Exhaust system upgrades for power](repair/exhaust-system-upgrades-for-power.md) |  | [Unverified] | 1 |
 | [Final assembly sequence after LCA swap](repair/final-assembly-sequence-after-lca-swap.md) |  | [Unverified] | 1 |
 | [Fix trailer brake wiring causing limp mode](repair/fix-trailer-brake-wiring-causing-limp-mode.md) |  | [Unverified] | 1 |
 | [Fixing Air Line Blockage After Fitting Swap](repair/fixing-air-line-blockage-after-fitting-swap.md) |  | [Unverified] | 1 |
 | [Fixing coilover clunks from mismatched bolts](repair/fixing-coilover-clunks-from-mismatched-bolts.md) |  | [Unverified] | 1 |
 | [Fold flat passenger seat latch replacement](repair/fold-flat-passenger-seat-latch-replacement.md) |  | [Unverified] | 1 |
 | [Front CV-axle re-installation techniques](repair/front-cv-axle-re-installation-techniques.md) |  | [Unverified] | 1 |
+| [Fuel level sender replacement via under-seat access](repair/fuel-level-sender-replacement-via-under-seat-access.md) |  | [Unverified] | 1 |
 | Fuel pump and sending unit | [Guide](vehicle/guides/fuel-pump.md) | not-started | 0 |
 | [Headlight assembly replacement and alignment](repair/headlight-assembly-replacement-and-alignment.md) |  | [Unverified] | 1 |
+| [Heater core air bubble removal](repair/heater-core-air-bubble-removal.md) |  | [Unverified] | 1 |
 | [Heater core and A/C problems](repair/heater-core-and-a-c-problems.md) |  | [Unverified] | 1 |
 | [Hefty gas tank skid installation issues](repair/hefty-gas-tank-skid-installation-issues.md) |  | [Unverified] | 1 |
 | [Hood bump stop replacement and adjustment](repair/hood-bump-stop-replacement-and-adjustment.md) |  | [Unverified] | 1 |
@@ -166,6 +182,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [LCA mount removal and reinstallation](repair/lca-mount-removal-and-reinstallation.md) |  | [Unverified] | 1 |
 | [Leaf spring and shackle repair](repair/leaf-springs.md) | [Guide](vehicle/guides/leaf-springs.md) | community-consensus | 5 |
 | [Leaf spring bushings and clips](repair/leaf-spring-bushings-and-clips.md) |  | [Unverified] | 1 |
+| [Leaf spring squeak and noise reduction](repair/leaf-spring-squeak-and-noise-reduction.md) |  | [Unverified] | 1 |
 | [Lower Control Arm (LCA) bolt tightness](repair/lower-control-arm-lca-bolt-tightness.md) |  | [Unverified] | 1 |
 | [Lower control arm replacement procedure](repair/lower-control-arm-replacement-procedure.md) |  | [Unverified] | 1 |
 | [Lower shock mount uniball replacement](repair/lower-shock-mount-uniball-replacement.md) |  | [Unverified] | 1 |
@@ -183,6 +200,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Radiator replacement and SMOD fix](repair/radiator-smod-fix.md) | [Guide](vehicle/guides/radiator-smod-fix.md) | [Unverified] | 1 |
 | [Radiator skid repair and alignment](repair/radiator-skid-repair-and-alignment.md) |  | [Unverified] | 1 |
 | [Rear axle backing plate replacement](repair/rear-axle-backing-plate-replacement.md) |  | [Unverified] | 1 |
+| [Rear axle seal replacement procedures](repair/rear-axle-seal-replacement-procedures.md) |  | [Unverified] | 1 |
 | [Rear bumper Destaco latch removal and finish prep](repair/rear-bumper-destaco-latch-removal-and-finish-prep.md) |  | [Unverified] | 1 |
 | [Rear door molding removal and paint restoration](repair/rear-door-molding-removal-and-paint-restoration.md) |  | [Unverified] | 1 |
 | [Rear door threshold trim removal and re-engagement](repair/rear-door-threshold-trim-removal-and-re-engagement.md) |  | [Unverified] | 1 |
@@ -205,17 +223,18 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Repair: ELocker internal mechanism stuck](repair/repair-elocker-internal-mechanism-stuck.md) |  | [Unverified] | 1 |
 | [Repair: Rear diff lock position switch replacement](repair/repair-rear-diff-lock-position-switch-replacement.md) |  | [Unverified] | 1 |
 | [Replacing coilover bearings with bronze bushings](repair/replacing-coilover-bearings-with-bronze-bushings.md) |  | [Unverified] | 1 |
+| [Replacing rear differential bearing retainer bolts](repair/replacing-rear-differential-bearing-retainer-bolts.md) |  | [Unverified] | 1 |
 | [Seating inner C-clip into differential via leverage](repair/seating-inner-c-clip-into-differential-via-leverage.md) |  | [Unverified] | 1 |
 | [Sensor replacement (cam, crank, O2, MAF)](repair/sensors.md) | [Guide](vehicle/guides/sensors.md) | community-consensus | 3 |
 | [Shock mount stud replacement](repair/shock-mount-stud-replacement.md) |  | [Unverified] | 1 |
-| [Shocks, springs and bump stops](repair/shocks-springs.md) | [Guide](vehicle/guides/shocks-springs.md) | [Unverified] | 1 |
+| [Shocks, springs and bump stops](repair/shocks-springs.md) | [Guide](vehicle/guides/shocks-springs.md) | community-consensus | 2 |
 | [Skid plate rubbing and frame twist noise](repair/skid-plate-rubbing-and-frame-twist-noise.md) |  | [Unverified] | 1 |
 | [SMOD radiator and transmission replacement procedure](repair/smod-radiator-and-transmission-replacement-procedure.md) |  | [Unverified] | 1 |
 | [Snap ring replacement to prevent harsh ride](repair/snap-ring-replacement-to-prevent-harsh-ride.md) |  | [Unverified] | 1 |
 | [Spark plug and intake plenum gasket replacement](repair/spark-plug-and-intake-plenum-gasket-replacement.md) |  | [Unverified] | 1 |
 | Starter and alternator | [Guide](vehicle/guides/starter-alternator.md) | not-started | 0 |
 | [Stud oil cooler and filter assembly](repair/stud-oil-cooler-and-filter-assembly.md) |  | [Unverified] | 1 |
-| [Sway bar links and bushings](repair/sway-bar-links.md) | [Guide](vehicle/guides/sway-bar-links.md) | community-consensus | 12 |
+| [Sway bar links and bushings](repair/sway-bar-links.md) | [Guide](vehicle/guides/sway-bar-links.md) | community-consensus | 14 |
 | [Tie rod and control arm replacement for Titan swap](repair/tie-rod-and-control-arm-replacement-for-titan-swap.md) |  | [Unverified] | 1 |
 | [Timbren Acti-Lift Bump Stop Installation on LCA](repair/timbren-acti-lift-bump-stop-installation-on-lca.md) |  | [Unverified] | 1 |
 | [Timing chain and guide replacement](repair/timing-chain-replacement.md) | [Guide](vehicle/guides/timing-chain-replacement.md) | [Unverified] | 1 |
@@ -252,6 +271,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[reference] Part numbers for heated mirror conversion](mods/reference-part-numbers-for-heated-mirror-conversion.md) |  | [Unverified] | 1 |
 | [[reference] Part sources for rear diff covers](mods/reference-part-sources-for-rear-diff-covers.md) |  | [Unverified] | 1 |
 | [[reference] Torque specifications](mods/reference-torque-specifications.md) |  | [Unverified] | 1 |
+| [[reference] Xterra, Frontier and Titan parts interchange](mods/reference-xterra-frontier-and-titan-parts-interchange.md) |  | [Unverified] | 1 |
 | [[repair] Leaf spring and shackle repair](mods/repair-leaf-spring-and-shackle-repair.md) |  | [Unverified] | 1 |
 | [A-pillar light mounting and adjustment](mods/a-pillar-light-mounting-and-adjustment.md) |  | [Unverified] | 1 |
 | [ABS system disable switch](mods/abs-system-disable-switch.md) |  | [Unverified] | 1 |
@@ -269,17 +289,18 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Bedliner application on side moldings](mods/bedliner-application-on-side-moldings.md) |  | [Unverified] | 1 |
 | [BFGoodrich KO2 tire selection for extra protection](mods/bfgoodrich-ko2-tire-selection-for-extra-protection.md) |  | [Unverified] | 1 |
 | [Body lift installation tips and tricks](mods/body-lift-installation-tips-and-tricks.md) |  | [Unverified] | 1 |
-| [Brake pads and rotors upgrade](mods/brake-pads-and-rotors-upgrade.md) |  | [Unverified] | 1 |
+| [Brake pads and rotors upgrade](mods/brake-pads-and-rotors-upgrade.md) |  | community-consensus | 2 |
 | [Bullydog performance tuner features](mods/bullydog-performance-tuner-features.md) |  | [Unverified] | 1 |
 | [BullyDog tuner installation planning](mods/bullydog-tuner-installation-planning.md) |  | [Unverified] | 1 |
 | [Bumpers and skid plate modifications](mods/bumpers-and-skid-plate-modifications.md) |  | [Unverified] | 1 |
-| [Bumpers, sliders and skid plates](mods/bumpers-armor.md) |  | community-consensus | 37 |
+| [Bumpers, sliders and skid plates](mods/bumpers-armor.md) |  | community-consensus | 41 |
 | [Cam bolts and Z1 lockouts for heavy offroad](mods/cam-bolts-and-z1-lockouts-for-heavy-offroad.md) |  | [Unverified] | 1 |
 | [Canoe rack uprights and paddle carrier](mods/canoe-rack-uprights-and-paddle-carrier.md) |  | [Unverified] | 1 |
 | [Carbon fiber skid plates](mods/carbon-fiber-skid-plates.md) |  | [Unverified] | 1 |
 | [CB and antenna setup on a budget](mods/cb-and-antenna-setup-on-a-budget.md) |  | [Unverified] | 1 |
 | [CB and antenna setup options](mods/cb-and-antenna-setup-options.md) |  | [Unverified] | 1 |
 | [CB Antenna Install via Door Jam Mount](mods/cb-antenna-install-via-door-jam-mount.md) |  | [Unverified] | 1 |
+| [CB Radio Antenna Mounting](mods/cb-radio-antenna-mounting.md) |  | [Unverified] | 1 |
 | [Chromoly Axle Shafts for M226](mods/chromoly-axle-shafts-for-m226.md) |  | [Unverified] | 1 |
 | [Clunk eliminating washers and extended lines](mods/clunk-eliminating-washers-and-extended-lines.md) |  | [Unverified] | 1 |
 | [Clutch upgrades for off-road use](mods/clutch-upgrades-for-off-road-use.md) |  | [Unverified] | 1 |
@@ -303,6 +324,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [DIY Tarp awning tensioning system](mods/diy-tarp-awning-tensioning-system.md) |  | [Unverified] | 1 |
 | [Dome and Hatch Light Upgrades](mods/dome-and-hatch-light-upgrades.md) |  | [Unverified] | 1 |
 | [Driveline and wheel bearing noises](mods/driveline-and-wheel-bearing-noises.md) |  | [Unverified] | 1 |
+| [Duralast Gold Cmax Brake Pads](mods/duralast-gold-cmax-brake-pads.md) |  | [Unverified] | 1 |
 | [Electrical faults, grounds and battery drain](mods/electrical-faults-grounds-and-battery-drain.md) |  | community-consensus | 2 |
 | [Engine removal with attached transmission and transfer case](mods/engine-removal-with-attached-transmission-and-transfer-case.md) |  | [Unverified] | 1 |
 | [Exhaust system components for VK swap](mods/exhaust-system-components-for-vk-swap.md) |  | [Unverified] | 1 |
@@ -323,9 +345,11 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Fog Light Bypass Mod](mods/fog-light-bypass-mod.md) |  | [Unverified] | 1 |
 | [Fog light wiring bypass](mods/fog-light-wiring-bypass.md) |  | [Unverified] | 1 |
 | [Front bumper light mounting location](mods/front-bumper-light-mounting-location.md) |  | [Unverified] | 1 |
+| [Front differential locker options](mods/front-differential-locker-options.md) |  | [Unverified] | 1 |
 | [Front Fold-Down Passenger Seat Mod](mods/front-fold-down-passenger-seat-mod.md) |  | [Unverified] | 1 |
 | [Front grille and bumper lighting mods](mods/front-grille-and-bumper-lighting-mods.md) |  | [Unverified] | 1 |
 | [Front Sway Bar Center Disconnect](mods/front-sway-bar-center-disconnect.md) |  | [Unverified] | 1 |
+| [Front sway bar endlink replacement](mods/front-sway-bar-endlink-replacement.md) |  | [Unverified] | 1 |
 | [Front UCA upgrade to Z1 Titan units](mods/front-uca-upgrade-to-z1-titan-units.md) |  | [Unverified] | 1 |
 | [Frontier climate control swap into Xterra](mods/frontier-climate-control-swap-into-xterra.md) |  | [Unverified] | 1 |
 | [Full Titan swap suspension requirements](mods/full-titan-swap-suspension-requirements.md) |  | [Unverified] | 1 |
@@ -336,6 +360,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [GPS Docking Station modifications](mods/gps-docking-station-modifications.md) |  | [Unverified] | 1 |
 | [Grill LED Accent Lighting](mods/grill-led-accent-lighting.md) |  | [Unverified] | 1 |
 | [Grounding system using a 19-inch negative battery cable](mods/grounding-system-using-a-19-inch-negative-battery-cable.md) |  | [Unverified] | 1 |
+| [Halo headlight retrofit kits](mods/halo-headlight-retrofit-kits.md) |  | [Unverified] | 1 |
 | [Hatch Light Switch Installation](mods/hatch-light-switch-installation.md) |  | [Unverified] | 1 |
 | [Head unit upgrades with Bluetooth](mods/head-unit-upgrades-with-bluetooth.md) |  | [Unverified] | 1 |
 | [Headlight conversion with projector lenses](mods/headlight-conversion-with-projector-lenses.md) |  | [Unverified] | 1 |
@@ -348,10 +373,12 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Hood louvers and grille swaps](mods/hood-louvers-and-grille-swaps.md) |  | [Unverified] | 1 |
 | [Hood pin kit installation](mods/hood-pin-kit-installation.md) |  | [Unverified] | 1 |
 | [Hood rest stop modification with shock bushings](mods/hood-rest-stop-modification-with-shock-bushings.md) |  | [Unverified] | 1 |
+| [Hood squeak and rattle cures](mods/hood-squeak-and-rattle-cures.md) |  | [Unverified] | 1 |
 | [Ignition Timing Advance Programmer](mods/ignition-timing-advance-programmer.md) |  | [Unverified] | 1 |
 | [Inclinometer installation and setup](mods/inclinometer-installation-and-setup.md) |  | [Unverified] | 1 |
+| [Intake manifold spacer for better MPG](mods/intake-manifold-spacer-for-better-mpg.md) |  | [Unverified] | 1 |
 | [Intake Manifold Spacer Installation and Tuning](mods/intake-manifold-spacer-installation-and-tuning.md) |  | [Unverified] | 1 |
-| [Intake, exhaust, tune and forced induction](mods/performance-mods.md) |  | community-consensus | 11 |
+| [Intake, exhaust, tune and forced induction](mods/performance-mods.md) |  | community-consensus | 12 |
 | [Integrating Driver Side Rocker Switch for Lightbar Control](mods/integrating-driver-side-rocker-switch-for-lightbar-control.md) |  | [Unverified] | 1 |
 | [Interior accessories and mounting](mods/interior-accessories-and-mounting.md) |  | [Unverified] | 1 |
 | [Interior and tailgate 'porch' lighting](mods/interior-and-tailgate-porch-lighting.md) |  | [Unverified] | 1 |
@@ -372,7 +399,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [LED bar mounting location options](mods/led-bar-mounting-location-options.md) |  | [Unverified] | 1 |
 | [LED Headlight Bulb Upgrades](mods/led-headlight-bulb-upgrades.md) |  | [Unverified] | 1 |
 | [License plate light housing replacement](mods/license-plate-light-housing-replacement.md) |  | [Unverified] | 1 |
-| [Lift kits and suspension lifts](mods/lift-kits.md) | [Guide](vehicle/guides/lift-kits.md) | disputed | 26 |
+| [Lift kits and suspension lifts](mods/lift-kits.md) | [Guide](vehicle/guides/lift-kits.md) | disputed | 38 |
 | [Lighting and accessory power distribution](mods/lighting-and-accessory-power-distribution.md) |  | [Unverified] | 1 |
 | [Lighting and accessory power upgrades](mods/lighting-and-accessory-power-upgrades.md) |  | [Unverified] | 1 |
 | [Lighting and Aux Fuse Blocks](mods/lighting-and-aux-fuse-blocks.md) |  | community-consensus | 2 |
@@ -386,7 +413,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Lighting upgrades and auxiliary switches](mods/lighting-upgrades-and-auxiliary-switches.md) |  | community-consensus | 2 |
 | [Lighting upgrades and relay harnesses](mods/lighting-upgrades-and-relay-harnesses.md) |  | [Unverified] | 1 |
 | [Lighting upgrades for off-road visibility](mods/lighting-upgrades-for-off-road-visibility.md) |  | [Unverified] | 1 |
-| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | [Guide](vehicle/guides/lighting-aux-power.md) | community-consensus | 27 |
+| [Lighting, aux fuse blocks and dual batteries](mods/lighting-aux-power.md) | [Guide](vehicle/guides/lighting-aux-power.md) | community-consensus | 28 |
 | [Lithium battery upgrade and cold weather setup](mods/lithium-battery-upgrade-and-cold-weather-setup.md) |  | [Unverified] | 1 |
 | [Lockers and traction control](mods/lockers-traction.md) | [Guide](vehicle/guides/lockers-traction.md) | community-consensus | 3 |
 | [Magnaflow 2-inlet single-outlet muffler installation](mods/magnaflow-2-inlet-single-outlet-muffler-installation.md) |  | [Unverified] | 1 |
@@ -398,7 +425,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Mods: Front differential swap and re-gearing](mods/mods-front-differential-swap-and-re-gearing.md) |  | [Unverified] | 1 |
 | [Mods: RAM dash mount installation](mods/mods-ram-dash-mount-installation.md) |  | [Unverified] | 1 |
 | [Mods: Rear differential swap and locker installation](mods/mods-rear-differential-swap-and-locker-installation.md) |  | [Unverified] | 1 |
-| [Mods: Suspension lift and brake line extension](mods/mods-suspension-lift-and-brake-line-extension.md) |  | [Unverified] | 1 |
+| [Mods: Suspension lift and brake line extension](mods/mods-suspension-lift-and-brake-line-extension.md) |  | community-consensus | 2 |
 | [Molle Hatch Panel Installation](mods/molle-hatch-panel-installation.md) |  | [Unverified] | 1 |
 | [Muffler clamps for roof racks](mods/muffler-clamps-for-roof-racks.md) |  | [Unverified] | 1 |
 | [Multi-position switch configuration for lights](mods/multi-position-switch-configuration-for-lights.md) |  | [Unverified] | 1 |
@@ -422,6 +449,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | Re-gearing ratios by tire size | [Guide](vehicle/guides/regearing.md) | not-started | 0 |
 | [Rear air tank mounting for On Board Air systems](mods/rear-air-tank-mounting-for-on-board-air-systems.md) |  | [Unverified] | 1 |
 | [Rear axle swap for 2011 P4X](mods/rear-axle-swap-for-2011-p4x.md) |  | [Unverified] | 1 |
+| [Rear brake line extensions and brackets](mods/rear-brake-line-extensions-and-brackets.md) |  | [Unverified] | 1 |
 | [Rear bumper stop upgrades for soft springs](mods/rear-bumper-stop-upgrades-for-soft-springs.md) |  | [Unverified] | 1 |
 | [Rear cargo shelf fabrication](mods/rear-cargo-shelf-fabrication.md) |  | [Unverified] | 1 |
 | [Rear differential breather extension mod](mods/rear-differential-breather-extension-mod.md) |  | [Unverified] | 1 |
@@ -450,8 +478,10 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Roof console switch installation](mods/roof-console-switch-installation.md) |  | [Unverified] | 1 |
 | [Roof light bar mounting options](mods/roof-light-bar-mounting-options.md) |  | [Unverified] | 1 |
 | [Roof lights and spot effect upgrades](mods/roof-lights-and-spot-effect-upgrades.md) |  | [Unverified] | 1 |
+| [Roof rack accessories and fairings](mods/roof-rack-accessories-and-fairings.md) |  | [Unverified] | 1 |
 | [Roof rack cross bar clamps](mods/roof-rack-cross-bar-clamps.md) |  | [Unverified] | 1 |
 | [Roof rack finishes and durability](mods/roof-rack-finishes-and-durability.md) |  | [Unverified] | 1 |
+| [Roof rack lighting options](mods/roof-rack-lighting-options.md) |  | [Unverified] | 1 |
 | [Roof rack strut channel installation](mods/roof-rack-strut-channel-installation.md) |  | [Unverified] | 1 |
 | [Roof racks and baskets](mods/roof-racks-and-baskets.md) |  | [Unverified] | 1 |
 | [Roof racks and crossbars](mods/roof-racks-and-crossbars.md) |  | community-consensus | 2 |
@@ -471,7 +501,9 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Shrockworks Skid Installation and Modifications](mods/shrockworks-skid-installation-and-modifications.md) |  | [Unverified] | 1 |
 | [Side and rear auxiliary lighting setup](mods/side-and-rear-auxiliary-lighting-setup.md) |  | [Unverified] | 1 |
 | [Skid plate selection and fabrication](mods/skid-plate-selection-and-fabrication.md) |  | [Unverified] | 1 |
+| [Skid plates as an unexpected MPG booster](mods/skid-plates-as-an-unexpected-mpg-booster.md) |  | [Unverified] | 1 |
 | [Slip Yoke Eliminator (SYE) conversion setup](mods/slip-yoke-eliminator-sye-conversion-setup.md) |  | [Unverified] | 1 |
+| [Snorkel head orientation for airflow balance](mods/snorkel-head-orientation-for-airflow-balance.md) |  | [Unverified] | 1 |
 | [Snow performance with Goodyear Duratrac tires](mods/snow-performance-with-goodyear-duratrac-tires.md) |  | [Unverified] | 1 |
 | [Spare tire theft prevention](mods/spare-tire-theft-prevention.md) |  | [Unverified] | 1 |
 | [Steering rack replacement with Detroit Axle unit](mods/steering-rack-replacement-with-detroit-axle-unit.md) |  | [Unverified] | 1 |
@@ -479,13 +511,14 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Sway bar end link adjustment](mods/sway-bar-end-link-adjustment.md) |  | [Unverified] | 1 |
 | [Sway bar link upgrades](mods/sway-bar-link-upgrades.md) |  | [Unverified] | 1 |
 | [Sway bar links and bushings](mods/sway-bar-links-and-bushings.md) |  | [Unverified] | 2 |
+| [Tailgate interior tool mounts](mods/tailgate-interior-tool-mounts.md) |  | [Unverified] | 1 |
 | [Tailgater Hater overlay installation](mods/tailgater-hater-overlay-installation.md) |  | [Unverified] | 1 |
 | [Thermostat modification for 170-degree operation](mods/thermostat-modification-for-170-degree-operation.md) |  | [Unverified] | 1 |
 | [Tire carriers and recovery gear integration](mods/tire-carriers-and-recovery-gear-integration.md) |  | [Unverified] | 1 |
 | [Tire fitment and suspension geometry](mods/tire-fitment-and-suspension-geometry.md) |  | [Unverified] | 1 |
 | [Tire fitment for 35-inch all-terrains](mods/tire-fitment-for-35-inch-all-terrains.md) |  | [Unverified] | 1 |
 | [Tire size and load rating options](mods/tire-size-and-load-rating-options.md) |  | [Unverified] | 1 |
-| [Tires, wheels and fitment](mods/tires-wheels.md) | [Guide](vehicle/guides/tires-wheels.md) | disputed | 29 |
+| [Tires, wheels and fitment](mods/tires-wheels.md) | [Guide](vehicle/guides/tires-wheels.md) | disputed | 31 |
 | [Titan 17-inch aluminum wheels and spacers](mods/titan-17-inch-aluminum-wheels-and-spacers.md) |  | [Unverified] | 1 |
 | [Titan adjustable shackles and axle shims](mods/titan-adjustable-shackles-and-axle-shims.md) |  | [Unverified] | 1 |
 | [Titan axle and differential swaps - Suspension components](mods/titan-axle-and-differential-swaps-suspension-components.md) |  | [Unverified] | 1 |
@@ -496,13 +529,13 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Titan front coilovers and shocks](mods/titan-front-coilovers-and-shocks.md) |  | [Unverified] | 1 |
 | [Titan front control arm swap](mods/titan-front-control-arm-swap.md) |  | [Unverified] | 1 |
 | [Titan front CV axle upgrade](mods/titan-front-cv-axle-upgrade.md) |  | [Unverified] | 1 |
-| [Titan front differential swap](mods/titan-front-differential-swap.md) |  | community-consensus | 2 |
+| [Titan front differential swap](mods/titan-front-differential-swap.md) |  | community-consensus | 3 |
 | [Titan front differential swap with extended CVs](mods/titan-front-differential-swap-with-extended-cvs.md) |  | [Unverified] | 1 |
 | [Titan front spindle and brake upgrade](mods/titan-front-spindle-and-brake-upgrade.md) |  | [Unverified] | 1 |
 | [Titan front suspension and steering links](mods/titan-front-suspension-and-steering-links.md) |  | [Unverified] | 1 |
 | [Titan leaf spring lift and shackles](mods/titan-leaf-spring-lift-and-shackles.md) |  | [Unverified] | 1 |
 | [Titan length R180 axles for Xterra](mods/titan-length-r180-axles-for-xterra.md) |  | [Unverified] | 1 |
-| [Titan rear axle swap and components](mods/titan-rear-axle-swap-and-components.md) |  | community-consensus | 2 |
+| [Titan rear axle swap and components](mods/titan-rear-axle-swap-and-components.md) |  | community-consensus | 3 |
 | [Titan rear shock and suspension setup](mods/titan-rear-shock-and-suspension-setup.md) |  | [Unverified] | 1 |
 | [Titan transmission swap for M205 and M226](mods/titan-transmission-swap-for-m205-and-m226.md) |  | [Unverified] | 1 |
 | [Titan VK56 engine swap](mods/titan-vk56-swap.md) |  | community-consensus | 10 |
@@ -540,7 +573,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [VK56 transmission and clutch assembly](mods/vk56-transmission-and-clutch-assembly.md) |  | [Unverified] | 1 |
 | [Wheel spacer and adapters installation](mods/wheel-spacer-and-adapters-installation.md) |  | [Unverified] | 1 |
 | [Winch Installation and Battery Disconnects](mods/winch-installation-and-battery-disconnects.md) |  | [Unverified] | 1 |
-| [Winches and recovery gear](mods/winch-recovery.md) |  | [Unverified] | 1 |
+| [Winches and recovery gear](mods/winch-recovery.md) |  | community-consensus | 2 |
 | [Wireless charging pad installation](mods/wireless-charging-pad-installation.md) |  | [Unverified] | 1 |
 | [Wiring harness installation via firewall grommet](mods/wiring-harness-installation-via-firewall-grommet.md) |  | [Unverified] | 1 |
 | [Wiring reverse-activated upper and lower cheek lights](mods/wiring-reverse-activated-upper-and-lower-cheek-lights.md) |  | [Unverified] | 1 |
@@ -554,12 +587,12 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[diagnostics] Patrol transfer case model variations](reference/diagnostics-patrol-transfer-case-model-variations.md) |  | [Unverified] | 1 |
 | [[mods] Alternative transfer case mounting options](reference/mods-alternative-transfer-case-mounting-options.md) |  | [Unverified] | 1 |
 | [[mods] Boulder Ironworx shock mount skids](reference/mods-boulder-ironworx-shock-mount-skids.md) |  | [Unverified] | 1 |
-| [[mods] Bumpers, sliders and skid plates](reference/mods-bumpers-sliders-and-skid-plates.md) |  | community-consensus | 2 |
+| [[mods] Bumpers, sliders and skid plates](reference/mods-bumpers-sliders-and-skid-plates.md) |  | community-consensus | 3 |
 | [[mods] C200K transfer case gear swap details](reference/mods-c200k-transfer-case-gear-swap-details.md) |  | [Unverified] | 1 |
 | [[mods] Gobi Ladder Fitment and Comfort Notes](reference/mods-gobi-ladder-fitment-and-comfort-notes.md) |  | [Unverified] | 1 |
 | [[mods] Gobi Ladder Hatch Support Requirements](reference/mods-gobi-ladder-hatch-support-requirements.md) |  | [Unverified] | 1 |
 | [[mods] Gobi Ladder Side Selection Guide](reference/mods-gobi-ladder-side-selection-guide.md) |  | [Unverified] | 1 |
-| [[mods] Lighting, aux fuse blocks and dual batteries](reference/mods-lighting-aux-fuse-blocks-and-dual-batteries.md) |  | community-consensus | 7 |
+| [[mods] Lighting, aux fuse blocks and dual batteries](reference/mods-lighting-aux-fuse-blocks-and-dual-batteries.md) |  | community-consensus | 8 |
 | [[mods] Rocky Road Outfitters shock skids for Xterra](reference/mods-rocky-road-outfitters-shock-skids-for-xterra.md) |  | [Unverified] | 1 |
 | [[mods] Tires, wheels and fitment](reference/mods-tires-wheels-and-fitment.md) |  | disputed | 8 |
 | [[mods] Toyota RF1A transfer case specs for swap](reference/mods-toyota-rf1a-transfer-case-specs-for-swap.md) |  | [Unverified] | 1 |
@@ -575,7 +608,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[reference] Engine intake manifold bolt sequence and torque](reference/reference-engine-intake-manifold-bolt-sequence-and-torque.md) |  | [Unverified] | 1 |
 | [[reference] External cooler impact on torque converter lock-up](reference/reference-external-cooler-impact-on-torque-converter-lock-up.md) |  | [Unverified] | 1 |
 | [[reference] Factory label identification for faded radiators](reference/reference-factory-label-identification-for-faded-radiators.md) |  | [Unverified] | 1 |
-| [[reference] Fluids and capacities](reference/reference-fluids-and-capacities.md) |  | community-consensus | 8 |
+| [[reference] Fluids and capacities](reference/reference-fluids-and-capacities.md) |  | community-consensus | 11 |
 | [[reference] Front brake caliper torque specs](reference/reference-front-brake-caliper-torque-specs.md) |  | [Unverified] | 1 |
 | [[reference] Front differential torque specs (R180)](reference/reference-front-differential-torque-specs-r180.md) |  | [Unverified] | 1 |
 | [[reference] Front suspension torque specs](reference/reference-front-suspension-torque-specs.md) |  | [Unverified] | 1 |
@@ -586,7 +619,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[reference] Ground clearance measurements by vehicle area](reference/reference-ground-clearance-measurements-by-vehicle-area.md) |  | [Unverified] | 1 |
 | [[reference] Nissan Value Advantage vs Calsonic radiators](reference/reference-nissan-value-advantage-vs-calsonic-radiators.md) |  | [Unverified] | 1 |
 | [[reference] Part selection for climate control vs numbered fan settings](reference/reference-part-selection-for-climate-control-vs-numbered-fan.md) |  | [Unverified] | 1 |
-| [[reference] Parts diagrams](reference/reference-parts-diagrams.md) |  | community-consensus | 8 |
+| [[reference] Parts diagrams](reference/reference-parts-diagrams.md) |  | community-consensus | 10 |
 | [[reference] Parts diagrams and measurements](reference/reference-parts-diagrams-and-measurements.md) |  | [Unverified] | 1 |
 | [[reference] Radiator part number date codes and formats](reference/reference-radiator-part-number-date-codes-and-formats.md) |  | [Unverified] | 1 |
 | [[reference] Raybestos rotor coating performance notes](reference/reference-raybestos-rotor-coating-performance-notes.md) |  | [Unverified] | 1 |
@@ -615,13 +648,18 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [ATF fluid specifications and SMOD myths](reference/atf-fluid-specifications-and-smod-myths.md) |  | [Unverified] | 1 |
 | [ATF Rad-Cooler and Air-Cooler Definitions](reference/atf-rad-cooler-and-air-cooler-definitions.md) |  | [Unverified] | 1 |
 | [Auxiliary tank vent and filler specifications](reference/auxiliary-tank-vent-and-filler-specifications.md) |  | [Unverified] | 1 |
+| [Axle shaft assembly components and sourcing](reference/axle-shaft-assembly-components-and-sourcing.md) |  | [Unverified] | 1 |
+| [Axle shaft removal techniques without a slide hammer](reference/axle-shaft-removal-techniques-without-a-slide-hammer.md) |  | [Unverified] | 1 |
 | [Axle Shaft Spline Dimensions (GM)](reference/axle-shaft-spline-dimensions-gm.md) |  | [Unverified] | 1 |
+| [Bearing retainer installation technique using pipe driver](reference/bearing-retainer-installation-technique-using-pipe-driver.md) |  | [Unverified] | 1 |
 | [Bedliner application on front and rear bumper trim](reference/bedliner-application-on-front-and-rear-bumper-trim.md) |  | [Unverified] | 1 |
 | [Bilstein shock model recommendations by lift height](reference/bilstein-shock-model-recommendations-by-lift-height.md) |  | [Unverified] | 1 |
 | [Bilstein shock specifications](reference/bilstein-shock-specifications.md) |  | [Unverified] | 1 |
 | [Blower resistor operation and symptoms](reference/blower-resistor-operation-and-symptoms.md) |  | [Unverified] | 1 |
 | [Brake noise diagnosis and adjustment](reference/brake-noise-diagnosis-and-adjustment.md) |  | [Unverified] | 1 |
+| [Brake Pad Brand Recommendations](reference/brake-pad-brand-recommendations.md) |  | [Unverified] | 1 |
 | [Brake pad core charge policy](reference/brake-pad-core-charge-policy.md) |  | [Unverified] | 1 |
+| [Brake Upgrade for 35-Inch Tires](reference/brake-upgrade-for-35-inch-tires.md) |  | [Unverified] | 1 |
 | [Bulkhead O-Ring Specifications for Air Lockers](reference/bulkhead-o-ring-specifications-for-air-lockers.md) |  | [Unverified] | 1 |
 | [Bump stop length for extended travel](reference/bump-stop-length-for-extended-travel.md) |  | [Unverified] | 1 |
 | [Bumper and winch mounting specs](reference/bumper-and-winch-mounting-specs.md) |  | [Unverified] | 1 |
@@ -640,6 +678,9 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Coolant fill level specifications](reference/coolant-fill-level-specifications.md) |  | [Unverified] | 1 |
 | [Copper Tubing Repair Kit for Air Lines](reference/copper-tubing-repair-kit-for-air-lines.md) |  | [Unverified] | 1 |
 | [Corbeau seat compatibility for 2nd Gen Xterra](reference/corbeau-seat-compatibility-for-2nd-gen-xterra.md) |  | [Unverified] | 1 |
+| [Custom braided rear caliper hose costs](reference/custom-braided-rear-caliper-hose-costs.md) |  | [Unverified] | 1 |
+| [Custom braided stainless brake line costs](reference/custom-braided-stainless-brake-line-costs.md) |  | [Unverified] | 1 |
+| [Custom braided stainless material benefits](reference/custom-braided-stainless-material-benefits.md) |  | [Unverified] | 1 |
 | [CV axle and boot part costs](reference/cv-axle-and-boot-part-costs.md) |  | [Unverified] | 1 |
 | [CV boot and grease repair costs](reference/cv-boot-and-grease-repair-costs.md) |  | [Unverified] | 1 |
 | [CV boot exterior appearance check](reference/cv-boot-exterior-appearance-check.md) |  | [Unverified] | 1 |
@@ -647,9 +688,12 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [DayStar kit shackle durability comparison](reference/daystar-kit-shackle-durability-comparison.md) |  | [Unverified] | 1 |
 | [Dealer hood adjustment cost reference](reference/dealer-hood-adjustment-cost-reference.md) |  | [Unverified] | 1 |
 | [Detroit Axle steering rack bushings for VK swap](reference/detroit-axle-steering-rack-bushings-for-vk-swap.md) |  | [Unverified] | 1 |
+| [Diff cover installation and sealing tips](reference/diff-cover-installation-and-sealing-tips.md) |  | [Unverified] | 1 |
 | [Diff Skid Hardware Options](reference/diff-skid-hardware-options.md) |  | [Unverified] | 1 |
 | [Differential Cover Removal Tips for Air Locker Access](reference/differential-cover-removal-tips-for-air-locker-access.md) |  | [Unverified] | 1 |
+| [Differential function and torque distribution](reference/differential-function-and-torque-distribution.md) |  | [Unverified] | 1 |
 | [Differential Identification Codes](reference/differential-identification-codes.md) |  | [Unverified] | 1 |
+| [Differential internal component identification](reference/differential-internal-component-identification.md) |  | [Unverified] | 1 |
 | [Dome Light Wiring Logic](reference/dome-light-wiring-logic.md) |  | [Unverified] | 1 |
 | [Donor Titan hidden surprise for VK swap](reference/donor-titan-hidden-surprise-for-vk-swap.md) |  | [Unverified] | 1 |
 | [Donor vehicle driveshaft sources for Xterra](reference/donor-vehicle-driveshaft-sources-for-xterra.md) |  | [Unverified] | 1 |
@@ -661,6 +705,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Driveshaft operational angles and yoke widths](reference/driveshaft-operational-angles-and-yoke-widths.md) |  | [Unverified] | 1 |
 | [Driveshaft spline counts and shapes](reference/driveshaft-spline-counts-and-shapes.md) |  | [Unverified] | 1 |
 | [Driveshaft yoke sizes and spline types](reference/driveshaft-yoke-sizes-and-spline-types.md) |  | [Unverified] | 1 |
+| [Driving style adjustments for fuel economy](reference/driving-style-adjustments-for-fuel-economy.md) |  | [Unverified] | 1 |
 | [Duralast CV axle deal value](reference/duralast-cv-axle-deal-value.md) |  | [Unverified] | 1 |
 | [E-Locker Engagement Speed and Drive Mode Specs](reference/e-locker-engagement-speed-and-drive-mode-specs.md) |  | [Unverified] | 1 |
 | [Early vs Late model yoke specifications](reference/early-vs-late-model-yoke-specifications.md) |  | [Unverified] | 1 |
@@ -668,6 +713,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Electrical faults, grounds and battery drain](reference/electrical-faults-grounds-and-battery-drain.md) |  | [Unverified] | 1 |
 | [Engine oil drain plug torque spec](reference/engine-oil-drain-plug-torque-spec.md) |  | [Unverified] | 1 |
 | [Engine trouble codes (VQ40DE)](reference/engine-trouble-codes-vq40de.md) |  | [Unverified] | 1 |
+| [Exploded view of 2007 Xterra fuel tank assembly](reference/exploded-view-of-2007-xterra-fuel-tank-assembly.md) |  | [Unverified] | 1 |
 | [Exterior Door Trim Moulding Fitment Variations](reference/exterior-door-trim-moulding-fitment-variations.md) |  | [Unverified] | 1 |
 | [Fabricated skid plate bending angles](reference/fabricated-skid-plate-bending-angles.md) |  | [Unverified] | 1 |
 | [Factory fog switch wiring location](reference/factory-fog-switch-wiring-location.md) |  | [Unverified] | 1 |
@@ -677,14 +723,17 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Factory Service Manual Sources and Years](reference/factory-service-manual-sources-and-years.md) |  | [Unverified] | 1 |
 | [Factory Service Manual System Codes and Index](reference/factory-service-manual-system-codes-and-index.md) |  | [Unverified] | 1 |
 | [Factory Service Manuals](reference/factory-service-manuals.md) |  | [Unverified] | 1 |
+| [Fender trimming for 35-inch tires](reference/fender-trimming-for-35-inch-tires.md) |  | [Unverified] | 1 |
 | [Final cleaning with acetone for paint prep](reference/final-cleaning-with-acetone-for-paint-prep.md) |  | [Unverified] | 1 |
-| [Fluids and capacities](reference/fluid-capacities.md) |  | community-consensus | 8 |
+| [Fluids and capacities](reference/fluid-capacities.md) |  | community-consensus | 10 |
 | [Fluids and capacities (Alternator Voltage)](reference/fluids-and-capacities-alternator-voltage.md) |  | [Unverified] | 1 |
 | [Fluids and capacities (Radiator/Transmission)](reference/fluids-and-capacities-radiator-transmission.md) |  | [Unverified] | 1 |
 | [Fluids and capacities (Transmission/Differential)](reference/fluids-and-capacities-transmission-differential.md) |  | [Unverified] | 1 |
+| [Front and rear differential fluid change](reference/front-and-rear-differential-fluid-change.md) |  | [Unverified] | 1 |
 | [Front and rear U-bolt torque specs](reference/front-and-rear-u-bolt-torque-specs.md) |  | [Unverified] | 1 |
 | [Front brake slide pin and torque member bolt specs](reference/front-brake-slide-pin-and-torque-member-bolt-specs.md) |  | [Unverified] | 1 |
 | [Front CV axle C-clip specifications and fitment](reference/front-cv-axle-c-clip-specifications-and-fitment.md) |  | [Unverified] | 1 |
+| [Front differential carrier upgrade sources](reference/front-differential-carrier-upgrade-sources.md) |  | [Unverified] | 1 |
 | [Front differential fill and drain plug torque specs (R180)](reference/front-differential-fill-and-drain-plug-torque-specs-r180.md) |  | [Unverified] | 1 |
 | [Front differential options (M205 vs M226)](reference/front-differential-options-m205-vs-m226.md) |  | [Unverified] | 1 |
 | [Front differential pinion and ring gear torque specs (R180)](reference/front-differential-pinion-and-ring-gear-torque-specs-r180.md) |  | [Unverified] | 1 |
@@ -693,18 +742,29 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Front leveling kit heights](reference/front-leveling-kit-heights.md) |  | [Unverified] | 1 |
 | [Front locker impact on CV axles](reference/front-locker-impact-on-cv-axles.md) |  | [Unverified] | 1 |
 | [Front sway bar and link torque specs](reference/front-sway-bar-and-link-torque-specs.md) |  | [Unverified] | 1 |
+| [Front sway bar endlink angle variations](reference/front-sway-bar-endlink-angle-variations.md) |  | [Unverified] | 1 |
+| [Front sway bar endlink geometry specs](reference/front-sway-bar-endlink-geometry-specs.md) |  | [Unverified] | 1 |
+| [Front sway bar endlink lubrication methods](reference/front-sway-bar-endlink-lubrication-methods.md) |  | [Unverified] | 1 |
+| [Front sway bar endlink material comparison](reference/front-sway-bar-endlink-material-comparison.md) |  | [Unverified] | 1 |
+| [Front sway bar length requirements for lifts](reference/front-sway-bar-length-requirements-for-lifts.md) |  | [Unverified] | 1 |
+| [Front sway bar necessity for lifted vehicles](reference/front-sway-bar-necessity-for-lifted-vehicles.md) |  | [Unverified] | 1 |
 | [Front UCA and coil bucket clearance](reference/front-uca-and-coil-bucket-clearance.md) |  | [Unverified] | 1 |
+| [Front vs Rear differential reliability comparison](reference/front-vs-rear-differential-reliability-comparison.md) |  | [Unverified] | 1 |
 | [Frontal wiring access points](reference/frontal-wiring-access-points.md) |  | [Unverified] | 1 |
 | [Fuel module and strap set part numbers](reference/fuel-module-and-strap-set-part-numbers.md) |  | [Unverified] | 1 |
+| [Fuel octane and ethanol content strategy](reference/fuel-octane-and-ethanol-content-strategy.md) |  | [Unverified] | 1 |
 | [Fuel requirements and performance tuning](reference/fuel-requirements-and-performance-tuning.md) |  | [Unverified] | 1 |
+| [Fuel sending unit TSB details](reference/fuel-sending-unit-tsb-details.md) |  | [Unverified] | 1 |
+| [Fuel System Cleaning Kits and Products](reference/fuel-system-cleaning-kits-and-products.md) |  | [Unverified] | 1 |
 | [Fuel weight calculations per gallon](reference/fuel-weight-calculations-per-gallon.md) |  | [Unverified] | 1 |
 | [Fuse and relay maps](reference/fuse-and-relay-maps.md) |  | [Unverified] | 1 |
 | [Fuse maps for washer systems](reference/fuse-maps-for-washer-systems.md) |  | [Unverified] | 1 |
 | [Gasket requirements for VK swap engine installation](reference/gasket-requirements-for-vk-swap-engine-installation.md) |  | [Unverified] | 1 |
-| [Gear ratios and tire sizes](reference/gear-ratios-tire-sizes.md) |  | community-consensus | 14 |
+| [Gear ratios and tire sizes](reference/gear-ratios-tire-sizes.md) |  | community-consensus | 17 |
 | [Gearbox availability by trim level](reference/gearbox-availability-by-trim-level.md) |  | [Unverified] | 1 |
 | [General Springs lift options](reference/general-springs-lift-options.md) |  | [Unverified] | 1 |
 | [Grade 8 hardware specifications for lifts](reference/grade-8-hardware-specifications-for-lifts.md) |  | [Unverified] | 1 |
+| [Green Stuff Brake Pads Review](reference/green-stuff-brake-pads-review.md) |  | [Unverified] | 1 |
 | [Headliner attachment methods](reference/headliner-attachment-methods.md) |  | [Unverified] | 1 |
 | [Headroom clearance with high aftermarket brackets](reference/headroom-clearance-with-high-aftermarket-brackets.md) |  | [Unverified] | 1 |
 | [Heater core fitting requirement for VK swap](reference/heater-core-fitting-requirement-for-vk-swap.md) |  | [Unverified] | 1 |
@@ -716,11 +776,14 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Idle relearn procedure location](reference/idle-relearn-procedure-location.md) |  | [Unverified] | 1 |
 | [Inner tie rod length measurements](reference/inner-tie-rod-length-measurements.md) |  | [Unverified] | 1 |
 | [Inner tie rod part numbers and specs](reference/inner-tie-rod-part-numbers-and-specs.md) |  | [Unverified] | 1 |
+| [Installing new axle seals and bearings via press method](reference/installing-new-axle-seals-and-bearings-via-press-method.md) |  | [Unverified] | 1 |
 | [Intake manifold bolt and stud torque specs](reference/intake-manifold-bolt-and-stud-torque-specs.md) |  | [Unverified] | 1 |
 | [Intake manifold gasket kit components](reference/intake-manifold-gasket-kit-components.md) |  | community-consensus | 2 |
 | [Interior dimensions for sleeping setup](reference/interior-dimensions-for-sleeping-setup.md) |  | [Unverified] | 1 |
 | [Interior length with passenger seat folded flat](reference/interior-length-with-passenger-seat-folded-flat.md) |  | [Unverified] | 1 |
 | [Interior length with seats tilted forward](reference/interior-length-with-seats-tilted-forward.md) |  | [Unverified] | 1 |
+| [IPDM internal corrosion repair](reference/ipdm-internal-corrosion-repair.md) |  | [Unverified] | 1 |
+| [IPDM relay replacement strategy](reference/ipdm-relay-replacement-strategy.md) |  | [Unverified] | 1 |
 | [Ironman Full Suspension Kit Pricing and Contents](reference/ironman-full-suspension-kit-pricing-and-contents.md) |  | [Unverified] | 1 |
 | [Ironman Leaf Spring Color Variations](reference/ironman-leaf-spring-color-variations.md) |  | [Unverified] | 1 |
 | [Ironman leaf spring configurations and capacities](reference/ironman-leaf-spring-configurations-and-capacities.md) |  | [Unverified] | 1 |
@@ -739,7 +802,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Lift and travel definitions](reference/lift-and-travel-definitions.md) |  | [Unverified] | 1 |
 | [Lift kit geometry and droop calculations](reference/lift-kit-geometry-and-droop-calculations.md) |  | [Unverified] | 1 |
 | [Lift kit height calculations](reference/lift-kit-height-calculations.md) |  | [Unverified] | 1 |
-| [Lift kits and suspension lifts](reference/lift-kits-and-suspension-lifts.md) |  | community-consensus | 3 |
+| [Lift kits and suspension lifts](reference/lift-kits-and-suspension-lifts.md) |  | community-consensus | 4 |
 | [Locker Control Module Pinout and Wire Functions](reference/locker-control-module-pinout-and-wire-functions.md) |  | [Unverified] | 1 |
 | [Lower control arm bolt torque specs](reference/lower-control-arm-bolt-torque-specs.md) |  | [Unverified] | 1 |
 | [Lubrication frequency for hood squeaks](reference/lubrication-frequency-for-hood-squeaks.md) |  | [Unverified] | 1 |
@@ -748,7 +811,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [M205 transfer case availability in V8 Pathfinders](reference/m205-transfer-case-availability-in-v8-pathfinders.md) |  | [Unverified] | 1 |
 | [M205 transfer case gear ratios by year and vehicle](reference/m205-transfer-case-gear-ratios-by-year-and-vehicle.md) |  | [Unverified] | 1 |
 | [M205 transfer case ribbed cover design by year](reference/m205-transfer-case-ribbed-cover-design-by-year.md) |  | [Unverified] | 1 |
-| [Maintenance schedule (Oil Change Limits)](reference/maintenance-schedule-oil-change-limits.md) |  | [Unverified] | 1 |
+| [Maintenance schedule (Oil Change Limits)](reference/maintenance-schedule-oil-change-limits.md) |  | community-consensus | 2 |
 | [Maintenance schedule sources and intervals](reference/maintenance-schedule-sources-and-intervals.md) |  | [Unverified] | 1 |
 | [Manual and automatic transmission fill/drain plug torque specs](reference/manual-and-automatic-transmission-fill-drain-plug-torque-spe.md) |  | [Unverified] | 1 |
 | [Mode door actuator part numbers](reference/mode-door-actuator-part-numbers.md) |  | [Unverified] | 1 |
@@ -757,6 +820,8 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Nissan Assist reimbursement for SMOD repairs](reference/nissan-assist-reimbursement-for-smod-repairs.md) |  | [Unverified] | 1 |
 | [Nissan extended radiator warranty details](reference/nissan-extended-radiator-warranty-details.md) |  | [Unverified] | 1 |
 | [Nissan TSB for VIAS rattle fix](reference/nissan-tsb-for-vias-rattle-fix.md) |  | [Unverified] | 1 |
+| [Nisstec rear brake line availability note](reference/nisstec-rear-brake-line-availability-note.md) |  | [Unverified] | 1 |
+| [Nisstec rear brake line pricing](reference/nisstec-rear-brake-line-pricing.md) |  | [Unverified] | 1 |
 | [Nitto Trail Grappler tire model](reference/nitto-trail-grappler-tire-model.md) |  | [Unverified] | 1 |
 | [Oil filter mounting height specification](reference/oil-filter-mounting-height-specification.md) |  | [Unverified] | 1 |
 | [Oil filter recommendations to reduce whine](reference/oil-filter-recommendations-to-reduce-whine.md) |  | [Unverified] | 1 |
@@ -765,7 +830,8 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [OTRATTW switch part numbers and types](reference/otrattw-switch-part-numbers-and-types.md) |  | [Unverified] | 1 |
 | [Paint and clearcoat application tips](reference/paint-and-clearcoat-application-tips.md) |  | [Unverified] | 1 |
 | [Painting side moldings from top down with bedliner](reference/painting-side-moldings-from-top-down-with-bedliner.md) |  | [Unverified] | 1 |
-| [Part sources and vendors](reference/part-sources.md) |  | community-consensus | 3 |
+| [Parking strategy for maximum MPG](reference/parking-strategy-for-maximum-mpg.md) |  | [Unverified] | 1 |
+| [Part sources and vendors](reference/part-sources.md) |  | community-consensus | 5 |
 | [Part sources and vendors for Molle gear](reference/part-sources-and-vendors-for-molle-gear.md) |  | [Unverified] | 1 |
 | [Parts diagrams](reference/parts-diagrams.md) |  | community-consensus | 7 |
 | [Parts diagrams and sources](reference/parts-diagrams-and-sources.md) |  | [Unverified] | 1 |
@@ -776,6 +842,8 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Plastic liner clips for leaf pack centering](reference/plastic-liner-clips-for-leaf-pack-centering.md) |  | [Unverified] | 1 |
 | [PlastiDip durability on side moldings after two years of wheeling](reference/plastidip-durability-on-side-moldings-after-two-years-of-whe.md) |  | [Unverified] | 1 |
 | [Power steering fluid types and specs](reference/power-steering-fluid-types-and-specs.md) |  | [Unverified] | 1 |
+| [Powerstop Non-Drilled Rotor Option](reference/powerstop-non-drilled-rotor-option.md) |  | [Unverified] | 1 |
+| [PRG front vs rear availability note](reference/prg-front-vs-rear-availability-note.md) |  | [Unverified] | 1 |
 | [Radflo coilover rebuild costs and parts](reference/radflo-coilover-rebuild-costs-and-parts.md) |  | [Unverified] | 1 |
 | [Radflo shock spacer sizing guide](reference/radflo-shock-spacer-sizing-guide.md) |  | [Unverified] | 1 |
 | [Radiator and degassing bottle caps specs](reference/radiator-and-degassing-bottle-caps-specs.md) |  | [Unverified] | 1 |
@@ -787,16 +855,32 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Rear axle gear ratios by model and transmission type](reference/rear-axle-gear-ratios-by-model-and-transmission-type.md) |  | [Unverified] | 1 |
 | [Rear axle seal and bearing service procedure](reference/rear-axle-seal-and-bearing-service-procedure.md) |  | [Unverified] | 1 |
 | [Rear Axle Specifications (M226 vs 8.8)](reference/rear-axle-specifications-m226-vs-8-8.md) |  | [Unverified] | 1 |
+| [Rear axle strength comparison with other models](reference/rear-axle-strength-comparison-with-other-models.md) |  | [Unverified] | 1 |
 | [Rear axle types by transmission type](reference/rear-axle-types-by-transmission-type.md) |  | [Unverified] | 1 |
+| [Rear bumper bolt removal and torque specs](reference/rear-bumper-bolt-removal-and-torque-specs.md) |  | [Unverified] | 1 |
 | [Rear Bumper Tire Carrier Hardware](reference/rear-bumper-tire-carrier-hardware.md) |  | [Unverified] | 1 |
 | [Rear bypass coolant hose identification](reference/rear-bypass-coolant-hose-identification.md) |  | [Unverified] | 1 |
 | [Rear differential breather extension](reference/rear-differential-breather-extension.md) |  | [Unverified] | 1 |
 | [Rear differential cover options](reference/rear-differential-cover-options.md) |  | [Unverified] | 1 |
+| [Rear differential e-locker evolution timeline](reference/rear-differential-e-locker-evolution-timeline.md) |  | [Unverified] | 1 |
+| [Rear differential e-locker failure history](reference/rear-differential-e-locker-failure-history.md) |  | [Unverified] | 1 |
+| [Rear differential e-locker specifications](reference/rear-differential-e-locker-specifications.md) |  | community-consensus | 2 |
+| [Rear differential failure frequency context](reference/rear-differential-failure-frequency-context.md) |  | [Unverified] | 1 |
+| [Rear differential model years and trims](reference/rear-differential-model-years-and-trims.md) |  | [Unverified] | 1 |
 | [Rear differential options and strength](reference/rear-differential-options-and-strength.md) |  | [Unverified] | 1 |
 | [Rear differential pinion nut torque specs (C200)](reference/rear-differential-pinion-nut-torque-specs-c200.md) |  | [Unverified] | 1 |
 | [Rear differential pinion nut torque specs (M225 w/o Locker)](reference/rear-differential-pinion-nut-torque-specs-m225-w-o-locker.md) |  | [Unverified] | 1 |
+| [Rear differential seal leakage tendencies](reference/rear-differential-seal-leakage-tendencies.md) |  | [Unverified] | 1 |
+| [Rear differential spider gear configuration details](reference/rear-differential-spider-gear-configuration-details.md) |  | [Unverified] | 1 |
+| [Rear differential spider gear count evolution](reference/rear-differential-spider-gear-count-evolution.md) |  | [Unverified] | 1 |
+| [Rear differential spider gear count specifics](reference/rear-differential-spider-gear-count-specifics.md) |  | [Unverified] | 1 |
+| [Rear differential spider gear failure mechanics](reference/rear-differential-spider-gear-failure-mechanics.md) |  | [Unverified] | 1 |
+| [Rear differential strength classification details](reference/rear-differential-strength-classification-details.md) |  | [Unverified] | 1 |
+| [Rear differential strength comparison summary](reference/rear-differential-strength-comparison-summary.md) |  | [Unverified] | 1 |
+| [Rear differential strength hierarchy context (M226)](reference/rear-differential-strength-hierarchy-context-m226.md) |  | [Unverified] | 1 |
+| [Rear differential strength hierarchy overview](reference/rear-differential-strength-hierarchy-overview.md) |  | [Unverified] | 1 |
 | [Rear differential torque member components](reference/rear-differential-torque-member-components.md) |  | [Unverified] | 1 |
-| [Rear Differential Types and Gear Ratios](reference/rear-differential-types-and-gear-ratios.md) |  | [Unverified] | 1 |
+| [Rear Differential Types and Gear Ratios](reference/rear-differential-types-and-gear-ratios.md) |  | community-consensus | 2 |
 | [Rear driveshaft flange nut torque specs (Model 2S1330)](reference/rear-driveshaft-flange-nut-torque-specs-model-2s1330.md) |  | [Unverified] | 1 |
 | [Rear Gear Ratio Requirements for Titan Axle Swap](reference/rear-gear-ratio-requirements-for-titan-axle-swap.md) |  | [Unverified] | 1 |
 | [Rear hatch interior release modification](reference/rear-hatch-interior-release-modification.md) |  | [Unverified] | 1 |
@@ -804,6 +888,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Rear leaf spring and shackle setup](reference/rear-leaf-spring-and-shackle-setup.md) |  | [Unverified] | 1 |
 | [Rear leaf spring characteristics](reference/rear-leaf-spring-characteristics.md) |  | [Unverified] | 1 |
 | [Rear leaf spring shim angles for lift and vibration control](reference/rear-leaf-spring-shim-angles-for-lift-and-vibration-control.md) |  | [Unverified] | 1 |
+| [Rear lift bracket application for 3-inch lifts](reference/rear-lift-bracket-application-for-3-inch-lifts.md) |  | [Unverified] | 1 |
 | [Rear shock absorber lift characteristics](reference/rear-shock-absorber-lift-characteristics.md) |  | [Unverified] | 1 |
 | [Rear shock upper bushing lubrication points](reference/rear-shock-upper-bushing-lubrication-points.md) |  | [Unverified] | 1 |
 | [Rear spring travel and sag characteristics](reference/rear-spring-travel-and-sag-characteristics.md) |  | [Unverified] | 1 |
@@ -814,6 +899,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Rear window ventilation options](reference/rear-window-ventilation-options.md) |  | [Unverified] | 1 |
 | [Rearview mirror power source locations](reference/rearview-mirror-power-source-locations.md) |  | [Unverified] | 1 |
 | [Recommended battery charging solution for rear storage](reference/recommended-battery-charging-solution-for-rear-storage.md) |  | [Unverified] | 1 |
+| [Recommended bearing manufacturers for rear axles](reference/recommended-bearing-manufacturers-for-rear-axles.md) |  | [Unverified] | 1 |
 | [Recommended consumables and cleaning supplies for rear storage](reference/recommended-consumables-and-cleaning-supplies-for-rear-stora.md) |  | [Unverified] | 1 |
 | [Recommended diagnostic and measurement tools for rear storage](reference/recommended-diagnostic-and-measurement-tools-for-rear-storag.md) |  | [Unverified] | 1 |
 | [Recommended electrical and wiring repair inventory for rear storage](reference/recommended-electrical-and-wiring-repair-inventory-for-rear.md) |  | [Unverified] | 1 |
@@ -827,7 +913,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Recommended suspension and drivetrain spares for rear storage](reference/recommended-suspension-and-drivetrain-spares-for-rear-storag.md) |  | [Unverified] | 1 |
 | [Recommended synthetic grease types](reference/recommended-synthetic-grease-types.md) |  | [Unverified] | 1 |
 | [Recommended window and accessory storage for rear seats](reference/recommended-window-and-accessory-storage-for-rear-seats.md) |  | [Unverified] | 1 |
-| [Reference](reference/reference.md) |  | disputed | 6 |
+| [Reference](reference/reference.md) |  | disputed | 7 |
 | [Reference M205 differential rib designs and snap ring upgrades](reference/reference-m205-differential-rib-designs-and-snap-ring-upgrad.md) |  | [Unverified] | 1 |
 | [Reference M205 snap ring sizing and axle retention tips](reference/reference-m205-snap-ring-sizing-and-axle-retention-tips.md) |  | [Unverified] | 1 |
 | [Reference M205 transfer case hardware list for swap projects](reference/reference-m205-transfer-case-hardware-list-for-swap-projects.md) |  | [Unverified] | 1 |
@@ -848,6 +934,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Reference: Speedometer Calibration by Tire Size](reference/reference-speedometer-calibration-by-tire-size.md) |  | [Unverified] | 1 |
 | [Replacement aftermarket radiators for Xterra](reference/replacement-aftermarket-radiators-for-xterra.md) |  | [Unverified] | 1 |
 | [Rim size requirements for big brakes](reference/rim-size-requirements-for-big-brakes.md) |  | [Unverified] | 1 |
+| [RockAuto stock line pricing source](reference/rockauto-stock-line-pricing-source.md) |  | [Unverified] | 1 |
 | [Rough Country cam bolt set value](reference/rough-country-cam-bolt-set-value.md) |  | [Unverified] | 1 |
 | [Rough Country lift shackle quality assessment](reference/rough-country-lift-shackle-quality-assessment.md) |  | [Unverified] | 1 |
 | [Seat back variations for front bench or bucket seats](reference/seat-back-variations-for-front-bench-or-bucket-seats.md) |  | [Unverified] | 1 |
@@ -855,6 +942,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Serpentine belt requirement for VK swap](reference/serpentine-belt-requirement-for-vk-swap.md) |  | [Unverified] | 1 |
 | [Shackle adjustments for lift height](reference/shackle-adjustments-for-lift-height.md) |  | [Unverified] | 1 |
 | [Shock absorber and spring seat torque specs](reference/shock-absorber-and-spring-seat-torque-specs.md) |  | [Unverified] | 1 |
+| [Shock absorber length differences with lift kits](reference/shock-absorber-length-differences-with-lift-kits.md) |  | [Unverified] | 1 |
 | [Shock model numbers and lengths](reference/shock-model-numbers-and-lengths.md) |  | [Unverified] | 1 |
 | [Shock model selection for travel gain](reference/shock-model-selection-for-travel-gain.md) |  | [Unverified] | 1 |
 | [Shock preload mechanics for lift kits](reference/shock-preload-mechanics-for-lift-kits.md) |  | [Unverified] | 1 |
@@ -877,14 +965,18 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Snorkel Modification Sources](reference/snorkel-modification-sources.md) |  | [Unverified] | 1 |
 | [Spare tire area dimensions and usage](reference/spare-tire-area-dimensions-and-usage.md) |  | [Unverified] | 1 |
 | [Spare tire mounting location notes](reference/spare-tire-mounting-location-notes.md) |  | [Unverified] | 1 |
+| [Spark plug brand recommendations](reference/spark-plug-brand-recommendations.md) |  | [Unverified] | 1 |
 | [Spark plug firing order and layout](reference/spark-plug-firing-order-and-layout.md) |  | [Unverified] | 1 |
-| [Spark plug part numbers and types](reference/spark-plug-part-numbers-and-types.md) |  | [Unverified] | 1 |
+| [Spark plug part numbers and types](reference/spark-plug-part-numbers-and-types.md) |  | community-consensus | 2 |
+| [Spark plug socket setup for tight spaces](reference/spark-plug-socket-setup-for-tight-spaces.md) |  | [Unverified] | 1 |
+| [Spark plug torque and washer details](reference/spark-plug-torque-and-washer-details.md) |  | [Unverified] | 1 |
 | [SPC UCA installation requirements](reference/spc-uca-installation-requirements.md) |  | [Unverified] | 1 |
-| [Specifications by model year](reference/specs-by-year.md) |  | [Unverified] | 3 |
+| [Specifications by model year](reference/specs-by-year.md) |  | community-consensus | 4 |
 | [Spring perch settings for leveling](reference/spring-perch-settings-for-leveling.md) |  | [Unverified] | 1 |
 | [Spring rates and coil types](reference/spring-rates-and-coil-types.md) |  | [Unverified] | 1 |
 | [SRS airbag resistor circuit for aftermarket seats](reference/srs-airbag-resistor-circuit-for-aftermarket-seats.md) |  | [Unverified] | 1 |
 | [Steel vs Carbon fiber strength specs](reference/steel-vs-carbon-fiber-strength-specs.md) |  | [Unverified] | 1 |
+| [Stock rear brake line price comparison](reference/stock-rear-brake-line-price-comparison.md) |  | [Unverified] | 1 |
 | [Stock rear wiper sweep dimensions](reference/stock-rear-wiper-sweep-dimensions.md) |  | [Unverified] | 1 |
 | [Stock thermostat opening temperature comparison](reference/stock-thermostat-opening-temperature-comparison.md) |  | [Unverified] | 1 |
 | [Stock tire dimensions for calibration](reference/stock-tire-dimensions-for-calibration.md) |  | [Unverified] | 1 |
@@ -916,11 +1008,13 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Timing chain replacement diagnostic tools](reference/timing-chain-replacement-diagnostic-tools.md) |  | [Unverified] | 1 |
 | [Timing chain replacement labor time estimates](reference/timing-chain-replacement-labor-time-estimates.md) |  | [Unverified] | 1 |
 | [Timing chain replacement tool requirements](reference/timing-chain-replacement-tool-requirements.md) |  | [Unverified] | 1 |
+| [Tire air pressure importance for mileage](reference/tire-air-pressure-importance-for-mileage.md) |  | [Unverified] | 1 |
 | [Tire and wheel fitment combinations](reference/tire-and-wheel-fitment-combinations.md) |  | [Unverified] | 1 |
 | [Tire Pressure Adjustments with OBA](reference/tire-pressure-adjustments-with-oba.md) |  | [Unverified] | 1 |
 | [Tire Pressure Guidelines](reference/tire-pressure-guidelines.md) |  | [Unverified] | 1 |
 | [Tire ratings and performance guides](reference/tire-ratings-and-performance-guides.md) |  | [Unverified] | 1 |
-| [Tire sizes and fitment limits](reference/tire-sizes-and-fitment-limits.md) |  | community-consensus | 2 |
+| [Tire selection for highway fuel economy](reference/tire-selection-for-highway-fuel-economy.md) |  | [Unverified] | 1 |
+| [Tire sizes and fitment limits](reference/tire-sizes-and-fitment-limits.md) |  | community-consensus | 3 |
 | [Tire wear patterns and replacement logic](reference/tire-wear-patterns-and-replacement-logic.md) |  | [Unverified] | 1 |
 | [Tires for highway and snow use](reference/tires-for-highway-and-snow-use.md) |  | [Unverified] | 1 |
 | [Titan Axle and Brake Differences from Xterra](reference/titan-axle-and-brake-differences-from-xterra.md) |  | [Unverified] | 1 |
@@ -928,19 +1022,46 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Titan axle and differential swaps - Fluid capacities](reference/titan-axle-and-differential-swaps-fluid-capacities.md) |  | community-consensus | 2 |
 | [Titan axle backing plate cost comparison](reference/titan-axle-backing-plate-cost-comparison.md) |  | [Unverified] | 1 |
 | [Titan Brake Caliper Bore Size](reference/titan-brake-caliper-bore-size.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Diff Mounting Bolts](reference/titan-front-axle-diff-mounting-bolts.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Fasteners List](reference/titan-front-axle-fasteners-list.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Lower Ball Joint Hardware](reference/titan-front-axle-lower-ball-joint-hardware.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Lower Control Arm Nuts](reference/titan-front-axle-lower-control-arm-nuts.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Lower Shock Bolts](reference/titan-front-axle-lower-shock-bolts.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Shock Mounting Points](reference/titan-front-axle-shock-mounting-points.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Tie Rod Adjustment Nuts](reference/titan-front-axle-tie-rod-adjustment-nuts.md) |  | [Unverified] | 1 |
+| [Titan Front Axle Upper Control Arm Bolts](reference/titan-front-axle-upper-control-arm-bolts.md) |  | [Unverified] | 1 |
+| [Titan Front Brake Assembly Details](reference/titan-front-brake-assembly-details.md) |  | [Unverified] | 1 |
+| [Titan Front Brake Booster Gasket Setup](reference/titan-front-brake-booster-gasket-setup.md) |  | [Unverified] | 1 |
+| [Titan Front Brake Caliper Bracket Bolts](reference/titan-front-brake-caliper-bracket-bolts.md) |  | [Unverified] | 1 |
 | [Titan front differential part number](reference/titan-front-differential-part-number.md) |  | [Unverified] | 1 |
+| [Titan Front Hub and Knuckle Fitment](reference/titan-front-hub-and-knuckle-fitment.md) |  | [Unverified] | 1 |
+| [Titan Front Hub Assembly Options](reference/titan-front-hub-assembly-options.md) |  | [Unverified] | 1 |
+| [Titan Front Shock and Arm Configuration](reference/titan-front-shock-and-arm-configuration.md) |  | [Unverified] | 1 |
+| [Titan Front Steering and Tie Rods](reference/titan-front-steering-and-tie-rods.md) |  | [Unverified] | 1 |
+| [Titan Front Suspension Parts List](reference/titan-front-suspension-parts-list.md) |  | [Unverified] | 1 |
+| [Titan Front Tie Rod Bellows Fitment](reference/titan-front-tie-rod-bellows-fitment.md) |  | [Unverified] | 1 |
 | [Titan M205 differential gear ratios](reference/titan-m205-differential-gear-ratios.md) |  | [Unverified] | 1 |
+| [Titan Rear Axle Brake Caliper Hardware](reference/titan-rear-axle-brake-caliper-hardware.md) |  | [Unverified] | 1 |
+| [Titan Rear Axle Brake Line Setup](reference/titan-rear-axle-brake-line-setup.md) |  | [Unverified] | 1 |
+| [Titan Rear Axle Locker and Gearing Parts](reference/titan-rear-axle-locker-and-gearing-parts.md) |  | [Unverified] | 1 |
+| [Titan Rear Axle Parking Brake Adjustment](reference/titan-rear-axle-parking-brake-adjustment.md) |  | [Unverified] | 1 |
+| [Titan Rear Axle Spring Perch Compatibility](reference/titan-rear-axle-spring-perch-compatibility.md) |  | [Unverified] | 1 |
+| [Titan rear brake line length comparison](reference/titan-rear-brake-line-length-comparison.md) |  | [Unverified] | 1 |
+| [Titan rear brake line length specs](reference/titan-rear-brake-line-length-specs.md) |  | [Unverified] | 1 |
+| [Titan Rear Suspension Components](reference/titan-rear-suspension-components.md) |  | [Unverified] | 1 |
 | [Titan swap component cost breakdown](reference/titan-swap-component-cost-breakdown.md) |  | [Unverified] | 1 |
 | [Titan swap identification sticker](reference/titan-swap-identification-sticker.md) |  | [Unverified] | 1 |
 | [Titan swap sticker design variations](reference/titan-swap-sticker-design-variations.md) |  | [Unverified] | 1 |
-| [Torque specifications](reference/torque-specs.md) | [Guide](vehicle/guides/torque-specs.md) | community-consensus | 21 |
+| [Torque specifications](reference/torque-specs.md) | [Guide](vehicle/guides/torque-specs.md) | community-consensus | 23 |
 | [Torque specifications (Alternator Mounting)](reference/torque-specifications-alternator-mounting.md) |  | [Unverified] | 1 |
+| [Torque specifications and suspension limits](reference/torque-specifications-and-suspension-limits.md) |  | [Unverified] | 1 |
 | [Torque specifications for ABS sensors](reference/torque-specifications-for-abs-sensors.md) |  | [Unverified] | 1 |
 | [Torque specifications: Wheel lug nuts and rotors](reference/torque-specifications-wheel-lug-nuts-and-rotors.md) |  | [Unverified] | 1 |
 | [Total lift combinations for OME kits](reference/total-lift-combinations-for-ome-kits.md) |  | [Unverified] | 1 |
 | [Traction control reset procedure](reference/traction-control-reset-procedure.md) |  | [Unverified] | 1 |
 | [Tranny mount requirement for VK swap](reference/tranny-mount-requirement-for-vk-swap.md) |  | [Unverified] | 1 |
 | [Transfer case fill and drain plug torque specs](reference/transfer-case-fill-and-drain-plug-torque-specs.md) |  | [Unverified] | 1 |
+| [Transfer case fluid service](reference/transfer-case-fluid-service.md) |  | [Unverified] | 1 |
 | [Transfer case output splines and yoke compatibility](reference/transfer-case-output-splines-and-yoke-compatibility.md) |  | [Unverified] | 1 |
 | [Transmission availability across trims](reference/transmission-availability-across-trims.md) |  | [Unverified] | 1 |
 | [Transmission cooler bypass pros and cons](reference/transmission-cooler-bypass-pros-and-cons.md) |  | [Unverified] | 1 |
@@ -952,6 +1073,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Transmission rebuild and replacement sources](reference/transmission-rebuild-and-replacement-sources.md) |  | [Unverified] | 1 |
 | [Trim guide (X, S, SE, Off-Road, PRO-4X)](reference/trim-guide-x-s-se-off-road-pro-4x.md) |  | [Unverified] | 1 |
 | [U-Bolt Flip Kit Compatibility](reference/u-bolt-flip-kit-compatibility.md) |  | [Unverified] | 1 |
+| [U-bolt torque specifications by size](reference/u-bolt-torque-specifications-by-size.md) |  | [Unverified] | 1 |
 | [UCA installation torque and bolt specifics](reference/uca-installation-torque-and-bolt-specifics.md) |  | [Unverified] | 1 |
 | [Upper control arm and shock mount torque specs](reference/upper-control-arm-and-shock-mount-torque-specs.md) |  | [Unverified] | 1 |
 | [Upper control arm kit pricing and sources](reference/upper-control-arm-kit-pricing-and-sources.md) |  | [Unverified] | 1 |
@@ -968,12 +1090,14 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [VK56 engine specifications and ratios](reference/vk56-engine-specifications-and-ratios.md) |  | [Unverified] | 1 |
 | [VQ40DE engine baseline specs](reference/vq40de-engine-baseline-specs.md) |  | [Unverified] | 1 |
 | [Wheel hub and center nut torque specs](reference/wheel-hub-and-center-nut-torque-specs.md) |  | [Unverified] | 1 |
+| [Wheel spacers for track width conversion](reference/wheel-spacers-for-track-width-conversion.md) |  | [Unverified] | 1 |
 | [Wheel well rust inspection routine](reference/wheel-well-rust-inspection-routine.md) |  | [Unverified] | 1 |
 | [Winch Solenoid Mount Hardware](reference/winch-solenoid-mount-hardware.md) |  | [Unverified] | 1 |
 | [Wired rear view camera installation tips](reference/wired-rear-view-camera-installation-tips.md) |  | [Unverified] | 1 |
 | [Wiring configuration for on-board air](reference/wiring-configuration-for-on-board-air.md) |  | [Unverified] | 1 |
 | [Wiring gauge recommendations for lights](reference/wiring-gauge-recommendations-for-lights.md) |  | [Unverified] | 1 |
 | [Wiring routing paths through interior](reference/wiring-routing-paths-through-interior.md) |  | community-consensus | 2 |
+| [Xterra Front Axle Mounting Hardware](reference/xterra-front-axle-mounting-hardware.md) |  | [Unverified] | 1 |
 | [Xterra Master Cylinder Bore Size](reference/xterra-master-cylinder-bore-size.md) |  | [Unverified] | 1 |
 | [Xterra Rear Axle Cable Length Issue](reference/xterra-rear-axle-cable-length-issue.md) |  | [Unverified] | 1 |
-| [Xterra, Frontier and Titan parts interchange](reference/interchange.md) |  | community-consensus | 4 |
+| [Xterra, Frontier and Titan parts interchange](reference/interchange.md) |  | community-consensus | 6 |

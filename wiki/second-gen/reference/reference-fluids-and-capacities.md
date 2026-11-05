@@ -7,10 +7,13 @@ category: reference
 applies_to:
   years: []
   trims:
+  - 2WD
+  - Pro-4X
   - X
   engine: []
   drivetrain: []
-shared_platform: []
+shared_platform:
+- Frontier
 difficulty: null
 est_time: null
 tools: []
@@ -31,6 +34,8 @@ parts:
   oem_part_no: ''
 - name: Royal Purple ATF
   oem_part_no: ''
+- name: SuperPro Polyurethane Bushing
+  oem_part_no: ''
 sources:
 - t11
 - t16
@@ -39,16 +44,20 @@ sources:
 - t395
 - t431
 - t507
+- t559
 - t788
+- t3086
+- t3218
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 7
-  partial_items: 23
+  partial_items: 33
   partial_fields:
   - applies_to
-  unconfirmed_safety_values: 0
-  withheld_items: 26
+  - shared_platform
+  unconfirmed_safety_values: 2
+  withheld_items: 28
   pending_safety_values: 0
 ---
 -->
@@ -92,6 +101,18 @@ Consider the weight increase of an AGM battery versus a standard unit. [t507]
 Check for alternative Group Size 34R if standard options are unavailable. [t507]
 
 Look for batteries manufactured by Johnson Controls or Interstate. [t507]
+
+Check ball joints, end links, and steering rack bushings for play. [t559]
+
+[Partial] Fill the tank until it clicks off, noting that fuel light trigger varies by driving habits. [t3218]
+
+[Partial] Drive until the fuel light illuminates, noting that drivers often run it low. [t3218]
+
+[Partial] Fill the tank when the light comes on, expecting lower mileage due to transfer case weight. [t3218]
+
+[Partial] Drive the vehicle on long highway trips for optimal tank range. [t3218]
+
+[Partial] Drive strictly in the city at speeds under 50 mph. [t3218]
 
 ## Procedure
 
@@ -155,6 +176,42 @@ _Procedure reported by [t11]._
 
 </details>
 
+<details><summary>Alternate procedure [t559] [Partial]</summary>
+
+1. Check ball joints, end links, and steering rack bushings for play while the suspension is apart.
+
+</details>
+
+<details><summary>Alternate procedure [t3218] [Partial]</summary>
+
+1. [Partial] Fill the tank until it clicks off.
+
+</details>
+
+<details><summary>Alternate procedure [t3218] [Partial]</summary>
+
+1. [Partial] Drive until the fuel light illuminates.
+
+</details>
+
+<details><summary>Alternate procedure [t3218] [Partial]</summary>
+
+1. Fill the tank when the light comes on.
+
+</details>
+
+<details><summary>Alternate procedure [t3218] [Partial]</summary>
+
+1. [Partial] Drive on long highway trips.
+
+</details>
+
+<details><summary>Alternate procedure [t3218] [Partial]</summary>
+
+1. [Partial] Drive strictly in the city.
+
+</details>
+
 ## Parts
 
 - Castrol ATF [t20]
@@ -165,6 +222,7 @@ _Procedure reported by [t11]._
 - [Partial] Group Size 35 AGM Battery: Standard OEM size, often found refurbished or with shorter warranty. [t507]
 - [Partial] MERCON ATF [t20]
 - Royal Purple ATF [t20]
+- SuperPro Polyurethane Bushing: For the steering rack [t559]
 
 ## Specifications
 
@@ -176,6 +234,7 @@ _Procedure reported by [t11]._
 - **Ambient temperature range for specific data logs**: 50 - 60F [t25] ([Unverified] single report)
 - **Amp Hours @ 10 Hr (Group 24F)**: 70 [t507] ([Unverified] single report)
 - **Amp Hours @ 10 Hr (Group 35 AGM)**: 55 [t507] ([Unverified] single report)
+- **City MPG (Pro-4X)**: 15-16 mpg [t3218] ([Partial] [Unverified] single report)
 - **Cold Cranking Amps (Duralast Platinum 24F)**: 710 [t507] ([Unverified] single report)
 - **Cold Cranking Amps (Group 24F)**: 710 [t507] ([Unverified] single report)
 - **Cold Cranking Amps (Group 35 AGM)**: 650 [t507] ([Unverified] single report)
@@ -184,6 +243,8 @@ _Procedure reported by [t11]._
 - **Cranking Amps (Duralast Platinum 24F)**: 885 [t507] ([Unverified] single report)
 - **Cranking Amps (Group 24F)**: 885 [t507] ([Unverified] single report)
 - **Cranking Amps (Group 35 AGM)**: 800 [t507] ([Unverified] single report)
+- **Fuel light trigger (lead foot driver)**: 3-4 gallons [t3218] ([Unverified] single report)
+- **Fuel light trigger (light footer)**: 2-3 gallons [t3218] ([Unverified] single report)
 - **Height (Group 24F AGM)**: 9 [t507] ([Unverified] single report)
 - **Height (Group 35 AGM)**: 8 7/8 [t507] ([Unverified] single report)
 - **Length (Group 24F AGM)**: 10 15/16 [t507] ([Unverified] single report)
@@ -195,6 +256,9 @@ _Procedure reported by [t11]._
 - **RPM threshold for torque converter slip heat generation**: about 2500 rpm [t25] (Claude-reviewed)
 - **RPM threshold to keep stock cooling adequate**: above 2200 [t25] ([Partial] [Unverified] single report)
 - **Speed limit for added fan effectiveness on OEM cooler**: 50 mph [t25] (Claude-reviewed)
+- **Tank range (2WD high)**: 350-400 miles [t3218] ([Unverified] single report)
+- **Tank range (2WD stock)**: 300-400 miles [t3218] ([Partial] [Unverified] single report)
+- **Tank range (Pro-4X)**: 255-270 miles [t3218] ([Partial] [Unverified] single report)
 - **Warranty Duration (X2 Power 24F)**: 5 year full replacement [t507] ([Unverified] single report)
 - **Weight (Group 24F AGM)**: 45.2 [t507] ([Unverified] single report)
 - **Weight Increase (AGM vs OEM)**: ~2x [t507] ([Partial] [Unverified] single report)
@@ -213,6 +277,10 @@ _Procedure reported by [t11]._
 - [Partial] Look for a battery with an extended warranty, such as 36 months or more. [t507]
 - [Partial] Ensure the battery tray or hold-down is large enough to accommodate the heavier AGM unit. [t507]
 - Note that using a larger battery (like the 24F) may technically void warranty clauses specifying 'corresponding to or smaller than' the recommended size. [t507]
+- Note that driving habits affect when the light triggers. [t3218]
+- Drivers often run the light low before refilling. [t3218]
+- [Partial] Expect lower mileage due to transfer case weight. [t3218]
+- [Partial] Long highway runs yield better results than city driving. [t3218]
 
 ## Diagrams (links only)
 
@@ -230,5 +298,8 @@ _Procedure reported by [t11]._
 - **t395**: Gen X, "Replace Battery Terminals, Battery & Alternator", 2021-10-08. https://www.xterranation.org/index.php?threads/replace-battery-terminals-battery-alternator.10299/
 - **t431**: Levi_Xterra, "Experience with Cooper Tires??", 2014-03-16. https://www.xterranation.org/index.php?threads/experience-with-cooper-tires.4977/
 - **t507**: xyoverland, "Agm Battery Shortages", 2020-10-30. https://www.xterranation.org/index.php?threads/agm-battery-shortages.9760/
+- **t559**: TerryD, "Crabby's Mild Lift (ome Lift)", 2020-01-27. https://www.xterranation.org/index.php?threads/crabbys-mild-lift-ome-lift.9344/
 - **t788**: gorillamel, "Coolant leak", 2011-11-03. https://www.xterranation.org/index.php?threads/coolant-leak.222/
+- **t3086**: JayAre, "Battery shopping for my 2nd gen (ahem...Frontier)", 2014-11-15. https://www.xterranation.org/index.php?threads/battery-shopping-for-my-2nd-gen-ahem-frontier.6139/
+- **t3218**: Matt2558, "Fuel Mielage on the Pro-4X vs. 2nd Gen 2WD", 2011-12-16. https://www.xterranation.org/index.php?threads/fuel-mielage-on-the-pro-4x-vs-2nd-gen-2wd.566/
 

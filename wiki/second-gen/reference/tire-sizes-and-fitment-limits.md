@@ -11,23 +11,26 @@ applies_to:
   - PRO-4X
   engine: []
   drivetrain: []
-shared_platform: []
-difficulty: null
+shared_platform:
+- Frontier
+difficulty: 1
 est_time: null
 tools: []
 parts: []
 sources:
+- t374
 - t423
 - t544
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 6
   partial_fields:
   - applies_to
+  - difficulty
   unconfirmed_safety_values: 0
-  withheld_items: 0
+  withheld_items: 1
   pending_safety_values: 0
 ---
 -->
@@ -41,6 +44,8 @@ verification:
 Determine if 305/70R16 is the maximum tire size for stock rims. [t423]
 
 [Partial] Select a 285/75R16 tire and remove factory mud flaps to prevent rubbing. [t544]
+
+[Partial] Check factory backspace for tire clearance and perform sheet metal work or fender cutting for tires larger than ~285/75R16. [t374]
 
 ## Procedure
 
@@ -60,11 +65,18 @@ _Procedure reported by [t544]._
 ## Specifications
 
 - **Max rear tire width**: 285 [t544] ([Unverified] single report)
+- **Max tire size (stock height to ~6" lift)**: 285/75 16" [t374] ([Unverified] single report)
+- **Max tire size (with ~1" lift)**: ~30" [t374] ([Partial] [Unverified] single report)
 - **Rim diameter size**: 16 inch [t544] ([Unverified] single report)
 - **Tire aspect ratio**: 75 [t544] ([Unverified] single report)
 
+## Tips & gotchas
+
+- [Partial] Perform sheet metal work or fender cutting for tires larger than ~285/75R16. [t374]
+
 ## Source attributions
 
+- **t374**: Maxxpags, "Nisstec lift kit", 2022-05-15. https://www.xterranation.org/index.php?threads/nisstec-lift-kit.10622/
 - **t423**: Southpaw, "Very early take on my new setup", 2017-09-28. https://www.xterranation.org/index.php?threads/very-early-take-on-my-new-setup.8231/
 - **t544**: XTERRA2FISH, "Rear end sag", 2021-09-04. https://www.xterranation.org/index.php?threads/rear-end-sag.10241/
 

@@ -25,6 +25,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
+- Titan
 difficulty: null
 est_time: null
 tools: []
@@ -32,8 +33,10 @@ parts: []
 sources:
 - t116
 - t214
+- t217
 - t220
 - t222
+- t247
 - t261
 - t431
 - t461
@@ -44,16 +47,17 @@ sources:
 - t879
 - t881
 - t932
+- t2941
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 7
-  partial_items: 35
+  partial_items: 40
   partial_fields:
   - applies_to
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 18
+  withheld_items: 19
   pending_safety_values: 0
 ---
 -->
@@ -101,6 +105,12 @@ Verify the specific stock size dimensions, noting that tire tread depth is simil
 [Partial] Note that increasing tire diameter causes the speedometer to read slower than actual ground speed. [t744]
 
 Consider tire diameter clearance, gear ratio differences between trims and sizes, and specific factory ratios. [t222]
+
+[Partial] Select a 4.56 gear ratio to accommodate larger tires. [t247]
+
+[Partial] Select a minimum 4.10 gear ratio for the front axle when running 35-inch tires. [t217]
+
+[Partial] Check elevation differences, verify accuracy, and apply a 3.6% factor to correct mileage. [t2941]
 
 ## Procedure
 
@@ -164,6 +174,18 @@ _Procedure reported by [t461]._
 
 </details>
 
+<details><summary>Alternate procedure [t247] [Partial]</summary>
+
+1. [Partial] Select a 4.56 gear ratio to accommodate larger tires while maintaining performance.
+
+</details>
+
+<details><summary>Alternate procedure [t217] [Partial]</summary>
+
+1. [Partial] Select a minimum 4.10 gear ratio for the front axle when running 35-inch tires.
+
+</details>
+
 ## Specifications
 
 - **5 Speed Automatic Transmission Fluid Capacity**: ~10.9 Qt [t116] (Claude-reviewed)
@@ -192,9 +214,11 @@ _Procedure reported by [t461]._
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Auto)**: 3.13 [t116] ([Unverified] single report)
 - **Front Differential R180A OE Ratio (05-15 X/S/SE Manual)**: 3.54 [t116] ([Unverified] single report)
 - **Front Differential R180A Ring Gear Diameter**: 7.08" [t116] (Claude-reviewed)
+- **Front Gear Ratio**: 4:10 [t217] ([Unverified] single report)
 - **Front tire size (Current setup)**: 265/70/R18 [t748] ([Partial] [Unverified] single report)
 - **Lift Height**: 1.5" [t932] ([Unverified] single report)
 - **Manual transmission stock gear ratio**: 3.69 [t261] ([Unverified] single report)
+- **Mileage correction factor for 33-inch tires**: ~3.6% [t2941] ([Unverified] single report)
 - **Rear Axle M226 Axle Shaft Diameter**: 1.366" [t116] (Claude-reviewed)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Auto)**: 3.36 [t116] ([Partial] [Unverified] single report)
 - **Rear Axle M226 OE Ratio (05-15 Offroad/Pro4X Manual)**: 3.69 [t116] ([Partial] [Unverified] single report)
@@ -202,11 +226,13 @@ _Procedure reported by [t461]._
 - **Rear Axle M226 Pinion Spline Count**: 24 [t116] (Claude-reviewed)
 - **Rear Axle M226 Ring Gear Diameter**: 8.9" [t116] (Claude-reviewed)
 - **Rear differential gear ratio**: 3.13 [t879] ([Unverified] single report)
+- **Rear Gear Ratio (Titan)**: 4:10 [t217] ([Partial] [Unverified] single report)
 - **Rear tire size (Titan wheels)**: 285/65/R18 [t748] ([Unverified] single report)
 - **Rear tire size (Titan wheels, Lifted simulation)**: 285/65/R18 [t748] ([Partial] [Unverified] single report)
 - **Rear wheel width with current tires**: 36" [t748] ([Unverified] single report)
 - **Rear wheel width with Titan tires (Lifted)**: 39" [t748] ([Partial] [Unverified] single report)
 - **Rear wheel width with Titan tires (Unlifted)**: 37" [t748] ([Unverified] single report)
+- **Recommended Gear Ratio for Large Tires**: 4.56 [t247] ([Partial] [Unverified] single report)
 - **Speedo error at 60 mph with larger tires**: ~5mph slow [t744] ([Unverified] single report)
 - **Tire Size**: 285 75 16 [t932] ([Unverified] single report)
 - **Tire size: Alternative narrow option for same diameter**: 33" (diameter) [t222] ([Unverified] single report)
@@ -217,6 +243,7 @@ _Procedure reported by [t461]._
 - **Tire tread depth**: similar to KO2 [t220] ([Partial] [Unverified] single report)
 - **Transfercase TX15B High Range Ratio**: 1:1 [t116] ([Unverified] single report)
 - **Transfercase TX15B Low Range Ratio**: 2.625:1 [t116] ([Unverified] single report)
+- **Typical winter gas MPG drop**: 2-3 mpg [t2941] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -240,6 +267,8 @@ _Procedure reported by [t461]._
 - Keep 3.36 gears if staying with stock tire size and not adding significant weight. [t261]
 - Consider that a 1-inch increase in tire diameter provides only about half an inch of additional clearance. [t222]
 - Note the difference between starting with a 265/70R16 versus a 265/75R16 when upgrading to a wider size. [t222]
+- Check elevation differences when comparing fuel economy. [t2941]
+- Verify if the display reading is accurate or calculate actual mileage. [t2941]
 
 ## Common mistakes
 
@@ -250,8 +279,10 @@ _Procedure reported by [t461]._
 
 - **t116**: TerryD, "Driveline Tech Info", 2019-08-12. https://www.xterranation.org/index.php?threads/driveline-tech-info.8974/
 - **t214**: snoborderphx, "Wheel Spacers Overview: Hub/Lug/Wheel-Centric", 2015-04-07. https://www.xterranation.org/index.php?threads/wheel-spacers-overview-hub-lug-wheel-centric.6706/
+- **t217**: AdventureRider81, "Members running 35" tires", 2019-08-09. https://www.xterranation.org/index.php?threads/members-running-35-tires.8966/
 - **t220**: gta6198, "BFG KO2 T/A or Toyo Open Country AT3?", 2021-01-20. https://www.xterranation.org/index.php?threads/bfg-ko2-t-a-or-toyo-open-country-at3.9885/
 - **t222**: 5am, "3.13 Gear Ratio And 33" Tire", 2020-03-02. https://www.xterranation.org/index.php?threads/3-13-gear-ratio-and-33-tire.9412/
+- **t247**: Prime, "Complete Front & Rear Titan Swap", 2021-03-01. https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/
 - **t261**: Brunnie, "Can It Really Be This Simple?", 2020-01-30. https://www.xterranation.org/index.php?threads/can-it-really-be-this-simple.9359/
 - **t431**: Levi_Xterra, "Experience with Cooper Tires??", 2014-03-16. https://www.xterranation.org/index.php?threads/experience-with-cooper-tires.4977/
 - **t461**: Trexx, "C200 Gear Info For Titan Swap", 2012-05-23. https://www.xterranation.org/index.php?threads/c200-gear-info-for-titan-swap.1657/
@@ -262,4 +293,5 @@ _Procedure reported by [t461]._
 - **t879**: gorillamel, "Posi-traction", 2012-06-14. https://www.xterranation.org/index.php?threads/posi-traction.1798/
 - **t881**: Ron ap Rhys, "ARB Locker for the R180", 2012-02-01. https://www.xterranation.org/index.php?threads/arb-locker-for-the-r180.882/
 - **t932**: tommyboy, "2" Lift, (Spacers and AAL)", 2011-10-27. https://www.xterranation.org/index.php?threads/2-lift-spacers-and-aal.29/
+- **t2941**: njnewb, "Mpg dropped dramatically", 2017-02-07. https://www.xterranation.org/index.php?threads/mpg-dropped-dramatically.8002/
 

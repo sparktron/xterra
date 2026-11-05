@@ -17,6 +17,7 @@ applies_to:
   drivetrain: []
 shared_platform:
 - Frontier
+- Titan
 difficulty: 1
 est_time: null
 tools: []
@@ -26,12 +27,13 @@ parts:
 sources:
 - t21
 - t52
+- t247
 - t945
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 1
+  partial_items: 3
   partial_fields:
   - applies_to
   - difficulty
@@ -43,13 +45,19 @@ verification:
 
 # Specifications by model year
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
-_No verified summary yet._
+[Partial] Choose 2006 Titan brakes to fit standard 17-inch wheels. [t247]
+
+## Procedure
+
+> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
+
+1. Choose 2006 Titan brakes to fit standard 17-inch wheels, avoiding the massive calipers of later models.
+
+_Procedure reported by [t247]._
 
 ## Parts
 
@@ -58,6 +66,7 @@ _No verified summary yet._
 ## Specifications
 
 - **Lower strut bolt size/type**: Metric flange bolt (likely M12) [t945] ([Unverified] single report)
+- **Optimal Brake Year for 17" Wheels**: 2006 [t247] ([Unverified] single report)
 
 ## Tips & gotchas
 
@@ -72,5 +81,6 @@ _No verified summary yet._
 
 - **t21**: Muzikman, "*** PLEASE READ *** ~ Front Diff Failures", 2006-01-28. https://www.thenewx.org/threads/please-read-front-diff-failures.5479/
 - **t52**: maillet282, "List of How to  and DIY", 2014-12-18. https://www.xterranation.org/index.php?threads/list-of-how-to-and-diy.6263/
+- **t247**: Prime, "Complete Front & Rear Titan Swap", 2021-03-01. https://www.xterranation.org/index.php?threads/complete-front-rear-titan-swap.9928/
 - **t945**: Timrich, "Lower Strut Bolt and Nut Size", 2015-08-19. https://www.xterranation.org/index.php?threads/lower-strut-bolt-and-nut-size.7131/
 

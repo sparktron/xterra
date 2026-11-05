@@ -12,6 +12,7 @@ applies_to:
   - 2008
   - 2009
   trims:
+  - 4x4
   - S
   - SE
   - X
@@ -32,6 +33,8 @@ sources:
 - t23
 - t24
 - t27
+- t63
+- t124
 - t335
 - t501
 - t682
@@ -42,12 +45,12 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 2
-  partial_items: 15
+  partial_items: 21
   partial_fields:
   - applies_to
   - est_time
   unconfirmed_safety_values: 0
-  withheld_items: 14
+  withheld_items: 15
   pending_safety_values: 0
 ---
 -->
@@ -73,6 +76,10 @@ Check the fender's spring cap while verifying the lever-style radiator cap. [t33
 Check transmission fluid level and inspect radiator for contamination or mixed fluids. [t804]
 
 [Partial] Listen for shuddering or jarring shifts that feel like Rumble strips on the road. [t804]
+
+[Partial] Replace the radiator to prevent overheating and potential damage from the SMOD system. [t63]
+
+[Partial] Check the color of the fluid in the radiator to diagnose a transmission cooler failure. [t124]
 
 ## Procedure
 
@@ -118,9 +125,22 @@ _Procedure reported by [t23]._
 
 </details>
 
+<details><summary>Alternate procedure [t124] [Partial]</summary>
+
+1. Check the color of the fluid in the radiator.
+2. If the fluid is pinkish, diagnose a SMOD issue where the transmission cooler has failed.
+
+</details>
+
 <details><summary>Alternate procedure [t804] [Partial]</summary>
 
 1. [Partial] Listen for shuddering or jarring shifts while driving.
+
+</details>
+
+<details><summary>Alternate procedure [t63] [Partial]</summary>
+
+1. [Partial] Replace the radiator to prevent overheating and potential damage from the SMOD system.
 
 </details>
 
@@ -147,11 +167,16 @@ _Procedure reported by [t23]._
 - Drivers may describe the sensation as feeling like 'Rumble strips on the road'. [t804]
 - [Partial] Perform this bypass if you want to prevent shifting issues caused by coolant mixing with transmission fluid. [t883]
 - Consider doing it before warranty expires or when mileage is low, as waiting too long might risk the transmission failing after coverage ends. [t883]
+- Note that water intrusion in the transmission may have occurred either before or after this preventative measure. [t63]
+- [Partial] Use this check to determine if the transmission itself is toast or just overheated by bad coolant flow. [t124]
 
 ## Common mistakes
 
 - [Partial] Installing an 'old' style radiator during initial repairs which leads to premature failure shortly thereafter. [t24]
 - [Partial] Assuming corporate support will cover repairs beyond 80,000 or 100,000 miles without checking the specific warranty extension terms. [t787]
+- [Partial] Installing a new transmission without addressing potential SMOD-related overheating issues first. [t63]
+- [Partial] Assuming a pinkish fluid means only one problem exists when it signals SMOD failure. [t124]
+- [Partial] Ignoring radiator fluid color entirely before blaming other components for heat-related issues. [t124]
 
 ## Diagrams (links only)
 
@@ -169,6 +194,8 @@ _Procedure reported by [t23]._
 - **t23**: xmedicG, "Radiator/Trans Issues ... Collection of Salient Threads", 2010-11-08. https://www.thenewx.org/threads/radiator-trans-issues-collection-of-salient-threads.36132/
 - **t24**: Killswitch, "SMOD Hit List - Year, Mileage, User and Outcome", 2013-03-14. https://www.thenewx.org/threads/smod-hit-list-year-mileage-user-and-outcome.62655/
 - **t27**: GringoRubio, "List of Calsonic Radiator Part Numbers Associated with SMOD", 2021-03-06. https://www.thenewx.org/threads/list-of-calsonic-radiator-part-numbers-associated-with-smod.220778/
+- **t63**: huntxterra, "Advice on repladcing SMOD  transmission with Used Junkyard Tranny", 2023-03-08. https://www.xterranation.org/index.php?threads/advice-on-repladcing-smod-transmission-with-used-junkyard-tranny.10885/
+- **t124**: The1Kraken, "Loss of Gears…", 2024-06-28. https://www.xterranation.org/index.php?threads/loss-of-gears%E2%80%A6.11216/
 - **t335**: Ishmillion27, "Overheating", 2021-07-18. https://www.xterranation.org/index.php?threads/overheating.10179/
 - **t501**: Just a Hunter, "Radiators,  Antifreeze & Strawberry Milkshake Of Death (SMOD)", 2019-08-24. https://www.xterranation.org/index.php?threads/radiators-antifreeze-strawberry-milkshake-of-death-smod.9018/
 - **t682**: Off Trail, "2006 SE - Replace Auto or Convert to Manual?", 2014-10-15. https://www.xterranation.org/index.php?threads/2006-se-replace-auto-or-convert-to-manual.6031/

@@ -48,6 +48,7 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Automatic transmission fluid change
 
+- [image: https://lh3.googleusercontent.com/pw/AP1GczNna0_M7w85H4LS-HByYGQd12yW_8NDSxy086nldBt9qqyAscS8s3h2OmEhTESyhPww0lQzqLJxsgIirr_WO9nYn36k0O8HhpUpw5Vp3XJfZkAGA0Y0=w2400] [t62]
 - http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9921 [t34]
 - http://www.thenewx.org/forum/picture.php?albumid=434&pictureid=9929 [t34]
 
@@ -66,6 +67,10 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - https://lh4.googleusercontent.com/-dqaQalgWZpM/UN5Y_XEoCfI/AAAAAAAABKQ/Hsl7EtNpe5U/s600/IMG_3351_450x600.JPG [t988]
 - https://lh6.googleusercontent.com/-oWlOD1dWv8o/UN5Y--G0v9I/AAAAAAAABKI/Cl8ZQxFCwp0/s800/IMG_3345_800x600.JPG [t988]
 - https://www.xterranation.org/data/attachments/38/38632-f5c9dd02027d79e060b5990135537c20.jpg [t76]
+
+## Brake pads and rotors upgrade
+
+- http://www.xterraperformance.com/BRAKES_c_53.html [t3083]
 
 ## Bulkhead O-Ring Specifications for Air Lockers
 
@@ -136,6 +141,7 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - http://purenissan.com/Image 0006.jpg [t737]
 - http://purenissan.com/Image 0007.jpg [t737]
 - http://scoop.diamondgalleries.com/Image/NewsImage/4/68835/160085/1 [t937]
+- http://shop.blackwidowgear.com/Nissan-Xterra-Sec-Gen-Rear-Bumper-XterraRear.htm [t201]
 - http://www.julianwinter.com/xterra/BareSteel.jpg [t406]
 - http://www.julianwinter.com/xterra/Monstaliner.jpg [t406]
 - http://www.julianwinter.com/xterra/MonstalinerCloseUp.jpg [t406]
@@ -154,7 +160,15 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - https://www.nilight.com/products/2007-2018-jeep-wrangler-jk-jku-front-bumper-rock-crawler-winch-plate/ [t182]
 - https://www.xterranation.org/data/attachments/0/256-3ddd6ae551ceb8d6e6595537711ff935.jpg [t724]
 - https://www.xterranation.org/data/attachments/4/4049-72432e329c29c63bf3210a9e417eda98.jpg [t184]
+- https://www.xterranation.org/index.php?threads/building-rock-sliders.9372/ [t181]
 - https://www.youtube.com/watch?v=58K4qDzAIYk [t283]
+
+## CB Radio Antenna Mounting
+
+- http://i1207.photobucket.com/albums/bb465/BleednBlues/Xterra/CBAntenna2.jpg [t1028]
+- http://i1207.photobucket.com/albums/bb465/BleednBlues/Xterra/CBAntenna4.jpg [t1028]
+- http://www.thenewx.org/forum/showthread.php?t=56073&referrerid=13436 [t1028]
+- http://www.universal-radio.com/catalog/hamantm/1030lrg.jpg [t1028]
 
 ## CB and antenna setup on a budget
 
@@ -260,12 +274,17 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Door, window and lock electrical faults
 
+- http://www.amazon.com/Nissan-Xterra...F8&refRID=1G0479S74MYJHHRG2CGF#productDetails [t1027]
 - https://i.imgur.com/N4WFvtL.png?1 [t764]
 - https://i.imgur.com/qdS50o8.png [t764]
 - https://www.xterranation.org/data/attachments/30/30623-bacf71948d883209afc95b4c90b84d49.jpg [t168]
 
 ## Driveline and wheel bearing noises
 
+- [image: https://www.xterranation.org/data/attachments/1/1769-9da2b86fb83f02526018885395525963.jpg] [t3088]
+- [image: https://www.xterranation.org/data/attachments/1/1770-0f4a979653874d8b91104f59d0f3f858.jpg] [t3088]
+- http://www.baja101.com/4x4abc/4WD101/img/diff.jpg [t958]
+- http://www.oemnissanparts.com/media/images/oe/mechanical/F599070.gif [t958]
 - http://www.thenewx.org/forum/showthread.php?t=57971&page=2 [t794]
 - https://i.imgur.com/H1A34hX.jpg?1 [t345]
 - https://www.dennysdriveshaft.com/p1...ion_yoke_24_spline_1350_series_fits_2007.html [t525]
@@ -297,9 +316,11 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - http://imgur.com/gallery/nUrLtrz [t514]
 - http://www.courtesyparts.com/images/n50/n50_330-2.gif [t790]
+- http://www.xterranation.org/showthread.php?1260-Bittersweet-goodbye..... [t3215]
 - http://www.youtube.com/watch?v=8yGcN4n3Pwc [t773]
 - https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/417050_3415161056572_1196430024_3493845_1655141167_n.jpg [t790]
 - https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-ash4/420221_3415161976595_1196430024_3493846_1704289023_n.jpg [t790]
+- https://www.mann-hummel.com/mfus/index.html?iKeys=30.1.755.2.1 [t3214]
 
 ## Engine oil and filter change
 
@@ -351,6 +372,10 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - http://www.nicoclub.com/FSM/Xterra/ [t293]
 
+## Fender trimming for 35-inch tires
+
+- https://www.xterranation.org/data/attachments/18/18432-d36e5323187a9ab2725746f68edc1e86.jpg [t217]
+
 ## Final assembly sequence after LCA swap
 
 - https://www.xterranation.org/data/attachments/4/4474-473546a109f4b1f70fd23884941747b9.jpg [t856]
@@ -372,10 +397,24 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - https://www.xterranation.org/data/attachments/14/14006-8e27a0c21e99be3436e2cd275cb9f6cc.jpg [t706]
 
+## Front sway bar endlink replacement
+
+- [image: http://img.tapatalk.com/d/12/12/09/navanuqu.jpg] [t3213]
+- [image: http://img.tapatalk.com/d/12/12/09/pu3ubaha.jpg] [t3213]
+
 ## Frontier climate control swap into Xterra
 
 - http://s1262.photobucket.com/user/rhaas3/media/frontier climate control_zpsfokislmf.jpg.html [t848]
 - https://uploads.tapatalk-cdn.com/20170211/3ffd73d4fa1715160d1ce495003ef3a5.jpg [t848]
+
+## Fuel System Cleaning Kits and Products
+
+- http://3mauto.com/3m-fuel-system-tune-up-kit-39089.html [t2949]
+
+## Fuel pump and level sender issues
+
+- https://www.nissanpartsdeal.com/parts-list/2007-nissan-xterra/fuel_engine_control/fuel_tank.html?filter=(3=SE;4=5AT;6=4WD)/ [t80]
+- https://www.xterranation.org/data/attachments/35/35607-4f84ece9c93d58de80092f431069a3a5.jpg [t80]
 
 ## Fuse and relay maps
 
@@ -393,6 +432,11 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - http://i564.photobucket.com/albums/ss88/bedard7/IMG_20130714_114724_zpsd26449af.jpg [t1034]
 - http://tapatalk.imageshack.com/v2/14/10/17/ca2ecc3dac401d43b07942340dc7d2b4.jpg [t1034]
+
+## Halo headlight retrofit kits
+
+- http://www.automotivelightstore.com/xterra.aspx [t1036]
+- https://www.superbrightleds.com/cat/led-headlight-accent-lights/ [t1036]
 
 ## Heater core and A/C problems
 
@@ -586,6 +630,12 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - http://i1048.photobucket.com/albums/s372/ddmetz/2012-10-25190226.jpg [t959]
 - http://i242.photobucket.com/albums/ff217/drbandkgb/2009 Xterra KGB/DSC_2034-1_zps89263031.jpg [t932]
 - http://i242.photobucket.com/albums/ff217/drbandkgb/2009 Xterra KGB/IMG_4770_zpse34ea4c9.jpg [t932]
+- http://i87.photobucket.com/albums/k155/dsmboy1991/97ACB7B7-0787-4810-A7B6-1F5F6C5DC87E.jpg [t951]
+- http://i87.photobucket.com/albums/k155/dsmboy1991/F067B297-9C5A-4B6B-901A-A40167CCD468.jpg [t951]
+- http://wizzard005.smugmug.com/Unfil...llaneous-Pictures/calni/882007023_Yicay-L.jpg [t1007]
+- http://www.ezaccessory.com [t459]
+- http://www.hannemannfiberglass.com/custom.asp?id=457567&page=3 [t747]
+- http://www.nissteclifts.com/index.p...rt&page=shop.browse&category_id=173&Itemid=72 [t459]
 - http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
 - http://www.prgproducts.com/shop/product/prg-2xe31mk-x/ [t962]
 - http://www.purenissan.com/np17905.jpg [t458]
@@ -595,12 +645,23 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - http://www.xterraperformance.com/2-Xterra-Body-Lift_p_174.html [t1020]
 - https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-prn1/t1/942180_10151396768956596_1802991352_n.jpg [t932]
 - https://i.postimg.cc/wv9nPDxK/SLR-kit.jpg [t829]
+- https://nissteclifts-com.3dcartstores.com/assets/images/N-TOP1.jpg [t374]
 - https://sphotos-b.xx.fbcdn.net/hphotos-prn1/885112_10151298182181596_1867123950_o.jpg [t932]
 - https://www.alldogsoffroad.com/images/thumbs/0001386_alldogs-offroad-recessed-ubolt-plates-for-2nd-gen-nissan-xterra_550.png [t693]
 - https://www.bilsteinlifts.com/shop/...-relocation-kit-fk42-nissan-xterra-2005-2018/ [t553]
 - https://www.kyb.com/save/ [t548]
 - https://www.suspensionlifts.com/wp-content/uploads/sl-normalized/2026/03/bilstein-6112-assembled-1-2-inch-front-lift-coilovers-for-2005-2015-nissan-xterra-4wd-v6-only-793405-normalized-3jw7BT.jpg [t148]
+- https://www.xterranation.org/data/attachments/0/862-9897ce9e31829dd9a7a027c1fa6bf74f.jpg [t1007]
 - https://www.xterranation.org/data/attachments/12/12545-4121ffc3d9d82c8f8f64b6a33a34c080.jpg [t553]
+- https://www.xterranation.org/data/attachments/18/18432-d36e5323187a9ab2725746f68edc1e86.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18854-0cc7195a55dab5edb5db6cb2c0b977da.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18855-b3f9b63af2b22cf6bb99cb421ee4c1bc.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18868-b6c20f6c7a8747f6e7bef1c442c9e1a8.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18869-46a0848b7aaa57d96f5d0da737b748e2.jpg [t217]
+- https://www.xterranation.org/data/attachments/18/18870-8209ab1d7259b0158dda342c56d21dab.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21440-a5149318f3322e583df5a8966141699f.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21441-0b255e8c4ff915396489d3ed4f2d35e0.jpg [t217]
+- https://www.xterranation.org/data/attachments/21/21443-c1d09e8e550207221a1c0587b0c9f0ef.jpg [t217]
 - https://www.xterranation.org/data/attachments/21/21641-7c77d7dab0776a87a527aeef74b92a55.jpg [t544]
 - https://www.xterranation.org/data/attachments/7/7175-5779c8cea35c40729e12ad67f7cd0a5a.jpg [t423]
 - https://www.xterranation.org/data/attachments/9/9667-f1032d3e60d68f5748514e968b19c120.jpg [t817]
@@ -804,6 +865,10 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 - https://www.xterranation.org/data/attachments/12/12336-0413f7237ab0799da58e4b2e2299d8b4.jpg [t633]
 
+## Rear brake line extensions and brackets
+
+- http://i1048.photobucket.com/albums/s372/ddmetz/2012-10-25190226.jpg [t3097]
+
 ## Rear cargo shelf fabrication
 
 - https://www.xterranation.org/data/attachments/22/22595-aec695c88a0100d2b2b95850307acfc3.jpg [t284]
@@ -886,6 +951,15 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - https://www.xterranation.org/data/attachments/39/39196-a9765e9ffa4068707a2ccd8d453d427d.jpg [t54]
 - https://www.xterranation.org/data/attachments/39/39197-cf09040ddaf0daf165d9161efedb234c.jpg [t54]
 
+## Roof rack accessories and fairings
+
+- https://uploads.tapatalk-cdn.com/20170303/4993d9adad24584abea092e4eb58cb75.jpg [t2939]
+
+## Roof rack lighting options
+
+- https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xpa1/t31.0-8/1487882_10152344209341596_4007361957954080302_o.jpg [t976]
+- https://www.xterranation.org/data/attachments/2/2370-0e6231437dc18919063e162b4fe3dc63.jpg [t976]
+
 ## Roof racks and baskets
 
 - https://www.xterranation.org/data/attachments/23/23948-4373d6708dfde84e7da596c3bd91a244.jpg [t278]
@@ -951,6 +1025,8 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 
 ## Sway bar links and bushings
 
+- http://i977.photobucket.com/albums/ae253/mfredieu/05%20Xterra%20SE/Misc/IMG_20101002_190704.jpg [t996]
+- http://img.tapatalk.com/d/12/12/09/pu3ubaha.jpg [t996]
 - http://m.ebay.com/itm/Steel-Complet...ckle-For-Xterra-2005-/331769011663?nav=SEARCH [t893]
 - http://www.nissteclifts.com/index.p...tegory_id=173&option=com_virtuemart&Itemid=72 [t1022]
 - http://www.rockauto.com/catalog/moreinfo.php?pk=1057095&cc=1431467 [t1022]
@@ -971,6 +1047,11 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 ## TPMS light concealment mod
 
 - https://www.xterranation.org/data/attachments/14/14411-1cc881f33640758e266b8b78927431a9.jpg [t629]
+
+## Tailgate interior tool mounts
+
+- https://uploads.tapatalk-cdn.com/20170228/38b2b9c06b2e5de842b1091ba986f5bc.jpg [t2940]
+- https://uploads.tapatalk-cdn.com/20170228/975f5125bebf3fb0097e76ea58cf2e14.jpg [t2940]
 
 ## Tailgater Hater overlay installation
 
@@ -1065,6 +1146,7 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 ## Titan front differential swap
 
 - http://i57.photobucket.com/albums/g206/chrscott_01/Dolores%20pt1/20150319_113001_zpsuprbe96c.jpg [t900]
+- https://www.xterranation.org/data/attachments/18/18432-d36e5323187a9ab2725746f68edc1e86.jpg [t217]
 
 ## Titan front spindle and brake upgrade
 
@@ -1187,6 +1269,8 @@ Links point at the original host. Reuse permission is unknown unless stated; do 
 - [image: https://www.xterranation.org/data/attachments/18/18920-dee10aa58994f9013c2e52362e2b8282.jpg] [t395]
 - http://www.peakauto.com/pdf/specs-peak_long_life.pdf [t788]
 - http://www.thenewx.org/forum/showpost.php?p=474945&postcount=35 [t25]
+- https://lh5.googleusercontent.com/-WpNu5JWLcbE/Ub6KTctlPbI/AAAAAAAABgc/xtv7Ir8Auaw/s720/bsoilrep.png [t3095]
+- https://lh6.googleusercontent.com/-vkdLK2cWsG4/UQyGvuffQWI/AAAAAAAABOg/rERJUu9mznY/s720/blackstone.png [t3095]
 - https://www.interstatebatteries.com/blog/what-is-an-agm-battery-and-whats-the-big-deal [t507]
 
 ## [reference] Gobi Ladder Specifications

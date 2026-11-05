@@ -10,6 +10,7 @@ applies_to:
   - 2006
   - 2010
   - 2011
+  - 2013
   trims:
   - Frontier
   - OR
@@ -47,21 +48,23 @@ sources:
 - t330
 - t333
 - t343
+- t485
 - t534
 - t654
 - t661
 - t665
 - t781
 - t785
+- t3099
 confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 20
+  partial_items: 22
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 8
+  withheld_items: 9
   pending_safety_values: 0
 ---
 -->
@@ -103,6 +106,10 @@ Connect an OBD Scanner to pull up and record the specific engine trouble code. [
 Check the connection on the O2 sensor and inspect for moisture accumulation inside the connector. [t661]
 
 [Partial] Replace oxygen sensors and drive the vehicle to let it settle. [t785]
+
+Monitor warmed-up idle RPM in gear and check for reduced vibration when shifting to neutral. [t485]
+
+[Partial] Start by replacing the upstream O2 sensors and use aftermarket NGK downstream ones. [t3099]
 
 ## Procedure
 
@@ -205,6 +212,13 @@ _Procedure reported by [t327]._
 
 </details>
 
+<details><summary>Alternate procedure [t3099] [Partial]</summary>
+
+1. [Partial] Start by replacing the upstream O2 sensors before assuming other components are at fault.
+2. Use aftermarket NGK downstream sensors if budget is a concern.
+
+</details>
+
 <details><summary>Alternate procedure [t101] [Partial]</summary>
 
 1. [Partial] Check for a P011 code indicating timing issues.
@@ -235,6 +249,11 @@ _Procedure reported by [t327]._
 - Cataclean: A blend of four solvents including hydrotreated light distillate, xylene, 1-propanol, and acetone. [t97]
 - [Partial] MAF Sensor: OEM or used [t330]
 - Oxygen sensor [t785]
+
+## Specifications
+
+- **Idle RPM range**: 600-800 rpm [t485] ([Unverified] single report)
+- **Low idle threshold**: < 500 rpm [t485] ([Partial] [Unverified] single report)
 
 ## Tips & gotchas
 
@@ -292,10 +311,12 @@ _Procedure reported by [t327]._
 - **t330**: Brunnie, "P0101 Code", 2020-02-04. https://www.xterranation.org/index.php?threads/p0101-code.9367/
 - **t333**: General_Tarfun, "O2 Sensor reads incomplete?", 2021-08-24. https://www.xterranation.org/index.php?threads/o2-sensor-reads-incomplete.10227/
 - **t343**: gearyr, "Replaced 02 sensor,  now code P0171 is showing", 2021-11-19. https://www.xterranation.org/index.php?threads/replaced-02-sensor-now-code-p0171-is-showing.10378/
+- **t485**: Xterrian13, "Vibration when idling", 2014-12-09. https://www.xterranation.org/index.php?threads/vibration-when-idling.6230/
 - **t534**: nalley4, "Overdrive Question", 2019-12-14. https://www.xterranation.org/index.php?threads/overdrive-question.9260/
 - **t654**: TN4x4Xterra, "PRG Motor Mounts?", 2015-09-24. https://www.xterranation.org/index.php?threads/prg-motor-mounts.7210/
 - **t661**: J Everett, "PO171 (Lean condition, left cylinder bank)", 2013-03-21. https://www.xterranation.org/index.php?threads/po171-lean-condition-left-cylinder-bank.3160/
 - **t665**: maillet282, "ABS/ VDC Off/ Slip light on and loss of 4x4 after river crossing", 2014-07-13. https://www.xterranation.org/index.php?threads/abs-vdc-off-slip-light-on-and-loss-of-4x4-after-river-crossing.5655/
 - **t781**: Razzmaniac, "Low idle", 2013-11-16. https://www.xterranation.org/index.php?threads/low-idle.4382/
 - **t785**: Deadpilot, "Gas milage question", 2012-10-29. https://www.xterranation.org/index.php?threads/gas-milage-question.2396/
+- **t3099**: Damon831, "O2 sensor or catalytic converter?", 2013-11-01. https://www.xterranation.org/index.php?threads/o2-sensor-or-catalytic-converter.4318/
 

@@ -16,17 +16,22 @@ difficulty: null
 est_time: null
 tools: []
 parts:
+- name: 1x1 aluminum box tubing
+  oem_part_no: ''
 - name: Brake Line Component
   oem_part_no: Extended Brake Lines
+- name: Extended brake lines (braided)
+  oem_part_no: ''
 - name: Upper Control Arm
   oem_part_no: Titan UCA
 sources:
+- t374
 - t879
-confidence: '[Unverified]'
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 9
   partial_fields:
   - shared_platform
   unconfirmed_safety_values: 0
@@ -37,32 +42,45 @@ verification:
 
 # Mods: Suspension lift and brake line extension
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
-
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary
 
 [Partial] Install Upper Control Arms and extended brake lines for suspension lift. [t879]
 
+[Partial] Disconnect lower shock mounts, extend suspension, turn steering lock-to-lock, then change fluid or keep rear sway bar. [t374]
+
 ## Procedure
 
 > **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
 
+1. [Partial] Disconnect the lower shock mounts.
+2. [Partial] Completely extend the front suspension by compressing and releasing it.
+3. [Partial] Turn the steering wheel from lock to lock while watching for hose stretch or binding.
+
+_Procedure reported by [t374]._
+
+<details><summary>Alternate procedure [t879] [Partial]</summary>
+
 1. Install Upper Control Arms (UCAs) from a Titan to accommodate the longer front axle.
 
-_Procedure reported by [t879]._
+</details>
 
 ## Parts
 
+- [Partial] 1x1 aluminum box tubing [t374]
 - Brake Line Component (Extended Brake Lines) [t879]
+- [Partial] Extended brake lines, braided [t374]
 - Upper Control Arm (Titan UCA) [t879]
 
 ## Tips & gotchas
 
 - [Partial] Use CV shafts from a V8 4WD Pathfinder as an alternative to the full Titan swap if you want to save money, noting they are the same length but bolt differently. [t879]
+- [Partial] Change aging brake fluid to help preserve lines and caliper piston seals. [t374]
+- Keep the rear sway bar in place if you want to minimize front brake line stretching. [t374]
 
 ## Source attributions
 
+- **t374**: Maxxpags, "Nisstec lift kit", 2022-05-15. https://www.xterranation.org/index.php?threads/nisstec-lift-kit.10622/
 - **t879**: gorillamel, "Posi-traction", 2012-06-14. https://www.xterranation.org/index.php?threads/posi-traction.1798/
 

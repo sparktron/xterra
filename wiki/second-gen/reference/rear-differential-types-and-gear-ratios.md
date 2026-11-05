@@ -5,8 +5,10 @@ title: Rear Differential Types and Gear Ratios
 generation: second-gen
 category: reference
 applies_to:
-  years: []
+  years:
+  - 2005
   trims:
+  - Off-Road
   - S
   - SE
   - X
@@ -21,23 +23,24 @@ tools: []
 parts: []
 sources:
 - t353
-confidence: '[Unverified]'
+- t669
+confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 11
+  partial_items: 13
   partial_fields:
   - applies_to
   - shared_platform
-  unconfirmed_safety_values: 0
-  withheld_items: 3
+  unconfirmed_safety_values: 1
+  withheld_items: 4
   pending_safety_values: 0
 ---
 -->
 
 # Rear Differential Types and Gear Ratios
 
-> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
+> **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
@@ -46,6 +49,8 @@ verification:
 Identify the differential model by counting bolts on the rear diff cover. [t353]
 
 [Partial] Match the gear ratio to your current setup or desired tire size. [t353]
+
+[Partial] Check the specific rear differential ring and pinion ratio, which is 3.69. [t669]
 
 ## Procedure
 
@@ -67,6 +72,7 @@ _Procedure reported by [t353]._
 - **2WD C200K standard ratio**: 2.93 [t353] ([Partial] [Unverified] single report)
 - **4WD M226 (Auto) ratio**: 3.13 [t353] ([Partial] [Unverified] single report)
 - **C200K bolt count**: 8 [t353] ([Partial] [Unverified] single report)
+- **Gear ratio**: 3.69 [t669] ([Partial] [Unverified] single report)
 - **M226 bolt count**: 12 [t353] ([Partial] [Unverified] single report)
 - **Manual X/S/SE M226 ratio**: 3.54 [t353] ([Unverified] single report)
 - **Pro-4X Auto M226 ratio**: 3.36 [t353] ([Unverified] single report)
@@ -89,4 +95,5 @@ _Procedure reported by [t353]._
 ## Source attributions
 
 - **t353**: Stingingfork, "Need Advice on Next Mod - Switching Out a C200K with a M226 Axle Assy.", 2021-02-26. https://www.xterranation.org/index.php?threads/need-advice-on-next-mod-switching-out-a-c200k-with-a-m226-axle-assy.9925/
+- **t669**: jhill15, "Rear diff question", 2015-08-11. https://www.xterranation.org/index.php?threads/rear-diff-question.7116/
 
