@@ -58,6 +58,8 @@ verification:
 
 # Driveline and wheel bearing noises
 
+> **Guide for this job:** [Driveline and wheel bearing noises](../vehicle/guides/driveline-noises.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary

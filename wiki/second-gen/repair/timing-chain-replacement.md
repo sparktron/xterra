@@ -56,6 +56,8 @@ verification:
 
 # Timing chain and guide replacement
 
+> **Guide for this job:** [Timing chain and guide replacement](../vehicle/guides/timing-chain-replacement.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.

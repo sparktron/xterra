@@ -75,6 +75,8 @@ verification:
 
 # Torque specifications
 
+> **Guide for this job:** [Torque specifications](../vehicle/guides/torque-specs.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.

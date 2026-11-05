@@ -38,6 +38,8 @@ verification:
 
 # Engine oil and filter change
 
+> **Guide for this job:** [Engine oil and filter change](../vehicle/guides/engine-oil-change.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > **Some safety-critical values on this page are not confirmed** (marked [Unverified] or [Partial]): they come from one source or are only partly supported. Verify against the factory service manual before use; later runs re-check them against new sources.

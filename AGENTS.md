@@ -108,7 +108,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
   Removing it from a page hides that page from `qa`. No test covers hand-editing.
 - **Nothing publishes blank, and a missing page fails `qa`.** The model sometimes returns `""` as a step, tip or mistake;
   export skips it without renumbering the stored claim keys, and `qa` refuses a step or list item that holds only marks
-  and thread ids. `qa.check_index_links` refuses a local link in a generated `index.md` whose target is missing, so an
+  and thread ids. `qa` refuses a local link in a generated `index.md` or topic page whose target is missing, so an
   export that lost pages cannot pass. Tests: `test_an_empty_step_or_tip_is_not_rendered_and_qa_refuses_a_blank_item`,
   `test_qa_refuses_an_index_link_to_a_missing_page`.
 - **A page's metadata lives in an HTML comment under that line** (`export._metadata_comment`, `qa._metadata_end`). GitHub
@@ -170,7 +170,7 @@ The local model is not trusted. Each item names the guarding test, or says none 
 | `tests/` | Offline suite with HTML fixtures; no network or LLM server needed |
 | `wiki/` | Generated output; pages with the `GENERATED` header are overwritten by `xw export`. Committed, so regenerate and review the diff before committing |
 | `wiki/<generation>/vehicle/` | A generation's reference section: hand-curated pages (one per model year plus reference pages); edit by hand, cite every number, never name the other generation |
-| `wiki/<generation>/vehicle/guides/` | Hand-written how-to guides, same rules. Regenerate the second-gen hub with `scripts/guides_hub.py`. Name a guide after its `topics.yaml` slug and the index links it from that topic's row (`export.GUIDES_DIR`, `test_a_curated_guide_is_linked_from_its_topic_in_the_index`) |
+| `wiki/<generation>/vehicle/guides/` | Hand-written how-to guides, same rules. Regenerate the second-gen hub with `scripts/guides_hub.py`. Name a guide after its `topics.yaml` slug and the index links it from that topic's row, and the topic page links it above its summary (`export.GUIDES_DIR`, `test_a_curated_guide_is_linked_from_its_topic_in_the_index`, `test_a_topic_page_links_its_guide_and_the_index_links_the_supporting_pages`). Renaming a guide by hand leaves a stale link that `qa` refuses until the next export |
 | `data/` | SQLite state and raw page cache. Gitignored; holds other people's posts |
 | `.claude/`, `.codex/`, `.agents/` | `/review-wiki` command and `wiki-reviewer` agent, per tool |
 
