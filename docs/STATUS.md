@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-04 · **Branch:** `feat/guides-and-generation-split`, on `origin/master` (`96f2b75`, merge of PR #12) plus the exporter fix and regenerated wiki below · `xw export` made safe to interrupt in its own pull request, stacked on this branch
+**Updated:** 2026-11-04 · **Branch:** `wiki/nov3-xterranation-chunks`, from `master` (`1fec457`, merge of PR #15), holding the Nov 3 chunks' regenerated wiki, see Active work · On top of PR #15 (page metadata)
 
 ## Objective
 
@@ -18,7 +18,30 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Page metadata no longer shows as text (2026-11-04). In a pull request from `fix/page-metadata-comment` against `master` (`13ad97f`).
+Pending `xterranation` chunks processed (2026-11-04). Regenerated wiki on branch `wiki/nov3-xterranation-chunks`.
+
+- **Run:** `xw doctor`, backup to `data/xw.sqlite.bak-pre-nov3-extract-2026-11-04`, `xw extract --source xterranation`, `xw verify`,
+  `xw export`, `xw qa`. Logs: `data/xterranation-nov3-extract-2026-11-04.log` and `data/xterranation-nov3-verify-2026-11-04.log`.
+- **Extract:** all 73 pending chunks processed, none failed, about 47 minutes. 56 came from the 2026-11-03 crawl; 17 were
+  earlier failures with invalid JSON, and those succeeded this time. 412 new facts from 72 threads. 4 chunks hit the 30-fact
+  cap (121, 387, 577, 600), so they may have more to say than was kept. One new fact is an exact duplicate of another.
+- **Verify:** all 412 judged by 2 passes: 885 claims supported, 1,323 partial, 159 unsupported. No existing local verdict
+  changed and no old fact gained one. Decoys: 19 of 883 accepted in this batch (2.2%), against 65 of 6,720 before (1%); the
+  cause is unknown, and each accepted call was discarded as designed, so `xw status` still rounds the total to 1%.
+- **Export:** 1,539 pages from 3,103 facts (was 1,413 from 2,691), 2,005 withheld (was 1,791). Second-gen 1,056 pages (was
+  930), first-gen unchanged; 126 new pages and 47 changed; no curated page changed. `xw qa` passed.
+- **Needs review:** 25 safety values publish unconfirmed and marked (was 0), including oil capacity and differential drain torque
+  (`wiki/second-gen/pending_verification.md`). None has had a Claude review; the review queue holds them at priority 0.
+- **Model:** LM Studio had the 27B loaded (16.5 GB, idle), and the configured 9B could not load beside it, so `xw doctor
+  --smoke` got a 400 while plain `xw doctor` passed: it only checks that a model is listed. For this run the 27B was unloaded and
+  the 9B loaded at 24,576 context. The 27B is back at its 80,384 context. Every new fact and verdict came from the 9B.
+- **Not done:** Claude review, `xw review-export`. No code changed, so `pytest` was not rerun locally; remote CI and the
+  dependency-floor job run on the pull request. The 7 `xterranation` threads in `error`
+  and the 492 queued threads were not touched, no crawling ran, and the source stays `in-progress` until a full `xw run`.
+- **PR #15:** merged first. This branch was rebased onto it and the wiki regenerated with `xw export && xw qa`, so the new
+  pages keep their metadata in the HTML comment.
+
+Page metadata no longer shows as text (2026-11-04). Merged as PR #15.
 
 - **Problem:** GitHub takes YAML as front matter only when `---` is the file's first line, and `GENERATED` has to be
   first, so all 1,413 generated pages printed their metadata above the heading (seen on a live page).
