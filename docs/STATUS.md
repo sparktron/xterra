@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-05 · **Branch:** `fix/qa-blank-steps-missing-links`, from `master` (`65687a6`, merge of PR #16), see Active work
+**Updated:** 2026-11-05 · **Branch:** `fix/qa-blank-steps-missing-links`, from `master` (`60c280b`, merge of PR #17), see Active work
 
 ## Objective
 
@@ -33,7 +33,14 @@ No blank steps; `qa` catches missing pages (2026-11-05). Items 1 and 8 of the 20
 - **Not run:** dependency-floor tests (CI runs them), any LLM stage. Extraction still stores empty items; filtering them
   there would shift the claim keys of facts already stored.
 
-Pending `xterranation` chunks processed (2026-11-04). Merged as PR #16 on 2026-11-05.
+Site review committed (2026-11-05, PR #17): `docs/SITE_REVIEW_2026-11-04.md`, with a note on what changed since its snapshot.
+
+- **Next, per the review:** stop `open_questions.md` printing withheld text, reject the pinion nut claim in `xw triage` (needs a
+  person), and Claude-review the 25 unconfirmed safety values below. Hold crawling until the page structure is fixed.
+- **Needs a decision:** whether the `crawl.contact` address is the intended one, and whether `respect_robots` goes back to true.
+- **Not run:** `pytest`, `xw export`, `xw qa`, any LLM stage or crawling. Only this file and the review changed.
+
+Pending `xterranation` chunks processed (2026-11-04). Merged as PR #16 on 2026-11-05; CI passed on `master`.
 
 - **Run:** `xw doctor`, backup to `data/xw.sqlite.bak-pre-nov3-extract-2026-11-04`, `xw extract --source xterranation`, `xw verify`,
   `xw export`, `xw qa`. Logs: `data/xterranation-nov3-extract-2026-11-04.log` and `data/xterranation-nov3-verify-2026-11-04.log`.
@@ -50,8 +57,7 @@ Pending `xterranation` chunks processed (2026-11-04). Merged as PR #16 on 2026-1
 - **Model:** LM Studio had the 27B loaded (16.5 GB, idle), and the configured 9B could not load beside it, so `xw doctor
   --smoke` got a 400 while plain `xw doctor` passed: it only checks that a model is listed. For this run the 27B was unloaded and
   the 9B loaded at 24,576 context. The 27B is back at its 80,384 context. Every new fact and verdict came from the 9B.
-- **Not done:** Claude review, `xw review-export`. No code changed, so `pytest` was not rerun locally; remote CI and the
-  dependency-floor job run on the pull request. The 7 `xterranation` threads in `error`
+- **Not done:** Claude review, `xw review-export`. No code changed, so `pytest` was not rerun locally. The 7 `xterranation` threads in `error`
   and the 492 queued threads were not touched, no crawling ran, and the source stays `in-progress` until a full `xw run`.
 - **PR #15:** merged first. This branch was rebased onto it and the wiki regenerated with `xw export && xw qa`, so the new
   pages keep their metadata in the HTML comment.
