@@ -22,7 +22,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 2
+  partial_items: 1
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
@@ -40,10 +40,6 @@ verification:
 ## Summary
 
 [Partial] Mount Titan or Armada style 17-inch aluminum wheels. [t249]
-
-## Tips & gotchas
-
-- [Partial]  [t249]
 
 ## Source attributions
 

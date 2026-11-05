@@ -43,7 +43,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 6
+  withheld_items: 5
   pending_safety_values: 0
 ---
 -->

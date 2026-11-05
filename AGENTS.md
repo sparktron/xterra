@@ -106,6 +106,11 @@ The local model is not trusted. Each item names the guarding test, or says none 
   writes, and an unparseable line is a violation. Change one, change the other. Test: `test_qa_catches_tampering`.
 - **The `GENERATED` first line is load-bearing.** `export` overwrites pages that carry it and `qa` checks only those.
   Removing it from a page hides that page from `qa`. No test covers hand-editing.
+- **Nothing publishes blank, and a missing page fails `qa`.** The model sometimes returns `""` as a step, tip or mistake;
+  export skips it without renumbering the stored claim keys, and `qa` refuses a step or list item that holds only marks
+  and thread ids. `qa.check_index_links` refuses a local link in a generated `index.md` whose target is missing, so an
+  export that lost pages cannot pass. Tests: `test_an_empty_step_or_tip_is_not_rendered_and_qa_refuses_a_blank_item`,
+  `test_qa_refuses_an_index_link_to_a_missing_page`.
 - **A page's metadata lives in an HTML comment under that line** (`export._metadata_comment`, `qa._metadata_end`). GitHub
   reads YAML as front matter only when `---` is the file's first line, so uncommented it shows as text above the heading,
   and tools that read front matter won't see this block. `qa` refuses metadata outside a closed comment. Test:

@@ -25,7 +25,7 @@ verification:
   partial_items: 1
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 2
+  withheld_items: 0
   pending_safety_values: 0
 ---
 -->

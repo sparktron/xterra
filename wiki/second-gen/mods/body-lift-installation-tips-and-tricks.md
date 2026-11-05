@@ -23,10 +23,10 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 11
+  partial_items: 10
   partial_fields: []
   unconfirmed_safety_values: 0
-  withheld_items: 4
+  withheld_items: 1
   pending_safety_values: 0
 ---
 -->
@@ -118,7 +118,6 @@ _Procedure reported by [t755]._
 - Use a longer upper radiator hose rather than risking cracks on the original neck. [t755]
 - Extend power steering hoses instead of modifying brackets for easier installation. [t755]
 - Use a longer radiator hose to avoid cracking the neck during removal and reinstallation. [t755]
-- [Partial]  [t755]
 
 ## Common mistakes
 

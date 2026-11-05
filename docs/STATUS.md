@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-05 · **Branch:** `docs/site-review-2026-11-04`, from `master` (`65687a6`, merge of PR #16), docs only, see Active work
+**Updated:** 2026-11-05 · **Branch:** `fix/qa-blank-steps-missing-links`, from `master` (`60c280b`, merge of PR #17), see Active work
 
 ## Objective
 
@@ -18,7 +18,22 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Site review committed (2026-11-05): `docs/SITE_REVIEW_2026-11-04.md`, with a note on what changed since its snapshot.
+No blank steps; `qa` catches missing pages (2026-11-05). Items 1 and 8 of the 2026-11-04 site review.
+
+- **Cause:** 45 stored facts hold `""` as a step, tip or mistake. Export printed 4 first-gen steps as `1. [Partial] ` and 3
+  second-gen tips as `- [Partial]  [t…]`, and listed 40 empty claims as withheld in `open_questions.md`.
+- **Fix:** export skips an empty step, tip, mistake, symptom, tool or summary, and keeps the stored index so verdicts still
+  line up. `qa` refuses a step or list item holding only marks and thread ids, and `qa.check_index_links` refuses a local
+  link in a generated `index.md` to a missing file. Facts and verdicts are unchanged; verify still judges the empty claims.
+- **Tests:** `test_an_empty_step_or_tip_is_not_rendered_and_qa_refuses_a_blank_item` and
+  `test_qa_refuses_an_index_link_to_a_missing_page`, both failing before the fix.
+- **Validation:** `pytest` passed. `xw qa` on the old wiki reported the 7 blank items and no missing link. `xw export` (3m52s)
+  gave 1,539 pages from 3,103 facts, 1,965 withheld (was 2,005: the 40 empty claims), then `xw qa` passed. 30 wiki files
+  changed, all removals of blank items, their headings and the withheld counts.
+- **Not run:** dependency-floor tests (CI runs them), any LLM stage. Extraction still stores empty items; filtering them
+  there would shift the claim keys of facts already stored.
+
+Site review committed (2026-11-05, PR #17): `docs/SITE_REVIEW_2026-11-04.md`, with a note on what changed since its snapshot.
 
 - **Next, per the review:** stop `open_questions.md` printing withheld text, reject the pinion nut claim in `xw triage` (needs a
   person), and Claude-review the 25 unconfirmed safety values below. Hold crawling until the page structure is fixed.

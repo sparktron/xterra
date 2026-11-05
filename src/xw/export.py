@@ -481,7 +481,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
         f, g, sid = r.fact, r.grounding, r.sid
         copied, nums = g["copied"], g["numbers"]
 
-        if f.summary:
+        if f.summary.strip():
             ok, tag, why = prose(r, "summary", f.summary, copied["summary"], nums["summary"])
             if ok:
                 page.reviewed_items += _reviewed(tag)
@@ -492,17 +492,23 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
 
         # procedure: every step must publish (one withheld step withholds the whole procedure). A step or completeness
         # claim the verifier only partly supports publishes marked [Partial] until a later verify/review upgrades it;
-        # `unsupported` or a reviewer's reject still withholds it.
-        proc_ok = bool(f.steps)
+        # `unsupported` or a reviewer's reject still withholds it. An empty step (the model sometimes returns "") is not
+        # a claim and is skipped; verdicts stay keyed by the stored index.
+        has_steps = any(s.strip() for s in f.steps)
+        proc_ok = has_steps
+        shown: list[str] = []
         step_partial: list[bool] = []
         for i, step in enumerate(f.steps):
+            if not step.strip():
+                continue
             ok, tag, why = prose(r, f"step:{i}", step, copied["steps"][i], nums["steps"][i])
             if not ok:
                 proc_ok = False
                 drop(r, f"step {i + 1} (procedure withheld)", step, why)
             page.reviewed_items += bool(ok and _reviewed(tag))
+            shown.append(step)
             step_partial.append(ok and tag == PARTIAL)
-        if f.steps:
+        if has_steps:
             ok, tag, why = gate(r, "complete", policy)
             partial_list = (ok and tag == PARTIAL) or (not ok and is_partial_completeness(r))
             if not ok and not (proc_ok and partial_list):
@@ -510,13 +516,15 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                 drop(r, "completeness (procedure withheld)", "; ".join(f.steps), why)
             if partial_list or any(step_partial):
                 partial_ids.add(r.id)
-        steps_by_row.append((r, list(f.steps) if proc_ok else [], step_partial))
+        steps_by_row.append((r, shown if proc_ok else [], step_partial))
         if proc_ok:
             contrib.add(r.id)
 
         for key, lst, dest in (("symptom", f.symptoms, symptoms), ("tip", f.tips, tips), ("mistake", f.mistakes, mistakes),
                                ("tool", f.tools, tools)):
             for i, text in enumerate(lst):
+                if not text.strip():
+                    continue
                 ok, tag, why = prose(r, f"{key}:{i}", text, key != "tool" and copied[f"{key}s"][i], nums[f"{key}s"][i])
                 if ok:
                     page.reviewed_items += _reviewed(tag)
