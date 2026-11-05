@@ -28,7 +28,7 @@ from . import generations
 from .config import DEFAULTS, Config
 from .generations import Generation, other_marker
 from .grounding import grounded_years, part_grounded, safety_values, spec_grounded, unit_grounded
-from .export import CURATED_DIR, GENERATED, PARTIAL, SAFETY_NOTE, UNVERIFIED_VALUE, is_safety
+from .export import COMMENT_END, CURATED_DIR, GENERATED, PARTIAL, SAFETY_NOTE, UNVERIFIED_VALUE, is_safety
 
 SPEC_LINE = re.compile(r"^- \*\*(?P<item>.+?)\*\*: (?P<value>.+?) \[(?P<sids>t\d+(?:, t\d+)*)\] \((?P<tag>[^)]*)\)\s*$")
 PART_LINE = re.compile(r"^- (?P<name>.+?) \((?P<pn>[^)]+)\)(?::.*?)? \[(?P<sids>t\d+(?:, t\d+)*)\]\s*$")
@@ -39,6 +39,15 @@ SRC_DEF = re.compile(r"^- \[S(\d+)\] .*https?://\S+")
 _LOCAL_LINK = re.compile(r"\[(?P<text>[^\]]*)\]\((?!https?:)[^)]*\)")
 _YEAR_NAV = re.compile(r"(?:← )?(?:19|20)\d\d(?: →)?")   # "[2005](years/2005.md)", "[← 2008](2008.md)"
 _TABLE_RULE = re.compile(r"^\|?\s*:?-{3,}")
+
+
+def _metadata_end(lines: list[str]) -> int | None:
+    """Index of the line after a generated page's metadata comment (export._metadata_comment), or None if the metadata
+    is not wholly inside one: then it would show as text above the page's heading."""
+    if lines[1:3] != ["<!--", "---"]:
+        return None
+    end = next((i for i, line in enumerate(lines[3:], 3) if COMMENT_END.search(line)), None)
+    return end + 1 if end and lines[end] == "-->" and lines[end - 1] == "---" else None
 
 
 def _thread_text(conn: sqlite3.Connection, sid: str) -> str | None:
@@ -77,7 +86,10 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
             continue
         rel = page.relative_to(wiki)
         gen = next(g for g in gl if g.id == rel.parts[0])
-        body = lines.index("---", 2) + 1 if lines[1:2] == ["---"] and "---" in lines[2:] else 1
+        body = _metadata_end(lines)
+        if body is None:
+            violations.append(f"{rel}: metadata is not in an HTML comment, so it shows as text on the page")
+            body = 1
         if f"generation: {gen.id}" not in lines[1:body]:
             violations.append(f"{rel}: page is in the {gen.id} section but its front matter does not say generation: {gen.id}")
         for line in lines[1:body]:   # front matter metadata (engines, trims, shared platform) is published too

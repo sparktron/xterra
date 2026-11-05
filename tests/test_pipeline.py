@@ -9,6 +9,7 @@ from pathlib import Path
 
 import httpx
 import pytest
+import yaml
 
 from xw import db
 from xw import export as export_module
@@ -508,6 +509,31 @@ def test_other_generation_metadata_stays_out_of_the_front_matter(cfg, conn, tmp_
     path = gen2(cfg) / "repair" / "control-arms-bushings.md"
     path.write_text(page.replace("- VQ40DE", "- VQ40DE\n  - VG33E", 1))
     assert any("in the front matter" in v for v in check_wiki(cfg, conn))
+
+
+def test_page_metadata_is_hidden_in_a_comment_and_qa_refuses_it_visible(cfg, conn, tmp_path):
+    """Found in the 2026-11-04 site review: GitHub takes YAML as front matter only when `---` is the file's first line,
+    and GENERATED has to be first, so every generated page showed its metadata as text above the heading."""
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008. Separate the ball joint with a fork and drop the arm. " * 6, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        tools=["Puller --> adapter", "pickle fork"], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert page.splitlines()[:3] == [GENERATED, "<!--", "---"]
+    visible = re.sub(r"<!--.*?-->", "", page, flags=re.S).lstrip()   # where a renderer ends the comments
+    assert visible.startswith("# Control arms and bushings\n")
+    assert "generation:" not in visible and "applies_to" not in visible
+    assert "Puller --> adapter" in visible   # a value that would close the comment stays intact in the body
+    front = yaml.safe_load(page.split("---")[1])
+    assert front["generation"] == "second-gen" and "Puller -> adapter" in front["tools"]
+    assert check_wiki(cfg, conn) == []
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
+    path.write_text(page.replace("<!--\n---", "---", 1).replace("---\n-->", "---", 1))   # the visible layout
+    assert any("not in an HTML comment" in v for v in check_wiki(cfg, conn))
+    path.write_text(page.replace("- pickle fork", "- pickle fork -->", 1))   # closes the comment early
+    assert any("not in an HTML comment" in v for v in check_wiki(cfg, conn))
+    path.write_text(page.replace("---\n-->", "---", 1))   # never closes
+    assert any("not in an HTML comment" in v for v in check_wiki(cfg, conn))
 
 
 def test_reingesting_a_page_under_a_source_of_another_generation_is_refused(cfg, conn, tmp_path):
