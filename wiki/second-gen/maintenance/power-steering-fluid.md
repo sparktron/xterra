@@ -32,6 +32,8 @@ verification:
 
 # Power steering fluid service
 
+> **Guide for this job:** [Power steering fluid service](../vehicle/guides/power-steering-fluid.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
