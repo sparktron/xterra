@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-05 · **Branch:** `fix/qa-blank-steps-missing-links`, from `master` (`60c280b`, merge of PR #17), see Active work
+**Updated:** 2026-11-05 · **Branch:** `feat/guide-only-status`, on top of `feat/guide-links-supporting-pages` (PR #19, open), see Active work
 
 ## Objective
 
@@ -18,7 +18,33 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-No blank steps; `qa` catches missing pages (2026-11-05). Items 1 and 8 of the 2026-11-04 site review.
+`guide only` status and first-gen hub text (2026-11-05). More of item 6 of the 2026-11-04 site review.
+
+- **Index:** a topic with a curated guide but no forum page shows `guide only` instead of `not-started` (3 first-gen rows,
+  11 second-gen), and the status note above the tables explains it. `open_questions.md` still lists those topics under
+  "Topics with no coverage yet", and the export summary still counts them as uncovered (37).
+- **First-gen hub:** `wiki/first-gen/vehicle/index.md` described its guides as four jobs; it now names all nine.
+- **Test:** `test_a_curated_guide_is_linked_from_its_topic_in_the_index` now expects `guide only`; it failed before the change.
+- **Validation:** `pytest` passed, `check_curated` clean. `xw export` gave 1,539 pages, 1,965 withheld, unchanged; `xw qa`
+  passed. 3 wiki files changed, 17 lines.
+- **Still open from item 6:** a site with search.
+- **Not run:** dependency-floor tests (CI runs them), any LLM stage.
+
+Guide links and supporting pages linked (2026-11-05). Part of item 6 of the 2026-11-04 site review. PR #19.
+
+- **Topic pages:** a page whose topic has a curated guide (`vehicle/guides/<slug>.md`) opens with a "Guide for this job" link
+  above its summary. 42 pages got one: the other guides' topics have no forum page yet.
+- **Index:** each section's `index.md` links `pending_verification.md`, `open_questions.md`, `interchange.md` and
+  `parts_diagrams.md`.
+- **`qa`:** the missing-link check now covers generated topic pages too, so a guide renamed by hand leaves a stale link that
+  fails until the next export.
+- **Test:** `test_a_topic_page_links_its_guide_and_the_index_links_the_supporting_pages`, failing before the change.
+- **Validation:** `pytest` passed. `xw export` (4m00s) gave 1,539 pages, 1,965 withheld, unchanged; `xw qa` passed. 44 wiki
+  files changed, 88 insertions and no deletions: the guide line on 42 pages and the links line on 2 indexes.
+- **Still open from item 6:** the `not-started` status beside a guide, the stale first-gen hub text, and a site with search.
+- **Not run:** dependency-floor tests (CI runs them), any LLM stage.
+
+No blank steps; `qa` catches missing pages (2026-11-05). Items 1 and 8 of the 2026-11-04 site review. Merged as PR #18.
 
 - **Cause:** 45 stored facts hold `""` as a step, tip or mistake. Export printed 4 first-gen steps as `1. [Partial] ` and 3
   second-gen tips as `- [Partial]  [t…]`, and listed 40 empty claims as withheld in `open_questions.md`.

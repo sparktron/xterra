@@ -1044,8 +1044,10 @@ def test_a_curated_guide_is_linked_from_its_topic_in_the_index(cfg, conn):
     (guides / "index.md").write_text("# Guides\n\n- [Spark plugs](spark-plugs.md)\n\n## Sources\n")
     export(cfg, conn)
     idx = (gen2(cfg) / "index.md").read_text()
-    assert "| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | not-started | 0 |" in idx
+    # a topic covered only by its guide says so, not `not-started` (2026-11-04 site review)
+    assert "| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | guide only | 0 |" in idx
     assert "| Engine oil and filter change |  | not-started | 0 |" in idx        # no guide, no link
+    assert "`guide only` means" in idx
     assert "](vehicle/guides/index.md)" in idx
     assert (guides / "spark-plugs.md").read_text() == guide                       # export never touches a guide
     assert check_curated(cfg.wiki_dir) == []                                       # and qa holds guides to the curated rule
@@ -1077,6 +1079,35 @@ def test_curated_and_generated_pages_must_sit_in_their_generations_section(cfg, 
     stray.parent.mkdir(exist_ok=True)
     stray.write_text(GENERATED + "\n# Old page\n")
     assert any("repair/old.md: generated page outside a generation's section" in v for v in check_wiki(cfg, conn))
+
+
+def test_a_topic_page_links_its_guide_and_the_index_links_the_supporting_pages(cfg, conn, tmp_path):
+    """Found in the 2026-11-04 site review: no topic page linked the guide for its job, and the index linked none of
+    interchange.md, parts_diagrams.md, pending_verification.md or open_questions.md."""
+    guides = gen2(cfg) / "vehicle" / "guides"
+    guides.mkdir(parents=True)
+    (guides / "control-arms-bushings.md").write_text(
+        "# Control arms\n\n1. Support the truck [S1]\n\n## Sources\n\n- [S1] Nissan, 2013 Xterra Service Manual, FSU. https://x.example/fsu.pdf\n")
+    (guides / "index.md").write_text("# Guides\n\n- [Control arms](control-arms-bushings.md)\n\n## Sources\n")
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008. Separate the ball joint with a fork and drop the arm. "
+                                          "Change the oil and filter while it is up. " * 6, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [
+        arm_fact(parts=[], specs=[], diagram_links=[]),
+        arm_fact(category="maintenance", topic="Engine oil and filter change", title="Change the oil", steps=["Drain the oil"],
+                 tips=[], tools=[], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    link = "> **Guide for this job:** [Control arms and bushings](../vehicle/guides/control-arms-bushings.md)"
+    assert link in page and page.index(link) < page.index("## Summary")
+    assert "Guide for this job" not in page_text(cfg, "maintenance", "engine-oil-change")   # no guide, no link
+    idx = (gen2(cfg) / "index.md").read_text()
+    for name in ("pending_verification.md", "open_questions.md", "interchange.md", "parts_diagrams.md"):
+        assert f"]({name})" in idx and (gen2(cfg) / name).is_file()
+    assert check_wiki(cfg, conn) == []
+    (guides / "control-arms-bushings.md").unlink()   # a guide renamed by hand: the stale link fails qa until re-export
+    assert any("repair/control-arms-bushings.md" in v and "missing page" in v for v in check_wiki(cfg, conn))
+    export(cfg, conn)
+    assert "Guide for this job" not in page_text(cfg)
 
 
 # --- verifier consensus: "supported" needs every pass to agree ------------------------------------------------

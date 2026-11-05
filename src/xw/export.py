@@ -295,9 +295,10 @@ def _tagged(text: str, tag: str) -> str:
 
 
 def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
-                gens: list[Generation] | None = None) -> tuple[str, dict[str, Any]]:
+                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
     """`gens`: every generation of the wiki. A claim that names a generation other than the page's is withheld, so
-    one generation's facts never publish in the other's section (qa re-checks this)."""
+    one generation's facts never publish in the other's section (qa re-checks this). `guide`: the page-relative link to
+    the curated guide for this topic, if one exists; it is linked above the summary."""
     rows = sorted(page.rows, key=lambda r: (-r.trust, r.id))
     drop = lambda r, kind, text, why: page.dropped.append({"kind": kind, "text": text[:160], "url": r.url, "why": why})  # noqa: E731
     gen = next((g for g in gens or [] if g.id == page.topic.generation), None)
@@ -595,6 +596,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
     }
 
     out = [GENERATED, *_metadata_comment(fm), "", f"# {page.topic.title}", ""]
+    if guide:
+        out += [f"> **Guide for this job:** [{page.topic.title}]({guide}) is a hand-written guide that cites every step and "
+                "number. This page collects what forum threads add.", ""]
     if conf == "[Unverified]":
         out += ["> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.", ""]
     if page.single_source_safety or unconfirmed_values:
@@ -774,7 +778,8 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
     disputes: list[tuple[str, str]] = []
     single: list[tuple[str, str]] = []
     for (cat, slug), page in sorted(pages.items()):
-        text, meta = render_page(page, g.years, policy, gl)
+        guide = f"../{GUIDES_DIR}/{slug}.md" if (live_dir / GUIDES_DIR / f"{slug}.md").exists() else ""
+        text, meta = render_page(page, g.years, policy, gl, guide)
         _write(out_dir / cat / f"{slug}.md", text + "\n")
         summary[f"{cat}/{slug}"] = {"title": page.topic.title, **meta}
         dropped += [(page.topic.title, d) for d in page.dropped]
@@ -788,7 +793,8 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
            f"This section covers only the {g.title}. "
            + " ".join(f"The {o.title} is a different truck with its own section: [{o.title}](../{o.id}/index.md)." for o in others)
            + " Nothing here applies to the other generation unless a page says so.", "",
-           "Status: `not-started` means no verified source has contributed yet.", ""]
+           "Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a "
+           "hand-written guide but no forum thread has contributed yet.", ""]
     if (live_dir / CURATED_DIR / "index.md").exists():
         idx += [f"Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference]({CURATED_DIR}/index.md) "
                 "(hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).", ""]
@@ -796,6 +802,9 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
         idx += [f"Step-by-step maintenance, repair and upgrade guides: [Guides]({GUIDES_DIR}/index.md) (hand-written from the "
                 "factory service manual and forum write-ups; every step and number cites its source). The Guide column "
                 "below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.", ""]
+    idx += ["Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), "
+            "[open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) "
+            "(what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).", ""]
     gen_topics = topics.topics_for(g.id)
     for cat, title in topics.category_titles_for(g.id).items():
         idx += [f"## {title}", "", "| Topic | Guide | Status | Threads |", "|---|---|---|---|"]
@@ -803,7 +812,7 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
             m = summary.get(f"{cat}/{t.slug}")
             guide = f"[Guide]({GUIDES_DIR}/{t.slug}.md)" if (live_dir / GUIDES_DIR / f"{t.slug}.md").exists() else ""
             idx.append(f"| [{t.title}]({cat}/{t.slug}.md) | {guide} | {m['confidence']} | {m['n_threads']} |" if m
-                       else f"| {t.title} | {guide} | not-started | 0 |")
+                       else f"| {t.title} | {guide} | {'guide only' if guide else 'not-started'} | 0 |")
         idx.append("")
     _write(out_dir / "index.md", "\n".join(idx))
 

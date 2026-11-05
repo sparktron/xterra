@@ -12,7 +12,8 @@ stored in the database, that:
     cites has a fact that routes to that generation (re-derived from the database, not read from the exporter), and
     no published line names another generation
   * no step or list item is empty: nothing but marks such as [Partial] and thread ids
-  * every local link in a generated index reaches a page, so an export that lost pages cannot pass
+  * every local link in a generated index or page reaches a file, so an export that lost pages cannot pass, and a
+    topic page's guide link goes stale only until the next export
 The hand-curated pages under wiki/<generation>/vehicle/ have no thread text to check against; `check_curated` holds
 them to a citation rule instead: every line that states a number cites a source listed on that page, or says
 [Unverified]; and, like generated pages, they must not name another generation.
@@ -94,6 +95,7 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
         if body is None:
             violations.append(f"{rel}: metadata is not in an HTML comment, so it shows as text on the page")
             body = 1
+        violations += _missing_links(page, lines[body:], wiki)
         if f"generation: {gen.id}" not in lines[1:body]:
             violations.append(f"{rel}: page is in the {gen.id} section but its front matter does not say generation: {gen.id}")
         for line in lines[1:body]:   # front matter metadata (engines, trims, shared platform) is published too
@@ -190,16 +192,21 @@ def check_index_links(wiki: Path, gl: list[Generation]) -> list[str]:
         if not index.is_file():
             continue
         lines = index.read_text(encoding="utf-8").splitlines()
-        if not lines or lines[0] != GENERATED:
-            continue
-        for line in lines:
-            for m in _LINK_TARGET.finditer(line):
-                target = m["target"].split("#", 1)[0]
-                if not target or re.match(r"[a-z][a-z0-9+.-]*:", target, re.I):   # anchor, URL or mailto
-                    continue
-                if not (index.parent / target).is_file():
-                    violations.append(f"{index.relative_to(wiki)}: links to a missing page: {target}")
+        if lines and lines[0] == GENERATED:
+            violations += _missing_links(index, lines, wiki)
     return violations
+
+
+def _missing_links(page: Path, lines: list[str], wiki: Path) -> list[str]:
+    out: list[str] = []
+    for line in lines:
+        for m in _LINK_TARGET.finditer(line):
+            target = m["target"].split("#", 1)[0]
+            if not target or re.match(r"[a-z][a-z0-9+.-]*:", target, re.I):   # anchor, URL or mailto
+                continue
+            if not (page.parent / target).is_file():
+                out.append(f"{page.relative_to(wiki)}: links to a missing page: {target}")
+    return out
 
 
 def check_curated(wiki_dir: Path, gens: list[Generation] | None = None) -> list[str]:

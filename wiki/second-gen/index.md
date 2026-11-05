@@ -3,11 +3,13 @@
 
 This section covers only the Second generation (N50), 2005-2015. The First generation (WD22), 2000-2004 is a different truck with its own section: [First generation (WD22), 2000-2004](../first-gen/index.md). Nothing here applies to the other generation unless a page says so.
 
-Status: `not-started` means no verified source has contributed yet.
+Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a hand-written guide but no forum thread has contributed yet.
 
 Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference](vehicle/index.md) (hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).
 
 Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/index.md) (hand-written from the factory service manual and forum write-ups; every step and number cites its source). The Guide column below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.
+
+Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), [open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) (what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).
 
 ## Diagnostics & Troubleshooting
 
@@ -98,7 +100,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [[maintenance] Wheel bearing service](maintenance/maintenance-wheel-bearing-service.md) |  | [Unverified] | 1 |
 | [[reference] Brake bleeder wrench size and order](maintenance/reference-brake-bleeder-wrench-size-and-order.md) |  | [Unverified] | 1 |
 | [[reference] Fluids and capacities](maintenance/reference-fluids-and-capacities.md) |  | [Unverified] | 1 |
-| Air, cabin and fuel filters | [Guide](vehicle/guides/air-fuel-filters.md) | not-started | 0 |
+| Air, cabin and fuel filters | [Guide](vehicle/guides/air-fuel-filters.md) | guide only | 0 |
 | [Automatic transmission fluid change](maintenance/atf-change.md) | [Guide](vehicle/guides/atf-change.md) | disputed | 7 |
 | [Brake caliper slide pin lubrication](maintenance/brake-caliper-slide-pin-lubrication.md) |  | [Unverified] | 1 |
 | [Brake fluid flush and bleeding](maintenance/brake-fluid-bleed.md) | [Guide](vehicle/guides/brake-fluid-bleed.md) | community-consensus | 3 |
@@ -111,7 +113,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Intake system cleaning for rough idle](maintenance/intake-system-cleaning-for-rough-idle.md) |  | [Unverified] | 1 |
 | [Maintenance schedule (normal and severe use)](maintenance/maintenance-schedule.md) |  | [Unverified] | 1 |
 | [Maintenance: Rear differential fluid flush for debris removal](maintenance/maintenance-rear-differential-fluid-flush-for-debris-removal.md) |  | [Unverified] | 1 |
-| Manual transmission fluid change | [Guide](vehicle/guides/manual-trans-fluid.md) | not-started | 0 |
+| Manual transmission fluid change | [Guide](vehicle/guides/manual-trans-fluid.md) | guide only | 0 |
 | [Painting chrome license plate housings to match body color](maintenance/painting-chrome-license-plate-housings-to-match-body-color.md) |  | [Unverified] | 1 |
 | [PCV valve and hose service](maintenance/pcv-valve-and-hose-service.md) |  | [Unverified] | 1 |
 | [Power steering fluid service](maintenance/power-steering-fluid.md) | [Guide](vehicle/guides/power-steering-fluid.md) | [Unverified] | 1 |
@@ -121,11 +123,11 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Serpentine belt and tensioner](maintenance/serpentine-belt.md) | [Guide](vehicle/guides/serpentine-belt.md) | community-consensus | 3 |
 | [Spark plug and intake gasket replacement](maintenance/spark-plug-and-intake-gasket-replacement.md) |  | [Unverified] | 1 |
 | [Spark plug replacement](maintenance/spark-plugs.md) | [Guide](vehicle/guides/spark-plugs.md) | [Unverified] | 1 |
-| Transfer case fluid change | [Guide](vehicle/guides/transfer-case-fluid.md) | not-started | 0 |
+| Transfer case fluid change | [Guide](vehicle/guides/transfer-case-fluid.md) | guide only | 0 |
 | [Transfer case fluid change and level check](maintenance/transfer-case-fluid-change-and-level-check.md) |  | [Unverified] | 1 |
 | [Transmission Skid Removal for Access](maintenance/transmission-skid-removal-for-access.md) |  | [Unverified] | 1 |
 | [Valve cover gasket replacement](maintenance/valve-cover-gasket-replacement.md) |  | [Unverified] | 1 |
-| Wheel bearing service | [Guide](vehicle/guides/wheel-bearing-service.md) | not-started | 0 |
+| Wheel bearing service | [Guide](vehicle/guides/wheel-bearing-service.md) | guide only | 0 |
 
 ## Repair Procedures
 
@@ -142,15 +144,15 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Bypassing internal SMOD cooler with external unit](repair/bypassing-internal-smod-cooler-with-external-unit.md) |  | [Unverified] | 1 |
 | [Catalytic converter replacement nightmare](repair/catalytic-converter-replacement-nightmare.md) |  | [Unverified] | 1 |
 | [Center pin and U-bolt modifications after leaf removal](repair/center-pin-and-u-bolt-modifications-after-leaf-removal.md) |  | [Unverified] | 1 |
-| Clutch and transmission replacement | [Guide](vehicle/guides/clutch-transmission-swap.md) | not-started | 0 |
+| Clutch and transmission replacement | [Guide](vehicle/guides/clutch-transmission-swap.md) | guide only | 0 |
 | [Coil spring bucket contact and damage](repair/coil-spring-bucket-contact-and-damage.md) |  | [Unverified] | 1 |
 | [Control arms and bushings](repair/control-arms-bushings.md) | [Guide](vehicle/guides/control-arms-bushings.md) | community-consensus | 7 |
 | [CV axle and boot replacement options](repair/cv-axle-and-boot-replacement-options.md) |  | [Unverified] | 1 |
 | [CV Axle Replacement Procedure](repair/cv-axle-replacement-procedure.md) |  | [Unverified] | 1 |
 | [CV Axles and Boot Replacement](repair/cv-axles-and-boot-replacement.md) |  | [Unverified] | 1 |
-| CV axles and U-joints | [Guide](vehicle/guides/cv-axles.md) | not-started | 0 |
+| CV axles and U-joints | [Guide](vehicle/guides/cv-axles.md) | guide only | 0 |
 | [CV Joint Rebuild and Replacement](repair/cv-joint-rebuild-and-replacement.md) |  | [Unverified] | 1 |
-| Differential rebuild and re-gearing | [Guide](vehicle/guides/differential-rebuild.md) | not-started | 0 |
+| Differential rebuild and re-gearing | [Guide](vehicle/guides/differential-rebuild.md) | guide only | 0 |
 | [Door and window regulator replacement](repair/door-and-window-regulator-replacement.md) |  | [Unverified] | 1 |
 | [Door panel removal and disassembly steps](repair/door-panel-removal-and-disassembly-steps.md) |  | [Unverified] | 1 |
 | [Door panel removal for dent repair](repair/door-panel-removal-for-dent-repair.md) |  | [Unverified] | 1 |
@@ -165,7 +167,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Fold flat passenger seat latch replacement](repair/fold-flat-passenger-seat-latch-replacement.md) |  | [Unverified] | 1 |
 | [Front CV-axle re-installation techniques](repair/front-cv-axle-re-installation-techniques.md) |  | [Unverified] | 1 |
 | [Fuel level sender replacement via under-seat access](repair/fuel-level-sender-replacement-via-under-seat-access.md) |  | [Unverified] | 1 |
-| Fuel pump and sending unit | [Guide](vehicle/guides/fuel-pump.md) | not-started | 0 |
+| Fuel pump and sending unit | [Guide](vehicle/guides/fuel-pump.md) | guide only | 0 |
 | [Headlight assembly replacement and alignment](repair/headlight-assembly-replacement-and-alignment.md) |  | [Unverified] | 1 |
 | [Heater core air bubble removal](repair/heater-core-air-bubble-removal.md) |  | [Unverified] | 1 |
 | [Heater core and A/C problems](repair/heater-core-and-a-c-problems.md) |  | [Unverified] | 1 |
@@ -232,7 +234,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [SMOD radiator and transmission replacement procedure](repair/smod-radiator-and-transmission-replacement-procedure.md) |  | [Unverified] | 1 |
 | [Snap ring replacement to prevent harsh ride](repair/snap-ring-replacement-to-prevent-harsh-ride.md) |  | [Unverified] | 1 |
 | [Spark plug and intake plenum gasket replacement](repair/spark-plug-and-intake-plenum-gasket-replacement.md) |  | [Unverified] | 1 |
-| Starter and alternator | [Guide](vehicle/guides/starter-alternator.md) | not-started | 0 |
+| Starter and alternator | [Guide](vehicle/guides/starter-alternator.md) | guide only | 0 |
 | [Stud oil cooler and filter assembly](repair/stud-oil-cooler-and-filter-assembly.md) |  | [Unverified] | 1 |
 | [Sway bar links and bushings](repair/sway-bar-links.md) | [Guide](vehicle/guides/sway-bar-links.md) | community-consensus | 14 |
 | [Tie rod and control arm replacement for Titan swap](repair/tie-rod-and-control-arm-replacement-for-titan-swap.md) |  | [Unverified] | 1 |
@@ -254,7 +256,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [VIAS rattle fix with screw method](repair/vias-rattle-fix-with-screw-method.md) |  | [Unverified] | 1 |
 | [VIAS Valve Rattle Fix](repair/vias-valve-rattle-fix.md) |  | [Unverified] | 1 |
 | [Water outlet replacement](repair/water-outlet-replacement.md) |  | [Unverified] | 1 |
-| Water pump and thermostat | [Guide](vehicle/guides/water-pump-thermostat.md) | not-started | 0 |
+| Water pump and thermostat | [Guide](vehicle/guides/water-pump-thermostat.md) | guide only | 0 |
 | [Wheel speed sensor replacement and soldering](repair/wheel-speed-sensor-replacement-and-soldering.md) |  | [Unverified] | 1 |
 
 ## Modifications & Off-Road Builds
@@ -446,7 +448,7 @@ Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/ind
 | [Radiator shroud modification for 14-inch fan fitment](mods/radiator-shroud-modification-for-14-inch-fan-fitment.md) |  | [Unverified] | 1 |
 | [Rago Fab Ditch Light Bracket installation](mods/rago-fab-ditch-light-bracket-installation.md) |  | [Unverified] | 1 |
 | [Re-gearing for larger tires and ADO gears](mods/re-gearing-for-larger-tires-and-ado-gears.md) |  | [Unverified] | 1 |
-| Re-gearing ratios by tire size | [Guide](vehicle/guides/regearing.md) | not-started | 0 |
+| Re-gearing ratios by tire size | [Guide](vehicle/guides/regearing.md) | guide only | 0 |
 | [Rear air tank mounting for On Board Air systems](mods/rear-air-tank-mounting-for-on-board-air-systems.md) |  | [Unverified] | 1 |
 | [Rear axle swap for 2011 P4X](mods/rear-axle-swap-for-2011-p4x.md) |  | [Unverified] | 1 |
 | [Rear brake line extensions and brackets](mods/rear-brake-line-extensions-and-brackets.md) |  | [Unverified] | 1 |
