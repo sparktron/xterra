@@ -38,7 +38,7 @@ Differential oil is API GL-5; a limited-slip differential takes only Nissan-appr
 
 ## Reference pages
 
-- **[How-to guides](guides/index.md)**: oil change, timing belt, torsion bars and ride height, from the factory service manual
+- **[How-to guides](guides/index.md)**: nine guides covering the oil change, brakes, wheel bearings and CV axles, drivetrain fluids, the timing belt, torsion bars and ride height, the supercharger, lift kits and the solid axle swap, written from the factory service manual and forum write-ups
 - [Recalls](recalls.md): NHTSA safety recalls for these model years, with what each one fixed
 - [Dimensions](dimensions.md): the outgoing model's exterior and interior measurements, as Nissan's press kit for the redesigned truck gave them
 

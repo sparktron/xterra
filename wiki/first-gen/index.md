@@ -3,7 +3,7 @@
 
 This section covers only the First generation (WD22), 2000-2004. The Second generation (N50), 2005-2015 is a different truck with its own section: [Second generation (N50), 2005-2015](../second-gen/index.md). Nothing here applies to the other generation unless a page says so.
 
-Status: `not-started` means no verified source has contributed yet.
+Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a hand-written guide but no forum thread has contributed yet.
 
 Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference](vehicle/index.md) (hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).
 
@@ -62,13 +62,13 @@ Also in this section: [pending verification](pending_verification.md) (safety va
 | [Automatic transmission fluid service (failsafe mode)](maintenance/automatic-transmission-fluid-service-failsafe-mode.md) |  | [Unverified] | 1 |
 | Brake fluid flush and bleeding |  | not-started | 0 |
 | [Brake master cylinder upgrade for solid axle swap](maintenance/brake-master-cylinder-upgrade-for-solid-axle-swap.md) |  | [Unverified] | 1 |
-| Brake pads, rotors and drums | [Guide](vehicle/guides/brake-service.md) | not-started | 0 |
+| Brake pads, rotors and drums | [Guide](vehicle/guides/brake-service.md) | guide only | 0 |
 | [Cam seal replacement during timing service](maintenance/cam-seal-replacement-during-timing-service.md) |  | [Unverified] | 1 |
 | [Clutch hydraulic system service](maintenance/clutch-hydraulic-system-service.md) |  | [Unverified] | 1 |
 | Coolant drain and refill |  | not-started | 0 |
 | [Door, window and lock electrical faults](maintenance/door-window-and-lock-electrical-faults.md) |  | community-consensus | 2 |
 | Drive belts and tensioners |  | not-started | 0 |
-| Engine oil and filter change | [Guide](vehicle/guides/engine-oil-change.md) | not-started | 0 |
+| Engine oil and filter change | [Guide](vehicle/guides/engine-oil-change.md) | guide only | 0 |
 | [Front and rear differential fluid change](maintenance/differential-fluid.md) |  | [Unverified] | 1 |
 | [Front steering bumper cap replacement](maintenance/front-steering-bumper-cap-replacement.md) |  | [Unverified] | 1 |
 | [Fuel filter change and tank drain procedure](maintenance/fuel-filter-change-and-tank-drain-procedure.md) |  | [Unverified] | 1 |
@@ -84,7 +84,7 @@ Also in this section: [pending verification](pending_verification.md) (safety va
 | [Timing belt tensioner replacement and failure points](maintenance/timing-belt-tensioner-replacement-and-failure-points.md) |  | [Unverified] | 1 |
 | Transfer case fluid change |  | not-started | 0 |
 | [Water pump and cam seal service during belt change](maintenance/water-pump-and-cam-seal-service-during-belt-change.md) |  | [Unverified] | 1 |
-| Wheel bearings and hubs | [Guide](vehicle/guides/wheel-bearing-service.md) | not-started | 0 |
+| Wheel bearings and hubs | [Guide](vehicle/guides/wheel-bearing-service.md) | guide only | 0 |
 
 ## Repair Procedures
 
