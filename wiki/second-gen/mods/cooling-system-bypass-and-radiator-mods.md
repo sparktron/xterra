@@ -22,7 +22,7 @@ confidence: '[Unverified]'
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 3
+  partial_items: 2
   partial_fields: []
   unconfirmed_safety_values: 0
   withheld_items: 0
@@ -47,10 +47,6 @@ verification:
 1. [Partial] Utilize the existing radiator bypass setup.
 
 _Procedure reported by [t249]._
-
-## Tips & gotchas
-
-- [Partial]  [t249]
 
 ## Source attributions
 

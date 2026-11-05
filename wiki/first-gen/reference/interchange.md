@@ -34,7 +34,7 @@ verification:
   partial_fields:
   - shared_platform
   unconfirmed_safety_values: 0
-  withheld_items: 3
+  withheld_items: 2
   pending_safety_values: 0
 ---
 -->

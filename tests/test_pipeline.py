@@ -536,6 +536,39 @@ def test_page_metadata_is_hidden_in_a_comment_and_qa_refuses_it_visible(cfg, con
     assert any("not in an HTML comment" in v for v in check_wiki(cfg, conn))
 
 
+def test_an_empty_step_or_tip_is_not_rendered_and_qa_refuses_a_blank_item(cfg, conn, tmp_path):
+    """Found in the 2026-11-04 site review: the model sometimes returns "" as a step, and four first-gen procedures
+    published as a bare "1. [Partial] "."""
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008. Separate the ball joint with a fork and drop the arm. " * 6, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(
+        steps=["Support the truck securely on stands", "", "Drop the arm"], tips=["", "Final-tighten with weight on the wheels"],
+        parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    page = page_text(cfg)
+    assert "1. Support the truck securely on stands\n2. Drop the arm\n" in page
+    assert not re.search(r"^(?:-|\d+\.)\s*$", page, re.M)
+    assert check_wiki(cfg, conn) == []
+    path = gen2(cfg) / "repair" / "control-arms-bushings.md"
+    for blank in ("2. [Partial] ", "2. ", "- [Partial] [Unverified value] [t1]"):
+        path.write_text(page.replace("2. Drop the arm", blank, 1))
+        assert any("empty step or list item" in v for v in check_wiki(cfg, conn)), blank
+
+
+def test_qa_refuses_an_index_link_to_a_missing_page(cfg, conn, tmp_path):
+    """Found in the 2026-11-04 site review: an interrupted export deleted 930 second-gen pages and `xw qa` still passed,
+    because it only checks the pages that exist."""
+    add_notes(cfg, conn, tmp_path, [("a", "Lower control arm job on a 2008. Separate the ball joint with a fork and drop the arm. " * 6, "alice")])
+    extract_and_verify(cfg, conn, [("Lower control arm", {"relevant": True, "facts": [arm_fact(parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    assert check_wiki(cfg, conn) == []
+    (gen2(cfg) / "repair" / "control-arms-bushings.md").unlink()
+    assert any("second-gen/index.md" in v and "repair/control-arms-bushings.md" in v and "missing page" in v
+               for v in check_wiki(cfg, conn))
+    export(cfg, conn)
+    (gen2(cfg) / "index.md").unlink()
+    assert any(v.startswith("index.md") and "second-gen/index.md" in v for v in check_wiki(cfg, conn))
+
+
 def test_reingesting_a_page_under_a_source_of_another_generation_is_refused(cfg, conn, tmp_path):
     # Codex review of #11: INSERT OR IGNORE kept the old `manual` (second-gen) source and reported success
     f = tmp_path / "saved.txt"

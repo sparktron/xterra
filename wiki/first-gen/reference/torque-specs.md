@@ -48,7 +48,7 @@ verification:
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 17
+  withheld_items: 10
   pending_safety_values: 0
 ---
 -->
@@ -106,24 +106,6 @@ _Procedure reported by [t1045]._
 <details><summary>Alternate procedure [t1045] [Partial]</summary>
 
 1. [Unverified value] Torqued the rear wheel lug nuts to 80 ft-lbs.
-
-</details>
-
-<details><summary>Alternate procedure [t1941] [Partial]</summary>
-
-1. [Partial] 
-
-</details>
-
-<details><summary>Alternate procedure [t1941] [Partial]</summary>
-
-1. [Partial] 
-
-</details>
-
-<details><summary>Alternate procedure [t1941] [Partial]</summary>
-
-1. [Partial] 
 
 </details>
 

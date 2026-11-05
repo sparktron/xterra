@@ -11,6 +11,8 @@ stored in the database, that:
   * generation separation: a page sits in its own generation's section (front matter `generation`), every thread it
     cites has a fact that routes to that generation (re-derived from the database, not read from the exporter), and
     no published line names another generation
+  * no step or list item is empty: nothing but marks such as [Partial] and thread ids
+  * every local link in a generated index reaches a page, so an export that lost pages cannot pass
 The hand-curated pages under wiki/<generation>/vehicle/ have no thread text to check against; `check_curated` holds
 them to a citation rule instead: every line that states a number cites a source listed on that page, or says
 [Unverified]; and, like generated pages, they must not name another generation.
@@ -39,6 +41,8 @@ SRC_DEF = re.compile(r"^- \[S(\d+)\] .*https?://\S+")
 _LOCAL_LINK = re.compile(r"\[(?P<text>[^\]]*)\]\((?!https?:)[^)]*\)")
 _YEAR_NAV = re.compile(r"(?:← )?(?:19|20)\d\d(?: →)?")   # "[2005](years/2005.md)", "[← 2008](2008.md)"
 _TABLE_RULE = re.compile(r"^\|?\s*:?-{3,}")
+_EMPTY_ITEM = re.compile(rf"^(?:-|\d+\.)(?:\s*(?:{re.escape(PARTIAL)}|{re.escape(UNVERIFIED_VALUE)}|\[t\d+(?:, t\d+)*\]))*\s*$")
+_LINK_TARGET = re.compile(r"\]\((?P<target>[^)\s]+)\)")
 
 
 def _metadata_end(lines: list[str]) -> int | None:
@@ -123,6 +127,9 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
             if line.startswith("## "):
                 section = line[3:].strip()
                 continue
+            if _EMPTY_ITEM.match(line):
+                violations.append(f"{rel}: empty step or list item: {line!r}")
+                continue
             if section == "Specifications":
                 m = SPEC_LINE.match(line)
                 if line.startswith("- ") and "DISPUTED" in line:
@@ -172,7 +179,27 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     texts = [_thread_text(conn, s) or "" for s in m["sids"].split(", ")]
                     if not any(part_grounded(m["pn"], t) for t in texts):
                         violations.append(f"{rel}: part number not found in cited thread(s): {m['name']} ({m['pn']})")
-    return violations + check_curated(wiki, gl)
+    return violations + check_index_links(wiki, gl) + check_curated(wiki, gl)
+
+
+def check_index_links(wiki: Path, gl: list[Generation]) -> list[str]:
+    """Every local link in a generated index (wiki/index.md and each section's index.md) must reach a file. The checks
+    above read only the pages that exist, so an export that lost a section's pages (2026-11-03) passed without this."""
+    violations: list[str] = []
+    for index in [wiki / "index.md", *(wiki / g.id / "index.md" for g in gl)]:
+        if not index.is_file():
+            continue
+        lines = index.read_text(encoding="utf-8").splitlines()
+        if not lines or lines[0] != GENERATED:
+            continue
+        for line in lines:
+            for m in _LINK_TARGET.finditer(line):
+                target = m["target"].split("#", 1)[0]
+                if not target or re.match(r"[a-z][a-z0-9+.-]*:", target, re.I):   # anchor, URL or mailto
+                    continue
+                if not (index.parent / target).is_file():
+                    violations.append(f"{index.relative_to(wiki)}: links to a missing page: {target}")
+    return violations
 
 
 def check_curated(wiki_dir: Path, gens: list[Generation] | None = None) -> list[str]:

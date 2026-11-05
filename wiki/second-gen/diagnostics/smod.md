@@ -50,7 +50,7 @@ verification:
   - applies_to
   - est_time
   unconfirmed_safety_values: 0
-  withheld_items: 15
+  withheld_items: 14
   pending_safety_values: 0
 ---
 -->

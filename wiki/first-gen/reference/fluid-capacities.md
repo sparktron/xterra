@@ -24,11 +24,11 @@ confidence: community-consensus
 verification:
   local_pass_required: true
   reviewed_items: 0
-  partial_items: 4
+  partial_items: 3
   partial_fields:
   - applies_to
   unconfirmed_safety_values: 0
-  withheld_items: 1
+  withheld_items: 0
   pending_safety_values: 0
 ---
 -->
@@ -44,14 +44,6 @@ Use a homemade finish of spar urethane, boiled linseed oil, and mineral spirits 
 [Partial] Use this fluid to check for issues caused by tire size changes. [t1347]
 
 [Partial] Fluids and capacities [t2332]
-
-## Procedure
-
-> **[Partial]** Needs more work: the verifier could confirm only part of this procedure (the steps marked [Partial], or whether the list is complete). Steps or precautions may be wrong or missing; read the source thread before relying on it. Later runs fill it in as more sources are found.
-
-1. [Partial] 
-
-_Procedure reported by [t2332]._
 
 ## Tips & gotchas
 

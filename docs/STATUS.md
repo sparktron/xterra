@@ -1,6 +1,6 @@
 # Current Status
 
-**Updated:** 2026-11-04 · **Branch:** `wiki/nov3-xterranation-chunks`, from `master` (`1fec457`, merge of PR #15), holding the Nov 3 chunks' regenerated wiki, see Active work · On top of PR #15 (page metadata)
+**Updated:** 2026-11-05 · **Branch:** `fix/qa-blank-steps-missing-links`, from `master` (`65687a6`, merge of PR #16), see Active work
 
 ## Objective
 
@@ -18,7 +18,22 @@ using a local LLM, where every published fact is grounded in source text and ver
 
 ## Active work
 
-Pending `xterranation` chunks processed (2026-11-04). Regenerated wiki on branch `wiki/nov3-xterranation-chunks`.
+No blank steps; `qa` catches missing pages (2026-11-05). Items 1 and 8 of the 2026-11-04 site review.
+
+- **Cause:** 45 stored facts hold `""` as a step, tip or mistake. Export printed 4 first-gen steps as `1. [Partial] ` and 3
+  second-gen tips as `- [Partial]  [t…]`, and listed 40 empty claims as withheld in `open_questions.md`.
+- **Fix:** export skips an empty step, tip, mistake, symptom, tool or summary, and keeps the stored index so verdicts still
+  line up. `qa` refuses a step or list item holding only marks and thread ids, and `qa.check_index_links` refuses a local
+  link in a generated `index.md` to a missing file. Facts and verdicts are unchanged; verify still judges the empty claims.
+- **Tests:** `test_an_empty_step_or_tip_is_not_rendered_and_qa_refuses_a_blank_item` and
+  `test_qa_refuses_an_index_link_to_a_missing_page`, both failing before the fix.
+- **Validation:** `pytest` passed. `xw qa` on the old wiki reported the 7 blank items and no missing link. `xw export` (3m52s)
+  gave 1,539 pages from 3,103 facts, 1,965 withheld (was 2,005: the 40 empty claims), then `xw qa` passed. 30 wiki files
+  changed, all removals of blank items, their headings and the withheld counts.
+- **Not run:** dependency-floor tests (CI runs them), any LLM stage. Extraction still stores empty items; filtering them
+  there would shift the claim keys of facts already stored.
+
+Pending `xterranation` chunks processed (2026-11-04). Merged as PR #16 on 2026-11-05.
 
 - **Run:** `xw doctor`, backup to `data/xw.sqlite.bak-pre-nov3-extract-2026-11-04`, `xw extract --source xterranation`, `xw verify`,
   `xw export`, `xw qa`. Logs: `data/xterranation-nov3-extract-2026-11-04.log` and `data/xterranation-nov3-verify-2026-11-04.log`.
