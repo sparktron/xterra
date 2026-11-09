@@ -9,6 +9,8 @@ Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra re
 
 Step-by-step maintenance, repair and upgrade guides: [Guides](vehicle/guides/index.md) (hand-written from the factory service manual and forum write-ups; every step and number cites its source). The Guide column below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.
 
+Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), [open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) (what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).
+
 ## Diagnostics & Troubleshooting
 
 | Topic | Guide | Status | Threads |

@@ -36,6 +36,8 @@ verification:
 
 # Ball joints and tie rods
 
+> **Guide for this job:** [Ball joints and tie rods](../vehicle/guides/ball-joints-tie-rods.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > **[Unverified]** This page rests on a single community report. Cross-check before relying on it.
 
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.

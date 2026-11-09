@@ -50,6 +50,8 @@ verification:
 
 # Heater core and A/C problems
 
+> **Guide for this job:** [Heater core and A/C problems](../vehicle/guides/heater-core-ac.md) is a hand-written guide that cites every step and number. This page collects what forum threads add.
+
 > Items marked **[Partial]** are only partly confirmed by the source and need more work. They stay in the review queue and are firmed up, corrected or removed as more sources come in.
 
 ## Summary

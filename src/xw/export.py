@@ -295,9 +295,10 @@ def _tagged(text: str, tag: str) -> str:
 
 
 def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
-                gens: list[Generation] | None = None) -> tuple[str, dict[str, Any]]:
+                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
     """`gens`: every generation of the wiki. A claim that names a generation other than the page's is withheld, so
-    one generation's facts never publish in the other's section (qa re-checks this)."""
+    one generation's facts never publish in the other's section (qa re-checks this). `guide`: the page-relative link to
+    the curated guide for this topic, if one exists; it is linked above the summary."""
     rows = sorted(page.rows, key=lambda r: (-r.trust, r.id))
     drop = lambda r, kind, text, why: page.dropped.append({"kind": kind, "text": text[:160], "url": r.url, "why": why})  # noqa: E731
     gen = next((g for g in gens or [] if g.id == page.topic.generation), None)
@@ -595,6 +596,9 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
     }
 
     out = [GENERATED, *_metadata_comment(fm), "", f"# {page.topic.title}", ""]
+    if guide:
+        out += [f"> **Guide for this job:** [{page.topic.title}]({guide}) is a hand-written guide that cites every step and "
+                "number. This page collects what forum threads add.", ""]
     if conf == "[Unverified]":
         out += ["> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.", ""]
     if page.single_source_safety or unconfirmed_values:
@@ -774,7 +778,8 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
     disputes: list[tuple[str, str]] = []
     single: list[tuple[str, str]] = []
     for (cat, slug), page in sorted(pages.items()):
-        text, meta = render_page(page, g.years, policy, gl)
+        guide = f"../{GUIDES_DIR}/{slug}.md" if (live_dir / GUIDES_DIR / f"{slug}.md").exists() else ""
+        text, meta = render_page(page, g.years, policy, gl, guide)
         _write(out_dir / cat / f"{slug}.md", text + "\n")
         summary[f"{cat}/{slug}"] = {"title": page.topic.title, **meta}
         dropped += [(page.topic.title, d) for d in page.dropped]
@@ -796,6 +801,9 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
         idx += [f"Step-by-step maintenance, repair and upgrade guides: [Guides]({GUIDES_DIR}/index.md) (hand-written from the "
                 "factory service manual and forum write-ups; every step and number cites its source). The Guide column "
                 "below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.", ""]
+    idx += ["Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), "
+            "[open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) "
+            "(what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).", ""]
     gen_topics = topics.topics_for(g.id)
     for cat, title in topics.category_titles_for(g.id).items():
         idx += [f"## {title}", "", "| Topic | Guide | Status | Threads |", "|---|---|---|---|"]
