@@ -1044,8 +1044,10 @@ def test_a_curated_guide_is_linked_from_its_topic_in_the_index(cfg, conn):
     (guides / "index.md").write_text("# Guides\n\n- [Spark plugs](spark-plugs.md)\n\n## Sources\n")
     export(cfg, conn)
     idx = (gen2(cfg) / "index.md").read_text()
-    assert "| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | not-started | 0 |" in idx
+    # a topic covered only by its guide says so, not `not-started` (2026-11-04 site review)
+    assert "| Spark plug replacement | [Guide](vehicle/guides/spark-plugs.md) | guide only | 0 |" in idx
     assert "| Engine oil and filter change |  | not-started | 0 |" in idx        # no guide, no link
+    assert "`guide only` means" in idx
     assert "](vehicle/guides/index.md)" in idx
     assert (guides / "spark-plugs.md").read_text() == guide                       # export never touches a guide
     assert check_curated(cfg.wiki_dir) == []                                       # and qa holds guides to the curated rule

@@ -793,7 +793,8 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
            f"This section covers only the {g.title}. "
            + " ".join(f"The {o.title} is a different truck with its own section: [{o.title}](../{o.id}/index.md)." for o in others)
            + " Nothing here applies to the other generation unless a page says so.", "",
-           "Status: `not-started` means no verified source has contributed yet.", ""]
+           "Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a "
+           "hand-written guide but no forum thread has contributed yet.", ""]
     if (live_dir / CURATED_DIR / "index.md").exists():
         idx += [f"Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference]({CURATED_DIR}/index.md) "
                 "(hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).", ""]
@@ -811,7 +812,7 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
             m = summary.get(f"{cat}/{t.slug}")
             guide = f"[Guide]({GUIDES_DIR}/{t.slug}.md)" if (live_dir / GUIDES_DIR / f"{t.slug}.md").exists() else ""
             idx.append(f"| [{t.title}]({cat}/{t.slug}.md) | {guide} | {m['confidence']} | {m['n_threads']} |" if m
-                       else f"| {t.title} | {guide} | not-started | 0 |")
+                       else f"| {t.title} | {guide} | {'guide only' if guide else 'not-started'} | 0 |")
         idx.append("")
     _write(out_dir / "index.md", "\n".join(idx))
 
