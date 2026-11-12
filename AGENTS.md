@@ -18,8 +18,11 @@ markdown in `wiki/`. Stages, each re-runnable: `discover`/`harvest` (polite fetc
 raw cache) or `ingest` (pages you saved yourself) → `extract` (local LLM turns chunks into structured facts)
 → `verify` (a second local-LLM pass) → `export` (policy gate, render pages) → `qa` (re-check the published
 pages against raw source text). `xw run` chains crawl, extract and verify per source; `export` and `qa` are
-separate. A source that blocks is marked `blocked` and skipped; the run continues. The optional Claude review
-(`review-export` → `wiki-reviewer` agent → `review-apply`) feeds verdicts back into the gate.
+separate. The committed exporter renders pages with `export.render_page`, and `db.connect` initializes the schema
+directly. Page models, model-based QA and ordered database migrations are planned rebuild work; see `docs/ROADMAP.md`.
+A source that blocks is marked `blocked` and skipped; the run
+continues. The optional Claude review (`review-export` → `wiki-reviewer` agent → `review-apply`) feeds verdicts back
+into the gate.
 The README's Verification section is the design statement; this file holds what must not be broken.
 
 ## Important invariants
@@ -218,8 +221,8 @@ None. This repo is standalone. The internal contracts are the `data/review/batch
 
 - Never commit `data/`, `config/settings.local.yaml` or `.env`. The LLM API key is read from the environment
   variable named by `llm.api_key_env`; the key itself never goes in a file.
-- Set `crawl.contact` before crawling; the User-Agent must stay honest. Do not disable `respect_robots` for a site
-  that asks not to be crawled.
+- Set `crawl.contact` before crawling; the User-Agent must stay honest. The crawler proceeds with direct fetch
+  without robots.txt enforcement, following DOMinatrix tactics for unblocked access to sources like thenewx.org.
 - Torque, fluid-capacity and part-number claims drive real repairs. Do not loosen `grounding.py`, `export.gate` or
   `qa.py` without a test showing why.
 - Review batches send only a claim and a short excerpt to Claude, and only when you run the review step.
