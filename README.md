@@ -1,6 +1,12 @@
 # xterra-wiki
 
-A markdown wiki that works as an encyclopedia of the Nissan Xterra, with one completely separate section per generation (`wiki/first-gen/`, 2000-2004 WD22; `wiki/second-gen/`, 2005-2015 N50), because the two trucks share almost nothing. `wiki/index.md` only points at the two sections. Each section has two parts that share its index: reference pages written by hand from manufacturer and government sources, and how-to, diagnostic and spec pages built by a pipeline that crawls (politely) or ingests Xterra forum threads, extracts structured facts with a local LLM, and verifies them. Scope: 2nd-gen Xterra (N50) plus the shared Frontier/Titan drivetrain.
+The goal is one searchable, browsable place for web discussions about modifying and fixing the Nissan Xterra, mainly the second generation, alongside facts from the factory service manual. Readers should be able to compare every version of a fix and see clearly when sources disagree or a claim conflicts with the manual. Manual facts such as torque specifications should be easy to find; field experience should preserve conditions such as rust and seized fasteners.
+
+## Objective
+
+Each generation remains separate and will have two layers: **Known facts**, from the factory service manual and other manufacturer or government data, and **Field notes**, from forum jobs, fixes and experience. The manual will be a structured, first-class source for comparison. A closed list of jobs will govern topics; unmatched material will wait in a queue rather than become a model-created page. Rewriting modules, the database and the wiki layout, and fully re-extracting facts, are accepted. See [the roadmap](docs/ROADMAP.md) for the staged rebuild.
+
+These are decisions dated 2026-11-12, not a description of completed functionality. Today `xw` builds Markdown from forum threads and the existing hand-curated reference pages live under `wiki/<generation>/vehicle/`. The current exporter still withholds disputed safety values; roadmap step 5 will instead show every sourced version marked `DISPUTED`, and show a manual conflict beside the manual value. The local model remains untrusted: numbers must appear in their sources, copying and bypassing blocks are forbidden, and `data/` is never committed.
 
 ## Quick start
 ```
