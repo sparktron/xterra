@@ -1,6 +1,6 @@
 # Project status
 
-**Updated:** 2026-11-12 · **Branch:** `master` · Rebuild step 1
+**Updated:** 2026-11-12 · **Branch:** `codex/rebuild-gate` · Rebuild step 2 in progress
 
 ## Objective
 
@@ -36,6 +36,16 @@ Crawler unblocked, robots.txt enforcement disabled (2026-11-12).
   only strong authentication/authorization responses (401, 402, 403) should block crawling. HTTP 409 often indicates bot challenges
   or conflicts that can be handled without stopping the source entirely.
 - **Validation:** Pending `pytest`, `xw doctor`, and crawl run against both sources to confirm successful fetch.
+
+Rebuild step 2 (2026-11-12, in progress): topic pages now have a gated `PageModel` and separate Markdown renderer;
+export stages JSON models in `data/model/`, and QA compares saved models with source-grounded rebuilds and rendered
+pages while retaining existing independent checks. SQLite has ordered migrations and adopts the old schema as version 1.
+Tests cover model tampering, changed source text, missing models, migration rollback and rejecting unknown versions.
+The current implementation does not yet model the separately generated indexes, DTC table and supporting reports;
+QA still parses topic Markdown for independent checks. Do not mark step 2 complete until its full scope and real-data
+export comparison and QA are verified. Before the base branch advanced, the isolated before/after export produced identical wiki trees (1,539 pages,
+1,965 items withheld); the offline pytest suite and `xw qa` passed against the copied database.
+
 
 `guide only` status and first-gen hub text (2026-11-05). More of item 6 of the 2026-11-04 site review.
 

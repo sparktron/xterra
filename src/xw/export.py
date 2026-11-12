@@ -30,7 +30,7 @@ import re
 import sqlite3
 import tempfile
 from collections import Counter, defaultdict
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
@@ -294,8 +294,27 @@ def _tagged(text: str, tag: str) -> str:
     return f"{text} ({tag})" if tag else text
 
 
-def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
-                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
+@dataclass
+class PageModel:
+    """Gated data for a page, independent of the Markdown representation."""
+    title: str
+    guide: str
+    metadata: dict[str, Any]
+    lists: dict[str, Any]
+    procedures: list[dict[str, Any]]
+    parts: list[dict[str, Any]]
+    specifications: list[dict[str, Any]]
+    diagrams: list[tuple[str, str]]
+    sources: list[dict[str, Any]]
+    unconfirmed_values: list[tuple[str, str]]
+    withheld: list[dict[str, str]]
+    pending: list[dict[str, Any]]
+    unconfirmed: list[dict[str, Any]]
+    single_source_safety: list[str]
+
+
+def build_page_model(page: Page, scope_years: tuple[int, int], policy: Policy,
+                gens: list[Generation] | None = None, guide: str = "") -> PageModel:
     """`gens`: every generation of the wiki. A claim that names a generation other than the page's is withheld, so
     one generation's facts never publish in the other's section (qa re-checks this). `guide`: the page-relative link to
     the curated guide for this topic, if one exists; it is linked above the summary."""
@@ -369,7 +388,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                 diagrams.append((u, sid))
 
     # specs: corroboration, disputes, and the safety-critical gate
-    spec_lines: list[str] = []
+    specifications: list[dict[str, Any]] = []
     published: set[tuple[str, str]] = set()   # (number, unit) of every published spec value on this page
     unconfirmed_values: set[tuple[str, str]] = set()   # ... of those, the safety values published unconfirmed
     for slot in sorted(specs.values(), key=lambda s: s["item"].lower()):
@@ -386,8 +405,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                 continue
             else:
                 page.disputes.append(slot["item"])
-                alts = "; ".join(f"{v['display']}{_fmt_src(v['sids'])}" for v in vals)
-                spec_lines.append(f"- **{slot['item']}**: DISPUTED, sources disagree: {alts}")
+                specifications.append({"item": slot["item"], "alternatives": [{"display": v["display"], "sids": v["sids"]} for v in vals]})
                 continue
         v = vals[0]
         n = len(v["threads"])
@@ -423,13 +441,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
         page.reviewed_items += bool(v["reviewed"])
         contrib |= v["rids"]
         published |= safety_values(v["display"])
-        spec_lines.append(f"- **{slot['item']}**: {v['display']}{_fmt_src(v['sids'])} ({tag})")
-
-    def mark(text: str, partial: bool) -> str:
-        """[Partial] for a claim the verifier only partly supports; [Unverified value] for a safety value whose spec
-        on this page is not confirmed."""
-        unverified = bool(safety_values(text) & unconfirmed_values)
-        return (f"{PARTIAL} " if partial else "") + (f"{UNVERIFIED_VALUE} " if unverified else "") + text
+        specifications.append({"item": slot["item"], "display": v["display"], "sids": v["sids"], "tag": tag})
 
     def loose(text: str, source: str) -> str:
         """Why `text` may not publish: it states a torque/capacity/pressure value that is not a published spec here.
@@ -595,72 +607,110 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                          "withheld_items": len(page.dropped), "pending_safety_values": len(page.pending)},
     }
 
-    out = [GENERATED, *_metadata_comment(fm), "", f"# {page.topic.title}", ""]
+    source_rows = {r.thread_id: r for r in reversed(sorted(rows, key=lambda r: r.thread_id))}
+    sources = [{"sid": r.sid, "author": r.author, "posted": r.posted, "thread_title": r.thread_title, "url": r.url}
+               for _, r in sorted(source_rows.items())]
+    procedures = [{"sid": r.sid, "url": r.url, "photos": r.photos,
+                   "corrected_steps": sum(k.startswith("step:") for k in r.corrected),
+                   "partial": r.id in partial_ids, "steps": steps, "step_partial": step_partial}
+                  for r, steps, step_partial in proc]
+    # Skip near-duplicate alternates at the gate so the model contains only published procedures.
+    if procedures:
+        procedures = [procedures[0]] + [p for p in procedures[1:]
+                     if not _similar(" ".join(p["steps"]), " ".join(procedures[0]["steps"]), 0.85)]
+    return PageModel(page.topic.title, guide, fm, lists, procedures, list(parts.values()), specifications,
+                     sorted(set(diagrams)), sources, sorted(unconfirmed_values), list(page.dropped),
+                     list(page.pending), list(page.unconfirmed), list(page.single_source_safety))
+
+
+def render_model(model: PageModel) -> tuple[str, dict[str, Any]]:
+    """Render an already-gated page without consulting the database or policy."""
+    fm, guide, lists = model.metadata, model.guide, model.lists
+    conf = fm["confidence"]
+    partial_fields = fm["verification"]["partial_fields"]
+    unconfirmed_values = set(map(tuple, model.unconfirmed_values))
+    proc, parts, diagrams = model.procedures, model.parts, model.diagrams
+
+    def mark(text: str, partial: bool) -> str:
+        unverified = bool(safety_values(text) & unconfirmed_values)
+        return (f"{PARTIAL} " if partial else "") + (f"{UNVERIFIED_VALUE} " if unverified else "") + text
+
+    out = [GENERATED, *_metadata_comment(fm), "", f"# {model.title}", ""]
     if guide:
-        out += [f"> **Guide for this job:** [{page.topic.title}]({guide}) is a hand-written guide that cites every step and "
+        out += [f"> **Guide for this job:** [{model.title}]({guide}) is a hand-written guide that cites every step and "
                 "number. This page collects what forum threads add.", ""]
     if conf == "[Unverified]":
         out += ["> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.", ""]
-    if page.single_source_safety or unconfirmed_values:
+    if model.single_source_safety or unconfirmed_values:
         out += [SAFETY_NOTE, ""]
-    if page.partial_items or partial_fields:
+    if fm["verification"]["partial_items"] or partial_fields:
         out += [PAGE_PARTIAL_NOTE, ""]
-    if page.pending:
+    if model.pending:
         out += ["> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.", ""]
     out += ["## Summary", ""]
-    if summaries:
+    if lists["summary"]:
         for text, sids, part in lists["summary"]:
             out += [f"{mark(text, part)}{_fmt_src(sids)}", ""]
     else:
         out += ["_No verified summary yet._", ""]
-    if symptoms:
+    if lists["symptom"]:
         out += ["## Symptoms / When you need this", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["symptom"]] + [""]
     if proc:
-        r0, steps0, partial0 = proc[0]
+        r0 = proc[0]
+        steps0, partial0 = r0["steps"], r0["step_partial"]
         out += ["## Procedure", ""]
-        if r0.id in partial_ids:
+        if r0["partial"]:
             out += [PARTIAL_NOTE, ""]
         # the wiki rewrites the steps and does not copy the author's photos; it says where they are
-        pics = f" Photos of this job are in the source: <{r0.url}>" if r0.photos else ""
-        n = sum(k.startswith("step:") for k in r0.corrected)
+        pics = f" Photos of this job are in the source: <{r0['url']}>" if r0["photos"] else ""
+        n = r0["corrected_steps"]
         fixed = f"; {n} step{'s' if n != 1 else ''} reworded by a reviewer" if n else ""
         out += [f"{i}. {mark(s, pt)}" for i, (s, pt) in enumerate(zip(steps0, partial0), 1)] + \
-            ["", f"_Procedure reported by [{r0.sid}]{fixed}.{pics}_", ""]
-        for r, s, sp in proc[1:]:
-            if _similar(" ".join(s), " ".join(steps0), 0.85):
-                continue  # same procedure in other words; one with different numbers is shown as an alternate
-            alt = " [Partial]" if r.id in partial_ids else ""
-            out += [f"<details><summary>Alternate procedure [{r.sid}]{alt}</summary>", ""] + \
+            ["", f"_Procedure reported by [{r0['sid']}]{fixed}.{pics}_", ""]
+        for r in proc[1:]:
+            s, sp = r["steps"], r["step_partial"]
+            alt = " [Partial]" if r["partial"] else ""
+            out += [f"<details><summary>Alternate procedure [{r['sid']}]{alt}</summary>", ""] + \
                 [f"{i}. {mark(x, pt)}" for i, (x, pt) in enumerate(zip(s, sp), 1)] + ["", "</details>", ""]
     if fm["tools"]:
         out += ["## Tools", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tool"]] + [""]
     if parts:
         out += ["## Parts", ""]
-        for p in sorted(parts.values(), key=lambda p: p["name"].lower()):
+        for p in sorted(parts, key=lambda p: p["name"].lower()):
             pn = f" ({p['part_number']})" if p["part_number"] else ""
             note = f": {'; '.join(_flat(n) for n in p['notes'])}" if p["notes"] else ""
             name = _flat(p["name"])
             out.append(f"- {mark(f'{name}{pn}{note}', p['partial'])}{_fmt_src(p['sids'])}")
         out.append("")
-    if spec_lines:
-        out += ["## Specifications", ""] + spec_lines + [""]
-    if tips:
+    if model.specifications:
+        out += ["## Specifications", ""]
+        for spec in model.specifications:
+            if "alternatives" in spec:
+                alts = "; ".join(f"{v['display']}{_fmt_src(v['sids'])}" for v in spec["alternatives"])
+                out.append(f"- **{spec['item']}**: DISPUTED, sources disagree: {alts}")
+            else:
+                out.append(f"- **{spec['item']}**: {spec['display']}{_fmt_src(spec['sids'])} ({spec['tag']})")
+        out.append("")
+    if lists["tip"]:
         out += ["## Tips & gotchas", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tip"]] + [""]
-    if mistakes:
+    if lists["mistake"]:
         out += ["## Common mistakes", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["mistake"]] + [""]
     if diagrams:
-        out += ["## Diagrams (links only)", ""] + [f"- {u} [{s}]" for u, s in sorted(set(diagrams))] + [""]
+        out += ["## Diagrams (links only)", ""] + [f"- {u} [{s}]" for u, s in sorted({tuple(d) for d in diagrams})] + [""]
     out += ["## Source attributions", ""]
-    seen: set[int] = set()
-    for r in sorted(rows, key=lambda r: r.thread_id):
-        if r.thread_id in seen:
-            continue
-        seen.add(r.thread_id)
-        who = f"{r.author}, " if r.author else ""
-        when = f", {r.posted[:10]}" if r.posted else ""
-        out.append(f"- **{r.sid}**: {who}\"{r.thread_title}\"{when}. {r.url}")
+    for source in model.sources:
+        who = f"{source['author']}, " if source['author'] else ""
+        when = f", {source['posted'][:10]}" if source['posted'] else ""
+        out.append(f"- **{source['sid']}**: {who}\"{source['thread_title']}\"{when}. {source['url']}")
     out.append("")
-    return "\n".join(out), {"confidence": conf, "n_threads": len(seen), "years": years}
+    return "\n".join(out), {"confidence": conf, "n_threads": len(model.sources), "years": fm["applies_to"]["years"]}
+
+
+
+def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
+                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
+    """Compatibility wrapper for callers needing the gate and renderer together."""
+    return render_model(build_page_model(page, scope_years, policy, gens, guide))
 
 
 # ---------------------------------------------------------------------------------------------
@@ -761,7 +811,7 @@ def _publish(staged: Path, wiki: Path, gl: list[Generation], topics: TopicIndex)
 
 
 def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, g: Generation, gl: list[Generation],
-                       rows: list[FactRow], policy: Policy, staged: Path) -> dict[str, Any]:
+                       rows: list[FactRow], policy: Policy, staged: Path, staged_models: Path) -> dict[str, Any]:
     """Write one generation's complete section under `staged`/<generation>/. Curated pages are looked up in wiki/, since
     they are not part of an export."""
     out_dir = staged / g.id
@@ -779,7 +829,9 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
     single: list[tuple[str, str]] = []
     for (cat, slug), page in sorted(pages.items()):
         guide = f"../{GUIDES_DIR}/{slug}.md" if (live_dir / GUIDES_DIR / f"{slug}.md").exists() else ""
-        text, meta = render_page(page, g.years, policy, gl, guide)
+        model = build_page_model(page, g.years, policy, gl, guide)
+        text, meta = render_model(model)
+        _write(staged_models / g.id / cat / f"{slug}.json", json.dumps(asdict(model), ensure_ascii=False, indent=2) + "\n")
         _write(out_dir / cat / f"{slug}.md", text + "\n")
         summary[f"{cat}/{slug}"] = {"title": page.topic.title, **meta}
         dropped += [(page.topic.title, d) for d in page.dropped]
@@ -917,12 +969,15 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     gl = generations.load(cfg)
     by_gen, unrouted = route_rows(cfg, rows)
     # Build everything beside wiki/ (same filesystem, so the moves are atomic); wiki/ is untouched until it is all rendered.
-    with tempfile.TemporaryDirectory(prefix=".wiki-export-", dir=wiki.parent) as tmp:
+    cfg.data_dir.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".wiki-export-", dir=wiki.parent) as tmp, \
+            tempfile.TemporaryDirectory(prefix=".model-export-", dir=cfg.data_dir) as model_tmp:
         staged = Path(tmp)
+        staged_models = Path(model_tmp)
         totals: Counter[str] = Counter()
         per_gen: dict[str, dict[str, Any]] = {}
         for g in gl:
-            per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy, staged)
+            per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy, staged, staged_models)
             totals.update(per_gen[g.id])
 
         idx = [GENERATED, "# Nissan Xterra wiki", "",
@@ -942,6 +997,17 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
         oq += ["", "## Blocked sources (all generations)", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in blocked] or ["_None._"])
         _write(staged / "open_questions.md", "\n".join(oq) + "\n")
         _publish(staged, wiki, gl, topics)
+        model_dir = cfg.data_dir / "model"
+        new_models = set()
+        for source in sorted(staged_models.rglob("*.json")):
+            rel = source.relative_to(staged_models)
+            target = model_dir / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            os.replace(source, target)
+            new_models.add(rel)
+        for old in model_dir.rglob("*.json"):
+            if old.relative_to(model_dir) not in new_models:
+                old.unlink()
 
     return {**{k: totals[k] for k in ("pages", "facts", "dtc_codes", "dropped", "pending", "unconfirmed", "partial",
                                       "disputes", "missing_topics")},

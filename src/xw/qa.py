@@ -181,7 +181,44 @@ def check_wiki(cfg: Config, conn: sqlite3.Connection) -> list[str]:
                     texts = [_thread_text(conn, s) or "" for s in m["sids"].split(", ")]
                     if not any(part_grounded(m["pn"], t) for t in texts):
                         violations.append(f"{rel}: part number not found in cited thread(s): {m['name']} ({m['pn']})")
-    return violations + check_index_links(wiki, gl) + check_curated(wiki, gl)
+    return violations + check_page_models(cfg, conn) + check_index_links(wiki, gl) + check_curated(wiki, gl)
+
+
+def check_page_models(cfg: Config, conn: sqlite3.Connection) -> list[str]:
+    """Rebuild gated data against current source chunks, and compare model and rendered page."""
+    from dataclasses import asdict
+    from .export import PageModel, Policy, build_page_model, build_pages, load_rows, render_model, route_rows, GUIDES_DIR
+    from .topics import TopicIndex
+
+    violations: list[str] = []
+    models = cfg.data_dir / "model"
+    gl = generations.load(cfg)
+    routed, _ = route_rows(cfg, load_rows(conn))
+    topics, policy = TopicIndex(cfg.topics), Policy.from_cfg(cfg)
+    expected_paths = set()
+    for gen in gl:
+        for (category, slug), page in build_pages(routed[gen.id], topics, gen.id).items():
+            rel = Path(gen.id) / category / f"{slug}.json"
+            expected_paths.add(rel)
+            guide = f"../{GUIDES_DIR}/{slug}.md" if (cfg.wiki_dir / gen.id / GUIDES_DIR / f"{slug}.md").exists() else ""
+            expected = build_page_model(page, gen.years, policy, gl, guide)
+            model_path, wiki_path = models / rel, cfg.wiki_dir / rel.with_suffix(".md")
+            try:
+                saved = json.loads(model_path.read_text(encoding="utf-8"))
+                # JSON normalizes tuples to arrays; compare the same representation.
+                expected_data = json.loads(json.dumps(asdict(expected), ensure_ascii=False))
+                if saved != expected_data:
+                    violations.append(f"{rel}: page model differs from source-grounded gate")
+                rendered, _ = render_model(PageModel(**saved))
+                if not wiki_path.exists() or wiki_path.read_text(encoding="utf-8") != rendered + "\n":
+                    violations.append(f"{wiki_path.relative_to(cfg.wiki_dir)}: rendered page differs from page model")
+            except (OSError, ValueError, TypeError, KeyError, AttributeError) as exc:
+                violations.append(f"{rel}: missing or invalid page model: {exc}")
+    if models.exists():
+        for model_path in models.rglob("*.json"):
+            if model_path.relative_to(models) not in expected_paths:
+                violations.append(f"{model_path.relative_to(models)}: stale page model")
+    return violations
 
 
 def check_index_links(wiki: Path, gl: list[Generation]) -> list[str]:

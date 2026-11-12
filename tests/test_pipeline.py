@@ -1751,6 +1751,8 @@ def _wiki_about_to_be_replaced(cfg, conn, tmp_path):
 def test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was(cfg, conn, tmp_path, monkeypatch):
     older, stale, hub = _wiki_about_to_be_replaced(cfg, conn, tmp_path)
     before = _published(cfg)
+    model_dir = cfg.data_dir / "model"
+    models_before = {p.relative_to(model_dir): p.read_bytes() for p in model_dir.rglob("*.json")}
     real, calls = export_module._export_generation, []
 
     def stopped(*args, **kw):
@@ -1762,6 +1764,7 @@ def test_an_export_stopped_in_the_second_generation_leaves_every_published_page_
     monkeypatch.setattr(export_module, "_export_generation", stopped)
     with pytest.raises(KeyboardInterrupt):
         export(cfg, conn)
+    assert {p.relative_to(model_dir): p.read_bytes() for p in model_dir.rglob("*.json")} == models_before
     assert len(calls) == 2 and _published(cfg) == before     # nothing deleted, and the first section not half replaced
     assert not list(cfg.root.glob(".wiki-export-*"))         # and no staging directory left behind
 
@@ -1816,3 +1819,27 @@ def test_an_interrupted_run_exports_nothing_and_does_not_report_success(root, mo
     monkeypatch.setattr("xw.cli.export_all", no_export)
     assert main(["--root", str(root), "run"]) == 130
     assert "nothing exported" in capsys.readouterr().out
+
+
+def test_page_model_is_checked_against_sources_and_rendered_page(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("arm", "For lower control arms, use 83 ft-lb on the pivot bolts.", "owner")])
+    extract_and_verify(cfg, conn, [("lower control arms", {"relevant": True, "facts": [arm_fact(
+        summary="", steps=[], tools=[], tips=[], parts=[], diagram_links=[],
+        years=[], trims=[], difficulty=None, est_time="",
+        specs=[spec("83", "83 ft-lb")])]})])
+    export(cfg, conn)
+    path = cfg.data_dir / "model/second-gen/repair/control-arms-bushings.json"
+    model = json.loads(path.read_text())
+    assert model["specifications"][0]["display"] == "83 ft-lb"
+    assert check_wiki(cfg, conn) == []
+    model["specifications"][0]["display"] = "99 ft-lb"
+    path.write_text(json.dumps(model))
+    violations = check_wiki(cfg, conn)
+    assert any("differs from source-grounded gate" in v for v in violations)
+    assert any("differs from page model" in v for v in violations)
+    path.unlink()
+    assert any("missing or invalid page model" in v for v in check_wiki(cfg, conn))
+    export(cfg, conn)
+    conn.execute("UPDATE chunks SET text='The source no longer states the value.'")
+    conn.commit()
+    assert any("differs from source-grounded gate" in v for v in check_wiki(cfg, conn))
