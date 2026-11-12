@@ -5,7 +5,7 @@ The ordered prompts and acceptance criteria are in [REBUILD_PROMPTS.md](REBUILD_
 | Step | Work | Status |
 |---|---|---|
 | 1 | Charter and decisions | Done (2026-11-12) |
-| 2 | Split gating from rendering | Not started |
+| 2 | Split gating from rendering | In progress |
 | 3 | Manual facts store | Not started |
 | 4 | Known-facts section | Not started |
 | 5 | Canonical items, manual cross-check, visible disputes | Not started |
