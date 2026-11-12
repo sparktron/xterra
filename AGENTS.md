@@ -1,6 +1,10 @@
 # xterra wiki pipeline
 
-Local-LLM pipeline (`xw`) that builds a wiki on Nissan Xterra (first and second generation, in separate sections) / Frontier / Titan work from forum threads.
+Build one searchable, browsable place for Xterra modification and repair knowledge, mainly second generation, from web discussions and the factory service manual. Show versions of a fix side by side and clearly mark disagreements and suspected errors, including conflicts with the manual. Make manual facts such as torque specifications easy to find. Each generation stays separate, with **Known facts** (manual and other manufacturer or government data) and **Field notes** (forum-derived jobs, fixes and experience, including conditions such as rust).
+
+## Objective
+
+The 2026-11-12 charter makes the factory service manual a structured, first-class source and compares forum values with it. Topics will be a closed list of jobs; the model cannot create pages and unmatched material waits in a queue. This is a new project: modules, database schema and wiki layout may be rewritten, and full re-extraction is acceptable. The existing implementation has not yet been rebuilt to meet these decisions; see `docs/ROADMAP.md`.
 
 - Setup: `scripts/bootstrap.sh`. Run: `scripts/run_all.sh`. Tests: `pytest -q`.
 - Published facts must be grounded in source text. Do not loosen `grounding.py`, `export.gate` or `qa.py` without a test showing why.
@@ -78,13 +82,15 @@ The local model is not trusted. Each item names the guarding test, or says none 
   Decided 2026-10-16 (`verify.publish_unverified_safety`, default on): an unconfirmed torque/capacity/pressure value
   publishes with `[Unverified]` or `[Partial]` in its spec tag under `export.SAFETY_NOTE`, prose repeating it carries
   `[Unverified value]`, `pending_verification.md` lists it, and the review queue keeps it at priority 0. With the setting
-  off it is withheld. Disputed safety values are always withheld. `qa` refuses an unconfirmed safety spec without a mark
+  off it is withheld. **Decision 2026-11-12:** disputed safety values must publish with every sourced version and a clear
+  `DISPUTED` mark; a conflict with the factory manual must be marked and shown beside the manual value. The current exporter
+  still withholds disputes until roadmap step 5 implements and tests this decision. `qa` refuses an unconfirmed safety spec without a mark
   and the banner, and an unconfirmed value repeated in prose without `[Unverified value]`.
   Tests: `test_an_unconfirmed_safety_value_publishes_marked_and_is_rechecked`,
   `test_a_partial_safety_value_publishes_marked_and_a_partial_never_beats_a_firmer_no`,
   `test_consensus_below_a_raised_safety_threshold_is_marked_unverified` (qa also refuses a `community-consensus` tag
   with fewer threads than `safety_min_threads`),
-  `test_single_source_safety_value_is_withheld_until_reviewed` (strict), `test_agreeing_threads_are_consensus_and_disputes_are_withheld`,
+  `test_single_source_safety_value_is_withheld_until_reviewed` (strict), `test_agreeing_threads_are_consensus_and_disputes_are_withheld` (current behavior; to change in step 5),
   `test_same_author_in_two_threads_is_not_consensus`.
 - **A safety value in prose is backed by a spec or marked.** A torque, capacity or pressure value (`grounding.safety_values`)
   in a summary, step, tip, tool or part text publishes if the same number and unit published as a spec on that page (marked
@@ -119,8 +125,9 @@ The local model is not trusted. Each item names the guarding test, or says none 
   every generation has rendered, and deletes stale pages last, so a stop leaves the old wiki or, during the moves, a mix the next export
   settles. An interrupted `xw run` exports nothing and exits 130. Tests: `test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was`,
   `test_an_export_stopped_while_moving_pages_into_place_deletes_nothing`, `test_an_interrupted_run_exports_nothing_and_does_not_report_success`.
-- **Blocks are never worked around.** 401/402/403 (`crawl.stop_statuses`), repeated 429, off-site redirects and
-  challenge pages mark the source blocked; no retry, header spoofing, proxy, mirror or cache. Tests: `tests/test_fetch.py`.
+- **Blocks are signaled by authentication/authorization responses.** HTTP 401, 402, or 403 mark a source blocked.
+  The crawler proceeds directly without robots.txt enforcement and does not attempt workarounds like header spoofing,
+  proxies, mirrors, or cache fallbacks when a site refuses automated access. Tests: `tests/test_fetch.py`.
 - **Wiki scope years (`scope.years: [2000, 2016]`) are `[Unverified]`.** Facts stating only years outside it are dropped
   (`test_out_of_scope_years_are_dropped`); do not tighten the range without a source.
 - **Each generation is a completely separate section** (decided 2026-10-20: the first-gen WD22 and second-gen N50 "are

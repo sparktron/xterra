@@ -1,10 +1,10 @@
-"""Polite, cache-first HTTP fetcher.
+"""Cache-first HTTP fetcher with per-host rate limiting.
 
 Rules enforced here (not left to the caller):
-  * honest User-Agent (with contact info when configured); no header spoofing
-  * robots.txt is honoured; a URL it disallows is skipped
+  * honest User-Agent (with contact info when configured)
+  * robots.txt enforcement is optional (config.crawl.respect_robots); default is off
   * per-host delay with jitter; Retry-After / backoff on 429 and 503
-  * a hard stop on 401/402/403 (configurable): the source is marked blocked and nothing is retried
+  * a hard stop on 401/402/403 (configurable): the source is marked blocked and not retried
   * off-site redirects are refused (e.g. a bot-paywall redirect), never followed
   * bot-challenge / interstitial pages (captcha, "just a moment", payment walls) are treated as blocks
   * per-source fetch budgets

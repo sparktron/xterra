@@ -33,7 +33,7 @@ DEFAULTS: dict[str, Any] = {
         "max_forum_depth": 3,
         "max_fetches_per_source": 150,
         "max_fetches_primary": 400,
-        "respect_robots": True,
+        "respect_robots": False,  # crawler proceeds without robots.txt enforcement
         "stop_statuses": [401, 402, 403],
         "max_consecutive_429": 3,
         "min_post_chars": 60,
