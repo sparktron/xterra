@@ -18,11 +18,9 @@ markdown in `wiki/`. Stages, each re-runnable: `discover`/`harvest` (polite fetc
 raw cache) or `ingest` (pages you saved yourself) → `extract` (local LLM turns chunks into structured facts)
 → `verify` (a second local-LLM pass) → `export` (policy gate, render pages) → `qa` (re-check the published
 pages against raw source text). `xw run` chains crawl, extract and verify per source; `export` and `qa` are
-separate. Topic-page policy evaluation builds a `PageModel` in `export.py`; `render_model` renders it and export writes
-JSON models under `data/model/`. Indexes, DTCs and supporting reports also have models and renderers. QA compares
-the models with source-grounded rebuilds and rendered files, and independently checks modeled values and links;
-its existing Markdown checks remain in place while the QA migration is incomplete. SQLite schema changes are ordered migrations in `db.MIGRATIONS`;
-pre-versioned databases are adopted as version 1. A source that blocks is marked `blocked` and skipped; the run
+separate. The committed exporter renders pages with `export.render_page`, and `db.connect` initializes the schema
+directly. Page models, model-based QA and ordered database migrations are planned rebuild work; see `docs/ROADMAP.md`.
+A source that blocks is marked `blocked` and skipped; the run
 continues. The optional Claude review (`review-export` → `wiki-reviewer` agent → `review-apply`) feeds verdicts back
 into the gate.
 The README's Verification section is the design statement; this file holds what must not be broken.
