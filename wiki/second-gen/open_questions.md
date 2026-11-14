@@ -7,7 +7,7 @@
 
 ## Threads skipped or failed
 
-- xterranation: 7 thread(s) error (RemoteProtocolError: Server disconnected without sending a response.)
+- xterranation: 18 thread(s) error (RemoteProtocolError: Server disconnected without sending a response.)
 
 ## Disputed values
 

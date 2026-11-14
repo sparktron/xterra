@@ -1,6 +1,6 @@
 # Project status
 
-**Updated:** 2026-11-12 · **Branch:** `master` · Rebuild step 1
+**Updated:** 2026-11-12 · Rebuild step 2 complete
 
 ## Objective
 
@@ -36,6 +36,23 @@ Crawler unblocked, robots.txt enforcement disabled (2026-11-12).
   only strong authentication/authorization responses (401, 402, 403) should block crawling. HTTP 409 often indicates bot challenges
   or conflicts that can be handled without stopping the source entirely.
 - **Validation:** Pending `pytest`, `xw doctor`, and crawl run against both sources to confirm successful fetch.
+
+Rebuild step 2 (2026-11-12): topic pages now have a gated `PageModel` and separate Markdown renderer;
+export stages JSON models in `data/model/`, and QA compares saved models with source-grounded rebuilds and rendered
+pages while retaining existing independent checks. SQLite has ordered migrations and adopts the old schema as version 1.
+Tests cover model tampering, changed source text, missing models, migration rollback and rejecting unknown versions.
+QA now independently checks topic-model specification values, units and part numbers against their cited threads;
+the existing rendered-page checks remain in place, so this is an incremental move rather than the completed QA redesign.
+The generation and top-level indexes, DTC table, diagrams, interchange, source list, pending values and open questions
+also have models and renderers, with published entries and withheld reasons as applicable. Topic metadata, DTC advice
+and interchange entries record their contributing fact and verifier-claim keys. Routine source and generation checks
+run on the model; QA retains format checks and detailed Markdown diagnostics when a generated file differs from its model.
+The design was reviewed against step 2's requirements. Isolated exports of the updated base and final code against
+copies of the same real database produced byte-identical wiki trees (1,539 pages, 1,965 items withheld); real-data
+`xw qa` and the offline pytest suite passed. The database has no DTC rows; populated and withheld DTCs were tested
+offline. The live database and wiki were not changed. No live model, crawl, or dependency-floor run was needed for
+this change; CI covers the dependency floors.
+
 
 `guide only` status and first-gen hub text (2026-11-05). More of item 6 of the 2026-11-04 site review.
 

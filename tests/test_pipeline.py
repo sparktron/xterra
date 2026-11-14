@@ -394,6 +394,21 @@ def test_dtc_table_and_interchange(cfg, conn, tmp_path):
     export(cfg, conn)
     rows = list(csv.reader((gen2(cfg) / "dtc_table.csv").open()))
     assert [r[0] for r in rows[1:]] == ["P0340"]                  # ungrounded P0999 excluded
+    model_path = cfg.data_dir / "model/second-gen/reports/dtc_table.json"
+    model = json.loads(model_path.read_text())
+    assert [item["code"] for item in model["items"]] == ["P0340"]
+    assert any(item["code"] == "P0999" and item["why"] for item in model["withheld"])
+    assert any(item["code"] == "P0340" and item["claim_key"] == "dtc:0" and item["source_id"] == "t1"
+               for item in model["provenance"])
+    interchange = json.loads((cfg.data_dir / "model/second-gen/reports/interchange.json").read_text())
+    assert any(claim["claim_key"] == "platform" and "Frontier" in claim["platforms"]
+               for item in interchange["items"] for claim in item["provenance"])
+    from xw.qa import check_dtc_provenance
+    model["provenance"][0]["fact_id"] = 999999
+    assert any("invalid DTC source claim" in v for v in check_dtc_provenance(model, conn, Path("dtc.json")))
+    model["items"][0]["code"] = "P0999"
+    model_path.write_text(json.dumps(model))
+    assert any("DTC not found in cited thread" in v for v in check_wiki(cfg, conn))
     ic = (gen2(cfg) / "interchange.md").read_text()
     assert "Frontier" in ic and "| Titan" not in ic and "Frontier, Titan" not in ic                 # 'Titan' is not in the source text, so it is dropped
 
@@ -427,6 +442,12 @@ def test_a_fact_publishes_only_in_the_generation_of_its_stated_years(cfg, conn, 
     assert "](../second-gen/index.md)" in (cfg.wiki_dir / "first-gen" / "index.md").read_text()
     assert "](first-gen/index.md)" in (cfg.wiki_dir / "index.md").read_text()
     assert check_wiki(cfg, conn) == []
+    report = cfg.data_dir / "model/first-gen/reports/parts_diagrams.json"
+    diagram_model = json.loads(report.read_text())
+    assert diagram_model["items"][0]["url"] == pic
+    diagram_model["items"][0]["url"] = "https://invalid.example/unsourced.png"
+    report.write_text(json.dumps(diagram_model))
+    assert any("diagram link not found in cited thread" in v for v in check_wiki(cfg, conn))
 
 
 def test_a_post_date_is_not_a_model_year(cfg, conn):
@@ -1003,6 +1024,13 @@ def test_applicability_and_interchange_need_their_own_verdict(cfg, conn, tmp_pat
     assert "| Frontier" not in (gen2(cfg) / "interchange.md").read_text()
     oq = (gen2(cfg) / "open_questions.md").read_text()
     assert "applicability" in oq and "shared platform" in oq
+    report = json.loads((cfg.data_dir / "model/second-gen/reports/interchange.json").read_text())
+    assert any(item["platforms"] == ["Frontier"] and item["claim_key"] == "platform" and item["why"]
+               for item in report["withheld"])
+    topic = TopicIndex(cfg.topics).resolve("Engine trouble codes (VQ40DE)", "diagnostics")
+    model = json.loads((cfg.data_dir / "model/second-gen" / topic.category / f"{topic.slug}.json").read_text())
+    assert any(item["field"] == "years" and item["value"] == 2008 and item["why"]
+               for item in model["metadata_withheld"])
 
 
 def test_curated_pages_survive_export_and_every_number_cites_a_source(cfg, conn):
@@ -1751,6 +1779,8 @@ def _wiki_about_to_be_replaced(cfg, conn, tmp_path):
 def test_an_export_stopped_in_the_second_generation_leaves_every_published_page_as_it_was(cfg, conn, tmp_path, monkeypatch):
     older, stale, hub = _wiki_about_to_be_replaced(cfg, conn, tmp_path)
     before = _published(cfg)
+    model_dir = cfg.data_dir / "model"
+    models_before = {p.relative_to(model_dir): p.read_bytes() for p in model_dir.rglob("*.json")}
     real, calls = export_module._export_generation, []
 
     def stopped(*args, **kw):
@@ -1762,6 +1792,7 @@ def test_an_export_stopped_in_the_second_generation_leaves_every_published_page_
     monkeypatch.setattr(export_module, "_export_generation", stopped)
     with pytest.raises(KeyboardInterrupt):
         export(cfg, conn)
+    assert {p.relative_to(model_dir): p.read_bytes() for p in model_dir.rglob("*.json")} == models_before
     assert len(calls) == 2 and _published(cfg) == before     # nothing deleted, and the first section not half replaced
     assert not list(cfg.root.glob(".wiki-export-*"))         # and no staging directory left behind
 
@@ -1816,3 +1847,138 @@ def test_an_interrupted_run_exports_nothing_and_does_not_report_success(root, mo
     monkeypatch.setattr("xw.cli.export_all", no_export)
     assert main(["--root", str(root), "run"]) == 130
     assert "nothing exported" in capsys.readouterr().out
+
+
+def test_page_model_is_checked_against_sources_and_rendered_page(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("arm", "For lower control arms, use 83 ft-lb on the pivot bolts.", "owner")])
+    extract_and_verify(cfg, conn, [("lower control arms", {"relevant": True, "facts": [arm_fact(
+        summary="", steps=[], tools=[], tips=[], parts=[], diagram_links=[],
+        years=[], trims=[], difficulty=None, est_time="",
+        specs=[spec("83", "83 ft-lb")])]})])
+    export(cfg, conn)
+    path = cfg.data_dir / "model/second-gen/repair/control-arms-bushings.json"
+    model = json.loads(path.read_text())
+    assert model["specifications"][0]["display"] == "83 ft-lb"
+    assert check_wiki(cfg, conn) == []
+    model["specifications"][0]["display"] = "99 ft-lb"
+    path.write_text(json.dumps(model))
+    violations = check_wiki(cfg, conn)
+    assert any("differs from source-grounded gate" in v for v in violations)
+    assert any("differs from page model" in v for v in violations)
+    assert any("model value not found in cited thread" in v for v in violations)
+    # Even if a bad model and its rendering agree, QA checks the model against source text independently.
+    from xw.export import PageModel, render_model
+    wiki_path = cfg.wiki_dir / "second-gen/repair/control-arms-bushings.md"
+    wiki_path.write_text(render_model(PageModel(**model))[0] + "\n")
+    assert any("model value not found in cited thread" in v for v in check_wiki(cfg, conn))
+    model["lists"]["summary"] = [["First-gen repair", ["t1"], False]]
+    path.write_text(json.dumps(model))
+    wiki_path.write_text(render_model(PageModel(**model))[0] + "\n")
+    assert any("model names the First generation" in v for v in check_wiki(cfg, conn))
+    path.unlink()
+    assert any("missing or invalid page model" in v for v in check_wiki(cfg, conn))
+    export(cfg, conn)
+    conn.execute("UPDATE chunks SET text='The source no longer states the value.'")
+    conn.commit()
+    assert any("differs from source-grounded gate" in v for v in check_wiki(cfg, conn))
+
+
+def test_model_value_checks_do_not_depend_on_the_exporter(monkeypatch):
+    from xw import qa
+
+    monkeypatch.setattr(qa, "_thread_text", lambda conn, sid: {"t1": "Torque 83 ft-lb. Part 12345-AA000."}.get(sid))
+    model = {
+        "specifications": [{"item": "torque", "alternatives": [
+            {"display": "83 ft-lb", "sids": ["t1"]},
+            {"display": "99 ft-lb", "sids": ["t1"]},
+            {"display": "83 Nm", "sids": ["t1"]},
+        ]}],
+        "parts": [{"name": "part", "part_number": "99999-BB000", "sids": ["t1"], "notes": []}],
+        "lists": {"tip": [["Use 8 quarts", ["t1"], False]]}, "procedures": [], "unconfirmed_values": [],
+    }
+    violations = qa.check_model_values(model, None, Path("test.json"))
+    assert any("99 ft-lb" in v and "model value not found" in v for v in violations)
+    assert any("83 Nm" in v and "model unit not found" in v for v in violations)
+    assert any("99999-BB000" in v and "part number not found" in v for v in violations)
+    assert any("model prose has ungrounded or unmarked safety value" in v for v in violations)
+    assert not any("83 ft-lb" in v and "not found" in v for v in violations)
+    assert any("disputed safety value" in v for v in violations)
+
+
+def test_report_models_and_rendered_files_are_checked(cfg, conn):
+    export(cfg, conn)
+    model_path = cfg.data_dir / "model/second-gen/reports/index.json"
+    model = json.loads(model_path.read_text())
+    model["generation_title"] = "wrong section"
+    model_path.write_text(json.dumps(model))
+    violations = check_wiki(cfg, conn)
+    assert any("index model differs" in v for v in violations)
+    assert any("rendered index differs" in v for v in violations)
+    export(cfg, conn)
+    report = cfg.wiki_dir / "second-gen" / "interchange.md"
+    report.write_text(report.read_text() + "altered\n")
+    assert any("rendered report differs from interchange model" in v for v in check_wiki(cfg, conn))
+    export(cfg, conn)
+    model_path = cfg.data_dir / "model/reports/open_questions.json"
+    model_path.unlink()
+    assert any("missing or invalid unrouted model" in v for v in check_wiki(cfg, conn))
+
+
+def test_model_safety_mark_check_uses_exporter_classification(monkeypatch):
+    from xw import qa
+
+    monkeypatch.setattr(qa, "_thread_text", lambda conn, sid: "50-64 foot pounds")
+    model = {"specifications": [{"item": "front differential", "display": "50-64 foot pounds",
+                                  "sids": ["t1"], "tag": "[Unverified] single report"}],
+             "parts": [], "lists": {}, "procedures": [], "unconfirmed_values": []}
+    assert qa.check_model_values(model, None, Path("test.json")) == []
+    model["lists"] = {"tip": [["Use 50-64 foot pounds", ["t1"], False]]}
+    assert any("repeated without a mark" in v for v in qa.check_model_values(model, None, Path("test.json")))
+
+
+def test_published_metadata_records_its_fact_and_verdict_key(cfg, conn, tmp_path):
+    add_notes(cfg, conn, tmp_path, [("arm", "A 2008 Xterra lower control arm needs replacing. " * 8, "owner")])
+    extract_and_verify(cfg, conn, [("2008", {"relevant": True, "facts": [arm_fact(
+        years=[2008], summary="", steps=[], tools=[], tips=[], parts=[], specs=[], diagram_links=[])]})])
+    export(cfg, conn)
+    model = json.loads((cfg.data_dir / "model/second-gen/repair/control-arms-bushings.json").read_text())
+    years = next(item for item in model["metadata_provenance"] if item["field"] == "years" and item["value"] == 2008)
+    assert years["claims"] == [{"fact_id": fact_id(conn), "claim_key": "applies", "source_id": "t1"}]
+    years["value"] = 2009
+    model["metadata"]["applies_to"]["years"] = [2009]
+    from xw.qa import check_model_values
+    assert any("metadata value absent from source claim" in v for v in check_model_values(model, conn, Path("model.json")))
+
+
+def test_qa_refuses_unparseable_spec_from_renderer(cfg, conn, tmp_path, monkeypatch):
+    add_notes(cfg, conn, tmp_path, [("arm", "For lower control arms, use 83 ft-lb on the pivot bolts.", "owner")])
+    extract_and_verify(cfg, conn, [("lower control arms", {"relevant": True, "facts": [arm_fact(
+        summary="", steps=[], tools=[], tips=[], parts=[], diagram_links=[],
+        years=[], trims=[], difficulty=None, est_time="", specs=[spec("83", "83 ft-lb")])]})])
+    export(cfg, conn)
+    original = export_module.render_model
+    def broken(model):
+        text, meta = original(model)
+        return text.replace("**Inner pivot bolt torque**:", "Inner pivot bolt torque:"), meta
+    monkeypatch.setattr(export_module, "render_model", broken)
+    page = cfg.wiki_dir / "second-gen/repair/control-arms-bushings.md"
+    page.write_text(broken(export_module.PageModel(**json.loads(
+        (cfg.data_dir / "model/second-gen/repair/control-arms-bushings.json").read_text())))[0] + "\n")
+    assert any("unparseable specification line" in v for v in check_wiki(cfg, conn))
+
+
+def test_qa_refuses_renderer_that_omits_safety_banner(cfg, conn, tmp_path, monkeypatch):
+    add_notes(cfg, conn, tmp_path, [("arm", "For lower control arms, use 83 ft-lb on the pivot bolts.", "owner")])
+    extract_and_verify(cfg, conn, [("lower control arms", {"relevant": True, "facts": [arm_fact(
+        summary="", steps=[], tools=[], tips=[], parts=[], diagram_links=[],
+        years=[], trims=[], difficulty=None, est_time="", specs=[spec("83", "83 ft-lb")])]})])
+    export(cfg, conn)
+    original = export_module.render_model
+    def broken(model):
+        text, meta = original(model)
+        return text.replace(SAFETY_NOTE, ""), meta
+    monkeypatch.setattr(export_module, "render_model", broken)
+    model = json.loads((cfg.data_dir / "model/second-gen/repair/control-arms-bushings.json").read_text())
+    page = cfg.wiki_dir / "second-gen/repair/control-arms-bushings.md"
+    page.write_text(broken(export_module.PageModel(**model))[0] + "\n")
+    assert any("without warning banner" in v for v in check_wiki(cfg, conn))

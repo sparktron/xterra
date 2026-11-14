@@ -140,6 +140,11 @@ CREATE INDEX IF NOT EXISTS idx_chunks_status ON chunks(status, thread_id);
 """
 
 
+# Each entry upgrades the preceding schema to the next version. Version 1 also
+# adopts existing pre-versioned databases through the idempotent CREATE statements.
+MIGRATIONS = (SCHEMA,)
+
+
 def now() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -151,8 +156,34 @@ def connect(path: str | Path) -> sqlite3.Connection:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA foreign_keys=ON")
-    conn.executescript(SCHEMA)
-    return conn
+    try:
+        # Lock before reading the version, so concurrent opens cannot apply the
+        # same migration twice. All statements and the version update commit together.
+        conn.execute("BEGIN IMMEDIATE")
+        conn.execute("CREATE TABLE IF NOT EXISTS schema_version (version INTEGER NOT NULL)")
+        versions = conn.execute("SELECT version FROM schema_version").fetchall()
+        if len(versions) > 1:
+            raise RuntimeError("invalid schema_version: expected at most one row")
+        version = versions[0][0] if versions else 0
+        if not isinstance(version, int) or version < 0 or version > len(MIGRATIONS):
+            raise RuntimeError(f"unsupported database schema version: {version}")
+        for next_version in range(version + 1, len(MIGRATIONS) + 1):
+            statement = ""
+            for char in MIGRATIONS[next_version - 1]:
+                statement += char
+                if char == ";" and sqlite3.complete_statement(statement):
+                    conn.execute(statement)
+                    statement = ""
+            if statement.strip():
+                raise RuntimeError(f"incomplete migration {next_version}")
+            conn.execute("DELETE FROM schema_version")
+            conn.execute("INSERT INTO schema_version(version) VALUES(?)", (next_version,))
+        conn.commit()
+        return conn
+    except Exception:
+        conn.rollback()
+        conn.close()
+        raise
 
 
 def log(conn: sqlite3.Connection, msg: str) -> None:

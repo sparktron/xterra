@@ -18,8 +18,9 @@ markdown in `wiki/`. Stages, each re-runnable: `discover`/`harvest` (polite fetc
 raw cache) or `ingest` (pages you saved yourself) → `extract` (local LLM turns chunks into structured facts)
 → `verify` (a second local-LLM pass) → `export` (policy gate, render pages) → `qa` (re-check the published
 pages against raw source text). `xw run` chains crawl, extract and verify per source; `export` and `qa` are
-separate. The committed exporter renders pages with `export.render_page`, and `db.connect` initializes the schema
-directly. Page models, model-based QA and ordered database migrations are planned rebuild work; see `docs/ROADMAP.md`.
+separate. `export.py` builds gated topic and report models, writes their JSON under `data/model/`, and renders the wiki
+from those models. QA checks models against sources and rendered files; its Markdown diagnostics handle edited files.
+Schema changes use ordered migrations in `db.MIGRATIONS`, with existing databases adopted as version 1.
 A source that blocks is marked `blocked` and skipped; the run
 continues. The optional Claude review (`review-export` → `wiki-reviewer` agent → `review-apply`) feeds verdicts back
 into the gate.

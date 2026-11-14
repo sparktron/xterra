@@ -24,13 +24,14 @@ Output is deterministic so git diffs stay small.
 from __future__ import annotations
 
 import csv
+import io
 import json
 import os
 import re
 import sqlite3
 import tempfile
 from collections import Counter, defaultdict
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
@@ -294,8 +295,29 @@ def _tagged(text: str, tag: str) -> str:
     return f"{text} ({tag})" if tag else text
 
 
-def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
-                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
+@dataclass
+class PageModel:
+    """Gated data for a page, independent of the Markdown representation."""
+    title: str
+    guide: str
+    metadata: dict[str, Any]
+    lists: dict[str, Any]
+    procedures: list[dict[str, Any]]
+    parts: list[dict[str, Any]]
+    specifications: list[dict[str, Any]]
+    diagrams: list[tuple[str, str]]
+    sources: list[dict[str, Any]]
+    unconfirmed_values: list[tuple[str, str]]
+    withheld: list[dict[str, str]]
+    pending: list[dict[str, Any]]
+    unconfirmed: list[dict[str, Any]]
+    single_source_safety: list[str]
+    metadata_provenance: list[dict[str, Any]]
+    metadata_withheld: list[dict[str, Any]]
+
+
+def build_page_model(page: Page, scope_years: tuple[int, int], policy: Policy,
+                gens: list[Generation] | None = None, guide: str = "") -> PageModel:
     """`gens`: every generation of the wiki. A claim that names a generation other than the page's is withheld, so
     one generation's facts never publish in the other's section (qa re-checks this). `guide`: the page-relative link to
     the curated guide for this topic, if one exists; it is linked above the summary."""
@@ -369,7 +391,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                 diagrams.append((u, sid))
 
     # specs: corroboration, disputes, and the safety-critical gate
-    spec_lines: list[str] = []
+    specifications: list[dict[str, Any]] = []
     published: set[tuple[str, str]] = set()   # (number, unit) of every published spec value on this page
     unconfirmed_values: set[tuple[str, str]] = set()   # ... of those, the safety values published unconfirmed
     for slot in sorted(specs.values(), key=lambda s: s["item"].lower()):
@@ -386,8 +408,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                 continue
             else:
                 page.disputes.append(slot["item"])
-                alts = "; ".join(f"{v['display']}{_fmt_src(v['sids'])}" for v in vals)
-                spec_lines.append(f"- **{slot['item']}**: DISPUTED, sources disagree: {alts}")
+                specifications.append({"item": slot["item"], "alternatives": [{"display": v["display"], "sids": v["sids"]} for v in vals]})
                 continue
         v = vals[0]
         n = len(v["threads"])
@@ -423,13 +444,7 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
         page.reviewed_items += bool(v["reviewed"])
         contrib |= v["rids"]
         published |= safety_values(v["display"])
-        spec_lines.append(f"- **{slot['item']}**: {v['display']}{_fmt_src(v['sids'])} ({tag})")
-
-    def mark(text: str, partial: bool) -> str:
-        """[Partial] for a claim the verifier only partly supports; [Unverified value] for a safety value whose spec
-        on this page is not confirmed."""
-        unverified = bool(safety_values(text) & unconfirmed_values)
-        return (f"{PARTIAL} " if partial else "") + (f"{UNVERIFIED_VALUE} " if unverified else "") + text
+        specifications.append({"item": slot["item"], "display": v["display"], "sids": v["sids"], "tag": tag})
 
     def loose(text: str, source: str) -> str:
         """Why `text` may not publish: it states a torque/capacity/pressure value that is not a published spec here.
@@ -595,72 +610,148 @@ def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
                          "withheld_items": len(page.dropped), "pending_safety_values": len(page.pending)},
     }
 
-    out = [GENERATED, *_metadata_comment(fm), "", f"# {page.topic.title}", ""]
+    source_rows = {r.thread_id: r for r in reversed(sorted(rows, key=lambda r: r.thread_id))}
+    sources = [{"sid": r.sid, "author": r.author, "posted": r.posted, "thread_title": r.thread_title, "url": r.url}
+               for _, r in sorted(source_rows.items())]
+    metadata_provenance = []
+    for field, values, candidates, attr, claim in (
+        ("years", years, applies, "years", "applies"),
+        ("trims", trims, applies, "trims", "applies"),
+        ("engine", engines, applies, "engines", "applies"),
+        ("drivetrain", drivetrain, applies, "drivetrain", "applies"),
+        ("shared_platform", shared, platform, "shared_platform", "platform"),
+        ("difficulty", [fm["difficulty"]] if fm["difficulty"] else [], rows, "difficulty", "difficulty"),
+        ("est_time", [fm["est_time"]] if fm["est_time"] else [], rows, "est_time", "time"),
+    ):
+        for value in values:
+            provenance = []
+            for row in candidates:
+                raw = getattr(row.fact, attr)
+                if (value in raw if isinstance(raw, list) else value == raw) and gate(row, claim, policy)[0]:
+                    provenance.append({"fact_id": row.id, "claim_key": claim, "source_id": row.sid})
+            metadata_provenance.append({"field": field, "value": value, "claims": provenance})
+    metadata_withheld = []
+    for row in rows:
+        for field, attr, claim in (("years", "years", "applies"), ("trims", "trims", "applies"),
+                                   ("engine", "engines", "applies"), ("drivetrain", "drivetrain", "applies"),
+                                   ("shared_platform", "shared_platform", "platform"),
+                                   ("difficulty", "difficulty", "difficulty"), ("est_time", "est_time", "time")):
+            raw = getattr(row.fact, attr)
+            values = raw if isinstance(raw, list) else ([raw] if raw else [])
+            ok, _, verdict_reason = gate(row, claim, policy)
+            for value in values:
+                why = verdict_reason if not ok else ""
+                if ok and field == "years" and not scope_years[0] <= value <= scope_years[1]:
+                    why = "outside the generation's scope"
+                elif ok and field in ("trims", "engine", "drivetrain", "shared_platform"):
+                    why = other_gen(str(value))
+                elif ok and field in ("difficulty", "est_time") and value != fm[field]:
+                    why = "another value was selected for the page"
+                if why:
+                    metadata_withheld.append({"field": field, "value": value, "fact_id": row.id,
+                                              "claim_key": claim, "source_id": row.sid, "why": why})
+    procedures = [{"sid": r.sid, "url": r.url, "photos": r.photos,
+                   "corrected_steps": sum(k.startswith("step:") for k in r.corrected),
+                   "partial": r.id in partial_ids, "steps": steps, "step_partial": step_partial}
+                  for r, steps, step_partial in proc]
+    # Skip near-duplicate alternates at the gate so the model contains only published procedures.
+    if procedures:
+        procedures = [procedures[0]] + [p for p in procedures[1:]
+                     if not _similar(" ".join(p["steps"]), " ".join(procedures[0]["steps"]), 0.85)]
+    return PageModel(page.topic.title, guide, fm, lists, procedures, list(parts.values()), specifications,
+                     sorted(set(diagrams)), sources, sorted(unconfirmed_values), list(page.dropped),
+                     list(page.pending), list(page.unconfirmed), list(page.single_source_safety), metadata_provenance,
+                     metadata_withheld)
+
+
+def render_model(model: PageModel) -> tuple[str, dict[str, Any]]:
+    """Render an already-gated page without consulting the database or policy."""
+    fm, guide, lists = model.metadata, model.guide, model.lists
+    conf = fm["confidence"]
+    partial_fields = fm["verification"]["partial_fields"]
+    unconfirmed_values = set(map(tuple, model.unconfirmed_values))
+    proc, parts, diagrams = model.procedures, model.parts, model.diagrams
+
+    def mark(text: str, partial: bool) -> str:
+        unverified = bool(safety_values(text) & unconfirmed_values)
+        return (f"{PARTIAL} " if partial else "") + (f"{UNVERIFIED_VALUE} " if unverified else "") + text
+
+    out = [GENERATED, *_metadata_comment(fm), "", f"# {model.title}", ""]
     if guide:
-        out += [f"> **Guide for this job:** [{page.topic.title}]({guide}) is a hand-written guide that cites every step and "
+        out += [f"> **Guide for this job:** [{model.title}]({guide}) is a hand-written guide that cites every step and "
                 "number. This page collects what forum threads add.", ""]
     if conf == "[Unverified]":
         out += ["> **[Unverified]** This page rests on a single community report. Cross-check before relying on it.", ""]
-    if page.single_source_safety or unconfirmed_values:
+    if model.single_source_safety or unconfirmed_values:
         out += [SAFETY_NOTE, ""]
-    if page.partial_items or partial_fields:
+    if fm["verification"]["partial_items"] or partial_fields:
         out += [PAGE_PARTIAL_NOTE, ""]
-    if page.pending:
+    if model.pending:
         out += ["> Some safety-critical values for this topic are withheld until verified. See `pending_verification.md`.", ""]
     out += ["## Summary", ""]
-    if summaries:
+    if lists["summary"]:
         for text, sids, part in lists["summary"]:
             out += [f"{mark(text, part)}{_fmt_src(sids)}", ""]
     else:
         out += ["_No verified summary yet._", ""]
-    if symptoms:
+    if lists["symptom"]:
         out += ["## Symptoms / When you need this", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["symptom"]] + [""]
     if proc:
-        r0, steps0, partial0 = proc[0]
+        r0 = proc[0]
+        steps0, partial0 = r0["steps"], r0["step_partial"]
         out += ["## Procedure", ""]
-        if r0.id in partial_ids:
+        if r0["partial"]:
             out += [PARTIAL_NOTE, ""]
         # the wiki rewrites the steps and does not copy the author's photos; it says where they are
-        pics = f" Photos of this job are in the source: <{r0.url}>" if r0.photos else ""
-        n = sum(k.startswith("step:") for k in r0.corrected)
+        pics = f" Photos of this job are in the source: <{r0['url']}>" if r0["photos"] else ""
+        n = r0["corrected_steps"]
         fixed = f"; {n} step{'s' if n != 1 else ''} reworded by a reviewer" if n else ""
         out += [f"{i}. {mark(s, pt)}" for i, (s, pt) in enumerate(zip(steps0, partial0), 1)] + \
-            ["", f"_Procedure reported by [{r0.sid}]{fixed}.{pics}_", ""]
-        for r, s, sp in proc[1:]:
-            if _similar(" ".join(s), " ".join(steps0), 0.85):
-                continue  # same procedure in other words; one with different numbers is shown as an alternate
-            alt = " [Partial]" if r.id in partial_ids else ""
-            out += [f"<details><summary>Alternate procedure [{r.sid}]{alt}</summary>", ""] + \
+            ["", f"_Procedure reported by [{r0['sid']}]{fixed}.{pics}_", ""]
+        for r in proc[1:]:
+            s, sp = r["steps"], r["step_partial"]
+            alt = " [Partial]" if r["partial"] else ""
+            out += [f"<details><summary>Alternate procedure [{r['sid']}]{alt}</summary>", ""] + \
                 [f"{i}. {mark(x, pt)}" for i, (x, pt) in enumerate(zip(s, sp), 1)] + ["", "</details>", ""]
     if fm["tools"]:
         out += ["## Tools", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tool"]] + [""]
     if parts:
         out += ["## Parts", ""]
-        for p in sorted(parts.values(), key=lambda p: p["name"].lower()):
+        for p in sorted(parts, key=lambda p: p["name"].lower()):
             pn = f" ({p['part_number']})" if p["part_number"] else ""
             note = f": {'; '.join(_flat(n) for n in p['notes'])}" if p["notes"] else ""
             name = _flat(p["name"])
             out.append(f"- {mark(f'{name}{pn}{note}', p['partial'])}{_fmt_src(p['sids'])}")
         out.append("")
-    if spec_lines:
-        out += ["## Specifications", ""] + spec_lines + [""]
-    if tips:
+    if model.specifications:
+        out += ["## Specifications", ""]
+        for spec in model.specifications:
+            if "alternatives" in spec:
+                alts = "; ".join(f"{v['display']}{_fmt_src(v['sids'])}" for v in spec["alternatives"])
+                out.append(f"- **{spec['item']}**: DISPUTED, sources disagree: {alts}")
+            else:
+                out.append(f"- **{spec['item']}**: {spec['display']}{_fmt_src(spec['sids'])} ({spec['tag']})")
+        out.append("")
+    if lists["tip"]:
         out += ["## Tips & gotchas", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["tip"]] + [""]
-    if mistakes:
+    if lists["mistake"]:
         out += ["## Common mistakes", ""] + [f"- {mark(t, part)}{_fmt_src(s)}" for t, s, part in lists["mistake"]] + [""]
     if diagrams:
-        out += ["## Diagrams (links only)", ""] + [f"- {u} [{s}]" for u, s in sorted(set(diagrams))] + [""]
+        out += ["## Diagrams (links only)", ""] + [f"- {u} [{s}]" for u, s in sorted({tuple(d) for d in diagrams})] + [""]
     out += ["## Source attributions", ""]
-    seen: set[int] = set()
-    for r in sorted(rows, key=lambda r: r.thread_id):
-        if r.thread_id in seen:
-            continue
-        seen.add(r.thread_id)
-        who = f"{r.author}, " if r.author else ""
-        when = f", {r.posted[:10]}" if r.posted else ""
-        out.append(f"- **{r.sid}**: {who}\"{r.thread_title}\"{when}. {r.url}")
+    for source in model.sources:
+        who = f"{source['author']}, " if source['author'] else ""
+        when = f", {source['posted'][:10]}" if source['posted'] else ""
+        out.append(f"- **{source['sid']}**: {who}\"{source['thread_title']}\"{when}. {source['url']}")
     out.append("")
-    return "\n".join(out), {"confidence": conf, "n_threads": len(seen), "years": years}
+    return "\n".join(out), {"confidence": conf, "n_threads": len(model.sources), "years": fm["applies_to"]["years"]}
+
+
+
+def render_page(page: Page, scope_years: tuple[int, int], policy: Policy,
+                gens: list[Generation] | None = None, guide: str = "") -> tuple[str, dict[str, Any]]:
+    """Compatibility wrapper for callers needing the gate and renderer together."""
+    return render_model(build_page_model(page, scope_years, policy, gens, guide))
 
 
 # ---------------------------------------------------------------------------------------------
@@ -701,7 +792,7 @@ def pending_spec_keys(rows: list[FactRow], topics: TopicIndex, policy: Policy, c
     return out
 
 
-def _dtc_table(rows: list[FactRow], policy: Policy, keep: Any = None) -> list[list[str]]:
+def _dtc_table(rows: list[FactRow], policy: Policy, keep: Any = None) -> list[dict[str, Any]]:
     """`keep(text)`: False drops a description, cause, test or fix (another generation's)."""
     by_code: dict[str, list[tuple[FactRow, Any]]] = defaultdict(list)
     partial: dict[str, list[bool]] = defaultdict(list)
@@ -720,11 +811,348 @@ def _dtc_table(rows: list[FactRow], policy: Policy, keep: Any = None) -> list[li
         causes = Counter(c.strip() for _, d in items for c in d.causes if c.strip() and ok(c))
         tests = [t for t, _ in _dedupe([(t, "") for _, d in items for t in d.tests if ok(t)])]
         fixes = [t for t, _ in _dedupe([(d.fix, "") for _, d in items if d.fix and ok(d.fix)])]
-        table.append([code, desc[0][0] if desc else "", " | ".join(c for c, _ in causes.most_common(8)),
-                      " | ".join(tests[:6]), " | ".join(fixes[:3]),
-                      ",".join(sorted({r.sid for r, _ in items}, key=lambda s: int(s[1:]))),
-                      "partial" if all(partial[code]) else ""])
+        table.append({"code": code, "description": desc[0][0] if desc else "",
+                      "likely_causes_ranked": [c for c, _ in causes.most_common(8)],
+                      "test_steps": tests[:6], "fix": fixes[:3],
+                      "source_ids": sorted({r.sid for r, _ in items}, key=lambda s: int(s[1:])),
+                      "status": "partial" if all(partial[code]) else ""})
     return table
+
+
+@dataclass
+class DtcTableModel:
+    """Published DTC rows and claims that did not pass their evidence or verdict gate."""
+    items: list[dict[str, Any]]
+    withheld: list[dict[str, Any]]
+    provenance: list[dict[str, Any]]
+
+
+DTC_COLUMNS = ("code", "description", "likely_causes_ranked", "test_steps", "fix", "source_ids", "status")
+
+
+def build_dtc_model(rows: list[FactRow], policy: Policy, keep: Any = None) -> DtcTableModel:
+    withheld = []
+    eligible = []
+    for row in rows:
+        for i, dtc in enumerate(row.fact.dtcs):
+            ok, _, why = gate(row, f"dtc:{i}", policy)
+            if not row.grounding["dtcs"][i] or not ok:
+                withheld.append({"code": dtc.code, "source_id": row.sid, "fact_id": row.id, "claim_key": f"dtc:{i}",
+                                 "why": "code not found in source" if not row.grounding["dtcs"][i] else why})
+                continue
+            eligible.append((row, i, dtc))
+            for kind, values in (("description", [dtc.description]), ("cause", dtc.causes),
+                                 ("test", dtc.tests), ("fix", [dtc.fix])):
+                for value in values:
+                    if value and (safety_values(value) or (keep is not None and not keep(value))):
+                        withheld.append({"code": dtc.code, "source_id": row.sid, "fact_id": row.id,
+                                         "claim_key": f"dtc:{i}", "kind": kind, "text": value,
+                                         "why": "safety value without a specification" if safety_values(value)
+                                         else "names another generation"})
+    items = _dtc_table(rows, policy, keep)
+    by_code = {item["code"]: item for item in items}
+    provenance = []
+    for row, i, dtc in eligible:
+        code = dtc.code.strip().upper()
+        item = by_code[code]
+        fields: dict[str, list[str]] = {}
+        for kind, originals, selected in (
+            ("description", [dtc.description], [item["description"]]),
+            ("likely_causes_ranked", dtc.causes, item["likely_causes_ranked"]),
+            ("test_steps", dtc.tests, item["test_steps"]),
+            ("fix", [dtc.fix], item["fix"]),
+        ):
+            matches = []
+            for value in originals:
+                if not value or safety_values(value) or (keep is not None and not keep(value)):
+                    continue
+                match = next((s for s in selected if s and (value == s or value.strip() == s or
+                             (kind in ("test_steps", "fix") and _similar(value, s, 0.88)))), None)
+                if match:
+                    if match not in matches:
+                        matches.append(match)
+                else:
+                    withheld.append({"code": code, "source_id": row.sid, "fact_id": row.id,
+                                     "claim_key": f"dtc:{i}", "kind": kind, "text": value,
+                                     "why": "not selected for the table"})
+            if matches:
+                fields[kind] = matches
+        provenance.append({"code": code, "fact_id": row.id, "claim_key": f"dtc:{i}", "source_id": row.sid,
+                           "fields": fields})
+    return DtcTableModel(items, withheld, provenance)
+
+
+def render_dtc_model(model: DtcTableModel) -> str:
+    output = io.StringIO(newline="")
+    writer = csv.writer(output)
+    writer.writerow(DTC_COLUMNS)
+    for item in model.items:
+        writer.writerow([item["code"], item["description"], " | ".join(item["likely_causes_ranked"]),
+                         " | ".join(item["test_steps"]), " | ".join(item["fix"]),
+                         ",".join(item["source_ids"]), item["status"]])
+    return output.getvalue()
+
+
+@dataclass
+class DiagramReportModel:
+    generation_title: str
+    items: list[dict[str, str]]
+    withheld: list[dict[str, str]]
+
+
+def build_diagram_report(rows: list[FactRow], topics: TopicIndex, g: Generation) -> DiagramReportModel:
+    items: set[tuple[str, str, str]] = set()
+    withheld = []
+    for row in rows:
+        title = topics.resolve(row.fact.topic, row.fact.category, g.id).title
+        for url, grounded in zip(row.fact.diagram_links, row.grounding["diagrams"]):
+            if grounded:
+                items.add((title, url, row.sid))
+            else:
+                withheld.append({"topic": title, "url": url, "source_id": row.sid, "why": "link not found in source"})
+    return DiagramReportModel(g.title, [{"topic": t, "url": u, "source_id": s} for t, u, s in sorted(items)], withheld)
+
+
+def render_diagram_report(model: DiagramReportModel) -> str:
+    lines = [GENERATED, f"# Parts diagrams (links only): {model.generation_title}", "",
+             "Links point at the original host. Reuse permission is unknown unless stated; do not copy images into the repo.", ""]
+    grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
+    for item in model.items:
+        grouped[item["topic"]].append(item)
+    for title in sorted(grouped):
+        lines += [f"## {title}", ""] + [f"- {item['url']} [{item['source_id']}]" for item in grouped[title]] + [""]
+    if not grouped:
+        lines.append("_None found yet._")
+    return "\n".join(lines) + "\n"
+
+
+@dataclass
+class InterchangeModel:
+    generation_title: str
+    items: list[dict[str, Any]]
+    withheld: list[dict[str, Any]]
+
+
+def build_interchange_model(rows: list[FactRow], topics: TopicIndex, g: Generation,
+                            gl: list[Generation], policy: Policy) -> InterchangeModel:
+    grouped: dict[str, list[FactRow]] = defaultdict(list)
+    withheld = []
+    for row in rows:
+        if not row.fact.shared_platform:
+            continue
+        ok, _, why = gate(row, "platform", policy)
+        if other_marker(" ".join(row.fact.shared_platform), g, gl):
+            why = "names another generation"
+        if why or not ok:
+            withheld.append({"topic": topics.resolve(row.fact.topic, row.fact.category, g.id).title,
+                             "platforms": list(row.fact.shared_platform), "source_id": row.sid,
+                             "fact_id": row.id, "claim_key": "platform", "why": why})
+        else:
+            grouped[topics.resolve(row.fact.topic, row.fact.category, g.id).title].append(row)
+    items = []
+    for title in sorted(grouped):
+        rs = grouped[title]
+        n = len({r.thread_id for r in rs})
+        independent = min(n, len({r.author.strip().lower() for r in rs if r.author.strip()}))
+        status = "confirmed" if any(r.source_type == "manufacturer" for r in rs) else ("community-consensus" if independent >= 2 else "unconfirmed")
+        years = sorted({y for r in rs if gate(r, "applies", policy)[0] for y in r.fact.years if g.covers(y)})
+        if all(gate(r, "platform", policy)[1] == PARTIAL for r in rs):
+            status += " [Partial]"
+        items.append({"topic": title, "platforms": sorted({s for r in rs for s in r.fact.shared_platform}),
+                      "years": years, "threads": n, "status": status,
+                      "source_ids": sorted({r.sid for r in rs}),
+                      "provenance": [{"fact_id": r.id, "source_id": r.sid, "claim_key": "platform",
+                                      "platforms": list(r.fact.shared_platform),
+                                      "years": [y for y in r.fact.years if g.covers(y)] if gate(r, "applies", policy)[0] else [],
+                                      "years_claim_key": "applies" if gate(r, "applies", policy)[0] else ""}
+                                     for r in rs]})
+    return InterchangeModel(g.title, items, withheld)
+
+
+def render_interchange_model(model: InterchangeModel) -> str:
+    lines = [GENERATED, f"# Xterra / Frontier / Titan interchange: {model.generation_title}", "",
+             "| Topic | Shared with | Years | Threads | Status |", "|---|---|---|---|---|"]
+    for item in model.items:
+        years = ", ".join(str(y) for y in item["years"]) or "n/a"
+        lines.append(f"| {item['topic']} | {', '.join(item['platforms'])} | {years} | {item['threads']} | {item['status']} |")
+    return "\n".join(lines) + "\n"
+
+
+@dataclass
+class IndexModel:
+    generation_title: str
+    others: list[dict[str, str]]
+    has_reference: bool
+    has_guides: bool
+    categories: list[dict[str, Any]]
+
+
+def build_index_model(topics: TopicIndex, g: Generation, gl: list[Generation], live_dir: Path,
+                      summary: dict[str, dict[str, Any]]) -> IndexModel:
+    gen_topics = topics.topics_for(g.id)
+    categories = []
+    for cat, title in topics.category_titles_for(g.id).items():
+        items = []
+        for topic in sorted((t for t in gen_topics if t.category == cat), key=lambda t: t.title.lower()):
+            items.append({"title": topic.title, "category": cat, "slug": topic.slug,
+                          "guide": (live_dir / GUIDES_DIR / f"{topic.slug}.md").exists(),
+                          "page": summary.get(f"{cat}/{topic.slug}")})
+        categories.append({"title": title, "items": items})
+    return IndexModel(g.title, [{"title": o.title, "id": o.id} for o in gl if o.id != g.id],
+                      (live_dir / CURATED_DIR / "index.md").exists(),
+                      (live_dir / GUIDES_DIR / "index.md").exists(), categories)
+
+
+def render_index_model(model: IndexModel) -> str:
+    idx = [GENERATED, f"# Xterra wiki: {model.generation_title}", "",
+           f"This section covers only the {model.generation_title}. "
+           + " ".join(f"The {o['title']} is a different truck with its own section: [{o['title']}](../{o['id']}/index.md)." for o in model.others)
+           + " Nothing here applies to the other generation unless a page says so.", "",
+           "Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a "
+           "hand-written guide but no forum thread has contributed yet.", ""]
+    if model.has_reference:
+        idx += [f"Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference]({CURATED_DIR}/index.md) "
+                "(hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).", ""]
+    if model.has_guides:
+        idx += [f"Step-by-step maintenance, repair and upgrade guides: [Guides]({GUIDES_DIR}/index.md) (hand-written from the "
+                "factory service manual and forum write-ups; every step and number cites its source). The Guide column "
+                "below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.", ""]
+    idx += ["Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), "
+            "[open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) "
+            "(what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).", ""]
+    for category in model.categories:
+        idx += [f"## {category['title']}", "", "| Topic | Guide | Status | Threads |", "|---|---|---|---|"]
+        for item in category["items"]:
+            title, cat, slug, page = item["title"], item["category"], item["slug"], item["page"]
+            guide = f"[Guide]({GUIDES_DIR}/{slug}.md)" if item["guide"] else ""
+            idx.append(f"| [{title}]({cat}/{slug}.md) | {guide} | {page['confidence']} | {page['n_threads']} |" if page
+                       else f"| {title} | {guide} | {'guide only' if guide else 'not-started'} | 0 |")
+        idx.append("")
+    return "\n".join(idx)
+
+
+@dataclass
+class PendingModel:
+    generation_title: str
+    safety_min_threads: int
+    withheld: list[dict[str, Any]]
+    published: list[dict[str, Any]]
+
+
+def render_pending_model(model: PendingModel) -> str:
+    pv = [GENERATED, f"# Pending verification: {model.generation_title}", "",
+          "Safety-critical values that passed the evidence checks but are not confirmed: confirmed means "
+          f"{model.safety_min_threads}+ independent threads agree, a manufacturer source states it, or a reviewer approved it "
+          "(`xw review-export`, then the `wiki-reviewer` agent in Claude Code, then `xw review-apply`). Every value below stays "
+          "in the review queue and is re-checked on each run.", "",
+          "## Withheld (NOT published)", "", "| Topic | Item | Value | Why pending | Source |", "|---|---|---|---|---|"]
+    pv += [f"| {d['topic']} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for d in model.withheld] or ["| _none_ | | | | |"]
+    pv += ["", "## Published marked [Unverified] or [Partial] (possibly wrong; check the source before use)", "",
+           "| Topic | Item | Value | Status | Source |", "|---|---|---|---|---|"]
+    pv += [f"| {d['topic']} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for d in model.published] or ["| _none_ | | | | |"]
+    return "\n".join(pv) + "\n"
+
+
+@dataclass
+class WikiIndexModel:
+    generations: list[dict[str, Any]]
+
+
+def render_wiki_index(model: WikiIndexModel) -> str:
+    idx = [GENERATED, "# Nissan Xterra wiki", "",
+           "The Xterra had two generations that share almost nothing: body, frame, engines, transmissions, suspension and "
+           "most parts differ. Each has its own completely separate section. A page in one section never covers the "
+           "other generation; pick yours first.", "", "| Generation | Section | Topic pages | Facts |", "|---|---|---|---|"]
+    idx += [f"| {g['title']} | [{g['title']}]({g['id']}/index.md) | {g['pages']} | {g['facts']} |" for g in model.generations]
+    idx += ["", "Facts that belong to no single generation are not published in either section: [open questions](open_questions.md).", ""]
+    return "\n".join(idx)
+
+
+@dataclass
+class SourceReportModel:
+    items: list[dict[str, Any]]
+
+
+def build_source_report(conn: sqlite3.Connection, rows: list[FactRow], topics: TopicIndex, g: Generation) -> SourceReportModel:
+    tids = sorted({r.thread_id for r in rows})
+    src_rows = conn.execute(
+        f"""SELECT t.id, t.source_id, t.url, t.title, t.author, t.posted, t.kind, t.status, s.trust,
+                  (SELECT fetched_at FROM fetches f WHERE f.url=t.url) AS scraped
+           FROM threads t JOIN sources s ON s.id=t.source_id
+           WHERE t.id IN ({','.join('?' * len(tids))}) ORDER BY t.id""", tids).fetchall() if tids else []
+    topics_by_thread: dict[int, set[str]] = defaultdict(set)
+    for row in rows:
+        topics_by_thread[row.thread_id].add(topics.resolve(row.fact.topic, row.fact.category, g.id).title)
+    return SourceReportModel([
+        {"id": f"t{r['id']}", "source_id": r["source_id"], "url": r["url"], "thread_title": r["title"],
+         "author_handle": r["author"], "date_posted": r["posted"], "date_scraped": r["scraped"], "type": r["kind"],
+         "trust_score": r["trust"], "topics": sorted(topics_by_thread[r["id"]]), "status": r["status"]}
+        for r in src_rows])
+
+
+def render_source_report(model: SourceReportModel) -> str:
+    return json.dumps(model.items, indent=2) + "\n"
+
+
+@dataclass
+class QuestionsModel:
+    generation_title: str
+    blocked: list[dict[str, Any]]
+    failed_threads: list[dict[str, Any]]
+    disputes: list[dict[str, str]]
+    single: list[dict[str, str]]
+    withheld: list[dict[str, str]]
+    missing: list[dict[str, str]]
+
+
+def build_questions_model(cfg: Config, conn: sqlite3.Connection, g: Generation,
+                          disputes: list, single: list, dropped: list, missing: list) -> QuestionsModel:
+    ids = [s["id"] for s in cfg.sources if s.get("generation") == g.id]
+    marks = ",".join("?" * len(ids)) or "''"
+    blocked = [dict(r) for r in conn.execute(f"SELECT id, name, reason FROM sources WHERE status='blocked' AND id IN ({marks})", ids)]
+    failed = [dict(r) for r in conn.execute(f"SELECT source_id, status, error, COUNT(*) AS n FROM threads WHERE status IN ('skipped','error') "
+                                            f"AND source_id IN ({marks}) GROUP BY 1,2,3", ids)]
+    return QuestionsModel(g.title, blocked, failed, [{"topic": t, "text": d} for t, d in disputes],
+                          [{"topic": t, "text": d} for t, d in single],
+                          [{"topic": t, **d} for t, d in dropped],
+                          [{"category": t.category, "title": t.title} for t in missing])
+
+
+def render_questions_model(model: QuestionsModel) -> str:
+    oq = [GENERATED, f"# Open questions and gaps: {model.generation_title}", ""]
+    oq += ["## Blocked sources", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in model.blocked] or ["_None._"]) + [""]
+    oq += ["## Threads skipped or failed", ""] + ([f"- {b['source_id']}: {b['n']} thread(s) {b['status']} ({b['error']})" for b in model.failed_threads] or ["_None._"]) + [""]
+    oq += ["## Disputed values", ""] + ([f"- {d['topic']}: {d['text']}" for d in model.disputes] or ["_None._"]) + [""]
+    oq += ["## Safety-critical values published from one source (verify against the factory service manual)", ""] + ([f"- {d['topic']}: {d['text']}" for d in model.single] or ["_None._"]) + [""]
+    oq += ["## Items withheld from publication", "",
+           "Claims the pipeline refused to publish, with the reason (evidence missing, verifier disagreed, reviewer rejected, copied text, "
+           "names the other generation).", ""]
+    oq += [f"- {d['topic']}: {d['kind']}: `{d['text']}`. Reason: {d['why']}. ({d['url']})" for d in model.withheld] or ["_None._"]
+    oq += ["", "## Topics with no coverage yet", ""]
+    oq += [f"- [{d['category']}] {d['title']}" for d in model.missing] or ["_None._"]
+    return "\n".join(oq) + "\n"
+
+
+@dataclass
+class UnroutedModel:
+    withheld: list[dict[str, Any]]
+    blocked: list[dict[str, Any]]
+
+
+def build_unrouted_model(conn: sqlite3.Connection, unrouted: list[tuple[FactRow, str]]) -> UnroutedModel:
+    return UnroutedModel([{"thread_id": r.thread_id, "thread_title": r.thread_title,
+                           "title": r.fact.title or r.fact.topic, "why": why, "url": r.url}
+                          for r, why in unrouted],
+                         [dict(r) for r in conn.execute("SELECT id, name, reason FROM sources WHERE status='blocked'")])
+
+
+def render_unrouted_model(model: UnroutedModel) -> str:
+    oq = [GENERATED, "# Open questions: facts in no generation's section", "",
+          "Each section publishes only its own generation's facts. These state model years in more than one generation, "
+          "or no model year and come from a source with no generation, so neither section publishes them.", ""]
+    oq += [f"- t{r['thread_id']} \"{r['thread_title']}\": {r['title']}. Reason: {r['why']}. ({r['url']})" for r in model.withheld] or ["_None._"]
+    oq += ["", "## Blocked sources (all generations)", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in model.blocked] or ["_None._"])
+    return "\n".join(oq) + "\n"
 
 
 LEGACY_FILES = ("dtc_table.csv", "sources.json", "parts_diagrams.md", "interchange.md", "pending_verification.md")
@@ -761,7 +1189,7 @@ def _publish(staged: Path, wiki: Path, gl: list[Generation], topics: TopicIndex)
 
 
 def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex, g: Generation, gl: list[Generation],
-                       rows: list[FactRow], policy: Policy, staged: Path) -> dict[str, Any]:
+                       rows: list[FactRow], policy: Policy, staged: Path, staged_models: Path) -> dict[str, Any]:
     """Write one generation's complete section under `staged`/<generation>/. Curated pages are looked up in wiki/, since
     they are not part of an export."""
     out_dir = staged / g.id
@@ -779,7 +1207,9 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
     single: list[tuple[str, str]] = []
     for (cat, slug), page in sorted(pages.items()):
         guide = f"../{GUIDES_DIR}/{slug}.md" if (live_dir / GUIDES_DIR / f"{slug}.md").exists() else ""
-        text, meta = render_page(page, g.years, policy, gl, guide)
+        model = build_page_model(page, g.years, policy, gl, guide)
+        text, meta = render_model(model)
+        _write(staged_models / g.id / cat / f"{slug}.json", json.dumps(asdict(model), ensure_ascii=False, indent=2) + "\n")
         _write(out_dir / cat / f"{slug}.md", text + "\n")
         summary[f"{cat}/{slug}"] = {"title": page.topic.title, **meta}
         dropped += [(page.topic.title, d) for d in page.dropped]
@@ -789,117 +1219,47 @@ def _export_generation(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex
         disputes += [(page.topic.title, d) for d in page.disputes]
         single += [(page.topic.title, d) for d in page.single_source_safety]
 
-    idx = [GENERATED, f"# Xterra wiki: {g.title}", "",
-           f"This section covers only the {g.title}. "
-           + " ".join(f"The {o.title} is a different truck with its own section: [{o.title}](../{o.id}/index.md)." for o in others)
-           + " Nothing here applies to the other generation unless a page says so.", "",
-           "Status: `not-started` means no verified source has contributed yet; `guide only` means the topic has a "
-           "hand-written guide but no forum thread has contributed yet.", ""]
-    if (live_dir / CURATED_DIR / "index.md").exists():
-        idx += [f"Model years, trims, paint codes, dimensions, fluids and part numbers: [Xterra reference]({CURATED_DIR}/index.md) "
-                "(hand-curated from Nissan, EPA and NHTSA sources; the topics below are built from forum threads).", ""]
-    if (live_dir / GUIDES_DIR / "index.md").exists():
-        idx += [f"Step-by-step maintenance, repair and upgrade guides: [Guides]({GUIDES_DIR}/index.md) (hand-written from the "
-                "factory service manual and forum write-ups; every step and number cites its source). The Guide column "
-                "below links the guide for a topic; the topic page holds what the pipeline extracted from forum threads.", ""]
-    idx += ["Also in this section: [pending verification](pending_verification.md) (safety values not yet confirmed), "
-            "[open questions](open_questions.md) (gaps, disputes and withheld items), [interchange](interchange.md) "
-            "(what is shared with the Frontier and Titan) and [parts diagrams](parts_diagrams.md) (links to diagrams and photos).", ""]
     gen_topics = topics.topics_for(g.id)
-    for cat, title in topics.category_titles_for(g.id).items():
-        idx += [f"## {title}", "", "| Topic | Guide | Status | Threads |", "|---|---|---|---|"]
-        for t in sorted((t for t in gen_topics if t.category == cat), key=lambda t: t.title.lower()):
-            m = summary.get(f"{cat}/{t.slug}")
-            guide = f"[Guide]({GUIDES_DIR}/{t.slug}.md)" if (live_dir / GUIDES_DIR / f"{t.slug}.md").exists() else ""
-            idx.append(f"| [{t.title}]({cat}/{t.slug}.md) | {guide} | {m['confidence']} | {m['n_threads']} |" if m
-                       else f"| {t.title} | {guide} | {'guide only' if guide else 'not-started'} | 0 |")
-        idx.append("")
-    _write(out_dir / "index.md", "\n".join(idx))
+    index_model = build_index_model(topics, g, gl, live_dir, summary)
+    _write(staged_models / g.id / "reports" / "index.json",
+           json.dumps(asdict(index_model), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "index.md", render_index_model(index_model))
 
-    dtc = _dtc_table(rows, policy, keep)
+    dtc_model = build_dtc_model(rows, policy, keep)
+    dtc = dtc_model.items
     out_dir.mkdir(parents=True, exist_ok=True)
     with (out_dir / "dtc_table.csv").open("w", newline="", encoding="utf-8") as fh:
-        w = csv.writer(fh)
-        w.writerow(["code", "description", "likely_causes_ranked", "test_steps", "fix", "source_ids", "status"])
-        w.writerows(dtc)
+        fh.write(render_dtc_model(dtc_model))
+    _write(staged_models / g.id / "reports" / "dtc_table.json",
+           json.dumps(asdict(dtc_model), ensure_ascii=False, indent=2) + "\n")
 
-    pd_lines = [GENERATED, f"# Parts diagrams (links only): {g.title}", "",
-                "Links point at the original host. Reuse permission is unknown unless stated; do not copy images into the repo.", ""]
-    by_topic: dict[str, set[tuple[str, str]]] = defaultdict(set)
-    for r in rows:
-        for u, ok in zip(r.fact.diagram_links, r.grounding["diagrams"]):
-            if ok:
-                by_topic[topics.resolve(r.fact.topic, r.fact.category, g.id).title].add((u, r.sid))
-    for title in sorted(by_topic):
-        pd_lines += [f"## {title}", ""] + [f"- {u} [{s}]" for u, s in sorted(by_topic[title])] + [""]
-    if not by_topic:
-        pd_lines.append("_None found yet._")
-    _write(out_dir / "parts_diagrams.md", "\n".join(pd_lines) + "\n")
+    diagram_model = build_diagram_report(rows, topics, g)
+    _write(staged_models / g.id / "reports" / "parts_diagrams.json",
+           json.dumps(asdict(diagram_model), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "parts_diagrams.md", render_diagram_report(diagram_model))
 
-    ic = [GENERATED, f"# Xterra / Frontier / Titan interchange: {g.title}", "",
-          "| Topic | Shared with | Years | Threads | Status |", "|---|---|---|---|---|"]
-    grouped: dict[str, list[FactRow]] = defaultdict(list)
-    for r in rows:
-        # the verifier must have supported the shared-platform claim itself, not just some other part of the fact
-        if r.fact.shared_platform and gate(r, "platform", policy)[0] and keep(" ".join(r.fact.shared_platform)):
-            grouped[topics.resolve(r.fact.topic, r.fact.category, g.id).title].append(r)
-    for title in sorted(grouped):
-        rs = grouped[title]
-        n = len({r.thread_id for r in rs})
-        independent = min(n, len({r.author.strip().lower() for r in rs if r.author.strip()}))
-        status = "confirmed" if any(r.source_type == "manufacturer" for r in rs) else ("community-consensus" if independent >= 2 else "unconfirmed")
-        years = sorted({y for r in rs if gate(r, "applies", policy)[0] for y in r.fact.years if g.covers(y)})
-        if all(gate(r, "platform", policy)[1] == PARTIAL for r in rs):
-            status += " [Partial]"
-        ic.append(f"| {title} | {', '.join(sorted({s for r in rs for s in r.fact.shared_platform}))} | "
-                  f"{', '.join(str(y) for y in years) or 'n/a'} | {n} | {status} |")
-    _write(out_dir / "interchange.md", "\n".join(ic) + "\n")
+    interchange = build_interchange_model(rows, topics, g, gl, policy)
+    _write(staged_models / g.id / "reports" / "interchange.json",
+           json.dumps(asdict(interchange), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "interchange.md", render_interchange_model(interchange))
 
-    tids = sorted({r.thread_id for r in rows})
-    src_rows = conn.execute(
-        f"""SELECT t.id, t.source_id, t.url, t.title, t.author, t.posted, t.kind, t.status, s.trust,
-                  (SELECT fetched_at FROM fetches f WHERE f.url=t.url) AS scraped
-           FROM threads t JOIN sources s ON s.id=t.source_id
-           WHERE t.id IN ({",".join("?" * len(tids))}) ORDER BY t.id""", tids).fetchall() if tids else []
-    topics_by_thread: dict[int, set[str]] = defaultdict(set)
-    for r in rows:
-        topics_by_thread[r.thread_id].add(topics.resolve(r.fact.topic, r.fact.category, g.id).title)
-    _write(out_dir / "sources.json", json.dumps([
-        {"id": f"t{r['id']}", "source_id": r["source_id"], "url": r["url"], "thread_title": r["title"],
-         "author_handle": r["author"], "date_posted": r["posted"], "date_scraped": r["scraped"], "type": r["kind"],
-         "trust_score": r["trust"], "topics": sorted(topics_by_thread[r["id"]]), "status": r["status"]}
-        for r in src_rows], indent=2) + "\n")
+    source_model = build_source_report(conn, rows, topics, g)
+    _write(staged_models / g.id / "reports" / "sources.json",
+           json.dumps(asdict(source_model), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "sources.json", render_source_report(source_model))
 
-    pv = [GENERATED, f"# Pending verification: {g.title}", "",
-          "Safety-critical values that passed the evidence checks but are not confirmed: confirmed means "
-          f"{policy.safety_min_threads}+ independent threads agree, a manufacturer source states it, or a reviewer approved it "
-          "(`xw review-export`, then the `wiki-reviewer` agent in Claude Code, then `xw review-apply`). Every value below stays "
-          "in the review queue and is re-checked on each run.", "",
-          "## Withheld (NOT published)", "", "| Topic | Item | Value | Why pending | Source |", "|---|---|---|---|---|"]
-    pv += [f"| {t} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for t, d in pending] or ["| _none_ | | | | |"]
-    pv += ["", "## Published marked [Unverified] or [Partial] (possibly wrong; check the source before use)", "",
-           "| Topic | Item | Value | Status | Source |", "|---|---|---|---|---|"]
-    pv += [f"| {t} | {d['item']} | {d['value']} | {d['why']} | {d['url']} |" for t, d in unconfirmed] or ["| _none_ | | | | |"]
-    _write(out_dir / "pending_verification.md", "\n".join(pv) + "\n")
+    pending_model = PendingModel(g.title, policy.safety_min_threads,
+                                 [{"topic": t, **d} for t, d in pending],
+                                 [{"topic": t, **d} for t, d in unconfirmed])
+    _write(staged_models / g.id / "reports" / "pending_verification.json",
+           json.dumps(asdict(pending_model), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "pending_verification.md", render_pending_model(pending_model))
 
-    oq = [GENERATED, f"# Open questions and gaps: {g.title}", ""]
-    src_ids = [s["id"] for s in cfg.sources if s.get("generation") == g.id]
-    marks = ",".join("?" * len(src_ids)) or "''"
-    blocked = conn.execute(f"SELECT id, name, reason FROM sources WHERE status='blocked' AND id IN ({marks})", src_ids).fetchall()
-    oq += ["## Blocked sources", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in blocked] or ["_None._"]) + [""]
-    bad_threads = conn.execute(f"SELECT source_id, status, error, COUNT(*) AS n FROM threads WHERE status IN ('skipped','error') "
-                               f"AND source_id IN ({marks}) GROUP BY 1,2,3", src_ids).fetchall()
-    oq += ["## Threads skipped or failed", ""] + ([f"- {b['source_id']}: {b['n']} thread(s) {b['status']} ({b['error']})" for b in bad_threads] or ["_None._"]) + [""]
-    oq += ["## Disputed values", ""] + ([f"- {t}: {d}" for t, d in disputes] or ["_None._"]) + [""]
-    oq += ["## Safety-critical values published from one source (verify against the factory service manual)", ""] + ([f"- {t}: {d}" for t, d in single] or ["_None._"]) + [""]
-    oq += ["## Items withheld from publication", "",
-           "Claims the pipeline refused to publish, with the reason (evidence missing, verifier disagreed, reviewer rejected, copied text, "
-           "names the other generation).", ""]
-    oq += [f"- {t}: {d['kind']}: `{d['text']}`. Reason: {d['why']}. ({d['url']})" for t, d in dropped] or ["_None._"]
-    oq += ["", "## Topics with no coverage yet", ""]
     missing = [t for t in gen_topics if f"{t.category}/{t.slug}" not in summary]
-    oq += [f"- [{t.category}] {t.title}" for t in missing] or ["_None._"]
-    _write(out_dir / "open_questions.md", "\n".join(oq) + "\n")
+    questions = build_questions_model(cfg, conn, g, disputes, single, dropped, missing)
+    _write(staged_models / g.id / "reports" / "open_questions.json",
+           json.dumps(asdict(questions), ensure_ascii=False, indent=2) + "\n")
+    _write(out_dir / "open_questions.md", render_questions_model(questions))
 
     return {"pages": len(pages), "facts": len(rows), "dtc_codes": len(dtc), "dropped": len(dropped), "pending": len(pending),
             "unconfirmed": len(unconfirmed), "partial": partial_items, "disputes": len(disputes), "missing_topics": len(missing)}
@@ -917,31 +1277,39 @@ def export_all(cfg: Config, conn: sqlite3.Connection, topics: TopicIndex) -> dic
     gl = generations.load(cfg)
     by_gen, unrouted = route_rows(cfg, rows)
     # Build everything beside wiki/ (same filesystem, so the moves are atomic); wiki/ is untouched until it is all rendered.
-    with tempfile.TemporaryDirectory(prefix=".wiki-export-", dir=wiki.parent) as tmp:
+    cfg.data_dir.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=".wiki-export-", dir=wiki.parent) as tmp, \
+            tempfile.TemporaryDirectory(prefix=".model-export-", dir=cfg.data_dir) as model_tmp:
         staged = Path(tmp)
+        staged_models = Path(model_tmp)
         totals: Counter[str] = Counter()
         per_gen: dict[str, dict[str, Any]] = {}
         for g in gl:
-            per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy, staged)
+            per_gen[g.id] = _export_generation(cfg, conn, topics, g, gl, by_gen[g.id], policy, staged, staged_models)
             totals.update(per_gen[g.id])
 
-        idx = [GENERATED, "# Nissan Xterra wiki", "",
-               "The Xterra had two generations that share almost nothing: body, frame, engines, transmissions, suspension and "
-               "most parts differ. Each has its own completely separate section. A page in one section never covers the "
-               "other generation; pick yours first.", "",
-               "| Generation | Section | Topic pages | Facts |", "|---|---|---|---|"]
-        idx += [f"| {g.title} | [{g.title}]({g.id}/index.md) | {per_gen[g.id]['pages']} | {per_gen[g.id]['facts']} |" for g in gl]
-        idx += ["", f"Facts that belong to no single generation are not published in either section: [open questions](open_questions.md).", ""]
-        _write(staged / "index.md", "\n".join(idx))
+        index_model = WikiIndexModel([{"id": g.id, "title": g.title, "pages": per_gen[g.id]["pages"],
+                                      "facts": per_gen[g.id]["facts"]} for g in gl])
+        _write(staged_models / "reports" / "index.json",
+               json.dumps(asdict(index_model), ensure_ascii=False, indent=2) + "\n")
+        _write(staged / "index.md", render_wiki_index(index_model))
 
-        oq = [GENERATED, "# Open questions: facts in no generation's section", "",
-              "Each section publishes only its own generation's facts. These state model years in more than one generation, "
-              "or no model year and come from a source with no generation, so neither section publishes them.", ""]
-        oq += [f"- t{r.thread_id} \"{r.thread_title}\": {r.fact.title or r.fact.topic}. Reason: {why}. ({r.url})" for r, why in unrouted] or ["_None._"]
-        blocked = conn.execute("SELECT id, name, reason FROM sources WHERE status='blocked'").fetchall()
-        oq += ["", "## Blocked sources (all generations)", ""] + ([f"- **{b['id']}** ({b['name']}): {b['reason']}" for b in blocked] or ["_None._"])
-        _write(staged / "open_questions.md", "\n".join(oq) + "\n")
+        unrouted_model = build_unrouted_model(conn, unrouted)
+        _write(staged_models / "reports" / "open_questions.json",
+               json.dumps(asdict(unrouted_model), ensure_ascii=False, indent=2) + "\n")
+        _write(staged / "open_questions.md", render_unrouted_model(unrouted_model))
         _publish(staged, wiki, gl, topics)
+        model_dir = cfg.data_dir / "model"
+        new_models = set()
+        for source in sorted(staged_models.rglob("*.json")):
+            rel = source.relative_to(staged_models)
+            target = model_dir / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            os.replace(source, target)
+            new_models.add(rel)
+        for old in model_dir.rglob("*.json"):
+            if old.relative_to(model_dir) not in new_models:
+                old.unlink()
 
     return {**{k: totals[k] for k in ("pages", "facts", "dtc_codes", "dropped", "pending", "unconfirmed", "partial",
                                       "disputes", "missing_topics")},

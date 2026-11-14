@@ -7,7 +7,7 @@ _None._
 
 ## Threads skipped or failed
 
-_None._
+- xterranation-gen1: 28 thread(s) error (RemoteProtocolError: Server disconnected without sending a response.)
 
 ## Disputed values
 
